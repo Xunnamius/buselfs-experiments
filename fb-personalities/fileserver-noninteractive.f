@@ -24,7 +24,7 @@
 #
 
 set $dir=/media/fde-actual
-set $nfiles=500
+set $nfiles=5000
 set $meandirwidth=20
 set $meanfilesize=12k
 set $nthreads=100
