@@ -5,38 +5,42 @@
 import plotly.plotly as py
 from plotly.graph_objs import *
 
-INVOCATION_ITERATIONS = 64000
-
 ################################################################################
 
 scatters = []
 
 for coreType in ['big', 'little']:
-    # Round input to the KDF
-    hashesS = []
-    # Average pow
-    powerAvg = []
+    # Latency
+    latency = []
+    # Total energy used
+    energyTotal = []
     # Mask + Freq
     configurations = []
+
+    samples = None
 
     with open('results/shmoo.{}.results'.format(coreType), 'r') as lines:
         for currentLineNumber, currentLine in enumerate(lines):
             # Watch out for ValueError recoveries
-            if currentLine.startswith('Pavg'):
-                powerAvg.append(float(currentLine.split(' ')[1].strip()))
+            if currentLine.startswith('Samples'):
+                samples = int(currentLine.split(' ')[1].strip())
 
-            elif currentLine.startswith('generated'):
-                hashesS.append(int(currentLine.split(' ')[1].strip()))
+            elif currentLine.startswith('Joules'):
+                energyTotal.append(float(currentLine.split(' ')[1].strip()) / samples)
+                samples = None
+
+            elif currentLine.endswith('latency'):
+                latency.append(float(currentLine.split(' ')[-2].strip()[:-2]))
 
             elif currentLine.startswith('mf'):
                 configurations.append(currentLine.split(':')[1].strip())
 
-    if not (len(hashesS) == len(powerAvg) == len(configurations)):
+    if not (len(latency) == len(energyTotal) == len(configurations)):
         print('Error: length check mismatch (wtf?)')
         exit(1)
 
     scatters.append(Scatter(
-        x=hashesS, y=powerAvg,
+        x=latency, y=energyTotal,
         mode='markers',
         name=coreType.upper() + ' cores',
         text=configurations,
@@ -45,14 +49,14 @@ for coreType in ['big', 'little']:
 
 print('Uploading...')
 
-enersectrade = Figure(
+enerAEStrade = Figure(
     data = Data(scatters),
     layout = Layout(
-        title='Tradeoff?',
-        xaxis1 = XAxis(title='Hashes/s'),
-        yaxis1 = YAxis(title='Power (Average)')
+        title='Worth It?',
+        xaxis1 = XAxis(title='Latency (ms)'),
+        yaxis1 = YAxis(title='Energy (joules/samples)')
     )
 )
 
-print(py.plot(enersectrade, filename='energy-security-tradeoff', auto_open=False))
+print(py.plot(enerAEStrade, filename='energy-AESXTS-worthit', auto_open=False))
 print('done')

@@ -24,10 +24,10 @@
 #
 
 set $dir=/media/fde-actual
-set $nfiles=1000
+set $nfiles=500
 set $meandirwidth=20
 set $meanfilesize=12k
-set $nthreads=50
+set $nthreads=100
 set $iosize=500000
 set $meanappendsize=8k
 
@@ -60,4 +60,4 @@ echo  "File-server Version 3.0-custom-noninteractive personality successfully lo
 # usage "       set \$iosize=<size>  defaults to $iosize"
 # usage "       set \$meandirwidth=<size> defaults to $meandirwidth"
 # usage "       run runtime (e.g. run 60)"
-run 30
+run 10
