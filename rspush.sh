@@ -1,1 +1,1 @@
-rsync -a ../energy-AES-1/ odroid3:/home/odroid/bd3/rsync/energy-AES-1
+rsync -chavzP --stats ../energy-AES-1/ odroid3:/home/odroid/bd3/rsync/energy-AES-1
