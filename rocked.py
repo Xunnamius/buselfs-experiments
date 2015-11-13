@@ -9,52 +9,59 @@ from plotly.graph_objs import *
 
 scatters = []
 
-for coreType in ['big', 'little']:
-    # Latency
-    latency = []
-    # Total energy used
-    energyTotal = []
-    # Mask + Freq
-    configurations = []
+for fsType in ['fde', 'nfde']:
+    for coreType in ['big', 'little']:
+        # Total energy used
+        energyTotal = []
+        # Mask + Freq
+        configurations = []
 
-    samples = None
+        beginCountingSamples = False
+        samples = []
 
-    with open('results/shmoo.{}.results'.format(coreType), 'r') as lines:
-        for currentLineNumber, currentLine in enumerate(lines):
-            # Watch out for ValueError recoveries
-            if currentLine.startswith('Samples'):
-                samples = int(currentLine.split(' ')[1].strip())
+        with open('results/shmoo.{}.{}.results'.format(coreType, fsType), 'r') as lines:
+            for currentLineNumber, currentLine in enumerate(lines):
+                if currentLine.startswith('Results'):
+                    assert beginCountingSamples != True
 
-            elif currentLine.startswith('Joules'):
-                energyTotal.append(float(currentLine.split(' ')[1].strip()) / samples)
-                samples = None
+                    beginCountingSamples = True
+                    samples = []
 
-            elif currentLine.endswith('latency'):
-                latency.append(float(currentLine.split(' ')[-2].strip()[:-2]))
+                elif beginCountingSamples:
+                    if currentLine.startswith('Samples'):
+                        assert beginCountingSamples == True
+                        assert len(samples) >= 11
 
-            elif currentLine.startswith('mf'):
-                configurations.append(currentLine.split(':')[1].strip())
+                        beginCountingSamples = False
+                        energyTotal.append(sum(samples[-11:-1])) # Take the last (+ 1) 10 samples
 
-    if not (len(latency) == len(energyTotal) == len(configurations)):
-        print('Error: length check mismatch (wtf?)')
-        exit(1)
+                    else:
+                        samples.append(float(currentLine.strip()))
 
-    scatters.append(Scatter(
-        x=latency, y=energyTotal,
-        mode='markers',
-        name=coreType.upper() + ' cores',
-        text=configurations,
-        marker=Marker(size=12)
-    ))
+                elif currentLine.startswith('mf'):
+                    configurations.append(currentLine.split(':')[1].strip())
+
+        assert len(energyTotal) == len(configurations)
+
+        # print('Energy Total: ', energyTotal)
+        # print('Configurations: ', configurations)
+
+        scatters.append(Scatter(
+            x=[fsType.upper()] * len(energyTotal), y=energyTotal,
+            mode='markers',
+            name=coreType.upper() + ' cores',
+            text=configurations,
+            marker=Marker(size=12)
+        ))
 
 print('Uploading...')
 
 enerAEStrade = Figure(
     data = Data(scatters),
     layout = Layout(
-        title='Worth It?',
-        xaxis1 = XAxis(title='Latency (ms)'),
-        yaxis1 = YAxis(title='Energy (joules/samples)')
+        title='Is It Worth It?',
+        xaxis1 = XAxis(title='Disk Encryption'),
+        yaxis1 = YAxis(title='Energy (joules)')
     )
 )
 
