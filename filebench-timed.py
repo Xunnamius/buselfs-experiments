@@ -17,7 +17,7 @@ with open('/home/odroid/bd3/rsync/energy-AES-1/results/shmoo.results', 'a') as o
     
     # Begin logging with Wattsup (above), run filebench (here), close out the
     # Wattsup logger (below)
-    print("filebench returned: ", subprocess.call(["filebench", "-f", "/home/odroid/bd3/rsync/energy-AES-1/fb-personalities/fileserver-noninteractive.f"], stdout=out))
+    print("filebench returned: ", subprocess.call(["filebench", "-f", "/home/odroid/bd3/rsync/energy-AES-1/fb-personalities/fileserver-noninteractive-nfde.f"], stdout=out))
 
     # This loop handles any annoying errors we may encounter
     while True:
