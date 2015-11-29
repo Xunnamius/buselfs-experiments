@@ -1,0 +1,5934 @@
+Filebench Version 1.4.9.1
+ 5913: 0.000: Allocated 130MB of shared memory
+ 5913: 0.006: File-server Version 3.0-custom-noninteractive personality successfully loaded
+ 5913: 0.006: Creating/pre-allocating files and filesets
+ 5913: 0.068: Fileset bigfileset: 10000 files, 0 leafdirs, avg dir width = 20, avg dir depth = 3.1, 1240.757MB
+ 5913: 1.471: Removed any existing fileset bigfileset in 2 seconds
+ 5913: 1.471: making tree for filset /media/RAMDSK/bigfileset
+ 5913: 1.586: Creating fileset bigfileset...
+ 5913: 25.648: Preallocated 7979 of 10000 of fileset bigfileset in 25 seconds
+ 5913: 25.649: waiting for fileset pre-allocation to finish
+ 5919: 25.650: Starting 1 filereader instances
+ 5920: 25.657: Starting 4 filereaderthread threads
+ 5913: 26.664: Running...
+ 5913: 56.671: Run took 30 seconds...
+ 5913: 56.673: Per-Operation Breakdown
+statfile1            5541ops      185ops/s   0.0mb/s      0.0ms/op 33406951us/op-cpu [0ms - 0ms]
+deletefile1          5541ops      185ops/s   0.0mb/s      2.7ms/op 33399754us/op-cpu [0ms - 543ms]
+closefile3           5541ops      185ops/s   0.0mb/s      0.0ms/op 33393866us/op-cpu [0ms - 1ms]
+readfile1            5541ops      185ops/s  23.3mb/s      1.0ms/op 33388597us/op-cpu [0ms - 21ms]
+openfile2            5541ops      185ops/s   0.0mb/s      0.1ms/op 33383753us/op-cpu [0ms - 2ms]
+closefile2           5541ops      185ops/s   0.0mb/s      0.0ms/op 33382873us/op-cpu [0ms - 0ms]
+appendfilerand1      5542ops      185ops/s   1.4mb/s      1.7ms/op 33384211us/op-cpu [0ms - 389ms]
+openfile1            5543ops      185ops/s   0.0mb/s      0.1ms/op 33385686us/op-cpu [0ms - 2ms]
+closefile1           5543ops      185ops/s   0.0mb/s      0.0ms/op 33382539us/op-cpu [0ms - 2ms]
+wrtfile1             5543ops      185ops/s  22.9mb/s      4.1ms/op 33382991us/op-cpu [0ms - 215ms]
+createfile1          5544ops      185ops/s   0.0mb/s      0.5ms/op 33378393us/op-cpu [0ms - 429ms]
+ 5913: 56.674: IO Summary: 60961 ops, 2031.646 ops/s, (185/369 r/w),  47.6mb/s,   6474us cpu/op,   3.4ms latency
+ 5913: 56.674: Shutting down processes
+2015-11-27 11:47:15.575085
+Results:
+3.4
+3.4
+3.5
+3.6
+3.7
+3.7
+3.8
+3.9
+3.9
+3.9
+4.0
+4.0
+4.0
+4.1
+4.1
+4.1
+4.1
+4.1
+4.2
+4.2
+4.2
+4.2
+4.2
+4.2
+4.2
+4.2
+4.2
+4.2
+4.3
+4.3
+4.3
+4.3
+4.4
+4.4
+4.4
+4.4
+4.5
+4.4
+4.5
+4.5
+4.5
+4.5
+4.4
+4.4
+4.4
+4.4
+4.4
+4.4
+4.5
+4.4
+4.4
+4.4
+4.4
+4.5
+4.5
+4.5
+4.5
+Samples: 57
+Pavg: 4.202
+Pmax: 4.500
+Pmin: 3.400
+Pstdev: 0.289
+Joules: 239.500
+mf: 0xF 1400000
+Filebench Version 1.4.9.1
+ 6027: 0.000: Allocated 130MB of shared memory
+ 6027: 0.005: File-server Version 3.0-custom-noninteractive personality successfully loaded
+ 6027: 0.006: Creating/pre-allocating files and filesets
+ 6027: 0.071: Fileset bigfileset: 10000 files, 0 leafdirs, avg dir width = 20, avg dir depth = 3.1, 1240.757MB
+ 6027: 3.991: Removed any existing fileset bigfileset in 4 seconds
+ 6027: 3.991: making tree for filset /media/RAMDSK/bigfileset
+ 6027: 4.122: Creating fileset bigfileset...
+ 6027: 28.748: Preallocated 7979 of 10000 of fileset bigfileset in 25 seconds
+ 6027: 28.749: waiting for fileset pre-allocation to finish
+ 6075: 28.749: Starting 1 filereader instances
+ 6076: 28.757: Starting 4 filereaderthread threads
+ 6027: 29.761: Running...
+ 6027: 59.769: Run took 30 seconds...
+ 6027: 59.771: Per-Operation Breakdown
+statfile1            5480ops      183ops/s   0.0mb/s      0.0ms/op 33291173us/op-cpu [0ms - 0ms]
+deletefile1          5480ops      183ops/s   0.0mb/s      3.9ms/op 33292648us/op-cpu [0ms - 496ms]
+closefile3           5482ops      183ops/s   0.0mb/s      0.0ms/op 33297785us/op-cpu [0ms - 1ms]
+readfile1            5482ops      183ops/s  22.8mb/s      1.0ms/op 33295416us/op-cpu [0ms - 23ms]
+openfile2            5482ops      183ops/s   0.0mb/s      0.1ms/op 33287762us/op-cpu [0ms - 3ms]
+closefile2           5482ops      183ops/s   0.0mb/s      0.0ms/op 33284522us/op-cpu [0ms - 0ms]
+appendfilerand1      5482ops      183ops/s   1.4mb/s      2.7ms/op 33283854us/op-cpu [0ms - 556ms]
+openfile1            5484ops      183ops/s   0.0mb/s      0.1ms/op 33291207us/op-cpu [0ms - 2ms]
+closefile1           5484ops      183ops/s   0.0mb/s      0.0ms/op 33287361us/op-cpu [0ms - 0ms]
+wrtfile1             5484ops      183ops/s  22.9mb/s      2.7ms/op 33285596us/op-cpu [0ms - 28ms]
+createfile1          5484ops      183ops/s   0.0mb/s      0.8ms/op 33272700us/op-cpu [0ms - 371ms]
+ 6027: 59.771: IO Summary: 60306 ops, 2009.798 ops/s, (183/365 r/w),  47.2mb/s,   5692us cpu/op,   3.8ms latency
+ 6027: 59.771: Shutting down processes
+2015-11-27 11:48:31.676200
+Results:
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.9
+3.9
+4.0
+4.0
+4.0
+4.1
+4.1
+4.1
+4.1
+4.1
+4.1
+4.1
+4.1
+4.2
+4.2
+4.2
+4.2
+4.2
+4.2
+4.2
+4.2
+4.1
+4.1
+4.1
+4.1
+4.2
+4.2
+4.3
+4.3
+4.3
+4.3
+4.3
+4.3
+4.3
+4.3
+4.4
+4.3
+4.3
+4.3
+4.3
+4.3
+4.3
+4.3
+4.3
+4.3
+4.3
+4.3
+4.3
+4.3
+4.3
+4.3
+4.3
+4.3
+4.3
+Samples: 60
+Pavg: 4.167
+Pmax: 4.400
+Pmin: 3.800
+Pstdev: 0.164
+Joules: 250.000
+mf: 0xF 1300000
+Filebench Version 1.4.9.1
+ 6106: 0.000: Allocated 130MB of shared memory
+ 6106: 0.005: File-server Version 3.0-custom-noninteractive personality successfully loaded
+ 6106: 0.006: Creating/pre-allocating files and filesets
+ 6106: 0.074: Fileset bigfileset: 10000 files, 0 leafdirs, avg dir width = 20, avg dir depth = 3.1, 1240.757MB
+ 6106: 4.354: Removed any existing fileset bigfileset in 5 seconds
+ 6106: 4.355: making tree for filset /media/RAMDSK/bigfileset
+ 6106: 4.476: Creating fileset bigfileset...
+ 6106: 28.143: Preallocated 7979 of 10000 of fileset bigfileset in 24 seconds
+ 6106: 28.143: waiting for fileset pre-allocation to finish
+ 6110: 28.143: Starting 1 filereader instances
+ 6111: 28.151: Starting 4 filereaderthread threads
+ 6106: 29.155: Running...
+ 6106: 59.162: Run took 30 seconds...
+ 6106: 59.165: Per-Operation Breakdown
+statfile1            5516ops      184ops/s   0.0mb/s      0.0ms/op 34950645us/op-cpu [0ms - 1ms]
+deletefile1          5516ops      184ops/s   0.0mb/s      2.5ms/op 34944393us/op-cpu [0ms - 343ms]
+closefile3           5519ops      184ops/s   0.0mb/s      0.0ms/op 34957192us/op-cpu [0ms - 0ms]
+readfile1            5519ops      184ops/s  22.9mb/s      1.0ms/op 34952926us/op-cpu [0ms - 25ms]
+openfile2            5519ops      184ops/s   0.0mb/s      0.1ms/op 34947222us/op-cpu [0ms - 2ms]
+closefile2           5519ops      184ops/s   0.0mb/s      0.0ms/op 34944731us/op-cpu [0ms - 3ms]
+appendfilerand1      5519ops      184ops/s   1.4mb/s      1.3ms/op 34943823us/op-cpu [0ms - 324ms]
+openfile1            5520ops      184ops/s   0.0mb/s      0.1ms/op 34945590us/op-cpu [0ms - 2ms]
+closefile1           5520ops      184ops/s   0.0mb/s      0.0ms/op 34943796us/op-cpu [0ms - 0ms]
+wrtfile1             5520ops      184ops/s  23.0mb/s      5.5ms/op 34944847us/op-cpu [0ms - 209ms]
+createfile1          5520ops      184ops/s   0.0mb/s      0.5ms/op 34928730us/op-cpu [0ms - 164ms]
+ 6106: 59.165: IO Summary: 60707 ops, 2023.170 ops/s, (184/368 r/w),  47.4mb/s,   5982us cpu/op,   3.7ms latency
+ 6106: 59.165: Shutting down processes
+2015-11-27 11:49:47.198058
+Results:
+3.5
+3.6
+3.5
+3.6
+3.6
+3.6
+3.7
+3.7
+3.8
+3.8
+3.8
+3.9
+3.9
+3.9
+4.0
+4.0
+4.0
+4.0
+4.1
+4.1
+4.1
+4.1
+4.1
+4.1
+4.1
+4.1
+4.1
+4.1
+4.1
+4.1
+4.1
+4.1
+4.2
+4.2
+4.2
+4.3
+4.3
+4.3
+4.2
+4.2
+4.3
+4.3
+4.3
+4.2
+4.2
+4.2
+4.2
+4.2
+4.2
+4.2
+4.3
+4.3
+4.3
+4.3
+4.3
+4.3
+4.2
+4.3
+4.3
+4.2
+Samples: 60
+Pavg: 4.072
+Pmax: 4.300
+Pmin: 3.500
+Pstdev: 0.228
+Joules: 244.300
+mf: 0xF 1200000
+Filebench Version 1.4.9.1
+ 6119: 0.000: Allocated 130MB of shared memory
+ 6119: 0.006: File-server Version 3.0-custom-noninteractive personality successfully loaded
+ 6119: 0.006: Creating/pre-allocating files and filesets
+ 6119: 0.079: Fileset bigfileset: 10000 files, 0 leafdirs, avg dir width = 20, avg dir depth = 3.1, 1240.757MB
+ 6119: 4.525: Removed any existing fileset bigfileset in 5 seconds
+ 6119: 4.525: making tree for filset /media/RAMDSK/bigfileset
+ 6119: 4.655: Creating fileset bigfileset...
+ 6119: 30.063: Preallocated 7979 of 10000 of fileset bigfileset in 26 seconds
+ 6119: 30.064: waiting for fileset pre-allocation to finish
+ 6123: 30.064: Starting 1 filereader instances
+ 6124: 30.072: Starting 4 filereaderthread threads
+ 6119: 31.075: Running...
+ 6119: 61.083: Run took 30 seconds...
+ 6119: 61.085: Per-Operation Breakdown
+statfile1            5517ops      184ops/s   0.0mb/s      0.0ms/op 35629293us/op-cpu [0ms - 0ms]
+deletefile1          5517ops      184ops/s   0.0mb/s      3.3ms/op 35625488us/op-cpu [0ms - 422ms]
+closefile3           5519ops      184ops/s   0.0mb/s      0.0ms/op 35630400us/op-cpu [0ms - 0ms]
+readfile1            5519ops      184ops/s  23.1mb/s      1.0ms/op 35629698us/op-cpu [0ms - 26ms]
+openfile2            5519ops      184ops/s   0.0mb/s      0.1ms/op 35624361us/op-cpu [0ms - 2ms]
+closefile2           5519ops      184ops/s   0.0mb/s      0.0ms/op 35621869us/op-cpu [0ms - 1ms]
+appendfilerand1      5519ops      184ops/s   1.4mb/s      1.7ms/op 35619018us/op-cpu [0ms - 318ms]
+openfile1            5520ops      184ops/s   0.0mb/s      0.1ms/op 35621718us/op-cpu [0ms - 5ms]
+closefile1           5520ops      184ops/s   0.0mb/s      0.0ms/op 35617797us/op-cpu [0ms - 0ms]
+wrtfile1             5520ops      184ops/s  22.8mb/s      2.8ms/op 35613213us/op-cpu [0ms - 37ms]
+createfile1          5520ops      184ops/s   0.0mb/s      0.5ms/op 35600168us/op-cpu [0ms - 154ms]
+ 6119: 61.086: IO Summary: 60709 ops, 2023.219 ops/s, (184/368 r/w),  47.3mb/s,   5829us cpu/op,   3.2ms latency
+ 6119: 61.086: Shutting down processes
+2015-11-27 11:51:04.732883
+Results:
+3.5
+3.5
+3.5
+3.5
+3.6
+3.6
+3.6
+3.6
+3.7
+3.7
+3.8
+3.8
+3.9
+3.9
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.1
+4.0
+4.1
+4.1
+4.1
+4.1
+4.0
+4.0
+4.0
+4.1
+4.1
+4.1
+4.1
+4.2
+4.2
+4.2
+4.2
+4.2
+4.2
+4.2
+4.2
+4.2
+4.2
+4.2
+4.2
+4.2
+4.2
+4.2
+4.2
+4.2
+4.2
+4.2
+4.2
+4.2
+4.2
+4.2
+4.2
+4.1
+Samples: 61
+Pavg: 4.016
+Pmax: 4.200
+Pmin: 3.500
+Pstdev: 0.220
+Joules: 245.000
+mf: 0xF 1100000
+Filebench Version 1.4.9.1
+ 6132: 0.000: Allocated 130MB of shared memory
+ 6132: 0.006: File-server Version 3.0-custom-noninteractive personality successfully loaded
+ 6132: 0.006: Creating/pre-allocating files and filesets
+ 6132: 0.086: Fileset bigfileset: 10000 files, 0 leafdirs, avg dir width = 20, avg dir depth = 3.1, 1240.757MB
+ 6132: 4.831: Removed any existing fileset bigfileset in 5 seconds
+ 6132: 4.832: making tree for filset /media/RAMDSK/bigfileset
+ 6132: 4.971: Creating fileset bigfileset...
+ 6132: 30.768: Preallocated 7979 of 10000 of fileset bigfileset in 26 seconds
+ 6132: 30.769: waiting for fileset pre-allocation to finish
+ 6136: 30.769: Starting 1 filereader instances
+ 6137: 30.779: Starting 4 filereaderthread threads
+ 6132: 31.782: Running...
+ 6132: 61.791: Run took 30 seconds...
+ 6132: 61.794: Per-Operation Breakdown
+statfile1            5436ops      181ops/s   0.0mb/s      0.0ms/op 36896631us/op-cpu [0ms - 1ms]
+deletefile1          5436ops      181ops/s   0.0mb/s      3.3ms/op 36894098us/op-cpu [0ms - 342ms]
+closefile3           5436ops      181ops/s   0.0mb/s      0.0ms/op 36884785us/op-cpu [0ms - 2ms]
+readfile1            5437ops      181ops/s  22.5mb/s      1.0ms/op 36890209us/op-cpu [0ms - 8ms]
+openfile2            5439ops      181ops/s   0.0mb/s      0.1ms/op 36896097us/op-cpu [0ms - 0ms]
+closefile2           5439ops      181ops/s   0.0mb/s      0.0ms/op 36890476us/op-cpu [0ms - 0ms]
+appendfilerand1      5439ops      181ops/s   1.4mb/s      2.4ms/op 36888438us/op-cpu [0ms - 305ms]
+openfile1            5440ops      181ops/s   0.0mb/s      0.1ms/op 36890273us/op-cpu [0ms - 1ms]
+closefile1           5440ops      181ops/s   0.0mb/s      0.0ms/op 36886792us/op-cpu [0ms - 0ms]
+wrtfile1             5440ops      181ops/s  22.4mb/s      3.0ms/op 36885672us/op-cpu [0ms - 181ms]
+createfile1          5440ops      181ops/s   0.0mb/s      0.7ms/op 36873074us/op-cpu [0ms - 301ms]
+ 6132: 61.795: IO Summary: 59822 ops, 1993.583 ops/s, (181/363 r/w),  46.3mb/s,   6181us cpu/op,   3.6ms latency
+ 6132: 61.795: Shutting down processes
+2015-11-27 11:52:23.206444
+Results:
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.6
+3.6
+3.7
+3.7
+3.8
+3.8
+3.8
+3.8
+3.9
+3.9
+3.9
+3.9
+3.9
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.1
+4.1
+4.0
+4.0
+4.0
+4.0
+4.1
+4.1
+4.1
+4.1
+4.1
+4.1
+4.1
+4.2
+4.1
+4.2
+4.2
+4.1
+4.1
+4.1
+4.2
+4.2
+4.1
+4.2
+4.1
+4.1
+4.1
+4.1
+4.1
+4.2
+4.2
+4.1
+4.1
+4.1
+4.1
+Samples: 63
+Pavg: 3.963
+Pmax: 4.200
+Pmin: 3.500
+Pstdev: 0.216
+Joules: 249.700
+mf: 0xF 1000000
+Filebench Version 1.4.9.1
+ 6146: 0.000: Allocated 130MB of shared memory
+ 6146: 0.006: File-server Version 3.0-custom-noninteractive personality successfully loaded
+ 6146: 0.006: Creating/pre-allocating files and filesets
+ 6146: 0.094: Fileset bigfileset: 10000 files, 0 leafdirs, avg dir width = 20, avg dir depth = 3.1, 1240.757MB
+ 6146: 5.387: Removed any existing fileset bigfileset in 6 seconds
+ 6146: 5.388: making tree for filset /media/RAMDSK/bigfileset
+ 6146: 5.535: Creating fileset bigfileset...
+ 6146: 32.196: Preallocated 7979 of 10000 of fileset bigfileset in 27 seconds
+ 6146: 32.196: waiting for fileset pre-allocation to finish
+ 6150: 32.197: Starting 1 filereader instances
+ 6151: 32.209: Starting 4 filereaderthread threads
+ 6146: 33.213: Running...
+ 6146: 63.222: Run took 30 seconds...
+ 6146: 63.224: Per-Operation Breakdown
+statfile1            5061ops      169ops/s   0.0mb/s      0.0ms/op 36450649us/op-cpu [0ms - 1ms]
+deletefile1          5061ops      169ops/s   0.0mb/s      3.1ms/op 36464345us/op-cpu [0ms - 350ms]
+closefile3           5062ops      169ops/s   0.0mb/s      0.0ms/op 36449435us/op-cpu [0ms - 3ms]
+readfile1            5063ops      169ops/s  20.7mb/s      1.1ms/op 36451680us/op-cpu [0ms - 19ms]
+openfile2            5064ops      169ops/s   0.0mb/s      0.1ms/op 36451239us/op-cpu [0ms - 1ms]
+closefile2           5065ops      169ops/s   0.0mb/s      0.0ms/op 36455669us/op-cpu [0ms - 0ms]
+appendfilerand1      5065ops      169ops/s   1.3mb/s      1.7ms/op 36453099us/op-cpu [0ms - 240ms]
+openfile1            5065ops      169ops/s   0.0mb/s      0.1ms/op 36447418us/op-cpu [0ms - 5ms]
+closefile1           5065ops      169ops/s   0.0mb/s      0.0ms/op 36445588us/op-cpu [0ms - 0ms]
+wrtfile1             5065ops      169ops/s  20.5mb/s      4.6ms/op 36441346us/op-cpu [0ms - 167ms]
+createfile1          5065ops      169ops/s   0.0mb/s      0.7ms/op 36425682us/op-cpu [0ms - 366ms]
+ 6146: 63.224: IO Summary: 55701 ops, 1856.285 ops/s, (169/338 r/w),  42.6mb/s,   6552us cpu/op,   3.8ms latency
+ 6146: 63.225: Shutting down processes
+2015-11-27 11:53:43.291051
+Results:
+3.5
+3.4
+3.5
+3.5
+3.4
+3.5
+3.4
+3.5
+3.6
+3.6
+3.7
+3.7
+3.7
+3.8
+3.8
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+4.0
+3.9
+4.0
+4.0
+3.9
+4.0
+4.0
+4.0
+3.9
+4.0
+4.0
+3.9
+3.9
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.1
+4.1
+4.1
+4.1
+4.1
+4.1
+4.1
+4.1
+4.1
+4.1
+4.1
+4.1
+4.0
+4.0
+4.1
+4.1
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+Samples: 64
+Pavg: 3.905
+Pmax: 4.100
+Pmin: 3.400
+Pstdev: 0.204
+Joules: 249.900
+mf: 0xF 900000
+Filebench Version 1.4.9.1
+ 6159: 0.000: Allocated 130MB of shared memory
+ 6159: 0.006: File-server Version 3.0-custom-noninteractive personality successfully loaded
+ 6159: 0.007: Creating/pre-allocating files and filesets
+ 6159: 0.105: Fileset bigfileset: 10000 files, 0 leafdirs, avg dir width = 20, avg dir depth = 3.1, 1240.757MB
+ 6159: 5.775: Removed any existing fileset bigfileset in 6 seconds
+ 6159: 5.775: making tree for filset /media/RAMDSK/bigfileset
+ 6159: 5.932: Creating fileset bigfileset...
+ 6159: 34.589: Preallocated 7979 of 10000 of fileset bigfileset in 29 seconds
+ 6159: 34.589: waiting for fileset pre-allocation to finish
+ 6163: 34.590: Starting 1 filereader instances
+ 6164: 34.605: Starting 4 filereaderthread threads
+ 6159: 35.609: Running...
+ 6159: 65.617: Run took 30 seconds...
+ 6159: 65.710: Per-Operation Breakdown
+statfile1            4921ops      164ops/s   0.0mb/s      0.0ms/op 38390338us/op-cpu [0ms - 0ms]
+deletefile1          4921ops      164ops/s   0.0mb/s      3.0ms/op 38387657us/op-cpu [0ms - 621ms]
+closefile3           4923ops      164ops/s   0.0mb/s      0.0ms/op 38397374us/op-cpu [0ms - 1ms]
+readfile1            4923ops      164ops/s  20.2mb/s      1.1ms/op 38396643us/op-cpu [0ms - 10ms]
+openfile2            4923ops      164ops/s   0.0mb/s      0.1ms/op 38392281us/op-cpu [0ms - 3ms]
+closefile2           4923ops      164ops/s   0.0mb/s      0.0ms/op 38387846us/op-cpu [0ms - 0ms]
+appendfilerand1      4923ops      164ops/s   1.3mb/s      1.5ms/op 38381405us/op-cpu [0ms - 627ms]
+openfile1            4924ops      164ops/s   0.0mb/s      0.1ms/op 38385375us/op-cpu [0ms - 2ms]
+closefile1           4924ops      164ops/s   0.0mb/s      0.0ms/op 38379955us/op-cpu [0ms - 0ms]
+wrtfile1             4924ops      164ops/s  20.5mb/s      4.1ms/op 38376006us/op-cpu [0ms - 115ms]
+createfile1          4924ops      164ops/s   0.0mb/s      0.6ms/op 38358698us/op-cpu [0ms - 100ms]
+ 6159: 65.710: IO Summary: 54153 ops, 1799.306 ops/s, (164/327 r/w),  42.0mb/s,   6930us cpu/op,   3.5ms latency
+ 6159: 65.711: Shutting down processes
+2015-11-27 11:55:05.947666
+Results:
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.5
+3.6
+3.6
+3.7
+3.7
+3.7
+3.7
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.9
+3.8
+3.8
+3.8
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.8
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+Samples: 66
+Pavg: 3.830
+Pmax: 4.000
+Pmin: 3.400
+Pstdev: 0.195
+Joules: 252.800
+mf: 0xF 800000
+Filebench Version 1.4.9.1
+ 6172: 0.000: Allocated 130MB of shared memory
+ 6172: 0.007: File-server Version 3.0-custom-noninteractive personality successfully loaded
+ 6172: 0.007: Creating/pre-allocating files and filesets
+ 6172: 0.118: Fileset bigfileset: 10000 files, 0 leafdirs, avg dir width = 20, avg dir depth = 3.1, 1240.757MB
+ 6172: 6.753: Removed any existing fileset bigfileset in 7 seconds
+ 6172: 6.753: making tree for filset /media/RAMDSK/bigfileset
+ 6172: 6.930: Creating fileset bigfileset...
+ 6172: 38.007: Preallocated 7979 of 10000 of fileset bigfileset in 32 seconds
+ 6172: 38.007: waiting for fileset pre-allocation to finish
+ 6181: 38.008: Starting 1 filereader instances
+ 6182: 38.018: Starting 4 filereaderthread threads
+ 6172: 39.022: Running...
+ 6172: 69.031: Run took 30 seconds...
+ 6172: 69.034: Per-Operation Breakdown
+statfile1            4697ops      157ops/s   0.0mb/s      0.0ms/op 38851497us/op-cpu [0ms - 2ms]
+deletefile1          4697ops      157ops/s   0.0mb/s      2.1ms/op 38848420us/op-cpu [0ms - 243ms]
+closefile3           4697ops      157ops/s   0.0mb/s      0.0ms/op 38840513us/op-cpu [0ms - 0ms]
+readfile1            4698ops      157ops/s  19.7mb/s      1.1ms/op 38840619us/op-cpu [0ms - 17ms]
+openfile2            4698ops      157ops/s   0.0mb/s      0.1ms/op 38833437us/op-cpu [0ms - 7ms]
+closefile2           4698ops      157ops/s   0.0mb/s      0.0ms/op 38825880us/op-cpu [0ms - 1ms]
+appendfilerand1      4699ops      157ops/s   1.2mb/s      0.7ms/op 38833953us/op-cpu [0ms - 210ms]
+openfile1            4699ops      157ops/s   0.0mb/s      0.1ms/op 38830563us/op-cpu [0ms - 3ms]
+closefile1           4699ops      157ops/s   0.0mb/s      0.0ms/op 38824063us/op-cpu [0ms - 1ms]
+wrtfile1             4700ops      157ops/s  19.1mb/s      3.5ms/op 38824493us/op-cpu [0ms - 165ms]
+createfile1          4701ops      157ops/s   0.0mb/s      0.6ms/op 38819953us/op-cpu [0ms - 148ms]
+ 6172: 69.034: IO Summary: 51683 ops, 1722.383 ops/s, (157/313 r/w),  40.0mb/s,   6975us cpu/op,   2.8ms latency
+ 6172: 69.035: Shutting down processes
+2015-11-27 11:56:32.186403
+Results:
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.5
+3.5
+3.6
+3.6
+3.6
+3.7
+3.7
+3.7
+3.7
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+4.0
+4.0
+3.9
+3.9
+4.0
+4.0
+3.9
+3.9
+4.0
+4.0
+3.9
+3.9
+4.0
+4.0
+4.0
+4.0
+3.9
+3.9
+Samples: 69
+Pavg: 3.775
+Pmax: 4.000
+Pmin: 3.400
+Pstdev: 0.190
+Joules: 260.500
+mf: 0xF 700000
+Filebench Version 1.4.9.1
+ 6190: 0.000: Allocated 130MB of shared memory
+ 6190: 0.008: File-server Version 3.0-custom-noninteractive personality successfully loaded
+ 6190: 0.008: Creating/pre-allocating files and filesets
+ 6190: 0.135: Fileset bigfileset: 10000 files, 0 leafdirs, avg dir width = 20, avg dir depth = 3.1, 1240.757MB
+ 6190: 7.340: Removed any existing fileset bigfileset in 8 seconds
+ 6190: 7.341: making tree for filset /media/RAMDSK/bigfileset
+ 6190: 7.541: Creating fileset bigfileset...
+ 6190: 42.318: Preallocated 7979 of 10000 of fileset bigfileset in 35 seconds
+ 6190: 42.318: waiting for fileset pre-allocation to finish
+ 6194: 42.319: Starting 1 filereader instances
+ 6195: 42.332: Starting 4 filereaderthread threads
+ 6190: 43.339: Running...
+ 6190: 73.349: Run took 30 seconds...
+ 6190: 73.352: Per-Operation Breakdown
+statfile1            4304ops      143ops/s   0.0mb/s      0.1ms/op 39065129us/op-cpu [0ms - 2ms]
+deletefile1          4304ops      143ops/s   0.0mb/s      2.1ms/op 39061502us/op-cpu [0ms - 201ms]
+closefile3           4304ops      143ops/s   0.0mb/s      0.0ms/op 39055073us/op-cpu [0ms - 2ms]
+readfile1            4304ops      143ops/s  18.1mb/s      1.1ms/op 39052107us/op-cpu [0ms - 16ms]
+openfile2            4304ops      143ops/s   0.0mb/s      0.1ms/op 39042354us/op-cpu [0ms - 3ms]
+closefile2           4304ops      143ops/s   0.0mb/s      0.0ms/op 39038237us/op-cpu [0ms - 5ms]
+appendfilerand1      4305ops      143ops/s   1.1mb/s      0.7ms/op 39036820us/op-cpu [0ms - 196ms]
+openfile1            4307ops      144ops/s   0.0mb/s      0.1ms/op 39053041us/op-cpu [0ms - 3ms]
+closefile1           4307ops      144ops/s   0.0mb/s      0.0ms/op 39049971us/op-cpu [0ms - 1ms]
+wrtfile1             4308ops      144ops/s  17.4mb/s      3.9ms/op 39057494us/op-cpu [0ms - 208ms]
+createfile1          4308ops      144ops/s   0.0mb/s      0.9ms/op 39037546us/op-cpu [0ms - 193ms]
+ 6190: 73.352: IO Summary: 47359 ops, 1578.250 ops/s, (143/287 r/w),  36.7mb/s,   7504us cpu/op,   3.0ms latency
+ 6190: 73.352: Shutting down processes
+2015-11-27 11:58:03.108964
+Results:
+3.4
+3.4
+3.3
+3.3
+3.3
+3.3
+3.4
+3.3
+3.3
+3.4
+3.4
+3.5
+3.5
+3.5
+3.6
+3.6
+3.6
+3.6
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.7
+3.7
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.7
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+Samples: 74
+Pavg: 3.723
+Pmax: 3.900
+Pmin: 3.300
+Pstdev: 0.187
+Joules: 275.500
+mf: 0xF 600000
+Filebench Version 1.4.9.1
+ 6203: 0.000: Allocated 130MB of shared memory
+ 6203: 0.008: File-server Version 3.0-custom-noninteractive personality successfully loaded
+ 6203: 0.009: Creating/pre-allocating files and filesets
+ 6203: 0.160: Fileset bigfileset: 10000 files, 0 leafdirs, avg dir width = 20, avg dir depth = 3.1, 1240.757MB
+ 6203: 8.424: Removed any existing fileset bigfileset in 9 seconds
+ 6203: 8.424: making tree for filset /media/RAMDSK/bigfileset
+ 6203: 8.659: Creating fileset bigfileset...
+ 6203: 47.723: Preallocated 7979 of 10000 of fileset bigfileset in 40 seconds
+ 6203: 47.723: waiting for fileset pre-allocation to finish
+ 6208: 47.724: Starting 1 filereader instances
+ 6209: 47.737: Starting 4 filereaderthread threads
+ 6203: 48.742: Running...
+ 6203: 78.751: Run took 30 seconds...
+ 6203: 78.754: Per-Operation Breakdown
+statfile1            3753ops      125ops/s   0.0mb/s      0.1ms/op 38652699us/op-cpu [0ms - 1ms]
+deletefile1          3755ops      125ops/s   0.0mb/s      2.3ms/op 38665676us/op-cpu [0ms - 237ms]
+closefile3           3755ops      125ops/s   0.0mb/s      0.0ms/op 38656174us/op-cpu [0ms - 2ms]
+readfile1            3755ops      125ops/s  15.3mb/s      1.2ms/op 38652189us/op-cpu [0ms - 26ms]
+openfile2            3755ops      125ops/s   0.0mb/s      0.1ms/op 38641550us/op-cpu [0ms - 6ms]
+closefile2           3755ops      125ops/s   0.0mb/s      0.0ms/op 38637804us/op-cpu [0ms - 1ms]
+appendfilerand1      3757ops      125ops/s   1.0mb/s      1.1ms/op 38655817us/op-cpu [0ms - 222ms]
+openfile1            3757ops      125ops/s   0.0mb/s      0.1ms/op 38649658us/op-cpu [0ms - 3ms]
+closefile1           3757ops      125ops/s   0.0mb/s      0.0ms/op 38641443us/op-cpu [0ms - 2ms]
+wrtfile1             3757ops      125ops/s  15.7mb/s      4.4ms/op 38643193us/op-cpu [0ms - 50ms]
+createfile1          3757ops      125ops/s   0.0mb/s      0.9ms/op 38619094us/op-cpu [0ms - 200ms]
+ 6203: 78.755: IO Summary: 41313 ops, 1376.778 ops/s, (125/250 r/w),  32.0mb/s,   8414us cpu/op,   3.4ms latency
+ 6203: 78.755: Shutting down processes
+2015-11-27 11:59:39.931115
+Results:
+3.3
+3.3
+3.4
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.4
+3.3
+3.3
+3.4
+3.4
+3.5
+3.5
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.6
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.6
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.8
+3.8
+3.8
+3.7
+3.7
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+Samples: 80
+Pavg: 3.650
+Pmax: 3.800
+Pmin: 3.300
+Pstdev: 0.165
+Joules: 292.000
+mf: 0xF 500000
+Filebench Version 1.4.9.1
+ 6217: 0.000: Allocated 130MB of shared memory
+ 6217: 0.010: File-server Version 3.0-custom-noninteractive personality successfully loaded
+ 6217: 0.011: Creating/pre-allocating files and filesets
+ 6217: 0.203: Fileset bigfileset: 10000 files, 0 leafdirs, avg dir width = 20, avg dir depth = 3.1, 1240.757MB
+ 6217: 10.068: Removed any existing fileset bigfileset in 10 seconds
+ 6217: 10.068: making tree for filset /media/RAMDSK/bigfileset
+ 6217: 10.357: Creating fileset bigfileset...
+ 6217: 57.164: Preallocated 7979 of 10000 of fileset bigfileset in 47 seconds
+ 6217: 57.164: waiting for fileset pre-allocation to finish
+ 6221: 57.165: Starting 1 filereader instances
+ 6222: 57.209: Starting 4 filereaderthread threads
+ 6217: 58.220: Running...
+ 6217: 88.233: Run took 30 seconds...
+ 6217: 88.237: Per-Operation Breakdown
+statfile1            3252ops      108ops/s   0.0mb/s      0.1ms/op 39274530us/op-cpu [0ms - 2ms]
+deletefile1          3252ops      108ops/s   0.0mb/s      2.6ms/op 39269251us/op-cpu [0ms - 189ms]
+closefile3           3252ops      108ops/s   0.0mb/s      0.1ms/op 39260215us/op-cpu [0ms - 4ms]
+readfile1            3254ops      108ops/s  13.2mb/s      1.3ms/op 39281248us/op-cpu [0ms - 19ms]
+openfile2            3254ops      108ops/s   0.0mb/s      0.1ms/op 39271786us/op-cpu [0ms - 3ms]
+closefile2           3254ops      108ops/s   0.0mb/s      0.0ms/op 39266270us/op-cpu [0ms - 5ms]
+appendfilerand1      3254ops      108ops/s   0.8mb/s      1.0ms/op 39260486us/op-cpu [0ms - 190ms]
+openfile1            3254ops      108ops/s   0.0mb/s      0.1ms/op 39250720us/op-cpu [0ms - 1ms]
+closefile1           3254ops      108ops/s   0.0mb/s      0.0ms/op 39242558us/op-cpu [0ms - 0ms]
+wrtfile1             3254ops      108ops/s  13.1mb/s      5.0ms/op 39234096us/op-cpu [0ms - 49ms]
+createfile1          3256ops      108ops/s   0.0mb/s      1.3ms/op 39235558us/op-cpu [0ms - 451ms]
+ 6217: 88.237: IO Summary: 35790 ops, 1192.612 ops/s, (108/217 r/w),  27.2mb/s,   9687us cpu/op,   3.9ms latency
+ 6217: 88.238: Shutting down processes
+2015-11-27 12:01:26.975771
+Results:
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.4
+3.4
+3.4
+3.4
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.6
+3.6
+3.5
+3.6
+3.5
+3.6
+3.6
+3.6
+3.6
+3.6
+3.5
+3.5
+3.6
+3.6
+3.6
+3.5
+3.6
+3.6
+3.5
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.7
+3.6
+3.6
+3.6
+3.6
+3.6
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+Samples: 89
+Pavg: 3.561
+Pmax: 3.700
+Pmin: 3.300
+Pstdev: 0.137
+Joules: 316.900
+mf: 0xF 400000
+Filebench Version 1.4.9.1
+ 6230: 0.000: Allocated 130MB of shared memory
+ 6230: 0.013: File-server Version 3.0-custom-noninteractive personality successfully loaded
+ 6230: 0.013: Creating/pre-allocating files and filesets
+ 6230: 0.267: Fileset bigfileset: 10000 files, 0 leafdirs, avg dir width = 20, avg dir depth = 3.1, 1240.757MB
+ 6230: 13.436: Removed any existing fileset bigfileset in 14 seconds
+ 6230: 13.436: making tree for filset /media/RAMDSK/bigfileset
+ 6230: 13.815: Creating fileset bigfileset...
+ 6230: 72.640: Preallocated 7979 of 10000 of fileset bigfileset in 59 seconds
+ 6230: 72.640: waiting for fileset pre-allocation to finish
+ 6234: 72.641: Starting 1 filereader instances
+ 6235: 72.662: Starting 4 filereaderthread threads
+ 6230: 73.669: Running...
+ 6230: 103.681: Run took 30 seconds...
+ 6230: 103.686: Per-Operation Breakdown
+statfile1            2684ops       89ops/s   0.0mb/s      0.1ms/op 40673224us/op-cpu [0ms - 12ms]
+deletefile1          2684ops       89ops/s   0.0mb/s      3.9ms/op 40676905us/op-cpu [0ms - 362ms]
+closefile3           2684ops       89ops/s   0.0mb/s      0.1ms/op 40660393us/op-cpu [0ms - 1ms]
+readfile1            2684ops       89ops/s  11.0mb/s      1.6ms/op 40653060us/op-cpu [0ms - 24ms]
+openfile2            2684ops       89ops/s   0.0mb/s      0.2ms/op 40676659us/op-cpu [0ms - 4ms]
+closefile2           2685ops       89ops/s   0.0mb/s      0.0ms/op 40652927us/op-cpu [0ms - 0ms]
+appendfilerand1      2685ops       89ops/s   0.7mb/s      1.5ms/op 40645115us/op-cpu [0ms - 580ms]
+openfile1            2686ops       90ops/s   0.0mb/s      0.2ms/op 40644933us/op-cpu [0ms - 24ms]
+closefile1           2686ops       90ops/s   0.0mb/s      0.0ms/op 40639786us/op-cpu [0ms - 0ms]
+wrtfile1             2686ops       90ops/s  11.2mb/s      6.4ms/op 40630849us/op-cpu [0ms - 52ms]
+createfile1          2688ops       90ops/s   0.0mb/s      1.3ms/op 40629646us/op-cpu [0ms - 489ms]
+ 6230: 103.687: IO Summary: 29536 ops, 984.236 ops/s, (89/179 r/w),  22.8mb/s,  11800us cpu/op,   5.1ms latency
+ 6230: 103.687: Shutting down processes
+2015-11-27 12:03:30.741387
+Results:
+3.3
+3.3
+3.2
+3.2
+3.2
+3.2
+3.2
+3.3
+3.3
+3.2
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.4
+3.4
+3.4
+3.5
+3.4
+3.4
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.7
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.7
+3.7
+Samples: 105
+Pavg: 3.488
+Pmax: 3.700
+Pmin: 3.200
+Pstdev: 0.125
+Joules: 366.200
+mf: 0xF 300000
+Filebench Version 1.4.9.1
+ 6248: 0.000: Allocated 130MB of shared memory
+ 6248: 0.018: File-server Version 3.0-custom-noninteractive personality successfully loaded
+ 6248: 0.019: Creating/pre-allocating files and filesets
+ 6248: 0.399: Fileset bigfileset: 10000 files, 0 leafdirs, avg dir width = 20, avg dir depth = 3.1, 1240.757MB
+ 6248: 21.694: Removed any existing fileset bigfileset in 22 seconds
+ 6248: 21.694: making tree for filset /media/RAMDSK/bigfileset
+ 6248: 22.269: Creating fileset bigfileset...
+ 6248: 108.233: Preallocated 7979 of 10000 of fileset bigfileset in 86 seconds
+ 6248: 108.234: waiting for fileset pre-allocation to finish
+ 6252: 108.235: Starting 1 filereader instances
+ 6253: 108.271: Starting 4 filereaderthread threads
+ 6248: 109.289: Running...
+ 6248: 139.307: Run took 30 seconds...
+ 6248: 139.314: Per-Operation Breakdown
+statfile1            1946ops       65ops/s   0.0mb/s      0.1ms/op 42507207us/op-cpu [0ms - 1ms]
+deletefile1          1947ops       65ops/s   0.0mb/s      5.9ms/op 42512956us/op-cpu [0ms - 647ms]
+closefile3           1947ops       65ops/s   0.0mb/s      0.1ms/op 42489638us/op-cpu [0ms - 0ms]
+readfile1            1947ops       65ops/s   7.9mb/s      2.0ms/op 42481063us/op-cpu [0ms - 22ms]
+openfile2            1949ops       65ops/s   0.0mb/s      0.2ms/op 42506100us/op-cpu [0ms - 2ms]
+closefile2           1949ops       65ops/s   0.0mb/s      0.1ms/op 42490054us/op-cpu [0ms - 1ms]
+appendfilerand1      1949ops       65ops/s   0.5mb/s      1.8ms/op 42487727us/op-cpu [0ms - 625ms]
+openfile1            1950ops       65ops/s   0.0mb/s      0.2ms/op 42502153us/op-cpu [0ms - 1ms]
+closefile1           1950ops       65ops/s   0.0mb/s      0.1ms/op 42483882us/op-cpu [0ms - 0ms]
+wrtfile1             1950ops       65ops/s   8.1mb/s      9.0ms/op 42477802us/op-cpu [0ms - 60ms]
+createfile1          1950ops       65ops/s   0.0mb/s      1.5ms/op 42430333us/op-cpu [0ms - 204ms]
+ 6248: 139.315: IO Summary: 21434 ops, 714.166 ops/s, (65/130 r/w),  16.5mb/s,  16189us cpu/op,   7.0ms latency
+ 6248: 139.315: Shutting down processes
+2015-11-27 12:06:13.365497
+Results:
+3.2
+3.2
+3.3
+3.3
+3.2
+3.2
+3.2
+3.3
+3.3
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.2
+3.2
+3.2
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.5
+3.4
+3.4
+3.5
+3.4
+3.5
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.5
+3.4
+3.5
+3.4
+3.4
+3.4
+3.4
+3.4
+3.5
+3.4
+3.5
+3.5
+3.5
+3.4
+3.4
+3.5
+3.5
+3.4
+3.4
+3.4
+3.4
+3.5
+3.5
+3.4
+3.4
+3.4
+3.5
+3.4
+3.4
+3.4
+3.4
+3.4
+3.5
+3.4
+3.4
+3.4
+3.5
+3.5
+3.4
+3.4
+3.4
+3.5
+3.5
+3.5
+3.5
+3.4
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+Samples: 141
+Pavg: 3.407
+Pmax: 3.500
+Pmin: 3.200
+Pstdev: 0.091
+Joules: 480.400
+mf: 0xF 200000
+Filebench Version 1.4.9.1
+ 6262: 0.000: Allocated 130MB of shared memory
+ 6262: 0.006: File-server Version 3.0-custom-noninteractive personality successfully loaded
+ 6262: 0.007: Creating/pre-allocating files and filesets
+ 6262: 0.071: Fileset bigfileset: 10000 files, 0 leafdirs, avg dir width = 20, avg dir depth = 3.1, 1240.757MB
+ 6262: 3.756: Removed any existing fileset bigfileset in 4 seconds
+ 6262: 3.757: making tree for filset /media/RAMDSK/bigfileset
+ 6262: 3.861: Creating fileset bigfileset...
+ 6262: 27.338: Preallocated 7979 of 10000 of fileset bigfileset in 24 seconds
+ 6262: 27.338: waiting for fileset pre-allocation to finish
+ 6267: 27.339: Starting 1 filereader instances
+ 6268: 27.347: Starting 4 filereaderthread threads
+ 6262: 28.350: Running...
+ 6262: 58.357: Run took 30 seconds...
+ 6262: 58.359: Per-Operation Breakdown
+statfile1            4720ops      157ops/s   0.0mb/s      0.0ms/op 27059891us/op-cpu [0ms - 1ms]
+deletefile1          4720ops      157ops/s   0.0mb/s      1.6ms/op 27060099us/op-cpu [0ms - 286ms]
+closefile3           4720ops      157ops/s   0.0mb/s      0.0ms/op 27056349us/op-cpu [0ms - 1ms]
+readfile1            4720ops      157ops/s  19.7mb/s      0.9ms/op 27053059us/op-cpu [0ms - 7ms]
+openfile2            4720ops      157ops/s   0.0mb/s      0.1ms/op 27046431us/op-cpu [0ms - 0ms]
+closefile2           4720ops      157ops/s   0.0mb/s      0.0ms/op 27040793us/op-cpu [0ms - 0ms]
+appendfilerand1      4720ops      157ops/s   1.2mb/s      0.5ms/op 27035468us/op-cpu [0ms - 253ms]
+openfile1            4720ops      157ops/s   0.0mb/s      0.1ms/op 27030917us/op-cpu [0ms - 8ms]
+closefile1           4720ops      157ops/s   0.0mb/s      0.0ms/op 27028069us/op-cpu [0ms - 0ms]
+wrtfile1             4721ops      157ops/s  19.7mb/s      2.4ms/op 27034179us/op-cpu [0ms - 16ms]
+createfile1          4724ops      157ops/s   0.0mb/s      0.7ms/op 27041515us/op-cpu [0ms - 279ms]
+ 6262: 58.360: IO Summary: 51925 ops, 1730.521 ops/s, (157/315 r/w),  40.7mb/s,   5047us cpu/op,   2.1ms latency
+ 6262: 58.360: Shutting down processes
+2015-11-27 12:07:28.392959
+Results:
+3.4
+3.4
+3.5
+3.5
+3.5
+3.6
+3.7
+3.8
+3.8
+3.9
+3.9
+4.0
+4.0
+4.1
+4.1
+4.1
+4.1
+4.2
+4.2
+4.2
+4.2
+4.2
+4.3
+4.2
+4.2
+4.2
+4.2
+4.2
+4.2
+4.2
+4.3
+4.3
+4.3
+4.3
+4.3
+4.3
+4.3
+4.3
+4.3
+4.3
+4.3
+4.4
+4.4
+4.4
+4.3
+4.3
+4.3
+4.3
+4.4
+4.4
+4.4
+4.4
+4.4
+4.4
+4.3
+4.3
+4.4
+4.4
+4.3
+Samples: 59
+Pavg: 4.151
+Pmax: 4.400
+Pmin: 3.400
+Pstdev: 0.275
+Joules: 244.900
+mf: 0x7 1400000
+Filebench Version 1.4.9.1
+ 6276: 0.000: Allocated 130MB of shared memory
+ 6276: 0.006: File-server Version 3.0-custom-noninteractive personality successfully loaded
+ 6276: 0.006: Creating/pre-allocating files and filesets
+ 6276: 0.074: Fileset bigfileset: 10000 files, 0 leafdirs, avg dir width = 20, avg dir depth = 3.1, 1240.757MB
+ 6276: 3.924: Removed any existing fileset bigfileset in 4 seconds
+ 6276: 3.924: making tree for filset /media/RAMDSK/bigfileset
+ 6276: 4.047: Creating fileset bigfileset...
+ 6276: 27.283: Preallocated 7979 of 10000 of fileset bigfileset in 24 seconds
+ 6276: 27.283: waiting for fileset pre-allocation to finish
+ 6280: 27.284: Starting 1 filereader instances
+ 6281: 27.292: Starting 4 filereaderthread threads
+ 6276: 28.296: Running...
+ 6276: 58.303: Run took 30 seconds...
+ 6276: 58.305: Per-Operation Breakdown
+statfile1            4665ops      155ops/s   0.0mb/s      0.0ms/op 26797082us/op-cpu [0ms - 0ms]
+deletefile1          4666ops      156ops/s   0.0mb/s      1.7ms/op 26789742us/op-cpu [0ms - 577ms]
+closefile3           4666ops      156ops/s   0.0mb/s      0.0ms/op 26783093us/op-cpu [0ms - 0ms]
+readfile1            4666ops      156ops/s  19.2mb/s      0.9ms/op 26783231us/op-cpu [0ms - 6ms]
+openfile2            4666ops      156ops/s   0.0mb/s      0.1ms/op 26774950us/op-cpu [0ms - 4ms]
+closefile2           4667ops      156ops/s   0.0mb/s      0.0ms/op 26776415us/op-cpu [0ms - 0ms]
+appendfilerand1      4667ops      156ops/s   1.2mb/s      0.6ms/op 26775652us/op-cpu [0ms - 313ms]
+openfile1            4667ops      156ops/s   0.0mb/s      0.1ms/op 26766536us/op-cpu [0ms - 2ms]
+closefile1           4667ops      156ops/s   0.0mb/s      0.0ms/op 26764464us/op-cpu [0ms - 0ms]
+wrtfile1             4667ops      156ops/s  19.0mb/s      2.4ms/op 26760453us/op-cpu [0ms - 130ms]
+createfile1          4668ops      156ops/s   0.0mb/s      0.6ms/op 26757711us/op-cpu [0ms - 150ms]
+ 6276: 58.305: IO Summary: 51332 ops, 1710.759 ops/s, (156/311 r/w),  39.4mb/s,   4929us cpu/op,   2.1ms latency
+ 6276: 58.305: Shutting down processes
+2015-11-27 12:08:42.959246
+Results:
+3.6
+3.6
+3.6
+3.6
+3.6
+3.7
+3.7
+3.8
+3.8
+3.8
+3.9
+3.9
+4.0
+4.0
+4.0
+4.0
+4.1
+4.1
+4.1
+4.1
+4.1
+4.1
+4.2
+4.2
+4.2
+4.2
+4.1
+4.1
+4.2
+4.1
+4.1
+4.2
+4.2
+4.2
+4.2
+4.2
+4.2
+4.3
+4.3
+4.3
+4.2
+4.2
+4.3
+4.3
+4.3
+4.3
+4.3
+4.3
+4.3
+4.3
+4.3
+4.3
+4.3
+4.3
+4.3
+4.3
+4.3
+4.3
+Samples: 58
+Pavg: 4.102
+Pmax: 4.300
+Pmin: 3.600
+Pstdev: 0.222
+Joules: 237.900
+mf: 0x7 1300000
+Filebench Version 1.4.9.1
+ 6289: 0.000: Allocated 130MB of shared memory
+ 6289: 0.006: File-server Version 3.0-custom-noninteractive personality successfully loaded
+ 6289: 0.006: Creating/pre-allocating files and filesets
+ 6289: 0.079: Fileset bigfileset: 10000 files, 0 leafdirs, avg dir width = 20, avg dir depth = 3.1, 1240.757MB
+ 6289: 4.295: Removed any existing fileset bigfileset in 5 seconds
+ 6289: 4.296: making tree for filset /media/RAMDSK/bigfileset
+ 6289: 4.409: Creating fileset bigfileset...
+ 6289: 27.621: Preallocated 7979 of 10000 of fileset bigfileset in 24 seconds
+ 6289: 27.622: waiting for fileset pre-allocation to finish
+ 6293: 27.622: Starting 1 filereader instances
+ 6294: 27.630: Starting 4 filereaderthread threads
+ 6289: 28.633: Running...
+ 6289: 58.640: Run took 30 seconds...
+ 6289: 58.644: Per-Operation Breakdown
+statfile1            4337ops      145ops/s   0.0mb/s      0.0ms/op 26133088us/op-cpu [0ms - 3ms]
+deletefile1          4337ops      145ops/s   0.0mb/s      2.4ms/op 26124420us/op-cpu [0ms - 680ms]
+closefile3           4337ops      145ops/s   0.0mb/s      0.0ms/op 26132015us/op-cpu [0ms - 0ms]
+readfile1            4338ops      145ops/s  18.5mb/s      0.9ms/op 26123306us/op-cpu [0ms - 9ms]
+openfile2            4338ops      145ops/s   0.0mb/s      0.1ms/op 26113283us/op-cpu [0ms - 1ms]
+closefile2           4338ops      145ops/s   0.0mb/s      0.0ms/op 26111054us/op-cpu [0ms - 0ms]
+appendfilerand1      4338ops      145ops/s   1.1mb/s      0.8ms/op 26122987us/op-cpu [0ms - 671ms]
+openfile1            4339ops      145ops/s   0.0mb/s      0.1ms/op 26112214us/op-cpu [0ms - 2ms]
+closefile1           4340ops      145ops/s   0.0mb/s      0.0ms/op 26115930us/op-cpu [0ms - 1ms]
+wrtfile1             4340ops      145ops/s  18.0mb/s      2.5ms/op 26113700us/op-cpu [0ms - 22ms]
+createfile1          4340ops      145ops/s   0.0mb/s      0.6ms/op 26117641us/op-cpu [0ms - 121ms]
+ 6289: 58.645: IO Summary: 47722 ops, 1590.444 ops/s, (145/289 r/w),  37.6mb/s,   5216us cpu/op,   2.5ms latency
+ 6289: 58.645: Shutting down processes
+2015-11-27 12:09:57.950557
+Results:
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.6
+3.7
+3.7
+3.8
+3.8
+3.9
+3.9
+3.9
+4.0
+4.0
+4.0
+4.0
+4.0
+4.1
+4.1
+4.1
+4.1
+4.1
+4.1
+4.1
+4.1
+4.1
+4.1
+4.1
+4.1
+4.1
+4.1
+4.1
+4.2
+4.2
+4.2
+4.2
+4.2
+4.2
+4.2
+4.2
+4.2
+4.2
+4.2
+4.2
+4.2
+4.1
+4.2
+4.2
+4.2
+4.2
+4.2
+4.2
+4.2
+4.2
+4.2
+4.2
+4.2
+Samples: 59
+Pavg: 4.029
+Pmax: 4.200
+Pmin: 3.500
+Pstdev: 0.226
+Joules: 237.700
+mf: 0x7 1200000
+Filebench Version 1.4.9.1
+ 6302: 0.000: Allocated 130MB of shared memory
+ 6302: 0.006: File-server Version 3.0-custom-noninteractive personality successfully loaded
+ 6302: 0.007: Creating/pre-allocating files and filesets
+ 6302: 0.085: Fileset bigfileset: 10000 files, 0 leafdirs, avg dir width = 20, avg dir depth = 3.1, 1240.757MB
+ 6302: 4.515: Removed any existing fileset bigfileset in 5 seconds
+ 6302: 4.515: making tree for filset /media/RAMDSK/bigfileset
+ 6302: 4.634: Creating fileset bigfileset...
+ 6302: 29.035: Preallocated 7979 of 10000 of fileset bigfileset in 25 seconds
+ 6302: 29.036: waiting for fileset pre-allocation to finish
+ 6306: 29.036: Starting 1 filereader instances
+ 6307: 29.045: Starting 4 filereaderthread threads
+ 6302: 30.048: Running...
+ 6302: 60.055: Run took 30 seconds...
+ 6302: 60.058: Per-Operation Breakdown
+statfile1            4294ops      143ops/s   0.0mb/s      0.0ms/op 26360727us/op-cpu [0ms - 1ms]
+deletefile1          4294ops      143ops/s   0.0mb/s      1.9ms/op 26354201us/op-cpu [0ms - 325ms]
+closefile3           4294ops      143ops/s   0.0mb/s      0.0ms/op 26348783us/op-cpu [0ms - 0ms]
+readfile1            4294ops      143ops/s  17.8mb/s      0.9ms/op 26345962us/op-cpu [0ms - 7ms]
+openfile2            4294ops      143ops/s   0.0mb/s      0.1ms/op 26342737us/op-cpu [0ms - 2ms]
+closefile2           4296ops      143ops/s   0.0mb/s      0.0ms/op 26354472us/op-cpu [0ms - 3ms]
+appendfilerand1      4296ops      143ops/s   1.1mb/s      0.7ms/op 26350535us/op-cpu [0ms - 147ms]
+openfile1            4296ops      143ops/s   0.0mb/s      0.1ms/op 26341545us/op-cpu [0ms - 4ms]
+closefile1           4296ops      143ops/s   0.0mb/s      0.0ms/op 26341389us/op-cpu [0ms - 0ms]
+wrtfile1             4296ops      143ops/s  17.5mb/s      2.5ms/op 26340019us/op-cpu [0ms - 18ms]
+createfile1          4297ops      143ops/s   0.0mb/s      1.2ms/op 26348308us/op-cpu [0ms - 467ms]
+ 6302: 60.058: IO Summary: 47247 ops, 1574.606 ops/s, (143/286 r/w),  36.4mb/s,   5298us cpu/op,   2.5ms latency
+ 6302: 60.058: Shutting down processes
+2015-11-27 12:11:14.491199
+Results:
+3.4
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.6
+3.6
+3.7
+3.8
+3.8
+3.9
+3.9
+3.9
+3.9
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.1
+4.0
+4.1
+4.1
+4.1
+4.1
+4.1
+4.1
+4.0
+4.0
+4.0
+4.1
+4.1
+4.1
+4.1
+4.1
+4.1
+4.1
+4.1
+4.1
+4.1
+4.1
+4.1
+4.1
+4.1
+4.1
+4.1
+4.1
+4.1
+4.1
+4.1
+4.1
+4.1
+4.1
+4.1
+4.1
+4.1
+4.1
+4.1
+Samples: 61
+Pavg: 3.967
+Pmax: 4.100
+Pmin: 3.400
+Pstdev: 0.209
+Joules: 242.000
+mf: 0x7 1100000
+Filebench Version 1.4.9.1
+ 6315: 0.000: Allocated 130MB of shared memory
+ 6315: 0.007: File-server Version 3.0-custom-noninteractive personality successfully loaded
+ 6315: 0.007: Creating/pre-allocating files and filesets
+ 6315: 0.092: Fileset bigfileset: 10000 files, 0 leafdirs, avg dir width = 20, avg dir depth = 3.1, 1240.757MB
+ 6315: 4.869: Removed any existing fileset bigfileset in 5 seconds
+ 6315: 4.869: making tree for filset /media/RAMDSK/bigfileset
+ 6315: 4.998: Creating fileset bigfileset...
+ 6315: 30.238: Preallocated 7979 of 10000 of fileset bigfileset in 26 seconds
+ 6315: 30.238: waiting for fileset pre-allocation to finish
+ 6319: 30.239: Starting 1 filereader instances
+ 6320: 30.248: Starting 4 filereaderthread threads
+ 6315: 31.251: Running...
+ 6315: 61.259: Run took 30 seconds...
+ 6315: 61.261: Per-Operation Breakdown
+statfile1            4192ops      140ops/s   0.0mb/s      0.0ms/op 27329107us/op-cpu [0ms - 1ms]
+deletefile1          4192ops      140ops/s   0.0mb/s      1.6ms/op 27326968us/op-cpu [0ms - 244ms]
+closefile3           4192ops      140ops/s   0.0mb/s      0.0ms/op 27322860us/op-cpu [0ms - 0ms]
+readfile1            4192ops      140ops/s  17.5mb/s      1.0ms/op 27322107us/op-cpu [0ms - 10ms]
+openfile2            4193ops      140ops/s   0.0mb/s      0.1ms/op 27318454us/op-cpu [0ms - 0ms]
+closefile2           4193ops      140ops/s   0.0mb/s      0.0ms/op 27311100us/op-cpu [0ms - 1ms]
+appendfilerand1      4193ops      140ops/s   1.1mb/s      0.7ms/op 27308248us/op-cpu [0ms - 153ms]
+openfile1            4194ops      140ops/s   0.0mb/s      0.1ms/op 27308937us/op-cpu [0ms - 1ms]
+closefile1           4194ops      140ops/s   0.0mb/s      0.0ms/op 27318087us/op-cpu [0ms - 0ms]
+wrtfile1             4196ops      140ops/s  17.2mb/s      2.7ms/op 27317406us/op-cpu [0ms - 18ms]
+createfile1          4196ops      140ops/s   0.0mb/s      0.5ms/op 27307916us/op-cpu [0ms - 221ms]
+ 6315: 61.262: IO Summary: 46127 ops, 1537.259 ops/s, (140/280 r/w),  35.8mb/s,   5633us cpu/op,   2.2ms latency
+ 6315: 61.262: Shutting down processes
+2015-11-27 12:12:32.435232
+Results:
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.6
+3.6
+3.7
+3.7
+3.7
+3.8
+3.8
+3.8
+3.9
+3.9
+3.9
+3.9
+3.9
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.1
+4.0
+4.1
+4.0
+4.1
+4.0
+4.0
+4.0
+4.0
+4.0
+4.1
+4.1
+4.1
+4.1
+4.0
+4.0
+4.0
+4.1
+4.1
+4.0
+4.1
+4.1
+4.0
+4.1
+4.0
+Samples: 62
+Pavg: 3.918
+Pmax: 4.100
+Pmin: 3.500
+Pstdev: 0.189
+Joules: 242.900
+mf: 0x7 1000000
+Filebench Version 1.4.9.1
+ 6329: 0.000: Allocated 130MB of shared memory
+ 6329: 0.007: File-server Version 3.0-custom-noninteractive personality successfully loaded
+ 6329: 0.008: Creating/pre-allocating files and filesets
+ 6329: 0.101: Fileset bigfileset: 10000 files, 0 leafdirs, avg dir width = 20, avg dir depth = 3.1, 1240.757MB
+ 6329: 5.268: Removed any existing fileset bigfileset in 6 seconds
+ 6329: 5.268: making tree for filset /media/RAMDSK/bigfileset
+ 6329: 5.409: Creating fileset bigfileset...
+ 6329: 32.526: Preallocated 7979 of 10000 of fileset bigfileset in 28 seconds
+ 6329: 32.526: waiting for fileset pre-allocation to finish
+ 6338: 32.527: Starting 1 filereader instances
+ 6339: 32.537: Starting 4 filereaderthread threads
+ 6329: 33.540: Running...
+ 6329: 63.547: Run took 30 seconds...
+ 6329: 63.550: Per-Operation Breakdown
+statfile1            3968ops      132ops/s   0.0mb/s      0.0ms/op 27122621us/op-cpu [0ms - 1ms]
+deletefile1          3968ops      132ops/s   0.0mb/s      2.1ms/op 27121975us/op-cpu [0ms - 245ms]
+closefile3           3968ops      132ops/s   0.0mb/s      0.0ms/op 27110581us/op-cpu [0ms - 0ms]
+readfile1            3968ops      132ops/s  16.5mb/s      1.0ms/op 27107745us/op-cpu [0ms - 6ms]
+openfile2            3968ops      132ops/s   0.0mb/s      0.1ms/op 27102242us/op-cpu [0ms - 5ms]
+closefile2           3968ops      132ops/s   0.0mb/s      0.0ms/op 27095448us/op-cpu [0ms - 0ms]
+appendfilerand1      3968ops      132ops/s   1.0mb/s      0.8ms/op 27091623us/op-cpu [0ms - 202ms]
+openfile1            3968ops      132ops/s   0.0mb/s      0.1ms/op 27088009us/op-cpu [0ms - 2ms]
+closefile1           3968ops      132ops/s   0.0mb/s      0.0ms/op 27085746us/op-cpu [0ms - 0ms]
+wrtfile1             3968ops      132ops/s  16.3mb/s      2.9ms/op 27083574us/op-cpu [0ms - 166ms]
+createfile1          3968ops      132ops/s   0.0mb/s      0.8ms/op 27074679us/op-cpu [0ms - 228ms]
+ 6329: 63.551: IO Summary: 43648 ops, 1454.644 ops/s, (132/264 r/w),  33.8mb/s,   5813us cpu/op,   2.6ms latency
+ 6329: 63.551: Shutting down processes
+2015-11-27 12:13:52.806533
+Results:
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.5
+3.5
+3.6
+3.6
+3.7
+3.7
+3.7
+3.8
+3.8
+3.8
+3.8
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+4.0
+3.9
+4.0
+3.9
+3.9
+4.0
+3.9
+3.9
+4.0
+4.0
+4.0
+4.0
+4.0
+3.9
+3.9
+4.0
+4.0
+3.9
+3.9
+4.0
+3.9
+3.9
+3.9
+3.9
+4.0
+4.0
+4.0
+4.0
+3.9
+4.0
+4.0
+3.9
+4.0
+4.0
+4.0
+4.0
+4.0
+Samples: 64
+Pavg: 3.842
+Pmax: 4.000
+Pmin: 3.400
+Pstdev: 0.194
+Joules: 245.900
+mf: 0x7 900000
+Filebench Version 1.4.9.1
+ 6347: 0.000: Allocated 130MB of shared memory
+ 6347: 0.008: File-server Version 3.0-custom-noninteractive personality successfully loaded
+ 6347: 0.008: Creating/pre-allocating files and filesets
+ 6347: 0.113: Fileset bigfileset: 10000 files, 0 leafdirs, avg dir width = 20, avg dir depth = 3.1, 1240.757MB
+ 6347: 5.761: Removed any existing fileset bigfileset in 6 seconds
+ 6347: 5.762: making tree for filset /media/RAMDSK/bigfileset
+ 6347: 5.916: Creating fileset bigfileset...
+ 6347: 35.102: Preallocated 7979 of 10000 of fileset bigfileset in 30 seconds
+ 6347: 35.102: waiting for fileset pre-allocation to finish
+ 6351: 35.103: Starting 1 filereader instances
+ 6352: 35.113: Starting 4 filereaderthread threads
+ 6347: 36.117: Running...
+ 6347: 66.125: Run took 30 seconds...
+ 6347: 66.128: Per-Operation Breakdown
+statfile1            3658ops      122ops/s   0.0mb/s      0.0ms/op 27275999us/op-cpu [0ms - 0ms]
+deletefile1          3658ops      122ops/s   0.0mb/s      2.3ms/op 27276210us/op-cpu [0ms - 353ms]
+closefile3           3659ops      122ops/s   0.0mb/s      0.0ms/op 27275620us/op-cpu [0ms - 2ms]
+readfile1            3659ops      122ops/s  15.3mb/s      1.0ms/op 27269822us/op-cpu [0ms - 11ms]
+openfile2            3659ops      122ops/s   0.0mb/s      0.1ms/op 27273303us/op-cpu [0ms - 2ms]
+closefile2           3661ops      122ops/s   0.0mb/s      0.0ms/op 27267751us/op-cpu [0ms - 0ms]
+appendfilerand1      3661ops      122ops/s   0.9mb/s      0.7ms/op 27264080us/op-cpu [0ms - 184ms]
+openfile1            3661ops      122ops/s   0.0mb/s      0.1ms/op 27260968us/op-cpu [0ms - 4ms]
+closefile1           3661ops      122ops/s   0.0mb/s      0.0ms/op 27258270us/op-cpu [0ms - 0ms]
+wrtfile1             3662ops      122ops/s  15.1mb/s      3.1ms/op 27260305us/op-cpu [0ms - 21ms]
+createfile1          3662ops      122ops/s   0.0mb/s      0.6ms/op 27249636us/op-cpu [0ms - 116ms]
+ 6347: 66.129: IO Summary: 40261 ops, 1341.758 ops/s, (122/244 r/w),  31.4mb/s,   6356us cpu/op,   2.6ms latency
+ 6347: 66.129: Shutting down processes
+2015-11-27 12:15:15.931723
+Results:
+3.3
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.5
+3.5
+3.6
+3.6
+3.7
+3.7
+3.7
+3.7
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.9
+3.9
+3.9
+3.9
+3.9
+3.8
+3.9
+3.9
+3.8
+3.9
+3.9
+3.9
+3.8
+3.9
+3.8
+3.8
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+4.0
+3.9
+Samples: 67
+Pavg: 3.782
+Pmax: 4.000
+Pmin: 3.300
+Pstdev: 0.182
+Joules: 253.400
+mf: 0x7 800000
+Filebench Version 1.4.9.1
+ 6360: 0.000: Allocated 130MB of shared memory
+ 6360: 0.008: File-server Version 3.0-custom-noninteractive personality successfully loaded
+ 6360: 0.008: Creating/pre-allocating files and filesets
+ 6360: 0.127: Fileset bigfileset: 10000 files, 0 leafdirs, avg dir width = 20, avg dir depth = 3.1, 1240.757MB
+ 6360: 6.376: Removed any existing fileset bigfileset in 7 seconds
+ 6360: 6.377: making tree for filset /media/RAMDSK/bigfileset
+ 6360: 6.549: Creating fileset bigfileset...
+ 6360: 37.625: Preallocated 7979 of 10000 of fileset bigfileset in 32 seconds
+ 6360: 37.625: waiting for fileset pre-allocation to finish
+ 6364: 37.626: Starting 1 filereader instances
+ 6365: 37.637: Starting 4 filereaderthread threads
+ 6360: 38.641: Running...
+ 6360: 68.650: Run took 30 seconds...
+ 6360: 68.654: Per-Operation Breakdown
+statfile1            3458ops      115ops/s   0.0mb/s      0.0ms/op 27425221us/op-cpu [0ms - 1ms]
+deletefile1          3458ops      115ops/s   0.0mb/s      2.3ms/op 27420550us/op-cpu [0ms - 318ms]
+closefile3           3459ops      115ops/s   0.0mb/s      0.0ms/op 27418589us/op-cpu [0ms - 0ms]
+readfile1            3459ops      115ops/s  14.4mb/s      1.0ms/op 27414797us/op-cpu [0ms - 8ms]
+openfile2            3460ops      115ops/s   0.0mb/s      0.1ms/op 27415817us/op-cpu [0ms - 1ms]
+closefile2           3460ops      115ops/s   0.0mb/s      0.0ms/op 27408210us/op-cpu [0ms - 1ms]
+appendfilerand1      3460ops      115ops/s   0.9mb/s      0.8ms/op 27404416us/op-cpu [0ms - 136ms]
+openfile1            3460ops      115ops/s   0.0mb/s      0.1ms/op 27398453us/op-cpu [0ms - 4ms]
+closefile1           3460ops      115ops/s   0.0mb/s      0.0ms/op 27393471us/op-cpu [0ms - 1ms]
+wrtfile1             3460ops      115ops/s  14.1mb/s      3.2ms/op 27393167us/op-cpu [0ms - 17ms]
+createfile1          3460ops      115ops/s   0.0mb/s      0.7ms/op 27383189us/op-cpu [0ms - 220ms]
+ 6360: 68.654: IO Summary: 38054 ops, 1268.143 ops/s, (115/231 r/w),  29.5mb/s,   6599us cpu/op,   2.8ms latency
+ 6360: 68.654: Shutting down processes
+2015-11-27 12:16:41.816565
+Results:
+3.3
+3.3
+3.3
+3.3
+3.4
+3.3
+3.3
+3.4
+3.4
+3.5
+3.5
+3.6
+3.6
+3.6
+3.6
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.9
+3.8
+3.8
+3.9
+3.9
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.9
+3.9
+3.9
+3.9
+3.8
+3.8
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.8
+3.8
+3.8
+3.8
+3.9
+Samples: 69
+Pavg: 3.730
+Pmax: 3.900
+Pmin: 3.300
+Pstdev: 0.178
+Joules: 257.400
+mf: 0x7 700000
+Filebench Version 1.4.9.1
+ 6373: 0.000: Allocated 130MB of shared memory
+ 6373: 0.009: File-server Version 3.0-custom-noninteractive personality successfully loaded
+ 6373: 0.009: Creating/pre-allocating files and filesets
+ 6373: 0.148: Fileset bigfileset: 10000 files, 0 leafdirs, avg dir width = 20, avg dir depth = 3.1, 1240.757MB
+ 6373: 7.307: Removed any existing fileset bigfileset in 8 seconds
+ 6373: 7.307: making tree for filset /media/RAMDSK/bigfileset
+ 6373: 7.511: Creating fileset bigfileset...
+ 6373: 41.580: Preallocated 7979 of 10000 of fileset bigfileset in 35 seconds
+ 6373: 41.580: waiting for fileset pre-allocation to finish
+ 6393: 41.581: Starting 1 filereader instances
+ 6394: 41.594: Starting 4 filereaderthread threads
+ 6373: 42.599: Running...
+ 6373: 72.608: Run took 30 seconds...
+ 6373: 72.612: Per-Operation Breakdown
+statfile1            3150ops      105ops/s   0.0mb/s      0.1ms/op 27688127us/op-cpu [0ms - 1ms]
+deletefile1          3150ops      105ops/s   0.0mb/s      2.7ms/op 27685775us/op-cpu [0ms - 335ms]
+closefile3           3152ops      105ops/s   0.0mb/s      0.0ms/op 27695022us/op-cpu [0ms - 3ms]
+readfile1            3152ops      105ops/s  12.7mb/s      1.0ms/op 27686869us/op-cpu [0ms - 6ms]
+openfile2            3152ops      105ops/s   0.0mb/s      0.1ms/op 27680281us/op-cpu [0ms - 4ms]
+closefile2           3152ops      105ops/s   0.0mb/s      0.0ms/op 27678642us/op-cpu [0ms - 5ms]
+appendfilerand1      3152ops      105ops/s   0.8mb/s      0.7ms/op 27670465us/op-cpu [0ms - 228ms]
+openfile1            3152ops      105ops/s   0.0mb/s      0.1ms/op 27665156us/op-cpu [0ms - 2ms]
+closefile1           3153ops      105ops/s   0.0mb/s      0.0ms/op 27672668us/op-cpu [0ms - 0ms]
+wrtfile1             3153ops      105ops/s  13.1mb/s      3.6ms/op 27685168us/op-cpu [0ms - 29ms]
+createfile1          3154ops      105ops/s   0.0mb/s      0.8ms/op 27659588us/op-cpu [0ms - 237ms]
+ 6373: 72.613: IO Summary: 34672 ops, 1155.462 ops/s, (105/210 r/w),  26.6mb/s,   7198us cpu/op,   3.0ms latency
+ 6373: 72.613: Shutting down processes
+2015-11-27 12:18:12.018500
+Results:
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.4
+3.3
+3.4
+3.4
+3.5
+3.5
+3.6
+3.6
+3.6
+3.6
+3.6
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.8
+3.8
+3.8
+3.8
+3.7
+3.7
+3.8
+3.8
+3.7
+3.7
+3.7
+3.7
+3.8
+3.8
+3.8
+3.8
+3.7
+3.7
+3.8
+3.7
+3.7
+3.7
+3.7
+3.8
+3.8
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.8
+3.7
+3.7
+Samples: 73
+Pavg: 3.651
+Pmax: 3.800
+Pmin: 3.300
+Pstdev: 0.150
+Joules: 266.500
+mf: 0x7 600000
+Filebench Version 1.4.9.1
+ 6402: 0.000: Allocated 130MB of shared memory
+ 6402: 0.011: File-server Version 3.0-custom-noninteractive personality successfully loaded
+ 6402: 0.012: Creating/pre-allocating files and filesets
+ 6402: 0.175: Fileset bigfileset: 10000 files, 0 leafdirs, avg dir width = 20, avg dir depth = 3.1, 1240.757MB
+ 6402: 8.295: Removed any existing fileset bigfileset in 9 seconds
+ 6402: 8.295: making tree for filset /media/RAMDSK/bigfileset
+ 6402: 8.530: Creating fileset bigfileset...
+ 6402: 47.313: Preallocated 7979 of 10000 of fileset bigfileset in 39 seconds
+ 6402: 47.313: waiting for fileset pre-allocation to finish
+ 6407: 47.314: Starting 1 filereader instances
+ 6408: 47.329: Starting 4 filereaderthread threads
+ 6402: 48.335: Running...
+ 6402: 78.345: Run took 30 seconds...
+ 6402: 78.349: Per-Operation Breakdown
+statfile1            2741ops       91ops/s   0.0mb/s      0.1ms/op 27717332us/op-cpu [0ms - 0ms]
+deletefile1          2741ops       91ops/s   0.0mb/s      3.2ms/op 27711119us/op-cpu [0ms - 431ms]
+closefile3           2741ops       91ops/s   0.0mb/s      0.0ms/op 27698547us/op-cpu [0ms - 0ms]
+readfile1            2742ops       91ops/s  11.5mb/s      1.1ms/op 27706943us/op-cpu [0ms - 8ms]
+openfile2            2742ops       91ops/s   0.0mb/s      0.1ms/op 27698121us/op-cpu [0ms - 3ms]
+closefile2           2742ops       91ops/s   0.0mb/s      0.0ms/op 27690001us/op-cpu [0ms - 0ms]
+appendfilerand1      2742ops       91ops/s   0.7mb/s      0.8ms/op 27688177us/op-cpu [0ms - 162ms]
+openfile1            2743ops       91ops/s   0.0mb/s      0.1ms/op 27689702us/op-cpu [0ms - 5ms]
+closefile1           2743ops       91ops/s   0.0mb/s      0.0ms/op 27703539us/op-cpu [0ms - 0ms]
+wrtfile1             2744ops       91ops/s  11.3mb/s      4.1ms/op 27687131us/op-cpu [0ms - 147ms]
+createfile1          2745ops       91ops/s   0.0mb/s      0.6ms/op 27681383us/op-cpu [0ms - 29ms]
+ 6402: 78.349: IO Summary: 30166 ops, 1005.275 ops/s, (91/183 r/w),  23.5mb/s,   8343us cpu/op,   3.4ms latency
+ 6402: 78.350: Shutting down processes
+2015-11-27 12:19:48.466798
+Results:
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.4
+3.4
+3.5
+3.5
+3.5
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.7
+3.6
+3.7
+3.7
+3.7
+3.7
+3.6
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.6
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.6
+3.7
+3.6
+3.6
+3.7
+3.7
+3.7
+Samples: 79
+Pavg: 3.608
+Pmax: 3.700
+Pmin: 3.300
+Pstdev: 0.146
+Joules: 285.000
+mf: 0x7 500000
+Filebench Version 1.4.9.1
+ 6416: 0.000: Allocated 130MB of shared memory
+ 6416: 0.012: File-server Version 3.0-custom-noninteractive personality successfully loaded
+ 6416: 0.013: Creating/pre-allocating files and filesets
+ 6416: 0.218: Fileset bigfileset: 10000 files, 0 leafdirs, avg dir width = 20, avg dir depth = 3.1, 1240.757MB
+ 6416: 9.932: Removed any existing fileset bigfileset in 10 seconds
+ 6416: 9.932: making tree for filset /media/RAMDSK/bigfileset
+ 6416: 10.220: Creating fileset bigfileset...
+ 6416: 56.807: Preallocated 7979 of 10000 of fileset bigfileset in 47 seconds
+ 6416: 56.808: waiting for fileset pre-allocation to finish
+ 6420: 56.809: Starting 1 filereader instances
+ 6421: 56.826: Starting 4 filereaderthread threads
+ 6416: 57.832: Running...
+ 6416: 87.842: Run took 30 seconds...
+ 6416: 87.846: Per-Operation Breakdown
+statfile1            2418ops       81ops/s   0.0mb/s      0.1ms/op 28832022us/op-cpu [0ms - 2ms]
+deletefile1          2418ops       81ops/s   0.0mb/s      3.4ms/op 28827210us/op-cpu [0ms - 215ms]
+closefile3           2418ops       81ops/s   0.0mb/s      0.0ms/op 28810682us/op-cpu [0ms - 0ms]
+readfile1            2420ops       81ops/s   9.9mb/s      1.2ms/op 28836107us/op-cpu [0ms - 11ms]
+openfile2            2420ops       81ops/s   0.0mb/s      0.1ms/op 28824324us/op-cpu [0ms - 4ms]
+closefile2           2420ops       81ops/s   0.0mb/s      0.0ms/op 28815161us/op-cpu [0ms - 0ms]
+appendfilerand1      2420ops       81ops/s   0.6mb/s      1.0ms/op 28810144us/op-cpu [0ms - 148ms]
+openfile1            2420ops       81ops/s   0.0mb/s      0.1ms/op 28803101us/op-cpu [0ms - 2ms]
+closefile1           2421ops       81ops/s   0.0mb/s      0.0ms/op 28837089us/op-cpu [0ms - 0ms]
+wrtfile1             2422ops       81ops/s   9.7mb/s      4.7ms/op 28816601us/op-cpu [0ms - 29ms]
+createfile1          2422ops       81ops/s   0.0mb/s      0.8ms/op 28794560us/op-cpu [0ms - 175ms]
+ 6416: 87.846: IO Summary: 26619 ops, 887.069 ops/s, (81/161 r/w),  20.3mb/s,   9226us cpu/op,   3.9ms latency
+ 6416: 87.847: Shutting down processes
+2015-11-27 12:21:35.188516
+Results:
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.4
+3.4
+3.4
+3.5
+3.5
+3.5
+3.5
+3.5
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.5
+3.5
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.7
+3.7
+3.7
+3.7
+3.6
+3.6
+3.7
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.7
+3.6
+3.6
+3.6
+3.6
+3.7
+3.6
+3.6
+3.6
+3.6
+3.7
+3.6
+3.6
+Samples: 89
+Pavg: 3.543
+Pmax: 3.700
+Pmin: 3.200
+Pstdev: 0.125
+Joules: 315.300
+mf: 0x7 400000
+Filebench Version 1.4.9.1
+ 6429: 0.000: Allocated 130MB of shared memory
+ 6429: 0.015: File-server Version 3.0-custom-noninteractive personality successfully loaded
+ 6429: 0.016: Creating/pre-allocating files and filesets
+ 6429: 0.296: Fileset bigfileset: 10000 files, 0 leafdirs, avg dir width = 20, avg dir depth = 3.1, 1240.757MB
+ 6429: 12.930: Removed any existing fileset bigfileset in 13 seconds
+ 6429: 12.930: making tree for filset /media/RAMDSK/bigfileset
+ 6429: 13.310: Creating fileset bigfileset...
+ 6429: 72.622: Preallocated 7979 of 10000 of fileset bigfileset in 60 seconds
+ 6429: 72.623: waiting for fileset pre-allocation to finish
+ 6438: 72.624: Starting 1 filereader instances
+ 6439: 72.645: Starting 4 filereaderthread threads
+ 6429: 73.652: Running...
+ 6429: 103.664: Run took 30 seconds...
+ 6429: 103.670: Per-Operation Breakdown
+statfile1            1877ops       63ops/s   0.0mb/s      0.1ms/op 28110673us/op-cpu [0ms - 2ms]
+deletefile1          1878ops       63ops/s   0.0mb/s      6.2ms/op 28123095us/op-cpu [0ms - 686ms]
+closefile3           1878ops       63ops/s   0.0mb/s      0.1ms/op 28104640us/op-cpu [0ms - 1ms]
+readfile1            1878ops       63ops/s   7.8mb/s      1.5ms/op 28097065us/op-cpu [0ms - 13ms]
+openfile2            1879ops       63ops/s   0.0mb/s      0.2ms/op 28099086us/op-cpu [0ms - 3ms]
+closefile2           1879ops       63ops/s   0.0mb/s      0.0ms/op 28092122us/op-cpu [0ms - 1ms]
+appendfilerand1      1879ops       63ops/s   0.5mb/s      1.5ms/op 28078964us/op-cpu [0ms - 244ms]
+openfile1            1879ops       63ops/s   0.0mb/s      0.2ms/op 28062631us/op-cpu [0ms - 6ms]
+closefile1           1881ops       63ops/s   0.0mb/s      0.1ms/op 28089526us/op-cpu [0ms - 1ms]
+wrtfile1             1881ops       63ops/s   7.5mb/s      6.0ms/op 28087896us/op-cpu [0ms - 33ms]
+createfile1          1881ops       63ops/s   0.0mb/s      1.5ms/op 28061783us/op-cpu [0ms - 496ms]
+ 6429: 103.670: IO Summary: 20670 ops, 688.787 ops/s, (63/125 r/w),  15.8mb/s,  11605us cpu/op,   5.8ms latency
+ 6429: 103.671: Shutting down processes
+2015-11-27 12:23:39.057850
+Results:
+3.3
+3.2
+3.3
+3.3
+3.2
+3.2
+3.2
+3.2
+3.2
+3.3
+3.3
+3.3
+3.3
+3.2
+3.3
+3.3
+3.2
+3.3
+3.3
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.6
+3.5
+3.5
+3.5
+3.6
+3.6
+3.6
+3.5
+3.5
+3.5
+3.6
+3.6
+3.5
+3.5
+3.5
+3.6
+3.5
+3.5
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.5
+3.5
+3.5
+3.6
+3.6
+3.6
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.6
+3.6
+3.5
+3.6
+3.6
+3.6
+3.6
+3.5
+3.5
+3.5
+3.5
+3.6
+3.6
+Samples: 105
+Pavg: 3.476
+Pmax: 3.600
+Pmin: 3.200
+Pstdev: 0.118
+Joules: 365.000
+mf: 0x7 300000
+Filebench Version 1.4.9.1
+ 6447: 0.001: Allocated 130MB of shared memory
+ 6447: 0.023: File-server Version 3.0-custom-noninteractive personality successfully loaded
+ 6447: 0.023: Creating/pre-allocating files and filesets
+ 6447: 0.464: Fileset bigfileset: 10000 files, 0 leafdirs, avg dir width = 20, avg dir depth = 3.1, 1240.757MB
+ 6447: 19.686: Removed any existing fileset bigfileset in 20 seconds
+ 6447: 19.687: making tree for filset /media/RAMDSK/bigfileset
+ 6447: 20.258: Creating fileset bigfileset...
+ 6447: 106.582: Preallocated 7979 of 10000 of fileset bigfileset in 87 seconds
+ 6447: 106.583: waiting for fileset pre-allocation to finish
+ 6452: 106.584: Starting 1 filereader instances
+ 6453: 106.620: Starting 4 filereaderthread threads
+ 6447: 107.630: Running...
+ 6447: 137.647: Run took 30 seconds...
+ 6447: 137.654: Per-Operation Breakdown
+statfile1            1419ops       47ops/s   0.0mb/s      0.1ms/op 31545299us/op-cpu [0ms - 1ms]
+deletefile1          1419ops       47ops/s   0.0mb/s      4.5ms/op 31537459us/op-cpu [1ms - 304ms]
+closefile3           1420ops       47ops/s   0.0mb/s      0.1ms/op 31529070us/op-cpu [0ms - 2ms]
+readfile1            1420ops       47ops/s   5.9mb/s      2.1ms/op 31503788us/op-cpu [0ms - 13ms]
+openfile2            1420ops       47ops/s   0.0mb/s      0.2ms/op 31474951us/op-cpu [0ms - 5ms]
+closefile2           1420ops       47ops/s   0.0mb/s      0.1ms/op 31474760us/op-cpu [0ms - 1ms]
+appendfilerand1      1421ops       47ops/s   0.3mb/s      1.4ms/op 31482375us/op-cpu [0ms - 136ms]
+openfile1            1422ops       47ops/s   0.0mb/s      0.2ms/op 31500509us/op-cpu [0ms - 6ms]
+closefile1           1422ops       47ops/s   0.0mb/s      0.1ms/op 31496997us/op-cpu [0ms - 0ms]
+wrtfile1             1423ops       47ops/s   5.6mb/s      8.6ms/op 31517909us/op-cpu [0ms - 59ms]
+createfile1          1423ops       47ops/s   0.0mb/s      1.5ms/op 31471517us/op-cpu [0ms - 254ms]
+ 6447: 137.655: IO Summary: 15629 ops, 520.752 ops/s, (47/95 r/w),  11.9mb/s,  16433us cpu/op,   6.3ms latency
+ 6447: 137.656: Shutting down processes
+2015-11-27 12:26:20.260625
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.3
+3.3
+3.3
+3.4
+3.3
+3.4
+3.3
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.5
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.5
+3.5
+3.4
+3.4
+3.4
+3.5
+3.4
+3.5
+3.4
+3.4
+3.5
+3.5
+3.4
+3.4
+3.4
+3.5
+3.5
+3.4
+3.4
+3.5
+3.5
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.5
+3.5
+3.4
+3.4
+3.5
+3.5
+3.4
+3.5
+3.5
+3.4
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.4
+3.4
+3.4
+3.5
+3.5
+3.5
+3.5
+3.4
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.4
+3.4
+3.4
+3.5
+3.4
+3.5
+3.5
+3.5
+Samples: 139
+Pavg: 3.400
+Pmax: 3.500
+Pmin: 3.200
+Pstdev: 0.093
+Joules: 472.600
+mf: 0x7 200000
+Filebench Version 1.4.9.1
+ 6462: 0.000: Allocated 130MB of shared memory
+ 6462: 0.006: File-server Version 3.0-custom-noninteractive personality successfully loaded
+ 6462: 0.006: Creating/pre-allocating files and filesets
+ 6462: 0.070: Fileset bigfileset: 10000 files, 0 leafdirs, avg dir width = 20, avg dir depth = 3.1, 1240.757MB
+ 6462: 3.882: Removed any existing fileset bigfileset in 4 seconds
+ 6462: 3.883: making tree for filset /media/RAMDSK/bigfileset
+ 6462: 3.981: Creating fileset bigfileset...
+ 6462: 26.914: Preallocated 7979 of 10000 of fileset bigfileset in 23 seconds
+ 6462: 26.914: waiting for fileset pre-allocation to finish
+ 6466: 26.919: Starting 1 filereader instances
+ 6467: 26.969: Starting 4 filereaderthread threads
+ 6462: 27.972: Running...
+ 6462: 57.978: Run took 30 seconds...
+ 6462: 57.981: Per-Operation Breakdown
+statfile1            3691ops      123ops/s   0.0mb/s      0.0ms/op 18410285us/op-cpu [0ms - 0ms]
+deletefile1          3690ops      123ops/s   0.0mb/s      1.8ms/op 18415568us/op-cpu [0ms - 187ms]
+closefile3           3692ops      123ops/s   0.0mb/s      0.0ms/op 18406454us/op-cpu [0ms - 0ms]
+readfile1            3692ops      123ops/s  15.3mb/s      0.9ms/op 18404413us/op-cpu [0ms - 15ms]
+openfile2            3692ops      123ops/s   0.0mb/s      0.1ms/op 18401920us/op-cpu [0ms - 1ms]
+closefile2           3692ops      123ops/s   0.0mb/s      0.0ms/op 18408797us/op-cpu [0ms - 0ms]
+appendfilerand1      3693ops      123ops/s   0.9mb/s      0.5ms/op 18402344us/op-cpu [0ms - 145ms]
+openfile1            3693ops      123ops/s   0.0mb/s      0.1ms/op 18400545us/op-cpu [0ms - 4ms]
+closefile1           3693ops      123ops/s   0.0mb/s      0.0ms/op 18395628us/op-cpu [0ms - 0ms]
+wrtfile1             3693ops      123ops/s  15.2mb/s      2.2ms/op 18390674us/op-cpu [0ms - 101ms]
+createfile1          3694ops      123ops/s   0.0mb/s      0.6ms/op 18390181us/op-cpu [0ms - 124ms]
+ 6462: 57.981: IO Summary: 40615 ops, 1353.595 ops/s, (123/246 r/w),  31.6mb/s,   4648us cpu/op,   2.0ms latency
+ 6462: 57.981: Shutting down processes
+2015-11-27 12:27:37.791587
+Results:
+3.4
+3.4
+3.4
+3.5
+3.5
+3.6
+3.7
+3.7
+3.8
+3.9
+3.9
+4.0
+4.0
+4.0
+4.1
+4.1
+4.1
+4.2
+4.2
+4.2
+4.2
+4.2
+4.2
+4.3
+4.2
+4.2
+4.2
+4.2
+4.3
+4.2
+4.3
+4.2
+4.2
+4.2
+4.3
+4.3
+4.2
+4.2
+4.2
+4.2
+4.2
+4.2
+4.2
+4.2
+4.2
+4.2
+4.2
+4.2
+4.1
+4.2
+4.2
+4.2
+4.2
+4.2
+4.2
+4.2
+4.2
+4.2
+4.1
+4.0
+Samples: 60
+Pavg: 4.080
+Pmax: 4.300
+Pmin: 3.400
+Pstdev: 0.241
+Joules: 244.800
+mf: 0x3 1400000
+Filebench Version 1.4.9.1
+ 6475: 0.000: Allocated 130MB of shared memory
+ 6475: 0.006: File-server Version 3.0-custom-noninteractive personality successfully loaded
+ 6475: 0.006: Creating/pre-allocating files and filesets
+ 6475: 0.074: Fileset bigfileset: 10000 files, 0 leafdirs, avg dir width = 20, avg dir depth = 3.1, 1240.757MB
+ 6475: 4.160: Removed any existing fileset bigfileset in 5 seconds
+ 6475: 4.161: making tree for filset /media/RAMDSK/bigfileset
+ 6475: 4.264: Creating fileset bigfileset...
+ 6475: 27.866: Preallocated 7979 of 10000 of fileset bigfileset in 24 seconds
+ 6475: 27.867: waiting for fileset pre-allocation to finish
+ 6479: 27.867: Starting 1 filereader instances
+ 6480: 27.918: Starting 4 filereaderthread threads
+ 6475: 28.920: Running...
+ 6475: 58.928: Run took 30 seconds...
+ 6475: 58.930: Per-Operation Breakdown
+statfile1            3603ops      120ops/s   0.0mb/s      0.0ms/op 18531058us/op-cpu [0ms - 0ms]
+deletefile1          3604ops      120ops/s   0.0mb/s      2.2ms/op 18532353us/op-cpu [0ms - 194ms]
+closefile3           3604ops      120ops/s   0.0mb/s      0.0ms/op 18525780us/op-cpu [0ms - 0ms]
+readfile1            3604ops      120ops/s  15.0mb/s      0.8ms/op 18520242us/op-cpu [0ms - 4ms]
+openfile2            3604ops      120ops/s   0.0mb/s      0.1ms/op 18518741us/op-cpu [0ms - 4ms]
+closefile2           3605ops      120ops/s   0.0mb/s      0.0ms/op 18523066us/op-cpu [0ms - 0ms]
+appendfilerand1      3605ops      120ops/s   0.9mb/s      1.0ms/op 18520584us/op-cpu [0ms - 138ms]
+openfile1            3605ops      120ops/s   0.0mb/s      0.1ms/op 18524290us/op-cpu [0ms - 8ms]
+closefile1           3606ops      120ops/s   0.0mb/s      0.0ms/op 18517921us/op-cpu [0ms - 0ms]
+wrtfile1             3606ops      120ops/s  14.8mb/s      2.2ms/op 18511479us/op-cpu [0ms - 114ms]
+createfile1          3606ops      120ops/s   0.0mb/s      0.5ms/op 18507783us/op-cpu [0ms - 118ms]
+ 6475: 58.930: IO Summary: 39652 ops, 1321.464 ops/s, (120/240 r/w),  30.8mb/s,   4667us cpu/op,   2.3ms latency
+ 6475: 58.930: Shutting down processes
+2015-11-27 12:28:53.061094
+Results:
+3.5
+3.5
+3.5
+3.6
+3.6
+3.6
+3.7
+3.7
+3.8
+3.8
+3.9
+3.9
+4.0
+4.0
+4.0
+4.0
+4.1
+4.1
+4.1
+4.1
+4.1
+4.1
+4.2
+4.2
+4.2
+4.2
+4.2
+4.2
+4.1
+4.1
+4.1
+4.1
+4.2
+4.1
+4.1
+4.1
+4.2
+4.1
+4.2
+4.2
+4.1
+4.1
+4.2
+4.1
+4.1
+4.1
+4.1
+4.1
+4.1
+4.1
+4.1
+4.1
+4.1
+4.1
+4.1
+4.1
+4.1
+4.1
+4.1
+Samples: 59
+Pavg: 4.025
+Pmax: 4.200
+Pmin: 3.500
+Pstdev: 0.194
+Joules: 237.500
+mf: 0x3 1300000
+Filebench Version 1.4.9.1
+ 6488: 0.000: Allocated 130MB of shared memory
+ 6488: 0.006: File-server Version 3.0-custom-noninteractive personality successfully loaded
+ 6488: 0.007: Creating/pre-allocating files and filesets
+ 6488: 0.079: Fileset bigfileset: 10000 files, 0 leafdirs, avg dir width = 20, avg dir depth = 3.1, 1240.757MB
+ 6488: 4.284: Removed any existing fileset bigfileset in 5 seconds
+ 6488: 4.284: making tree for filset /media/RAMDSK/bigfileset
+ 6488: 4.415: Creating fileset bigfileset...
+ 6488: 26.915: Preallocated 7979 of 10000 of fileset bigfileset in 23 seconds
+ 6488: 26.916: waiting for fileset pre-allocation to finish
+ 6492: 26.917: Starting 1 filereader instances
+ 6493: 26.979: Starting 4 filereaderthread threads
+ 6488: 27.981: Running...
+ 6488: 57.988: Run took 30 seconds...
+ 6488: 57.991: Per-Operation Breakdown
+statfile1            3478ops      116ops/s   0.0mb/s      0.0ms/op 18744834us/op-cpu [0ms - 0ms]
+deletefile1          3478ops      116ops/s   0.0mb/s      1.6ms/op 18742777us/op-cpu [0ms - 156ms]
+closefile3           3478ops      116ops/s   0.0mb/s      0.0ms/op 18733927us/op-cpu [0ms - 0ms]
+readfile1            3479ops      116ops/s  14.4mb/s      0.9ms/op 18736034us/op-cpu [0ms - 6ms]
+openfile2            3479ops      116ops/s   0.0mb/s      0.1ms/op 18732467us/op-cpu [0ms - 7ms]
+closefile2           3479ops      116ops/s   0.0mb/s      0.0ms/op 18729613us/op-cpu [0ms - 0ms]
+appendfilerand1      3479ops      116ops/s   0.9mb/s      0.5ms/op 18726688us/op-cpu [0ms - 145ms]
+openfile1            3479ops      116ops/s   0.0mb/s      0.1ms/op 18722554us/op-cpu [0ms - 8ms]
+closefile1           3480ops      116ops/s   0.0mb/s      0.0ms/op 18725586us/op-cpu [0ms - 0ms]
+wrtfile1             3480ops      116ops/s  14.2mb/s      2.3ms/op 18720300us/op-cpu [0ms - 139ms]
+createfile1          3481ops      116ops/s   0.0mb/s      0.7ms/op 18722161us/op-cpu [0ms - 163ms]
+ 6488: 57.992: IO Summary: 38270 ops, 1275.420 ops/s, (116/232 r/w),  29.5mb/s,   4866us cpu/op,   2.0ms latency
+ 6488: 57.992: Shutting down processes
+2015-11-27 12:30:07.397915
+Results:
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.6
+3.6
+3.7
+3.8
+3.8
+3.9
+3.9
+4.0
+4.0
+4.0
+4.0
+4.1
+4.0
+4.1
+4.1
+4.1
+4.1
+4.1
+4.2
+4.2
+4.1
+4.1
+4.1
+4.1
+4.1
+4.1
+4.1
+4.1
+4.1
+4.1
+4.1
+4.1
+4.0
+4.1
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+Samples: 59
+Pavg: 3.959
+Pmax: 4.200
+Pmin: 3.500
+Pstdev: 0.192
+Joules: 233.600
+mf: 0x3 1200000
+Filebench Version 1.4.9.1
+ 6501: 0.000: Allocated 130MB of shared memory
+ 6501: 0.006: File-server Version 3.0-custom-noninteractive personality successfully loaded
+ 6501: 0.007: Creating/pre-allocating files and filesets
+ 6501: 0.085: Fileset bigfileset: 10000 files, 0 leafdirs, avg dir width = 20, avg dir depth = 3.1, 1240.757MB
+ 6501: 4.690: Removed any existing fileset bigfileset in 5 seconds
+ 6501: 4.690: making tree for filset /media/RAMDSK/bigfileset
+ 6501: 4.807: Creating fileset bigfileset...
+ 6501: 29.619: Preallocated 7979 of 10000 of fileset bigfileset in 25 seconds
+ 6501: 29.619: waiting for fileset pre-allocation to finish
+ 6505: 29.620: Starting 1 filereader instances
+ 6506: 29.670: Starting 4 filereaderthread threads
+ 6501: 30.672: Running...
+ 6501: 60.679: Run took 30 seconds...
+ 6501: 60.682: Per-Operation Breakdown
+statfile1            3341ops      111ops/s   0.0mb/s      0.0ms/op 18774561us/op-cpu [0ms - 0ms]
+deletefile1          3341ops      111ops/s   0.0mb/s      1.7ms/op 18768179us/op-cpu [0ms - 142ms]
+closefile3           3341ops      111ops/s   0.0mb/s      0.0ms/op 18761735us/op-cpu [0ms - 0ms]
+readfile1            3341ops      111ops/s  14.0mb/s      0.9ms/op 18755483us/op-cpu [0ms - 11ms]
+openfile2            3341ops      111ops/s   0.0mb/s      0.1ms/op 18751415us/op-cpu [0ms - 4ms]
+closefile2           3341ops      111ops/s   0.0mb/s      0.0ms/op 18759051us/op-cpu [0ms - 0ms]
+appendfilerand1      3342ops      111ops/s   0.8mb/s      0.7ms/op 18753104us/op-cpu [0ms - 127ms]
+openfile1            3343ops      111ops/s   0.0mb/s      0.1ms/op 18755623us/op-cpu [0ms - 4ms]
+closefile1           3343ops      111ops/s   0.0mb/s      0.0ms/op 18749118us/op-cpu [0ms - 0ms]
+wrtfile1             3343ops      111ops/s  13.9mb/s      2.4ms/op 18746165us/op-cpu [0ms - 27ms]
+createfile1          3343ops      111ops/s   0.0mb/s      0.8ms/op 18742119us/op-cpu [0ms - 149ms]
+ 6501: 60.683: IO Summary: 36760 ops, 1225.097 ops/s, (111/223 r/w),  28.7mb/s,   5030us cpu/op,   2.2ms latency
+ 6501: 60.683: Shutting down processes
+2015-11-27 12:31:24.556642
+Results:
+3.4
+3.5
+3.5
+3.5
+3.5
+3.5
+3.6
+3.6
+3.7
+3.7
+3.7
+3.8
+3.8
+3.8
+3.9
+3.9
+3.9
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.1
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+3.9
+4.0
+4.0
+3.9
+3.9
+3.9
+4.0
+4.0
+3.9
+3.9
+3.9
+4.0
+4.0
+3.9
+3.9
+3.9
+4.0
+3.9
+3.9
+3.9
+Samples: 61
+Pavg: 3.887
+Pmax: 4.100
+Pmin: 3.400
+Pstdev: 0.167
+Joules: 237.100
+mf: 0x3 1100000
+Filebench Version 1.4.9.1
+ 6514: 0.000: Allocated 130MB of shared memory
+ 6514: 0.007: File-server Version 3.0-custom-noninteractive personality successfully loaded
+ 6514: 0.007: Creating/pre-allocating files and filesets
+ 6514: 0.091: Fileset bigfileset: 10000 files, 0 leafdirs, avg dir width = 20, avg dir depth = 3.1, 1240.757MB
+ 6514: 4.845: Removed any existing fileset bigfileset in 5 seconds
+ 6514: 4.845: making tree for filset /media/RAMDSK/bigfileset
+ 6514: 4.995: Creating fileset bigfileset...
+ 6514: 30.515: Preallocated 7979 of 10000 of fileset bigfileset in 26 seconds
+ 6514: 30.515: waiting for fileset pre-allocation to finish
+ 6518: 30.523: Starting 1 filereader instances
+ 6519: 30.573: Starting 4 filereaderthread threads
+ 6514: 31.576: Running...
+ 6514: 61.583: Run took 30 seconds...
+ 6514: 61.585: Per-Operation Breakdown
+statfile1            3182ops      106ops/s   0.0mb/s      0.0ms/op 18877106us/op-cpu [0ms - 0ms]
+deletefile1          3182ops      106ops/s   0.0mb/s      1.6ms/op 18873037us/op-cpu [0ms - 321ms]
+closefile3           3182ops      106ops/s   0.0mb/s      0.0ms/op 18869140us/op-cpu [0ms - 0ms]
+readfile1            3182ops      106ops/s  12.9mb/s      0.9ms/op 18863767us/op-cpu [0ms - 24ms]
+openfile2            3182ops      106ops/s   0.0mb/s      0.1ms/op 18858496us/op-cpu [0ms - 1ms]
+closefile2           3182ops      106ops/s   0.0mb/s      0.0ms/op 18852804us/op-cpu [0ms - 0ms]
+appendfilerand1      3183ops      106ops/s   0.8mb/s      0.8ms/op 18851765us/op-cpu [0ms - 273ms]
+openfile1            3183ops      106ops/s   0.0mb/s      0.1ms/op 18845695us/op-cpu [0ms - 5ms]
+closefile1           3186ops      106ops/s   0.0mb/s      0.0ms/op 18862975us/op-cpu [0ms - 0ms]
+wrtfile1             3186ops      106ops/s  13.3mb/s      2.6ms/op 18861070us/op-cpu [0ms - 105ms]
+createfile1          3186ops      106ops/s   0.0mb/s      0.9ms/op 18855461us/op-cpu [0ms - 343ms]
+ 6514: 61.585: IO Summary: 35015 ops, 1166.943 ops/s, (106/212 r/w),  27.0mb/s,   5338us cpu/op,   2.3ms latency
+ 6514: 61.586: Shutting down processes
+2015-11-27 12:32:42.852364
+Results:
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.5
+3.6
+3.6
+3.6
+3.7
+3.7
+3.8
+3.8
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+3.9
+4.0
+3.9
+3.9
+3.9
+4.0
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.8
+3.9
+3.9
+3.9
+3.9
+3.8
+Samples: 62
+Pavg: 3.839
+Pmax: 4.000
+Pmin: 3.400
+Pstdev: 0.177
+Joules: 238.000
+mf: 0x3 1000000
+Filebench Version 1.4.9.1
+ 6532: 0.000: Allocated 130MB of shared memory
+ 6532: 0.007: File-server Version 3.0-custom-noninteractive personality successfully loaded
+ 6532: 0.007: Creating/pre-allocating files and filesets
+ 6532: 0.101: Fileset bigfileset: 10000 files, 0 leafdirs, avg dir width = 20, avg dir depth = 3.1, 1240.757MB
+ 6532: 5.363: Removed any existing fileset bigfileset in 6 seconds
+ 6532: 5.363: making tree for filset /media/RAMDSK/bigfileset
+ 6532: 5.505: Creating fileset bigfileset...
+ 6532: 32.203: Preallocated 7979 of 10000 of fileset bigfileset in 27 seconds
+ 6532: 32.203: waiting for fileset pre-allocation to finish
+ 6537: 32.203: Starting 1 filereader instances
+ 6538: 32.262: Starting 4 filereaderthread threads
+ 6532: 33.265: Running...
+ 6532: 63.273: Run took 30 seconds...
+ 6532: 63.276: Per-Operation Breakdown
+statfile1            3014ops      100ops/s   0.0mb/s      0.0ms/op 19141296us/op-cpu [0ms - 1ms]
+deletefile1          3014ops      100ops/s   0.0mb/s      2.0ms/op 19134265us/op-cpu [0ms - 227ms]
+closefile3           3014ops      100ops/s   0.0mb/s      0.0ms/op 19127222us/op-cpu [0ms - 0ms]
+readfile1            3014ops      100ops/s  12.4mb/s      0.9ms/op 19124463us/op-cpu [0ms - 8ms]
+openfile2            3015ops      100ops/s   0.0mb/s      0.1ms/op 19125165us/op-cpu [0ms - 4ms]
+closefile2           3015ops      100ops/s   0.0mb/s      0.0ms/op 19122113us/op-cpu [0ms - 0ms]
+appendfilerand1      3015ops      100ops/s   0.8mb/s      0.6ms/op 19117364us/op-cpu [0ms - 207ms]
+openfile1            3015ops      100ops/s   0.0mb/s      0.1ms/op 19112380us/op-cpu [0ms - 15ms]
+closefile1           3016ops      101ops/s   0.0mb/s      0.0ms/op 19118601us/op-cpu [0ms - 0ms]
+wrtfile1             3018ops      101ops/s  12.4mb/s      2.7ms/op 19127207us/op-cpu [0ms - 19ms]
+createfile1          3018ops      101ops/s   0.0mb/s      0.5ms/op 19120905us/op-cpu [0ms - 126ms]
+ 6532: 63.277: IO Summary: 33168 ops, 1105.338 ops/s, (100/201 r/w),  25.6mb/s,   5757us cpu/op,   2.3ms latency
+ 6532: 63.277: Shutting down processes
+2015-11-27 12:34:02.902583
+Results:
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.5
+3.5
+3.6
+3.6
+3.7
+3.7
+3.8
+3.8
+3.8
+3.8
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+4.0
+4.0
+4.0
+4.0
+4.0
+3.9
+4.0
+3.9
+4.0
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+4.0
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.8
+3.8
+3.9
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.9
+3.9
+3.8
+Samples: 64
+Pavg: 3.803
+Pmax: 4.000
+Pmin: 3.400
+Pstdev: 0.176
+Joules: 243.400
+mf: 0x3 900000
+Filebench Version 1.4.9.1
+ 6546: 0.000: Allocated 130MB of shared memory
+ 6546: 0.008: File-server Version 3.0-custom-noninteractive personality successfully loaded
+ 6546: 0.008: Creating/pre-allocating files and filesets
+ 6546: 0.112: Fileset bigfileset: 10000 files, 0 leafdirs, avg dir width = 20, avg dir depth = 3.1, 1240.757MB
+ 6546: 5.935: Removed any existing fileset bigfileset in 6 seconds
+ 6546: 5.936: making tree for filset /media/RAMDSK/bigfileset
+ 6546: 6.089: Creating fileset bigfileset...
+ 6546: 34.567: Preallocated 7979 of 10000 of fileset bigfileset in 29 seconds
+ 6546: 34.568: waiting for fileset pre-allocation to finish
+ 6550: 34.574: Starting 1 filereader instances
+ 6551: 34.627: Starting 4 filereaderthread threads
+ 6546: 35.629: Running...
+ 6546: 65.639: Run took 30 seconds...
+ 6546: 65.642: Per-Operation Breakdown
+statfile1            2798ops       93ops/s   0.0mb/s      0.0ms/op 19085405us/op-cpu [0ms - 0ms]
+deletefile1          2798ops       93ops/s   0.0mb/s      1.6ms/op 19082526us/op-cpu [0ms - 122ms]
+closefile3           2802ops       93ops/s   0.0mb/s      0.0ms/op 19105916us/op-cpu [0ms - 0ms]
+readfile1            2802ops       93ops/s  11.5mb/s      1.0ms/op 19091976us/op-cpu [0ms - 17ms]
+openfile2            2802ops       93ops/s   0.0mb/s      0.1ms/op 19088980us/op-cpu [0ms - 1ms]
+closefile2           2802ops       93ops/s   0.0mb/s      0.0ms/op 19081248us/op-cpu [0ms - 1ms]
+appendfilerand1      2802ops       93ops/s   0.7mb/s      0.7ms/op 19080583us/op-cpu [0ms - 114ms]
+openfile1            2802ops       93ops/s   0.0mb/s      0.1ms/op 19079862us/op-cpu [0ms - 3ms]
+closefile1           2802ops       93ops/s   0.0mb/s      0.0ms/op 19072183us/op-cpu [0ms - 0ms]
+wrtfile1             2802ops       93ops/s  11.6mb/s      3.0ms/op 19072235us/op-cpu [0ms - 20ms]
+createfile1          2802ops       93ops/s   0.0mb/s      1.4ms/op 19060513us/op-cpu [0ms - 586ms]
+ 6546: 65.643: IO Summary: 30814 ops, 1026.864 ops/s, (93/187 r/w),  23.8mb/s,   6079us cpu/op,   2.6ms latency
+ 6546: 65.643: Shutting down processes
+2015-11-27 12:35:25.582211
+Results:
+3.4
+3.3
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.5
+3.5
+3.6
+3.6
+3.6
+3.7
+3.7
+3.7
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.8
+3.9
+3.9
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.7
+3.7
+3.7
+3.8
+3.8
+3.7
+3.7
+Samples: 67
+Pavg: 3.742
+Pmax: 3.900
+Pmin: 3.300
+Pstdev: 0.158
+Joules: 250.700
+mf: 0x3 800000
+Filebench Version 1.4.9.1
+ 6559: 0.000: Allocated 130MB of shared memory
+ 6559: 0.008: File-server Version 3.0-custom-noninteractive personality successfully loaded
+ 6559: 0.008: Creating/pre-allocating files and filesets
+ 6559: 0.127: Fileset bigfileset: 10000 files, 0 leafdirs, avg dir width = 20, avg dir depth = 3.1, 1240.757MB
+ 6559: 6.547: Removed any existing fileset bigfileset in 7 seconds
+ 6559: 6.547: making tree for filset /media/RAMDSK/bigfileset
+ 6559: 6.721: Creating fileset bigfileset...
+ 6559: 37.504: Preallocated 7979 of 10000 of fileset bigfileset in 31 seconds
+ 6559: 37.504: waiting for fileset pre-allocation to finish
+ 6563: 37.505: Starting 1 filereader instances
+ 6564: 37.555: Starting 4 filereaderthread threads
+ 6559: 38.558: Running...
+ 6559: 68.567: Run took 30 seconds...
+ 6559: 68.571: Per-Operation Breakdown
+statfile1            2642ops       88ops/s   0.0mb/s      0.0ms/op 19510226us/op-cpu [0ms - 0ms]
+deletefile1          2644ops       88ops/s   0.0mb/s      2.6ms/op 19523762us/op-cpu [0ms - 399ms]
+closefile3           2644ops       88ops/s   0.0mb/s      0.0ms/op 19516748us/op-cpu [0ms - 0ms]
+readfile1            2644ops       88ops/s  10.8mb/s      1.0ms/op 19513456us/op-cpu [0ms - 8ms]
+openfile2            2644ops       88ops/s   0.0mb/s      0.1ms/op 19506869us/op-cpu [0ms - 8ms]
+closefile2           2645ops       88ops/s   0.0mb/s      0.0ms/op 19510695us/op-cpu [0ms - 0ms]
+appendfilerand1      2645ops       88ops/s   0.7mb/s      0.8ms/op 19500496us/op-cpu [0ms - 236ms]
+openfile1            2645ops       88ops/s   0.0mb/s      0.1ms/op 19494714us/op-cpu [0ms - 6ms]
+closefile1           2645ops       88ops/s   0.0mb/s      0.0ms/op 19492874us/op-cpu [0ms - 0ms]
+wrtfile1             2645ops       88ops/s  11.0mb/s      3.2ms/op 19486441us/op-cpu [0ms - 26ms]
+createfile1          2646ops       88ops/s   0.0mb/s      0.6ms/op 19488143us/op-cpu [0ms - 143ms]
+ 6559: 68.571: IO Summary: 29089 ops, 969.395 ops/s, (88/176 r/w),  22.5mb/s,   6352us cpu/op,   2.8ms latency
+ 6559: 68.571: Shutting down processes
+2015-11-27 12:36:51.391748
+Results:
+3.3
+3.3
+3.3
+3.3
+3.3
+3.4
+3.3
+3.3
+3.4
+3.4
+3.5
+3.5
+3.6
+3.6
+3.6
+3.6
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.6
+3.7
+3.7
+3.7
+3.7
+3.6
+Samples: 69
+Pavg: 3.670
+Pmax: 3.800
+Pmin: 3.300
+Pstdev: 0.158
+Joules: 253.200
+mf: 0x3 700000
+Filebench Version 1.4.9.1
+ 6572: 0.000: Allocated 130MB of shared memory
+ 6572: 0.010: File-server Version 3.0-custom-noninteractive personality successfully loaded
+ 6572: 0.011: Creating/pre-allocating files and filesets
+ 6572: 0.149: Fileset bigfileset: 10000 files, 0 leafdirs, avg dir width = 20, avg dir depth = 3.1, 1240.757MB
+ 6572: 7.483: Removed any existing fileset bigfileset in 8 seconds
+ 6572: 7.484: making tree for filset /media/RAMDSK/bigfileset
+ 6572: 7.682: Creating fileset bigfileset...
+ 6572: 42.062: Preallocated 7979 of 10000 of fileset bigfileset in 35 seconds
+ 6572: 42.063: waiting for fileset pre-allocation to finish
+ 6576: 42.064: Starting 1 filereader instances
+ 6577: 42.110: Starting 4 filereaderthread threads
+ 6572: 43.113: Running...
+ 6572: 73.123: Run took 30 seconds...
+ 6572: 73.126: Per-Operation Breakdown
+statfile1            2326ops       78ops/s   0.0mb/s      0.1ms/op 19134396us/op-cpu [0ms - 4ms]
+deletefile1          2327ops       78ops/s   0.0mb/s      3.7ms/op 19152660us/op-cpu [0ms - 366ms]
+closefile3           2328ops       78ops/s   0.0mb/s      0.0ms/op 19139951us/op-cpu [0ms - 0ms]
+readfile1            2328ops       78ops/s   9.9mb/s      1.1ms/op 19138250us/op-cpu [0ms - 6ms]
+openfile2            2328ops       78ops/s   0.0mb/s      0.1ms/op 19129148us/op-cpu [0ms - 3ms]
+closefile2           2328ops       78ops/s   0.0mb/s      0.0ms/op 19119476us/op-cpu [0ms - 0ms]
+appendfilerand1      2328ops       78ops/s   0.6mb/s      1.4ms/op 19111648us/op-cpu [0ms - 462ms]
+openfile1            2328ops       78ops/s   0.0mb/s      0.1ms/op 19107022us/op-cpu [0ms - 4ms]
+closefile1           2328ops       78ops/s   0.0mb/s      0.0ms/op 19106721us/op-cpu [0ms - 0ms]
+wrtfile1             2329ops       78ops/s   9.4mb/s      3.5ms/op 19107753us/op-cpu [0ms - 24ms]
+createfile1          2329ops       78ops/s   0.0mb/s      0.8ms/op 19097497us/op-cpu [0ms - 206ms]
+ 6572: 73.127: IO Summary: 25607 ops, 853.368 ops/s, (78/155 r/w),  20.0mb/s,   7193us cpu/op,   3.6ms latency
+ 6572: 73.127: Shutting down processes
+2015-11-27 12:38:22.138758
+Results:
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.4
+3.5
+3.5
+3.5
+3.5
+3.6
+3.6
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.8
+3.8
+3.8
+3.7
+3.8
+3.7
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.7
+3.7
+3.8
+3.8
+3.8
+3.8
+3.7
+3.7
+3.7
+3.7
+3.8
+3.7
+3.7
+3.8
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.6
+3.6
+3.7
+3.7
+3.6
+3.6
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.6
+3.6
+Samples: 74
+Pavg: 3.642
+Pmax: 3.800
+Pmin: 3.300
+Pstdev: 0.158
+Joules: 269.500
+mf: 0x3 600000
+Filebench Version 1.4.9.1
+ 6585: 0.000: Allocated 130MB of shared memory
+ 6585: 0.011: File-server Version 3.0-custom-noninteractive personality successfully loaded
+ 6585: 0.012: Creating/pre-allocating files and filesets
+ 6585: 0.176: Fileset bigfileset: 10000 files, 0 leafdirs, avg dir width = 20, avg dir depth = 3.1, 1240.757MB
+ 6585: 8.662: Removed any existing fileset bigfileset in 9 seconds
+ 6585: 8.663: making tree for filset /media/RAMDSK/bigfileset
+ 6585: 8.899: Creating fileset bigfileset...
+ 6585: 48.089: Preallocated 7979 of 10000 of fileset bigfileset in 40 seconds
+ 6585: 48.089: waiting for fileset pre-allocation to finish
+ 6590: 48.096: Starting 1 filereader instances
+ 6591: 48.151: Starting 4 filereaderthread threads
+ 6585: 49.154: Running...
+ 6585: 79.164: Run took 30 seconds...
+ 6585: 79.168: Per-Operation Breakdown
+statfile1            2145ops       71ops/s   0.0mb/s      0.1ms/op 20568895us/op-cpu [0ms - 0ms]
+deletefile1          2145ops       71ops/s   0.0mb/s      2.6ms/op 20567366us/op-cpu [0ms - 219ms]
+closefile3           2145ops       71ops/s   0.0mb/s      0.0ms/op 20556867us/op-cpu [0ms - 0ms]
+readfile1            2146ops       72ops/s   8.8mb/s      1.1ms/op 20561262us/op-cpu [0ms - 8ms]
+openfile2            2146ops       72ops/s   0.0mb/s      0.1ms/op 20555363us/op-cpu [0ms - 4ms]
+closefile2           2147ops       72ops/s   0.0mb/s      0.0ms/op 20563765us/op-cpu [0ms - 0ms]
+appendfilerand1      2149ops       72ops/s   0.5mb/s      1.0ms/op 20563959us/op-cpu [0ms - 141ms]
+openfile1            2149ops       72ops/s   0.0mb/s      0.1ms/op 20548797us/op-cpu [0ms - 10ms]
+closefile1           2149ops       72ops/s   0.0mb/s      0.0ms/op 20548545us/op-cpu [0ms - 0ms]
+wrtfile1             2149ops       72ops/s   9.0mb/s      4.2ms/op 20545532us/op-cpu [0ms - 28ms]
+createfile1          2149ops       72ops/s   0.0mb/s      0.7ms/op 20531605us/op-cpu [0ms - 110ms]
+ 6585: 79.168: IO Summary: 23619 ops, 787.107 ops/s, (72/143 r/w),  18.4mb/s,   7959us cpu/op,   3.3ms latency
+ 6585: 79.168: Shutting down processes
+2015-11-27 12:39:59.410768
+Results:
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.4
+3.4
+3.5
+3.5
+3.5
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.7
+3.7
+3.7
+3.7
+3.6
+3.6
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.6
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.5
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.5
+3.6
+3.5
+3.5
+3.6
+3.6
+3.5
+3.5
+3.6
+3.6
+3.6
+3.6
+3.5
+Samples: 80
+Pavg: 3.565
+Pmax: 3.700
+Pmin: 3.300
+Pstdev: 0.137
+Joules: 285.200
+mf: 0x3 500000
+Filebench Version 1.4.9.1
+ 6604: 0.000: Allocated 130MB of shared memory
+ 6604: 0.012: File-server Version 3.0-custom-noninteractive personality successfully loaded
+ 6604: 0.013: Creating/pre-allocating files and filesets
+ 6604: 0.218: Fileset bigfileset: 10000 files, 0 leafdirs, avg dir width = 20, avg dir depth = 3.1, 1240.757MB
+ 6604: 10.709: Removed any existing fileset bigfileset in 11 seconds
+ 6604: 10.710: making tree for filset /media/RAMDSK/bigfileset
+ 6604: 10.997: Creating fileset bigfileset...
+ 6604: 58.782: Preallocated 7979 of 10000 of fileset bigfileset in 48 seconds
+ 6604: 58.783: waiting for fileset pre-allocation to finish
+ 6608: 58.784: Starting 1 filereader instances
+ 6609: 58.840: Starting 4 filereaderthread threads
+ 6604: 59.845: Running...
+ 6604: 89.857: Run took 30 seconds...
+ 6604: 89.863: Per-Operation Breakdown
+statfile1            1802ops       60ops/s   0.0mb/s      0.1ms/op 20675295us/op-cpu [0ms - 0ms]
+deletefile1          1803ops       60ops/s   0.0mb/s      3.2ms/op 20683248us/op-cpu [0ms - 555ms]
+closefile3           1803ops       60ops/s   0.0mb/s      0.0ms/op 20675810us/op-cpu [0ms - 0ms]
+readfile1            1803ops       60ops/s   7.5mb/s      1.3ms/op 20666368us/op-cpu [0ms - 11ms]
+openfile2            1803ops       60ops/s   0.0mb/s      0.1ms/op 20659213us/op-cpu [0ms - 4ms]
+closefile2           1803ops       60ops/s   0.0mb/s      0.0ms/op 20649773us/op-cpu [0ms - 0ms]
+appendfilerand1      1803ops       60ops/s   0.5mb/s      1.6ms/op 20641637us/op-cpu [0ms - 555ms]
+openfile1            1803ops       60ops/s   0.0mb/s      0.1ms/op 20659369us/op-cpu [0ms - 3ms]
+closefile1           1804ops       60ops/s   0.0mb/s      0.0ms/op 20645502us/op-cpu [0ms - 0ms]
+wrtfile1             1804ops       60ops/s   7.4mb/s      5.0ms/op 20644095us/op-cpu [0ms - 29ms]
+createfile1          1804ops       60ops/s   0.0mb/s      0.8ms/op 20641356us/op-cpu [0ms - 113ms]
+ 6604: 89.864: IO Summary: 19835 ops, 660.970 ops/s, (60/120 r/w),  15.3mb/s,   9593us cpu/op,   4.1ms latency
+ 6604: 89.865: Shutting down processes
+2015-11-27 12:41:48.254141
+Results:
+3.3
+3.3
+3.3
+3.2
+3.3
+3.3
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.4
+3.4
+3.5
+3.4
+3.5
+3.5
+3.5
+3.5
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.5
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.7
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.5
+3.6
+3.6
+3.6
+3.6
+3.5
+3.5
+3.5
+3.5
+3.6
+3.5
+3.5
+3.5
+3.5
+3.6
+3.5
+Samples: 91
+Pavg: 3.522
+Pmax: 3.700
+Pmin: 3.200
+Pstdev: 0.120
+Joules: 320.500
+mf: 0x3 400000
+Filebench Version 1.4.9.1
+ 6617: 0.000: Allocated 130MB of shared memory
+ 6617: 0.015: File-server Version 3.0-custom-noninteractive personality successfully loaded
+ 6617: 0.016: Creating/pre-allocating files and filesets
+ 6617: 0.294: Fileset bigfileset: 10000 files, 0 leafdirs, avg dir width = 20, avg dir depth = 3.1, 1240.757MB
+ 6617: 14.605: Removed any existing fileset bigfileset in 15 seconds
+ 6617: 14.606: making tree for filset /media/RAMDSK/bigfileset
+ 6617: 14.987: Creating fileset bigfileset...
+ 6617: 74.273: Preallocated 7979 of 10000 of fileset bigfileset in 60 seconds
+ 6617: 74.274: waiting for fileset pre-allocation to finish
+ 6621: 74.276: Starting 1 filereader instances
+ 6622: 74.349: Starting 4 filereaderthread threads
+ 6617: 75.354: Running...
+ 6617: 105.367: Run took 30 seconds...
+ 6617: 105.374: Per-Operation Breakdown
+statfile1            1469ops       49ops/s   0.0mb/s      0.1ms/op 21540796us/op-cpu [0ms - 0ms]
+deletefile1          1469ops       49ops/s   0.0mb/s      4.2ms/op 21521484us/op-cpu [0ms - 642ms]
+closefile3           1470ops       49ops/s   0.0mb/s      0.1ms/op 21529071us/op-cpu [0ms - 0ms]
+readfile1            1470ops       49ops/s   6.1mb/s      1.5ms/op 21511523us/op-cpu [0ms - 13ms]
+openfile2            1470ops       49ops/s   0.0mb/s      0.2ms/op 21497183us/op-cpu [0ms - 3ms]
+closefile2           1470ops       49ops/s   0.0mb/s      0.0ms/op 21493935us/op-cpu [0ms - 1ms]
+appendfilerand1      1471ops       49ops/s   0.4mb/s      1.7ms/op 21528174us/op-cpu [0ms - 638ms]
+openfile1            1472ops       49ops/s   0.0mb/s      0.2ms/op 21503213us/op-cpu [0ms - 4ms]
+closefile1           1472ops       49ops/s   0.0mb/s      0.1ms/op 21497425us/op-cpu [0ms - 1ms]
+wrtfile1             1473ops       49ops/s   6.0mb/s      6.4ms/op 21505716us/op-cpu [0ms - 47ms]
+createfile1          1473ops       49ops/s   0.0mb/s      2.5ms/op 21486860us/op-cpu [0ms - 600ms]
+ 6617: 105.375: IO Summary: 16179 ops, 539.110 ops/s, (49/98 r/w),  12.5mb/s,  11581us cpu/op,   5.7ms latency
+ 6617: 105.375: Shutting down processes
+2015-11-27 12:43:53.877060
+Results:
+3.2
+3.2
+3.3
+3.3
+3.2
+3.2
+3.3
+3.3
+3.2
+3.2
+3.2
+3.2
+3.3
+3.3
+3.3
+3.3
+3.2
+3.3
+3.3
+3.3
+3.4
+3.4
+3.4
+3.4
+3.4
+3.5
+3.4
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.6
+3.6
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.5
+3.6
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.4
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.4
+3.4
+3.4
+3.4
+3.5
+3.5
+3.5
+Samples: 107
+Pavg: 3.453
+Pmax: 3.600
+Pmin: 3.200
+Pstdev: 0.107
+Joules: 369.500
+mf: 0x3 300000
+Filebench Version 1.4.9.1
+ 6630: 0.000: Allocated 130MB of shared memory
+ 6630: 0.021: File-server Version 3.0-custom-noninteractive personality successfully loaded
+ 6630: 0.022: Creating/pre-allocating files and filesets
+ 6630: 0.461: Fileset bigfileset: 10000 files, 0 leafdirs, avg dir width = 20, avg dir depth = 3.1, 1240.757MB
+ 6630: 20.453: Removed any existing fileset bigfileset in 20 seconds
+ 6630: 20.454: making tree for filset /media/RAMDSK/bigfileset
+ 6630: 21.108: Creating fileset bigfileset...
+ 6630: 108.942: Preallocated 7979 of 10000 of fileset bigfileset in 88 seconds
+ 6630: 108.943: waiting for fileset pre-allocation to finish
+ 6635: 108.945: Starting 1 filereader instances
+ 6636: 109.035: Starting 4 filereaderthread threads
+ 6630: 110.091: Running...
+ 6630: 140.107: Run took 30 seconds...
+ 6630: 140.115: Per-Operation Breakdown
+statfile1            1070ops       36ops/s   0.0mb/s      0.1ms/op 23637068us/op-cpu [0ms - 3ms]
+deletefile1          1070ops       36ops/s   0.0mb/s      4.7ms/op 23606876us/op-cpu [0ms - 118ms]
+closefile3           1070ops       36ops/s   0.0mb/s      0.1ms/op 23585082us/op-cpu [0ms - 0ms]
+readfile1            1070ops       36ops/s   4.4mb/s      2.1ms/op 23565120us/op-cpu [0ms - 20ms]
+openfile2            1070ops       36ops/s   0.0mb/s      0.3ms/op 23557265us/op-cpu [0ms - 8ms]
+closefile2           1071ops       36ops/s   0.0mb/s      0.1ms/op 23562874us/op-cpu [0ms - 1ms]
+appendfilerand1      1072ops       36ops/s   0.3mb/s      1.2ms/op 23579154us/op-cpu [0ms - 43ms]
+openfile1            1072ops       36ops/s   0.0mb/s      0.3ms/op 23561337us/op-cpu [0ms - 5ms]
+closefile1           1072ops       36ops/s   0.0mb/s      0.1ms/op 23545376us/op-cpu [0ms - 0ms]
+wrtfile1             1073ops       36ops/s   4.3mb/s      9.6ms/op 23565445us/op-cpu [0ms - 46ms]
+createfile1          1074ops       36ops/s   0.0mb/s      2.0ms/op 23555780us/op-cpu [0ms - 138ms]
+ 6630: 140.115: IO Summary: 11784 ops, 392.644 ops/s, (36/71 r/w),   9.0mb/s,  17061us cpu/op,   6.8ms latency
+ 6630: 140.116: Shutting down processes
+2015-11-27 12:46:37.673772
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.3
+3.3
+3.2
+3.3
+3.3
+3.3
+3.3
+3.2
+3.3
+3.3
+3.2
+3.2
+3.2
+3.3
+3.3
+3.2
+3.2
+3.2
+3.3
+3.3
+3.2
+3.2
+3.3
+3.3
+3.4
+3.3
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.5
+3.4
+3.4
+3.4
+3.4
+3.5
+3.4
+3.5
+3.4
+3.4
+3.5
+3.5
+3.4
+3.4
+3.5
+3.5
+3.4
+3.4
+3.4
+3.4
+3.5
+3.4
+3.4
+3.4
+3.4
+3.4
+3.5
+3.4
+3.4
+3.4
+3.4
+3.5
+3.4
+3.4
+3.4
+3.5
+3.4
+3.4
+3.4
+3.4
+3.4
+3.5
+3.4
+3.4
+3.4
+3.4
+3.4
+3.5
+3.4
+3.4
+3.4
+3.4
+3.5
+3.4
+3.4
+3.5
+3.4
+3.5
+3.4
+3.5
+3.4
+3.4
+3.5
+3.5
+3.5
+3.5
+3.4
+3.5
+3.5
+3.4
+3.4
+3.4
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.5
+3.5
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 142
+Pavg: 3.387
+Pmax: 3.500
+Pmin: 3.200
+Pstdev: 0.089
+Joules: 481.000
+mf: 0x3 200000
+Filebench Version 1.4.9.1
+ 6645: 0.000: Allocated 130MB of shared memory
+ 6645: 0.006: File-server Version 3.0-custom-noninteractive personality successfully loaded
+ 6645: 0.006: Creating/pre-allocating files and filesets
+ 6645: 0.070: Fileset bigfileset: 10000 files, 0 leafdirs, avg dir width = 20, avg dir depth = 3.1, 1240.757MB
+ 6645: 3.924: Removed any existing fileset bigfileset in 4 seconds
+ 6645: 3.925: making tree for filset /media/RAMDSK/bigfileset
+ 6645: 4.027: Creating fileset bigfileset...
+ 6645: 26.261: Preallocated 7979 of 10000 of fileset bigfileset in 23 seconds
+ 6645: 26.261: waiting for fileset pre-allocation to finish
+ 6649: 26.284: Starting 1 filereader instances
+ 6650: 26.319: Starting 4 filereaderthread threads
+ 6645: 27.322: Running...
+ 6645: 57.336: Run took 30 seconds...
+ 6645: 57.339: Per-Operation Breakdown
+statfile1            2783ops       93ops/s   0.0mb/s      0.0ms/op 12419136us/op-cpu [0ms - 0ms]
+deletefile1          2784ops       93ops/s   0.0mb/s      2.1ms/op 12429415us/op-cpu [0ms - 292ms]
+closefile3           2785ops       93ops/s   0.0mb/s      0.0ms/op 12419388us/op-cpu [0ms - 0ms]
+readfile1            2785ops       93ops/s  11.3mb/s      1.0ms/op 12412769us/op-cpu [0ms - 25ms]
+openfile2            2785ops       93ops/s   0.0mb/s      0.1ms/op 12411265us/op-cpu [0ms - 20ms]
+closefile2           2785ops       93ops/s   0.0mb/s      0.0ms/op 12416099us/op-cpu [0ms - 0ms]
+appendfilerand1      2786ops       93ops/s   0.7mb/s      0.8ms/op 12412192us/op-cpu [0ms - 373ms]
+openfile1            2786ops       93ops/s   0.0mb/s      0.1ms/op 12409907us/op-cpu [0ms - 8ms]
+closefile1           2787ops       93ops/s   0.0mb/s      0.0ms/op 12414956us/op-cpu [0ms - 0ms]
+wrtfile1             2787ops       93ops/s  11.3mb/s      2.9ms/op 12413429us/op-cpu [0ms - 135ms]
+createfile1          2787ops       93ops/s   0.0mb/s      0.6ms/op 12402796us/op-cpu [0ms - 124ms]
+ 6645: 57.340: IO Summary: 30640 ops, 1020.899 ops/s, (93/186 r/w),  23.4mb/s,   4559us cpu/op,   2.5ms latency
+ 6645: 57.340: Shutting down processes
+2015-11-27 12:47:51.610396
+Results:
+3.3
+3.4
+3.4
+3.4
+3.5
+3.5
+3.6
+3.7
+3.8
+3.9
+3.9
+4.0
+4.0
+4.0
+4.1
+4.1
+4.2
+4.2
+4.2
+4.2
+4.2
+4.2
+4.3
+4.3
+4.3
+4.3
+4.2
+4.2
+4.2
+4.2
+4.2
+4.2
+4.2
+4.2
+4.2
+4.2
+4.2
+4.2
+4.1
+4.1
+4.1
+4.1
+4.1
+4.1
+4.1
+4.1
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+Samples: 58
+Pavg: 4.021
+Pmax: 4.300
+Pmin: 3.300
+Pstdev: 0.247
+Joules: 233.200
+mf: 0x1 1400000
+Filebench Version 1.4.9.1
+ 6663: 0.000: Allocated 130MB of shared memory
+ 6663: 0.006: File-server Version 3.0-custom-noninteractive personality successfully loaded
+ 6663: 0.006: Creating/pre-allocating files and filesets
+ 6663: 0.074: Fileset bigfileset: 10000 files, 0 leafdirs, avg dir width = 20, avg dir depth = 3.1, 1240.757MB
+ 6663: 4.007: Removed any existing fileset bigfileset in 4 seconds
+ 6663: 4.007: making tree for filset /media/RAMDSK/bigfileset
+ 6663: 4.136: Creating fileset bigfileset...
+ 6663: 27.350: Preallocated 7979 of 10000 of fileset bigfileset in 24 seconds
+ 6663: 27.350: waiting for fileset pre-allocation to finish
+ 6667: 27.371: Starting 1 filereader instances
+ 6668: 27.401: Starting 4 filereaderthread threads
+ 6663: 28.404: Running...
+ 6663: 58.417: Run took 30 seconds...
+ 6663: 58.419: Per-Operation Breakdown
+statfile1            2723ops       91ops/s   0.0mb/s      0.0ms/op 12443379us/op-cpu [0ms - 0ms]
+deletefile1          2722ops       91ops/s   0.0mb/s      2.5ms/op 12446029us/op-cpu [0ms - 268ms]
+closefile3           2724ops       91ops/s   0.0mb/s      0.0ms/op 12443519us/op-cpu [0ms - 15ms]
+readfile1            2724ops       91ops/s  11.2mb/s      1.0ms/op 12442838us/op-cpu [0ms - 31ms]
+openfile2            2724ops       91ops/s   0.0mb/s      0.1ms/op 12441708us/op-cpu [0ms - 15ms]
+closefile2           2725ops       91ops/s   0.0mb/s      0.0ms/op 12443542us/op-cpu [0ms - 0ms]
+appendfilerand1      2725ops       91ops/s   0.7mb/s      1.0ms/op 12441197us/op-cpu [0ms - 167ms]
+openfile1            2725ops       91ops/s   0.0mb/s      0.1ms/op 12432417us/op-cpu [0ms - 11ms]
+closefile1           2725ops       91ops/s   0.0mb/s      0.0ms/op 12426190us/op-cpu [0ms - 10ms]
+wrtfile1             2725ops       91ops/s  11.2mb/s      3.1ms/op 12421938us/op-cpu [0ms - 51ms]
+createfile1          2726ops       91ops/s   0.0mb/s      0.5ms/op 12420360us/op-cpu [0ms - 112ms]
+ 6663: 58.419: IO Summary: 29968 ops, 998.595 ops/s, (91/182 r/w),  23.1mb/s,   4469us cpu/op,   2.8ms latency
+ 6663: 58.419: Shutting down processes
+2015-11-27 12:49:06.412955
+Results:
+3.5
+3.5
+3.5
+3.5
+3.5
+3.6
+3.7
+3.7
+3.8
+3.8
+3.9
+4.0
+4.0
+4.0
+4.0
+4.1
+4.1
+4.1
+4.1
+4.1
+4.1
+4.1
+4.1
+4.2
+4.2
+4.2
+4.2
+4.2
+4.1
+4.1
+4.1
+4.1
+4.1
+4.1
+4.1
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+3.9
+3.9
+3.9
+3.9
+4.0
+3.9
+3.9
+3.9
+3.9
+4.0
+4.0
+3.9
+3.9
+4.0
+3.9
+3.9
+3.9
+Samples: 59
+Pavg: 3.953
+Pmax: 4.200
+Pmin: 3.500
+Pstdev: 0.185
+Joules: 233.200
+mf: 0x1 1300000
+Filebench Version 1.4.9.1
+ 6677: 0.000: Allocated 130MB of shared memory
+ 6677: 0.006: File-server Version 3.0-custom-noninteractive personality successfully loaded
+ 6677: 0.006: Creating/pre-allocating files and filesets
+ 6677: 0.079: Fileset bigfileset: 10000 files, 0 leafdirs, avg dir width = 20, avg dir depth = 3.1, 1240.757MB
+ 6677: 4.321: Removed any existing fileset bigfileset in 5 seconds
+ 6677: 4.321: making tree for filset /media/RAMDSK/bigfileset
+ 6677: 4.438: Creating fileset bigfileset...
+ 6677: 28.962: Preallocated 7979 of 10000 of fileset bigfileset in 25 seconds
+ 6677: 28.963: waiting for fileset pre-allocation to finish
+ 6681: 28.980: Starting 1 filereader instances
+ 6682: 29.028: Starting 4 filereaderthread threads
+ 6677: 30.053: Running...
+ 6677: 60.068: Run took 30 seconds...
+ 6677: 60.071: Per-Operation Breakdown
+statfile1            2594ops       86ops/s   0.0mb/s      0.0ms/op 12497621us/op-cpu [0ms - 15ms]
+deletefile1          2595ops       86ops/s   0.0mb/s      2.5ms/op 12498884us/op-cpu [0ms - 245ms]
+closefile3           2595ops       86ops/s   0.0mb/s      0.0ms/op 12492728us/op-cpu [0ms - 0ms]
+readfile1            2595ops       86ops/s  10.6mb/s      1.0ms/op 12489003us/op-cpu [0ms - 26ms]
+openfile2            2595ops       86ops/s   0.0mb/s      0.1ms/op 12484136us/op-cpu [0ms - 10ms]
+closefile2           2595ops       86ops/s   0.0mb/s      0.0ms/op 12480949us/op-cpu [0ms - 0ms]
+appendfilerand1      2595ops       86ops/s   0.7mb/s      0.5ms/op 12481439us/op-cpu [0ms - 68ms]
+openfile1            2595ops       86ops/s   0.0mb/s      0.1ms/op 12477778us/op-cpu [0ms - 5ms]
+closefile1           2597ops       87ops/s   0.0mb/s      0.0ms/op 12484668us/op-cpu [0ms - 6ms]
+wrtfile1             2598ops       87ops/s  10.5mb/s      3.3ms/op 12486987us/op-cpu [0ms - 39ms]
+createfile1          2598ops       87ops/s   0.0mb/s      0.6ms/op 12480217us/op-cpu [0ms - 160ms]
+ 6677: 60.071: IO Summary: 28552 ops, 951.317 ops/s, (86/173 r/w),  21.8mb/s,   4755us cpu/op,   2.7ms latency
+ 6677: 60.071: Shutting down processes
+2015-11-27 12:50:22.883943
+Results:
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.6
+3.7
+3.7
+3.8
+3.8
+3.9
+3.9
+3.9
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.1
+4.1
+4.0
+4.1
+4.1
+4.1
+4.1
+4.1
+4.1
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.9
+3.8
+3.8
+Samples: 61
+Pavg: 3.880
+Pmax: 4.100
+Pmin: 3.500
+Pstdev: 0.175
+Joules: 236.700
+mf: 0x1 1200000
+Filebench Version 1.4.9.1
+ 6690: 0.000: Allocated 130MB of shared memory
+ 6690: 0.006: File-server Version 3.0-custom-noninteractive personality successfully loaded
+ 6690: 0.007: Creating/pre-allocating files and filesets
+ 6690: 0.085: Fileset bigfileset: 10000 files, 0 leafdirs, avg dir width = 20, avg dir depth = 3.1, 1240.757MB
+ 6690: 4.598: Removed any existing fileset bigfileset in 5 seconds
+ 6690: 4.598: making tree for filset /media/RAMDSK/bigfileset
+ 6690: 4.721: Creating fileset bigfileset...
+ 6690: 30.983: Preallocated 7979 of 10000 of fileset bigfileset in 27 seconds
+ 6690: 30.983: waiting for fileset pre-allocation to finish
+ 6694: 31.002: Starting 1 filereader instances
+ 6695: 31.057: Starting 4 filereaderthread threads
+ 6690: 32.060: Running...
+ 6690: 62.068: Run took 30 seconds...
+ 6690: 62.071: Per-Operation Breakdown
+statfile1            2517ops       84ops/s   0.0mb/s      0.0ms/op 12480721us/op-cpu [0ms - 4ms]
+deletefile1          2519ops       84ops/s   0.0mb/s      2.7ms/op 12490802us/op-cpu [0ms - 540ms]
+closefile3           2519ops       84ops/s   0.0mb/s      0.0ms/op 12487870us/op-cpu [0ms - 10ms]
+readfile1            2520ops       84ops/s  10.5mb/s      1.0ms/op 12488762us/op-cpu [0ms - 23ms]
+openfile2            2520ops       84ops/s   0.0mb/s      0.1ms/op 12487826us/op-cpu [0ms - 25ms]
+closefile2           2520ops       84ops/s   0.0mb/s      0.0ms/op 12485923us/op-cpu [0ms - 2ms]
+appendfilerand1      2521ops       84ops/s   0.6mb/s      1.1ms/op 12488634us/op-cpu [0ms - 398ms]
+openfile1            2521ops       84ops/s   0.0mb/s      0.1ms/op 12484342us/op-cpu [0ms - 10ms]
+closefile1           2521ops       84ops/s   0.0mb/s      0.0ms/op 12475942us/op-cpu [0ms - 4ms]
+wrtfile1             2521ops       84ops/s  10.4mb/s      3.4ms/op 12474647us/op-cpu [0ms - 42ms]
+createfile1          2521ops       84ops/s   0.0mb/s      0.7ms/op 12467900us/op-cpu [0ms - 120ms]
+ 6690: 62.071: IO Summary: 27720 ops, 923.809 ops/s, (84/168 r/w),  21.5mb/s,   4906us cpu/op,   3.1ms latency
+ 6690: 62.072: Shutting down processes
+2015-11-27 12:51:41.511200
+Results:
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.6
+3.7
+3.7
+3.8
+3.8
+3.9
+3.9
+3.9
+3.9
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.1
+4.0
+4.0
+4.0
+4.0
+4.0
+3.9
+4.0
+3.9
+3.9
+3.9
+3.9
+3.9
+3.8
+3.8
+3.8
+3.8
+3.8
+3.7
+3.8
+3.8
+3.8
+3.8
+3.7
+3.7
+3.8
+3.8
+3.7
+3.7
+3.7
+3.8
+3.8
+3.8
+3.7
+Samples: 63
+Pavg: 3.830
+Pmax: 4.100
+Pmin: 3.500
+Pstdev: 0.162
+Joules: 241.300
+mf: 0x1 1100000
+Filebench Version 1.4.9.1
+ 6704: 0.000: Allocated 130MB of shared memory
+ 6704: 0.007: File-server Version 3.0-custom-noninteractive personality successfully loaded
+ 6704: 0.007: Creating/pre-allocating files and filesets
+ 6704: 0.092: Fileset bigfileset: 10000 files, 0 leafdirs, avg dir width = 20, avg dir depth = 3.1, 1240.757MB
+ 6704: 4.964: Removed any existing fileset bigfileset in 5 seconds
+ 6704: 4.965: making tree for filset /media/RAMDSK/bigfileset
+ 6704: 5.098: Creating fileset bigfileset...
+ 6704: 32.238: Preallocated 7979 of 10000 of fileset bigfileset in 28 seconds
+ 6704: 32.238: waiting for fileset pre-allocation to finish
+ 6708: 32.254: Starting 1 filereader instances
+ 6709: 32.308: Starting 4 filereaderthread threads
+ 6704: 33.311: Running...
+ 6704: 63.328: Run took 30 seconds...
+ 6704: 63.330: Per-Operation Breakdown
+statfile1            2392ops       80ops/s   0.0mb/s      0.0ms/op 12669559us/op-cpu [0ms - 0ms]
+deletefile1          2392ops       80ops/s   0.0mb/s      2.0ms/op 12663572us/op-cpu [0ms - 263ms]
+closefile3           2392ops       80ops/s   0.0mb/s      0.0ms/op 12653570us/op-cpu [0ms - 25ms]
+readfile1            2392ops       80ops/s   9.6mb/s      1.0ms/op 12654494us/op-cpu [0ms - 31ms]
+openfile2            2393ops       80ops/s   0.0mb/s      0.1ms/op 12651471us/op-cpu [0ms - 5ms]
+closefile2           2393ops       80ops/s   0.0mb/s      0.0ms/op 12651621us/op-cpu [0ms - 0ms]
+appendfilerand1      2393ops       80ops/s   0.6mb/s      0.7ms/op 12648445us/op-cpu [0ms - 108ms]
+openfile1            2393ops       80ops/s   0.0mb/s      0.1ms/op 12646153us/op-cpu [0ms - 17ms]
+closefile1           2394ops       80ops/s   0.0mb/s      0.0ms/op 12646253us/op-cpu [0ms - 17ms]
+wrtfile1             2394ops       80ops/s   9.8mb/s      3.7ms/op 12650526us/op-cpu [0ms - 44ms]
+createfile1          2395ops       80ops/s   0.0mb/s      0.5ms/op 12645169us/op-cpu [0ms - 96ms]
+ 6704: 63.331: IO Summary: 26323 ops, 877.006 ops/s, (80/159 r/w),  20.1mb/s,   4969us cpu/op,   2.7ms latency
+ 6704: 63.331: Shutting down processes
+2015-11-27 12:53:01.538280
+Results:
+3.4
+3.4
+3.4
+3.4
+3.5
+3.4
+3.5
+3.6
+3.6
+3.6
+3.7
+3.7
+3.8
+3.8
+3.8
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+4.0
+3.9
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+4.0
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.8
+3.8
+3.8
+3.8
+3.8
+3.7
+3.7
+3.8
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+Samples: 64
+Pavg: 3.778
+Pmax: 4.000
+Pmin: 3.400
+Pstdev: 0.167
+Joules: 241.800
+mf: 0x1 1000000
+Filebench Version 1.4.9.1
+ 6717: 0.000: Allocated 130MB of shared memory
+ 6717: 0.007: File-server Version 3.0-custom-noninteractive personality successfully loaded
+ 6717: 0.007: Creating/pre-allocating files and filesets
+ 6717: 0.102: Fileset bigfileset: 10000 files, 0 leafdirs, avg dir width = 20, avg dir depth = 3.1, 1240.757MB
+ 6717: 5.349: Removed any existing fileset bigfileset in 6 seconds
+ 6717: 5.349: making tree for filset /media/RAMDSK/bigfileset
+ 6717: 5.494: Creating fileset bigfileset...
+ 6717: 34.176: Preallocated 7979 of 10000 of fileset bigfileset in 29 seconds
+ 6717: 34.176: waiting for fileset pre-allocation to finish
+ 6721: 34.189: Starting 1 filereader instances
+ 6722: 34.241: Starting 4 filereaderthread threads
+ 6717: 35.244: Running...
+ 6717: 65.256: Run took 30 seconds...
+ 6717: 65.259: Per-Operation Breakdown
+statfile1            2190ops       73ops/s   0.0mb/s      0.0ms/op 12192647us/op-cpu [0ms - 15ms]
+deletefile1          2190ops       73ops/s   0.0mb/s      3.2ms/op 12182715us/op-cpu [0ms - 362ms]
+closefile3           2191ops       73ops/s   0.0mb/s      0.0ms/op 12185099us/op-cpu [0ms - 0ms]
+readfile1            2192ops       73ops/s   8.7mb/s      1.1ms/op 12188637us/op-cpu [0ms - 33ms]
+openfile2            2192ops       73ops/s   0.0mb/s      0.1ms/op 12181363us/op-cpu [0ms - 15ms]
+closefile2           2192ops       73ops/s   0.0mb/s      0.0ms/op 12177435us/op-cpu [0ms - 3ms]
+appendfilerand1      2192ops       73ops/s   0.6mb/s      1.2ms/op 12172305us/op-cpu [0ms - 349ms]
+openfile1            2193ops       73ops/s   0.0mb/s      0.1ms/op 12175730us/op-cpu [0ms - 15ms]
+closefile1           2193ops       73ops/s   0.0mb/s      0.0ms/op 12173799us/op-cpu [0ms - 0ms]
+wrtfile1             2194ops       73ops/s   9.0mb/s      4.2ms/op 12182747us/op-cpu [0ms - 113ms]
+createfile1          2194ops       73ops/s   0.0mb/s      1.6ms/op 12172617us/op-cpu [0ms - 475ms]
+ 6717: 65.259: IO Summary: 24113 ops, 803.511 ops/s, (73/146 r/w),  18.3mb/s,   5494us cpu/op,   3.9ms latency
+ 6717: 65.259: Shutting down processes
+2015-11-27 12:54:23.710806
+Results:
+3.3
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.5
+3.6
+3.6
+3.6
+3.7
+3.7
+3.7
+3.8
+3.8
+3.8
+3.8
+3.9
+3.9
+3.8
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.9
+3.8
+3.8
+3.8
+3.8
+3.7
+3.7
+3.8
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.6
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+Samples: 66
+Pavg: 3.732
+Pmax: 3.900
+Pmin: 3.300
+Pstdev: 0.163
+Joules: 246.300
+mf: 0x1 900000
+Filebench Version 1.4.9.1
+ 6730: 0.000: Allocated 130MB of shared memory
+ 6730: 0.008: File-server Version 3.0-custom-noninteractive personality successfully loaded
+ 6730: 0.008: Creating/pre-allocating files and filesets
+ 6730: 0.112: Fileset bigfileset: 10000 files, 0 leafdirs, avg dir width = 20, avg dir depth = 3.1, 1240.757MB
+ 6730: 5.824: Removed any existing fileset bigfileset in 6 seconds
+ 6730: 5.824: making tree for filset /media/RAMDSK/bigfileset
+ 6730: 5.987: Creating fileset bigfileset...
+ 6730: 36.549: Preallocated 7979 of 10000 of fileset bigfileset in 31 seconds
+ 6730: 36.550: waiting for fileset pre-allocation to finish
+ 6734: 36.566: Starting 1 filereader instances
+ 6735: 36.636: Starting 4 filereaderthread threads
+ 6730: 37.639: Running...
+ 6730: 67.651: Run took 30 seconds...
+ 6730: 67.654: Per-Operation Breakdown
+statfile1            2017ops       67ops/s   0.0mb/s      0.0ms/op 12158814us/op-cpu [0ms - 15ms]
+deletefile1          2017ops       67ops/s   0.0mb/s      3.2ms/op 12160455us/op-cpu [0ms - 464ms]
+closefile3           2017ops       67ops/s   0.0mb/s      0.0ms/op 12148043us/op-cpu [0ms - 0ms]
+readfile1            2018ops       67ops/s   8.3mb/s      1.1ms/op 12143352us/op-cpu [0ms - 27ms]
+openfile2            2019ops       67ops/s   0.0mb/s      0.1ms/op 12148659us/op-cpu [0ms - 14ms]
+closefile2           2020ops       67ops/s   0.0mb/s      0.0ms/op 12151264us/op-cpu [0ms - 0ms]
+appendfilerand1      2020ops       67ops/s   0.5mb/s      1.7ms/op 12148011us/op-cpu [0ms - 599ms]
+openfile1            2020ops       67ops/s   0.0mb/s      0.1ms/op 12144781us/op-cpu [0ms - 13ms]
+closefile1           2020ops       67ops/s   0.0mb/s      0.0ms/op 12140460us/op-cpu [0ms - 0ms]
+wrtfile1             2020ops       67ops/s   8.5mb/s      4.8ms/op 12137554us/op-cpu [0ms - 58ms]
+createfile1          2021ops       67ops/s   0.0mb/s      1.8ms/op 12137533us/op-cpu [0ms - 350ms]
+ 6730: 67.654: IO Summary: 22209 ops, 740.068 ops/s, (67/135 r/w),  17.3mb/s,   5753us cpu/op,   4.3ms latency
+ 6730: 67.654: Shutting down processes
+2015-11-27 12:55:48.376140
+Results:
+3.3
+3.3
+3.3
+3.3
+3.3
+3.4
+3.3
+3.4
+3.4
+3.5
+3.5
+3.6
+3.6
+3.6
+3.6
+3.7
+3.7
+3.7
+3.7
+3.7
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.9
+3.8
+3.8
+3.9
+3.9
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.6
+3.6
+3.6
+3.6
+3.7
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.5
+3.6
+3.6
+3.6
+Samples: 68
+Pavg: 3.656
+Pmax: 3.900
+Pmin: 3.300
+Pstdev: 0.160
+Joules: 248.600
+mf: 0x1 800000
+Filebench Version 1.4.9.1
+ 6744: 0.000: Allocated 130MB of shared memory
+ 6744: 0.008: File-server Version 3.0-custom-noninteractive personality successfully loaded
+ 6744: 0.009: Creating/pre-allocating files and filesets
+ 6744: 0.126: Fileset bigfileset: 10000 files, 0 leafdirs, avg dir width = 20, avg dir depth = 3.1, 1240.757MB
+ 6744: 6.632: Removed any existing fileset bigfileset in 7 seconds
+ 6744: 6.633: making tree for filset /media/RAMDSK/bigfileset
+ 6744: 6.816: Creating fileset bigfileset...
+ 6744: 40.393: Preallocated 7979 of 10000 of fileset bigfileset in 34 seconds
+ 6744: 40.394: waiting for fileset pre-allocation to finish
+ 6748: 40.408: Starting 1 filereader instances
+ 6749: 40.473: Starting 4 filereaderthread threads
+ 6744: 41.478: Running...
+ 6744: 71.492: Run took 30 seconds...
+ 6744: 71.495: Per-Operation Breakdown
+statfile1            1885ops       63ops/s   0.0mb/s      0.0ms/op 12479597us/op-cpu [0ms - 14ms]
+deletefile1          1885ops       63ops/s   0.0mb/s      2.3ms/op 12473743us/op-cpu [0ms - 385ms]
+closefile3           1885ops       63ops/s   0.0mb/s      0.0ms/op 12465757us/op-cpu [0ms - 0ms]
+readfile1            1886ops       63ops/s   7.8mb/s      1.2ms/op 12467007us/op-cpu [0ms - 23ms]
+openfile2            1886ops       63ops/s   0.0mb/s      0.1ms/op 12479568us/op-cpu [0ms - 13ms]
+closefile2           1887ops       63ops/s   0.0mb/s      0.0ms/op 12472902us/op-cpu [0ms - 15ms]
+appendfilerand1      1888ops       63ops/s   0.5mb/s      0.7ms/op 12473682us/op-cpu [0ms - 354ms]
+openfile1            1888ops       63ops/s   0.0mb/s      0.1ms/op 12466184us/op-cpu [0ms - 25ms]
+closefile1           1888ops       63ops/s   0.0mb/s      0.0ms/op 12463750us/op-cpu [0ms - 5ms]
+wrtfile1             1888ops       63ops/s   7.7mb/s      5.2ms/op 12453944us/op-cpu [0ms - 133ms]
+createfile1          1889ops       63ops/s   0.0mb/s      1.8ms/op 12453558us/op-cpu [0ms - 412ms]
+ 6744: 71.495: IO Summary: 20755 ops, 691.598 ops/s, (63/126 r/w),  16.0mb/s,   6240us cpu/op,   3.8ms latency
+ 6744: 71.496: Shutting down processes
+2015-11-27 12:57:17.191119
+Results:
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.4
+3.4
+3.4
+3.4
+3.4
+3.5
+3.5
+3.6
+3.6
+3.6
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.8
+3.7
+3.7
+3.7
+3.7
+3.7
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.5
+3.6
+3.5
+3.6
+3.6
+3.6
+3.6
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+Samples: 72
+Pavg: 3.622
+Pmax: 3.800
+Pmin: 3.300
+Pstdev: 0.158
+Joules: 260.800
+mf: 0x1 700000
+Filebench Version 1.4.9.1
+ 6762: 0.000: Allocated 130MB of shared memory
+ 6762: 0.009: File-server Version 3.0-custom-noninteractive personality successfully loaded
+ 6762: 0.009: Creating/pre-allocating files and filesets
+ 6762: 0.147: Fileset bigfileset: 10000 files, 0 leafdirs, avg dir width = 20, avg dir depth = 3.1, 1240.757MB
+ 6762: 7.561: Removed any existing fileset bigfileset in 8 seconds
+ 6762: 7.562: making tree for filset /media/RAMDSK/bigfileset
+ 6762: 7.782: Creating fileset bigfileset...
+ 6762: 45.483: Preallocated 7979 of 10000 of fileset bigfileset in 38 seconds
+ 6762: 45.484: waiting for fileset pre-allocation to finish
+ 6767: 45.504: Starting 1 filereader instances
+ 6768: 45.559: Starting 4 filereaderthread threads
+ 6762: 46.594: Running...
+ 6762: 76.606: Run took 30 seconds...
+ 6762: 76.609: Per-Operation Breakdown
+statfile1            1681ops       56ops/s   0.0mb/s      0.0ms/op 12563022us/op-cpu [0ms - 0ms]
+deletefile1          1682ops       56ops/s   0.0mb/s      3.0ms/op 12570020us/op-cpu [0ms - 312ms]
+closefile3           1682ops       56ops/s   0.0mb/s      0.0ms/op 12550362us/op-cpu [0ms - 15ms]
+readfile1            1682ops       56ops/s   6.9mb/s      1.1ms/op 12544057us/op-cpu [0ms - 22ms]
+openfile2            1682ops       56ops/s   0.0mb/s      0.1ms/op 12540261us/op-cpu [0ms - 11ms]
+closefile2           1682ops       56ops/s   0.0mb/s      0.0ms/op 12537619us/op-cpu [0ms - 0ms]
+appendfilerand1      1683ops       56ops/s   0.4mb/s      1.2ms/op 12553963us/op-cpu [0ms - 217ms]
+openfile1            1684ops       56ops/s   0.0mb/s      0.1ms/op 12538162us/op-cpu [0ms - 25ms]
+closefile1           1684ops       56ops/s   0.0mb/s      0.0ms/op 12535344us/op-cpu [0ms - 3ms]
+wrtfile1             1684ops       56ops/s   7.0mb/s      6.5ms/op 12537755us/op-cpu [0ms - 63ms]
+createfile1          1684ops       56ops/s   0.0mb/s      0.9ms/op 12528512us/op-cpu [0ms - 121ms]
+ 6762: 76.610: IO Summary: 18510 ops, 616.803 ops/s, (56/112 r/w),  14.3mb/s,   6851us cpu/op,   4.4ms latency
+ 6762: 76.610: Shutting down processes
+2015-11-27 12:58:51.487105
+Results:
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.4
+3.4
+3.4
+3.5
+3.5
+3.5
+3.5
+3.6
+3.6
+3.6
+3.6
+3.7
+3.7
+3.7
+3.6
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.7
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+Samples: 77
+Pavg: 3.566
+Pmax: 3.700
+Pmin: 3.300
+Pstdev: 0.133
+Joules: 274.600
+mf: 0x1 600000
+Filebench Version 1.4.9.1
+ 6776: 0.000: Allocated 130MB of shared memory
+ 6776: 0.010: File-server Version 3.0-custom-noninteractive personality successfully loaded
+ 6776: 0.011: Creating/pre-allocating files and filesets
+ 6776: 0.174: Fileset bigfileset: 10000 files, 0 leafdirs, avg dir width = 20, avg dir depth = 3.1, 1240.757MB
+ 6776: 8.796: Removed any existing fileset bigfileset in 9 seconds
+ 6776: 8.796: making tree for filset /media/RAMDSK/bigfileset
+ 6776: 9.047: Creating fileset bigfileset...
+ 6776: 52.408: Preallocated 7979 of 10000 of fileset bigfileset in 44 seconds
+ 6776: 52.408: waiting for fileset pre-allocation to finish
+ 6780: 52.431: Starting 1 filereader instances
+ 6781: 52.502: Starting 4 filereaderthread threads
+ 6776: 53.522: Running...
+ 6776: 83.537: Run took 30 seconds...
+ 6776: 83.550: Per-Operation Breakdown
+statfile1            1451ops       48ops/s   0.0mb/s      0.1ms/op 12603684us/op-cpu [0ms - 5ms]
+deletefile1          1451ops       48ops/s   0.0mb/s      2.2ms/op 12599694us/op-cpu [0ms - 125ms]
+closefile3           1452ops       48ops/s   0.0mb/s      0.1ms/op 12595114us/op-cpu [0ms - 15ms]
+readfile1            1452ops       48ops/s   5.8mb/s      1.3ms/op 12596388us/op-cpu [0ms - 23ms]
+openfile2            1452ops       48ops/s   0.0mb/s      0.1ms/op 12583138us/op-cpu [0ms - 15ms]
+closefile2           1452ops       48ops/s   0.0mb/s      0.0ms/op 12574098us/op-cpu [0ms - 4ms]
+appendfilerand1      1452ops       48ops/s   0.4mb/s      0.9ms/op 12566244us/op-cpu [0ms - 83ms]
+openfile1            1454ops       48ops/s   0.0mb/s      0.2ms/op 12580523us/op-cpu [0ms - 17ms]
+closefile1           1454ops       48ops/s   0.0mb/s      0.0ms/op 12574409us/op-cpu [0ms - 0ms]
+wrtfile1             1454ops       48ops/s   6.0mb/s      8.5ms/op 12578288us/op-cpu [0ms - 78ms]
+createfile1          1454ops       48ops/s   0.0mb/s      2.3ms/op 12563563us/op-cpu [0ms - 393ms]
+ 6776: 83.551: IO Summary: 15978 ops, 532.215 ops/s, (48/97 r/w),  12.1mb/s,   8206us cpu/op,   5.2ms latency
+ 6776: 83.551: Shutting down processes
+2015-11-27 13:00:33.320753
+Results:
+3.3
+3.3
+3.2
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.4
+3.4
+3.4
+3.5
+3.5
+3.5
+3.5
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.7
+3.6
+3.7
+3.7
+3.7
+3.7
+3.6
+3.7
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.5
+3.5
+3.5
+3.5
+3.5
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.4
+3.4
+3.5
+Samples: 85
+Pavg: 3.512
+Pmax: 3.700
+Pmin: 3.200
+Pstdev: 0.126
+Joules: 298.500
+mf: 0x1 500000
+Filebench Version 1.4.9.1
+ 6789: 0.000: Allocated 130MB of shared memory
+ 6789: 0.012: File-server Version 3.0-custom-noninteractive personality successfully loaded
+ 6789: 0.012: Creating/pre-allocating files and filesets
+ 6789: 0.221: Fileset bigfileset: 10000 files, 0 leafdirs, avg dir width = 20, avg dir depth = 3.1, 1240.757MB
+ 6789: 10.856: Removed any existing fileset bigfileset in 11 seconds
+ 6789: 10.857: making tree for filset /media/RAMDSK/bigfileset
+ 6789: 11.168: Creating fileset bigfileset...
+ 6789: 63.537: Preallocated 7979 of 10000 of fileset bigfileset in 53 seconds
+ 6789: 63.538: waiting for fileset pre-allocation to finish
+ 6793: 63.559: Starting 1 filereader instances
+ 6794: 63.624: Starting 4 filereaderthread threads
+ 6789: 64.639: Running...
+ 6789: 94.651: Run took 30 seconds...
+ 6789: 94.656: Per-Operation Breakdown
+statfile1            1222ops       41ops/s   0.0mb/s      0.1ms/op 12796940us/op-cpu [0ms - 15ms]
+deletefile1          1223ops       41ops/s   0.0mb/s      3.1ms/op 12802715us/op-cpu [0ms - 236ms]
+closefile3           1223ops       41ops/s   0.0mb/s      0.1ms/op 12793623us/op-cpu [0ms - 4ms]
+readfile1            1224ops       41ops/s   4.9mb/s      1.5ms/op 12802472us/op-cpu [0ms - 23ms]
+openfile2            1224ops       41ops/s   0.0mb/s      0.2ms/op 12786557us/op-cpu [0ms - 15ms]
+closefile2           1224ops       41ops/s   0.0mb/s      0.0ms/op 12779743us/op-cpu [0ms - 15ms]
+appendfilerand1      1224ops       41ops/s   0.3mb/s      1.2ms/op 12773747us/op-cpu [0ms - 188ms]
+openfile1            1225ops       41ops/s   0.0mb/s      0.2ms/op 12776078us/op-cpu [0ms - 15ms]
+closefile1           1225ops       41ops/s   0.0mb/s      0.0ms/op 12775727us/op-cpu [0ms - 5ms]
+wrtfile1             1225ops       41ops/s   5.0mb/s     10.6ms/op 12774127us/op-cpu [0ms - 114ms]
+createfile1          1225ops       41ops/s   0.0mb/s      1.6ms/op 12773764us/op-cpu [0ms - 272ms]
+ 6789: 94.656: IO Summary: 13464 ops, 448.669 ops/s, (41/82 r/w),  10.2mb/s,   9055us cpu/op,   6.2ms latency
+ 6789: 94.657: Shutting down processes
+2015-11-27 13:02:27.010076
+Results:
+3.2
+3.3
+3.3
+3.3
+3.3
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.4
+3.4
+3.4
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.6
+3.5
+3.5
+3.6
+3.6
+3.6
+3.6
+3.5
+3.5
+3.6
+3.6
+3.5
+3.5
+3.6
+3.6
+3.6
+3.6
+3.5
+3.6
+3.5
+3.6
+3.6
+3.6
+3.5
+3.5
+3.6
+3.6
+3.6
+3.5
+3.5
+3.6
+3.6
+3.5
+3.5
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.5
+3.5
+3.5
+3.4
+3.5
+3.5
+3.4
+3.4
+3.4
+3.5
+3.5
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 95
+Pavg: 3.474
+Pmax: 3.600
+Pmin: 3.200
+Pstdev: 0.111
+Joules: 330.000
+mf: 0x1 400000
+Filebench Version 1.4.9.1
+ 6802: 0.000: Allocated 130MB of shared memory
+ 6802: 0.015: File-server Version 3.0-custom-noninteractive personality successfully loaded
+ 6802: 0.016: Creating/pre-allocating files and filesets
+ 6802: 0.297: Fileset bigfileset: 10000 files, 0 leafdirs, avg dir width = 20, avg dir depth = 3.1, 1240.757MB
+ 6802: 14.192: Removed any existing fileset bigfileset in 14 seconds
+ 6802: 14.193: making tree for filset /media/RAMDSK/bigfileset
+ 6802: 14.612: Creating fileset bigfileset...
+ 6802: 82.856: Preallocated 7979 of 10000 of fileset bigfileset in 69 seconds
+ 6802: 82.857: waiting for fileset pre-allocation to finish
+ 6807: 82.871: Starting 1 filereader instances
+ 6808: 82.961: Starting 4 filereaderthread threads
+ 6802: 84.081: Running...
+ 6802: 114.102: Run took 30 seconds...
+ 6802: 114.108: Per-Operation Breakdown
+statfile1            943ops       31ops/s   0.0mb/s      0.1ms/op 12866668us/op-cpu [0ms - 10ms]
+deletefile1          943ops       31ops/s   0.0mb/s      4.3ms/op 12860401us/op-cpu [0ms - 200ms]
+closefile3           943ops       31ops/s   0.0mb/s      0.1ms/op 12834701us/op-cpu [0ms - 10ms]
+readfile1            943ops       31ops/s   3.8mb/s      1.9ms/op 12805512us/op-cpu [0ms - 26ms]
+openfile2            943ops       31ops/s   0.0mb/s      0.2ms/op 12802978us/op-cpu [0ms - 14ms]
+closefile2           944ops       31ops/s   0.0mb/s      0.1ms/op 12802779us/op-cpu [0ms - 10ms]
+appendfilerand1      945ops       31ops/s   0.2mb/s      1.2ms/op 12808691us/op-cpu [0ms - 79ms]
+openfile1            945ops       31ops/s   0.0mb/s      0.2ms/op 12798575us/op-cpu [0ms - 15ms]
+closefile1           946ops       32ops/s   0.0mb/s      0.1ms/op 12807376us/op-cpu [0ms - 15ms]
+wrtfile1             946ops       32ops/s   3.8mb/s     15.0ms/op 12815241us/op-cpu [0ms - 152ms]
+createfile1          946ops       32ops/s   0.0mb/s      1.1ms/op 12799649us/op-cpu [0ms - 16ms]
+ 6802: 114.109: IO Summary: 10387 ops, 346.043 ops/s, (31/63 r/w),   7.8mb/s,  11824us cpu/op,   8.1ms latency
+ 6802: 114.109: Shutting down processes
+2015-11-27 13:04:41.693889
+Results:
+3.3
+3.2
+3.3
+3.3
+3.2
+3.2
+3.3
+3.3
+3.3
+3.3
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.2
+3.2
+3.3
+3.3
+3.3
+3.4
+3.4
+3.5
+3.4
+3.4
+3.4
+3.4
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.4
+3.5
+3.4
+3.5
+3.4
+3.5
+3.4
+3.5
+3.5
+3.4
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.6
+3.6
+3.6
+3.5
+3.5
+3.5
+3.5
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.3
+3.4
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.4
+3.3
+3.4
+3.4
+3.4
+Samples: 116
+Pavg: 3.418
+Pmax: 3.600
+Pmin: 3.200
+Pstdev: 0.098
+Joules: 396.500
+mf: 0x1 300000
+Filebench Version 1.4.9.1
+ 6816: 0.000: Allocated 130MB of shared memory
+ 6816: 0.021: File-server Version 3.0-custom-noninteractive personality successfully loaded
+ 6816: 0.023: Creating/pre-allocating files and filesets
+ 6816: 0.462: Fileset bigfileset: 10000 files, 0 leafdirs, avg dir width = 20, avg dir depth = 3.1, 1240.757MB
+ 6816: 21.894: Removed any existing fileset bigfileset in 22 seconds
+ 6816: 21.895: making tree for filset /media/RAMDSK/bigfileset
+ 6816: 22.553: Creating fileset bigfileset...
+ 6816: 124.039: Preallocated 7979 of 10000 of fileset bigfileset in 102 seconds
+ 6816: 124.040: waiting for fileset pre-allocation to finish
+ 6825: 124.064: Starting 1 filereader instances
+ 6826: 124.169: Starting 4 filereaderthread threads
+ 6816: 125.295: Running...
+ 6816: 155.316: Run took 30 seconds...
+ 6816: 155.325: Per-Operation Breakdown
+statfile1            622ops       21ops/s   0.0mb/s      0.1ms/op 12994716us/op-cpu [0ms - 10ms]
+deletefile1          621ops       21ops/s   0.0mb/s      7.7ms/op 13007236us/op-cpu [1ms - 633ms]
+closefile3           622ops       21ops/s   0.0mb/s      0.1ms/op 12966983us/op-cpu [0ms - 4ms]
+readfile1            622ops       21ops/s   2.5mb/s      3.4ms/op 12978117us/op-cpu [0ms - 40ms]
+openfile2            623ops       21ops/s   0.0mb/s      0.3ms/op 12946603us/op-cpu [0ms - 16ms]
+closefile2           623ops       21ops/s   0.0mb/s      0.1ms/op 12946426us/op-cpu [0ms - 1ms]
+appendfilerand1      623ops       21ops/s   0.1mb/s      2.6ms/op 12941715us/op-cpu [0ms - 744ms]
+openfile1            625ops       21ops/s   0.0mb/s      0.4ms/op 12980765us/op-cpu [0ms - 21ms]
+closefile1           625ops       21ops/s   0.0mb/s      0.1ms/op 12973045us/op-cpu [0ms - 12ms]
+wrtfile1             625ops       21ops/s   2.6mb/s     27.9ms/op 12948454us/op-cpu [0ms - 258ms]
+createfile1          626ops       21ops/s   0.0mb/s      1.9ms/op 12920221us/op-cpu [0ms - 59ms]
+ 6816: 155.326: IO Summary:  6857 ops, 228.454 ops/s, (21/42 r/w),   5.2mb/s,  17198us cpu/op,  14.9ms latency
+ 6816: 155.326: Shutting down processes
+2015-11-27 13:07:41.723702
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.3
+3.3
+3.2
+3.2
+3.3
+3.2
+3.2
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.3
+3.4
+3.4
+3.3
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.3
+3.4
+3.4
+3.4
+3.3
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.5
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.5
+3.5
+3.4
+3.4
+3.4
+3.4
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.4
+3.4
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 158
+Pavg: 3.347
+Pmax: 3.500
+Pmin: 3.200
+Pstdev: 0.078
+Joules: 528.800
+mf: 0x1 200000

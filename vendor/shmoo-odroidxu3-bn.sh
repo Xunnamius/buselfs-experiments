@@ -2,7 +2,7 @@
 # Run all on all configurations for this platform
 
 # Whether to run shmoo on the big or LITTLE cores
-USE_BIG=0
+USE_BIG=1
 
 # Whether to use external power meter (0 or 1)
 USE_POWERMON=0
@@ -36,7 +36,7 @@ fi
 #rm -Rf ${HEARTBEAT_ENABLED_DIR}
 #mkdir -p ${HEARTBEAT_ENABLED_DIR}
 
-RESULTS_FILE="/home/odroid/bd3/rsync/energy-AES-1/results/shmoo.results"
+RESULTS_FILE="/home/odroid/bd3/rsync/energy-AES-1/results/shmoo.big.nfde.results"
 POWER_MON=pyWattsup.py
 
 # System properties
@@ -117,7 +117,7 @@ do
         $POWER_MON start
       fi
     
-      command="taskset $mask python3 /home/odroid/bd3/rsync/energy-AES-1/filebench-timed.py"
+      command="taskset $mask python3 /home/odroid/bd3/rsync/energy-AES-1/filebench-timed-bn.py"
       echo $command
       $command
       c="$?"
