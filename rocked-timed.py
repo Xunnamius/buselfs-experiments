@@ -129,7 +129,7 @@ enerAESEnergyConfigs = Figure(
     layout = Layout(
         title='Frequency Sweeep vs Total Energy over {} seconds'.format(DURATION),
         xaxis1 = XAxis(title='Disk Encryption'),
-        yaxis1 = YAxis(title='Power (joules/s)')
+        yaxis1 = YAxis(title='Energy (joules)')
     )
 )
 
