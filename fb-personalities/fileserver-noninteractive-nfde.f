@@ -24,12 +24,12 @@
 #
 
 set $dir=/media/nfde
-set $nfiles=5000
+set $nfiles=2500
 set $meandirwidth=20
-set $meanfilesize=12k
-set $nthreads=100
-set $iosize=500000
-set $meanappendsize=8k
+set $meanfilesize=128k
+set $nthreads=4
+set $iosize=1m
+set $meanappendsize=16k
 
 define fileset name=bigfileset,path=$dir,size=$meanfilesize,entries=$nfiles,dirwidth=$meandirwidth,prealloc=80
 
@@ -60,4 +60,4 @@ echo  "File-server Version 3.0-custom-noninteractive personality successfully lo
 # usage "       set \$iosize=<size>  defaults to $iosize"
 # usage "       set \$meandirwidth=<size> defaults to $meandirwidth"
 # usage "       run runtime (e.g. run 60)"
-run 10
+run 30

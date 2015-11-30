@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 
-# This script crunches the shmoo.<CORETYPE>.results file in the results folder
+# This script crunches the shmoo.<CORETYPE>.<FSTYPE>.results file in the results folder
 
 import plotly.plotly as py
 from plotly.graph_objs import *
 
 ################################################################################
 
+DURATION = 30
 scatters = []
 
 for fsType in ['fde', 'nfde']:
@@ -30,10 +31,10 @@ for fsType in ['fde', 'nfde']:
                 elif beginCountingSamples:
                     if currentLine.startswith('Samples'):
                         assert beginCountingSamples == True
-                        assert len(samples) >= 11
+                        assert len(samples) >= DURATION + 1
 
                         beginCountingSamples = False
-                        energyTotal.append(sum(samples[-11:-1])) # Take the last (+ 1) 10 samples
+                        energyTotal.append(sum(samples[-(DURATION+1):-1])) # Take the last (+ 1) 10 samples
 
                     else:
                         samples.append(float(currentLine.strip()))
