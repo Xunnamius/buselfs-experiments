@@ -117,7 +117,7 @@ do
         $POWER_MON start
       fi
     
-      command="taskset $mask python3 /home/odroid/bd3/rsync/energy-AES-1/filebench-timed-bf.py"
+      command="taskset $mask python3 /home/odroid/bd3/rsync/energy-AES-1/filebench-timed.py big fde"
       echo $command
       $command
       c="$?"

@@ -7,6 +7,8 @@ import sys
 import plotly.plotly as py
 from plotly.graph_objs import *
 
+OPS = 5000
+
 ################################################################################
 
 scattersEnergy_DE = []
@@ -31,39 +33,31 @@ for fsType in ['fde', 'nfde']:
         energyTotal = []
         # Mask + Freq
         configurations = []
-        # Power = energyTotal / DURATION
+        # Power = energyTotal / test duration
         powerAverage = []
 
-        beginCountingSamples = False
-        samples = []
-        joules = 0
+        joules = None
+        duration = None
 
         with open('{}/shmoo.{}.{}.results'.format(filesdir, coreType, fsType), 'r') as lines:
             for currentLineNumber, currentLine in enumerate(lines):
-                if currentLine.startswith('Results'):
-                    assert beginCountingSamples != True
+                if currentLine.startswith('Joules'):
+                    joules = int(currentLine.split(':')[1].strip())
+                    energyTotal.append(joules)
 
-                    beginCountingSamples = True
-                    samples = []
-                    joules = 0
-
-                elif beginCountingSamples:
-                    if currentLine.startswith('Samples'):
-                        assert beginCountingSamples == True
-                        assert len(samples) >= DURATION + 1
-
-                        beginCountingSamples = False
-                        joules = sum(samples[-(DURATION+1):-1])
-                        energyTotal.append(joules) # Take the last (+ 1) DURATION samples
-                        powerAverage.append(joules / DURATION)
-
+                elif currentLine.strip().endswith('/s'): #in seconds
+                    number = float(currentLine.split(' s,')[0].split(' ')[-1].strip())
+                    if duration == None:
+                        duration = number
                     else:
-                        samples.append(float(currentLine.strip()))
+                        duration += number
 
                 elif currentLine.startswith('mf'):
                     configurations.append(currentLine.split(':')[1].strip())
+                    powerAverage.append(joules / duration)
+                    duration = None
 
-        assert len(energyTotal) == len(configurations)
+        assert len(energyTotal) == len(configurations) == len(powerAverage)
 
         # print('Energy Total: ', energyTotal)
         # print('Configurations: ', configurations)
@@ -73,15 +67,33 @@ for fsType in ['fde', 'nfde']:
             mode='markers',
             name=coreType.upper() + ' cores',
             text=configurations,
-            marker=Marker(size=12, color=('orange' if fsType == 'big' else 'blue'))
+            marker=Marker(size=12)
         ))
 
         scattersPower_DE.append(Scatter(
-            x=[fsType.upper()] * len(energyTotal), y=powerAverage,
+            x=[fsType.upper()] * len(powerAverage), y=powerAverage,
             mode='markers',
             name=coreType.upper() + ' cores',
             text=configurations,
-            marker=Marker(size=12, color=('orange' if fsType == 'big' else 'blue'))
+            marker=Marker(size=12)
+        ))
+
+        frequencies = [x.split(' ')[1] for x in configurations]
+
+        scattersEnergy_configs.append(Scatter(
+            x=frequencies, y=energyTotal,
+            mode='markers',
+            name=fsType.upper() + ' ' + coreType.upper() + ' cores',
+            text=configurations,
+            marker=Marker(size=12)
+        ))
+
+        scattersPower_configs.append(Scatter(
+            x=frequencies, y=powerAverage,
+            mode='markers',
+            name=fsType.upper() + ' ' + coreType.upper() + ' cores',
+            text=configurations,
+            marker=Marker(size=12)
         ))
 
 print('Uploading...')
@@ -89,23 +101,42 @@ print('Uploading...')
 enerAESEnergyDE = Figure(
     data = Data(scattersEnergy_DE),
     layout = Layout(
-        title='(N)FDE vs Total Energy over 30 seconds',
+        title='{} (N)FDE vs Total Energy over {} iops'.format(filesdir, OPS),
         xaxis1 = XAxis(title='Disk Encryption'),
         yaxis1 = YAxis(title='Energy (joules)')
     )
 )
 
 enerAESPowerDE = Figure(
-    data = Data(scattersEnergy_DE),
+    data = Data(scattersPower_DE),
     layout = Layout(
-        title='Is It Worth It?',
+        title='{} (N)FDE vs Average Power over {} iops'.format(filesdir, OPS),
+        xaxis1 = XAxis(title='Disk Encryption'),
+        yaxis1 = YAxis(title='Power (joules/s)')
+    )
+)
+
+enerAESEnergyConfigs = Figure(
+    data = Data(scattersEnergy_configs),
+    layout = Layout(
+        title='{} Frequency Sweeep vs Total Energy over {} iops'.format(filesdir, OPS),
         xaxis1 = XAxis(title='Disk Encryption'),
         yaxis1 = YAxis(title='Energy (joules)')
     )
 )
 
-print(py.plot(enerAESEnergyDE, filename='energy-AESXTS-EvsDE', auto_open=False))
-print(py.plot(enerAESPowerDE, filename='energy-AESXTS-PvsDE', auto_open=False))
-print(py.plot(enerAESEnergyDE, filename='energy-AESXTS-EvsCnf', auto_open=False))
-print(py.plot(enerAESPowerDE, filename='energy-AESXTS-PvsCnf', auto_open=False))
+enerAESPowerConfigs = Figure(
+    data = Data(scattersPower_configs),
+    layout = Layout(
+        title='{} Frequency Sweeep vs Average Power over {} iops'.format(filesdir, OPS),
+        xaxis1 = XAxis(title='Disk Encryption'),
+        yaxis1 = YAxis(title='Power (joules/s)')
+    )
+)
+
+hsh = hashlib.md5(bytes(filesdir, "ascii"))
+print(py.plot(enerAESEnergyDE, filename='energy-AESXTS-EvsDE-' + hsh, auto_open=False))
+print(py.plot(enerAESPowerDE, filename='energy-AESXTS-PvsDE-' + hsh, auto_open=False))
+print(py.plot(enerAESEnergyDE, filename='energy-AESXTS-EvsCnf-' + hsh, auto_open=False))
+print(py.plot(enerAESPowerDE, filename='energy-AESXTS-PvsCnf-' + hsh, auto_open=False))
 print('done')
