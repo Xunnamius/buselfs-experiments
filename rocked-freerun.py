@@ -7,7 +7,7 @@ import sys
 import plotly.plotly as py
 from plotly.graph_objs import *
 
-OPS = 5000*2
+OPS = 10000*2
 
 ################################################################################
 
