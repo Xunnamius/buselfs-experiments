@@ -142,7 +142,7 @@ enerAESPowerConfigs = Figure(
     )
 )
 
-hsh = hashlib.md5(bytes(filesdir, "ascii"))
+hsh = hashlib.md5(bytes(filesdir, "ascii")).hexdigest()
 print(py.plot(enerAESEnergyDE, filename='energy-AESXTS-EvsDE-' + hsh, auto_open=False))
 print(py.plot(enerAESPowerDE, filename='energy-AESXTS-PvsDE-' + hsh, auto_open=False))
 print(py.plot(enerAESEnergyConfigs, filename='energy-AESXTS-EvsCnfs-' + hsh, auto_open=False))

@@ -4,6 +4,7 @@
 
 import os
 import sys
+import hashlib
 import plotly.plotly as py
 from plotly.graph_objs import *
 
@@ -42,7 +43,7 @@ for fsType in ['fde', 'nfde']:
         with open('{}/shmoo.{}.{}.results'.format(filesdir, coreType, fsType), 'r') as lines:
             for currentLineNumber, currentLine in enumerate(lines):
                 if currentLine.startswith('Joules'):
-                    joules = int(currentLine.split(':')[1].strip())
+                    joules = float(currentLine.split(':')[1].strip())
                     energyTotal.append(joules)
 
                 elif currentLine.strip().endswith('/s'): #in seconds
@@ -134,9 +135,9 @@ enerAESPowerConfigs = Figure(
     )
 )
 
-hsh = hashlib.md5(bytes(filesdir, "ascii"))
+hsh = hashlib.md5(bytes(filesdir, "ascii")).hexdigest()
 print(py.plot(enerAESEnergyDE, filename='energy-AESXTS-EvsDE-' + hsh, auto_open=False))
 print(py.plot(enerAESPowerDE, filename='energy-AESXTS-PvsDE-' + hsh, auto_open=False))
-print(py.plot(enerAESEnergyDE, filename='energy-AESXTS-EvsCnf-' + hsh, auto_open=False))
-print(py.plot(enerAESPowerDE, filename='energy-AESXTS-PvsCnf-' + hsh, auto_open=False))
+print(py.plot(enerAESEnergyConfigs, filename='energy-AESXTS-EvsCnf-' + hsh, auto_open=False))
+print(py.plot(enerAESPowerConfigs, filename='energy-AESXTS-PvsCnf-' + hsh, auto_open=False))
 print('done')
