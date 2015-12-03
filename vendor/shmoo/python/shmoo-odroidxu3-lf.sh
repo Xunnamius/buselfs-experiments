@@ -117,7 +117,7 @@ do
         $POWER_MON start
       fi
     
-      command="taskset $mask python3 /home/odroid/bd3/rsync/energy-AES-1/python-freerun.py little fde /media/fde-RAMDSK"
+      command="taskset $mask python3 /home/odroid/bd3/rsync/energy-AES-1/python-freerun.py little fde /media/fde-RAMDSK/tmp.txt"
       echo $command
       $command
       c="$?"

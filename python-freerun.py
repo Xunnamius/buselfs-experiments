@@ -26,8 +26,8 @@ with open('/home/odroid/bd3/rsync/energy-AES-1/results/shmoo.{}.{}.results'.form
     
     # Begin logging with Wattsup (above), run filebench (here), close out the
     # Wattsup logger (below)
-    print("dd-write returned: ", subprocess.call(['dd-write.sh', writeto, coreType, fsType], stdout=out))
-    print("dd-read returned: ", subprocess.call(['dd-read.sh', writeto, coreType, fsType], stdout=out))
+    print("dd-write returned: ", subprocess.call(['/home/odroid/bd3/rsync/energy-AES-1/dd-write.sh', writeto, coreType, fsType], stdout=out))
+    print("dd-read returned: ", subprocess.call(['/home/odroid/bd3/rsync/energy-AES-1/dd-read.sh', writeto, coreType, fsType], stdout=out))
 
     # This loop handles any annoying errors we may encounter
     while True:
