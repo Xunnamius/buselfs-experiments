@@ -4,4 +4,4 @@ writeto=$1
 coretype=$2
 fstype=$3
 
-`dd if=/dev/urandom of=${writeto} bs=512 count=10000 conv=fdatasync oflag=direct >> results/shmoo.${coretype}.${fstype}.results 2>&1`
+`dd if=/dev/zero of=${writeto} bs=512 count=10000 conv=fdatasync oflag=direct >> results/shmoo.${coretype}.${fstype}.results 2>&1`
