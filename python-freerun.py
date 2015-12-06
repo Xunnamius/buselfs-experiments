@@ -7,6 +7,7 @@ import os
 import sys
 import time
 import subprocess
+import serial
 from vendor.pyWattsup import WattsUp
 
 TRIALS = 10
@@ -28,10 +29,17 @@ wattsup = WattsUp('/dev/ttyUSB0', 115200, verbose=False)
 with open('/home/odroid/bd3/rsync/energy-AES-1/results/shmoo.{}.{}.results'.format(coreType, fsType), 'a') as out:
     while trials:
         trials = trials - 1
+        trial = TRIALS-trials
+        print('beginning trial {} of {}'.format(trial, TRIALS))
 
         print('waiting for write buffer flush...')
         time.sleep(2)
-        
+
+        try:
+            wattsup.serial.open()
+        except serial.serialutil.SerialException:
+            pass
+
         wattsup.clearMemory()
         wattsup.logInternal(1)
         
@@ -50,10 +58,11 @@ with open('/home/odroid/bd3/rsync/energy-AES-1/results/shmoo.{}.{}.results'.form
             except ValueError:
                 print('[+] recovered from ValueError')
                 wattsup.serial.close()
-                time.sleep(0.5) # Give Wattsup a moment to get its shit together
+                time.sleep(0.1) # Give Wattsup a moment to get its shit together
                 wattsup.serial.open()
                 continue
-        print('trial {}/{} complete'.format(TRIALS-trials+1, TRIALS))
+        print('trial {}/{} complete'.format(trial, TRIALS))
 
+wattsup.serial.close()
 print('done')
 exit(0)
