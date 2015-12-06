@@ -1,0 +1,15193 @@
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.41199 s, 2.9 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.63088 s, 4.9 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.36089 s, 2.9 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.7062 s, 4.7 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.40831 s, 2.9 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.63934 s, 4.8 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.38777 s, 2.9 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.62655 s, 4.9 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.39679 s, 2.9 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.62134 s, 4.9 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.38699 s, 2.9 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.70431 s, 4.7 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.40265 s, 2.9 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.63014 s, 4.9 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.40972 s, 2.9 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.63647 s, 4.9 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.38808 s, 2.9 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.63539 s, 4.9 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.46667 s, 2.9 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.63054 s, 4.9 MB/s
+2015-12-06 06:23:04.753172
+Results:
+3.2
+3.3
+3.3
+3.3
+3.4
+3.4
+3.4
+Samples: 7
+Pavg: 3.329
+Pmax: 3.400
+Pmin: 3.200
+Pstdev: 0.070
+Joules: 23.300
+2015-12-06 06:23:15.659982
+Results:
+3.4
+3.4
+3.5
+3.5
+3.5
+3.5
+3.5
+Samples: 7
+Pavg: 3.471
+Pmax: 3.500
+Pmin: 3.400
+Pstdev: 0.045
+Joules: 24.300
+2015-12-06 06:23:26.472924
+Results:
+3.5
+3.5
+3.5
+3.5
+3.5
+3.6
+Samples: 6
+Pavg: 3.517
+Pmax: 3.600
+Pmin: 3.500
+Pstdev: 0.037
+Joules: 21.100
+2015-12-06 06:23:37.269712
+Results:
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+Samples: 6
+Pavg: 3.500
+Pmax: 3.500
+Pmin: 3.500
+Pstdev: 0.000
+Joules: 21.000
+2015-12-06 06:23:48.057526
+Results:
+3.5
+3.5
+3.5
+3.5
+3.6
+3.5
+Samples: 6
+Pavg: 3.517
+Pmax: 3.600
+Pmin: 3.500
+Pstdev: 0.037
+Joules: 21.100
+2015-12-06 06:23:58.939745
+Results:
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+Samples: 7
+Pavg: 3.500
+Pmax: 3.500
+Pmin: 3.500
+Pstdev: 0.000
+Joules: 24.500
+2015-12-06 06:24:09.762576
+Results:
+3.5
+3.5
+3.5
+3.5
+3.6
+3.6
+3.6
+Samples: 7
+Pavg: 3.543
+Pmax: 3.600
+Pmin: 3.500
+Pstdev: 0.049
+Joules: 24.800
+2015-12-06 06:24:20.652906
+Results:
+3.5
+3.5
+3.5
+3.6
+3.6
+3.6
+3.6
+Samples: 7
+Pavg: 3.557
+Pmax: 3.600
+Pmin: 3.500
+Pstdev: 0.049
+Joules: 24.900
+2015-12-06 06:24:31.445084
+Results:
+3.5
+3.5
+3.5
+3.5
+3.5
+3.6
+Samples: 6
+Pavg: 3.517
+Pmax: 3.600
+Pmin: 3.500
+Pstdev: 0.037
+Joules: 21.100
+2015-12-06 06:24:42.347964
+Results:
+3.5
+3.5
+3.5
+3.5
+3.5
+3.6
+Samples: 6
+Pavg: 3.517
+Pmax: 3.600
+Pmin: 3.500
+Pstdev: 0.037
+Joules: 21.100
+mf: 0xF 1400000
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.65713 s, 2.7 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.76366 s, 4.6 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.60521 s, 2.8 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.74733 s, 4.7 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.61378 s, 2.8 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.73395 s, 4.7 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.53636 s, 2.8 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.71135 s, 4.7 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.64342 s, 2.8 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.73702 s, 4.7 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.59133 s, 2.8 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.75285 s, 4.6 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.54736 s, 2.8 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.75889 s, 4.6 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.54544 s, 2.8 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.67718 s, 4.8 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.54145 s, 2.8 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.68324 s, 4.8 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.62631 s, 2.8 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.8207 s, 4.5 MB/s
+2015-12-06 06:25:06.032472
+Results:
+3.4
+3.4
+3.4
+3.4
+3.4
+3.5
+3.5
+Samples: 7
+Pavg: 3.429
+Pmax: 3.500
+Pmin: 3.400
+Pstdev: 0.045
+Joules: 24.000
+2015-12-06 06:25:17.189526
+Results:
+3.4
+3.4
+3.4
+3.5
+3.5
+3.5
+3.5
+Samples: 7
+Pavg: 3.457
+Pmax: 3.500
+Pmin: 3.400
+Pstdev: 0.049
+Joules: 24.200
+2015-12-06 06:25:28.311088
+Results:
+3.4
+3.5
+3.5
+3.5
+3.5
+3.5
+Samples: 6
+Pavg: 3.483
+Pmax: 3.500
+Pmin: 3.400
+Pstdev: 0.037
+Joules: 20.900
+2015-12-06 06:25:39.332036
+Results:
+3.4
+3.5
+3.5
+3.5
+3.5
+3.5
+Samples: 6
+Pavg: 3.483
+Pmax: 3.500
+Pmin: 3.400
+Pstdev: 0.037
+Joules: 20.900
+2015-12-06 06:25:50.651986
+Results:
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+Samples: 7
+Pavg: 3.500
+Pmax: 3.500
+Pmin: 3.500
+Pstdev: 0.000
+Joules: 24.500
+2015-12-06 06:26:01.795338
+Results:
+3.4
+3.4
+3.5
+3.5
+3.5
+3.5
+3.5
+Samples: 7
+Pavg: 3.471
+Pmax: 3.500
+Pmin: 3.400
+Pstdev: 0.045
+Joules: 24.300
+2015-12-06 06:26:12.896371
+Results:
+3.4
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+Samples: 7
+Pavg: 3.486
+Pmax: 3.500
+Pmin: 3.400
+Pstdev: 0.035
+Joules: 24.400
+2015-12-06 06:26:23.912510
+Results:
+3.4
+3.4
+3.5
+3.5
+3.5
+3.5
+3.5
+Samples: 7
+Pavg: 3.471
+Pmax: 3.500
+Pmin: 3.400
+Pstdev: 0.045
+Joules: 24.300
+2015-12-06 06:26:34.934743
+Results:
+3.4
+3.4
+3.5
+3.5
+3.5
+3.5
+3.5
+Samples: 7
+Pavg: 3.471
+Pmax: 3.500
+Pmin: 3.400
+Pstdev: 0.045
+Joules: 24.300
+2015-12-06 06:26:46.176851
+Results:
+3.4
+3.4
+3.5
+3.5
+3.5
+3.5
+3.5
+Samples: 7
+Pavg: 3.471
+Pmax: 3.500
+Pmin: 3.400
+Pstdev: 0.045
+Joules: 24.300
+mf: 0xF 1300000
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.87363 s, 2.6 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.89459 s, 4.4 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.89133 s, 2.6 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.91745 s, 4.4 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.88378 s, 2.6 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.0062 s, 4.3 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.87075 s, 2.6 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.88358 s, 4.4 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.87315 s, 2.6 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.88698 s, 4.4 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.87391 s, 2.6 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.90736 s, 4.4 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.86644 s, 2.6 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.90111 s, 4.4 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.8694 s, 2.6 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.89906 s, 4.4 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.83619 s, 2.6 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.86177 s, 4.5 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.89311 s, 2.6 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.9015 s, 4.4 MB/s
+2015-12-06 06:27:10.666415
+Results:
+3.3
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 8
+Pavg: 3.387
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.033
+Joules: 27.100
+2015-12-06 06:27:22.288155
+Results:
+3.3
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 7
+Pavg: 3.386
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.035
+Joules: 23.700
+2015-12-06 06:27:33.985699
+Results:
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 7
+Pavg: 3.400
+Pmax: 3.400
+Pmin: 3.400
+Pstdev: 0.000
+Joules: 23.800
+2015-12-06 06:27:45.675752
+Results:
+3.4
+3.4
+3.4
+3.4
+3.4
+3.5
+3.4
+3.5
+Samples: 8
+Pavg: 3.425
+Pmax: 3.500
+Pmin: 3.400
+Pstdev: 0.043
+Joules: 27.400
+2015-12-06 06:27:57.240421
+Results:
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 7
+Pavg: 3.400
+Pmax: 3.400
+Pmin: 3.400
+Pstdev: 0.000
+Joules: 23.800
+2015-12-06 06:28:08.831913
+Results:
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 7
+Pavg: 3.400
+Pmax: 3.400
+Pmin: 3.400
+Pstdev: 0.000
+Joules: 23.800
+2015-12-06 06:28:20.402889
+Results:
+3.4
+3.4
+3.4
+3.4
+3.4
+3.5
+3.5
+Samples: 7
+Pavg: 3.429
+Pmax: 3.500
+Pmin: 3.400
+Pstdev: 0.045
+Joules: 24.000
+2015-12-06 06:28:32.053676
+Results:
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 7
+Pavg: 3.400
+Pmax: 3.400
+Pmin: 3.400
+Pstdev: 0.000
+Joules: 23.800
+2015-12-06 06:28:43.679052
+Results:
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 8
+Pavg: 3.400
+Pmax: 3.400
+Pmin: 3.400
+Pstdev: 0.000
+Joules: 27.200
+2015-12-06 06:28:55.275518
+Results:
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 7
+Pavg: 3.400
+Pmax: 3.400
+Pmin: 3.400
+Pstdev: 0.000
+Joules: 23.800
+mf: 0xF 1200000
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.12179 s, 2.5 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.02993 s, 4.2 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.14411 s, 2.5 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.03398 s, 4.2 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.14586 s, 2.5 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.03694 s, 4.2 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.18058 s, 2.5 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.04456 s, 4.2 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.21482 s, 2.5 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.08776 s, 4.1 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.22532 s, 2.4 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.08855 s, 4.1 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.24653 s, 2.4 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.2097 s, 4.0 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.2264 s, 2.4 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.11305 s, 4.1 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.25861 s, 2.4 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.10291 s, 4.1 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.23068 s, 2.4 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.09791 s, 4.1 MB/s
+2015-12-06 06:29:19.871211
+Results:
+3.3
+3.3
+3.3
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 8
+Pavg: 3.362
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.048
+Joules: 26.900
+2015-12-06 06:29:31.894690
+Results:
+3.3
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 8
+Pavg: 3.387
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.033
+Joules: 27.100
+2015-12-06 06:29:43.914373
+Results:
+3.3
+3.3
+3.4
+3.3
+3.4
+3.4
+3.4
+3.4
+Samples: 8
+Pavg: 3.362
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.048
+Joules: 26.900
+2015-12-06 06:29:55.978880
+Results:
+3.3
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 8
+Pavg: 3.387
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.033
+Joules: 27.100
+2015-12-06 06:30:08.119280
+Results:
+3.3
+3.3
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 8
+Pavg: 3.375
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.043
+Joules: 27.000
+2015-12-06 06:30:20.253811
+Results:
+3.3
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 7
+Pavg: 3.386
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.035
+Joules: 23.700
+2015-12-06 06:30:32.677734
+Results:
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 8
+Pavg: 3.400
+Pmax: 3.400
+Pmin: 3.400
+Pstdev: 0.000
+Joules: 27.200
+2015-12-06 06:30:44.863249
+Results:
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 8
+Pavg: 3.400
+Pmax: 3.400
+Pmin: 3.400
+Pstdev: 0.000
+Joules: 27.200
+2015-12-06 06:30:57.068741
+Results:
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 8
+Pavg: 3.400
+Pmax: 3.400
+Pmin: 3.400
+Pstdev: 0.000
+Joules: 27.200
+2015-12-06 06:31:09.237973
+Results:
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 8
+Pavg: 3.400
+Pmax: 3.400
+Pmin: 3.400
+Pstdev: 0.000
+Joules: 27.200
+mf: 0xF 1100000
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.62864 s, 2.3 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.32466 s, 3.9 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.62529 s, 2.3 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.32351 s, 3.9 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.64151 s, 2.3 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.32585 s, 3.8 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.69226 s, 2.2 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.46778 s, 3.7 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.64226 s, 2.3 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.34003 s, 3.8 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.65002 s, 2.3 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.33641 s, 3.8 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.55994 s, 2.3 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.27758 s, 3.9 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.60422 s, 2.3 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.33268 s, 3.8 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.56218 s, 2.3 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.26032 s, 3.9 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.55024 s, 2.3 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.26307 s, 3.9 MB/s
+2015-12-06 06:31:34.742870
+Results:
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.4
+3.4
+3.3
+Samples: 9
+Pavg: 3.322
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.042
+Joules: 29.900
+2015-12-06 06:31:47.698225
+Results:
+3.3
+3.3
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 9
+Pavg: 3.378
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.042
+Joules: 30.400
+2015-12-06 06:32:00.521378
+Results:
+3.3
+3.3
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 8
+Pavg: 3.375
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.043
+Joules: 27.000
+2015-12-06 06:32:13.692284
+Results:
+3.3
+3.3
+3.3
+3.3
+3.3
+3.4
+3.4
+3.4
+3.4
+Samples: 9
+Pavg: 3.344
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.050
+Joules: 30.100
+2015-12-06 06:32:26.512070
+Results:
+3.3
+3.3
+3.3
+3.3
+3.4
+3.4
+3.4
+3.4
+Samples: 8
+Pavg: 3.350
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.050
+Joules: 26.800
+2015-12-06 06:32:39.354185
+Results:
+3.3
+3.3
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 8
+Pavg: 3.375
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.043
+Joules: 27.000
+2015-12-06 06:32:52.154825
+Results:
+3.3
+3.3
+3.3
+3.3
+3.3
+3.4
+3.4
+3.4
+Samples: 8
+Pavg: 3.337
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.048
+Joules: 26.700
+2015-12-06 06:33:04.944556
+Results:
+3.3
+3.3
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 8
+Pavg: 3.375
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.043
+Joules: 27.000
+2015-12-06 06:33:17.687716
+Results:
+3.3
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 9
+Pavg: 3.389
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.031
+Joules: 30.500
+2015-12-06 06:33:30.350057
+Results:
+3.3
+3.3
+3.3
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 8
+Pavg: 3.362
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.048
+Joules: 26.900
+mf: 0xF 1000000
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.04751 s, 2.1 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.53552 s, 3.6 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.06752 s, 2.1 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.5217 s, 3.6 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.06053 s, 2.1 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.63834 s, 3.5 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.09398 s, 2.1 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.63655 s, 3.5 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.09387 s, 2.1 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.60591 s, 3.5 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.10512 s, 2.1 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.63209 s, 3.5 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.14729 s, 2.1 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.64092 s, 3.5 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.13721 s, 2.1 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.62937 s, 3.5 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.09056 s, 2.1 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.62537 s, 3.5 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.14747 s, 2.1 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.63372 s, 3.5 MB/s
+2015-12-06 06:33:56.687090
+Results:
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 9
+Pavg: 3.300
+Pmax: 3.300
+Pmin: 3.300
+Pstdev: 0.000
+Joules: 29.700
+2015-12-06 06:34:10.177044
+Results:
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.4
+3.3
+3.3
+Samples: 9
+Pavg: 3.311
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.031
+Joules: 29.800
+2015-12-06 06:34:23.762169
+Results:
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.4
+Samples: 9
+Pavg: 3.311
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.031
+Joules: 29.800
+2015-12-06 06:34:37.384555
+Results:
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.4
+3.3
+Samples: 9
+Pavg: 3.311
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.031
+Joules: 29.800
+2015-12-06 06:34:51.047084
+Results:
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 9
+Pavg: 3.300
+Pmax: 3.300
+Pmin: 3.300
+Pstdev: 0.000
+Joules: 29.700
+2015-12-06 06:35:04.707608
+Results:
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.4
+Samples: 10
+Pavg: 3.310
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.030
+Joules: 33.100
+2015-12-06 06:35:18.391845
+Results:
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.4
+3.3
+3.3
+Samples: 9
+Pavg: 3.311
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.031
+Joules: 29.800
+2015-12-06 06:35:32.129679
+Results:
+3.3
+3.3
+3.3
+3.3
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 9
+Pavg: 3.356
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.050
+Joules: 30.200
+2015-12-06 06:35:45.735324
+Results:
+3.3
+3.3
+3.3
+3.3
+3.3
+3.4
+3.3
+3.3
+3.4
+Samples: 9
+Pavg: 3.322
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.042
+Joules: 29.900
+2015-12-06 06:35:59.407992
+Results:
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.4
+3.3
+Samples: 9
+Pavg: 3.311
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.031
+Joules: 29.800
+mf: 0xF 900000
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.8196 s, 1.9 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.96228 s, 3.2 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.70607 s, 1.9 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.92705 s, 3.3 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.70729 s, 1.9 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.97303 s, 3.2 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.69502 s, 1.9 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.05047 s, 3.2 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.65979 s, 1.9 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.90736 s, 3.3 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.69043 s, 1.9 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.0643 s, 3.1 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.66265 s, 1.9 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.90555 s, 3.3 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.7021 s, 1.9 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.96376 s, 3.2 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.72187 s, 1.9 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.98372 s, 3.2 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.73293 s, 1.9 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.99329 s, 3.2 MB/s
+2015-12-06 06:36:27.020491
+Results:
+3.3
+3.3
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 10
+Pavg: 3.290
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.030
+Joules: 32.900
+2015-12-06 06:36:41.748384
+Results:
+3.2
+3.2
+3.2
+3.3
+3.3
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 11
+Pavg: 3.264
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.048
+Joules: 35.900
+2015-12-06 06:36:56.749125
+Results:
+3.2
+3.2
+3.3
+3.3
+3.2
+3.2
+3.2
+3.3
+3.3
+3.3
+3.3
+Samples: 11
+Pavg: 3.255
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.050
+Joules: 35.800
+2015-12-06 06:37:11.424090
+Results:
+3.2
+3.2
+3.2
+3.2
+3.3
+3.3
+3.3
+3.3
+3.2
+3.2
+Samples: 10
+Pavg: 3.240
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.049
+Joules: 32.400
+2015-12-06 06:37:25.983100
+Results:
+3.2
+3.2
+3.2
+3.3
+3.3
+3.2
+3.3
+3.3
+3.2
+3.3
+Samples: 10
+Pavg: 3.250
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.050
+Joules: 32.500
+2015-12-06 06:37:40.743805
+Results:
+3.2
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 11
+Pavg: 3.282
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.039
+Joules: 36.100
+2015-12-06 06:37:55.241721
+Results:
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 10
+Pavg: 3.290
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.030
+Joules: 32.900
+2015-12-06 06:38:09.842946
+Results:
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 10
+Pavg: 3.290
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.030
+Joules: 32.900
+2015-12-06 06:38:24.478245
+Results:
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 10
+Pavg: 3.290
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.030
+Joules: 32.900
+2015-12-06 06:38:39.134169
+Results:
+3.2
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 10
+Pavg: 3.280
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.040
+Joules: 32.800
+mf: 0xF 800000
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 7.53336 s, 1.7 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.45693 s, 2.9 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 7.5239 s, 1.7 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.46032 s, 2.9 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 7.52657 s, 1.7 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.44486 s, 2.9 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 7.59527 s, 1.7 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.46576 s, 2.9 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 7.52988 s, 1.7 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.45679 s, 2.9 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 7.4952 s, 1.7 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.42649 s, 2.9 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 7.5245 s, 1.7 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.42062 s, 2.9 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 7.50698 s, 1.7 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.42691 s, 2.9 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 7.54943 s, 1.7 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.43878 s, 2.9 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 7.64257 s, 1.7 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.44092 s, 2.9 MB/s
+2015-12-06 06:39:08.166878
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.3
+3.2
+Samples: 11
+Pavg: 3.209
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.029
+Joules: 35.300
+2015-12-06 06:39:24.143708
+Results:
+3.2
+3.3
+3.2
+3.2
+3.2
+3.2
+3.3
+3.3
+3.3
+3.3
+3.2
+Samples: 11
+Pavg: 3.245
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.050
+Joules: 35.700
+2015-12-06 06:39:40.451694
+Results:
+3.2
+3.2
+3.2
+3.3
+3.2
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 11
+Pavg: 3.255
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.050
+Joules: 35.800
+2015-12-06 06:39:56.500895
+Results:
+3.2
+3.3
+3.2
+3.3
+3.3
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 11
+Pavg: 3.273
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.045
+Joules: 36.000
+2015-12-06 06:40:12.468659
+Results:
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 11
+Pavg: 3.291
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.029
+Joules: 36.200
+2015-12-06 06:40:28.391577
+Results:
+3.2
+3.2
+3.2
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.2
+Samples: 11
+Pavg: 3.255
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.050
+Joules: 35.800
+2015-12-06 06:40:44.421226
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.3
+3.3
+3.3
+3.3
+3.2
+3.3
+Samples: 11
+Pavg: 3.245
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.050
+Joules: 35.700
+2015-12-06 06:41:00.407971
+Results:
+3.2
+3.2
+3.3
+3.3
+3.2
+3.3
+3.3
+3.2
+3.3
+3.3
+3.2
+Samples: 11
+Pavg: 3.255
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.050
+Joules: 35.800
+2015-12-06 06:41:16.877069
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.2
+Samples: 12
+Pavg: 3.250
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.050
+Joules: 39.000
+2015-12-06 06:41:32.968470
+Results:
+3.2
+3.2
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 12
+Pavg: 3.275
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.043
+Joules: 39.300
+mf: 0xF 700000
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 8.52233 s, 1.5 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.9918 s, 2.6 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 8.60659 s, 1.5 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.06894 s, 2.5 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 8.49783 s, 1.5 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.95049 s, 2.6 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 8.48489 s, 1.5 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.9867 s, 2.6 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 8.47101 s, 1.5 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.95731 s, 2.6 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 8.46987 s, 1.5 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.97918 s, 2.6 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 8.59456 s, 1.5 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.07892 s, 2.5 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 8.62386 s, 1.5 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.12098 s, 2.5 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 8.63622 s, 1.5 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.33511 s, 2.4 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 8.59647 s, 1.5 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.30601 s, 2.4 MB/s
+2015-12-06 06:42:03.819969
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.3
+3.3
+Samples: 13
+Pavg: 3.215
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.036
+Joules: 41.800
+2015-12-06 06:42:21.566022
+Results:
+3.2
+3.2
+3.3
+3.3
+3.3
+3.3
+3.2
+3.3
+3.3
+3.2
+3.2
+3.2
+3.2
+Samples: 13
+Pavg: 3.246
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.050
+Joules: 42.200
+2015-12-06 06:42:39.071308
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.3
+3.2
+3.2
+3.2
+3.2
+Samples: 13
+Pavg: 3.208
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.027
+Joules: 41.700
+2015-12-06 06:42:56.602733
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.3
+3.3
+3.2
+3.2
+Samples: 13
+Pavg: 3.215
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.036
+Joules: 41.800
+2015-12-06 06:43:14.098828
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.3
+3.3
+3.2
+3.3
+3.3
+Samples: 13
+Pavg: 3.231
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.046
+Joules: 42.000
+2015-12-06 06:43:31.584595
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.2
+Samples: 12
+Pavg: 3.250
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.050
+Joules: 39.000
+2015-12-06 06:43:49.316330
+Results:
+3.2
+3.2
+3.2
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.2
+3.3
+3.2
+3.2
+Samples: 13
+Pavg: 3.246
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.050
+Joules: 42.200
+2015-12-06 06:44:07.127648
+Results:
+3.2
+3.2
+3.3
+3.3
+3.2
+3.2
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 13
+Pavg: 3.262
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.049
+Joules: 42.400
+2015-12-06 06:44:25.166114
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.2
+3.3
+Samples: 13
+Pavg: 3.254
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.050
+Joules: 42.300
+2015-12-06 06:44:43.131438
+Results:
+3.2
+3.2
+3.3
+3.3
+3.2
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.2
+Samples: 13
+Pavg: 3.262
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.049
+Joules: 42.400
+mf: 0xF 600000
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 10.243 s, 1.2 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.26414 s, 2.0 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 10.2134 s, 1.3 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.29308 s, 2.0 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 10.2911 s, 1.2 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.95456 s, 2.1 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 10.2262 s, 1.3 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.28237 s, 2.0 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 10.1924 s, 1.3 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.97598 s, 2.1 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 10.0805 s, 1.3 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.82569 s, 2.2 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 10.1885 s, 1.3 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.91955 s, 2.2 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 10.0433 s, 1.3 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.82 s, 2.2 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 10.0567 s, 1.3 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.81656 s, 2.2 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 10.045 s, 1.3 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.82816 s, 2.2 MB/s
+2015-12-06 06:45:17.395789
+Results:
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+Samples: 16
+Pavg: 3.194
+Pmax: 3.200
+Pmin: 3.100
+Pstdev: 0.024
+Joules: 51.100
+2015-12-06 06:45:38.170364
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.3
+3.2
+3.2
+3.2
+3.2
+3.2
+3.3
+Samples: 16
+Pavg: 3.213
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.033
+Joules: 51.400
+2015-12-06 06:45:59.075257
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.3
+3.3
+3.2
+3.2
+3.2
+Samples: 16
+Pavg: 3.212
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.033
+Joules: 51.400
+2015-12-06 06:46:19.877334
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.3
+3.3
+3.2
+3.3
+3.3
+3.2
+3.2
+3.2
+3.3
+Samples: 17
+Pavg: 3.229
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.046
+Joules: 54.900
+2015-12-06 06:46:40.226480
+Results:
+3.2
+3.2
+3.3
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.3
+3.3
+3.2
+3.3
+3.3
+3.2
+Samples: 16
+Pavg: 3.231
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.046
+Joules: 51.700
+2015-12-06 06:47:00.284957
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.3
+3.3
+3.2
+3.2
+3.2
+3.2
+Samples: 15
+Pavg: 3.213
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.034
+Joules: 48.200
+2015-12-06 06:47:20.523820
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+Samples: 15
+Pavg: 3.200
+Pmax: 3.200
+Pmin: 3.200
+Pstdev: 0.000
+Joules: 48.000
+2015-12-06 06:47:40.537895
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.3
+3.3
+3.2
+3.2
+3.3
+3.3
+3.2
+3.2
+3.2
+Samples: 15
+Pavg: 3.227
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.044
+Joules: 48.400
+2015-12-06 06:48:00.561786
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+Samples: 15
+Pavg: 3.200
+Pmax: 3.200
+Pmin: 3.200
+Pstdev: 0.000
+Joules: 48.000
+2015-12-06 06:48:20.586678
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.3
+3.3
+3.2
+3.2
+3.3
+3.3
+3.2
+3.2
+3.2
+Samples: 15
+Pavg: 3.227
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.044
+Joules: 48.400
+mf: 0xF 500000
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 12.4225 s, 1.0 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 7.20595 s, 1.8 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 12.4268 s, 1.0 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 7.27001 s, 1.8 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 12.4619 s, 1.0 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 7.26192 s, 1.8 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 12.4865 s, 1.0 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 7.2849 s, 1.8 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 12.4629 s, 1.0 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 7.24273 s, 1.8 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 12.4581 s, 1.0 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 7.27373 s, 1.8 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 12.49 s, 1.0 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 7.29031 s, 1.8 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 12.5509 s, 1.0 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 7.29609 s, 1.8 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 12.5103 s, 1.0 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 7.3057 s, 1.8 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 12.4631 s, 1.0 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 7.28115 s, 1.8 MB/s
+2015-12-06 06:48:58.532580
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+Samples: 19
+Pavg: 3.200
+Pmax: 3.200
+Pmin: 3.200
+Pstdev: 0.000
+Joules: 60.800
+2015-12-06 06:49:22.559269
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+Samples: 19
+Pavg: 3.189
+Pmax: 3.200
+Pmin: 3.100
+Pstdev: 0.031
+Joules: 60.600
+2015-12-06 06:49:46.597839
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+Samples: 19
+Pavg: 3.200
+Pmax: 3.200
+Pmin: 3.200
+Pstdev: 0.000
+Joules: 60.800
+2015-12-06 06:50:10.686800
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.3
+Samples: 19
+Pavg: 3.205
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.022
+Joules: 60.900
+2015-12-06 06:50:34.702138
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+Samples: 19
+Pavg: 3.200
+Pmax: 3.200
+Pmin: 3.200
+Pstdev: 0.000
+Joules: 60.800
+2015-12-06 06:50:58.741673
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+Samples: 19
+Pavg: 3.200
+Pmax: 3.200
+Pmin: 3.200
+Pstdev: 0.000
+Joules: 60.800
+2015-12-06 06:51:22.977187
+Results:
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+Samples: 20
+Pavg: 3.190
+Pmax: 3.200
+Pmin: 3.100
+Pstdev: 0.030
+Joules: 63.800
+2015-12-06 06:51:47.161773
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+Samples: 20
+Pavg: 3.200
+Pmax: 3.200
+Pmin: 3.200
+Pstdev: 0.000
+Joules: 64.000
+2015-12-06 06:52:11.294660
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+Samples: 19
+Pavg: 3.200
+Pmax: 3.200
+Pmin: 3.200
+Pstdev: 0.000
+Joules: 60.800
+2015-12-06 06:52:35.354677
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+Samples: 19
+Pavg: 3.200
+Pmax: 3.200
+Pmin: 3.200
+Pstdev: 0.000
+Joules: 60.800
+mf: 0xF 400000
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 16.2238 s, 789 kB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 9.49125 s, 1.3 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 16.5083 s, 775 kB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 9.54475 s, 1.3 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 16.2342 s, 788 kB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 9.51506 s, 1.3 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 16.1177 s, 794 kB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 9.45964 s, 1.4 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 16.0566 s, 797 kB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 9.48236 s, 1.3 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 16.1531 s, 792 kB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 9.48217 s, 1.3 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 16.4485 s, 778 kB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 10.1347 s, 1.3 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 16.5775 s, 772 kB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 9.60778 s, 1.3 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 16.5485 s, 773 kB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 9.6058 s, 1.3 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 16.6556 s, 769 kB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 9.5913 s, 1.3 MB/s
+2015-12-06 06:53:20.418594
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+Samples: 25
+Pavg: 3.200
+Pmax: 3.200
+Pmin: 3.200
+Pstdev: 0.000
+Joules: 80.000
+2015-12-06 06:53:51.141476
+Results:
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+Samples: 26
+Pavg: 3.196
+Pmax: 3.200
+Pmin: 3.100
+Pstdev: 0.019
+Joules: 83.100
+2015-12-06 06:54:21.473991
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+Samples: 25
+Pavg: 3.200
+Pmax: 3.200
+Pmin: 3.200
+Pstdev: 0.000
+Joules: 80.000
+2015-12-06 06:54:51.636962
+Results:
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+Samples: 25
+Pavg: 3.196
+Pmax: 3.200
+Pmin: 3.100
+Pstdev: 0.020
+Joules: 79.900
+2015-12-06 06:55:21.761126
+Results:
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+Samples: 25
+Pavg: 3.196
+Pmax: 3.200
+Pmin: 3.100
+Pstdev: 0.020
+Joules: 79.900
+2015-12-06 06:55:52.086529
+Results:
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+Samples: 26
+Pavg: 3.185
+Pmax: 3.200
+Pmin: 3.100
+Pstdev: 0.036
+Joules: 82.800
+2015-12-06 06:56:23.271131
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+Samples: 26
+Pavg: 3.200
+Pmax: 3.200
+Pmin: 3.200
+Pstdev: 0.000
+Joules: 83.200
+2015-12-06 06:56:54.099266
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+Samples: 26
+Pavg: 3.200
+Pmax: 3.200
+Pmin: 3.200
+Pstdev: 0.000
+Joules: 83.200
+2015-12-06 06:57:24.829845
+Results:
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+Samples: 25
+Pavg: 3.196
+Pmax: 3.200
+Pmin: 3.100
+Pstdev: 0.020
+Joules: 79.900
+2015-12-06 06:57:55.673763
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+Samples: 26
+Pavg: 3.200
+Pmax: 3.200
+Pmin: 3.200
+Pstdev: 0.000
+Joules: 83.200
+mf: 0xF 300000
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 24.834 s, 515 kB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 14.4744 s, 884 kB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 24.958 s, 513 kB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 14.4548 s, 886 kB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 24.8643 s, 515 kB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 15.3032 s, 836 kB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 24.8534 s, 515 kB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 14.4601 s, 885 kB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 24.9285 s, 513 kB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 14.4998 s, 883 kB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 25.0142 s, 512 kB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 14.4725 s, 884 kB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 24.6005 s, 520 kB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 14.2494 s, 898 kB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 24.798 s, 516 kB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 14.2962 s, 895 kB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 25.0293 s, 511 kB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 14.2691 s, 897 kB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 24.6336 s, 520 kB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 14.2162 s, 900 kB/s
+2015-12-06 06:58:56.689558
+Results:
+3.2
+3.2
+3.2
+3.2
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.2
+3.2
+3.2
+3.2
+Samples: 40
+Pavg: 3.195
+Pmax: 3.200
+Pmin: 3.100
+Pstdev: 0.022
+Joules: 127.800
+2015-12-06 06:59:41.625433
+Results:
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.1
+3.1
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+Samples: 40
+Pavg: 3.165
+Pmax: 3.200
+Pmin: 3.100
+Pstdev: 0.048
+Joules: 126.600
+2015-12-06 07:00:27.166674
+Results:
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.1
+Samples: 40
+Pavg: 3.173
+Pmax: 3.200
+Pmin: 3.100
+Pstdev: 0.045
+Joules: 126.900
+2015-12-06 07:01:11.831351
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+Samples: 39
+Pavg: 3.179
+Pmax: 3.200
+Pmin: 3.100
+Pstdev: 0.040
+Joules: 124.000
+2015-12-06 07:01:56.649577
+Results:
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.1
+3.1
+3.2
+3.1
+3.1
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.1
+Samples: 40
+Pavg: 3.163
+Pmax: 3.200
+Pmin: 3.100
+Pstdev: 0.048
+Joules: 126.500
+2015-12-06 07:02:41.479855
+Results:
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+Samples: 39
+Pavg: 3.185
+Pmax: 3.200
+Pmin: 3.100
+Pstdev: 0.036
+Joules: 124.200
+2015-12-06 07:03:25.761796
+Results:
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+Samples: 39
+Pavg: 3.185
+Pmax: 3.200
+Pmin: 3.100
+Pstdev: 0.036
+Joules: 124.200
+2015-12-06 07:04:10.206287
+Results:
+3.1
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.1
+3.1
+3.2
+Samples: 39
+Pavg: 3.162
+Pmax: 3.200
+Pmin: 3.100
+Pstdev: 0.049
+Joules: 123.300
+2015-12-06 07:04:54.853474
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+Samples: 39
+Pavg: 3.195
+Pmax: 3.200
+Pmin: 3.100
+Pstdev: 0.022
+Joules: 124.600
+2015-12-06 07:05:39.064815
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+Samples: 39
+Pavg: 3.174
+Pmax: 3.200
+Pmin: 3.100
+Pstdev: 0.044
+Joules: 123.800
+mf: 0xF 200000
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.35667 s, 2.9 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.55963 s, 5.0 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.39278 s, 2.9 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.58063 s, 5.0 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.42324 s, 2.9 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.59861 s, 4.9 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.46696 s, 2.9 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.63923 s, 4.8 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.44007 s, 2.9 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.64599 s, 4.8 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.40885 s, 2.9 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.62007 s, 4.9 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.42078 s, 2.9 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.63514 s, 4.9 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.42145 s, 2.9 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.69794 s, 4.7 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.4045 s, 2.9 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.62964 s, 4.9 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.44491 s, 2.9 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.6374 s, 4.9 MB/s
+2015-12-06 07:06:02.595847
+Results:
+3.3
+3.3
+3.4
+3.4
+3.4
+3.4
+Samples: 6
+Pavg: 3.367
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.047
+Joules: 20.200
+2015-12-06 07:06:13.349715
+Results:
+3.4
+3.5
+3.5
+3.5
+3.5
+3.5
+Samples: 6
+Pavg: 3.483
+Pmax: 3.500
+Pmin: 3.400
+Pstdev: 0.037
+Joules: 20.900
+2015-12-06 07:06:24.141846
+Results:
+3.5
+3.5
+3.5
+3.5
+3.6
+3.6
+Samples: 6
+Pavg: 3.533
+Pmax: 3.600
+Pmin: 3.500
+Pstdev: 0.047
+Joules: 21.200
+2015-12-06 07:06:35.026208
+Results:
+3.5
+3.5
+3.5
+3.5
+3.6
+3.6
+3.6
+Samples: 7
+Pavg: 3.543
+Pmax: 3.600
+Pmin: 3.500
+Pstdev: 0.049
+Joules: 24.800
+2015-12-06 07:06:45.903151
+Results:
+3.5
+3.5
+3.6
+3.6
+3.6
+3.6
+3.6
+Samples: 7
+Pavg: 3.571
+Pmax: 3.600
+Pmin: 3.500
+Pstdev: 0.045
+Joules: 25.000
+2015-12-06 07:06:56.751431
+Results:
+3.5
+3.5
+3.6
+3.6
+3.6
+3.6
+3.6
+Samples: 7
+Pavg: 3.571
+Pmax: 3.600
+Pmin: 3.500
+Pstdev: 0.045
+Joules: 25.000
+2015-12-06 07:07:07.580461
+Results:
+3.5
+3.5
+3.5
+3.5
+3.6
+3.6
+Samples: 6
+Pavg: 3.533
+Pmax: 3.600
+Pmin: 3.500
+Pstdev: 0.047
+Joules: 21.200
+2015-12-06 07:07:18.470520
+Results:
+3.5
+3.5
+3.5
+3.5
+3.6
+3.6
+Samples: 6
+Pavg: 3.533
+Pmax: 3.600
+Pmin: 3.500
+Pstdev: 0.047
+Joules: 21.200
+2015-12-06 07:07:29.372821
+Results:
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+Samples: 6
+Pavg: 3.500
+Pmax: 3.500
+Pmin: 3.500
+Pstdev: 0.000
+Joules: 21.000
+2015-12-06 07:07:40.228914
+Results:
+3.5
+3.5
+3.5
+3.5
+3.6
+3.6
+Samples: 6
+Pavg: 3.533
+Pmax: 3.600
+Pmin: 3.500
+Pstdev: 0.047
+Joules: 21.200
+mf: 0x7 1400000
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.62255 s, 2.8 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.73796 s, 4.7 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.60573 s, 2.8 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.73415 s, 4.7 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.56658 s, 2.8 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.72533 s, 4.7 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.57163 s, 2.8 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.73313 s, 4.7 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.58107 s, 2.8 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.68587 s, 4.8 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.54543 s, 2.8 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.7808 s, 4.6 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.54953 s, 2.8 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.68493 s, 4.8 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.55147 s, 2.8 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.68984 s, 4.8 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.64177 s, 2.8 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.77065 s, 4.6 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.63299 s, 2.8 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.72265 s, 4.7 MB/s
+2015-12-06 07:08:03.873687
+Results:
+3.4
+3.4
+3.4
+3.4
+3.5
+3.4
+3.5
+Samples: 7
+Pavg: 3.429
+Pmax: 3.500
+Pmin: 3.400
+Pstdev: 0.045
+Joules: 24.000
+2015-12-06 07:08:15.022914
+Results:
+3.4
+3.4
+3.4
+3.5
+3.5
+3.5
+3.5
+Samples: 7
+Pavg: 3.457
+Pmax: 3.500
+Pmin: 3.400
+Pstdev: 0.049
+Joules: 24.200
+2015-12-06 07:08:26.111045
+Results:
+3.4
+3.5
+3.4
+3.5
+3.5
+3.5
+3.5
+Samples: 7
+Pavg: 3.471
+Pmax: 3.500
+Pmin: 3.400
+Pstdev: 0.045
+Joules: 24.300
+2015-12-06 07:08:37.212168
+Results:
+3.4
+3.4
+3.5
+3.5
+3.5
+3.5
+3.5
+Samples: 7
+Pavg: 3.471
+Pmax: 3.500
+Pmin: 3.400
+Pstdev: 0.045
+Joules: 24.300
+2015-12-06 07:08:48.250277
+Results:
+3.4
+3.5
+3.5
+3.5
+3.5
+3.5
+Samples: 6
+Pavg: 3.483
+Pmax: 3.500
+Pmin: 3.400
+Pstdev: 0.037
+Joules: 20.900
+2015-12-06 07:08:59.351595
+Results:
+3.4
+3.5
+3.5
+3.5
+3.5
+3.5
+Samples: 6
+Pavg: 3.483
+Pmax: 3.500
+Pmin: 3.400
+Pstdev: 0.037
+Joules: 20.900
+2015-12-06 07:09:10.359293
+Results:
+3.4
+3.4
+3.5
+3.5
+3.5
+3.5
+Samples: 6
+Pavg: 3.467
+Pmax: 3.500
+Pmin: 3.400
+Pstdev: 0.047
+Joules: 20.800
+2015-12-06 07:09:21.375437
+Results:
+3.4
+3.4
+3.5
+3.5
+3.5
+3.5
+Samples: 6
+Pavg: 3.467
+Pmax: 3.500
+Pmin: 3.400
+Pstdev: 0.047
+Joules: 20.800
+2015-12-06 07:09:32.564804
+Results:
+3.4
+3.5
+3.4
+3.5
+3.5
+3.5
+Samples: 6
+Pavg: 3.467
+Pmax: 3.500
+Pmin: 3.400
+Pstdev: 0.047
+Joules: 20.800
+2015-12-06 07:09:43.741856
+Results:
+3.4
+3.4
+3.4
+3.4
+3.5
+3.4
+3.5
+Samples: 7
+Pavg: 3.429
+Pmax: 3.500
+Pmin: 3.400
+Pstdev: 0.045
+Joules: 24.000
+mf: 0x7 1300000
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.89082 s, 2.6 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.901 s, 4.4 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.88401 s, 2.6 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.91527 s, 4.4 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.94621 s, 2.6 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.90024 s, 4.4 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.8937 s, 2.6 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.9132 s, 4.4 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.88616 s, 2.6 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.90876 s, 4.4 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.89517 s, 2.6 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.91673 s, 4.4 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.86896 s, 2.6 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.92849 s, 4.4 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.85016 s, 2.6 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.85087 s, 4.5 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.88729 s, 2.6 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.89338 s, 4.4 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.81959 s, 2.7 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.84109 s, 4.5 MB/s
+2015-12-06 07:10:07.876622
+Results:
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 7
+Pavg: 3.400
+Pmax: 3.400
+Pmin: 3.400
+Pstdev: 0.000
+Joules: 23.800
+2015-12-06 07:10:19.489910
+Results:
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 7
+Pavg: 3.400
+Pmax: 3.400
+Pmin: 3.400
+Pstdev: 0.000
+Joules: 23.800
+2015-12-06 07:10:31.231144
+Results:
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.5
+Samples: 7
+Pavg: 3.414
+Pmax: 3.500
+Pmin: 3.400
+Pstdev: 0.035
+Joules: 23.900
+2015-12-06 07:10:43.111473
+Results:
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.5
+Samples: 7
+Pavg: 3.414
+Pmax: 3.500
+Pmin: 3.400
+Pstdev: 0.035
+Joules: 23.900
+2015-12-06 07:10:54.769575
+Results:
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.5
+3.5
+Samples: 8
+Pavg: 3.425
+Pmax: 3.500
+Pmin: 3.400
+Pstdev: 0.043
+Joules: 27.400
+2015-12-06 07:11:06.391993
+Results:
+3.4
+3.4
+3.4
+3.4
+3.4
+3.5
+3.5
+Samples: 7
+Pavg: 3.429
+Pmax: 3.500
+Pmin: 3.400
+Pstdev: 0.045
+Joules: 24.000
+2015-12-06 07:11:17.995908
+Results:
+3.4
+3.4
+3.4
+3.4
+3.5
+3.5
+3.5
+Samples: 7
+Pavg: 3.443
+Pmax: 3.500
+Pmin: 3.400
+Pstdev: 0.049
+Joules: 24.100
+2015-12-06 07:11:29.508294
+Results:
+3.4
+3.4
+3.5
+3.4
+3.5
+3.5
+3.5
+Samples: 7
+Pavg: 3.457
+Pmax: 3.500
+Pmin: 3.400
+Pstdev: 0.049
+Joules: 24.200
+2015-12-06 07:11:41.154338
+Results:
+3.4
+3.4
+3.4
+3.4
+3.4
+3.5
+3.5
+Samples: 7
+Pavg: 3.429
+Pmax: 3.500
+Pmin: 3.400
+Pstdev: 0.045
+Joules: 24.000
+2015-12-06 07:11:52.757135
+Results:
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.5
+3.5
+Samples: 8
+Pavg: 3.425
+Pmax: 3.500
+Pmin: 3.400
+Pstdev: 0.043
+Joules: 27.400
+mf: 0x7 1200000
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.14973 s, 2.5 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.05436 s, 4.2 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.18966 s, 2.5 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.04197 s, 4.2 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.22044 s, 2.5 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.03309 s, 4.2 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.22492 s, 2.4 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.10299 s, 4.1 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.24739 s, 2.4 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.09716 s, 4.1 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.24353 s, 2.4 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.10376 s, 4.1 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.22961 s, 2.4 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.08676 s, 4.1 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.23272 s, 2.4 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.08755 s, 4.1 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.24105 s, 2.4 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.10349 s, 4.1 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.22358 s, 2.5 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.10804 s, 4.1 MB/s
+2015-12-06 07:12:17.384868
+Results:
+3.3
+3.3
+3.3
+3.3
+3.4
+3.4
+3.4
+Samples: 7
+Pavg: 3.343
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.049
+Joules: 23.400
+2015-12-06 07:12:29.441753
+Results:
+3.3
+3.3
+3.3
+3.4
+3.4
+3.4
+3.4
+Samples: 7
+Pavg: 3.357
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.049
+Joules: 23.500
+2015-12-06 07:12:41.754863
+Results:
+3.3
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 8
+Pavg: 3.387
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.033
+Joules: 27.100
+2015-12-06 07:12:53.921617
+Results:
+3.3
+3.4
+3.3
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 8
+Pavg: 3.375
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.043
+Joules: 27.000
+2015-12-06 07:13:06.103868
+Results:
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 8
+Pavg: 3.400
+Pmax: 3.400
+Pmin: 3.400
+Pstdev: 0.000
+Joules: 27.200
+2015-12-06 07:13:18.291498
+Results:
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 8
+Pavg: 3.400
+Pmax: 3.400
+Pmin: 3.400
+Pstdev: 0.000
+Joules: 27.200
+2015-12-06 07:13:30.424836
+Results:
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 7
+Pavg: 3.400
+Pmax: 3.400
+Pmin: 3.400
+Pstdev: 0.000
+Joules: 23.800
+2015-12-06 07:13:42.763001
+Results:
+3.3
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 8
+Pavg: 3.387
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.033
+Joules: 27.100
+2015-12-06 07:13:54.946240
+Results:
+3.3
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 8
+Pavg: 3.387
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.033
+Joules: 27.100
+2015-12-06 07:14:07.115840
+Results:
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 8
+Pavg: 3.400
+Pmax: 3.400
+Pmin: 3.400
+Pstdev: 0.000
+Joules: 27.200
+mf: 0x7 1100000
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.63823 s, 2.3 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.3132 s, 3.9 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.63763 s, 2.3 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.31316 s, 3.9 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.62799 s, 2.3 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.32074 s, 3.9 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.58895 s, 2.3 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.2777 s, 3.9 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.59234 s, 2.3 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.30361 s, 3.9 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.63811 s, 2.3 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.25933 s, 3.9 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.54021 s, 2.3 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.25629 s, 3.9 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.64306 s, 2.3 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.44053 s, 3.7 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.5499 s, 2.3 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.26411 s, 3.9 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.63437 s, 2.3 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.34531 s, 3.8 MB/s
+2015-12-06 07:14:32.598117
+Results:
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 8
+Pavg: 3.300
+Pmax: 3.300
+Pmin: 3.300
+Pstdev: 0.000
+Joules: 26.400
+2015-12-06 07:14:45.407023
+Results:
+3.3
+3.3
+3.3
+3.3
+3.4
+3.4
+3.4
+3.4
+Samples: 8
+Pavg: 3.350
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.050
+Joules: 26.800
+2015-12-06 07:14:58.205743
+Results:
+3.3
+3.3
+3.3
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 8
+Pavg: 3.362
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.048
+Joules: 26.900
+2015-12-06 07:15:10.924220
+Results:
+3.3
+3.3
+3.3
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 8
+Pavg: 3.362
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.048
+Joules: 26.900
+2015-12-06 07:15:23.802941
+Results:
+3.3
+3.4
+3.3
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 9
+Pavg: 3.378
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.042
+Joules: 30.400
+2015-12-06 07:15:36.556160
+Results:
+3.3
+3.3
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 8
+Pavg: 3.375
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.043
+Joules: 27.000
+2015-12-06 07:15:49.235390
+Results:
+3.3
+3.3
+3.3
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 8
+Pavg: 3.362
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.048
+Joules: 26.900
+2015-12-06 07:16:02.173751
+Results:
+3.3
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 8
+Pavg: 3.387
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.033
+Joules: 27.100
+2015-12-06 07:16:14.852144
+Results:
+3.3
+3.3
+3.3
+3.4
+3.4
+3.3
+3.4
+3.4
+3.4
+Samples: 9
+Pavg: 3.356
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.050
+Joules: 30.200
+2015-12-06 07:16:27.819193
+Results:
+3.3
+3.3
+3.3
+3.3
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 9
+Pavg: 3.356
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.050
+Joules: 30.200
+mf: 0x7 1000000
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.13114 s, 2.1 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.61821 s, 3.5 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.14402 s, 2.1 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.63577 s, 3.5 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.11415 s, 2.1 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.78601 s, 3.4 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.10232 s, 2.1 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.6437 s, 3.5 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.07997 s, 2.1 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.62716 s, 3.5 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.04262 s, 2.1 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.61718 s, 3.5 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.11658 s, 2.1 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.64217 s, 3.5 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.14273 s, 2.1 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.62715 s, 3.5 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.07378 s, 2.1 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.55179 s, 3.6 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.09154 s, 2.1 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.61183 s, 3.5 MB/s
+2015-12-06 07:16:54.245316
+Results:
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 9
+Pavg: 3.300
+Pmax: 3.300
+Pmin: 3.300
+Pstdev: 0.000
+Joules: 29.700
+2015-12-06 07:17:07.909129
+Results:
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.4
+Samples: 9
+Pavg: 3.311
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.031
+Joules: 29.800
+2015-12-06 07:17:21.840655
+Results:
+3.3
+3.3
+3.4
+3.3
+3.3
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 10
+Pavg: 3.360
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.049
+Joules: 33.600
+2015-12-06 07:17:35.473346
+Results:
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.4
+3.4
+3.4
+Samples: 9
+Pavg: 3.333
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.047
+Joules: 30.000
+2015-12-06 07:17:49.194975
+Results:
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 9
+Pavg: 3.300
+Pmax: 3.300
+Pmin: 3.300
+Pstdev: 0.000
+Joules: 29.700
+2015-12-06 07:18:02.839812
+Results:
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.4
+Samples: 10
+Pavg: 3.310
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.030
+Joules: 33.100
+2015-12-06 07:18:16.487698
+Results:
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 9
+Pavg: 3.300
+Pmax: 3.300
+Pmin: 3.300
+Pstdev: 0.000
+Joules: 29.700
+2015-12-06 07:18:30.577049
+Results:
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.4
+3.4
+Samples: 9
+Pavg: 3.322
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.042
+Joules: 29.900
+2015-12-06 07:18:44.118686
+Results:
+3.3
+3.3
+3.3
+3.4
+3.4
+3.3
+3.4
+3.4
+3.3
+Samples: 9
+Pavg: 3.344
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.050
+Joules: 30.100
+2015-12-06 07:18:57.840948
+Results:
+3.3
+3.3
+3.3
+3.3
+3.4
+3.3
+3.3
+3.4
+3.4
+3.4
+Samples: 10
+Pavg: 3.340
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.049
+Joules: 33.400
+mf: 0x7 900000
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.68089 s, 1.9 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.90784 s, 3.3 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.68279 s, 1.9 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.90496 s, 3.3 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.68551 s, 1.9 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.90857 s, 3.3 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.69664 s, 1.9 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.90256 s, 3.3 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.70514 s, 1.9 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.98812 s, 3.2 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.70196 s, 1.9 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.97713 s, 3.2 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.73065 s, 1.9 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.97678 s, 3.2 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.69091 s, 1.9 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.98706 s, 3.2 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.81788 s, 1.9 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.98094 s, 3.2 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.73333 s, 1.9 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.9864 s, 3.2 MB/s
+2015-12-06 07:19:25.269623
+Results:
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 10
+Pavg: 3.290
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.030
+Joules: 32.900
+2015-12-06 07:19:39.839472
+Results:
+3.3
+3.2
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 10
+Pavg: 3.280
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.040
+Joules: 32.800
+2015-12-06 07:19:54.364717
+Results:
+3.3
+3.3
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 10
+Pavg: 3.290
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.030
+Joules: 32.900
+2015-12-06 07:20:08.895518
+Results:
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 10
+Pavg: 3.290
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.030
+Joules: 32.900
+2015-12-06 07:20:23.523846
+Results:
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 10
+Pavg: 3.300
+Pmax: 3.300
+Pmin: 3.300
+Pstdev: 0.000
+Joules: 33.000
+2015-12-06 07:20:38.210312
+Results:
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 10
+Pavg: 3.300
+Pmax: 3.300
+Pmin: 3.300
+Pstdev: 0.000
+Joules: 33.000
+2015-12-06 07:20:52.851911
+Results:
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 10
+Pavg: 3.290
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.030
+Joules: 32.900
+2015-12-06 07:21:07.462137
+Results:
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 10
+Pavg: 3.300
+Pmax: 3.300
+Pmin: 3.300
+Pstdev: 0.000
+Joules: 33.000
+2015-12-06 07:21:22.323177
+Results:
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 10
+Pavg: 3.300
+Pmax: 3.300
+Pmin: 3.300
+Pstdev: 0.000
+Joules: 33.000
+2015-12-06 07:21:36.972698
+Results:
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 10
+Pavg: 3.300
+Pmax: 3.300
+Pmin: 3.300
+Pstdev: 0.000
+Joules: 33.000
+mf: 0x7 800000
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 7.57453 s, 1.7 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.45802 s, 2.9 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 7.51903 s, 1.7 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.44205 s, 2.9 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 7.55621 s, 1.7 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.42627 s, 2.9 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 7.47648 s, 1.7 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.36276 s, 2.9 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 7.60979 s, 1.7 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.42924 s, 2.9 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 7.5042 s, 1.7 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.33851 s, 3.0 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 7.54994 s, 1.7 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.35169 s, 2.9 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 7.50225 s, 1.7 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.34046 s, 2.9 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 7.49783 s, 1.7 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.35112 s, 2.9 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 7.51926 s, 1.7 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.47707 s, 2.9 MB/s
+2015-12-06 07:22:06.079659
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 12
+Pavg: 3.258
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.049
+Joules: 39.100
+2015-12-06 07:22:22.054467
+Results:
+3.2
+3.2
+3.3
+3.3
+3.2
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 12
+Pavg: 3.267
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.047
+Joules: 39.200
+2015-12-06 07:22:38.416933
+Results:
+3.2
+3.2
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.2
+3.3
+3.3
+Samples: 12
+Pavg: 3.267
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.047
+Joules: 39.200
+2015-12-06 07:22:54.235868
+Results:
+3.3
+3.2
+3.3
+3.3
+3.2
+3.3
+3.3
+3.3
+3.3
+3.2
+3.3
+Samples: 11
+Pavg: 3.273
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.045
+Joules: 36.000
+2015-12-06 07:23:10.258301
+Results:
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 11
+Pavg: 3.300
+Pmax: 3.300
+Pmin: 3.300
+Pstdev: 0.000
+Joules: 36.300
+2015-12-06 07:23:26.081803
+Results:
+3.2
+3.3
+3.3
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 11
+Pavg: 3.282
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.039
+Joules: 36.100
+2015-12-06 07:23:41.978042
+Results:
+3.3
+3.2
+3.2
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 12
+Pavg: 3.275
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.043
+Joules: 39.300
+2015-12-06 07:23:57.856331
+Results:
+3.3
+3.2
+3.3
+3.3
+3.2
+3.2
+3.2
+3.3
+3.3
+3.2
+3.3
+3.3
+Samples: 12
+Pavg: 3.258
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.049
+Joules: 39.100
+2015-12-06 07:24:13.685380
+Results:
+3.2
+3.2
+3.2
+3.2
+3.3
+3.3
+3.2
+3.3
+3.3
+3.3
+3.3
+Samples: 11
+Pavg: 3.255
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.050
+Joules: 35.800
+2015-12-06 07:24:30.079297
+Results:
+3.2
+3.2
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.2
+3.3
+3.3
+Samples: 12
+Pavg: 3.267
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.047
+Joules: 39.200
+mf: 0x7 700000
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 8.64373 s, 1.5 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.11901 s, 2.5 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 8.64034 s, 1.5 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.0642 s, 2.5 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 8.63503 s, 1.5 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.33506 s, 2.4 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 8.75019 s, 1.5 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.09415 s, 2.5 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 8.62869 s, 1.5 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.0818 s, 2.5 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 8.61564 s, 1.5 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.34791 s, 2.4 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 8.63888 s, 1.5 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.10343 s, 2.5 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 8.63457 s, 1.5 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.32206 s, 2.4 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 8.51801 s, 1.5 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.00936 s, 2.6 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 8.77207 s, 1.5 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.04828 s, 2.5 MB/s
+2015-12-06 07:25:01.189956
+Results:
+3.2
+3.2
+3.2
+3.2
+3.3
+3.3
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 13
+Pavg: 3.262
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.049
+Joules: 42.400
+2015-12-06 07:25:19.906655
+Results:
+3.2
+3.2
+3.2
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.2
+3.2
+3.2
+3.2
+Samples: 14
+Pavg: 3.243
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.049
+Joules: 45.400
+2015-12-06 07:25:37.966904
+Results:
+3.2
+3.2
+3.3
+3.3
+3.3
+3.3
+3.2
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 14
+Pavg: 3.271
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.045
+Joules: 45.800
+2015-12-06 07:25:55.898427
+Results:
+3.2
+3.2
+3.3
+3.3
+3.2
+3.2
+3.2
+3.2
+3.2
+3.3
+3.3
+3.3
+3.3
+3.2
+Samples: 14
+Pavg: 3.243
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.049
+Joules: 45.400
+2015-12-06 07:26:13.669188
+Results:
+3.2
+3.2
+3.2
+3.3
+3.3
+3.2
+3.2
+3.2
+3.2
+3.2
+3.3
+3.3
+3.2
+Samples: 13
+Pavg: 3.231
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.046
+Joules: 42.000
+2015-12-06 07:26:31.695053
+Results:
+3.2
+3.2
+3.2
+3.2
+3.3
+3.3
+3.2
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 13
+Pavg: 3.254
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.050
+Joules: 42.300
+2015-12-06 07:26:49.511159
+Results:
+3.2
+3.2
+3.2
+3.2
+3.3
+3.3
+3.3
+3.3
+3.2
+3.3
+3.3
+3.3
+3.3
+Samples: 13
+Pavg: 3.262
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.049
+Joules: 42.400
+2015-12-06 07:27:07.604547
+Results:
+3.2
+3.3
+3.3
+3.2
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.2
+3.3
+Samples: 13
+Pavg: 3.269
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.046
+Joules: 42.500
+2015-12-06 07:27:25.601172
+Results:
+3.3
+3.3
+3.3
+3.3
+3.2
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.2
+3.3
+Samples: 13
+Pavg: 3.277
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.042
+Joules: 42.600
+2015-12-06 07:27:43.488798
+Results:
+3.2
+3.2
+3.3
+3.3
+3.3
+3.3
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 13
+Pavg: 3.277
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.042
+Joules: 42.600
+mf: 0x7 600000
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 10.0968 s, 1.3 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.80964 s, 2.2 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 10.0936 s, 1.3 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.81352 s, 2.2 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 10.1412 s, 1.3 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.81546 s, 2.2 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 10.0852 s, 1.3 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.85423 s, 2.2 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 10.2357 s, 1.3 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.96788 s, 2.1 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 10.2485 s, 1.2 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.93645 s, 2.2 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 10.3361 s, 1.2 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.96839 s, 2.1 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 10.2202 s, 1.3 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.97903 s, 2.1 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 10.2414 s, 1.2 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.99805 s, 2.1 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 10.2356 s, 1.3 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.96359 s, 2.1 MB/s
+2015-12-06 07:28:17.153957
+Results:
+3.2
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+Samples: 16
+Pavg: 3.194
+Pmax: 3.200
+Pmin: 3.100
+Pstdev: 0.024
+Joules: 51.100
+2015-12-06 07:28:37.253125
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.3
+3.3
+3.2
+3.2
+3.2
+3.2
+Samples: 16
+Pavg: 3.213
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.033
+Joules: 51.400
+2015-12-06 07:28:58.445991
+Results:
+3.2
+3.2
+3.2
+3.2
+3.3
+3.2
+3.2
+3.3
+3.3
+3.3
+3.3
+3.2
+3.2
+3.2
+3.2
+3.3
+Samples: 16
+Pavg: 3.238
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.048
+Joules: 51.800
+2015-12-06 07:29:18.545175
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.3
+3.3
+3.2
+3.3
+3.3
+3.2
+3.2
+3.2
+3.2
+Samples: 15
+Pavg: 3.227
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.044
+Joules: 48.400
+2015-12-06 07:29:38.984708
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.3
+3.3
+3.2
+3.2
+3.3
+3.3
+3.2
+Samples: 16
+Pavg: 3.225
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.043
+Joules: 51.600
+2015-12-06 07:29:59.354813
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+Samples: 16
+Pavg: 3.200
+Pmax: 3.200
+Pmin: 3.200
+Pstdev: 0.000
+Joules: 51.200
+2015-12-06 07:30:19.792286
+Results:
+3.2
+3.2
+3.2
+3.3
+3.3
+3.3
+3.3
+3.2
+3.2
+3.2
+3.2
+3.2
+3.3
+3.3
+3.2
+Samples: 15
+Pavg: 3.240
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.049
+Joules: 48.600
+2015-12-06 07:30:40.166300
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.3
+3.3
+3.2
+3.3
+3.3
+3.2
+3.2
+3.2
+3.2
+Samples: 16
+Pavg: 3.225
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.043
+Joules: 51.600
+2015-12-06 07:31:00.581992
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.3
+3.3
+3.2
+3.3
+3.3
+3.2
+Samples: 16
+Pavg: 3.225
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.043
+Joules: 51.600
+2015-12-06 07:31:20.985233
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.3
+3.3
+3.2
+3.3
+3.3
+3.2
+Samples: 16
+Pavg: 3.225
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.043
+Joules: 51.600
+mf: 0x7 500000
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 12.4602 s, 1.0 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 7.27218 s, 1.8 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 12.6228 s, 1.0 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 7.30904 s, 1.8 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 12.5306 s, 1.0 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 7.30418 s, 1.8 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 12.4236 s, 1.0 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 7.16324 s, 1.8 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 12.4232 s, 1.0 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 7.25031 s, 1.8 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 12.3712 s, 1.0 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 7.17007 s, 1.8 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 12.3525 s, 1.0 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 7.53881 s, 1.7 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 12.3044 s, 1.0 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 7.1299 s, 1.8 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 12.49 s, 1.0 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 7.39262 s, 1.7 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 12.516 s, 1.0 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 7.28825 s, 1.8 MB/s
+2015-12-06 07:31:59.079678
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+Samples: 20
+Pavg: 3.200
+Pmax: 3.200
+Pmin: 3.200
+Pstdev: 0.000
+Joules: 64.000
+2015-12-06 07:32:23.351731
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+Samples: 20
+Pavg: 3.200
+Pmax: 3.200
+Pmin: 3.200
+Pstdev: 0.000
+Joules: 64.000
+2015-12-06 07:32:47.515919
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+Samples: 19
+Pavg: 3.200
+Pmax: 3.200
+Pmin: 3.200
+Pstdev: 0.000
+Joules: 60.800
+2015-12-06 07:33:11.520436
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.3
+3.2
+3.2
+3.2
+3.2
+Samples: 19
+Pavg: 3.205
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.022
+Joules: 60.900
+2015-12-06 07:33:35.622003
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+Samples: 19
+Pavg: 3.200
+Pmax: 3.200
+Pmin: 3.200
+Pstdev: 0.000
+Joules: 60.800
+2015-12-06 07:33:59.488706
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+Samples: 19
+Pavg: 3.200
+Pmax: 3.200
+Pmin: 3.200
+Pstdev: 0.000
+Joules: 60.800
+2015-12-06 07:34:23.832158
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+Samples: 19
+Pavg: 3.200
+Pmax: 3.200
+Pmin: 3.200
+Pstdev: 0.000
+Joules: 60.800
+2015-12-06 07:34:47.591668
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+Samples: 19
+Pavg: 3.200
+Pmax: 3.200
+Pmin: 3.200
+Pstdev: 0.000
+Joules: 60.800
+2015-12-06 07:35:13.190051
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 21
+Pavg: 3.248
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.050
+Joules: 68.200
+2015-12-06 07:35:37.378510
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.3
+3.3
+3.2
+3.2
+3.3
+3.3
+3.2
+3.2
+3.2
+3.2
+3.2
+Samples: 20
+Pavg: 3.220
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.040
+Joules: 64.400
+mf: 0x7 400000
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 16.5859 s, 772 kB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 9.63719 s, 1.3 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 16.6261 s, 770 kB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 9.60031 s, 1.3 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 16.5885 s, 772 kB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 9.67607 s, 1.3 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 16.5399 s, 774 kB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 9.61712 s, 1.3 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 16.554 s, 773 kB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 9.66214 s, 1.3 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 16.6387 s, 769 kB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 9.6518 s, 1.3 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 16.5663 s, 773 kB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 9.59148 s, 1.3 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 16.6022 s, 771 kB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 9.63556 s, 1.3 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 16.8278 s, 761 kB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 9.6516 s, 1.3 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 16.5837 s, 772 kB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 9.59945 s, 1.3 MB/s
+2015-12-06 07:36:23.705222
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+Samples: 27
+Pavg: 3.170
+Pmax: 3.200
+Pmin: 3.100
+Pstdev: 0.046
+Joules: 85.600
+2015-12-06 07:36:54.551114
+Results:
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+Samples: 26
+Pavg: 3.181
+Pmax: 3.200
+Pmin: 3.100
+Pstdev: 0.039
+Joules: 82.700
+2015-12-06 07:37:25.515520
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+Samples: 26
+Pavg: 3.185
+Pmax: 3.200
+Pmin: 3.100
+Pstdev: 0.036
+Joules: 82.800
+2015-12-06 07:37:56.399086
+Results:
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+Samples: 26
+Pavg: 3.188
+Pmax: 3.200
+Pmin: 3.100
+Pstdev: 0.032
+Joules: 82.900
+2015-12-06 07:38:27.239499
+Results:
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+Samples: 26
+Pavg: 3.173
+Pmax: 3.200
+Pmin: 3.100
+Pstdev: 0.044
+Joules: 82.500
+2015-12-06 07:38:58.246465
+Results:
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+Samples: 26
+Pavg: 3.192
+Pmax: 3.200
+Pmin: 3.100
+Pstdev: 0.027
+Joules: 83.000
+2015-12-06 07:39:28.981259
+Results:
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.2
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+Samples: 25
+Pavg: 3.180
+Pmax: 3.200
+Pmin: 3.100
+Pstdev: 0.040
+Joules: 79.500
+2015-12-06 07:39:59.825206
+Results:
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+Samples: 26
+Pavg: 3.177
+Pmax: 3.200
+Pmin: 3.100
+Pstdev: 0.042
+Joules: 82.600
+2015-12-06 07:40:31.658134
+Results:
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+Samples: 27
+Pavg: 3.181
+Pmax: 3.200
+Pmin: 3.100
+Pstdev: 0.039
+Joules: 85.900
+2015-12-06 07:41:02.463427
+Results:
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+Samples: 26
+Pavg: 3.192
+Pmax: 3.200
+Pmin: 3.100
+Pstdev: 0.027
+Joules: 83.000
+mf: 0x7 300000
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 24.9948 s, 512 kB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 14.4749 s, 884 kB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 24.9178 s, 514 kB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 15.3793 s, 832 kB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 24.7873 s, 516 kB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 14.4907 s, 883 kB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 24.6735 s, 519 kB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 14.2756 s, 897 kB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 24.812 s, 516 kB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 14.4267 s, 887 kB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 24.7691 s, 517 kB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 14.6468 s, 874 kB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 25.0675 s, 511 kB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 14.3623 s, 891 kB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 24.8314 s, 515 kB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 15.4405 s, 829 kB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 25.8407 s, 495 kB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 14.4677 s, 885 kB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 24.7698 s, 517 kB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 14.2479 s, 898 kB/s
+2015-12-06 07:42:03.581019
+Results:
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.1
+3.1
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.1
+3.1
+3.1
+3.1
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+Samples: 39
+Pavg: 3.162
+Pmax: 3.200
+Pmin: 3.100
+Pstdev: 0.049
+Joules: 123.300
+2015-12-06 07:42:49.342012
+Results:
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+Samples: 40
+Pavg: 3.185
+Pmax: 3.200
+Pmin: 3.100
+Pstdev: 0.036
+Joules: 127.400
+2015-12-06 07:43:33.971554
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+Samples: 39
+Pavg: 3.179
+Pmax: 3.200
+Pmin: 3.100
+Pstdev: 0.040
+Joules: 124.000
+2015-12-06 07:44:18.271801
+Results:
+3.1
+3.1
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+Samples: 39
+Pavg: 3.164
+Pmax: 3.200
+Pmin: 3.100
+Pstdev: 0.048
+Joules: 123.400
+2015-12-06 07:45:02.862623
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.1
+Samples: 39
+Pavg: 3.172
+Pmax: 3.200
+Pmin: 3.100
+Pstdev: 0.045
+Joules: 123.700
+2015-12-06 07:45:47.886733
+Results:
+3.1
+3.1
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.1
+3.2
+3.2
+3.2
+Samples: 40
+Pavg: 3.168
+Pmax: 3.200
+Pmin: 3.100
+Pstdev: 0.047
+Joules: 126.700
+2015-12-06 07:46:32.931823
+Results:
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.4
+3.3
+3.3
+3.3
+3.3
+3.4
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 40
+Pavg: 3.305
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.022
+Joules: 132.200
+2015-12-06 07:47:19.006674
+Results:
+3.3
+3.3
+3.4
+3.3
+3.3
+3.3
+3.3
+3.4
+3.3
+3.3
+3.4
+3.4
+3.3
+3.3
+3.3
+3.3
+3.4
+3.3
+3.3
+3.3
+3.3
+3.4
+3.3
+3.3
+3.3
+3.3
+3.4
+3.3
+3.3
+3.4
+3.3
+3.3
+3.3
+3.3
+3.4
+3.3
+3.3
+3.4
+3.4
+3.3
+3.3
+Samples: 41
+Pavg: 3.327
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.044
+Joules: 136.400
+2015-12-06 07:48:05.761496
+Results:
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.4
+3.3
+3.3
+3.4
+3.4
+3.4
+3.3
+3.3
+3.3
+3.3
+3.4
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+Samples: 42
+Pavg: 3.295
+Pmax: 3.400
+Pmin: 3.200
+Pstdev: 0.053
+Joules: 138.400
+2015-12-06 07:48:50.136585
+Results:
+3.1
+3.1
+3.2
+3.1
+3.1
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.1
+3.1
+Samples: 39
+Pavg: 3.169
+Pmax: 3.200
+Pmin: 3.100
+Pstdev: 0.046
+Joules: 123.600
+mf: 0x7 200000
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.42378 s, 2.9 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.63035 s, 4.9 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.4148 s, 2.9 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.62403 s, 4.9 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.39397 s, 2.9 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.60816 s, 4.9 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.40123 s, 2.9 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.61995 s, 4.9 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.40675 s, 2.9 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.61601 s, 4.9 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.40767 s, 2.9 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.61647 s, 4.9 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.40307 s, 2.9 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.61488 s, 4.9 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.46328 s, 2.9 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.61433 s, 4.9 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.39068 s, 2.9 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.61408 s, 4.9 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.38834 s, 2.9 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.60034 s, 4.9 MB/s
+2015-12-06 07:49:13.817193
+Results:
+3.3
+3.3
+3.4
+3.4
+3.4
+3.5
+3.5
+Samples: 7
+Pavg: 3.400
+Pmax: 3.500
+Pmin: 3.300
+Pstdev: 0.076
+Joules: 23.800
+2015-12-06 07:49:24.630446
+Results:
+3.5
+3.5
+3.5
+3.5
+3.5
+3.6
+Samples: 6
+Pavg: 3.517
+Pmax: 3.600
+Pmin: 3.500
+Pstdev: 0.037
+Joules: 21.100
+2015-12-06 07:49:35.402184
+Results:
+3.5
+3.5
+3.5
+3.5
+3.6
+3.6
+Samples: 6
+Pavg: 3.533
+Pmax: 3.600
+Pmin: 3.500
+Pstdev: 0.047
+Joules: 21.200
+2015-12-06 07:49:46.189972
+Results:
+3.5
+3.5
+3.5
+3.5
+3.5
+3.6
+Samples: 6
+Pavg: 3.517
+Pmax: 3.600
+Pmin: 3.500
+Pstdev: 0.037
+Joules: 21.100
+2015-12-06 07:49:57.272805
+Results:
+3.4
+3.5
+3.5
+3.5
+3.5
+3.6
+3.5
+Samples: 7
+Pavg: 3.500
+Pmax: 3.600
+Pmin: 3.400
+Pstdev: 0.053
+Joules: 24.500
+2015-12-06 07:50:08.067988
+Results:
+3.5
+3.5
+3.5
+3.5
+3.6
+3.6
+Samples: 6
+Pavg: 3.533
+Pmax: 3.600
+Pmin: 3.500
+Pstdev: 0.047
+Joules: 21.200
+2015-12-06 07:50:19.147228
+Results:
+3.5
+3.5
+3.5
+3.5
+3.6
+3.6
+3.6
+Samples: 7
+Pavg: 3.543
+Pmax: 3.600
+Pmin: 3.500
+Pstdev: 0.049
+Joules: 24.800
+2015-12-06 07:50:30.007256
+Results:
+3.5
+3.5
+3.5
+3.5
+3.5
+3.6
+3.6
+Samples: 7
+Pavg: 3.529
+Pmax: 3.600
+Pmin: 3.500
+Pstdev: 0.045
+Joules: 24.700
+2015-12-06 07:50:40.805983
+Results:
+3.5
+3.5
+3.5
+3.5
+3.5
+3.6
+3.6
+Samples: 7
+Pavg: 3.529
+Pmax: 3.600
+Pmin: 3.500
+Pstdev: 0.045
+Joules: 24.700
+2015-12-06 07:50:51.564475
+Results:
+3.5
+3.5
+3.5
+3.6
+3.6
+3.6
+Samples: 6
+Pavg: 3.550
+Pmax: 3.600
+Pmin: 3.500
+Pstdev: 0.050
+Joules: 21.300
+mf: 0x3 1400000
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.58372 s, 2.8 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.72963 s, 4.7 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.54662 s, 2.8 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.68999 s, 4.8 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.55946 s, 2.8 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.70601 s, 4.7 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.56316 s, 2.8 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.67979 s, 4.8 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.57723 s, 2.8 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.76015 s, 4.6 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.64942 s, 2.8 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.74172 s, 4.7 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.62189 s, 2.8 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.7411 s, 4.7 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.61978 s, 2.8 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.74497 s, 4.7 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.61855 s, 2.8 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.7498 s, 4.7 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.64505 s, 2.8 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.74127 s, 4.7 MB/s
+2015-12-06 07:51:15.159042
+Results:
+3.4
+3.4
+3.4
+3.5
+3.4
+3.5
+3.5
+Samples: 7
+Pavg: 3.443
+Pmax: 3.500
+Pmin: 3.400
+Pstdev: 0.049
+Joules: 24.100
+2015-12-06 07:51:26.198452
+Results:
+3.4
+3.4
+3.5
+3.5
+3.5
+3.5
+3.5
+Samples: 7
+Pavg: 3.471
+Pmax: 3.500
+Pmin: 3.400
+Pstdev: 0.045
+Joules: 24.300
+2015-12-06 07:51:37.258589
+Results:
+3.4
+3.4
+3.5
+3.4
+3.5
+3.5
+3.5
+Samples: 7
+Pavg: 3.457
+Pmax: 3.500
+Pmin: 3.400
+Pstdev: 0.049
+Joules: 24.200
+2015-12-06 07:51:48.273960
+Results:
+3.4
+3.4
+3.4
+3.4
+3.5
+3.5
+Samples: 6
+Pavg: 3.433
+Pmax: 3.500
+Pmin: 3.400
+Pstdev: 0.047
+Joules: 20.600
+2015-12-06 07:51:59.385412
+Results:
+3.4
+3.4
+3.4
+3.5
+3.5
+3.5
+Samples: 6
+Pavg: 3.450
+Pmax: 3.500
+Pmin: 3.400
+Pstdev: 0.050
+Joules: 20.700
+2015-12-06 07:52:10.551606
+Results:
+3.4
+3.4
+3.5
+3.5
+3.5
+3.5
+Samples: 6
+Pavg: 3.467
+Pmax: 3.500
+Pmin: 3.400
+Pstdev: 0.047
+Joules: 20.800
+2015-12-06 07:52:21.758403
+Results:
+3.4
+3.4
+3.5
+3.5
+3.5
+3.5
+3.5
+Samples: 7
+Pavg: 3.471
+Pmax: 3.500
+Pmin: 3.400
+Pstdev: 0.045
+Joules: 24.300
+2015-12-06 07:52:32.916951
+Results:
+3.4
+3.4
+3.4
+3.5
+3.5
+3.5
+3.5
+Samples: 7
+Pavg: 3.457
+Pmax: 3.500
+Pmin: 3.400
+Pstdev: 0.049
+Joules: 24.200
+2015-12-06 07:52:44.083104
+Results:
+3.4
+3.4
+3.5
+3.5
+3.5
+3.5
+3.5
+Samples: 7
+Pavg: 3.471
+Pmax: 3.500
+Pmin: 3.400
+Pstdev: 0.045
+Joules: 24.300
+2015-12-06 07:52:55.265460
+Results:
+3.4
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+Samples: 7
+Pavg: 3.486
+Pmax: 3.500
+Pmin: 3.400
+Pstdev: 0.035
+Joules: 24.400
+mf: 0x3 1300000
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.91421 s, 2.6 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.90893 s, 4.4 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.9189 s, 2.6 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.89092 s, 4.4 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.89825 s, 2.6 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.90257 s, 4.4 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.90376 s, 2.6 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.90235 s, 4.4 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.87953 s, 2.6 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.83824 s, 4.5 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.89246 s, 2.6 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.88924 s, 4.4 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.84903 s, 2.6 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.9398 s, 4.4 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.83766 s, 2.6 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.92345 s, 4.4 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.88946 s, 2.6 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.84096 s, 4.5 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.85563 s, 2.6 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.84991 s, 4.5 MB/s
+2015-12-06 07:53:19.434958
+Results:
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 7
+Pavg: 3.400
+Pmax: 3.400
+Pmin: 3.400
+Pstdev: 0.000
+Joules: 23.800
+2015-12-06 07:53:31.188929
+Results:
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 7
+Pavg: 3.400
+Pmax: 3.400
+Pmin: 3.400
+Pstdev: 0.000
+Joules: 23.800
+2015-12-06 07:53:42.797435
+Results:
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 7
+Pavg: 3.400
+Pmax: 3.400
+Pmin: 3.400
+Pstdev: 0.000
+Joules: 23.800
+2015-12-06 07:53:54.414172
+Results:
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 7
+Pavg: 3.400
+Pmax: 3.400
+Pmin: 3.400
+Pstdev: 0.000
+Joules: 23.800
+2015-12-06 07:54:05.941653
+Results:
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.5
+Samples: 7
+Pavg: 3.414
+Pmax: 3.500
+Pmin: 3.400
+Pstdev: 0.035
+Joules: 23.900
+2015-12-06 07:54:17.527267
+Results:
+3.4
+3.4
+3.4
+3.4
+3.4
+3.5
+3.5
+Samples: 7
+Pavg: 3.429
+Pmax: 3.500
+Pmin: 3.400
+Pstdev: 0.045
+Joules: 24.000
+2015-12-06 07:54:29.162442
+Results:
+3.4
+3.4
+3.4
+3.4
+3.4
+3.5
+3.5
+Samples: 7
+Pavg: 3.429
+Pmax: 3.500
+Pmin: 3.400
+Pstdev: 0.045
+Joules: 24.000
+2015-12-06 07:54:40.758554
+Results:
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.5
+Samples: 8
+Pavg: 3.412
+Pmax: 3.500
+Pmin: 3.400
+Pstdev: 0.033
+Joules: 27.300
+2015-12-06 07:54:52.292486
+Results:
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 7
+Pavg: 3.400
+Pmax: 3.400
+Pmin: 3.400
+Pstdev: 0.000
+Joules: 23.800
+2015-12-06 07:55:03.804803
+Results:
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.5
+Samples: 7
+Pavg: 3.414
+Pmax: 3.500
+Pmin: 3.400
+Pstdev: 0.035
+Joules: 23.900
+mf: 0x3 1200000
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.23488 s, 2.4 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.07347 s, 4.2 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.26601 s, 2.4 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.08746 s, 4.1 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.24495 s, 2.4 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.10226 s, 4.1 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.25137 s, 2.4 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.10271 s, 4.1 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.254 s, 2.4 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.09704 s, 4.1 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.23914 s, 2.4 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.10975 s, 4.1 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.30615 s, 2.4 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.1065 s, 4.1 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.2356 s, 2.4 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.10592 s, 4.1 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.25315 s, 2.4 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.19063 s, 4.0 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.16609 s, 2.5 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.02852 s, 4.2 MB/s
+2015-12-06 07:55:28.535072
+Results:
+3.3
+3.3
+3.3
+3.4
+3.4
+3.4
+3.4
+Samples: 7
+Pavg: 3.357
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.049
+Joules: 23.500
+2015-12-06 07:55:40.749359
+Results:
+3.3
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 8
+Pavg: 3.387
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.033
+Joules: 27.100
+2015-12-06 07:55:53.229202
+Results:
+3.3
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 8
+Pavg: 3.387
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.033
+Joules: 27.100
+2015-12-06 07:56:05.406284
+Results:
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 7
+Pavg: 3.400
+Pmax: 3.400
+Pmin: 3.400
+Pstdev: 0.000
+Joules: 23.800
+2015-12-06 07:56:17.575774
+Results:
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 7
+Pavg: 3.400
+Pmax: 3.400
+Pmin: 3.400
+Pstdev: 0.000
+Joules: 23.800
+2015-12-06 07:56:29.765945
+Results:
+3.3
+3.3
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 8
+Pavg: 3.375
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.043
+Joules: 27.000
+2015-12-06 07:56:42.016362
+Results:
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 8
+Pavg: 3.400
+Pmax: 3.400
+Pmin: 3.400
+Pstdev: 0.000
+Joules: 27.200
+2015-12-06 07:56:54.490516
+Results:
+3.3
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 8
+Pavg: 3.387
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.033
+Joules: 27.100
+2015-12-06 07:57:06.834697
+Results:
+3.3
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 8
+Pavg: 3.387
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.033
+Joules: 27.100
+2015-12-06 07:57:19.154543
+Results:
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 8
+Pavg: 3.400
+Pmax: 3.400
+Pmin: 3.400
+Pstdev: 0.000
+Joules: 27.200
+mf: 0x3 1100000
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.63004 s, 2.3 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.3272 s, 3.8 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.57088 s, 2.3 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.2695 s, 3.9 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.61564 s, 2.3 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.40239 s, 3.8 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.57454 s, 2.3 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.27919 s, 3.9 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.56416 s, 2.3 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.2676 s, 3.9 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.65717 s, 2.3 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.34192 s, 3.8 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.6811 s, 2.3 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.46604 s, 3.7 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.63838 s, 2.3 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.33704 s, 3.8 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.64652 s, 2.3 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.33713 s, 3.8 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.66588 s, 2.3 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.32993 s, 3.8 MB/s
+2015-12-06 07:57:44.759277
+Results:
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.4
+3.4
+Samples: 9
+Pavg: 3.322
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.042
+Joules: 29.900
+2015-12-06 07:57:57.459721
+Results:
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.4
+3.3
+Samples: 8
+Pavg: 3.312
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.033
+Joules: 26.500
+2015-12-06 07:58:10.399136
+Results:
+3.3
+3.3
+3.3
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 8
+Pavg: 3.362
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.048
+Joules: 26.900
+2015-12-06 07:58:23.247109
+Results:
+3.3
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 8
+Pavg: 3.387
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.033
+Joules: 27.100
+2015-12-06 07:58:35.936576
+Results:
+3.3
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 8
+Pavg: 3.387
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.033
+Joules: 27.100
+2015-12-06 07:58:48.810301
+Results:
+3.3
+3.4
+3.4
+3.3
+3.4
+3.4
+3.3
+3.4
+3.4
+Samples: 9
+Pavg: 3.367
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.047
+Joules: 30.300
+2015-12-06 07:59:01.834351
+Results:
+3.3
+3.3
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 9
+Pavg: 3.378
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.042
+Joules: 30.400
+2015-12-06 07:59:14.734735
+Results:
+3.3
+3.3
+3.3
+3.3
+3.3
+3.4
+3.4
+3.4
+3.4
+Samples: 9
+Pavg: 3.344
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.050
+Joules: 30.100
+2015-12-06 07:59:27.732971
+Results:
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 9
+Pavg: 3.300
+Pmax: 3.300
+Pmin: 3.300
+Pstdev: 0.000
+Joules: 29.700
+2015-12-06 07:59:40.730689
+Results:
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.4
+Samples: 9
+Pavg: 3.311
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.031
+Joules: 29.800
+mf: 0x3 1000000
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.19728 s, 2.1 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.62635 s, 3.5 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.1622 s, 2.1 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.64662 s, 3.5 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.16741 s, 2.1 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.64744 s, 3.5 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.20864 s, 2.1 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.6377 s, 3.5 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.11511 s, 2.1 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.55762 s, 3.6 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.13031 s, 2.1 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.6327 s, 3.5 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.09247 s, 2.1 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.55264 s, 3.6 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.07787 s, 2.1 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.55494 s, 3.6 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.04245 s, 2.1 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.52073 s, 3.6 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.12398 s, 2.1 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.54261 s, 3.6 MB/s
+2015-12-06 08:00:07.231074
+Results:
+3.2
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 9
+Pavg: 3.278
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.042
+Joules: 29.500
+2015-12-06 08:00:20.942253
+Results:
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.4
+3.4
+Samples: 9
+Pavg: 3.322
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.042
+Joules: 29.900
+2015-12-06 08:00:34.757528
+Results:
+3.3
+3.3
+3.3
+3.4
+3.4
+3.4
+3.3
+3.3
+3.4
+3.3
+Samples: 10
+Pavg: 3.340
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.049
+Joules: 33.400
+2015-12-06 08:00:48.495959
+Results:
+3.3
+3.3
+3.3
+3.4
+3.4
+3.3
+3.4
+3.4
+3.3
+Samples: 9
+Pavg: 3.344
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.050
+Joules: 30.100
+2015-12-06 08:01:02.397712
+Results:
+3.3
+3.3
+3.3
+3.4
+3.3
+3.3
+3.4
+3.4
+3.4
+Samples: 9
+Pavg: 3.344
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.050
+Joules: 30.100
+2015-12-06 08:01:16.185244
+Results:
+3.3
+3.3
+3.3
+3.3
+3.4
+3.4
+3.3
+3.3
+3.4
+Samples: 9
+Pavg: 3.333
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.047
+Joules: 30.000
+2015-12-06 08:01:29.739269
+Results:
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 9
+Pavg: 3.300
+Pmax: 3.300
+Pmin: 3.300
+Pstdev: 0.000
+Joules: 29.700
+2015-12-06 08:01:43.256926
+Results:
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 9
+Pavg: 3.300
+Pmax: 3.300
+Pmin: 3.300
+Pstdev: 0.000
+Joules: 29.700
+2015-12-06 08:01:56.748618
+Results:
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 9
+Pavg: 3.300
+Pmax: 3.300
+Pmin: 3.300
+Pstdev: 0.000
+Joules: 29.700
+2015-12-06 08:02:10.313633
+Results:
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 9
+Pavg: 3.300
+Pmax: 3.300
+Pmin: 3.300
+Pstdev: 0.000
+Joules: 29.700
+mf: 0x3 900000
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.76751 s, 1.9 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.97769 s, 3.2 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.74924 s, 1.9 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.96784 s, 3.2 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.78203 s, 1.9 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.98235 s, 3.2 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.76567 s, 1.9 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.97338 s, 3.2 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.76074 s, 1.9 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.98719 s, 3.2 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.73651 s, 1.9 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.9821 s, 3.2 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.73302 s, 1.9 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.96645 s, 3.2 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.76947 s, 1.9 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.99465 s, 3.2 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.77151 s, 1.9 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.99279 s, 3.2 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.7644 s, 1.9 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.96005 s, 3.2 MB/s
+2015-12-06 08:02:38.247344
+Results:
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 10
+Pavg: 3.300
+Pmax: 3.300
+Pmin: 3.300
+Pstdev: 0.000
+Joules: 33.000
+2015-12-06 08:02:52.908874
+Results:
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 10
+Pavg: 3.290
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.030
+Joules: 32.900
+2015-12-06 08:03:07.609642
+Results:
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 10
+Pavg: 3.290
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.030
+Joules: 32.900
+2015-12-06 08:03:22.284630
+Results:
+3.3
+3.3
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 10
+Pavg: 3.290
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.030
+Joules: 32.900
+2015-12-06 08:03:36.965088
+Results:
+3.2
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 10
+Pavg: 3.280
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.040
+Joules: 32.800
+2015-12-06 08:03:51.621667
+Results:
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 10
+Pavg: 3.290
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.030
+Joules: 32.900
+2015-12-06 08:04:06.262711
+Results:
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 10
+Pavg: 3.290
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.030
+Joules: 32.900
+2015-12-06 08:04:20.963087
+Results:
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 10
+Pavg: 3.300
+Pmax: 3.300
+Pmin: 3.300
+Pstdev: 0.000
+Joules: 33.000
+2015-12-06 08:04:35.662676
+Results:
+3.2
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 10
+Pavg: 3.280
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.040
+Joules: 32.800
+2015-12-06 08:04:50.333772
+Results:
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 10
+Pavg: 3.290
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.030
+Joules: 32.900
+mf: 0x3 800000
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 7.50323 s, 1.7 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.42484 s, 2.9 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 7.50577 s, 1.7 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.40525 s, 2.9 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 7.54276 s, 1.7 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.34268 s, 2.9 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 7.44684 s, 1.7 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.58126 s, 2.8 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 7.4728 s, 1.7 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.32969 s, 3.0 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 7.4845 s, 1.7 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.33844 s, 3.0 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 7.51807 s, 1.7 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.40843 s, 2.9 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 7.67663 s, 1.7 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.6419 s, 2.8 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 7.5961 s, 1.7 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.42356 s, 2.9 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 7.62045 s, 1.7 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.62185 s, 2.8 MB/s
+2015-12-06 08:05:19.309368
+Results:
+3.2
+3.2
+3.2
+3.3
+3.3
+3.3
+3.3
+3.2
+3.3
+3.3
+3.3
+Samples: 11
+Pavg: 3.264
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.048
+Joules: 35.900
+2015-12-06 08:05:35.216285
+Results:
+3.2
+3.2
+3.2
+3.3
+3.3
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 11
+Pavg: 3.264
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.048
+Joules: 35.900
+2015-12-06 08:05:51.069202
+Results:
+3.2
+3.2
+3.3
+3.3
+3.3
+3.3
+3.2
+3.3
+3.3
+3.3
+3.3
+Samples: 11
+Pavg: 3.273
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.045
+Joules: 36.000
+2015-12-06 08:06:07.488781
+Results:
+3.2
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 12
+Pavg: 3.283
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.037
+Joules: 39.400
+2015-12-06 08:06:23.876185
+Results:
+3.2
+3.2
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 12
+Pavg: 3.275
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.043
+Joules: 39.300
+2015-12-06 08:06:39.687763
+Results:
+3.2
+3.2
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.2
+3.2
+Samples: 11
+Pavg: 3.255
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.050
+Joules: 35.800
+2015-12-06 08:06:55.605263
+Results:
+3.2
+3.3
+3.2
+3.3
+3.3
+3.3
+3.3
+3.2
+3.3
+3.3
+3.3
+Samples: 11
+Pavg: 3.273
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.045
+Joules: 36.000
+2015-12-06 08:07:11.931593
+Results:
+3.2
+3.2
+3.3
+3.3
+3.2
+3.2
+3.3
+3.3
+3.3
+3.3
+3.2
+3.2
+Samples: 12
+Pavg: 3.250
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.050
+Joules: 39.000
+2015-12-06 08:07:28.333094
+Results:
+3.2
+3.3
+3.2
+3.2
+3.3
+3.3
+3.3
+3.3
+3.2
+3.3
+3.3
+3.3
+Samples: 12
+Pavg: 3.267
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.047
+Joules: 39.200
+2015-12-06 08:07:44.558718
+Results:
+3.2
+3.2
+3.3
+3.3
+3.2
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 11
+Pavg: 3.264
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.048
+Joules: 35.900
+mf: 0x3 700000
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 8.62832 s, 1.5 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.06772 s, 2.5 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 8.62498 s, 1.5 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.30865 s, 2.4 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 8.64787 s, 1.5 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.08061 s, 2.5 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 8.63524 s, 1.5 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.31787 s, 2.4 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 8.67518 s, 1.5 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.07659 s, 2.5 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 8.56731 s, 1.5 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.98576 s, 2.6 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 8.66924 s, 1.5 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.30351 s, 2.4 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 8.62174 s, 1.5 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.98351 s, 2.6 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 8.59883 s, 1.5 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.24229 s, 2.4 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 8.55457 s, 1.5 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.19584 s, 2.5 MB/s
+2015-12-06 08:08:15.598867
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.3
+3.2
+Samples: 13
+Pavg: 3.208
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.027
+Joules: 41.700
+2015-12-06 08:08:33.605798
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.3
+3.3
+3.2
+3.2
+Samples: 13
+Pavg: 3.215
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.036
+Joules: 41.800
+2015-12-06 08:08:51.396191
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.3
+3.3
+3.3
+3.3
+3.2
+3.2
+3.2
+Samples: 13
+Pavg: 3.231
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.046
+Joules: 42.000
+2015-12-06 08:09:09.417503
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.3
+3.3
+3.2
+3.3
+3.3
+3.2
+3.3
+3.3
+Samples: 13
+Pavg: 3.246
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.050
+Joules: 42.200
+2015-12-06 08:09:27.234832
+Results:
+3.3
+3.2
+3.2
+3.2
+3.2
+3.2
+3.3
+3.3
+3.3
+3.3
+3.2
+3.2
+3.3
+Samples: 13
+Pavg: 3.246
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.050
+Joules: 42.200
+2015-12-06 08:09:44.932662
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.3
+3.3
+3.3
+3.3
+3.2
+3.2
+Samples: 13
+Pavg: 3.231
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.046
+Joules: 42.000
+2015-12-06 08:10:02.998593
+Results:
+3.2
+3.2
+3.2
+3.2
+3.3
+3.3
+3.2
+3.3
+3.3
+3.3
+3.3
+3.2
+3.2
+3.3
+Samples: 14
+Pavg: 3.250
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.050
+Joules: 45.500
+2015-12-06 08:10:20.667210
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.3
+3.3
+3.3
+3.3
+3.2
+3.2
+3.3
+3.3
+Samples: 13
+Pavg: 3.246
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.050
+Joules: 42.200
+2015-12-06 08:10:38.572931
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.3
+3.3
+3.2
+3.2
+3.2
+3.2
+Samples: 13
+Pavg: 3.215
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.036
+Joules: 41.800
+2015-12-06 08:10:56.438485
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+Samples: 13
+Pavg: 3.200
+Pmax: 3.200
+Pmin: 3.200
+Pstdev: 0.000
+Joules: 41.600
+mf: 0x3 600000
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 10.1207 s, 1.3 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.86373 s, 2.2 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 10.235 s, 1.3 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.26277 s, 2.0 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 10.2748 s, 1.2 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.93711 s, 2.2 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 10.2642 s, 1.2 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.97054 s, 2.1 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 10.3165 s, 1.2 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.95035 s, 2.2 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 10.2266 s, 1.3 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.28829 s, 2.0 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 10.2536 s, 1.2 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.99011 s, 2.1 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 10.3185 s, 1.2 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.01181 s, 2.1 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 10.2674 s, 1.2 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.97084 s, 2.1 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 10.2369 s, 1.3 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.97566 s, 2.1 MB/s
+2015-12-06 08:11:30.171932
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+Samples: 16
+Pavg: 3.200
+Pmax: 3.200
+Pmin: 3.200
+Pstdev: 0.000
+Joules: 51.200
+2015-12-06 08:11:51.018474
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+Samples: 17
+Pavg: 3.200
+Pmax: 3.200
+Pmin: 3.200
+Pstdev: 0.000
+Joules: 54.400
+2015-12-06 08:12:11.410632
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+Samples: 16
+Pavg: 3.200
+Pmax: 3.200
+Pmin: 3.200
+Pstdev: 0.000
+Joules: 51.200
+2015-12-06 08:12:31.797884
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+Samples: 15
+Pavg: 3.200
+Pmax: 3.200
+Pmin: 3.200
+Pstdev: 0.000
+Joules: 48.000
+2015-12-06 08:12:52.240828
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+Samples: 16
+Pavg: 3.200
+Pmax: 3.200
+Pmin: 3.200
+Pstdev: 0.000
+Joules: 51.200
+2015-12-06 08:13:12.995568
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+Samples: 16
+Pavg: 3.200
+Pmax: 3.200
+Pmin: 3.200
+Pstdev: 0.000
+Joules: 51.200
+2015-12-06 08:13:33.420980
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.3
+3.2
+3.2
+3.2
+3.2
+Samples: 16
+Pavg: 3.206
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.024
+Joules: 51.300
+2015-12-06 08:13:54.009994
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+Samples: 16
+Pavg: 3.200
+Pmax: 3.200
+Pmin: 3.200
+Pstdev: 0.000
+Joules: 51.200
+2015-12-06 08:14:14.414745
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+Samples: 16
+Pavg: 3.200
+Pmax: 3.200
+Pmin: 3.200
+Pstdev: 0.000
+Joules: 51.200
+2015-12-06 08:14:34.783956
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.3
+3.3
+3.2
+3.2
+Samples: 15
+Pavg: 3.213
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.034
+Joules: 48.200
+mf: 0x3 500000
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 12.5209 s, 1.0 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 7.32785 s, 1.7 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 12.5821 s, 1.0 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 7.18512 s, 1.8 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 12.5215 s, 1.0 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 7.23499 s, 1.8 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 12.4608 s, 1.0 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 7.1636 s, 1.8 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 12.3997 s, 1.0 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 7.13133 s, 1.8 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 12.491 s, 1.0 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 7.54611 s, 1.7 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 12.4747 s, 1.0 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 7.1269 s, 1.8 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 12.6111 s, 1.0 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 7.32688 s, 1.7 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 12.6324 s, 1.0 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 7.38879 s, 1.7 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 12.7547 s, 1.0 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 7.29276 s, 1.8 MB/s
+2015-12-06 08:15:13.679967
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+Samples: 20
+Pavg: 3.200
+Pmax: 3.200
+Pmin: 3.200
+Pstdev: 0.000
+Joules: 64.000
+2015-12-06 08:15:37.783723
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+Samples: 19
+Pavg: 3.200
+Pmax: 3.200
+Pmin: 3.200
+Pstdev: 0.000
+Joules: 60.800
+2015-12-06 08:16:01.855960
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+Samples: 19
+Pavg: 3.200
+Pmax: 3.200
+Pmin: 3.200
+Pstdev: 0.000
+Joules: 60.800
+2015-12-06 08:16:25.795041
+Results:
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+Samples: 19
+Pavg: 3.189
+Pmax: 3.200
+Pmin: 3.100
+Pstdev: 0.031
+Joules: 60.600
+2015-12-06 08:16:49.651936
+Results:
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+Samples: 19
+Pavg: 3.195
+Pmax: 3.200
+Pmin: 3.100
+Pstdev: 0.022
+Joules: 60.700
+2015-12-06 08:17:14.090443
+Results:
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+Samples: 20
+Pavg: 3.190
+Pmax: 3.200
+Pmin: 3.100
+Pstdev: 0.030
+Joules: 63.800
+2015-12-06 08:17:38.084195
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+Samples: 20
+Pavg: 3.200
+Pmax: 3.200
+Pmin: 3.200
+Pstdev: 0.000
+Joules: 64.000
+2015-12-06 08:18:02.362822
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+Samples: 20
+Pavg: 3.200
+Pmax: 3.200
+Pmin: 3.200
+Pstdev: 0.000
+Joules: 64.000
+2015-12-06 08:18:26.710983
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.3
+3.2
+3.2
+3.2
+3.2
+Samples: 19
+Pavg: 3.205
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.022
+Joules: 60.900
+2015-12-06 08:18:51.101552
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.3
+3.3
+3.2
+3.2
+3.2
+Samples: 20
+Pavg: 3.210
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.030
+Joules: 64.200
+mf: 0x3 400000
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 16.6718 s, 768 kB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 9.66224 s, 1.3 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 16.7696 s, 763 kB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 9.65534 s, 1.3 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 16.7963 s, 762 kB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 9.64067 s, 1.3 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 17.0746 s, 750 kB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 9.57641 s, 1.3 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 16.7635 s, 764 kB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 9.66331 s, 1.3 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 16.8473 s, 760 kB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 9.67097 s, 1.3 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 16.8173 s, 761 kB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 9.50268 s, 1.3 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 16.6553 s, 769 kB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 9.63557 s, 1.3 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 16.4858 s, 776 kB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 9.5832 s, 1.3 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 16.7353 s, 765 kB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 9.58115 s, 1.3 MB/s
+2015-12-06 08:19:36.806468
+Results:
+3.1
+3.1
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+Samples: 26
+Pavg: 3.177
+Pmax: 3.200
+Pmin: 3.100
+Pstdev: 0.042
+Joules: 82.600
+2015-12-06 08:20:07.854691
+Results:
+3.1
+3.1
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+Samples: 26
+Pavg: 3.185
+Pmax: 3.200
+Pmin: 3.100
+Pstdev: 0.036
+Joules: 82.800
+2015-12-06 08:20:38.892248
+Results:
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+Samples: 26
+Pavg: 3.188
+Pmax: 3.200
+Pmin: 3.100
+Pstdev: 0.032
+Joules: 82.900
+2015-12-06 08:21:10.186173
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.1
+3.1
+3.1
+3.1
+3.2
+3.2
+3.2
+3.1
+Samples: 27
+Pavg: 3.163
+Pmax: 3.200
+Pmin: 3.100
+Pstdev: 0.048
+Joules: 85.400
+2015-12-06 08:21:41.217099
+Results:
+3.1
+3.1
+3.1
+3.1
+3.1
+3.1
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.1
+3.1
+3.2
+3.1
+3.2
+3.1
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+Samples: 26
+Pavg: 3.146
+Pmax: 3.200
+Pmin: 3.100
+Pstdev: 0.050
+Joules: 81.800
+2015-12-06 08:22:12.325298
+Results:
+3.1
+3.2
+3.1
+3.1
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.1
+3.1
+3.2
+3.1
+3.1
+Samples: 26
+Pavg: 3.158
+Pmax: 3.200
+Pmin: 3.100
+Pstdev: 0.049
+Joules: 82.100
+2015-12-06 08:22:43.258589
+Results:
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+Samples: 26
+Pavg: 3.192
+Pmax: 3.200
+Pmin: 3.100
+Pstdev: 0.027
+Joules: 83.000
+2015-12-06 08:23:14.152594
+Results:
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.1
+3.1
+3.1
+Samples: 26
+Pavg: 3.165
+Pmax: 3.200
+Pmin: 3.100
+Pstdev: 0.048
+Joules: 82.300
+2015-12-06 08:23:44.798299
+Results:
+3.1
+3.1
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.1
+3.1
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.1
+3.1
+Samples: 25
+Pavg: 3.144
+Pmax: 3.200
+Pmin: 3.100
+Pstdev: 0.050
+Joules: 78.600
+2015-12-06 08:24:15.712346
+Results:
+3.1
+3.1
+3.1
+3.2
+3.2
+3.1
+3.1
+3.1
+3.1
+3.2
+3.2
+3.2
+3.1
+3.1
+3.1
+3.1
+3.2
+3.2
+3.1
+3.1
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+Samples: 26
+Pavg: 3.142
+Pmax: 3.200
+Pmin: 3.100
+Pstdev: 0.049
+Joules: 81.700
+mf: 0x3 300000
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 25.1948 s, 508 kB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 14.3024 s, 895 kB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 24.864 s, 515 kB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 14.3685 s, 891 kB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 25.0367 s, 511 kB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 14.4521 s, 886 kB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 30.978 s, 413 kB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 14.6811 s, 872 kB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 25.1176 s, 510 kB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 14.6169 s, 876 kB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 25.6094 s, 500 kB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 14.7915 s, 865 kB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 25.6046 s, 500 kB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 14.6717 s, 872 kB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 25.0351 s, 511 kB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 14.6167 s, 876 kB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 25.1145 s, 510 kB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 15.5265 s, 824 kB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 25.6984 s, 498 kB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 14.5192 s, 882 kB/s
+2015-12-06 08:25:16.898386
+Results:
+3.1
+3.1
+3.1
+3.1
+3.1
+3.1
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.1
+3.1
+3.1
+3.1
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.1
+3.1
+3.1
+3.1
+3.2
+3.2
+3.2
+3.1
+3.1
+3.1
+Samples: 40
+Pavg: 3.142
+Pmax: 3.200
+Pmin: 3.100
+Pstdev: 0.049
+Joules: 125.700
+2015-12-06 08:26:01.545686
+Results:
+3.1
+3.1
+3.1
+3.1
+3.2
+3.2
+3.1
+3.1
+3.1
+3.1
+3.2
+3.1
+3.1
+3.2
+3.1
+3.1
+3.2
+3.2
+3.1
+3.1
+3.1
+3.1
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.1
+3.1
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+Samples: 40
+Pavg: 3.140
+Pmax: 3.200
+Pmin: 3.100
+Pstdev: 0.049
+Joules: 125.600
+2015-12-06 08:26:46.377806
+Results:
+3.1
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.1
+3.1
+3.2
+3.1
+3.1
+3.2
+Samples: 39
+Pavg: 3.162
+Pmax: 3.200
+Pmin: 3.100
+Pstdev: 0.049
+Joules: 123.300
+2015-12-06 08:27:37.689110
+Results:
+3.1
+3.2
+3.2
+3.1
+3.1
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.1
+3.1
+3.1
+3.1
+3.2
+3.1
+3.1
+3.1
+3.1
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.1
+3.1
+Samples: 46
+Pavg: 3.150
+Pmax: 3.200
+Pmin: 3.100
+Pstdev: 0.050
+Joules: 144.900
+2015-12-06 08:28:22.816263
+Results:
+3.1
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.1
+3.1
+3.1
+3.1
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+Samples: 40
+Pavg: 3.157
+Pmax: 3.200
+Pmin: 3.100
+Pstdev: 0.049
+Joules: 126.300
+2015-12-06 08:29:08.655378
+Results:
+3.2
+3.1
+3.1
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+Samples: 41
+Pavg: 3.171
+Pmax: 3.200
+Pmin: 3.100
+Pstdev: 0.045
+Joules: 130.000
+2015-12-06 08:29:54.335319
+Results:
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+Samples: 40
+Pavg: 3.183
+Pmax: 3.200
+Pmin: 3.100
+Pstdev: 0.038
+Joules: 127.300
+2015-12-06 08:30:39.502809
+Results:
+3.1
+3.2
+3.1
+3.1
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.1
+3.2
+3.2
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.1
+3.1
+3.1
+Samples: 40
+Pavg: 3.160
+Pmax: 3.200
+Pmin: 3.100
+Pstdev: 0.049
+Joules: 126.400
+2015-12-06 08:31:25.558952
+Results:
+3.1
+3.1
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.1
+3.1
+3.2
+Samples: 41
+Pavg: 3.171
+Pmax: 3.200
+Pmin: 3.100
+Pstdev: 0.045
+Joules: 130.000
+2015-12-06 08:32:11.129280
+Results:
+3.2
+3.1
+3.1
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.1
+3.1
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+Samples: 40
+Pavg: 3.165
+Pmax: 3.200
+Pmin: 3.100
+Pstdev: 0.048
+Joules: 126.600
+mf: 0x3 200000
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.49428 s, 2.8 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.72905 s, 4.7 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.49914 s, 2.8 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.67621 s, 4.8 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.44801 s, 2.9 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.61923 s, 4.9 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.47377 s, 2.9 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.73346 s, 4.7 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.43768 s, 2.9 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.60921 s, 4.9 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.44389 s, 2.9 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.68941 s, 4.8 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.4241 s, 2.9 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.61915 s, 4.9 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.44722 s, 2.9 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.62528 s, 4.9 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.54709 s, 2.8 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.68787 s, 4.8 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.50255 s, 2.8 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.76325 s, 4.6 MB/s
+2015-12-06 08:32:35.040729
+Results:
+3.3
+3.3
+3.4
+3.4
+3.4
+3.5
+3.5
+Samples: 7
+Pavg: 3.400
+Pmax: 3.500
+Pmin: 3.300
+Pstdev: 0.076
+Joules: 23.800
+2015-12-06 08:32:46.013893
+Results:
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+Samples: 6
+Pavg: 3.500
+Pmax: 3.500
+Pmin: 3.500
+Pstdev: 0.000
+Joules: 21.000
+2015-12-06 08:32:56.898379
+Results:
+3.5
+3.5
+3.5
+3.5
+3.5
+3.6
+3.6
+Samples: 7
+Pavg: 3.529
+Pmax: 3.600
+Pmin: 3.500
+Pstdev: 0.045
+Joules: 24.700
+2015-12-06 08:33:07.914253
+Results:
+3.5
+3.5
+3.5
+3.5
+3.6
+3.6
+3.6
+Samples: 7
+Pavg: 3.543
+Pmax: 3.600
+Pmin: 3.500
+Pstdev: 0.049
+Joules: 24.800
+2015-12-06 08:33:18.775949
+Results:
+3.5
+3.5
+3.6
+3.6
+3.6
+3.6
+3.6
+Samples: 7
+Pavg: 3.571
+Pmax: 3.600
+Pmin: 3.500
+Pstdev: 0.045
+Joules: 25.000
+2015-12-06 08:33:29.721028
+Results:
+3.5
+3.5
+3.5
+3.5
+3.6
+3.6
+3.5
+Samples: 7
+Pavg: 3.529
+Pmax: 3.600
+Pmin: 3.500
+Pstdev: 0.045
+Joules: 24.700
+2015-12-06 08:33:40.591976
+Results:
+3.5
+3.5
+3.5
+3.6
+3.5
+3.6
+3.6
+Samples: 7
+Pavg: 3.543
+Pmax: 3.600
+Pmin: 3.500
+Pstdev: 0.049
+Joules: 24.800
+2015-12-06 08:33:51.593802
+Results:
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+Samples: 7
+Pavg: 3.500
+Pmax: 3.500
+Pmin: 3.500
+Pstdev: 0.000
+Joules: 24.500
+2015-12-06 08:34:02.641798
+Results:
+3.4
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+Samples: 7
+Pavg: 3.486
+Pmax: 3.500
+Pmin: 3.400
+Pstdev: 0.035
+Joules: 24.400
+2015-12-06 08:34:13.717585
+Results:
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+Samples: 7
+Pavg: 3.500
+Pmax: 3.500
+Pmin: 3.500
+Pstdev: 0.000
+Joules: 24.500
+mf: 0x1 1400000
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.67996 s, 2.7 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.78743 s, 4.6 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.6761 s, 2.7 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.8719 s, 4.5 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.69968 s, 2.7 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.78825 s, 4.6 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.68024 s, 2.7 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.78194 s, 4.6 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.67884 s, 2.7 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.79453 s, 4.6 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.68836 s, 2.7 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.78714 s, 4.6 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.68337 s, 2.7 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.78724 s, 4.6 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.62021 s, 2.8 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.7369 s, 4.7 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.65569 s, 2.7 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.76341 s, 4.6 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.62605 s, 2.8 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.73731 s, 4.7 MB/s
+2015-12-06 08:34:37.596897
+Results:
+3.4
+3.4
+3.4
+3.4
+3.5
+3.4
+3.5
+Samples: 7
+Pavg: 3.429
+Pmax: 3.500
+Pmin: 3.400
+Pstdev: 0.045
+Joules: 24.000
+2015-12-06 08:34:48.969641
+Results:
+3.4
+3.4
+3.5
+3.5
+3.5
+3.5
+3.5
+Samples: 7
+Pavg: 3.471
+Pmax: 3.500
+Pmin: 3.400
+Pstdev: 0.045
+Joules: 24.300
+2015-12-06 08:35:00.270008
+Results:
+3.4
+3.5
+3.4
+3.5
+3.5
+3.5
+3.5
+Samples: 7
+Pavg: 3.471
+Pmax: 3.500
+Pmin: 3.400
+Pstdev: 0.045
+Joules: 24.300
+2015-12-06 08:35:11.595265
+Results:
+3.4
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+Samples: 7
+Pavg: 3.486
+Pmax: 3.500
+Pmin: 3.400
+Pstdev: 0.035
+Joules: 24.400
+2015-12-06 08:35:22.886984
+Results:
+3.4
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+Samples: 7
+Pavg: 3.486
+Pmax: 3.500
+Pmin: 3.400
+Pstdev: 0.035
+Joules: 24.400
+2015-12-06 08:35:34.179351
+Results:
+3.4
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+Samples: 7
+Pavg: 3.486
+Pmax: 3.500
+Pmin: 3.400
+Pstdev: 0.035
+Joules: 24.400
+2015-12-06 08:35:45.592533
+Results:
+3.4
+3.4
+3.5
+3.5
+3.5
+3.5
+3.5
+Samples: 7
+Pavg: 3.471
+Pmax: 3.500
+Pmin: 3.400
+Pstdev: 0.045
+Joules: 24.300
+2015-12-06 08:35:56.764372
+Results:
+3.4
+3.4
+3.4
+3.4
+3.4
+3.5
+3.5
+Samples: 7
+Pavg: 3.429
+Pmax: 3.500
+Pmin: 3.400
+Pstdev: 0.045
+Joules: 24.000
+2015-12-06 08:36:08.264299
+Results:
+3.4
+3.5
+3.4
+3.5
+3.5
+3.5
+3.5
+Samples: 7
+Pavg: 3.471
+Pmax: 3.500
+Pmin: 3.400
+Pstdev: 0.045
+Joules: 24.300
+2015-12-06 08:36:19.588315
+Results:
+3.4
+3.4
+3.4
+3.5
+3.5
+3.5
+3.5
+Samples: 7
+Pavg: 3.457
+Pmax: 3.500
+Pmin: 3.400
+Pstdev: 0.049
+Joules: 24.200
+mf: 0x1 1300000
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.9261 s, 2.6 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.88311 s, 4.4 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.90634 s, 2.6 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.89375 s, 4.4 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.9344 s, 2.6 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.88852 s, 4.4 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.95924 s, 2.6 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.93678 s, 4.4 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.9619 s, 2.6 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.94942 s, 4.3 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.97253 s, 2.6 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.94894 s, 4.3 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.9713 s, 2.6 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.04359 s, 4.2 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.00254 s, 2.6 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.05047 s, 4.2 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.97139 s, 2.6 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.95031 s, 4.3 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.9823 s, 2.6 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 2.95625 s, 4.3 MB/s
+2015-12-06 08:36:43.799711
+Results:
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 7
+Pavg: 3.400
+Pmax: 3.400
+Pmin: 3.400
+Pstdev: 0.000
+Joules: 23.800
+2015-12-06 08:36:55.431900
+Results:
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 7
+Pavg: 3.400
+Pmax: 3.400
+Pmin: 3.400
+Pstdev: 0.000
+Joules: 23.800
+2015-12-06 08:37:07.082979
+Results:
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 7
+Pavg: 3.400
+Pmax: 3.400
+Pmin: 3.400
+Pstdev: 0.000
+Joules: 23.800
+2015-12-06 08:37:19.077488
+Results:
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 7
+Pavg: 3.400
+Pmax: 3.400
+Pmin: 3.400
+Pstdev: 0.000
+Joules: 23.800
+2015-12-06 08:37:30.818251
+Results:
+3.4
+3.4
+3.4
+3.4
+3.4
+3.5
+3.5
+Samples: 7
+Pavg: 3.429
+Pmax: 3.500
+Pmin: 3.400
+Pstdev: 0.045
+Joules: 24.000
+2015-12-06 08:37:42.589270
+Results:
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.5
+3.5
+Samples: 8
+Pavg: 3.425
+Pmax: 3.500
+Pmin: 3.400
+Pstdev: 0.043
+Joules: 27.400
+2015-12-06 08:37:54.593049
+Results:
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.5
+Samples: 8
+Pavg: 3.412
+Pmax: 3.500
+Pmin: 3.400
+Pstdev: 0.033
+Joules: 27.300
+2015-12-06 08:38:06.585506
+Results:
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.5
+Samples: 8
+Pavg: 3.412
+Pmax: 3.500
+Pmin: 3.400
+Pstdev: 0.033
+Joules: 27.300
+2015-12-06 08:38:18.333475
+Results:
+3.4
+3.4
+3.4
+3.4
+3.5
+3.4
+3.5
+Samples: 7
+Pavg: 3.429
+Pmax: 3.500
+Pmin: 3.400
+Pstdev: 0.045
+Joules: 24.000
+2015-12-06 08:38:30.148019
+Results:
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 7
+Pavg: 3.400
+Pmax: 3.400
+Pmin: 3.400
+Pstdev: 0.000
+Joules: 23.800
+mf: 0x1 1200000
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.31337 s, 2.4 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.15879 s, 4.1 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.36937 s, 2.4 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.14091 s, 4.1 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.31563 s, 2.4 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.14393 s, 4.1 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.27668 s, 2.4 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.10606 s, 4.1 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.31032 s, 2.4 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.12803 s, 4.1 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.29761 s, 2.4 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.16065 s, 4.0 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.24941 s, 2.4 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.1888 s, 4.0 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.30313 s, 2.4 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.09334 s, 4.1 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.27611 s, 2.4 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.08641 s, 4.1 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.31731 s, 2.4 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.14208 s, 4.1 MB/s
+2015-12-06 08:38:55.136896
+Results:
+3.3
+3.3
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 8
+Pavg: 3.375
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.043
+Joules: 27.000
+2015-12-06 08:39:07.575007
+Results:
+3.3
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 8
+Pavg: 3.387
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.033
+Joules: 27.100
+2015-12-06 08:39:19.898003
+Results:
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 8
+Pavg: 3.400
+Pmax: 3.400
+Pmin: 3.400
+Pstdev: 0.000
+Joules: 27.200
+2015-12-06 08:39:32.146848
+Results:
+3.3
+3.3
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 8
+Pavg: 3.375
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.043
+Joules: 27.000
+2015-12-06 08:39:44.564321
+Results:
+3.4
+3.3
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 8
+Pavg: 3.387
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.033
+Joules: 27.100
+2015-12-06 08:39:56.878371
+Results:
+3.3
+3.3
+3.4
+3.3
+3.4
+3.4
+3.4
+3.4
+Samples: 8
+Pavg: 3.362
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.048
+Joules: 26.900
+2015-12-06 08:40:09.170532
+Results:
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 8
+Pavg: 3.400
+Pmax: 3.400
+Pmin: 3.400
+Pstdev: 0.000
+Joules: 27.200
+2015-12-06 08:40:21.554574
+Results:
+3.3
+3.4
+3.3
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 8
+Pavg: 3.375
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.043
+Joules: 27.000
+2015-12-06 08:40:33.778862
+Results:
+3.3
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 8
+Pavg: 3.387
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.033
+Joules: 27.100
+2015-12-06 08:40:46.398191
+Results:
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 8
+Pavg: 3.400
+Pmax: 3.400
+Pmin: 3.400
+Pstdev: 0.000
+Joules: 27.200
+mf: 0x1 1100000
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.72775 s, 2.2 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.39865 s, 3.8 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.74257 s, 2.2 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.40703 s, 3.8 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.73865 s, 2.2 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.3804 s, 3.8 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.74457 s, 2.2 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.39775 s, 3.8 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.75591 s, 2.2 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.42085 s, 3.7 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.76603 s, 2.2 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.39977 s, 3.8 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.75497 s, 2.2 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.41807 s, 3.7 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.8344 s, 2.2 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.52935 s, 3.6 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.76327 s, 2.2 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.33583 s, 3.8 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.74993 s, 2.2 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.38455 s, 3.8 MB/s
+2015-12-06 08:41:12.137092
+Results:
+3.3
+3.3
+3.3
+3.3
+3.3
+3.4
+3.3
+3.3
+Samples: 8
+Pavg: 3.312
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.033
+Joules: 26.500
+2015-12-06 08:41:25.174891
+Results:
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.4
+Samples: 8
+Pavg: 3.312
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.033
+Joules: 26.500
+2015-12-06 08:41:38.164858
+Results:
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 8
+Pavg: 3.300
+Pmax: 3.300
+Pmin: 3.300
+Pstdev: 0.000
+Joules: 26.400
+2015-12-06 08:41:51.186586
+Results:
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 8
+Pavg: 3.300
+Pmax: 3.300
+Pmin: 3.300
+Pstdev: 0.000
+Joules: 26.400
+2015-12-06 08:42:04.235310
+Results:
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 8
+Pavg: 3.300
+Pmax: 3.300
+Pmin: 3.300
+Pstdev: 0.000
+Joules: 26.400
+2015-12-06 08:42:17.394463
+Results:
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.4
+3.3
+Samples: 8
+Pavg: 3.312
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.033
+Joules: 26.500
+2015-12-06 08:42:30.566846
+Results:
+3.3
+3.3
+3.3
+3.3
+3.3
+3.4
+3.4
+3.4
+3.4
+Samples: 9
+Pavg: 3.344
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.050
+Joules: 30.100
+2015-12-06 08:42:43.838207
+Results:
+3.3
+3.3
+3.3
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 9
+Pavg: 3.367
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.047
+Joules: 30.300
+2015-12-06 08:42:57.150739
+Results:
+3.3
+3.3
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 9
+Pavg: 3.378
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.042
+Joules: 30.400
+2015-12-06 08:43:10.161913
+Results:
+3.3
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 8
+Pavg: 3.387
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.033
+Joules: 27.100
+mf: 0x1 1000000
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.21083 s, 2.1 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.63909 s, 3.5 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.21372 s, 2.1 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.62437 s, 3.5 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.19526 s, 2.1 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.6339 s, 3.5 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.2187 s, 2.1 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.64212 s, 3.5 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.35397 s, 2.0 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.69989 s, 3.5 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.27385 s, 2.0 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.716 s, 3.4 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.3457 s, 2.0 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.73489 s, 3.4 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.29539 s, 2.0 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.72914 s, 3.4 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.36473 s, 2.0 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.72663 s, 3.4 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.27311 s, 2.0 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 3.86107 s, 3.3 MB/s
+2015-12-06 08:43:36.760946
+Results:
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 9
+Pavg: 3.289
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.031
+Joules: 29.600
+2015-12-06 08:43:50.576357
+Results:
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 10
+Pavg: 3.300
+Pmax: 3.300
+Pmin: 3.300
+Pstdev: 0.000
+Joules: 33.000
+2015-12-06 08:44:04.322665
+Results:
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 9
+Pavg: 3.300
+Pmax: 3.300
+Pmin: 3.300
+Pstdev: 0.000
+Joules: 29.700
+2015-12-06 08:44:18.108955
+Results:
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 9
+Pavg: 3.300
+Pmax: 3.300
+Pmin: 3.300
+Pstdev: 0.000
+Joules: 29.700
+2015-12-06 08:44:32.082616
+Results:
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 9
+Pavg: 3.300
+Pmax: 3.300
+Pmin: 3.300
+Pstdev: 0.000
+Joules: 29.700
+2015-12-06 08:44:46.000880
+Results:
+3.3
+3.3
+3.3
+3.4
+3.4
+3.3
+3.3
+3.4
+3.4
+Samples: 9
+Pavg: 3.344
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.050
+Joules: 30.100
+2015-12-06 08:45:00.000904
+Results:
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.4
+3.4
+Samples: 9
+Pavg: 3.322
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.042
+Joules: 29.900
+2015-12-06 08:45:13.947625
+Results:
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.4
+3.4
+3.4
+Samples: 9
+Pavg: 3.333
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.047
+Joules: 30.000
+2015-12-06 08:45:27.960471
+Results:
+3.3
+3.3
+3.3
+3.4
+3.4
+3.3
+3.3
+3.4
+3.4
+Samples: 9
+Pavg: 3.344
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.050
+Joules: 30.100
+2015-12-06 08:45:42.019127
+Results:
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.4
+Samples: 9
+Pavg: 3.311
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.031
+Joules: 29.800
+mf: 0x1 900000
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.92827 s, 1.8 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.09626 s, 3.1 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.95947 s, 1.8 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.26476 s, 3.0 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 7.00877 s, 1.8 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.08464 s, 3.1 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.95024 s, 1.8 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.08953 s, 3.1 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.87471 s, 1.9 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.03807 s, 3.2 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.87639 s, 1.9 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.07433 s, 3.1 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.84606 s, 1.9 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.0117 s, 3.2 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.83083 s, 1.9 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.00099 s, 3.2 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.84591 s, 1.9 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.00182 s, 3.2 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.86014 s, 1.9 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.02068 s, 3.2 MB/s
+2015-12-06 08:46:09.971816
+Results:
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 10
+Pavg: 3.300
+Pmax: 3.300
+Pmin: 3.300
+Pstdev: 0.000
+Joules: 33.000
+2015-12-06 08:46:25.168985
+Results:
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 10
+Pavg: 3.290
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.030
+Joules: 32.900
+2015-12-06 08:46:40.230772
+Results:
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 10
+Pavg: 3.300
+Pmax: 3.300
+Pmin: 3.300
+Pstdev: 0.000
+Joules: 33.000
+2015-12-06 08:46:55.324906
+Results:
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 10
+Pavg: 3.300
+Pmax: 3.300
+Pmin: 3.300
+Pstdev: 0.000
+Joules: 33.000
+2015-12-06 08:47:10.204668
+Results:
+3.3
+3.3
+3.3
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 10
+Pavg: 3.290
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.030
+Joules: 32.900
+2015-12-06 08:47:25.230860
+Results:
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 10
+Pavg: 3.300
+Pmax: 3.300
+Pmin: 3.300
+Pstdev: 0.000
+Joules: 33.000
+2015-12-06 08:47:40.133197
+Results:
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 10
+Pavg: 3.300
+Pmax: 3.300
+Pmin: 3.300
+Pstdev: 0.000
+Joules: 33.000
+2015-12-06 08:47:54.935714
+Results:
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 10
+Pavg: 3.290
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.030
+Joules: 32.900
+2015-12-06 08:48:09.750191
+Results:
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 10
+Pavg: 3.300
+Pmax: 3.300
+Pmin: 3.300
+Pstdev: 0.000
+Joules: 33.000
+2015-12-06 08:48:24.623106
+Results:
+3.2
+3.3
+3.3
+3.3
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 11
+Pavg: 3.282
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.039
+Joules: 36.100
+mf: 0x1 800000
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 7.7812 s, 1.6 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.63549 s, 2.8 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 7.80673 s, 1.6 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.58637 s, 2.8 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 7.75572 s, 1.7 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.59271 s, 2.8 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 7.77619 s, 1.6 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.58204 s, 2.8 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 7.88541 s, 1.6 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.58196 s, 2.8 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 7.80164 s, 1.6 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.59145 s, 2.8 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 7.76342 s, 1.6 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.55526 s, 2.8 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 7.79181 s, 1.6 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.55349 s, 2.8 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 7.76365 s, 1.6 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.55716 s, 2.8 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 7.6844 s, 1.7 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 4.48475 s, 2.9 MB/s
+2015-12-06 08:48:54.216524
+Results:
+3.2
+3.2
+3.2
+3.2
+3.3
+3.3
+3.3
+3.3
+3.2
+3.3
+3.3
+3.3
+Samples: 12
+Pavg: 3.258
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.049
+Joules: 39.100
+2015-12-06 08:49:10.684459
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.3
+3.3
+3.2
+3.2
+3.2
+3.3
+3.3
+Samples: 12
+Pavg: 3.233
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.047
+Joules: 38.800
+2015-12-06 08:49:27.068030
+Results:
+3.2
+3.3
+3.3
+3.2
+3.3
+3.3
+3.3
+3.3
+3.2
+3.2
+3.2
+3.3
+Samples: 12
+Pavg: 3.258
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.049
+Joules: 39.100
+2015-12-06 08:49:43.542915
+Results:
+3.2
+3.2
+3.2
+3.3
+3.3
+3.2
+3.2
+3.2
+3.3
+3.3
+3.2
+3.3
+Samples: 12
+Pavg: 3.242
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.049
+Joules: 38.900
+2015-12-06 08:50:00.053634
+Results:
+3.2
+3.3
+3.2
+3.3
+3.3
+3.3
+3.3
+3.2
+3.3
+3.3
+3.3
+3.3
+Samples: 12
+Pavg: 3.275
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.043
+Joules: 39.300
+2015-12-06 08:50:16.536871
+Results:
+3.2
+3.2
+3.2
+3.3
+3.3
+3.3
+3.3
+3.2
+3.3
+3.3
+3.3
+3.3
+Samples: 12
+Pavg: 3.267
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.047
+Joules: 39.200
+2015-12-06 08:50:32.889496
+Results:
+3.2
+3.2
+3.3
+3.3
+3.2
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 12
+Pavg: 3.267
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.047
+Joules: 39.200
+2015-12-06 08:50:49.667090
+Results:
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 12
+Pavg: 3.292
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.028
+Joules: 39.500
+2015-12-06 08:51:06.021018
+Results:
+3.2
+3.2
+3.2
+3.2
+3.3
+3.3
+3.3
+3.3
+3.2
+3.2
+3.2
+3.3
+Samples: 12
+Pavg: 3.242
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.049
+Joules: 38.900
+2015-12-06 08:51:22.202309
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.3
+3.3
+3.3
+3.3
+3.2
+Samples: 11
+Pavg: 3.236
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.048
+Joules: 35.600
+mf: 0x1 700000
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 8.91042 s, 1.4 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.19774 s, 2.5 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 8.82538 s, 1.5 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.15123 s, 2.5 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 8.91125 s, 1.4 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.13034 s, 2.5 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 8.80213 s, 1.5 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.146 s, 2.5 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 8.80858 s, 1.5 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.12884 s, 2.5 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 8.93268 s, 1.4 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.2062 s, 2.5 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 8.93883 s, 1.4 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.22734 s, 2.4 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 8.9346 s, 1.4 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.25034 s, 2.4 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 8.92611 s, 1.4 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.2284 s, 2.4 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 8.94683 s, 1.4 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 5.21109 s, 2.5 MB/s
+2015-12-06 08:51:53.768503
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+Samples: 14
+Pavg: 3.200
+Pmax: 3.200
+Pmin: 3.200
+Pstdev: 0.000
+Joules: 44.800
+2015-12-06 08:52:11.892999
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.3
+3.2
+Samples: 14
+Pavg: 3.207
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.026
+Joules: 44.900
+2015-12-06 08:52:30.041769
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.3
+3.3
+3.2
+3.2
+3.2
+Samples: 13
+Pavg: 3.215
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.036
+Joules: 41.800
+2015-12-06 08:52:48.096767
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.3
+3.3
+3.3
+3.3
+3.2
+3.2
+3.3
+3.3
+Samples: 13
+Pavg: 3.246
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.050
+Joules: 42.200
+2015-12-06 08:53:06.229606
+Results:
+3.2
+3.2
+3.2
+3.2
+3.3
+3.3
+3.2
+3.3
+3.3
+3.2
+3.2
+3.2
+3.2
+Samples: 13
+Pavg: 3.231
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.046
+Joules: 42.000
+2015-12-06 08:53:24.510375
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.3
+3.3
+3.2
+3.2
+3.2
+3.2
+Samples: 14
+Pavg: 3.214
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.035
+Joules: 45.000
+2015-12-06 08:53:42.799340
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.3
+3.3
+3.2
+3.3
+3.3
+3.2
+3.2
+3.3
+Samples: 14
+Pavg: 3.236
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.048
+Joules: 45.300
+2015-12-06 08:54:01.085030
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+Samples: 13
+Pavg: 3.200
+Pmax: 3.200
+Pmin: 3.200
+Pstdev: 0.000
+Joules: 41.600
+2015-12-06 08:54:19.498385
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.3
+3.3
+3.2
+3.3
+3.3
+3.2
+Samples: 14
+Pavg: 3.229
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.045
+Joules: 45.200
+2015-12-06 08:54:37.784625
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.3
+3.3
+3.3
+3.3
+3.2
+3.3
+3.3
+3.2
+Samples: 14
+Pavg: 3.243
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.049
+Joules: 45.400
+mf: 0x1 600000
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 10.5832 s, 1.2 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.1978 s, 2.1 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 10.5824 s, 1.2 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.18682 s, 2.1 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 10.5956 s, 1.2 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.20388 s, 2.1 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 10.5872 s, 1.2 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.19348 s, 2.1 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 10.5886 s, 1.2 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.16303 s, 2.1 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 10.5386 s, 1.2 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.11743 s, 2.1 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 10.5289 s, 1.2 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.14231 s, 2.1 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 10.4683 s, 1.2 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.05643 s, 2.1 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 10.458 s, 1.2 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.07558 s, 2.1 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 10.4762 s, 1.2 MB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 6.33842 s, 2.0 MB/s
+2015-12-06 08:55:12.541027
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+Samples: 17
+Pavg: 3.188
+Pmax: 3.200
+Pmin: 3.100
+Pstdev: 0.032
+Joules: 54.200
+2015-12-06 08:55:34.061970
+Results:
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+Samples: 17
+Pavg: 3.188
+Pmax: 3.200
+Pmin: 3.100
+Pstdev: 0.032
+Joules: 54.200
+2015-12-06 08:55:55.152251
+Results:
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+Samples: 16
+Pavg: 3.194
+Pmax: 3.200
+Pmin: 3.100
+Pstdev: 0.024
+Joules: 51.100
+2015-12-06 08:56:16.160005
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+Samples: 16
+Pavg: 3.200
+Pmax: 3.200
+Pmin: 3.200
+Pstdev: 0.000
+Joules: 51.200
+2015-12-06 08:56:37.139091
+Results:
+3.2
+3.2
+3.2
+3.2
+3.3
+3.3
+3.2
+3.2
+3.2
+3.2
+3.3
+3.3
+3.2
+3.3
+3.3
+3.2
+Samples: 16
+Pavg: 3.237
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.048
+Joules: 51.800
+2015-12-06 08:56:58.019632
+Results:
+3.2
+3.2
+3.2
+3.3
+3.3
+3.2
+3.3
+3.3
+3.2
+3.2
+3.2
+3.3
+3.3
+3.2
+3.2
+3.2
+Samples: 16
+Pavg: 3.238
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.048
+Joules: 51.800
+2015-12-06 08:57:19.045183
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.3
+3.2
+3.2
+3.2
+3.2
+3.2
+Samples: 16
+Pavg: 3.206
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.024
+Joules: 51.300
+2015-12-06 08:57:39.830361
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+Samples: 16
+Pavg: 3.200
+Pmax: 3.200
+Pmin: 3.200
+Pstdev: 0.000
+Joules: 51.200
+2015-12-06 08:58:01.061377
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+Samples: 16
+Pavg: 3.200
+Pmax: 3.200
+Pmin: 3.200
+Pstdev: 0.000
+Joules: 51.200
+2015-12-06 08:58:22.135289
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+Samples: 16
+Pavg: 3.200
+Pmax: 3.200
+Pmin: 3.200
+Pstdev: 0.000
+Joules: 51.200
+mf: 0x1 500000
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 12.976 s, 986 kB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 7.50362 s, 1.7 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 13.0853 s, 978 kB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 7.61676 s, 1.7 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 13.0998 s, 977 kB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 7.62553 s, 1.7 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 13.1185 s, 976 kB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 7.65744 s, 1.7 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 13.1259 s, 975 kB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 7.63128 s, 1.7 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 13.0802 s, 979 kB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 7.61685 s, 1.7 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 13.0855 s, 978 kB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 7.60946 s, 1.7 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 13.1298 s, 975 kB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 7.65108 s, 1.7 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 13.0876 s, 978 kB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 7.64648 s, 1.7 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 13.2716 s, 964 kB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 7.6213 s, 1.7 MB/s
+2015-12-06 08:59:01.147960
+Results:
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+Samples: 20
+Pavg: 3.195
+Pmax: 3.200
+Pmin: 3.100
+Pstdev: 0.022
+Joules: 63.900
+2015-12-06 08:59:26.269190
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+Samples: 20
+Pavg: 3.200
+Pmax: 3.200
+Pmin: 3.200
+Pstdev: 0.000
+Joules: 64.000
+2015-12-06 08:59:51.401268
+Results:
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+Samples: 20
+Pavg: 3.190
+Pmax: 3.200
+Pmin: 3.100
+Pstdev: 0.030
+Joules: 63.800
+2015-12-06 09:00:16.597778
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+Samples: 21
+Pavg: 3.190
+Pmax: 3.200
+Pmin: 3.100
+Pstdev: 0.029
+Joules: 67.000
+2015-12-06 09:00:41.780013
+Results:
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+Samples: 21
+Pavg: 3.176
+Pmax: 3.200
+Pmin: 3.100
+Pstdev: 0.043
+Joules: 66.700
+2015-12-06 09:01:06.881172
+Results:
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+Samples: 20
+Pavg: 3.195
+Pmax: 3.200
+Pmin: 3.100
+Pstdev: 0.022
+Joules: 63.900
+2015-12-06 09:01:31.982207
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+Samples: 20
+Pavg: 3.200
+Pmax: 3.200
+Pmin: 3.200
+Pstdev: 0.000
+Joules: 64.000
+2015-12-06 09:01:57.305037
+Results:
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+Samples: 20
+Pavg: 3.195
+Pmax: 3.200
+Pmin: 3.100
+Pstdev: 0.022
+Joules: 63.900
+2015-12-06 09:02:22.444367
+Results:
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+Samples: 20
+Pavg: 3.185
+Pmax: 3.200
+Pmin: 3.100
+Pstdev: 0.036
+Joules: 63.700
+2015-12-06 09:02:47.766642
+Results:
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+Samples: 21
+Pavg: 3.195
+Pmax: 3.200
+Pmin: 3.100
+Pstdev: 0.021
+Joules: 67.100
+mf: 0x1 400000
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 17.4143 s, 735 kB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 10.035 s, 1.3 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 17.5063 s, 731 kB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 10.1911 s, 1.3 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 17.4151 s, 735 kB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 10.134 s, 1.3 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 17.3878 s, 736 kB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 10.0209 s, 1.3 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 17.5421 s, 730 kB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 10.0023 s, 1.3 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 17.3975 s, 736 kB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 10.1203 s, 1.3 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 17.56 s, 729 kB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 10.2394 s, 1.3 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 17.8087 s, 719 kB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 10.1818 s, 1.3 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 17.5976 s, 727 kB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 10.2801 s, 1.2 MB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 17.8665 s, 716 kB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 10.2463 s, 1.2 MB/s
+2015-12-06 09:03:34.864576
+Results:
+3.1
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+Samples: 28
+Pavg: 3.175
+Pmax: 3.200
+Pmin: 3.100
+Pstdev: 0.043
+Joules: 88.900
+2015-12-06 09:04:07.290328
+Results:
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.1
+3.1
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+Samples: 27
+Pavg: 3.163
+Pmax: 3.200
+Pmin: 3.100
+Pstdev: 0.048
+Joules: 85.400
+2015-12-06 09:04:39.574866
+Results:
+3.1
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+Samples: 27
+Pavg: 3.174
+Pmax: 3.200
+Pmin: 3.100
+Pstdev: 0.044
+Joules: 85.700
+2015-12-06 09:05:11.757576
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.1
+3.1
+3.1
+3.1
+Samples: 28
+Pavg: 3.179
+Pmax: 3.200
+Pmin: 3.100
+Pstdev: 0.041
+Joules: 89.000
+2015-12-06 09:05:44.016652
+Results:
+3.1
+3.1
+3.1
+3.2
+3.1
+3.1
+3.1
+3.1
+3.1
+3.1
+3.2
+3.2
+3.2
+3.1
+3.1
+3.1
+3.1
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+Samples: 27
+Pavg: 3.141
+Pmax: 3.200
+Pmin: 3.100
+Pstdev: 0.049
+Joules: 84.800
+2015-12-06 09:06:16.346846
+Results:
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+Samples: 27
+Pavg: 3.178
+Pmax: 3.200
+Pmin: 3.100
+Pstdev: 0.042
+Joules: 85.800
+2015-12-06 09:06:48.865330
+Results:
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.2
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.1
+3.1
+3.2
+Samples: 28
+Pavg: 3.175
+Pmax: 3.200
+Pmin: 3.100
+Pstdev: 0.043
+Joules: 88.900
+2015-12-06 09:07:21.732135
+Results:
+3.1
+3.1
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+Samples: 28
+Pavg: 3.164
+Pmax: 3.200
+Pmin: 3.100
+Pstdev: 0.048
+Joules: 88.600
+2015-12-06 09:07:54.326703
+Results:
+3.1
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.1
+3.1
+3.1
+3.1
+3.2
+3.2
+Samples: 27
+Pavg: 3.159
+Pmax: 3.200
+Pmin: 3.100
+Pstdev: 0.049
+Joules: 85.300
+2015-12-06 09:08:27.176958
+Results:
+3.1
+3.1
+3.1
+3.1
+3.1
+3.2
+3.1
+3.1
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.1
+3.1
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+Samples: 28
+Pavg: 3.146
+Pmax: 3.200
+Pmin: 3.100
+Pstdev: 0.050
+Joules: 88.100
+mf: 0x1 300000
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 27.3927 s, 467 kB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 15.9107 s, 804 kB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 27.4446 s, 466 kB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 15.8736 s, 806 kB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 27.8195 s, 460 kB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 15.9213 s, 804 kB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 27.4454 s, 466 kB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 15.818 s, 809 kB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 27.4152 s, 467 kB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 16.067 s, 797 kB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 27.3699 s, 468 kB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 16.8314 s, 760 kB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 27.3162 s, 469 kB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 15.7057 s, 815 kB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 27.3723 s, 468 kB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 15.8035 s, 810 kB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 27.5654 s, 464 kB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 15.6365 s, 819 kB/s
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 27.5886 s, 464 kB/s
+1
+25000+0 records in
+25000+0 records out
+12800000 bytes (13 MB) copied, 16.5359 s, 774 kB/s
+2015-12-06 09:09:32.816236
+Results:
+3.1
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.1
+3.1
+3.2
+3.1
+3.1
+Samples: 44
+Pavg: 3.161
+Pmax: 3.200
+Pmin: 3.100
+Pstdev: 0.049
+Joules: 139.100
+2015-12-06 09:10:21.938083
+Results:
+3.1
+3.1
+3.1
+3.1
+3.1
+3.1
+3.1
+3.1
+3.2
+3.1
+3.1
+3.1
+3.1
+3.1
+3.1
+3.1
+3.1
+3.1
+3.1
+3.1
+3.1
+3.1
+3.1
+3.2
+3.2
+3.1
+3.1
+3.1
+3.1
+3.1
+3.1
+3.2
+3.2
+3.2
+3.1
+3.1
+3.1
+3.1
+3.1
+3.1
+3.2
+3.2
+3.1
+Samples: 43
+Pavg: 3.119
+Pmax: 3.200
+Pmin: 3.100
+Pstdev: 0.039
+Joules: 134.100
+2015-12-06 09:11:11.641220
+Results:
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+Samples: 44
+Pavg: 3.177
+Pmax: 3.200
+Pmin: 3.100
+Pstdev: 0.042
+Joules: 139.800
+2015-12-06 09:12:00.726442
+Results:
+3.1
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.1
+3.1
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.1
+3.1
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.1
+3.1
+3.2
+3.1
+3.1
+3.1
+3.1
+3.2
+Samples: 44
+Pavg: 3.152
+Pmax: 3.200
+Pmin: 3.100
+Pstdev: 0.050
+Joules: 138.700
+2015-12-06 09:12:50.004944
+Results:
+3.1
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.1
+3.1
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.1
+3.2
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+Samples: 43
+Pavg: 3.165
+Pmax: 3.200
+Pmin: 3.100
+Pstdev: 0.048
+Joules: 136.100
+2015-12-06 09:13:41.673992
+Results:
+3.1
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.1
+3.2
+3.2
+3.1
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.1
+3.2
+3.2
+Samples: 46
+Pavg: 3.170
+Pmax: 3.200
+Pmin: 3.100
+Pstdev: 0.046
+Joules: 145.800
+2015-12-06 09:14:30.505955
+Results:
+3.1
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+Samples: 44
+Pavg: 3.170
+Pmax: 3.200
+Pmin: 3.100
+Pstdev: 0.046
+Joules: 139.500
+2015-12-06 09:15:19.522074
+Results:
+3.1
+3.1
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.2
+Samples: 44
+Pavg: 3.164
+Pmax: 3.200
+Pmin: 3.100
+Pstdev: 0.048
+Joules: 139.200
+2015-12-06 09:16:08.536955
+Results:
+3.2
+3.1
+3.1
+3.2
+3.1
+3.1
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.1
+3.1
+3.2
+3.1
+3.1
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.1
+3.1
+3.1
+3.1
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.1
+3.1
+Samples: 44
+Pavg: 3.145
+Pmax: 3.200
+Pmin: 3.100
+Pstdev: 0.050
+Joules: 138.400
+2015-12-06 09:16:58.540108
+Results:
+3.1
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.1
+3.1
+3.2
+3.1
+3.1
+3.1
+3.1
+3.2
+3.2
+3.2
+3.1
+3.1
+3.1
+3.1
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+3.2
+3.2
+3.2
+3.1
+3.1
+3.2
+3.1
+3.1
+3.2
+3.1
+3.1
+3.2
+3.2
+3.2
+Samples: 45
+Pavg: 3.149
+Pmax: 3.200
+Pmin: 3.100
+Pstdev: 0.050
+Joules: 141.700
+mf: 0x1 200000
