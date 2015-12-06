@@ -8,7 +8,7 @@ import hashlib
 import plotly.plotly as py
 from plotly.graph_objs import *
 
-OPS = 10000*2
+OPS = 25000*2
 
 ################################################################################
 
