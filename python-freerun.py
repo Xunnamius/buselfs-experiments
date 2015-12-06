@@ -26,9 +26,12 @@ trials = TRIALS
 wattsup = WattsUp('/dev/ttyUSB0', 115200, verbose=False)
 
 with open('/home/odroid/bd3/rsync/energy-AES-1/results/shmoo.{}.{}.results'.format(coreType, fsType), 'a') as out:
-    while trials--:
+    while trials:
+        trials = trials - 1
+
         print('waiting for write buffer flush...')
         time.sleep(2)
+        
         wattsup.clearMemory()
         wattsup.logInternal(1)
         
