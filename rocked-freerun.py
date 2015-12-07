@@ -6,6 +6,7 @@ import os
 import sys
 import hashlib
 import statistics
+import copy
 import plotly.plotly as py
 from plotly.graph_objs import *
 
@@ -101,7 +102,7 @@ def createDefaultScatterInstance(x, y, name, text):
     )
 
 def uploadAndPrint(scatterData, title, xaxis, yaxis, hsh):
-    print(title, '\t\t\t\t',
+    print('{: <90} {}'.format(title,
         py.plot(
             Figure(
                 data = Data(scatterData),
@@ -112,7 +113,7 @@ def uploadAndPrint(scatterData, title, xaxis, yaxis, hsh):
             )),
             filename='energy-AESXTS1-autograph-' + hsh,
             auto_open=False
-    ))
+    )))
 
 if __name__ == "__main__":
     filesdir = None
@@ -133,11 +134,11 @@ if __name__ == "__main__":
     for coreType in CORE_TYPES:
         holisticDatastore[coreType] = {}
         for fsType in FS_TYPES:
-            holisticDatastore[coreType][fsType] = { 'data': dataStruts, 'scatters': {} }
+            holisticDatastore[coreType][fsType] = { 'data': copy.deepcopy(dataStruts), 'scatters': {} }
 
             for key in scattersStruts:
-                holisticDatastore[coreType][fsType]['scatters'][key] = { 'data': [] }
-
+                holisticDatastore[coreType][fsType]['scatters'][key] = []
+    
     # Loop over results and begin the aggregation/accumulation process
     for coreType in CORE_TYPES:
         for fsType in FS_TYPES:
@@ -189,14 +190,14 @@ if __name__ == "__main__":
             newX = [fsType.upper()] * len(data['energyTotal'])
             newName = coreType.upper() + ' cores'
 
-            holisticDatastore[coreType][fsType]['scatters']['fstypeVSenergy']['data'].append(cdsi(newX, data['energyTotal'], newName))
-            holisticDatastore[coreType][fsType]['scatters']['fstypeVSpower']['data'].append(cdsi(newX, data['powerAverage'], newName))
+            holisticDatastore[coreType][fsType]['scatters']['fstypeVSenergy'].append(cdsi(newX, data['energyTotal'], newName))
+            holisticDatastore[coreType][fsType]['scatters']['fstypeVSpower'].append(cdsi(newX, data['powerAverage'], newName))
 
             newName = fsType.upper() + ' ' + coreType.upper() + ' cores'
 
-            holisticDatastore[coreType][fsType]['scatters']['configsVSenergy']['data'].append(cdsi(data['frequencies'], data['energyTotal'], newName))
-            holisticDatastore[coreType][fsType]['scatters']['configsVSpower']['data'].append(cdsi(data['frequencies'], data['powerAverage'], newName))
-            holisticDatastore[coreType][fsType]['scatters']['configsVStime']['data'].append(cdsi(data['frequencies'], data['durationAverage'], newName))
+            holisticDatastore[coreType][fsType]['scatters']['configsVSenergy'].append(cdsi(data['frequencies'], data['energyTotal'], newName))
+            holisticDatastore[coreType][fsType]['scatters']['configsVSpower'].append(cdsi(data['frequencies'], data['powerAverage'], newName))
+            holisticDatastore[coreType][fsType]['scatters']['configsVStime'].append(cdsi(data['frequencies'], data['durationAverage'], newName))
 
     createRatio = lambda a, b: [rat[0]/rat[1] for rat in zip(a, b)]
     cdsi = lambda y, name: createDefaultScatterInstance(
@@ -212,7 +213,7 @@ if __name__ == "__main__":
         energyRatios = createRatio(dataFragment[FS_TYPES[0]]['data']['energyTotal'], dataFragment[FS_TYPES[1]]['data']['energyTotal'])
         powerRatios = createRatio(dataFragment[FS_TYPES[0]]['data']['powerAverage'], dataFragment[FS_TYPES[1]]['data']['powerAverage'])
         durationRatios = createRatio(dataFragment[FS_TYPES[0]]['data']['durationAverage'], dataFragment[FS_TYPES[1]]['data']['durationAverage'])
-
+        
         newName = coreType.upper() + ' cores'
 
         holisticDatastore['aggregate']['scatters']['RATIOconfigsVSenergy']['data'].append(cdsi(energyRatios, newName))
@@ -230,7 +231,7 @@ if __name__ == "__main__":
             for scatterKey, scatterData in holisticDatastore[coreType][fsType]['scatters'].items():
                 if scatterKey not in accumulated:
                     accumulated[scatterKey] = []
-                accumulated[scatterKey].extend(scatterData['data'])
+                accumulated[scatterKey].extend(scatterData)
 
     # Loop again, this time dealing with the accumulated Scatter instances
     for strutKey, strutData in scattersStruts.items():
@@ -247,7 +248,7 @@ if __name__ == "__main__":
     for scatterKey, scatterData in holisticDatastore['aggregate']['scatters'].items():
         title = TITLE_TEMPLATE.format(titlePrefix, scatterData['xTitle'], scatterData['yTitle'], OPS, TRIALS)
         uploadAndPrint(
-            scatterData,
+            scatterData['data'],
             title,
             scatterData['xAxisTitle'],
             scatterData['yAxisTitle'],
