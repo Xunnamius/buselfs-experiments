@@ -11,147 +11,226 @@ from plotly.graph_objs import *
 
 OPS = 25000*2
 TRIALS = 10
+MHZ = 1000000
+
+CORE_TYPES = ['big', 'little']
+FS_TYPES = ['fde', 'nfde']
+TITLE_TEMPLATE = '{} {} vs {} over {} iops {} trials'
+
+dataStruts = {
+    'frequencies': [],
+    'configurations': [],
+    'niceConfigurations': [],
+    'energyTotal': [],
+    'powerAverage': [],
+    'durationAverage': []
+}
+
+scattersStruts = {
+    'fstypeVSenergy': {
+        'xTitle': '(N)FDE',
+        'xAxisTitle': 'Disk Encryption',
+        'yTitle': 'Total Energy',
+        'yAxisTitle': 'Energy (joules)',
+        'data': []
+    },
+
+    'fstypeVSpower': {
+        'xTitle': '(N)FDE',
+        'xAxisTitle': 'Disk Encryption',
+        'yTitle': 'Average Power',
+        'yAxisTitle': 'Power (joules/s)',
+        'data': []
+    },
+    
+    'configsVSenergy': {
+        'xTitle': 'Frequency Sweeep',
+        'xAxisTitle': 'Frequency Configurations (Mhz) [ see mask ]',
+        'yTitle': 'Total Energy',
+        'yAxisTitle': 'Energy (joules)',
+        'data': []
+    },
+    
+    'configsVSpower': {
+        'xTitle': 'Frequency Sweeep',
+        'xAxisTitle': 'Frequency Configurations (Mhz) [ see mask ]',
+        'yTitle': 'Average Power',
+        'yAxisTitle': 'Power (joules/s)',
+        'data': []
+    },
+    
+    'configsVStime': {
+        'xTitle': 'Frequency Sweeep',
+        'xAxisTitle': 'Frequency Configurations (Mhz) [ see mask ]',
+        'yTitle': 'Average Duration',
+        'yAxisTitle': 'Duration (seconds)',
+        'data': []
+    }
+}
+
+aggregateStruts = {
+    'RATIOconfigsVSenergy': {
+        'xTitle': 'Frequency Sweeep',
+        'xAxisTitle': 'Frequency Configurations (Mhz) [ see mask ]',
+        'yTitle': 'Total Energy Ratio',
+        'yAxisTitle': 'FDE/NFDE Energy (joules)',
+        'data': []
+    },
+    
+    'RATIOconfigsVSpower': {
+        'xTitle': 'Frequency Sweeep',
+        'xAxisTitle': 'Frequency Configurations (Mhz) [ see mask ]',
+        'yTitle': 'Average Power Ratio',
+        'yAxisTitle': 'FDE/NFDE Power (joules/s)',
+        'data': []
+    },
+    
+    'RATIOconfigsVStime': {
+        'xTitle': 'Frequency Sweeep',
+        'xAxisTitle': 'Frequency Configurations (Mhz) [ see mask ]',
+        'yTitle': 'Average Duration Ratio',
+        'yAxisTitle': 'FDE/NFDE Duration (seconds)',
+        'data': []
+    }
+}
 
 ################################################################################
 
-scattersEnergy_DE = []
-scattersEnergy_configs = []
-scattersPower_DE = []
-scattersPower_configs = []
-
-filesdir = None
-
-if len(sys.argv) != 2:
-        print('Usage: {} <data directory>'.format(sys.argv[0]))
-        sys.exit(1)
-else:
-    filesdir = sys.argv[1].strip('/')
-    if not os.path.exists(filesdir) or not os.path.isdir(filesdir):
-        print('{} does not exist or is not a directory.'.format(filesdir))
-        sys.exit(1)
-
-for fsType in ['fde', 'nfde']:
-    for coreType in ['big', 'little']:
-        # Total energy used
-        energyTotal = []
-        # Mask + Freq
-        configurations = []
-        # Power = energyTotal / test duration
-        powerAverage = []
-
-        joules = []
-        duration = []
-        durationFlag = True
-
-        with open('{}/shmoo.{}.{}.results'.format(filesdir, coreType, fsType), 'r') as lines:
-            for currentLineNumber, currentLine in enumerate(lines):
-                if currentLine.startswith('Joules'):
-                    joules.append(float(currentLine.split(':')[1].strip()))
-
-                elif currentLine.strip().endswith('/s'): #in seconds
-                    number = float(currentLine.split(' s,')[0].split(' ')[-1].strip())
-
-                    if durationFlag:
-                        duration.append(number)
-                    else:
-                        duration[-1] += number
-
-                    durationFlag = not durationFlag
-
-                elif currentLine.startswith('mf'): # the assimilation step
-                    assert len(joules) == len(duration) == TRIALS
-
-                    joulesActual = statistics.median(joules)
-                    durationActual = statistics.median(duration)
-
-                    configurations.append(currentLine.split(':')[1].strip())
-                    energyTotal.append(joulesActual)
-                    powerAverage.append(joulesActual / durationActual) # there is some error introduced here (resolution)
-
-                    joules = []
-                    duration = []
-                    durationFlag = True
-
-        assert len(energyTotal) == len(configurations) == len(powerAverage)
-
-        frequencies = [int(x.split(' ')[1]) / 1000000 for x in configurations]
-        niceConfigs = ['{}Mhz (mask: {})'.format(int(actual[1]) / 1000000, actual[0]) for actual in [conf.split(' ') for conf in configurations]]
-
-        scattersEnergy_DE.append(Scatter(
-            x=[fsType.upper()] * len(energyTotal), y=energyTotal,
-            mode='markers',
-            name=coreType.upper() + ' cores',
-            text=niceConfigs,
-            marker=Marker(size=12)
-        ))
-
-        scattersPower_DE.append(Scatter(
-            x=[fsType.upper()] * len(powerAverage), y=powerAverage,
-            mode='markers',
-            name=coreType.upper() + ' cores',
-            text=niceConfigs,
-            marker=Marker(size=12)
-        ))
-
-        scattersEnergy_configs.append(Scatter(
-            x=frequencies, y=energyTotal,
-            mode='markers',
-            name=fsType.upper() + ' ' + coreType.upper() + ' cores',
-            text=niceConfigs,
-            marker=Marker(size=12)
-        ))
-
-        scattersPower_configs.append(Scatter(
-            x=frequencies, y=powerAverage,
-            mode='markers',
-            name=fsType.upper() + ' ' + coreType.upper() + ' cores',
-            text=niceConfigs,
-            marker=Marker(size=12)
-        ))
-
-print('Uploading...')
-
-title = filesdir.strip('/').split('/')[-1]
-
-enerAESEnergyDE = Figure(
-    data = Data(scattersEnergy_DE),
-    layout = Layout(
-        title='{} (N)FDE vs Total Energy over {} iops {} trials'.format(title, OPS, TRIALS),
-        xaxis1 = XAxis(title='Disk Encryption'),
-        yaxis1 = YAxis(title='Energy (joules)')
+def createDefaultScatterInstance(x, y, name, text):
+    return Scatter(
+        x=x, y=y,
+        mode='markers',
+        name=name,
+        text=text,
+        marker=Marker(size=12)
     )
-)
 
-enerAESPowerDE = Figure(
-    data = Data(scattersPower_DE),
-    layout = Layout(
-        title='{} (N)FDE vs Average Power over {} iops {} trials'.format(title, OPS, TRIALS),
-        xaxis1 = XAxis(title='Disk Encryption'),
-        yaxis1 = YAxis(title='Power (joules/s)')
+def uploadAndPrint(scatterData, title, hsh):
+    print(title, ' :: ',
+        py.plot(
+            Figure(
+                data = Data(scatterData['data']),
+                layout = Layout(
+                    title=title,
+                    xaxis1 = XAxis(title='{}'.format(scatterData['xAxisTitle'])),
+                    yaxis1 = YAxis(title='{}'.format(scatterData['yAxisTitle']))
+            )),
+            filename='energy-AESXTS1-autograph-' + hsh,
+            auto_open=False
+    ))
+
+if __name__ == "__main__":
+    filesdir = None
+    holisticDatastore = { 'aggregate': { 'scatters': aggregateStruts } }
+
+    if len(sys.argv) != 2:
+            print('Usage: {} <data directory>'.format(sys.argv[0]))
+            sys.exit(1)
+    else:
+        filesdir = sys.argv[1].strip('/')
+        if not os.path.exists(filesdir) or not os.path.isdir(filesdir):
+            print('{} does not exist or is not a directory.'.format(filesdir))
+            sys.exit(1)
+
+    print('crunching...')
+
+    for coreType in CORE_TYPES:
+        holisticDatastore[coreType] = {}
+        for fsType in FS_TYPES:
+            holisticDatastore[coreType][fsType] = { 'data': dataStruts, 'scatters': scattersStruts }
+
+    for coreType in CORE_TYPES:
+        for fsType in FS_TYPES:
+            data = holisticDatastore[coreType][fsType]['data']
+
+            joules = []
+            duration = []
+            durationFlag = True
+
+            with open('{}/shmoo.{}.{}.results'.format(filesdir, coreType, fsType), 'r') as lines:
+                for currentLineNumber, currentLine in enumerate(lines):
+                    if currentLine.startswith('Joules'):
+                        joules.append(float(currentLine.split(':')[1].strip()))
+
+                    elif currentLine.strip().endswith('/s'): #in seconds
+                        number = float(currentLine.split(' s,')[0].split(' ')[-1].strip())
+
+                        if durationFlag:
+                            duration.append(number)
+                        else:
+                            duration[-1] += number
+
+                        durationFlag = not durationFlag
+
+                    elif currentLine.startswith('mf'): # the assimilation step
+                        assert len(joules) == len(duration) == TRIALS
+
+                        joulesActual = statistics.median(joules)
+                        durationActual = statistics.median(duration)
+
+                        data['configurations'].append(currentLine.split(':')[1].strip())
+                        data['energyTotal'].append(joulesActual)
+                        data['durationAverage'].append(durationActual)
+                        data['powerAverage'].append(joulesActual / durationActual) # there is some error introduced here (via resolution)
+
+                        joules = []
+                        duration = []
+                        durationFlag = True
+
+            assert len(data['energyTotal']) == len(data['configurations']) == len(data['powerAverage'])
+
+            rawFrequencies = [conf.split(' ') for conf in data['configurations']]
+            data['frequencies'] = [int(raw[1]) / MHZ for raw in rawFrequencies]
+            data['niceConfigurations'] = ['{}Mhz (mask: {})'.format(int(raw[1]) / MHZ, raw[0]) for raw in rawFrequencies]
+
+            cdsi = lambda x, y, name: createDefaultScatterInstance(x, y, name, data['niceConfigurations'])
+
+            # XXX: create new scatter instances and add them to their proper datastores here
+            newX = [fsType.upper()] * len(data['energyTotal'])
+            newName = coreType.upper() + ' cores'
+
+            holisticDatastore[coreType][fsType]['scatters']['fstypeVSenergy']['data'].append(cdsi(newX, data['energyTotal'], newName))
+            holisticDatastore[coreType][fsType]['scatters']['fstypeVSpower']['data'].append(cdsi(newX, data['powerAverage'], newName))
+
+            newName = fsType.upper() + ' ' + coreType.upper() + ' cores'
+
+            holisticDatastore[coreType][fsType]['scatters']['configsVSenergy']['data'].append(cdsi(data['frequencies'], data['energyTotal'], newName))
+            holisticDatastore[coreType][fsType]['scatters']['configsVSpower']['data'].append(cdsi(data['frequencies'], data['powerAverage'], newName))
+            holisticDatastore[coreType][fsType]['scatters']['configsVStime']['data'].append(cdsi(data['frequencies'], data['durationAverage'], newName))
+
+    createRatio = lambda a, b: [rat[0]/rat[1] for rat in zip(a, b)]
+    cdsi = lambda y, name: createDefaultScatterInstance(
+        holisticDatastore[CORE_TYPES[0]][FS_TYPES[0]]['data']['frequencies'],
+        y,
+        name,
+        holisticDatastore[CORE_TYPES[0]][FS_TYPES[0]]['data']['niceConfigurations']
     )
-)
+    
+    # XXX: create more holistic scatter instances and add them to their proper datastores right here!
+    for coreType in CORE_TYPES:
+        dataFragment = holisticDatastore[coreType]
+        energyRatios = createRatio(dataFragment[FS_TYPES[0]]['data']['energyTotal'], dataFragment[FS_TYPES[1]]['data']['energyTotal'])
+        powerRatios = createRatio(dataFragment[FS_TYPES[0]]['data']['powerAverage'], dataFragment[FS_TYPES[1]]['data']['powerAverage'])
+        durationRatios = createRatio(dataFragment[FS_TYPES[0]]['data']['durationAverage'], dataFragment[FS_TYPES[1]]['data']['durationAverage'])
 
-enerAESEnergyConfigs = Figure(
-    data = Data(scattersEnergy_configs),
-    layout = Layout(
-        title='{} Frequency Sweeep vs Total Energy over {} iops {} trials'.format(title, OPS, TRIALS),
-        xaxis1 = XAxis(title='Frequency Configurations (Mhz) [ see mask ]'),
-        yaxis1 = YAxis(title='Energy (joules)')
-    )
-)
+        newName = coreType.upper() + ' cores'
 
-enerAESPowerConfigs = Figure(
-    data = Data(scattersPower_configs),
-    layout = Layout(
-        title='{} Frequency Sweeep vs Average Power over {} iops {} trials'.format(title, OPS, TRIALS),
-        xaxis1 = XAxis(title='Frequency Configurations (Mhz) [ see mask ]'),
-        yaxis1 = YAxis(title='Power (joules/s)')
-    )
-)
+        holisticDatastore['aggregate']['scatters']['RATIOconfigsVSenergy']['data'].append(cdsi(energyRatios, newName))
+        holisticDatastore['aggregate']['scatters']['RATIOconfigsVSpower']['data'].append(cdsi(powerRatios, newName))
+        holisticDatastore['aggregate']['scatters']['RATIOconfigsVStime']['data'].append(cdsi(durationRatios, newName))
 
-hsh = hashlib.md5(bytes(filesdir, "ascii")).hexdigest()
-print(py.plot(enerAESEnergyDE, filename='energy-AESXTS-EvsDE-' + hsh, auto_open=False))
-print(py.plot(enerAESPowerDE, filename='energy-AESXTS-PvsDE-' + hsh, auto_open=False))
-print(py.plot(enerAESEnergyConfigs, filename='energy-AESXTS-EvsCnf-' + hsh, auto_open=False))
-print(py.plot(enerAESPowerConfigs, filename='energy-AESXTS-PvsCnf-' + hsh, auto_open=False))
-print('done')
+    print('uploading...')
+
+    titlePrefix = filesdir.strip('/').split('/')[-1]
+
+    for coreType in CORE_TYPES:
+        for fsType in FS_TYPES:
+            for scatterKey, scatterData in holisticDatastore[coreType][fsType]['scatters'].items():
+                title = TITLE_TEMPLATE.format(titlePrefix, scatterData['xTitle'], scatterData['yTitle'], OPS, TRIALS)
+                uploadAndPrint(scatterData, title, hashlib.md5(bytes(filesdir + scatterKey + title, "ascii")).hexdigest())
+
+    for scatterKey, scatterData in holisticDatastore['aggregate']['scatters'].items():
+        title = TITLE_TEMPLATE.format(titlePrefix, scatterData['xTitle'], scatterData['yTitle'], OPS, TRIALS)
+        uploadAndPrint(scatterData, title, hashlib.md5(bytes(filesdir + scatterKey + title, "ascii")).hexdigest())
+
+    print('done!')
