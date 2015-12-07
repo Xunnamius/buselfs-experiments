@@ -56,7 +56,7 @@ for fsType in ['fde', 'nfde']:
                     else:
                         duration[-1] += number
 
-                    durationFlag = !durationFlag
+                    durationFlag = not durationFlag
 
                 elif currentLine.startswith('mf'): # the assimilation step
                     assert len(joules) == len(duration) == TRIALS
@@ -66,7 +66,7 @@ for fsType in ['fde', 'nfde']:
 
                     configurations.append(currentLine.split(':')[1].strip())
                     energyTotal.append(joulesActual)
-                    powerAverage.append(joulesActual / durationActual)
+                    powerAverage.append(joulesActual / durationActual) # there is some error introduced here (resolution)
 
                     joules = []
                     duration = []
