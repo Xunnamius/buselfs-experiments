@@ -105,15 +105,15 @@ def createDefaultScatterInstance(x, y, name, text):
         marker=Marker(size=12)
     )
 
-def uploadAndPrint(scatterData, title, hsh):
-    print(title, ' :: ',
+def uploadAndPrint(scatterData, title, xaxis, yaxis, hsh):
+    print(title, '\t\t\t\t',
         py.plot(
             Figure(
-                data = Data(scatterData['data']),
+                data = Data(scatterData),
                 layout = Layout(
                     title=title,
-                    xaxis1 = XAxis(title='{}'.format(scatterData['xAxisTitle'])),
-                    yaxis1 = YAxis(title='{}'.format(scatterData['yAxisTitle']))
+                    xaxis1 = XAxis(title='{}'.format(xaxis)),
+                    yaxis1 = YAxis(title='{}'.format(yaxis))
             )),
             filename='energy-AESXTS1-autograph-' + hsh,
             auto_open=False
@@ -134,11 +134,16 @@ if __name__ == "__main__":
 
     print('crunching...')
 
+    # Create the data structures that will house our data
     for coreType in CORE_TYPES:
         holisticDatastore[coreType] = {}
         for fsType in FS_TYPES:
-            holisticDatastore[coreType][fsType] = { 'data': dataStruts, 'scatters': scattersStruts }
+            holisticDatastore[coreType][fsType] = { 'data': dataStruts, 'scatters': {} }
 
+            for key in scattersStruts:
+                holisticDatastore[coreType][fsType]['scatters'][key] = { 'data': [] }
+
+    # Loop over results and begin the aggregation/accumulation process
     for coreType in CORE_TYPES:
         for fsType in FS_TYPES:
             data = holisticDatastore[coreType][fsType]['data']
@@ -222,15 +227,36 @@ if __name__ == "__main__":
     print('uploading...')
 
     titlePrefix = filesdir.strip('/').split('/')[-1]
+    accumulated = {}
 
+    # Accumulate all of the disparate datasets
     for coreType in CORE_TYPES:
         for fsType in FS_TYPES:
             for scatterKey, scatterData in holisticDatastore[coreType][fsType]['scatters'].items():
-                title = TITLE_TEMPLATE.format(titlePrefix, scatterData['xTitle'], scatterData['yTitle'], OPS, TRIALS)
-                uploadAndPrint(scatterData, title, hashlib.md5(bytes(filesdir + scatterKey + title, "ascii")).hexdigest())
+                if scatterKey not in accumulated:
+                    accumulated[scatterKey] = []
+                accumulated[scatterKey].extend(scatterData['data'])
 
+    # Loop again, this time dealing with the accumulated Scatter instances
+    for strutKey, strutData in scattersStruts.items():
+        title = TITLE_TEMPLATE.format(titlePrefix, strutData['xTitle'], strutData['yTitle'], OPS, TRIALS)
+        uploadAndPrint(
+            accumulated[strutKey],
+            title,
+            strutData['xAxisTitle'],
+            strutData['yAxisTitle'],
+            hashlib.md5(bytes(filesdir + strutKey + title, "ascii")).hexdigest()
+        )
+
+    # One final loop: handle the global "cross-set" datasets
     for scatterKey, scatterData in holisticDatastore['aggregate']['scatters'].items():
         title = TITLE_TEMPLATE.format(titlePrefix, scatterData['xTitle'], scatterData['yTitle'], OPS, TRIALS)
-        uploadAndPrint(scatterData, title, hashlib.md5(bytes(filesdir + scatterKey + title, "ascii")).hexdigest())
+        uploadAndPrint(
+            scatterData,
+            title,
+            scatterData['xAxisTitle'],
+            scatterData['yAxisTitle'],
+            hashlib.md5(bytes(filesdir + scatterKey + title, "ascii")).hexdigest()
+        )
 
     print('done!')
