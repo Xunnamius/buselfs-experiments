@@ -31,40 +31,35 @@ scattersStruts = {
         'xTitle': '(N)FDE',
         'xAxisTitle': 'Disk Encryption',
         'yTitle': 'Total Energy',
-        'yAxisTitle': 'Energy (joules)',
-        'data': []
+        'yAxisTitle': 'Energy (joules)'
     },
 
     'fstypeVSpower': {
         'xTitle': '(N)FDE',
         'xAxisTitle': 'Disk Encryption',
         'yTitle': 'Average Power',
-        'yAxisTitle': 'Power (joules/s)',
-        'data': []
+        'yAxisTitle': 'Power (joules/s)'
     },
     
     'configsVSenergy': {
         'xTitle': 'Frequency Sweeep',
         'xAxisTitle': 'Frequency Configurations (Mhz) [ see mask ]',
         'yTitle': 'Total Energy',
-        'yAxisTitle': 'Energy (joules)',
-        'data': []
+        'yAxisTitle': 'Energy (joules)'
     },
     
     'configsVSpower': {
         'xTitle': 'Frequency Sweeep',
         'xAxisTitle': 'Frequency Configurations (Mhz) [ see mask ]',
         'yTitle': 'Average Power',
-        'yAxisTitle': 'Power (joules/s)',
-        'data': []
+        'yAxisTitle': 'Power (joules/s)'
     },
     
     'configsVStime': {
         'xTitle': 'Frequency Sweeep',
         'xAxisTitle': 'Frequency Configurations (Mhz) [ see mask ]',
         'yTitle': 'Average Duration',
-        'yAxisTitle': 'Duration (seconds)',
-        'data': []
+        'yAxisTitle': 'Duration (seconds)'
     }
 }
 
