@@ -5,10 +5,12 @@
 import os
 import sys
 import hashlib
+import statistics
 import plotly.plotly as py
 from plotly.graph_objs import *
 
 OPS = 25000*2
+TRIALS = 10
 
 ################################################################################
 
@@ -37,31 +39,40 @@ for fsType in ['fde', 'nfde']:
         # Power = energyTotal / test duration
         powerAverage = []
 
-        joules = None
-        duration = None
+        joules = []
+        duration = []
+        durationFlag = True
 
         with open('{}/shmoo.{}.{}.results'.format(filesdir, coreType, fsType), 'r') as lines:
             for currentLineNumber, currentLine in enumerate(lines):
                 if currentLine.startswith('Joules'):
-                    joules = float(currentLine.split(':')[1].strip())
-                    energyTotal.append(joules)
+                    joules.append(float(currentLine.split(':')[1].strip()))
 
                 elif currentLine.strip().endswith('/s'): #in seconds
                     number = float(currentLine.split(' s,')[0].split(' ')[-1].strip())
-                    if duration == None:
-                        duration = number
-                    else:
-                        duration += number
 
-                elif currentLine.startswith('mf'):
+                    if durationFlag:
+                        duration.append(number)
+                    else:
+                        duration[-1] += number
+
+                    durationFlag = !durationFlag
+
+                elif currentLine.startswith('mf'): # the assimilation step
+                    assert len(joules) == len(duration) == TRIALS
+
+                    joulesActual = statistics.median(joules)
+                    durationActual = statistics.median(duration)
+
                     configurations.append(currentLine.split(':')[1].strip())
-                    powerAverage.append(joules / duration)
-                    duration = None
+                    energyTotal.append(joulesActual)
+                    powerAverage.append(joulesActual / durationActual)
+
+                    joules = []
+                    duration = []
+                    durationFlag = True
 
         assert len(energyTotal) == len(configurations) == len(powerAverage)
-
-        # print('Energy Total: ', energyTotal)
-        # print('Configurations: ', configurations)
 
         scattersEnergy_DE.append(Scatter(
             x=[fsType.upper()] * len(energyTotal), y=energyTotal,
@@ -99,10 +110,12 @@ for fsType in ['fde', 'nfde']:
 
 print('Uploading...')
 
+title = filesdir.strip('/').split('/')[-1]
+
 enerAESEnergyDE = Figure(
     data = Data(scattersEnergy_DE),
     layout = Layout(
-        title='{} (N)FDE vs Total Energy over {} iops'.format(filesdir, OPS),
+        title='{} (N)FDE vs Total Energy over {} iops {} trials'.format(title, OPS, TRIALS),
         xaxis1 = XAxis(title='Disk Encryption'),
         yaxis1 = YAxis(title='Energy (joules)')
     )
@@ -111,7 +124,7 @@ enerAESEnergyDE = Figure(
 enerAESPowerDE = Figure(
     data = Data(scattersPower_DE),
     layout = Layout(
-        title='{} (N)FDE vs Average Power over {} iops'.format(filesdir, OPS),
+        title='{} (N)FDE vs Average Power over {} iops {} trials'.format(title, OPS, TRIALS),
         xaxis1 = XAxis(title='Disk Encryption'),
         yaxis1 = YAxis(title='Power (joules/s)')
     )
@@ -120,7 +133,7 @@ enerAESPowerDE = Figure(
 enerAESEnergyConfigs = Figure(
     data = Data(scattersEnergy_configs),
     layout = Layout(
-        title='{} Frequency Sweeep vs Total Energy over {} iops'.format(filesdir, OPS),
+        title='{} Frequency Sweeep vs Total Energy over {} iops {} trials'.format(title, OPS, TRIALS),
         xaxis1 = XAxis(title='Disk Encryption'),
         yaxis1 = YAxis(title='Energy (joules)')
     )
@@ -129,7 +142,7 @@ enerAESEnergyConfigs = Figure(
 enerAESPowerConfigs = Figure(
     data = Data(scattersPower_configs),
     layout = Layout(
-        title='{} Frequency Sweeep vs Average Power over {} iops'.format(filesdir, OPS),
+        title='{} Frequency Sweeep vs Average Power over {} iops {} trials'.format(title, OPS, TRIALS),
         xaxis1 = XAxis(title='Disk Encryption'),
         yaxis1 = YAxis(title='Power (joules/s)')
     )
