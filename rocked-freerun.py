@@ -74,11 +74,14 @@ for fsType in ['fde', 'nfde']:
 
         assert len(energyTotal) == len(configurations) == len(powerAverage)
 
+        frequencies = [int(x.split(' ')[1]) / 1000000 for x in configurations]
+        niceConfigs = ['{}Mhz (mask: {})'.format(int(actual[1]) / 1000000, actual[0]) for actual in [conf.split(' ') for conf in configurations]]
+
         scattersEnergy_DE.append(Scatter(
             x=[fsType.upper()] * len(energyTotal), y=energyTotal,
             mode='markers',
             name=coreType.upper() + ' cores',
-            text=configurations,
+            text=niceConfigs,
             marker=Marker(size=12)
         ))
 
@@ -86,17 +89,15 @@ for fsType in ['fde', 'nfde']:
             x=[fsType.upper()] * len(powerAverage), y=powerAverage,
             mode='markers',
             name=coreType.upper() + ' cores',
-            text=configurations,
+            text=niceConfigs,
             marker=Marker(size=12)
         ))
-
-        frequencies = [x.split(' ')[1] for x in configurations]
 
         scattersEnergy_configs.append(Scatter(
             x=frequencies, y=energyTotal,
             mode='markers',
             name=fsType.upper() + ' ' + coreType.upper() + ' cores',
-            text=configurations,
+            text=niceConfigs,
             marker=Marker(size=12)
         ))
 
@@ -104,7 +105,7 @@ for fsType in ['fde', 'nfde']:
             x=frequencies, y=powerAverage,
             mode='markers',
             name=fsType.upper() + ' ' + coreType.upper() + ' cores',
-            text=configurations,
+            text=niceConfigs,
             marker=Marker(size=12)
         ))
 
@@ -134,7 +135,7 @@ enerAESEnergyConfigs = Figure(
     data = Data(scattersEnergy_configs),
     layout = Layout(
         title='{} Frequency Sweeep vs Total Energy over {} iops {} trials'.format(title, OPS, TRIALS),
-        xaxis1 = XAxis(title='Disk Encryption'),
+        xaxis1 = XAxis(title='Frequency Configurations (Mhz) [ see mask ]'),
         yaxis1 = YAxis(title='Energy (joules)')
     )
 )
@@ -143,7 +144,7 @@ enerAESPowerConfigs = Figure(
     data = Data(scattersPower_configs),
     layout = Layout(
         title='{} Frequency Sweeep vs Average Power over {} iops {} trials'.format(title, OPS, TRIALS),
-        xaxis1 = XAxis(title='Disk Encryption'),
+        xaxis1 = XAxis(title='Frequency Configurations (Mhz) [ see mask ]'),
         yaxis1 = YAxis(title='Power (joules/s)')
     )
 )
