@@ -43,21 +43,21 @@ scattersStruts = {
     },
     
     'configsVSenergy': {
-        'xTitle': 'Frequency Sweeep',
+        'xTitle': 'Frequency Sweep',
         'xAxisTitle': 'Frequency Configurations (Mhz) [ see mask ]',
         'yTitle': 'Total Energy',
         'yAxisTitle': 'Energy (joules)'
     },
     
     'configsVSpower': {
-        'xTitle': 'Frequency Sweeep',
+        'xTitle': 'Frequency Sweep',
         'xAxisTitle': 'Frequency Configurations (Mhz) [ see mask ]',
         'yTitle': 'Average Power',
         'yAxisTitle': 'Power (joules/s)'
     },
     
     'configsVStime': {
-        'xTitle': 'Frequency Sweeep',
+        'xTitle': 'Frequency Sweep',
         'xAxisTitle': 'Frequency Configurations (Mhz) [ see mask ]',
         'yTitle': 'Average Duration',
         'yAxisTitle': 'Duration (seconds)'
@@ -66,7 +66,7 @@ scattersStruts = {
 
 aggregateStruts = {
     'RATIOconfigsVSenergy': {
-        'xTitle': 'Frequency Sweeep',
+        'xTitle': 'Frequency Sweep',
         'xAxisTitle': 'Frequency Configurations (Mhz) [ see mask ]',
         'yTitle': 'Total Energy Ratio',
         'yAxisTitle': 'FDE/NFDE Energy (joules)',
@@ -74,7 +74,7 @@ aggregateStruts = {
     },
     
     'RATIOconfigsVSpower': {
-        'xTitle': 'Frequency Sweeep',
+        'xTitle': 'Frequency Sweep',
         'xAxisTitle': 'Frequency Configurations (Mhz) [ see mask ]',
         'yTitle': 'Average Power Ratio',
         'yAxisTitle': 'FDE/NFDE Power (joules/s)',
@@ -82,7 +82,7 @@ aggregateStruts = {
     },
     
     'RATIOconfigsVStime': {
-        'xTitle': 'Frequency Sweeep',
+        'xTitle': 'Frequency Sweep',
         'xAxisTitle': 'Frequency Configurations (Mhz) [ see mask ]',
         'yTitle': 'Average Duration Ratio',
         'yAxisTitle': 'FDE/NFDE Duration (seconds)',
