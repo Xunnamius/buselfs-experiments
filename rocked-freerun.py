@@ -12,7 +12,7 @@ from plotly.graph_objs import *
 
 OPS = 25000*2
 TRIALS = 10
-MHZ = 1000000
+GHZ = 1000000
 
 CORE_TYPES = ['big', 'little']
 FS_TYPES = ['fde', 'nfde']
@@ -44,21 +44,21 @@ scattersStruts = {
     
     'configsVSenergy': {
         'xTitle': 'Frequency Sweep',
-        'xAxisTitle': 'Frequency Configurations (Mhz) [ see mask ]',
+        'xAxisTitle': 'Frequency Configurations (Ghz) [ see mask ]',
         'yTitle': 'Total Energy',
         'yAxisTitle': 'Energy (joules)'
     },
     
     'configsVSpower': {
         'xTitle': 'Frequency Sweep',
-        'xAxisTitle': 'Frequency Configurations (Mhz) [ see mask ]',
+        'xAxisTitle': 'Frequency Configurations (Ghz) [ see mask ]',
         'yTitle': 'Average Power',
         'yAxisTitle': 'Power (joules/s)'
     },
     
     'configsVStime': {
         'xTitle': 'Frequency Sweep',
-        'xAxisTitle': 'Frequency Configurations (Mhz) [ see mask ]',
+        'xAxisTitle': 'Frequency Configurations (Ghz) [ see mask ]',
         'yTitle': 'Average Duration',
         'yAxisTitle': 'Duration (seconds)'
     }
@@ -67,7 +67,7 @@ scattersStruts = {
 aggregateStruts = {
     'RATIOconfigsVSenergy': {
         'xTitle': 'Frequency Sweep',
-        'xAxisTitle': 'Frequency Configurations (Mhz) [ see mask ]',
+        'xAxisTitle': 'Frequency Configurations (Ghz) [ see mask ]',
         'yTitle': 'Total Energy Ratio',
         'yAxisTitle': 'FDE/NFDE Energy (joules)',
         'data': []
@@ -75,7 +75,7 @@ aggregateStruts = {
     
     'RATIOconfigsVSpower': {
         'xTitle': 'Frequency Sweep',
-        'xAxisTitle': 'Frequency Configurations (Mhz) [ see mask ]',
+        'xAxisTitle': 'Frequency Configurations (Ghz) [ see mask ]',
         'yTitle': 'Average Power Ratio',
         'yAxisTitle': 'FDE/NFDE Power (joules/s)',
         'data': []
@@ -83,7 +83,7 @@ aggregateStruts = {
     
     'RATIOconfigsVStime': {
         'xTitle': 'Frequency Sweep',
-        'xAxisTitle': 'Frequency Configurations (Mhz) [ see mask ]',
+        'xAxisTitle': 'Frequency Configurations (Ghz) [ see mask ]',
         'yTitle': 'Average Duration Ratio',
         'yAxisTitle': 'FDE/NFDE Duration (seconds)',
         'data': []
@@ -181,8 +181,8 @@ if __name__ == "__main__":
             assert len(data['energyTotal']) == len(data['configurations']) == len(data['powerAverage'])
 
             rawFrequencies = [conf.split(' ') for conf in data['configurations']]
-            data['frequencies'] = [int(raw[1]) / MHZ for raw in rawFrequencies]
-            data['niceConfigurations'] = ['{}Mhz (mask: {})'.format(int(raw[1]) / MHZ, raw[0]) for raw in rawFrequencies]
+            data['frequencies'] = [int(raw[1]) / GHZ for raw in rawFrequencies]
+            data['niceConfigurations'] = ['{}Ghz (mask: {})'.format(int(raw[1]) / GHZ, raw[0]) for raw in rawFrequencies]
 
             cdsi = lambda x, y, name: createDefaultScatterInstance(x, y, name, data['niceConfigurations'])
 
