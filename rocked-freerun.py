@@ -254,7 +254,7 @@ if __name__ == "__main__":
         uploadAndPrint(
             scatterData['data'],
             title,
-            scatterData['xAxisTitle.format('see mask' if maskFilter is None else maskFilter)'],
+            scatterData['xAxisTitle'].format('see mask' if maskFilter is None else maskFilter),
             scatterData['yAxisTitle'],
             hashlib.md5(bytes(filesdir + scatterKey + title, "ascii")).hexdigest()
         )
