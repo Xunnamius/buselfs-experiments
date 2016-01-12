@@ -44,21 +44,21 @@ scattersStruts = {
     
     'configsVSenergy': {
         'xTitle': 'Frequency Sweep',
-        'xAxisTitle': 'Frequency Configurations (Ghz) [ see mask ]',
+        'xAxisTitle': 'Frequency Configurations (Ghz) [ {} ]',
         'yTitle': 'Total Energy',
         'yAxisTitle': 'Energy (joules)'
     },
     
     'configsVSpower': {
         'xTitle': 'Frequency Sweep',
-        'xAxisTitle': 'Frequency Configurations (Ghz) [ see mask ]',
+        'xAxisTitle': 'Frequency Configurations (Ghz) [ {} ]',
         'yTitle': 'Average Power',
         'yAxisTitle': 'Power (joules/s)'
     },
     
     'configsVStime': {
         'xTitle': 'Frequency Sweep',
-        'xAxisTitle': 'Frequency Configurations (Ghz) [ see mask ]',
+        'xAxisTitle': 'Frequency Configurations (Ghz) [ {} ]',
         'yTitle': 'Average Duration',
         'yAxisTitle': 'Duration (seconds)'
     }
@@ -67,7 +67,7 @@ scattersStruts = {
 aggregateStruts = {
     'RATIOconfigsVSenergy': {
         'xTitle': 'Frequency Sweep',
-        'xAxisTitle': 'Frequency Configurations (Ghz) [ see mask ]',
+        'xAxisTitle': 'Frequency Configurations (Ghz) [ {} ]',
         'yTitle': 'Total Energy Ratio',
         'yAxisTitle': 'FDE/NFDE Energy (joules)',
         'data': []
@@ -75,7 +75,7 @@ aggregateStruts = {
     
     'RATIOconfigsVSpower': {
         'xTitle': 'Frequency Sweep',
-        'xAxisTitle': 'Frequency Configurations (Ghz) [ see mask ]',
+        'xAxisTitle': 'Frequency Configurations (Ghz) [ {} ]',
         'yTitle': 'Average Power Ratio',
         'yAxisTitle': 'FDE/NFDE Power (joules/s)',
         'data': []
@@ -83,7 +83,7 @@ aggregateStruts = {
     
     'RATIOconfigsVStime': {
         'xTitle': 'Frequency Sweep',
-        'xAxisTitle': 'Frequency Configurations (Ghz) [ see mask ]',
+        'xAxisTitle': 'Frequency Configurations (Ghz) [ {} ]',
         'yTitle': 'Average Duration Ratio',
         'yAxisTitle': 'FDE/NFDE Duration (seconds)',
         'data': []
@@ -243,7 +243,7 @@ if __name__ == "__main__":
         uploadAndPrint(
             accumulated[strutKey],
             title,
-            strutData['xAxisTitle'],
+            strutData['xAxisTitle'].format('see mask' if maskFilter is None else maskFilter),
             strutData['yAxisTitle'],
             hashlib.md5(bytes(filesdir + strutKey + title, "ascii")).hexdigest()
         )
@@ -254,7 +254,7 @@ if __name__ == "__main__":
         uploadAndPrint(
             scatterData['data'],
             title,
-            scatterData['xAxisTitle'],
+            scatterData['xAxisTitle.format('see mask' if maskFilter is None else maskFilter)'],
             scatterData['yAxisTitle'],
             hashlib.md5(bytes(filesdir + scatterKey + title, "ascii")).hexdigest()
         )
