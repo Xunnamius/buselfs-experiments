@@ -120,7 +120,7 @@ if __name__ == "__main__":
     maskFilter = None
     holisticDatastore = { 'aggregate': { 'scatters': aggregateStruts } }
 
-    if len(sys.argv) != 2:
+    if 2 >= len(sys.argv) <= 3:
             print('Usage: {} <data directory> [<mask hex>]'.format(sys.argv[0]))
             print('If no mask is specified, all masks will be included'.format(sys.argv[0]))
             sys.exit(1)
