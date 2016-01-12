@@ -116,14 +116,17 @@ def uploadAndPrint(scatterData, title, xaxis, yaxis, hsh):
     )))
 
 if __name__ == "__main__":
-    filesdir = None
+    filesdir   = None
+    maskFilter = None
     holisticDatastore = { 'aggregate': { 'scatters': aggregateStruts } }
 
     if len(sys.argv) != 2:
-            print('Usage: {} <data directory>'.format(sys.argv[0]))
+            print('Usage: {} <data directory> [<mask hex>]'.format(sys.argv[0]))
+            print('If no mask is specified, all masks will be included'.format(sys.argv[0]))
             sys.exit(1)
     else:
-        filesdir = sys.argv[1].strip('/')
+        filesdir   = sys.argv[1].strip('/')
+        maskFilter = sys.argv[2] if len(sys.argv) == 3 else None
         if not os.path.exists(filesdir) or not os.path.isdir(filesdir):
             print('{} does not exist or is not a directory.'.format(filesdir))
             sys.exit(1)
@@ -166,13 +169,14 @@ if __name__ == "__main__":
                     elif currentLine.startswith('mf'): # the assimilation step
                         assert len(joules) == len(duration) == TRIALS
 
-                        joulesActual = statistics.median(joules)
-                        durationActual = statistics.median(duration)
+                        if maskFilter is None or maskFilter in currentLine:
+                            joulesActual = statistics.median(joules)
+                            durationActual = statistics.median(duration)
 
-                        data['configurations'].append(currentLine.split(':')[1].strip())
-                        data['energyTotal'].append(joulesActual)
-                        data['durationAverage'].append(durationActual)
-                        data['powerAverage'].append(joulesActual / durationActual) # there is some error introduced here (via resolution)
+                            data['configurations'].append(currentLine.split(':')[1].strip())
+                            data['energyTotal'].append(joulesActual)
+                            data['durationAverage'].append(durationActual)
+                            data['powerAverage'].append(joulesActual / durationActual) # there is some error introduced here (via resolution)
 
                         joules = []
                         duration = []
