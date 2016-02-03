@@ -2,7 +2,7 @@
 # Run all on all configurations for this platform
 
 # Whether to run shmoo on the big or LITTLE cores
-USE_BIG=0
+USE_BIG=1
 
 # Whether to use external power meter (0 or 1)
 USE_POWERMON=0
@@ -63,16 +63,16 @@ else
   NUM_FREQUENCIES=$NUM_LITTLE_FREQUENCIES
 fi
 
-# Run all configuration for big or LITTLE cores
-# for (( i=$CORES_END; i>=$CORES_START; i-- ))
-# do
+Run all configuration for big or LITTLE cores
+for (( i=4; i>=4; i-- ))
+do
 
-#   for (( mask=0x01, ctr=$i; ctr > $CORES_START; ctr-- ))
-#   do
-#     mask=$((mask << 1 | 0x01))
-#   done
-#   mask=$((mask << CORES_START))
-  mask=$(( 0x01 )) # Get the hex value as a string
+  for (( mask=0x01, ctr=$i; ctr > $CORES_START; ctr-- ))
+  do
+    mask=$((mask << 1 | 0x01))
+  done
+  mask=$((mask << CORES_START))
+  mask=`printf "0x%X" $mask` # Get the hex value as a string
 
   for (( j=0; j<$NUM_FREQUENCIES; j++ ))
   do
@@ -151,4 +151,4 @@ fi
     sleep 5
 
   done
-# done
+done
