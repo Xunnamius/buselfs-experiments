@@ -46,11 +46,11 @@ def make_generator(retvals):
     return newfn
 
 def do_trial(description, out, fn):
+    print('waiting for write buffer flush...')
+    time.sleep(BUFFER_FLUSH_SLEEP)
+
     print(description)
     print(description, file=out)
-    print('waiting for write buffer flush...')
-    
-    time.sleep(BUFFER_FLUSH_SLEEP)
 
     try:
         wattsup.serial.open()
@@ -158,6 +158,25 @@ def chacha20_poly1305_encrypt(data):
     key = os.urandom(32)
     return (pysodium.crypto_aead_chacha20poly1305_encrypt(data, '', nonce, key), nonce, key)
 
+def aes_cbc_encrypt(data):
+    key = os.urandom(32)
+    aes = algorithms.AES(key)
+    nonce = os.urandom(int(aes.block_size / 8))
+
+    # Construct an AES-GCM Cipher object with the given key and a
+    # randomly generated IV.
+    encryptor = Cipher(
+        aes,
+        modes.CBC(nonce),
+        backend=default_backend()
+    ).encryptor()
+
+    # Encrypt the plaintext and get the associated ciphertext.
+    # GCM does not require padding.
+    ciphertext = encryptor.update(data) + encryptor.finalize()
+
+    return (ciphertext, nonce, key)
+
 # Accepts generators as arguments, not bits
 def aes_ctr_decrypt(data, nonce, key):
     # Construct an AES-CTR Cipher object with the given key and a
@@ -190,6 +209,18 @@ def aes_gcm_decrypt(data, nonce, key, tag):
 def chacha20_poly1305_decrypt(data, nonce, key):
     return pysodium.crypto_aead_chacha20poly1305_decrypt(next(data), '', next(nonce), next(key))
 
+# Accepts generators as arguments, not bits
+def aes_cbc_decrypt(data, nonce, key):
+    # Construct an AES-CBC Cipher object with the given key and a
+    # randomly generated IV.
+    decryptor = Cipher(
+        algorithms.AES(next(key)),
+        modes.CBC(next(nonce)),
+        backend=default_backend()
+    ).decryptor()
+
+    return decryptor.update(next(data)) + decryptor.finalize()
+
 with open('/home/odroid/bd3/rsync/energy-AES-1/results/shmoo.{}.results'.format(coreType), 'a') as out:
     while trials:
         trials = trials - 1
@@ -199,19 +230,21 @@ with open('/home/odroid/bd3/rsync/energy-AES-1/results/shmoo.{}.results'.format(
         # cc20data1, cc20nonce1, cc20key1 = do_trial('beginning trial {}-1-2E of {} (small.random, ChaCha20 encrypt)'.format(trial, TRIALS), out, make_lambda(chacha20_encrypt, random['small']))
         # agdata1, agnonce1, agkey1, agtag1  = do_trial('beginning trial {}-1-3E of {} (small.random, AES-GCM encrypt)'.format(trial, TRIALS), out, make_lambda(aes_gcm_encrypt, random['small']))
         # ccpdata1, ccpnonce1, ccpkey1 = do_trial('beginning trial {}-1-4E of {} (small.random, ChaCha20-Poly1305 encrypt)'.format(trial, TRIALS), out, make_lambda(chacha20_poly1305_encrypt, random['small']))
-        ac_data2, acnonce2, ackey2  = do_trial('beginning trial {}-2-1E of {} (large.random, AES-CTR encrypt)'.format(trial, TRIALS), out, make_lambda(aes_ctr_encrypt, random['large']))
+        acdata2, acnonce2, ackey2  = do_trial('beginning trial {}-2-1E of {} (large.random, AES-CTR encrypt)'.format(trial, TRIALS), out, make_lambda(aes_ctr_encrypt, random['large']))
         cc20data2, cc20nonce2, cc20key2 = do_trial('beginning trial {}-2-2E of {} (large.random, ChaCha20 encrypt)'.format(trial, TRIALS), out, make_lambda(chacha20_encrypt, random['large']))
         agdata2, agnonce2, agkey2, agtag2  = do_trial('beginning trial {}-2-3E of {} (large.random, AES-GCM encrypt)'.format(trial, TRIALS), out, make_lambda(aes_gcm_encrypt, random['large']))
         ccpdata2, ccpnonce2, ccpkey2 = do_trial('beginning trial {}-2-4E of {} (large.random, ChaCha20-Poly1305 encrypt)'.format(trial, TRIALS), out, make_lambda(chacha20_poly1305_encrypt, random['large']))
+        acbcdata2, acbcnonce2, acbckey2 = do_trial('beginning trial {}-2-5E of {} (large.random, AES-CBC encrypt)'.format(trial, TRIALS), out, make_lambda(aes_cbc_encrypt, random['large']))
 
         # do_trial('beginning trial {}-1-1D of {} (small.random, AES-CTR decrypt)'.format(trial, TRIALS), out, make_lambda(aes_ctr_decrypt, acdata1(), acnonce1(), ackey1()))
         # do_trial('beginning trial {}-1-2D of {} (small.random, ChaCha20 decrypt)'.format(trial, TRIALS), out, make_lambda(chacha20_decrypt, cc20data1(), cc20nonce1(), cc20key1()))
         # do_trial('beginning trial {}-1-3D of {} (small.random, AES-GCM decrypt)'.format(trial, TRIALS), out, make_lambda(aes_gcm_decrypt, agdata1(), agnonce1(), agkey1(), agtag1()))
         # do_trial('beginning trial {}-1-4D of {} (small.random, ChaCha20-Poly1305 decrypt)'.format(trial, TRIALS), out, make_lambda(chacha20_poly1305_decrypt, ccpdata1(), ccpnonce1(), ccpkey1()))
-        do_trial('beginning trial {}-2-1D of {} (large.random, AES-CTR decrypt)'.format(trial, TRIALS), out, make_lambda(aes_ctr_decrypt, ac_data2(), acnonce2(), ackey2()))
+        do_trial('beginning trial {}-2-1D of {} (large.random, AES-CTR decrypt)'.format(trial, TRIALS), out, make_lambda(aes_ctr_decrypt, acdata2(), acnonce2(), ackey2()))
         do_trial('beginning trial {}-2-2D of {} (large.random, ChaCha20 decrypt)'.format(trial, TRIALS), out, make_lambda(chacha20_decrypt, cc20data2(), cc20nonce2(), cc20key2()))
-        do_trial('beginning trial {}-2-3D of {} (large.random, AES-GCM decrypt)'.format(trial, TRIALS), out, make_lambda(aes_gcm_decrypt, agdata2(), agnonce2(), agkey2(),agtag2()))
+        do_trial('beginning trial {}-2-3D of {} (large.random, AES-GCM decrypt)'.format(trial, TRIALS), out, make_lambda(aes_gcm_decrypt, agdata2(), agnonce2(), agkey2(), agtag2()))
         do_trial('beginning trial {}-2-4D of {} (large.random, ChaCha20-Poly1305 decrypt)'.format(trial, TRIALS), out, make_lambda(chacha20_poly1305_decrypt, ccpdata2(), ccpnonce2(), ccpkey2()))
+        do_trial('beginning trial {}-2-5D of {} (large.random, AES-CBC decrypt)'.format(trial, TRIALS), out, make_lambda(aes_cbc_decrypt, acbcdata2(), acbcnonce2(), acbckey2()))
         
         print('trial {}/{} complete for this configuration'.format(trial, TRIALS))
 
