@@ -14,15 +14,13 @@ TRIALS = 3
 INNER_TRIALS = 50
 GHZ = 1000000
 
-CORE_TYPES = ['big', 'big']
-#CORE_TYPES = ['big', 'little']
+CORE_TYPES = ['big', 'little']
 CRYPT_TYPES = ['encrypt', 'decrypt']
 ALGORITHMS = ['AES-CTR', 'AES-GCM', 'AES-CBC', 'ChaCha20', 'ChaCha20-Poly1305']
 TITLE_TEMPLATE = '{} [{}] {} over {} trials ({} inner trials)'
 # i.e. 54326543543 Encryption Energy over 3 trials (50 inner trials)
 
 dataStruts = {
-    'configurations': [],
     'energyTotal': [],
     'powerAverage': [],
     'durationAverage': []
@@ -33,7 +31,7 @@ aggregateStruts = {
         'xTitle': 'Frequency Sweep',
         'xAxisTitle': 'Frequency Configurations (Ghz) [ {} ]',
         'yTitle': 'Total Energy Ratio',
-        'yAxisTitle': 'FDE/NFDE Energy (joules)',
+        'yAxisTitle': 'big/LITTLE Energy (joules)',
         'data': []
     },
     
@@ -41,7 +39,7 @@ aggregateStruts = {
         'xTitle': 'Frequency Sweep',
         'xAxisTitle': 'Frequency Configurations (Ghz) [ {} ]',
         'yTitle': 'Average Power Ratio',
-        'yAxisTitle': 'FDE/NFDE Power (joules/s)',
+        'yAxisTitle': 'big/LITTLE Power (joules/s)',
         'data': []
     },
     
@@ -49,7 +47,7 @@ aggregateStruts = {
         'xTitle': 'Frequency Sweep',
         'xAxisTitle': 'Frequency Configurations (Ghz) [ {} ]',
         'yTitle': 'Average Duration Ratio',
-        'yAxisTitle': 'FDE/NFDE Duration (seconds)',
+        'yAxisTitle': 'big/LITTLE Duration (seconds)',
         'data': []
     },
 
@@ -57,7 +55,7 @@ aggregateStruts = {
         'xTitle': 'Frequency Sweep',
         'xAxisTitle': 'Frequency Configurations (Ghz) [ {} ]',
         'yTitle': 'Total Energy Ratio',
-        'yAxisTitle': 'FDE/NFDE Energy (joules)',
+        'yAxisTitle': 'big/LITTLE Energy (joules)',
         'data': []
     },
     
@@ -65,7 +63,7 @@ aggregateStruts = {
         'xTitle': 'Frequency Sweep',
         'xAxisTitle': 'Frequency Configurations (Ghz) [ {} ]',
         'yTitle': 'Average Power Ratio',
-        'yAxisTitle': 'FDE/NFDE Power (joules/s)',
+        'yAxisTitle': 'big/LITTLE Power (joules/s)',
         'data': []
     },
     
@@ -73,7 +71,7 @@ aggregateStruts = {
         'xTitle': 'Frequency Sweep',
         'xAxisTitle': 'Frequency Configurations (Ghz) [ {} ]',
         'yTitle': 'Average Duration Ratio',
-        'yAxisTitle': 'FDE/NFDE Duration (seconds)',
+        'yAxisTitle': 'big/LITTLE Duration (seconds)',
         'data': []
     }
 }
@@ -85,8 +83,8 @@ def createDefaultScatterInstance(x, y, name, text):
         x=x, y=y,
         mode='markers',
         name=name,
-        text=text,
-        marker=Marker(size=12)
+        text=text
+        # marker=Marker(size=12)
     )
 
 def uploadAndPrint(scatterData, title, xaxis, yaxis, hsh):
@@ -123,8 +121,7 @@ if __name__ == "__main__":
     holisticDatastore = { 'aggregate': { 'scatters': aggregateStruts } }
 
     if len(sys.argv) < 2 or len(sys.argv) > 3:
-            print('Usage: {} <data directory> [<mask hex>]'.format(sys.argv[0]))
-            print('If no mask is specified, all masks will be included'.format(sys.argv[0]))
+            print('Usage: {} <data directory>'.format(sys.argv[0]))
             sys.exit(1)
     else:
         filesdir   = sys.argv[1].strip('/')
@@ -134,6 +131,8 @@ if __name__ == "__main__":
             sys.exit(1)
 
     print('crunching...')
+
+    configurations = set()
 
     # Create the data structures that will house our data
     for coreType in CORE_TYPES:
@@ -171,16 +170,16 @@ if __name__ == "__main__":
                                 joulesActual = statistics.median(joules[cryptTypeActual][algoActual])
                                 durationActual = statistics.median(duration[cryptTypeActual][algoActual])
 
-                                data[cryptType][algo]['configurations'].append(currentLine.split(':')[1].strip())
-                                data[cryptType][algo]['energyTotal'].append(joulesActual)
-                                data[cryptType][algo]['durationAverage'].append(durationActual)
-                                data[cryptType][algo]['powerAverage'].append(joulesActual / durationActual) # there is some error introduced here (via resolution)
+                                configurations.add(currentLine.split(':')[1].strip())
+                                data[cryptTypeActual][algoActual]['energyTotal'].append(joulesActual)
+                                data[cryptTypeActual][algoActual]['durationAverage'].append(durationActual)
+                                data[cryptTypeActual][algoActual]['powerAverage'].append(joulesActual / durationActual) # there is some error introduced here (via resolution)
 
                     joules, duration = generateDicts()
                     cryptType = None
                     algo = None
 
-    rawFrequencies = [conf.split(' ') for conf in holisticDatastore[CORE_TYPES[0]][CRYPT_TYPES[0]][ALGORITHMS[0]]['configurations']]
+    rawFrequencies = [conf.split(' ') for conf in configurations]
     frequencies = [int(raw[1]) / GHZ for raw in rawFrequencies]
     niceConfigurations = ['{}Ghz (mask: {})'.format(int(raw[1]) / GHZ, raw[0]) for raw in rawFrequencies]
 
