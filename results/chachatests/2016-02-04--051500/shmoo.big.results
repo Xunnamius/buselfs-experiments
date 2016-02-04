@@ -1,0 +1,7808 @@
+beginning trial 1-2-1E of 3 (large.random, AES-CTR encrypt)
+2016-02-03 19:02:55.696134
+Results:
+5.1
+5.5
+Samples: 2
+Pavg: 5.300
+Pmax: 5.500
+Pmin: 5.100
+Pstdev: 0.200
+Joules: 10.600
+beginning trial 1-2-2E of 3 (large.random, ChaCha20 encrypt)
+2016-02-03 19:02:59.206581
+Results:
+Samples: 0
+Pavg: nan
+2016-02-03 19:02:59.321576
+Results:
+Samples: 0
+Pavg: nan
+2016-02-03 19:02:59.435494
+Results:
+Samples: 0
+Pavg: nan
+2016-02-03 19:02:59.675066
+Results:
+6.1
+Samples: 1
+Pavg: 6.100
+Pmax: 6.100
+Pmin: 6.100
+Pstdev: 0.000
+Joules: 6.100
+beginning trial 1-2-3E of 3 (large.random, AES-GCM encrypt)
+2016-02-03 19:03:04.960010
+Results:
+6.4
+6.7
+Samples: 2
+Pavg: 6.550
+Pmax: 6.700
+Pmin: 6.400
+Pstdev: 0.150
+Joules: 13.100
+beginning trial 1-2-4E of 3 (large.random, ChaCha20-Poly1305 encrypt)
+2016-02-03 19:03:08.857086
+Results:
+6.8
+Samples: 1
+Pavg: 6.800
+Pmax: 6.800
+Pmin: 6.800
+Pstdev: 0.000
+Joules: 6.800
+beginning trial 1-2-5E of 3 (large.random, AES-CBC encrypt)
+2016-02-03 19:03:13.195472
+Results:
+6.9
+Samples: 1
+Pavg: 6.900
+Pmax: 6.900
+Pmin: 6.900
+Pstdev: 0.000
+Joules: 6.900
+beginning trial 1-2-1D of 3 (large.random, AES-CTR decrypt)
+2016-02-03 19:03:17.527657
+Results:
+6.8
+Samples: 1
+Pavg: 6.800
+Pmax: 6.800
+Pmin: 6.800
+Pstdev: 0.000
+Joules: 6.800
+beginning trial 1-2-2D of 3 (large.random, ChaCha20 decrypt)
+2016-02-03 19:03:21.148916
+Results:
+Samples: 0
+Pavg: nan
+2016-02-03 19:03:21.260552
+Results:
+Samples: 0
+Pavg: nan
+2016-02-03 19:03:21.375698
+Results:
+Samples: 0
+Pavg: nan
+2016-02-03 19:03:21.489801
+Results:
+Samples: 0
+Pavg: nan
+2016-02-03 19:03:21.677814
+Results:
+6.8
+Samples: 1
+Pavg: 6.800
+Pmax: 6.800
+Pmin: 6.800
+Pstdev: 0.000
+Joules: 6.800
+beginning trial 1-2-3D of 3 (large.random, AES-GCM decrypt)
+2016-02-03 19:03:27.098925
+Results:
+6.7
+6.9
+Samples: 2
+Pavg: 6.800
+Pmax: 6.900
+Pmin: 6.700
+Pstdev: 0.100
+Joules: 13.600
+beginning trial 1-2-4D of 3 (large.random, ChaCha20-Poly1305 decrypt)
+2016-02-03 19:03:31.045720
+Results:
+7.0
+Samples: 1
+Pavg: 7.000
+Pmax: 7.000
+Pmin: 7.000
+Pstdev: 0.000
+Joules: 7.000
+beginning trial 1-2-5D of 3 (large.random, AES-CBC decrypt)
+2016-02-03 19:03:35.408634
+Results:
+7.0
+Samples: 1
+Pavg: 7.000
+Pmax: 7.000
+Pmin: 7.000
+Pstdev: 0.000
+Joules: 7.000
+beginning trial 2-2-1E of 3 (large.random, AES-CTR encrypt)
+2016-02-03 19:03:39.765587
+Results:
+6.6
+Samples: 1
+Pavg: 6.600
+Pmax: 6.600
+Pmin: 6.600
+Pstdev: 0.000
+Joules: 6.600
+beginning trial 2-2-2E of 3 (large.random, ChaCha20 encrypt)
+2016-02-03 19:03:43.309114
+Results:
+Samples: 0
+Pavg: nan
+2016-02-03 19:03:43.424097
+Results:
+Samples: 0
+Pavg: nan
+2016-02-03 19:03:43.681630
+Results:
+6.7
+Samples: 1
+Pavg: 6.700
+Pmax: 6.700
+Pmin: 6.700
+Pstdev: 0.000
+Joules: 6.700
+beginning trial 2-2-3E of 3 (large.random, AES-GCM encrypt)
+2016-02-03 19:03:48.997941
+Results:
+6.7
+6.9
+Samples: 2
+Pavg: 6.800
+Pmax: 6.900
+Pmin: 6.700
+Pstdev: 0.100
+Joules: 13.600
+beginning trial 2-2-4E of 3 (large.random, ChaCha20-Poly1305 encrypt)
+2016-02-03 19:03:53.054559
+Results:
+6.6
+Samples: 1
+Pavg: 6.600
+Pmax: 6.600
+Pmin: 6.600
+Pstdev: 0.000
+Joules: 6.600
+beginning trial 2-2-5E of 3 (large.random, AES-CBC encrypt)
+2016-02-03 19:03:57.416714
+Results:
+6.6
+Samples: 1
+Pavg: 6.600
+Pmax: 6.600
+Pmin: 6.600
+Pstdev: 0.000
+Joules: 6.600
+beginning trial 2-2-1D of 3 (large.random, AES-CTR decrypt)
+2016-02-03 19:04:01.775403
+Results:
+6.8
+Samples: 1
+Pavg: 6.800
+Pmax: 6.800
+Pmin: 6.800
+Pstdev: 0.000
+Joules: 6.800
+beginning trial 2-2-2D of 3 (large.random, ChaCha20 decrypt)
+2016-02-03 19:04:05.311725
+Results:
+Samples: 0
+Pavg: nan
+2016-02-03 19:04:05.426555
+Results:
+Samples: 0
+Pavg: nan
+2016-02-03 19:04:05.674512
+Results:
+6.8
+Samples: 1
+Pavg: 6.800
+Pmax: 6.800
+Pmin: 6.800
+Pstdev: 0.000
+Joules: 6.800
+beginning trial 2-2-3D of 3 (large.random, AES-GCM decrypt)
+2016-02-03 19:04:10.942217
+Results:
+6.8
+7.0
+Samples: 2
+Pavg: 6.900
+Pmax: 7.000
+Pmin: 6.800
+Pstdev: 0.100
+Joules: 13.800
+beginning trial 2-2-4D of 3 (large.random, ChaCha20-Poly1305 decrypt)
+2016-02-03 19:04:14.888886
+Results:
+6.6
+Samples: 1
+Pavg: 6.600
+Pmax: 6.600
+Pmin: 6.600
+Pstdev: 0.000
+Joules: 6.600
+beginning trial 2-2-5D of 3 (large.random, AES-CBC decrypt)
+2016-02-03 19:04:19.256935
+Results:
+6.7
+Samples: 1
+Pavg: 6.700
+Pmax: 6.700
+Pmin: 6.700
+Pstdev: 0.000
+Joules: 6.700
+beginning trial 3-2-1E of 3 (large.random, AES-CTR encrypt)
+2016-02-03 19:04:23.671623
+Results:
+7.0
+Samples: 1
+Pavg: 7.000
+Pmax: 7.000
+Pmin: 7.000
+Pstdev: 0.000
+Joules: 7.000
+beginning trial 3-2-2E of 3 (large.random, ChaCha20 encrypt)
+2016-02-03 19:04:27.211937
+Results:
+Samples: 0
+Pavg: nan
+2016-02-03 19:04:27.325780
+Results:
+Samples: 0
+Pavg: nan
+2016-02-03 19:04:27.435778
+Results:
+Samples: 0
+Pavg: nan
+2016-02-03 19:04:27.667309
+Results:
+6.4
+Samples: 1
+Pavg: 6.400
+Pmax: 6.400
+Pmin: 6.400
+Pstdev: 0.000
+Joules: 6.400
+beginning trial 3-2-3E of 3 (large.random, AES-GCM encrypt)
+2016-02-03 19:04:32.980883
+Results:
+6.0
+6.2
+Samples: 2
+Pavg: 6.100
+Pmax: 6.200
+Pmin: 6.000
+Pstdev: 0.100
+Joules: 12.200
+beginning trial 3-2-4E of 3 (large.random, ChaCha20-Poly1305 encrypt)
+2016-02-03 19:04:36.901743
+Results:
+6.4
+Samples: 1
+Pavg: 6.400
+Pmax: 6.400
+Pmin: 6.400
+Pstdev: 0.000
+Joules: 6.400
+beginning trial 3-2-5E of 3 (large.random, AES-CBC encrypt)
+2016-02-03 19:04:41.400771
+Results:
+6.5
+Samples: 1
+Pavg: 6.500
+Pmax: 6.500
+Pmin: 6.500
+Pstdev: 0.000
+Joules: 6.500
+beginning trial 3-2-1D of 3 (large.random, AES-CTR decrypt)
+2016-02-03 19:04:45.758247
+Results:
+6.3
+Samples: 1
+Pavg: 6.300
+Pmax: 6.300
+Pmin: 6.300
+Pstdev: 0.000
+Joules: 6.300
+beginning trial 3-2-2D of 3 (large.random, ChaCha20 decrypt)
+2016-02-03 19:04:49.295961
+Results:
+Samples: 0
+Pavg: nan
+2016-02-03 19:04:49.410705
+Results:
+Samples: 0
+Pavg: nan
+2016-02-03 19:04:49.668301
+Results:
+6.0
+Samples: 1
+Pavg: 6.000
+Pmax: 6.000
+Pmin: 6.000
+Pstdev: 0.000
+Joules: 6.000
+beginning trial 3-2-3D of 3 (large.random, AES-GCM decrypt)
+2016-02-03 19:04:54.935224
+Results:
+5.8
+6.0
+Samples: 2
+Pavg: 5.900
+Pmax: 6.000
+Pmin: 5.800
+Pstdev: 0.100
+Joules: 11.800
+beginning trial 3-2-4D of 3 (large.random, ChaCha20-Poly1305 decrypt)
+2016-02-03 19:04:58.885583
+Results:
+6.4
+Samples: 1
+Pavg: 6.400
+Pmax: 6.400
+Pmin: 6.400
+Pstdev: 0.000
+Joules: 6.400
+beginning trial 3-2-5D of 3 (large.random, AES-CBC decrypt)
+2016-02-03 19:05:03.254311
+Results:
+6.5
+Samples: 1
+Pavg: 6.500
+Pmax: 6.500
+Pmin: 6.500
+Pstdev: 0.000
+Joules: 6.500
+mf: 0x10 2000000
+beginning trial 1-2-1E of 3 (large.random, AES-CTR encrypt)
+2016-02-03 19:05:15.157022
+Results:
+5.3
+5.5
+Samples: 2
+Pavg: 5.400
+Pmax: 5.500
+Pmin: 5.300
+Pstdev: 0.100
+Joules: 10.800
+beginning trial 1-2-2E of 3 (large.random, ChaCha20 encrypt)
+2016-02-03 19:05:18.738766
+Results:
+5.4
+Samples: 1
+Pavg: 5.400
+Pmax: 5.400
+Pmin: 5.400
+Pstdev: 0.000
+Joules: 5.400
+beginning trial 1-2-3E of 3 (large.random, AES-GCM encrypt)
+2016-02-03 19:05:24.167169
+Results:
+5.4
+5.6
+Samples: 2
+Pavg: 5.500
+Pmax: 5.600
+Pmin: 5.400
+Pstdev: 0.100
+Joules: 11.000
+beginning trial 1-2-4E of 3 (large.random, ChaCha20-Poly1305 encrypt)
+2016-02-03 19:05:28.129836
+Results:
+6.0
+Samples: 1
+Pavg: 6.000
+Pmax: 6.000
+Pmin: 6.000
+Pstdev: 0.000
+Joules: 6.000
+beginning trial 1-2-5E of 3 (large.random, AES-CBC encrypt)
+2016-02-03 19:05:32.686067
+Results:
+6.1
+6.3
+Samples: 2
+Pavg: 6.200
+Pmax: 6.300
+Pmin: 6.100
+Pstdev: 0.100
+Joules: 12.400
+beginning trial 1-2-1D of 3 (large.random, AES-CTR decrypt)
+2016-02-03 19:05:37.103128
+Results:
+6.2
+Samples: 1
+Pavg: 6.200
+Pmax: 6.200
+Pmin: 6.200
+Pstdev: 0.000
+Joules: 6.200
+beginning trial 1-2-2D of 3 (large.random, ChaCha20 decrypt)
+2016-02-03 19:05:40.709237
+Results:
+6.3
+Samples: 1
+Pavg: 6.300
+Pmax: 6.300
+Pmin: 6.300
+Pstdev: 0.000
+Joules: 6.300
+beginning trial 1-2-3D of 3 (large.random, AES-GCM decrypt)
+2016-02-03 19:05:46.111723
+Results:
+6.0
+6.0
+Samples: 2
+Pavg: 6.000
+Pmax: 6.000
+Pmin: 6.000
+Pstdev: 0.000
+Joules: 12.000
+beginning trial 1-2-4D of 3 (large.random, ChaCha20-Poly1305 decrypt)
+2016-02-03 19:05:50.132066
+Results:
+6.1
+Samples: 1
+Pavg: 6.100
+Pmax: 6.100
+Pmin: 6.100
+Pstdev: 0.000
+Joules: 6.100
+beginning trial 1-2-5D of 3 (large.random, AES-CBC decrypt)
+2016-02-03 19:05:54.679070
+Results:
+6.3
+6.4
+Samples: 2
+Pavg: 6.350
+Pmax: 6.400
+Pmin: 6.300
+Pstdev: 0.050
+Joules: 12.700
+beginning trial 2-2-1E of 3 (large.random, AES-CTR encrypt)
+2016-02-03 19:05:59.133854
+Results:
+6.0
+Samples: 1
+Pavg: 6.000
+Pmax: 6.000
+Pmin: 6.000
+Pstdev: 0.000
+Joules: 6.000
+beginning trial 2-2-2E of 3 (large.random, ChaCha20 encrypt)
+2016-02-03 19:06:02.737768
+Results:
+5.9
+Samples: 1
+Pavg: 5.900
+Pmax: 5.900
+Pmin: 5.900
+Pstdev: 0.000
+Joules: 5.900
+beginning trial 2-2-3E of 3 (large.random, AES-GCM encrypt)
+2016-02-03 19:06:08.194933
+Results:
+5.6
+5.7
+Samples: 2
+Pavg: 5.650
+Pmax: 5.700
+Pmin: 5.600
+Pstdev: 0.050
+Joules: 11.300
+beginning trial 2-2-4E of 3 (large.random, ChaCha20-Poly1305 encrypt)
+2016-02-03 19:06:12.165242
+Results:
+Samples: 0
+Pavg: nan
+2016-02-03 19:06:12.280009
+Results:
+Samples: 0
+Pavg: nan
+2016-02-03 19:06:12.393887
+Results:
+Samples: 0
+Pavg: nan
+2016-02-03 19:06:12.786342
+Results:
+5.6
+Samples: 1
+Pavg: 5.600
+Pmax: 5.600
+Pmin: 5.600
+Pstdev: 0.000
+Joules: 5.600
+beginning trial 2-2-5E of 3 (large.random, AES-CBC encrypt)
+2016-02-03 19:06:17.237506
+Results:
+5.4
+Samples: 1
+Pavg: 5.400
+Pmax: 5.400
+Pmin: 5.400
+Pstdev: 0.000
+Joules: 5.400
+beginning trial 2-2-1D of 3 (large.random, AES-CTR decrypt)
+2016-02-03 19:06:21.686540
+Results:
+6.0
+Samples: 1
+Pavg: 6.000
+Pmax: 6.000
+Pmin: 6.000
+Pstdev: 0.000
+Joules: 6.000
+beginning trial 2-2-2D of 3 (large.random, ChaCha20 decrypt)
+2016-02-03 19:06:25.273146
+Results:
+Samples: 0
+Pavg: nan
+2016-02-03 19:06:25.387924
+Results:
+Samples: 0
+Pavg: nan
+2016-02-03 19:06:25.650785
+Results:
+6.1
+Samples: 1
+Pavg: 6.100
+Pmax: 6.100
+Pmin: 6.100
+Pstdev: 0.000
+Joules: 6.100
+beginning trial 2-2-3D of 3 (large.random, AES-GCM decrypt)
+2016-02-03 19:06:31.053141
+Results:
+5.7
+5.8
+Samples: 2
+Pavg: 5.750
+Pmax: 5.800
+Pmin: 5.700
+Pstdev: 0.050
+Joules: 11.500
+beginning trial 2-2-4D of 3 (large.random, ChaCha20-Poly1305 decrypt)
+2016-02-03 19:06:35.068258
+Results:
+6.1
+Samples: 1
+Pavg: 6.100
+Pmax: 6.100
+Pmin: 6.100
+Pstdev: 0.000
+Joules: 6.100
+beginning trial 2-2-5D of 3 (large.random, AES-CBC decrypt)
+2016-02-03 19:06:39.664499
+Results:
+6.2
+6.4
+Samples: 2
+Pavg: 6.300
+Pmax: 6.400
+Pmin: 6.200
+Pstdev: 0.100
+Joules: 12.600
+beginning trial 3-2-1E of 3 (large.random, AES-CTR encrypt)
+2016-02-03 19:06:44.120514
+Results:
+5.9
+Samples: 1
+Pavg: 5.900
+Pmax: 5.900
+Pmin: 5.900
+Pstdev: 0.000
+Joules: 5.900
+beginning trial 3-2-2E of 3 (large.random, ChaCha20 encrypt)
+2016-02-03 19:06:47.727460
+Results:
+5.7
+Samples: 1
+Pavg: 5.700
+Pmax: 5.700
+Pmin: 5.700
+Pstdev: 0.000
+Joules: 5.700
+beginning trial 3-2-3E of 3 (large.random, AES-GCM encrypt)
+2016-02-03 19:06:53.182240
+Results:
+5.5
+5.6
+Samples: 2
+Pavg: 5.550
+Pmax: 5.600
+Pmin: 5.500
+Pstdev: 0.050
+Joules: 11.100
+beginning trial 3-2-4E of 3 (large.random, ChaCha20-Poly1305 encrypt)
+2016-02-03 19:06:57.151604
+Results:
+Samples: 0
+Pavg: nan
+2016-02-03 19:06:57.266516
+Results:
+Samples: 0
+Pavg: nan
+2016-02-03 19:06:57.381478
+Results:
+Samples: 0
+Pavg: nan
+2016-02-03 19:06:57.640006
+Results:
+6.1
+Samples: 1
+Pavg: 6.100
+Pmax: 6.100
+Pmin: 6.100
+Pstdev: 0.000
+Joules: 6.100
+beginning trial 3-2-5E of 3 (large.random, AES-CBC encrypt)
+2016-02-03 19:07:02.100110
+Results:
+6.1
+Samples: 1
+Pavg: 6.100
+Pmax: 6.100
+Pmin: 6.100
+Pstdev: 0.000
+Joules: 6.100
+beginning trial 3-2-1D of 3 (large.random, AES-CTR decrypt)
+2016-02-03 19:07:06.655834
+Results:
+6.0
+6.1
+Samples: 2
+Pavg: 6.050
+Pmax: 6.100
+Pmin: 6.000
+Pstdev: 0.050
+Joules: 12.100
+beginning trial 3-2-2D of 3 (large.random, ChaCha20 decrypt)
+2016-02-03 19:07:10.240740
+Results:
+Samples: 0
+Pavg: nan
+2016-02-03 19:07:10.354473
+Results:
+Samples: 0
+Pavg: nan
+2016-02-03 19:07:10.465804
+Results:
+Samples: 0
+Pavg: nan
+2016-02-03 19:07:10.639401
+Results:
+6.1
+Samples: 1
+Pavg: 6.100
+Pmax: 6.100
+Pmin: 6.100
+Pstdev: 0.000
+Joules: 6.100
+beginning trial 3-2-3D of 3 (large.random, AES-GCM decrypt)
+2016-02-03 19:07:16.054600
+Results:
+6.1
+6.3
+Samples: 2
+Pavg: 6.200
+Pmax: 6.300
+Pmin: 6.100
+Pstdev: 0.100
+Joules: 12.400
+beginning trial 3-2-4D of 3 (large.random, ChaCha20-Poly1305 decrypt)
+2016-02-03 19:07:20.070670
+Results:
+6.1
+Samples: 1
+Pavg: 6.100
+Pmax: 6.100
+Pmin: 6.100
+Pstdev: 0.000
+Joules: 6.100
+beginning trial 3-2-5D of 3 (large.random, AES-CBC decrypt)
+2016-02-03 19:07:24.652877
+Results:
+5.9
+6.0
+Samples: 2
+Pavg: 5.950
+Pmax: 6.000
+Pmin: 5.900
+Pstdev: 0.050
+Joules: 11.900
+mf: 0x10 1900000
+beginning trial 1-2-1E of 3 (large.random, AES-CTR encrypt)
+2016-02-03 19:07:36.704369
+Results:
+5.6
+5.6
+Samples: 2
+Pavg: 5.600
+Pmax: 5.600
+Pmin: 5.600
+Pstdev: 0.000
+Joules: 11.200
+beginning trial 1-2-2E of 3 (large.random, ChaCha20 encrypt)
+2016-02-03 19:07:40.314930
+Results:
+Samples: 0
+Pavg: nan
+2016-02-03 19:07:40.429912
+Results:
+Samples: 0
+Pavg: nan
+2016-02-03 19:07:40.628813
+Results:
+5.3
+Samples: 1
+Pavg: 5.300
+Pmax: 5.300
+Pmin: 5.300
+Pstdev: 0.000
+Joules: 5.300
+beginning trial 1-2-3E of 3 (large.random, AES-GCM encrypt)
+2016-02-03 19:07:46.209799
+Results:
+5.1
+5.2
+Samples: 2
+Pavg: 5.150
+Pmax: 5.200
+Pmin: 5.100
+Pstdev: 0.050
+Joules: 10.300
+beginning trial 1-2-4E of 3 (large.random, ChaCha20-Poly1305 encrypt)
+2016-02-03 19:07:50.219496
+Results:
+Samples: 0
+Pavg: nan
+2016-02-03 19:07:50.333453
+Results:
+Samples: 0
+Pavg: nan
+2016-02-03 19:07:50.444642
+Results:
+Samples: 0
+Pavg: nan
+2016-02-03 19:07:50.629076
+Results:
+5.3
+Samples: 1
+Pavg: 5.300
+Pmax: 5.300
+Pmin: 5.300
+Pstdev: 0.000
+Joules: 5.300
+beginning trial 1-2-5E of 3 (large.random, AES-CBC encrypt)
+2016-02-03 19:07:55.152770
+Results:
+5.1
+Samples: 1
+Pavg: 5.100
+Pmax: 5.100
+Pmin: 5.100
+Pstdev: 0.000
+Joules: 5.100
+beginning trial 1-2-1D of 3 (large.random, AES-CTR decrypt)
+2016-02-03 19:07:59.687771
+Results:
+5.1
+5.2
+Samples: 2
+Pavg: 5.150
+Pmax: 5.200
+Pmin: 5.100
+Pstdev: 0.050
+Joules: 10.300
+beginning trial 1-2-2D of 3 (large.random, ChaCha20 decrypt)
+2016-02-03 19:08:03.322192
+Results:
+Samples: 0
+Pavg: nan
+2016-02-03 19:08:03.436814
+Results:
+Samples: 0
+Pavg: nan
+2016-02-03 19:08:03.631366
+Results:
+5.1
+Samples: 1
+Pavg: 5.100
+Pmax: 5.100
+Pmin: 5.100
+Pstdev: 0.000
+Joules: 5.100
+beginning trial 1-2-3D of 3 (large.random, AES-GCM decrypt)
+2016-02-03 19:08:09.187953
+Results:
+4.9
+5.1
+Samples: 2
+Pavg: 5.000
+Pmax: 5.100
+Pmin: 4.900
+Pstdev: 0.100
+Joules: 10.000
+beginning trial 1-2-4D of 3 (large.random, ChaCha20-Poly1305 decrypt)
+2016-02-03 19:08:13.262001
+Results:
+Samples: 0
+Pavg: nan
+2016-02-03 19:08:13.376637
+Results:
+Samples: 0
+Pavg: nan
+2016-02-03 19:08:13.634410
+Results:
+5.6
+Samples: 1
+Pavg: 5.600
+Pmax: 5.600
+Pmin: 5.600
+Pstdev: 0.000
+Joules: 5.600
+beginning trial 1-2-5D of 3 (large.random, AES-CBC decrypt)
+2016-02-03 19:08:18.189572
+Results:
+5.8
+Samples: 1
+Pavg: 5.800
+Pmax: 5.800
+Pmin: 5.800
+Pstdev: 0.000
+Joules: 5.800
+beginning trial 2-2-1E of 3 (large.random, AES-CTR encrypt)
+2016-02-03 19:08:22.739602
+Results:
+5.7
+Samples: 1
+Pavg: 5.700
+Pmax: 5.700
+Pmin: 5.700
+Pstdev: 0.000
+Joules: 5.700
+beginning trial 2-2-2E of 3 (large.random, ChaCha20 encrypt)
+2016-02-03 19:08:26.380726
+Results:
+Samples: 0
+Pavg: nan
+2016-02-03 19:08:26.637369
+Results:
+5.9
+Samples: 1
+Pavg: 5.900
+Pmax: 5.900
+Pmin: 5.900
+Pstdev: 0.000
+Joules: 5.900
+beginning trial 2-2-3E of 3 (large.random, AES-GCM encrypt)
+2016-02-03 19:08:32.250138
+Results:
+5.9
+6.0
+Samples: 2
+Pavg: 5.950
+Pmax: 6.000
+Pmin: 5.900
+Pstdev: 0.050
+Joules: 11.900
+beginning trial 2-2-4E of 3 (large.random, ChaCha20-Poly1305 encrypt)
+2016-02-03 19:08:36.293654
+Results:
+Samples: 0
+Pavg: nan
+2016-02-03 19:08:36.405892
+Results:
+Samples: 0
+Pavg: nan
+2016-02-03 19:08:36.643211
+Results:
+5.9
+Samples: 1
+Pavg: 5.900
+Pmax: 5.900
+Pmin: 5.900
+Pstdev: 0.000
+Joules: 5.900
+beginning trial 2-2-5E of 3 (large.random, AES-CBC encrypt)
+2016-02-03 19:08:41.196908
+Results:
+5.4
+Samples: 1
+Pavg: 5.400
+Pmax: 5.400
+Pmin: 5.400
+Pstdev: 0.000
+Joules: 5.400
+beginning trial 2-2-1D of 3 (large.random, AES-CTR decrypt)
+2016-02-03 19:08:45.740690
+Results:
+5.4
+Samples: 1
+Pavg: 5.400
+Pmax: 5.400
+Pmin: 5.400
+Pstdev: 0.000
+Joules: 5.400
+beginning trial 2-2-2D of 3 (large.random, ChaCha20 decrypt)
+2016-02-03 19:08:49.376983
+Results:
+Samples: 0
+Pavg: nan
+2016-02-03 19:08:49.641420
+Results:
+5.2
+Samples: 1
+Pavg: 5.200
+Pmax: 5.200
+Pmin: 5.200
+Pstdev: 0.000
+Joules: 5.200
+beginning trial 2-2-3D of 3 (large.random, AES-GCM decrypt)
+2016-02-03 19:08:55.207390
+Results:
+5.0
+5.1
+Samples: 2
+Pavg: 5.050
+Pmax: 5.100
+Pmin: 5.000
+Pstdev: 0.050
+Joules: 10.100
+beginning trial 2-2-4D of 3 (large.random, ChaCha20-Poly1305 decrypt)
+2016-02-03 19:08:59.281203
+Results:
+Samples: 0
+Pavg: nan
+2016-02-03 19:08:59.395340
+Results:
+Samples: 0
+Pavg: nan
+2016-02-03 19:08:59.642924
+Results:
+5.7
+Samples: 1
+Pavg: 5.700
+Pmax: 5.700
+Pmin: 5.700
+Pstdev: 0.000
+Joules: 5.700
+beginning trial 2-2-5D of 3 (large.random, AES-CBC decrypt)
+2016-02-03 19:09:04.199606
+Results:
+5.8
+Samples: 1
+Pavg: 5.800
+Pmax: 5.800
+Pmin: 5.800
+Pstdev: 0.000
+Joules: 5.800
+beginning trial 3-2-1E of 3 (large.random, AES-CTR encrypt)
+2016-02-03 19:09:08.752292
+Results:
+5.7
+Samples: 1
+Pavg: 5.700
+Pmax: 5.700
+Pmin: 5.700
+Pstdev: 0.000
+Joules: 5.700
+beginning trial 3-2-2E of 3 (large.random, ChaCha20 encrypt)
+2016-02-03 19:09:12.391608
+Results:
+Samples: 0
+Pavg: nan
+2016-02-03 19:09:12.644282
+Results:
+5.8
+Samples: 1
+Pavg: 5.800
+Pmax: 5.800
+Pmin: 5.800
+Pstdev: 0.000
+Joules: 5.800
+beginning trial 3-2-3E of 3 (large.random, AES-GCM encrypt)
+2016-02-03 19:09:18.254343
+Results:
+5.8
+6.0
+Samples: 2
+Pavg: 5.900
+Pmax: 6.000
+Pmin: 5.800
+Pstdev: 0.100
+Joules: 11.800
+beginning trial 3-2-4E of 3 (large.random, ChaCha20-Poly1305 encrypt)
+2016-02-03 19:09:22.297822
+Results:
+Samples: 0
+Pavg: nan
+2016-02-03 19:09:22.408727
+Results:
+Samples: 0
+Pavg: nan
+2016-02-03 19:09:22.647303
+Results:
+5.8
+Samples: 1
+Pavg: 5.800
+Pmax: 5.800
+Pmin: 5.800
+Pstdev: 0.000
+Joules: 5.800
+beginning trial 3-2-5E of 3 (large.random, AES-CBC encrypt)
+2016-02-03 19:09:27.201674
+Results:
+5.4
+Samples: 1
+Pavg: 5.400
+Pmax: 5.400
+Pmin: 5.400
+Pstdev: 0.000
+Joules: 5.400
+beginning trial 3-2-1D of 3 (large.random, AES-CTR decrypt)
+2016-02-03 19:09:31.745546
+Results:
+5.4
+Samples: 1
+Pavg: 5.400
+Pmax: 5.400
+Pmin: 5.400
+Pstdev: 0.000
+Joules: 5.400
+beginning trial 3-2-2D of 3 (large.random, ChaCha20 decrypt)
+2016-02-03 19:09:35.387812
+Results:
+Samples: 0
+Pavg: nan
+2016-02-03 19:09:35.646475
+Results:
+5.2
+Samples: 1
+Pavg: 5.200
+Pmax: 5.200
+Pmin: 5.200
+Pstdev: 0.000
+Joules: 5.200
+beginning trial 3-2-3D of 3 (large.random, AES-GCM decrypt)
+2016-02-03 19:09:41.200256
+Results:
+5.1
+5.3
+Samples: 2
+Pavg: 5.200
+Pmax: 5.300
+Pmin: 5.100
+Pstdev: 0.100
+Joules: 10.400
+beginning trial 3-2-4D of 3 (large.random, ChaCha20-Poly1305 decrypt)
+2016-02-03 19:09:45.271793
+Results:
+Samples: 0
+Pavg: nan
+2016-02-03 19:09:45.386532
+Results:
+Samples: 0
+Pavg: nan
+2016-02-03 19:09:45.643122
+Results:
+5.8
+Samples: 1
+Pavg: 5.800
+Pmax: 5.800
+Pmin: 5.800
+Pstdev: 0.000
+Joules: 5.800
+beginning trial 3-2-5D of 3 (large.random, AES-CBC decrypt)
+2016-02-03 19:09:50.340383
+Results:
+5.8
+Samples: 1
+Pavg: 5.800
+Pmax: 5.800
+Pmin: 5.800
+Pstdev: 0.000
+Joules: 5.800
+mf: 0x10 1800000
+beginning trial 1-2-1E of 3 (large.random, AES-CTR encrypt)
+2016-02-03 19:10:02.660951
+Results:
+5.3
+5.3
+Samples: 2
+Pavg: 5.300
+Pmax: 5.300
+Pmin: 5.300
+Pstdev: 0.000
+Joules: 10.600
+beginning trial 1-2-2E of 3 (large.random, ChaCha20 encrypt)
+2016-02-03 19:10:06.326027
+Results:
+Samples: 0
+Pavg: nan
+2016-02-03 19:10:06.440985
+Results:
+Samples: 0
+Pavg: nan
+2016-02-03 19:10:06.638075
+Results:
+5.0
+Samples: 1
+Pavg: 5.000
+Pmax: 5.000
+Pmin: 5.000
+Pstdev: 0.000
+Joules: 5.000
+beginning trial 1-2-3E of 3 (large.random, AES-GCM encrypt)
+2016-02-03 19:10:12.385768
+Results:
+4.8
+4.9
+Samples: 2
+Pavg: 4.850
+Pmax: 4.900
+Pmin: 4.800
+Pstdev: 0.050
+Joules: 9.700
+beginning trial 1-2-4E of 3 (large.random, ChaCha20-Poly1305 encrypt)
+2016-02-03 19:10:16.636483
+Results:
+4.9
+Samples: 1
+Pavg: 4.900
+Pmax: 4.900
+Pmin: 4.900
+Pstdev: 0.000
+Joules: 4.900
+beginning trial 1-2-5E of 3 (large.random, AES-CBC encrypt)
+2016-02-03 19:10:21.393912
+Results:
+4.8
+Samples: 1
+Pavg: 4.800
+Pmax: 4.800
+Pmin: 4.800
+Pstdev: 0.000
+Joules: 4.800
+beginning trial 1-2-1D of 3 (large.random, AES-CTR decrypt)
+2016-02-03 19:10:26.021882
+Results:
+4.9
+Samples: 1
+Pavg: 4.900
+Pmax: 4.900
+Pmin: 4.900
+Pstdev: 0.000
+Joules: 4.900
+beginning trial 1-2-2D of 3 (large.random, ChaCha20 decrypt)
+2016-02-03 19:10:29.744172
+Results:
+4.8
+Samples: 1
+Pavg: 4.800
+Pmax: 4.800
+Pmin: 4.800
+Pstdev: 0.000
+Joules: 4.800
+beginning trial 1-2-3D of 3 (large.random, AES-GCM decrypt)
+2016-02-03 19:10:35.468187
+Results:
+4.7
+4.8
+Samples: 2
+Pavg: 4.750
+Pmax: 4.800
+Pmin: 4.700
+Pstdev: 0.050
+Joules: 9.500
+beginning trial 1-2-4D of 3 (large.random, ChaCha20-Poly1305 decrypt)
+2016-02-03 19:10:39.742876
+Results:
+5.4
+Samples: 1
+Pavg: 5.400
+Pmax: 5.400
+Pmin: 5.400
+Pstdev: 0.000
+Joules: 5.400
+beginning trial 1-2-5D of 3 (large.random, AES-CBC decrypt)
+2016-02-03 19:10:44.405788
+Results:
+5.5
+Samples: 1
+Pavg: 5.500
+Pmax: 5.500
+Pmin: 5.500
+Pstdev: 0.000
+Joules: 5.500
+beginning trial 2-2-1E of 3 (large.random, AES-CTR encrypt)
+2016-02-03 19:10:49.068631
+Results:
+5.3
+Samples: 1
+Pavg: 5.300
+Pmax: 5.300
+Pmin: 5.300
+Pstdev: 0.000
+Joules: 5.300
+beginning trial 2-2-2E of 3 (large.random, ChaCha20 encrypt)
+2016-02-03 19:10:52.788529
+Results:
+5.2
+Samples: 1
+Pavg: 5.200
+Pmax: 5.200
+Pmin: 5.200
+Pstdev: 0.000
+Joules: 5.200
+beginning trial 2-2-3E of 3 (large.random, AES-GCM encrypt)
+2016-02-03 19:10:58.684139
+Results:
+5.0
+5.1
+5.4
+Samples: 3
+Pavg: 5.167
+Pmax: 5.400
+Pmin: 5.000
+Pstdev: 0.170
+Joules: 15.500
+beginning trial 2-2-4E of 3 (large.random, ChaCha20-Poly1305 encrypt)
+2016-02-03 19:11:02.831631
+Results:
+5.6
+Samples: 1
+Pavg: 5.600
+Pmax: 5.600
+Pmin: 5.600
+Pstdev: 0.000
+Joules: 5.600
+beginning trial 2-2-5E of 3 (large.random, AES-CBC encrypt)
+2016-02-03 19:11:07.492411
+Results:
+5.7
+Samples: 1
+Pavg: 5.700
+Pmax: 5.700
+Pmin: 5.700
+Pstdev: 0.000
+Joules: 5.700
+beginning trial 2-2-1D of 3 (large.random, AES-CTR decrypt)
+2016-02-03 19:11:12.250903
+Results:
+5.8
+Samples: 1
+Pavg: 5.800
+Pmax: 5.800
+Pmin: 5.800
+Pstdev: 0.000
+Joules: 5.800
+beginning trial 2-2-2D of 3 (large.random, ChaCha20 decrypt)
+2016-02-03 19:11:15.937406
+Results:
+Samples: 0
+Pavg: nan
+2016-02-03 19:11:16.052156
+Results:
+Samples: 0
+Pavg: nan
+2016-02-03 19:11:16.168017
+Results:
+Samples: 0
+Pavg: nan
+2016-02-03 19:11:16.283024
+Results:
+Samples: 0
+Pavg: nan
+2016-02-03 19:11:16.397016
+Results:
+Samples: 0
+Pavg: nan
+2016-02-03 19:11:16.640753
+Results:
+5.9
+Samples: 1
+Pavg: 5.900
+Pmax: 5.900
+Pmin: 5.900
+Pstdev: 0.000
+Joules: 5.900
+beginning trial 2-2-3D of 3 (large.random, AES-GCM decrypt)
+2016-02-03 19:11:22.367070
+Results:
+5.4
+5.4
+Samples: 2
+Pavg: 5.400
+Pmax: 5.400
+Pmin: 5.400
+Pstdev: 0.000
+Joules: 10.800
+beginning trial 2-2-4D of 3 (large.random, ChaCha20-Poly1305 decrypt)
+2016-02-03 19:11:26.638496
+Results:
+5.2
+Samples: 1
+Pavg: 5.200
+Pmax: 5.200
+Pmin: 5.200
+Pstdev: 0.000
+Joules: 5.200
+beginning trial 2-2-5D of 3 (large.random, AES-CBC decrypt)
+2016-02-03 19:11:31.305011
+Results:
+4.9
+Samples: 1
+Pavg: 4.900
+Pmax: 4.900
+Pmin: 4.900
+Pstdev: 0.000
+Joules: 4.900
+beginning trial 3-2-1E of 3 (large.random, AES-CTR encrypt)
+2016-02-03 19:11:35.972601
+Results:
+4.9
+Samples: 1
+Pavg: 4.900
+Pmax: 4.900
+Pmin: 4.900
+Pstdev: 0.000
+Joules: 4.900
+beginning trial 3-2-2E of 3 (large.random, ChaCha20 encrypt)
+2016-02-03 19:11:39.694959
+Results:
+4.8
+Samples: 1
+Pavg: 4.800
+Pmax: 4.800
+Pmin: 4.800
+Pstdev: 0.000
+Joules: 4.800
+beginning trial 3-2-3E of 3 (large.random, AES-GCM encrypt)
+2016-02-03 19:11:45.473829
+Results:
+4.7
+4.9
+Samples: 2
+Pavg: 4.800
+Pmax: 4.900
+Pmin: 4.700
+Pstdev: 0.100
+Joules: 9.600
+beginning trial 3-2-4E of 3 (large.random, ChaCha20-Poly1305 encrypt)
+2016-02-03 19:11:49.719613
+Results:
+5.4
+Samples: 1
+Pavg: 5.400
+Pmax: 5.400
+Pmin: 5.400
+Pstdev: 0.000
+Joules: 5.400
+beginning trial 3-2-5E of 3 (large.random, AES-CBC encrypt)
+2016-02-03 19:11:54.386881
+Results:
+5.5
+Samples: 1
+Pavg: 5.500
+Pmax: 5.500
+Pmin: 5.500
+Pstdev: 0.000
+Joules: 5.500
+beginning trial 3-2-1D of 3 (large.random, AES-CTR decrypt)
+2016-02-03 19:11:59.174683
+Results:
+5.3
+Samples: 1
+Pavg: 5.300
+Pmax: 5.300
+Pmin: 5.300
+Pstdev: 0.000
+Joules: 5.300
+beginning trial 3-2-2D of 3 (large.random, ChaCha20 decrypt)
+2016-02-03 19:12:02.871495
+Results:
+Samples: 0
+Pavg: nan
+2016-02-03 19:12:02.986293
+Results:
+Samples: 0
+Pavg: nan
+2016-02-03 19:12:03.101286
+Results:
+Samples: 0
+Pavg: nan
+2016-02-03 19:12:03.214464
+Results:
+Samples: 0
+Pavg: nan
+2016-02-03 19:12:03.325204
+Results:
+Samples: 0
+Pavg: nan
+2016-02-03 19:12:03.439418
+Results:
+Samples: 0
+Pavg: nan
+2016-02-03 19:12:03.776882
+Results:
+5.5
+Samples: 1
+Pavg: 5.500
+Pmax: 5.500
+Pmin: 5.500
+Pstdev: 0.000
+Joules: 5.500
+beginning trial 3-2-3D of 3 (large.random, AES-GCM decrypt)
+2016-02-03 19:12:09.499062
+Results:
+5.6
+5.7
+Samples: 2
+Pavg: 5.650
+Pmax: 5.700
+Pmin: 5.600
+Pstdev: 0.050
+Joules: 11.300
+beginning trial 3-2-4D of 3 (large.random, ChaCha20-Poly1305 decrypt)
+2016-02-03 19:12:13.744655
+Results:
+5.8
+Samples: 1
+Pavg: 5.800
+Pmax: 5.800
+Pmin: 5.800
+Pstdev: 0.000
+Joules: 5.800
+beginning trial 3-2-5D of 3 (large.random, AES-CBC decrypt)
+2016-02-03 19:12:18.407634
+Results:
+5.8
+Samples: 1
+Pavg: 5.800
+Pmax: 5.800
+Pmin: 5.800
+Pstdev: 0.000
+Joules: 5.800
+mf: 0x10 1700000
+beginning trial 1-2-1E of 3 (large.random, AES-CTR encrypt)
+2016-02-03 19:12:30.804730
+Results:
+4.6
+4.7
+Samples: 2
+Pavg: 4.650
+Pmax: 4.700
+Pmin: 4.600
+Pstdev: 0.050
+Joules: 9.300
+beginning trial 1-2-2E of 3 (large.random, ChaCha20 encrypt)
+2016-02-03 19:12:34.643197
+Results:
+4.6
+Samples: 1
+Pavg: 4.600
+Pmax: 4.600
+Pmin: 4.600
+Pstdev: 0.000
+Joules: 4.600
+beginning trial 1-2-3E of 3 (large.random, AES-GCM encrypt)
+2016-02-03 19:12:40.688068
+Results:
+4.6
+4.6
+4.7
+Samples: 3
+Pavg: 4.633
+Pmax: 4.700
+Pmin: 4.600
+Pstdev: 0.047
+Joules: 13.900
+beginning trial 1-2-4E of 3 (large.random, ChaCha20-Poly1305 encrypt)
+2016-02-03 19:12:44.894700
+Results:
+4.6
+Samples: 1
+Pavg: 4.600
+Pmax: 4.600
+Pmin: 4.600
+Pstdev: 0.000
+Joules: 4.600
+beginning trial 1-2-5E of 3 (large.random, AES-CBC encrypt)
+2016-02-03 19:12:49.678430
+Results:
+4.6
+4.7
+Samples: 2
+Pavg: 4.650
+Pmax: 4.700
+Pmin: 4.600
+Pstdev: 0.050
+Joules: 9.300
+beginning trial 1-2-1D of 3 (large.random, AES-CTR decrypt)
+2016-02-03 19:12:54.428644
+Results:
+4.6
+Samples: 1
+Pavg: 4.600
+Pmax: 4.600
+Pmin: 4.600
+Pstdev: 0.000
+Joules: 4.600
+beginning trial 1-2-2D of 3 (large.random, ChaCha20 decrypt)
+2016-02-03 19:12:58.194621
+Results:
+Samples: 0
+Pavg: nan
+2016-02-03 19:12:58.310728
+Results:
+Samples: 0
+Pavg: nan
+2016-02-03 19:12:58.425686
+Results:
+Samples: 0
+Pavg: nan
+2016-02-03 19:12:58.646474
+Results:
+4.6
+Samples: 1
+Pavg: 4.600
+Pmax: 4.600
+Pmin: 4.600
+Pstdev: 0.000
+Joules: 4.600
+beginning trial 1-2-3D of 3 (large.random, AES-GCM decrypt)
+2016-02-03 19:13:04.691984
+Results:
+4.5
+4.6
+4.7
+Samples: 3
+Pavg: 4.600
+Pmax: 4.700
+Pmin: 4.500
+Pstdev: 0.082
+Joules: 13.800
+beginning trial 1-2-4D of 3 (large.random, ChaCha20-Poly1305 decrypt)
+2016-02-03 19:13:08.959908
+Results:
+4.6
+Samples: 1
+Pavg: 4.600
+Pmax: 4.600
+Pmin: 4.600
+Pstdev: 0.000
+Joules: 4.600
+beginning trial 1-2-5D of 3 (large.random, AES-CBC decrypt)
+2016-02-03 19:13:13.773891
+Results:
+4.6
+4.7
+Samples: 2
+Pavg: 4.650
+Pmax: 4.700
+Pmin: 4.600
+Pstdev: 0.050
+Joules: 9.300
+beginning trial 2-2-1E of 3 (large.random, AES-CTR encrypt)
+2016-02-03 19:13:18.672270
+Results:
+4.6
+4.7
+Samples: 2
+Pavg: 4.650
+Pmax: 4.700
+Pmin: 4.600
+Pstdev: 0.050
+Joules: 9.300
+beginning trial 2-2-2E of 3 (large.random, ChaCha20 encrypt)
+2016-02-03 19:13:22.434939
+Results:
+Samples: 0
+Pavg: nan
+2016-02-03 19:13:22.654550
+Results:
+4.6
+Samples: 1
+Pavg: 4.600
+Pmax: 4.600
+Pmin: 4.600
+Pstdev: 0.000
+Joules: 4.600
+beginning trial 2-2-3E of 3 (large.random, AES-GCM encrypt)
+2016-02-03 19:13:28.696818
+Results:
+4.5
+4.6
+4.7
+Samples: 3
+Pavg: 4.600
+Pmax: 4.700
+Pmin: 4.500
+Pstdev: 0.082
+Joules: 13.800
+beginning trial 2-2-4E of 3 (large.random, ChaCha20-Poly1305 encrypt)
+2016-02-03 19:13:32.931002
+Results:
+4.7
+Samples: 1
+Pavg: 4.700
+Pmax: 4.700
+Pmin: 4.700
+Pstdev: 0.000
+Joules: 4.700
+beginning trial 2-2-5E of 3 (large.random, AES-CBC encrypt)
+2016-02-03 19:13:37.744698
+Results:
+4.6
+4.7
+Samples: 2
+Pavg: 4.650
+Pmax: 4.700
+Pmin: 4.600
+Pstdev: 0.050
+Joules: 9.300
+beginning trial 2-2-1D of 3 (large.random, AES-CTR decrypt)
+2016-02-03 19:13:42.677298
+Results:
+4.6
+4.7
+Samples: 2
+Pavg: 4.650
+Pmax: 4.700
+Pmin: 4.600
+Pstdev: 0.050
+Joules: 9.300
+beginning trial 2-2-2D of 3 (large.random, ChaCha20 decrypt)
+2016-02-03 19:13:46.440493
+Results:
+Samples: 0
+Pavg: nan
+2016-02-03 19:13:46.659125
+Results:
+4.6
+Samples: 1
+Pavg: 4.600
+Pmax: 4.600
+Pmin: 4.600
+Pstdev: 0.000
+Joules: 4.600
+beginning trial 2-2-3D of 3 (large.random, AES-GCM decrypt)
+2016-02-03 19:13:52.705075
+Results:
+4.6
+4.6
+4.7
+Samples: 3
+Pavg: 4.633
+Pmax: 4.700
+Pmin: 4.600
+Pstdev: 0.047
+Joules: 13.900
+beginning trial 2-2-4D of 3 (large.random, ChaCha20-Poly1305 decrypt)
+2016-02-03 19:13:56.976122
+Results:
+4.6
+Samples: 1
+Pavg: 4.600
+Pmax: 4.600
+Pmin: 4.600
+Pstdev: 0.000
+Joules: 4.600
+beginning trial 2-2-5D of 3 (large.random, AES-CBC decrypt)
+2016-02-03 19:14:01.800633
+Results:
+4.6
+4.7
+Samples: 2
+Pavg: 4.650
+Pmax: 4.700
+Pmin: 4.600
+Pstdev: 0.050
+Joules: 9.300
+beginning trial 3-2-1E of 3 (large.random, AES-CTR encrypt)
+2016-02-03 19:14:06.682549
+Results:
+4.6
+4.7
+Samples: 2
+Pavg: 4.650
+Pmax: 4.700
+Pmin: 4.600
+Pstdev: 0.050
+Joules: 9.300
+beginning trial 3-2-2E of 3 (large.random, ChaCha20 encrypt)
+2016-02-03 19:14:10.446156
+Results:
+Samples: 0
+Pavg: nan
+2016-02-03 19:14:10.661510
+Results:
+4.6
+Samples: 1
+Pavg: 4.600
+Pmax: 4.600
+Pmin: 4.600
+Pstdev: 0.000
+Joules: 4.600
+beginning trial 3-2-3E of 3 (large.random, AES-GCM encrypt)
+2016-02-03 19:14:16.710123
+Results:
+4.5
+4.7
+4.7
+Samples: 3
+Pavg: 4.633
+Pmax: 4.700
+Pmin: 4.500
+Pstdev: 0.094
+Joules: 13.900
+beginning trial 3-2-4E of 3 (large.random, ChaCha20-Poly1305 encrypt)
+2016-02-03 19:14:21.081646
+Results:
+4.7
+Samples: 1
+Pavg: 4.700
+Pmax: 4.700
+Pmin: 4.700
+Pstdev: 0.000
+Joules: 4.700
+beginning trial 3-2-5E of 3 (large.random, AES-CBC encrypt)
+2016-02-03 19:14:25.895964
+Results:
+4.6
+4.7
+Samples: 2
+Pavg: 4.650
+Pmax: 4.700
+Pmin: 4.600
+Pstdev: 0.050
+Joules: 9.300
+beginning trial 3-2-1D of 3 (large.random, AES-CTR decrypt)
+2016-02-03 19:14:30.697879
+Results:
+4.6
+4.7
+Samples: 2
+Pavg: 4.650
+Pmax: 4.700
+Pmin: 4.600
+Pstdev: 0.050
+Joules: 9.300
+beginning trial 3-2-2D of 3 (large.random, ChaCha20 decrypt)
+2016-02-03 19:14:34.463149
+Results:
+Samples: 0
+Pavg: nan
+2016-02-03 19:14:34.667053
+Results:
+4.7
+Samples: 1
+Pavg: 4.700
+Pmax: 4.700
+Pmin: 4.700
+Pstdev: 0.000
+Joules: 4.700
+beginning trial 3-2-3D of 3 (large.random, AES-GCM decrypt)
+2016-02-03 19:14:40.716069
+Results:
+4.6
+4.7
+4.9
+Samples: 3
+Pavg: 4.733
+Pmax: 4.900
+Pmin: 4.600
+Pstdev: 0.125
+Joules: 14.200
+beginning trial 3-2-4D of 3 (large.random, ChaCha20-Poly1305 decrypt)
+2016-02-03 19:14:44.987955
+Results:
+5.2
+Samples: 1
+Pavg: 5.200
+Pmax: 5.200
+Pmin: 5.200
+Pstdev: 0.000
+Joules: 5.200
+beginning trial 3-2-5D of 3 (large.random, AES-CBC decrypt)
+2016-02-03 19:14:49.806793
+Results:
+5.4
+5.5
+Samples: 2
+Pavg: 5.450
+Pmax: 5.500
+Pmin: 5.400
+Pstdev: 0.050
+Joules: 10.900
+mf: 0x10 1600000
+beginning trial 1-2-1E of 3 (large.random, AES-CTR encrypt)
+2016-02-03 19:15:02.440833
+Results:
+4.4
+4.5
+Samples: 2
+Pavg: 4.450
+Pmax: 4.500
+Pmin: 4.400
+Pstdev: 0.050
+Joules: 8.900
+beginning trial 1-2-2E of 3 (large.random, ChaCha20 encrypt)
+2016-02-03 19:15:06.251681
+Results:
+Samples: 0
+Pavg: nan
+2016-02-03 19:15:06.366051
+Results:
+Samples: 0
+Pavg: nan
+2016-02-03 19:15:06.479540
+Results:
+Samples: 0
+Pavg: nan
+2016-02-03 19:15:06.671331
+Results:
+4.5
+Samples: 1
+Pavg: 4.500
+Pmax: 4.500
+Pmin: 4.500
+Pstdev: 0.000
+Joules: 4.500
+beginning trial 1-2-3E of 3 (large.random, AES-GCM encrypt)
+2016-02-03 19:15:12.860562
+Results:
+4.4
+4.5
+4.5
+Samples: 3
+Pavg: 4.467
+Pmax: 4.500
+Pmin: 4.400
+Pstdev: 0.047
+Joules: 13.400
+beginning trial 1-2-4E of 3 (large.random, ChaCha20-Poly1305 encrypt)
+2016-02-03 19:15:17.175488
+Results:
+4.5
+Samples: 1
+Pavg: 4.500
+Pmax: 4.500
+Pmin: 4.500
+Pstdev: 0.000
+Joules: 4.500
+beginning trial 1-2-5E of 3 (large.random, AES-CBC encrypt)
+2016-02-03 19:15:22.098570
+Results:
+4.5
+4.5
+Samples: 2
+Pavg: 4.500
+Pmax: 4.500
+Pmin: 4.500
+Pstdev: 0.000
+Joules: 9.000
+beginning trial 1-2-1D of 3 (large.random, AES-CTR decrypt)
+2016-02-03 19:15:27.015040
+Results:
+4.4
+4.5
+Samples: 2
+Pavg: 4.450
+Pmax: 4.500
+Pmin: 4.400
+Pstdev: 0.050
+Joules: 8.900
+beginning trial 1-2-2D of 3 (large.random, ChaCha20 decrypt)
+2016-02-03 19:15:30.876514
+Results:
+4.5
+Samples: 1
+Pavg: 4.500
+Pmax: 4.500
+Pmin: 4.500
+Pstdev: 0.000
+Joules: 4.500
+beginning trial 1-2-3D of 3 (large.random, AES-GCM decrypt)
+2016-02-03 19:15:37.030948
+Results:
+4.4
+4.5
+4.5
+Samples: 3
+Pavg: 4.467
+Pmax: 4.500
+Pmin: 4.400
+Pstdev: 0.047
+Joules: 13.400
+beginning trial 1-2-4D of 3 (large.random, ChaCha20-Poly1305 decrypt)
+2016-02-03 19:15:41.409956
+Results:
+4.5
+Samples: 1
+Pavg: 4.500
+Pmax: 4.500
+Pmin: 4.500
+Pstdev: 0.000
+Joules: 4.500
+beginning trial 1-2-5D of 3 (large.random, AES-CBC decrypt)
+2016-02-03 19:15:46.352861
+Results:
+4.5
+Samples: 1
+Pavg: 4.500
+Pmax: 4.500
+Pmin: 4.500
+Pstdev: 0.000
+Joules: 4.500
+beginning trial 2-2-1E of 3 (large.random, AES-CTR encrypt)
+2016-02-03 19:15:51.284726
+Results:
+4.5
+Samples: 1
+Pavg: 4.500
+Pmax: 4.500
+Pmin: 4.500
+Pstdev: 0.000
+Joules: 4.500
+beginning trial 2-2-2E of 3 (large.random, ChaCha20 encrypt)
+2016-02-03 19:15:55.125100
+Results:
+Samples: 0
+Pavg: nan
+2016-02-03 19:15:55.239966
+Results:
+Samples: 0
+Pavg: nan
+2016-02-03 19:15:55.354962
+Results:
+Samples: 0
+Pavg: nan
+2016-02-03 19:15:55.470828
+Results:
+Samples: 0
+Pavg: nan
+2016-02-03 19:15:55.670541
+Results:
+4.5
+Samples: 1
+Pavg: 4.500
+Pmax: 4.500
+Pmin: 4.500
+Pstdev: 0.000
+Joules: 4.500
+beginning trial 2-2-3E of 3 (large.random, AES-GCM encrypt)
+2016-02-03 19:16:01.891413
+Results:
+4.4
+4.5
+4.6
+Samples: 3
+Pavg: 4.500
+Pmax: 4.600
+Pmin: 4.400
+Pstdev: 0.082
+Joules: 13.500
+beginning trial 2-2-4E of 3 (large.random, ChaCha20-Poly1305 encrypt)
+2016-02-03 19:16:06.508012
+Results:
+4.5
+Samples: 1
+Pavg: 4.500
+Pmax: 4.500
+Pmin: 4.500
+Pstdev: 0.000
+Joules: 4.500
+beginning trial 2-2-5E of 3 (large.random, AES-CBC encrypt)
+2016-02-03 19:16:11.694432
+Results:
+4.5
+4.5
+Samples: 2
+Pavg: 4.500
+Pmax: 4.500
+Pmin: 4.500
+Pstdev: 0.000
+Joules: 9.000
+beginning trial 2-2-1D of 3 (large.random, AES-CTR decrypt)
+2016-02-03 19:16:16.849327
+Results:
+4.5
+4.5
+Samples: 2
+Pavg: 4.500
+Pmax: 4.500
+Pmin: 4.500
+Pstdev: 0.000
+Joules: 9.000
+beginning trial 2-2-2D of 3 (large.random, ChaCha20 decrypt)
+2016-02-03 19:16:20.711289
+Results:
+4.5
+Samples: 1
+Pavg: 4.500
+Pmax: 4.500
+Pmin: 4.500
+Pstdev: 0.000
+Joules: 4.500
+beginning trial 2-2-3D of 3 (large.random, AES-GCM decrypt)
+2016-02-03 19:16:26.864954
+Results:
+4.4
+4.5
+4.6
+Samples: 3
+Pavg: 4.500
+Pmax: 4.600
+Pmin: 4.400
+Pstdev: 0.082
+Joules: 13.500
+beginning trial 2-2-4D of 3 (large.random, ChaCha20-Poly1305 decrypt)
+2016-02-03 19:16:31.249657
+Results:
+4.5
+Samples: 1
+Pavg: 4.500
+Pmax: 4.500
+Pmin: 4.500
+Pstdev: 0.000
+Joules: 4.500
+beginning trial 2-2-5D of 3 (large.random, AES-CBC decrypt)
+2016-02-03 19:16:36.184813
+Results:
+4.6
+Samples: 1
+Pavg: 4.600
+Pmax: 4.600
+Pmin: 4.600
+Pstdev: 0.000
+Joules: 4.600
+beginning trial 3-2-1E of 3 (large.random, AES-CTR encrypt)
+2016-02-03 19:16:41.294737
+Results:
+4.5
+4.6
+Samples: 2
+Pavg: 4.550
+Pmax: 4.600
+Pmin: 4.500
+Pstdev: 0.050
+Joules: 9.100
+beginning trial 3-2-2E of 3 (large.random, ChaCha20 encrypt)
+2016-02-03 19:16:45.133287
+Results:
+Samples: 0
+Pavg: nan
+2016-02-03 19:16:45.248239
+Results:
+Samples: 0
+Pavg: nan
+2016-02-03 19:16:45.363110
+Results:
+Samples: 0
+Pavg: nan
+2016-02-03 19:16:45.474108
+Results:
+Samples: 0
+Pavg: nan
+2016-02-03 19:16:45.658816
+Results:
+4.6
+Samples: 1
+Pavg: 4.600
+Pmax: 4.600
+Pmin: 4.600
+Pstdev: 0.000
+Joules: 4.600
+beginning trial 3-2-3E of 3 (large.random, AES-GCM encrypt)
+2016-02-03 19:16:51.884802
+Results:
+4.5
+4.5
+4.6
+Samples: 3
+Pavg: 4.533
+Pmax: 4.600
+Pmin: 4.500
+Pstdev: 0.047
+Joules: 13.600
+beginning trial 3-2-4E of 3 (large.random, ChaCha20-Poly1305 encrypt)
+2016-02-03 19:16:56.237756
+Results:
+4.9
+Samples: 1
+Pavg: 4.900
+Pmax: 4.900
+Pmin: 4.900
+Pstdev: 0.000
+Joules: 4.900
+beginning trial 3-2-5E of 3 (large.random, AES-CBC encrypt)
+2016-02-03 19:17:01.174031
+Results:
+5.3
+Samples: 1
+Pavg: 5.300
+Pmax: 5.300
+Pmin: 5.300
+Pstdev: 0.000
+Joules: 5.300
+beginning trial 3-2-1D of 3 (large.random, AES-CTR decrypt)
+2016-02-03 19:17:06.134409
+Results:
+5.1
+5.1
+Samples: 2
+Pavg: 5.100
+Pmax: 5.100
+Pmin: 5.100
+Pstdev: 0.000
+Joules: 10.200
+beginning trial 3-2-2D of 3 (large.random, ChaCha20 decrypt)
+2016-02-03 19:17:09.989602
+Results:
+4.9
+Samples: 1
+Pavg: 4.900
+Pmax: 4.900
+Pmin: 4.900
+Pstdev: 0.000
+Joules: 4.900
+beginning trial 3-2-3D of 3 (large.random, AES-GCM decrypt)
+2016-02-03 19:17:16.163872
+Results:
+4.7
+4.7
+4.7
+Samples: 3
+Pavg: 4.700
+Pmax: 4.700
+Pmin: 4.700
+Pstdev: 0.000
+Joules: 14.100
+beginning trial 3-2-4D of 3 (large.random, ChaCha20-Poly1305 decrypt)
+2016-02-03 19:17:20.671489
+Results:
+5.0
+5.2
+Samples: 2
+Pavg: 5.100
+Pmax: 5.200
+Pmin: 5.000
+Pstdev: 0.100
+Joules: 10.200
+beginning trial 3-2-5D of 3 (large.random, AES-CBC decrypt)
+2016-02-03 19:17:25.666303
+Results:
+5.3
+5.4
+Samples: 2
+Pavg: 5.350
+Pmax: 5.400
+Pmin: 5.300
+Pstdev: 0.050
+Joules: 10.700
+mf: 0x10 1500000
+beginning trial 1-2-1E of 3 (large.random, AES-CTR encrypt)
+2016-02-03 19:17:38.685037
+Results:
+4.3
+4.4
+4.4
+Samples: 3
+Pavg: 4.367
+Pmax: 4.400
+Pmin: 4.300
+Pstdev: 0.047
+Joules: 13.100
+beginning trial 1-2-2E of 3 (large.random, ChaCha20 encrypt)
+2016-02-03 19:17:42.639353
+Results:
+4.3
+Samples: 1
+Pavg: 4.300
+Pmax: 4.300
+Pmin: 4.300
+Pstdev: 0.000
+Joules: 4.300
+beginning trial 1-2-3E of 3 (large.random, AES-GCM encrypt)
+2016-02-03 19:17:49.084874
+Results:
+4.3
+4.3
+4.4
+Samples: 3
+Pavg: 4.333
+Pmax: 4.400
+Pmin: 4.300
+Pstdev: 0.047
+Joules: 13.000
+beginning trial 1-2-4E of 3 (large.random, ChaCha20-Poly1305 encrypt)
+2016-02-03 19:17:53.656823
+Results:
+4.4
+4.5
+Samples: 2
+Pavg: 4.450
+Pmax: 4.500
+Pmin: 4.400
+Pstdev: 0.050
+Joules: 8.900
+beginning trial 1-2-5E of 3 (large.random, AES-CBC encrypt)
+2016-02-03 19:17:58.747818
+Results:
+4.3
+4.4
+Samples: 2
+Pavg: 4.350
+Pmax: 4.400
+Pmin: 4.300
+Pstdev: 0.050
+Joules: 8.700
+beginning trial 1-2-1D of 3 (large.random, AES-CTR decrypt)
+2016-02-03 19:18:03.829479
+Results:
+4.3
+4.4
+Samples: 2
+Pavg: 4.350
+Pmax: 4.400
+Pmin: 4.300
+Pstdev: 0.050
+Joules: 8.700
+beginning trial 1-2-2D of 3 (large.random, ChaCha20 decrypt)
+2016-02-03 19:18:07.784803
+Results:
+4.3
+Samples: 1
+Pavg: 4.300
+Pmax: 4.300
+Pmin: 4.300
+Pstdev: 0.000
+Joules: 4.300
+beginning trial 1-2-3D of 3 (large.random, AES-GCM decrypt)
+2016-02-03 19:18:14.204481
+Results:
+4.3
+4.3
+4.4
+Samples: 3
+Pavg: 4.333
+Pmax: 4.400
+Pmin: 4.300
+Pstdev: 0.047
+Joules: 13.000
+beginning trial 1-2-4D of 3 (large.random, ChaCha20-Poly1305 decrypt)
+2016-02-03 19:18:18.708220
+Results:
+4.5
+Samples: 1
+Pavg: 4.500
+Pmax: 4.500
+Pmin: 4.500
+Pstdev: 0.000
+Joules: 4.500
+beginning trial 1-2-5D of 3 (large.random, AES-CBC decrypt)
+2016-02-03 19:18:23.831702
+Results:
+4.4
+4.4
+Samples: 2
+Pavg: 4.400
+Pmax: 4.400
+Pmin: 4.400
+Pstdev: 0.000
+Joules: 8.800
+beginning trial 2-2-1E of 3 (large.random, AES-CTR encrypt)
+2016-02-03 19:18:28.958402
+Results:
+4.3
+4.4
+Samples: 2
+Pavg: 4.350
+Pmax: 4.400
+Pmin: 4.300
+Pstdev: 0.050
+Joules: 8.700
+beginning trial 2-2-2E of 3 (large.random, ChaCha20 encrypt)
+2016-02-03 19:18:32.920084
+Results:
+4.3
+Samples: 1
+Pavg: 4.300
+Pmax: 4.300
+Pmin: 4.300
+Pstdev: 0.000
+Joules: 4.300
+beginning trial 2-2-3E of 3 (large.random, AES-GCM encrypt)
+2016-02-03 19:18:39.392719
+Results:
+4.3
+4.3
+4.4
+Samples: 3
+Pavg: 4.333
+Pmax: 4.400
+Pmin: 4.300
+Pstdev: 0.047
+Joules: 13.000
+beginning trial 2-2-4E of 3 (large.random, ChaCha20-Poly1305 encrypt)
+2016-02-03 19:18:43.866945
+Results:
+4.4
+Samples: 1
+Pavg: 4.400
+Pmax: 4.400
+Pmin: 4.400
+Pstdev: 0.000
+Joules: 4.400
+beginning trial 2-2-5E of 3 (large.random, AES-CBC encrypt)
+2016-02-03 19:18:48.990155
+Results:
+4.3
+4.4
+Samples: 2
+Pavg: 4.350
+Pmax: 4.400
+Pmin: 4.300
+Pstdev: 0.050
+Joules: 8.700
+beginning trial 2-2-1D of 3 (large.random, AES-CTR decrypt)
+2016-02-03 19:18:54.131819
+Results:
+4.3
+4.4
+Samples: 2
+Pavg: 4.350
+Pmax: 4.400
+Pmin: 4.300
+Pstdev: 0.050
+Joules: 8.700
+beginning trial 2-2-2D of 3 (large.random, ChaCha20 decrypt)
+2016-02-03 19:18:58.093500
+Results:
+4.3
+Samples: 1
+Pavg: 4.300
+Pmax: 4.300
+Pmin: 4.300
+Pstdev: 0.000
+Joules: 4.300
+beginning trial 2-2-3D of 3 (large.random, AES-GCM decrypt)
+2016-02-03 19:19:04.507922
+Results:
+4.3
+4.4
+4.5
+Samples: 3
+Pavg: 4.400
+Pmax: 4.500
+Pmin: 4.300
+Pstdev: 0.082
+Joules: 13.200
+beginning trial 2-2-4D of 3 (large.random, ChaCha20-Poly1305 decrypt)
+2016-02-03 19:19:09.049830
+Results:
+4.4
+Samples: 1
+Pavg: 4.400
+Pmax: 4.400
+Pmin: 4.400
+Pstdev: 0.000
+Joules: 4.400
+beginning trial 2-2-5D of 3 (large.random, AES-CBC decrypt)
+2016-02-03 19:19:14.184165
+Results:
+4.4
+4.5
+Samples: 2
+Pavg: 4.450
+Pmax: 4.500
+Pmin: 4.400
+Pstdev: 0.050
+Joules: 8.900
+beginning trial 3-2-1E of 3 (large.random, AES-CTR encrypt)
+2016-02-03 19:19:19.284272
+Results:
+4.4
+Samples: 1
+Pavg: 4.400
+Pmax: 4.400
+Pmin: 4.400
+Pstdev: 0.000
+Joules: 4.400
+beginning trial 3-2-2E of 3 (large.random, ChaCha20 encrypt)
+2016-02-03 19:19:23.221166
+Results:
+Samples: 0
+Pavg: nan
+2016-02-03 19:19:23.335336
+Results:
+Samples: 0
+Pavg: nan
+2016-02-03 19:19:23.741605
+Results:
+4.4
+Samples: 1
+Pavg: 4.400
+Pmax: 4.400
+Pmin: 4.400
+Pstdev: 0.000
+Joules: 4.400
+beginning trial 3-2-3E of 3 (large.random, AES-GCM encrypt)
+2016-02-03 19:19:30.219735
+Results:
+4.3
+4.3
+4.4
+Samples: 3
+Pavg: 4.333
+Pmax: 4.400
+Pmin: 4.300
+Pstdev: 0.047
+Joules: 13.000
+beginning trial 3-2-4E of 3 (large.random, ChaCha20-Poly1305 encrypt)
+2016-02-03 19:19:34.698939
+Results:
+4.4
+Samples: 1
+Pavg: 4.400
+Pmax: 4.400
+Pmin: 4.400
+Pstdev: 0.000
+Joules: 4.400
+beginning trial 3-2-5E of 3 (large.random, AES-CBC encrypt)
+2016-02-03 19:19:39.822125
+Results:
+4.3
+4.4
+Samples: 2
+Pavg: 4.350
+Pmax: 4.400
+Pmin: 4.300
+Pstdev: 0.050
+Joules: 8.700
+beginning trial 3-2-1D of 3 (large.random, AES-CTR decrypt)
+2016-02-03 19:19:44.964031
+Results:
+4.3
+4.4
+Samples: 2
+Pavg: 4.350
+Pmax: 4.400
+Pmin: 4.300
+Pstdev: 0.050
+Joules: 8.700
+beginning trial 3-2-2D of 3 (large.random, ChaCha20 decrypt)
+2016-02-03 19:19:48.920472
+Results:
+4.3
+Samples: 1
+Pavg: 4.300
+Pmax: 4.300
+Pmin: 4.300
+Pstdev: 0.000
+Joules: 4.300
+beginning trial 3-2-3D of 3 (large.random, AES-GCM decrypt)
+2016-02-03 19:19:55.330647
+Results:
+4.2
+4.3
+4.4
+Samples: 3
+Pavg: 4.300
+Pmax: 4.400
+Pmin: 4.200
+Pstdev: 0.082
+Joules: 12.900
+beginning trial 3-2-4D of 3 (large.random, ChaCha20-Poly1305 decrypt)
+2016-02-03 19:19:59.977840
+Results:
+4.4
+Samples: 1
+Pavg: 4.400
+Pmax: 4.400
+Pmin: 4.400
+Pstdev: 0.000
+Joules: 4.400
+beginning trial 3-2-5D of 3 (large.random, AES-CBC decrypt)
+2016-02-03 19:20:05.104322
+Results:
+4.3
+4.3
+Samples: 2
+Pavg: 4.300
+Pmax: 4.300
+Pmin: 4.300
+Pstdev: 0.000
+Joules: 8.600
+mf: 0x10 1400000
+beginning trial 1-2-1E of 3 (large.random, AES-CTR encrypt)
+2016-02-03 19:20:18.254454
+Results:
+4.1
+4.1
+Samples: 2
+Pavg: 4.100
+Pmax: 4.100
+Pmin: 4.100
+Pstdev: 0.000
+Joules: 8.200
+beginning trial 1-2-2E of 3 (large.random, ChaCha20 encrypt)
+2016-02-03 19:20:22.254071
+Results:
+Samples: 0
+Pavg: nan
+2016-02-03 19:20:22.368780
+Results:
+Samples: 0
+Pavg: nan
+2016-02-03 19:20:22.592222
+Results:
+4.2
+Samples: 1
+Pavg: 4.200
+Pmax: 4.200
+Pmin: 4.200
+Pstdev: 0.000
+Joules: 4.200
+beginning trial 1-2-3E of 3 (large.random, AES-GCM encrypt)
+2016-02-03 19:20:29.323371
+Results:
+4.2
+4.2
+4.3
+Samples: 3
+Pavg: 4.233
+Pmax: 4.300
+Pmin: 4.200
+Pstdev: 0.047
+Joules: 12.700
+beginning trial 1-2-4E of 3 (large.random, ChaCha20-Poly1305 encrypt)
+2016-02-03 19:20:33.902378
+Results:
+4.3
+Samples: 1
+Pavg: 4.300
+Pmax: 4.300
+Pmin: 4.300
+Pstdev: 0.000
+Joules: 4.300
+beginning trial 1-2-5E of 3 (large.random, AES-CBC encrypt)
+2016-02-03 19:20:39.174898
+Results:
+4.2
+4.3
+Samples: 2
+Pavg: 4.250
+Pmax: 4.300
+Pmin: 4.200
+Pstdev: 0.050
+Joules: 8.500
+beginning trial 1-2-1D of 3 (large.random, AES-CTR decrypt)
+2016-02-03 19:20:44.414859
+Results:
+4.3
+Samples: 1
+Pavg: 4.300
+Pmax: 4.300
+Pmin: 4.300
+Pstdev: 0.000
+Joules: 4.300
+beginning trial 1-2-2D of 3 (large.random, ChaCha20 decrypt)
+2016-02-03 19:20:48.589814
+Results:
+4.3
+Samples: 1
+Pavg: 4.300
+Pmax: 4.300
+Pmin: 4.300
+Pstdev: 0.000
+Joules: 4.300
+beginning trial 1-2-3D of 3 (large.random, AES-GCM decrypt)
+2016-02-03 19:20:55.282206
+Results:
+4.2
+4.3
+4.3
+Samples: 3
+Pavg: 4.267
+Pmax: 4.300
+Pmin: 4.200
+Pstdev: 0.047
+Joules: 12.800
+beginning trial 1-2-4D of 3 (large.random, ChaCha20-Poly1305 decrypt)
+2016-02-03 19:20:59.929623
+Results:
+4.3
+Samples: 1
+Pavg: 4.300
+Pmax: 4.300
+Pmin: 4.300
+Pstdev: 0.000
+Joules: 4.300
+beginning trial 1-2-5D of 3 (large.random, AES-CBC decrypt)
+2016-02-03 19:21:05.257166
+Results:
+4.2
+4.3
+Samples: 2
+Pavg: 4.250
+Pmax: 4.300
+Pmin: 4.200
+Pstdev: 0.050
+Joules: 8.500
+beginning trial 2-2-1E of 3 (large.random, AES-CTR encrypt)
+2016-02-03 19:21:10.913168
+Results:
+4.2
+4.3
+Samples: 2
+Pavg: 4.250
+Pmax: 4.300
+Pmin: 4.200
+Pstdev: 0.050
+Joules: 8.500
+beginning trial 2-2-2E of 3 (large.random, ChaCha20 encrypt)
+2016-02-03 19:21:15.104489
+Results:
+4.2
+Samples: 1
+Pavg: 4.200
+Pmax: 4.200
+Pmin: 4.200
+Pstdev: 0.000
+Joules: 4.200
+beginning trial 2-2-3E of 3 (large.random, AES-GCM encrypt)
+2016-02-03 19:21:21.868324
+Results:
+4.3
+4.3
+4.4
+Samples: 3
+Pavg: 4.333
+Pmax: 4.400
+Pmin: 4.300
+Pstdev: 0.047
+Joules: 13.000
+beginning trial 2-2-4E of 3 (large.random, ChaCha20-Poly1305 encrypt)
+2016-02-03 19:21:26.593206
+Results:
+4.3
+4.3
+Samples: 2
+Pavg: 4.300
+Pmax: 4.300
+Pmin: 4.300
+Pstdev: 0.000
+Joules: 8.600
+beginning trial 2-2-5E of 3 (large.random, AES-CBC encrypt)
+2016-02-03 19:21:31.899233
+Results:
+4.2
+4.3
+Samples: 2
+Pavg: 4.250
+Pmax: 4.300
+Pmin: 4.200
+Pstdev: 0.050
+Joules: 8.500
+beginning trial 2-2-1D of 3 (large.random, AES-CTR decrypt)
+2016-02-03 19:21:37.194999
+Results:
+4.2
+4.3
+Samples: 2
+Pavg: 4.250
+Pmax: 4.300
+Pmin: 4.200
+Pstdev: 0.050
+Joules: 8.500
+beginning trial 2-2-2D of 3 (large.random, ChaCha20 decrypt)
+2016-02-03 19:21:41.228617
+Results:
+Samples: 0
+Pavg: nan
+2016-02-03 19:21:41.343450
+Results:
+Samples: 0
+Pavg: nan
+2016-02-03 19:21:41.561524
+Results:
+4.3
+Samples: 1
+Pavg: 4.300
+Pmax: 4.300
+Pmin: 4.300
+Pstdev: 0.000
+Joules: 4.300
+beginning trial 2-2-3D of 3 (large.random, AES-GCM decrypt)
+2016-02-03 19:21:48.255614
+Results:
+4.2
+4.2
+4.3
+Samples: 3
+Pavg: 4.233
+Pmax: 4.300
+Pmin: 4.200
+Pstdev: 0.047
+Joules: 12.700
+beginning trial 2-2-4D of 3 (large.random, ChaCha20-Poly1305 decrypt)
+2016-02-03 19:21:52.907099
+Results:
+4.2
+Samples: 1
+Pavg: 4.200
+Pmax: 4.200
+Pmin: 4.200
+Pstdev: 0.000
+Joules: 4.200
+beginning trial 2-2-5D of 3 (large.random, AES-CBC decrypt)
+2016-02-03 19:21:58.229672
+Results:
+4.2
+4.2
+Samples: 2
+Pavg: 4.200
+Pmax: 4.200
+Pmin: 4.200
+Pstdev: 0.000
+Joules: 8.400
+beginning trial 3-2-1E of 3 (large.random, AES-CTR encrypt)
+2016-02-03 19:22:03.574557
+Results:
+4.2
+4.3
+Samples: 2
+Pavg: 4.250
+Pmax: 4.300
+Pmin: 4.200
+Pstdev: 0.050
+Joules: 8.500
+beginning trial 3-2-2E of 3 (large.random, ChaCha20 encrypt)
+2016-02-03 19:22:07.633761
+Results:
+4.2
+Samples: 1
+Pavg: 4.200
+Pmax: 4.200
+Pmin: 4.200
+Pstdev: 0.000
+Joules: 4.200
+beginning trial 3-2-3E of 3 (large.random, AES-GCM encrypt)
+2016-02-03 19:22:14.390819
+Results:
+4.2
+4.2
+4.3
+Samples: 3
+Pavg: 4.233
+Pmax: 4.300
+Pmin: 4.200
+Pstdev: 0.047
+Joules: 12.700
+beginning trial 3-2-4E of 3 (large.random, ChaCha20-Poly1305 encrypt)
+2016-02-03 19:22:19.094853
+Results:
+4.2
+Samples: 1
+Pavg: 4.200
+Pmax: 4.200
+Pmin: 4.200
+Pstdev: 0.000
+Joules: 4.200
+beginning trial 3-2-5E of 3 (large.random, AES-CBC encrypt)
+2016-02-03 19:22:24.390938
+Results:
+4.3
+Samples: 1
+Pavg: 4.300
+Pmax: 4.300
+Pmin: 4.300
+Pstdev: 0.000
+Joules: 4.300
+beginning trial 3-2-1D of 3 (large.random, AES-CTR decrypt)
+2016-02-03 19:22:29.932489
+Results:
+4.2
+4.3
+Samples: 2
+Pavg: 4.250
+Pmax: 4.300
+Pmin: 4.200
+Pstdev: 0.050
+Joules: 8.500
+beginning trial 3-2-2D of 3 (large.random, ChaCha20 decrypt)
+2016-02-03 19:22:33.989980
+Results:
+4.2
+Samples: 1
+Pavg: 4.200
+Pmax: 4.200
+Pmin: 4.200
+Pstdev: 0.000
+Joules: 4.200
+beginning trial 3-2-3D of 3 (large.random, AES-GCM decrypt)
+2016-02-03 19:22:40.700813
+Results:
+4.2
+4.3
+4.3
+4.4
+Samples: 4
+Pavg: 4.300
+Pmax: 4.400
+Pmin: 4.200
+Pstdev: 0.071
+Joules: 17.200
+beginning trial 3-2-4D of 3 (large.random, ChaCha20-Poly1305 decrypt)
+2016-02-03 19:22:45.351670
+Results:
+4.3
+Samples: 1
+Pavg: 4.300
+Pmax: 4.300
+Pmin: 4.300
+Pstdev: 0.000
+Joules: 4.300
+beginning trial 3-2-5D of 3 (large.random, AES-CBC decrypt)
+2016-02-03 19:22:50.784557
+Results:
+4.2
+4.3
+Samples: 2
+Pavg: 4.250
+Pmax: 4.300
+Pmin: 4.200
+Pstdev: 0.050
+Joules: 8.500
+mf: 0x10 1300000
+beginning trial 1-2-1E of 3 (large.random, AES-CTR encrypt)
+2016-02-03 19:23:04.289549
+Results:
+3.9
+4.0
+4.1
+Samples: 3
+Pavg: 4.000
+Pmax: 4.100
+Pmin: 3.900
+Pstdev: 0.082
+Joules: 12.000
+beginning trial 1-2-2E of 3 (large.random, ChaCha20 encrypt)
+2016-02-03 19:23:08.530464
+Results:
+4.1
+Samples: 1
+Pavg: 4.100
+Pmax: 4.100
+Pmin: 4.100
+Pstdev: 0.000
+Joules: 4.100
+beginning trial 1-2-3E of 3 (large.random, AES-GCM encrypt)
+2016-02-03 19:23:15.623293
+Results:
+4.0
+4.1
+4.2
+4.2
+Samples: 4
+Pavg: 4.125
+Pmax: 4.200
+Pmin: 4.000
+Pstdev: 0.083
+Joules: 16.500
+beginning trial 1-2-4E of 3 (large.random, ChaCha20-Poly1305 encrypt)
+2016-02-03 19:23:20.365245
+Results:
+4.1
+Samples: 1
+Pavg: 4.100
+Pmax: 4.100
+Pmin: 4.100
+Pstdev: 0.000
+Joules: 4.100
+beginning trial 1-2-5E of 3 (large.random, AES-CBC encrypt)
+2016-02-03 19:23:25.986931
+Results:
+4.1
+4.2
+Samples: 2
+Pavg: 4.150
+Pmax: 4.200
+Pmin: 4.100
+Pstdev: 0.050
+Joules: 8.300
+beginning trial 1-2-1D of 3 (large.random, AES-CTR decrypt)
+2016-02-03 19:23:31.571660
+Results:
+4.1
+4.2
+4.2
+Samples: 3
+Pavg: 4.167
+Pmax: 4.200
+Pmin: 4.100
+Pstdev: 0.047
+Joules: 12.500
+beginning trial 1-2-2D of 3 (large.random, ChaCha20 decrypt)
+2016-02-03 19:23:35.748087
+Results:
+4.1
+Samples: 1
+Pavg: 4.100
+Pmax: 4.100
+Pmin: 4.100
+Pstdev: 0.000
+Joules: 4.100
+beginning trial 1-2-3D of 3 (large.random, AES-GCM decrypt)
+2016-02-03 19:23:42.812688
+Results:
+4.0
+4.1
+4.2
+4.2
+Samples: 4
+Pavg: 4.125
+Pmax: 4.200
+Pmin: 4.000
+Pstdev: 0.083
+Joules: 16.500
+beginning trial 1-2-4D of 3 (large.random, ChaCha20-Poly1305 decrypt)
+2016-02-03 19:23:47.807067
+Results:
+4.1
+4.2
+Samples: 2
+Pavg: 4.150
+Pmax: 4.200
+Pmin: 4.100
+Pstdev: 0.050
+Joules: 8.300
+beginning trial 1-2-5D of 3 (large.random, AES-CBC decrypt)
+2016-02-03 19:23:53.347970
+Results:
+4.1
+4.1
+Samples: 2
+Pavg: 4.100
+Pmax: 4.100
+Pmin: 4.100
+Pstdev: 0.000
+Joules: 8.200
+beginning trial 2-2-1E of 3 (large.random, AES-CTR encrypt)
+2016-02-03 19:23:59.242710
+Results:
+4.1
+4.2
+Samples: 2
+Pavg: 4.150
+Pmax: 4.200
+Pmin: 4.100
+Pstdev: 0.050
+Joules: 8.300
+beginning trial 2-2-2E of 3 (large.random, ChaCha20 encrypt)
+2016-02-03 19:24:03.511452
+Results:
+4.1
+Samples: 1
+Pavg: 4.100
+Pmax: 4.100
+Pmin: 4.100
+Pstdev: 0.000
+Joules: 4.100
+beginning trial 2-2-3E of 3 (large.random, AES-GCM encrypt)
+2016-02-03 19:24:10.638903
+Results:
+4.1
+4.1
+4.2
+4.2
+Samples: 4
+Pavg: 4.150
+Pmax: 4.200
+Pmin: 4.100
+Pstdev: 0.050
+Joules: 16.600
+beginning trial 2-2-4E of 3 (large.random, ChaCha20-Poly1305 encrypt)
+2016-02-03 19:24:15.685477
+Results:
+4.1
+4.2
+Samples: 2
+Pavg: 4.150
+Pmax: 4.200
+Pmin: 4.100
+Pstdev: 0.050
+Joules: 8.300
+beginning trial 2-2-5E of 3 (large.random, AES-CBC encrypt)
+2016-02-03 19:24:21.222262
+Results:
+4.1
+4.1
+Samples: 2
+Pavg: 4.100
+Pmax: 4.100
+Pmin: 4.100
+Pstdev: 0.000
+Joules: 8.200
+beginning trial 2-2-1D of 3 (large.random, AES-CTR decrypt)
+2016-02-03 19:24:26.742736
+Results:
+4.1
+4.2
+Samples: 2
+Pavg: 4.150
+Pmax: 4.200
+Pmin: 4.100
+Pstdev: 0.050
+Joules: 8.300
+beginning trial 2-2-2D of 3 (large.random, ChaCha20 decrypt)
+2016-02-03 19:24:30.918238
+Results:
+4.1
+Samples: 1
+Pavg: 4.100
+Pmax: 4.100
+Pmin: 4.100
+Pstdev: 0.000
+Joules: 4.100
+beginning trial 2-2-3D of 3 (large.random, AES-GCM decrypt)
+2016-02-03 19:24:37.967839
+Results:
+4.1
+4.1
+4.2
+4.2
+Samples: 4
+Pavg: 4.150
+Pmax: 4.200
+Pmin: 4.100
+Pstdev: 0.050
+Joules: 16.600
+beginning trial 2-2-4D of 3 (large.random, ChaCha20-Poly1305 decrypt)
+2016-02-03 19:24:42.806558
+Results:
+4.2
+4.3
+Samples: 2
+Pavg: 4.250
+Pmax: 4.300
+Pmin: 4.200
+Pstdev: 0.050
+Joules: 8.500
+beginning trial 2-2-5D of 3 (large.random, AES-CBC decrypt)
+2016-02-03 19:24:48.351940
+Results:
+4.2
+4.2
+Samples: 2
+Pavg: 4.200
+Pmax: 4.200
+Pmin: 4.200
+Pstdev: 0.000
+Joules: 8.400
+beginning trial 3-2-1E of 3 (large.random, AES-CTR encrypt)
+2016-02-03 19:24:53.952976
+Results:
+4.1
+4.2
+Samples: 2
+Pavg: 4.150
+Pmax: 4.200
+Pmin: 4.100
+Pstdev: 0.050
+Joules: 8.300
+beginning trial 3-2-2E of 3 (large.random, ChaCha20 encrypt)
+2016-02-03 19:24:58.128081
+Results:
+4.1
+Samples: 1
+Pavg: 4.100
+Pmax: 4.100
+Pmin: 4.100
+Pstdev: 0.000
+Joules: 4.100
+beginning trial 3-2-3E of 3 (large.random, AES-GCM encrypt)
+2016-02-03 19:25:05.231579
+Results:
+4.2
+4.2
+4.3
+Samples: 3
+Pavg: 4.233
+Pmax: 4.300
+Pmin: 4.200
+Pstdev: 0.047
+Joules: 12.700
+beginning trial 3-2-4E of 3 (large.random, ChaCha20-Poly1305 encrypt)
+2016-02-03 19:25:10.015253
+Results:
+4.2
+Samples: 1
+Pavg: 4.200
+Pmax: 4.200
+Pmin: 4.200
+Pstdev: 0.000
+Joules: 4.200
+beginning trial 3-2-5E of 3 (large.random, AES-CBC encrypt)
+2016-02-03 19:25:15.547750
+Results:
+4.2
+4.3
+Samples: 2
+Pavg: 4.250
+Pmax: 4.300
+Pmin: 4.200
+Pstdev: 0.050
+Joules: 8.500
+beginning trial 3-2-1D of 3 (large.random, AES-CTR decrypt)
+2016-02-03 19:25:21.068711
+Results:
+4.1
+4.2
+Samples: 2
+Pavg: 4.150
+Pmax: 4.200
+Pmin: 4.100
+Pstdev: 0.050
+Joules: 8.300
+beginning trial 3-2-2D of 3 (large.random, ChaCha20 decrypt)
+2016-02-03 19:25:25.223421
+Results:
+Samples: 0
+Pavg: nan
+2016-02-03 19:25:25.478029
+Results:
+4.2
+Samples: 1
+Pavg: 4.200
+Pmax: 4.200
+Pmin: 4.200
+Pstdev: 0.000
+Joules: 4.200
+beginning trial 3-2-3D of 3 (large.random, AES-GCM decrypt)
+2016-02-03 19:25:32.546635
+Results:
+4.1
+4.2
+4.2
+4.2
+Samples: 4
+Pavg: 4.175
+Pmax: 4.200
+Pmin: 4.100
+Pstdev: 0.043
+Joules: 16.700
+beginning trial 3-2-4D of 3 (large.random, ChaCha20-Poly1305 decrypt)
+2016-02-03 19:25:37.497958
+Results:
+4.1
+4.2
+Samples: 2
+Pavg: 4.150
+Pmax: 4.200
+Pmin: 4.100
+Pstdev: 0.050
+Joules: 8.300
+beginning trial 3-2-5D of 3 (large.random, AES-CBC decrypt)
+2016-02-03 19:25:43.042742
+Results:
+4.1
+4.2
+Samples: 2
+Pavg: 4.150
+Pmax: 4.200
+Pmin: 4.100
+Pstdev: 0.050
+Joules: 8.300
+mf: 0x10 1200000
+beginning trial 1-2-1E of 3 (large.random, AES-CTR encrypt)
+2016-02-03 19:25:57.539904
+Results:
+3.8
+3.9
+4.0
+4.0
+Samples: 4
+Pavg: 3.925
+Pmax: 4.000
+Pmin: 3.800
+Pstdev: 0.083
+Joules: 15.700
+beginning trial 1-2-2E of 3 (large.random, ChaCha20 encrypt)
+2016-02-03 19:26:01.950143
+Results:
+3.9
+Samples: 1
+Pavg: 3.900
+Pmax: 3.900
+Pmin: 3.900
+Pstdev: 0.000
+Joules: 3.900
+beginning trial 1-2-3E of 3 (large.random, AES-GCM encrypt)
+2016-02-03 19:26:09.558259
+Results:
+3.9
+4.0
+4.0
+4.1
+4.1
+Samples: 5
+Pavg: 4.020
+Pmax: 4.100
+Pmin: 3.900
+Pstdev: 0.075
+Joules: 20.100
+beginning trial 1-2-4E of 3 (large.random, ChaCha20-Poly1305 encrypt)
+2016-02-03 19:26:14.521000
+Results:
+4.0
+4.1
+Samples: 2
+Pavg: 4.050
+Pmax: 4.100
+Pmin: 4.000
+Pstdev: 0.050
+Joules: 8.100
+beginning trial 1-2-5E of 3 (large.random, AES-CBC encrypt)
+2016-02-03 19:26:20.276950
+Results:
+4.0
+4.0
+Samples: 2
+Pavg: 4.000
+Pmax: 4.000
+Pmin: 4.000
+Pstdev: 0.000
+Joules: 8.000
+beginning trial 1-2-1D of 3 (large.random, AES-CTR decrypt)
+2016-02-03 19:26:26.022143
+Results:
+4.0
+4.0
+Samples: 2
+Pavg: 4.000
+Pmax: 4.000
+Pmin: 4.000
+Pstdev: 0.000
+Joules: 8.000
+beginning trial 1-2-2D of 3 (large.random, ChaCha20 decrypt)
+2016-02-03 19:26:30.467759
+Results:
+4.1
+Samples: 1
+Pavg: 4.100
+Pmax: 4.100
+Pmin: 4.100
+Pstdev: 0.000
+Joules: 4.100
+beginning trial 1-2-3D of 3 (large.random, AES-GCM decrypt)
+2016-02-03 19:26:37.916795
+Results:
+4.0
+4.0
+4.0
+4.1
+Samples: 4
+Pavg: 4.025
+Pmax: 4.100
+Pmin: 4.000
+Pstdev: 0.043
+Joules: 16.100
+beginning trial 1-2-4D of 3 (large.random, ChaCha20-Poly1305 decrypt)
+2016-02-03 19:26:42.958724
+Results:
+4.1
+4.1
+Samples: 2
+Pavg: 4.100
+Pmax: 4.100
+Pmin: 4.100
+Pstdev: 0.000
+Joules: 8.200
+beginning trial 1-2-5D of 3 (large.random, AES-CBC decrypt)
+2016-02-03 19:26:48.797188
+Results:
+4.1
+4.1
+4.1
+Samples: 3
+Pavg: 4.100
+Pmax: 4.100
+Pmin: 4.100
+Pstdev: 0.000
+Joules: 12.300
+beginning trial 2-2-1E of 3 (large.random, AES-CTR encrypt)
+2016-02-03 19:26:54.613371
+Results:
+4.0
+4.1
+4.1
+Samples: 3
+Pavg: 4.067
+Pmax: 4.100
+Pmin: 4.000
+Pstdev: 0.047
+Joules: 12.200
+beginning trial 2-2-2E of 3 (large.random, ChaCha20 encrypt)
+2016-02-03 19:26:58.927242
+Results:
+4.0
+Samples: 1
+Pavg: 4.000
+Pmax: 4.000
+Pmin: 4.000
+Pstdev: 0.000
+Joules: 4.000
+beginning trial 2-2-3E of 3 (large.random, AES-GCM encrypt)
+2016-02-03 19:27:06.552930
+Results:
+4.0
+4.0
+4.1
+4.1
+4.1
+Samples: 5
+Pavg: 4.060
+Pmax: 4.100
+Pmin: 4.000
+Pstdev: 0.049
+Joules: 20.300
+beginning trial 2-2-4E of 3 (large.random, ChaCha20-Poly1305 encrypt)
+2016-02-03 19:27:11.553277
+Results:
+4.0
+4.1
+Samples: 2
+Pavg: 4.050
+Pmax: 4.100
+Pmin: 4.000
+Pstdev: 0.050
+Joules: 8.100
+beginning trial 2-2-5E of 3 (large.random, AES-CBC encrypt)
+2016-02-03 19:27:17.507959
+Results:
+4.0
+4.0
+4.1
+Samples: 3
+Pavg: 4.033
+Pmax: 4.100
+Pmin: 4.000
+Pstdev: 0.047
+Joules: 12.100
+beginning trial 2-2-1D of 3 (large.random, AES-CTR decrypt)
+2016-02-03 19:27:23.313687
+Results:
+4.0
+4.1
+Samples: 2
+Pavg: 4.050
+Pmax: 4.100
+Pmin: 4.000
+Pstdev: 0.050
+Joules: 8.100
+beginning trial 2-2-2D of 3 (large.random, ChaCha20 decrypt)
+2016-02-03 19:27:27.839662
+Results:
+4.0
+Samples: 1
+Pavg: 4.000
+Pmax: 4.000
+Pmin: 4.000
+Pstdev: 0.000
+Joules: 4.000
+beginning trial 2-2-3D of 3 (large.random, AES-GCM decrypt)
+2016-02-03 19:27:35.294203
+Results:
+3.9
+4.0
+4.0
+4.1
+Samples: 4
+Pavg: 4.000
+Pmax: 4.100
+Pmin: 3.900
+Pstdev: 0.071
+Joules: 16.000
+beginning trial 2-2-4D of 3 (large.random, ChaCha20-Poly1305 decrypt)
+2016-02-03 19:27:40.481151
+Results:
+4.0
+4.1
+Samples: 2
+Pavg: 4.050
+Pmax: 4.100
+Pmin: 4.000
+Pstdev: 0.050
+Joules: 8.100
+beginning trial 2-2-5D of 3 (large.random, AES-CBC decrypt)
+2016-02-03 19:27:46.300656
+Results:
+4.0
+4.0
+Samples: 2
+Pavg: 4.000
+Pmax: 4.000
+Pmin: 4.000
+Pstdev: 0.000
+Joules: 8.000
+beginning trial 3-2-1E of 3 (large.random, AES-CTR encrypt)
+2016-02-03 19:27:52.187091
+Results:
+4.0
+4.0
+Samples: 2
+Pavg: 4.000
+Pmax: 4.000
+Pmin: 4.000
+Pstdev: 0.000
+Joules: 8.000
+beginning trial 3-2-2E of 3 (large.random, ChaCha20 encrypt)
+2016-02-03 19:27:56.508314
+Results:
+4.0
+Samples: 1
+Pavg: 4.000
+Pmax: 4.000
+Pmin: 4.000
+Pstdev: 0.000
+Joules: 4.000
+beginning trial 3-2-3E of 3 (large.random, AES-GCM encrypt)
+2016-02-03 19:28:04.046456
+Results:
+3.9
+4.0
+4.1
+4.1
+Samples: 4
+Pavg: 4.025
+Pmax: 4.100
+Pmin: 3.900
+Pstdev: 0.083
+Joules: 16.100
+beginning trial 3-2-4E of 3 (large.random, ChaCha20-Poly1305 encrypt)
+2016-02-03 19:28:09.031880
+Results:
+4.1
+Samples: 1
+Pavg: 4.100
+Pmax: 4.100
+Pmin: 4.100
+Pstdev: 0.000
+Joules: 4.100
+beginning trial 3-2-5E of 3 (large.random, AES-CBC encrypt)
+2016-02-03 19:28:14.834577
+Results:
+4.1
+4.1
+Samples: 2
+Pavg: 4.100
+Pmax: 4.100
+Pmin: 4.100
+Pstdev: 0.000
+Joules: 8.200
+beginning trial 3-2-1D of 3 (large.random, AES-CTR decrypt)
+2016-02-03 19:28:20.642852
+Results:
+4.0
+4.1
+4.1
+Samples: 3
+Pavg: 4.067
+Pmax: 4.100
+Pmin: 4.000
+Pstdev: 0.047
+Joules: 12.200
+beginning trial 3-2-2D of 3 (large.random, ChaCha20 decrypt)
+2016-02-03 19:28:24.961071
+Results:
+4.0
+Samples: 1
+Pavg: 4.000
+Pmax: 4.000
+Pmin: 4.000
+Pstdev: 0.000
+Joules: 4.000
+beginning trial 3-2-3D of 3 (large.random, AES-GCM decrypt)
+2016-02-03 19:28:32.557836
+Results:
+4.0
+4.1
+4.1
+4.1
+4.2
+Samples: 5
+Pavg: 4.100
+Pmax: 4.200
+Pmin: 4.000
+Pstdev: 0.063
+Joules: 20.500
+beginning trial 3-2-4D of 3 (large.random, ChaCha20-Poly1305 decrypt)
+2016-02-03 19:28:37.601952
+Results:
+4.0
+4.1
+Samples: 2
+Pavg: 4.050
+Pmax: 4.100
+Pmin: 4.000
+Pstdev: 0.050
+Joules: 8.100
+beginning trial 3-2-5D of 3 (large.random, AES-CBC decrypt)
+2016-02-03 19:28:43.511986
+Results:
+4.0
+4.0
+4.1
+Samples: 3
+Pavg: 4.033
+Pmax: 4.100
+Pmin: 4.000
+Pstdev: 0.047
+Joules: 12.100
+mf: 0x10 1100000
+beginning trial 1-2-1E of 3 (large.random, AES-CTR encrypt)
+2016-02-03 19:28:58.122013
+Results:
+3.7
+3.8
+3.9
+3.9
+Samples: 4
+Pavg: 3.825
+Pmax: 3.900
+Pmin: 3.700
+Pstdev: 0.083
+Joules: 15.300
+beginning trial 1-2-2E of 3 (large.random, ChaCha20 encrypt)
+2016-02-03 19:29:02.579777
+Results:
+3.9
+Samples: 1
+Pavg: 3.900
+Pmax: 3.900
+Pmin: 3.900
+Pstdev: 0.000
+Joules: 3.900
+beginning trial 1-2-3E of 3 (large.random, AES-GCM encrypt)
+2016-02-03 19:29:11.048829
+Results:
+3.9
+3.9
+4.0
+4.0
+4.0
+Samples: 5
+Pavg: 3.960
+Pmax: 4.000
+Pmin: 3.900
+Pstdev: 0.049
+Joules: 19.800
+beginning trial 1-2-4E of 3 (large.random, ChaCha20-Poly1305 encrypt)
+2016-02-03 19:29:16.232051
+Results:
+4.0
+Samples: 1
+Pavg: 4.000
+Pmax: 4.000
+Pmin: 4.000
+Pstdev: 0.000
+Joules: 4.000
+beginning trial 1-2-5E of 3 (large.random, AES-CBC encrypt)
+2016-02-03 19:29:22.305064
+Results:
+3.9
+4.0
+Samples: 2
+Pavg: 3.950
+Pmax: 4.000
+Pmin: 3.900
+Pstdev: 0.050
+Joules: 7.900
+beginning trial 1-2-1D of 3 (large.random, AES-CTR decrypt)
+2016-02-03 19:29:28.690155
+Results:
+3.9
+3.9
+4.0
+Samples: 3
+Pavg: 3.933
+Pmax: 4.000
+Pmin: 3.900
+Pstdev: 0.047
+Joules: 11.800
+beginning trial 1-2-2D of 3 (large.random, ChaCha20 decrypt)
+2016-02-03 19:29:33.180115
+Results:
+3.9
+Samples: 1
+Pavg: 3.900
+Pmax: 3.900
+Pmin: 3.900
+Pstdev: 0.000
+Joules: 3.900
+beginning trial 1-2-3D of 3 (large.random, AES-GCM decrypt)
+2016-02-03 19:29:41.132804
+Results:
+3.9
+3.9
+3.9
+4.0
+Samples: 4
+Pavg: 3.925
+Pmax: 4.000
+Pmin: 3.900
+Pstdev: 0.043
+Joules: 15.700
+beginning trial 1-2-4D of 3 (large.random, ChaCha20-Poly1305 decrypt)
+2016-02-03 19:29:46.489593
+Results:
+3.9
+4.0
+Samples: 2
+Pavg: 3.950
+Pmax: 4.000
+Pmin: 3.900
+Pstdev: 0.050
+Joules: 7.900
+beginning trial 1-2-5D of 3 (large.random, AES-CBC decrypt)
+2016-02-03 19:29:52.636601
+Results:
+3.9
+3.9
+4.0
+Samples: 3
+Pavg: 3.933
+Pmax: 4.000
+Pmin: 3.900
+Pstdev: 0.047
+Joules: 11.800
+beginning trial 2-2-1E of 3 (large.random, AES-CTR encrypt)
+2016-02-03 19:29:58.767120
+Results:
+3.9
+3.9
+4.0
+Samples: 3
+Pavg: 3.933
+Pmax: 4.000
+Pmin: 3.900
+Pstdev: 0.047
+Joules: 11.800
+beginning trial 2-2-2E of 3 (large.random, ChaCha20 encrypt)
+2016-02-03 19:30:03.259357
+Results:
+3.9
+Samples: 1
+Pavg: 3.900
+Pmax: 3.900
+Pmin: 3.900
+Pstdev: 0.000
+Joules: 3.900
+beginning trial 2-2-3E of 3 (large.random, AES-GCM encrypt)
+2016-02-03 19:30:11.557779
+Results:
+3.9
+3.9
+4.0
+4.0
+4.0
+Samples: 5
+Pavg: 3.960
+Pmax: 4.000
+Pmin: 3.900
+Pstdev: 0.049
+Joules: 19.800
+beginning trial 2-2-4E of 3 (large.random, ChaCha20-Poly1305 encrypt)
+2016-02-03 19:30:16.800619
+Results:
+3.9
+4.0
+Samples: 2
+Pavg: 3.950
+Pmax: 4.000
+Pmin: 3.900
+Pstdev: 0.050
+Joules: 7.900
+beginning trial 2-2-5E of 3 (large.random, AES-CBC encrypt)
+2016-02-03 19:30:22.941647
+Results:
+3.9
+3.9
+4.0
+Samples: 3
+Pavg: 3.933
+Pmax: 4.000
+Pmin: 3.900
+Pstdev: 0.047
+Joules: 11.800
+beginning trial 2-2-1D of 3 (large.random, AES-CTR decrypt)
+2016-02-03 19:30:29.066772
+Results:
+4.0
+4.0
+4.0
+Samples: 3
+Pavg: 4.000
+Pmax: 4.000
+Pmin: 4.000
+Pstdev: 0.000
+Joules: 12.000
+beginning trial 2-2-2D of 3 (large.random, ChaCha20 decrypt)
+2016-02-03 19:30:33.561007
+Results:
+4.0
+Samples: 1
+Pavg: 4.000
+Pmax: 4.000
+Pmin: 4.000
+Pstdev: 0.000
+Joules: 4.000
+beginning trial 2-2-3D of 3 (large.random, AES-GCM decrypt)
+2016-02-03 19:30:41.550636
+Results:
+3.9
+3.9
+4.0
+4.0
+4.0
+Samples: 5
+Pavg: 3.960
+Pmax: 4.000
+Pmin: 3.900
+Pstdev: 0.049
+Joules: 19.800
+beginning trial 2-2-4D of 3 (large.random, ChaCha20-Poly1305 decrypt)
+2016-02-03 19:30:46.840442
+Results:
+3.9
+4.0
+Samples: 2
+Pavg: 3.950
+Pmax: 4.000
+Pmin: 3.900
+Pstdev: 0.050
+Joules: 7.900
+beginning trial 2-2-5D of 3 (large.random, AES-CBC decrypt)
+2016-02-03 19:30:52.997622
+Results:
+3.9
+3.9
+4.0
+Samples: 3
+Pavg: 3.933
+Pmax: 4.000
+Pmin: 3.900
+Pstdev: 0.047
+Joules: 11.800
+beginning trial 3-2-1E of 3 (large.random, AES-CTR encrypt)
+2016-02-03 19:30:59.114891
+Results:
+4.0
+4.0
+Samples: 2
+Pavg: 4.000
+Pmax: 4.000
+Pmin: 4.000
+Pstdev: 0.000
+Joules: 8.000
+beginning trial 3-2-2E of 3 (large.random, ChaCha20 encrypt)
+2016-02-03 19:31:03.611763
+Results:
+3.9
+Samples: 1
+Pavg: 3.900
+Pmax: 3.900
+Pmin: 3.900
+Pstdev: 0.000
+Joules: 3.900
+beginning trial 3-2-3E of 3 (large.random, AES-GCM encrypt)
+2016-02-03 19:31:11.671491
+Results:
+3.9
+3.9
+3.9
+4.0
+4.0
+Samples: 5
+Pavg: 3.940
+Pmax: 4.000
+Pmin: 3.900
+Pstdev: 0.049
+Joules: 19.700
+beginning trial 3-2-4E of 3 (large.random, ChaCha20-Poly1305 encrypt)
+2016-02-03 19:31:16.916066
+Results:
+3.9
+4.0
+Samples: 2
+Pavg: 3.950
+Pmax: 4.000
+Pmin: 3.900
+Pstdev: 0.050
+Joules: 7.900
+beginning trial 3-2-5E of 3 (large.random, AES-CBC encrypt)
+2016-02-03 19:31:23.057775
+Results:
+3.9
+4.0
+4.0
+Samples: 3
+Pavg: 3.967
+Pmax: 4.000
+Pmin: 3.900
+Pstdev: 0.047
+Joules: 11.900
+beginning trial 3-2-1D of 3 (large.random, AES-CTR decrypt)
+2016-02-03 19:31:29.191421
+Results:
+4.0
+4.0
+Samples: 2
+Pavg: 4.000
+Pmax: 4.000
+Pmin: 4.000
+Pstdev: 0.000
+Joules: 8.000
+beginning trial 3-2-2D of 3 (large.random, ChaCha20 decrypt)
+2016-02-03 19:31:33.681080
+Results:
+3.9
+Samples: 1
+Pavg: 3.900
+Pmax: 3.900
+Pmin: 3.900
+Pstdev: 0.000
+Joules: 3.900
+beginning trial 3-2-3D of 3 (large.random, AES-GCM decrypt)
+2016-02-03 19:31:41.661775
+Results:
+3.9
+3.9
+3.9
+4.0
+4.0
+Samples: 5
+Pavg: 3.940
+Pmax: 4.000
+Pmin: 3.900
+Pstdev: 0.049
+Joules: 19.700
+beginning trial 3-2-4D of 3 (large.random, ChaCha20-Poly1305 decrypt)
+2016-02-03 19:31:46.951992
+Results:
+3.9
+3.9
+Samples: 2
+Pavg: 3.900
+Pmax: 3.900
+Pmin: 3.900
+Pstdev: 0.000
+Joules: 7.800
+beginning trial 3-2-5D of 3 (large.random, AES-CBC decrypt)
+2016-02-03 19:31:53.284471
+Results:
+3.9
+4.0
+4.0
+Samples: 3
+Pavg: 3.967
+Pmax: 4.000
+Pmin: 3.900
+Pstdev: 0.047
+Joules: 11.900
+mf: 0x10 1000000
+beginning trial 1-2-1E of 3 (large.random, AES-CTR encrypt)
+2016-02-03 19:32:08.297277
+Results:
+3.6
+3.7
+3.7
+3.8
+Samples: 4
+Pavg: 3.700
+Pmax: 3.800
+Pmin: 3.600
+Pstdev: 0.071
+Joules: 14.800
+beginning trial 1-2-2E of 3 (large.random, ChaCha20 encrypt)
+2016-02-03 19:32:13.072027
+Results:
+3.8
+Samples: 1
+Pavg: 3.800
+Pmax: 3.800
+Pmin: 3.800
+Pstdev: 0.000
+Joules: 3.800
+beginning trial 1-2-3E of 3 (large.random, AES-GCM encrypt)
+2016-02-03 19:32:21.676288
+Results:
+3.8
+3.8
+3.9
+3.9
+3.9
+Samples: 5
+Pavg: 3.860
+Pmax: 3.900
+Pmin: 3.800
+Pstdev: 0.049
+Joules: 19.300
+beginning trial 1-2-4E of 3 (large.random, ChaCha20-Poly1305 encrypt)
+2016-02-03 19:32:27.172262
+Results:
+3.8
+3.9
+Samples: 2
+Pavg: 3.850
+Pmax: 3.900
+Pmin: 3.800
+Pstdev: 0.050
+Joules: 7.700
+beginning trial 1-2-5E of 3 (large.random, AES-CBC encrypt)
+2016-02-03 19:32:33.662558
+Results:
+3.8
+3.8
+3.9
+Samples: 3
+Pavg: 3.833
+Pmax: 3.900
+Pmin: 3.800
+Pstdev: 0.047
+Joules: 11.500
+beginning trial 1-2-1D of 3 (large.random, AES-CTR decrypt)
+2016-02-03 19:32:40.143113
+Results:
+3.8
+3.8
+3.9
+Samples: 3
+Pavg: 3.833
+Pmax: 3.900
+Pmin: 3.800
+Pstdev: 0.047
+Joules: 11.500
+beginning trial 1-2-2D of 3 (large.random, ChaCha20 decrypt)
+2016-02-03 19:32:44.856347
+Results:
+3.8
+Samples: 1
+Pavg: 3.800
+Pmax: 3.800
+Pmin: 3.800
+Pstdev: 0.000
+Joules: 3.800
+beginning trial 1-2-3D of 3 (large.random, AES-GCM decrypt)
+2016-02-03 19:32:53.539279
+Results:
+3.8
+3.8
+3.9
+3.9
+3.9
+3.9
+Samples: 6
+Pavg: 3.867
+Pmax: 3.900
+Pmin: 3.800
+Pstdev: 0.047
+Joules: 23.200
+beginning trial 1-2-4D of 3 (large.random, ChaCha20-Poly1305 decrypt)
+2016-02-03 19:32:59.129740
+Results:
+3.8
+3.8
+Samples: 2
+Pavg: 3.800
+Pmax: 3.800
+Pmin: 3.800
+Pstdev: 0.000
+Joules: 7.600
+beginning trial 1-2-5D of 3 (large.random, AES-CBC decrypt)
+2016-02-03 19:33:05.677333
+Results:
+3.8
+3.9
+3.9
+Samples: 3
+Pavg: 3.867
+Pmax: 3.900
+Pmin: 3.800
+Pstdev: 0.047
+Joules: 11.600
+beginning trial 2-2-1E of 3 (large.random, AES-CTR encrypt)
+2016-02-03 19:33:12.205920
+Results:
+3.8
+3.8
+3.9
+Samples: 3
+Pavg: 3.833
+Pmax: 3.900
+Pmin: 3.800
+Pstdev: 0.047
+Joules: 11.500
+beginning trial 2-2-2E of 3 (large.random, ChaCha20 encrypt)
+2016-02-03 19:33:17.058233
+Results:
+3.8
+Samples: 1
+Pavg: 3.800
+Pmax: 3.800
+Pmin: 3.800
+Pstdev: 0.000
+Joules: 3.800
+beginning trial 2-2-3E of 3 (large.random, AES-GCM encrypt)
+2016-02-03 19:33:25.706957
+Results:
+3.8
+3.9
+3.9
+3.9
+3.9
+Samples: 5
+Pavg: 3.880
+Pmax: 3.900
+Pmin: 3.800
+Pstdev: 0.040
+Joules: 19.400
+beginning trial 2-2-4E of 3 (large.random, ChaCha20-Poly1305 encrypt)
+2016-02-03 19:33:31.242132
+Results:
+3.8
+3.8
+Samples: 2
+Pavg: 3.800
+Pmax: 3.800
+Pmin: 3.800
+Pstdev: 0.000
+Joules: 7.600
+beginning trial 2-2-5E of 3 (large.random, AES-CBC encrypt)
+2016-02-03 19:33:37.873066
+Results:
+3.8
+3.8
+3.9
+Samples: 3
+Pavg: 3.833
+Pmax: 3.900
+Pmin: 3.800
+Pstdev: 0.047
+Joules: 11.500
+beginning trial 2-2-1D of 3 (large.random, AES-CTR decrypt)
+2016-02-03 19:33:44.486073
+Results:
+3.8
+3.9
+3.9
+3.9
+Samples: 4
+Pavg: 3.875
+Pmax: 3.900
+Pmin: 3.800
+Pstdev: 0.043
+Joules: 15.500
+beginning trial 2-2-2D of 3 (large.random, ChaCha20 decrypt)
+2016-02-03 19:33:49.195288
+Results:
+3.8
+Samples: 1
+Pavg: 3.800
+Pmax: 3.800
+Pmin: 3.800
+Pstdev: 0.000
+Joules: 3.800
+beginning trial 2-2-3D of 3 (large.random, AES-GCM decrypt)
+2016-02-03 19:33:57.884987
+Results:
+3.8
+3.8
+3.8
+3.8
+3.9
+Samples: 5
+Pavg: 3.820
+Pmax: 3.900
+Pmin: 3.800
+Pstdev: 0.040
+Joules: 19.100
+beginning trial 2-2-4D of 3 (large.random, ChaCha20-Poly1305 decrypt)
+2016-02-03 19:34:03.496217
+Results:
+3.9
+3.9
+3.9
+Samples: 3
+Pavg: 3.900
+Pmax: 3.900
+Pmin: 3.900
+Pstdev: 0.000
+Joules: 11.700
+beginning trial 2-2-5D of 3 (large.random, AES-CBC decrypt)
+2016-02-03 19:34:10.055981
+Results:
+3.8
+3.9
+3.9
+Samples: 3
+Pavg: 3.867
+Pmax: 3.900
+Pmin: 3.800
+Pstdev: 0.047
+Joules: 11.600
+beginning trial 3-2-1E of 3 (large.random, AES-CTR encrypt)
+2016-02-03 19:34:16.584524
+Results:
+3.8
+3.9
+3.9
+Samples: 3
+Pavg: 3.867
+Pmax: 3.900
+Pmin: 3.800
+Pstdev: 0.047
+Joules: 11.600
+beginning trial 3-2-2E of 3 (large.random, ChaCha20 encrypt)
+2016-02-03 19:34:21.430218
+Results:
+3.8
+3.9
+Samples: 2
+Pavg: 3.850
+Pmax: 3.900
+Pmin: 3.800
+Pstdev: 0.050
+Joules: 7.700
+beginning trial 3-2-3E of 3 (large.random, AES-GCM encrypt)
+2016-02-03 19:34:30.077623
+Results:
+3.8
+3.8
+3.8
+3.9
+3.9
+Samples: 5
+Pavg: 3.840
+Pmax: 3.900
+Pmin: 3.800
+Pstdev: 0.049
+Joules: 19.200
+beginning trial 3-2-4E of 3 (large.random, ChaCha20-Poly1305 encrypt)
+2016-02-03 19:34:35.621165
+Results:
+3.8
+3.9
+Samples: 2
+Pavg: 3.850
+Pmax: 3.900
+Pmin: 3.800
+Pstdev: 0.050
+Joules: 7.700
+beginning trial 3-2-5E of 3 (large.random, AES-CBC encrypt)
+2016-02-03 19:34:42.153092
+Results:
+3.8
+3.8
+3.8
+Samples: 3
+Pavg: 3.800
+Pmax: 3.800
+Pmin: 3.800
+Pstdev: 0.000
+Joules: 11.400
+beginning trial 3-2-1D of 3 (large.random, AES-CTR decrypt)
+2016-02-03 19:34:48.701690
+Results:
+3.8
+3.8
+3.9
+Samples: 3
+Pavg: 3.833
+Pmax: 3.900
+Pmin: 3.800
+Pstdev: 0.047
+Joules: 11.500
+beginning trial 3-2-2D of 3 (large.random, ChaCha20 decrypt)
+2016-02-03 19:34:53.432344
+Results:
+3.8
+3.8
+Samples: 2
+Pavg: 3.800
+Pmax: 3.800
+Pmin: 3.800
+Pstdev: 0.000
+Joules: 7.600
+beginning trial 3-2-3D of 3 (large.random, AES-GCM decrypt)
+2016-02-03 19:35:01.979624
+Results:
+3.8
+3.8
+3.8
+3.9
+3.9
+Samples: 5
+Pavg: 3.840
+Pmax: 3.900
+Pmin: 3.800
+Pstdev: 0.049
+Joules: 19.200
+beginning trial 3-2-4D of 3 (large.random, ChaCha20-Poly1305 decrypt)
+2016-02-03 19:35:07.563041
+Results:
+3.9
+3.9
+Samples: 2
+Pavg: 3.900
+Pmax: 3.900
+Pmin: 3.900
+Pstdev: 0.000
+Joules: 7.800
+beginning trial 3-2-5D of 3 (large.random, AES-CBC decrypt)
+2016-02-03 19:35:14.111966
+Results:
+3.8
+3.8
+3.9
+Samples: 3
+Pavg: 3.833
+Pmax: 3.900
+Pmin: 3.800
+Pstdev: 0.047
+Joules: 11.500
+mf: 0x10 900000
+beginning trial 1-2-1E of 3 (large.random, AES-CTR encrypt)
+2016-02-03 19:35:29.908387
+Results:
+3.6
+3.6
+3.6
+3.7
+3.7
+Samples: 5
+Pavg: 3.640
+Pmax: 3.700
+Pmin: 3.600
+Pstdev: 0.049
+Joules: 18.200
+beginning trial 1-2-2E of 3 (large.random, ChaCha20 encrypt)
+2016-02-03 19:35:34.864681
+Results:
+3.7
+3.7
+Samples: 2
+Pavg: 3.700
+Pmax: 3.700
+Pmin: 3.700
+Pstdev: 0.000
+Joules: 7.400
+beginning trial 1-2-3E of 3 (large.random, AES-GCM encrypt)
+2016-02-03 19:35:44.247170
+Results:
+3.7
+3.7
+3.7
+3.8
+3.8
+3.8
+Samples: 6
+Pavg: 3.750
+Pmax: 3.800
+Pmin: 3.700
+Pstdev: 0.050
+Joules: 22.500
+beginning trial 1-2-4E of 3 (large.random, ChaCha20-Poly1305 encrypt)
+2016-02-03 19:35:50.199846
+Results:
+3.7
+3.8
+Samples: 2
+Pavg: 3.750
+Pmax: 3.800
+Pmin: 3.700
+Pstdev: 0.050
+Joules: 7.500
+beginning trial 1-2-5E of 3 (large.random, AES-CBC encrypt)
+2016-02-03 19:35:57.437703
+Results:
+3.7
+3.7
+3.7
+3.8
+Samples: 4
+Pavg: 3.725
+Pmax: 3.800
+Pmin: 3.700
+Pstdev: 0.043
+Joules: 14.900
+beginning trial 1-2-1D of 3 (large.random, AES-CTR decrypt)
+2016-02-03 19:36:04.639393
+Results:
+3.7
+3.7
+3.7
+3.8
+Samples: 4
+Pavg: 3.725
+Pmax: 3.800
+Pmin: 3.700
+Pstdev: 0.043
+Joules: 14.900
+beginning trial 1-2-2D of 3 (large.random, ChaCha20 decrypt)
+2016-02-03 19:36:09.642493
+Results:
+3.7
+3.7
+Samples: 2
+Pavg: 3.700
+Pmax: 3.700
+Pmin: 3.700
+Pstdev: 0.000
+Joules: 7.400
+beginning trial 1-2-3D of 3 (large.random, AES-GCM decrypt)
+2016-02-03 19:36:18.985706
+Results:
+3.6
+3.7
+3.7
+3.7
+3.7
+3.8
+Samples: 6
+Pavg: 3.700
+Pmax: 3.800
+Pmin: 3.600
+Pstdev: 0.058
+Joules: 22.200
+beginning trial 1-2-4D of 3 (large.random, ChaCha20-Poly1305 decrypt)
+2016-02-03 19:36:24.957462
+Results:
+3.8
+3.8
+Samples: 2
+Pavg: 3.800
+Pmax: 3.800
+Pmin: 3.800
+Pstdev: 0.000
+Joules: 7.600
+beginning trial 1-2-5D of 3 (large.random, AES-CBC decrypt)
+2016-02-03 19:36:32.429444
+Results:
+3.8
+3.8
+3.8
+3.8
+Samples: 4
+Pavg: 3.800
+Pmax: 3.800
+Pmin: 3.800
+Pstdev: 0.000
+Joules: 15.200
+beginning trial 2-2-1E of 3 (large.random, AES-CTR encrypt)
+2016-02-03 19:36:39.478457
+Results:
+3.7
+3.7
+3.8
+3.8
+Samples: 4
+Pavg: 3.750
+Pmax: 3.800
+Pmin: 3.700
+Pstdev: 0.050
+Joules: 15.000
+beginning trial 2-2-2E of 3 (large.random, ChaCha20 encrypt)
+2016-02-03 19:36:44.481002
+Results:
+3.7
+3.7
+Samples: 2
+Pavg: 3.700
+Pmax: 3.700
+Pmin: 3.700
+Pstdev: 0.000
+Joules: 7.400
+beginning trial 2-2-3E of 3 (large.random, AES-GCM encrypt)
+2016-02-03 19:36:53.917789
+Results:
+3.7
+3.7
+3.7
+3.7
+3.7
+3.8
+Samples: 6
+Pavg: 3.717
+Pmax: 3.800
+Pmin: 3.700
+Pstdev: 0.037
+Joules: 22.300
+beginning trial 2-2-4E of 3 (large.random, ChaCha20-Poly1305 encrypt)
+2016-02-03 19:36:59.990326
+Results:
+3.7
+3.8
+Samples: 2
+Pavg: 3.750
+Pmax: 3.800
+Pmin: 3.700
+Pstdev: 0.050
+Joules: 7.500
+beginning trial 2-2-5E of 3 (large.random, AES-CBC encrypt)
+2016-02-03 19:37:07.015265
+Results:
+3.7
+3.8
+3.8
+Samples: 3
+Pavg: 3.767
+Pmax: 3.800
+Pmin: 3.700
+Pstdev: 0.047
+Joules: 11.300
+beginning trial 2-2-1D of 3 (large.random, AES-CTR decrypt)
+2016-02-03 19:37:14.024373
+Results:
+3.7
+3.7
+3.7
+Samples: 3
+Pavg: 3.700
+Pmax: 3.700
+Pmin: 3.700
+Pstdev: 0.000
+Joules: 11.100
+beginning trial 2-2-2D of 3 (large.random, ChaCha20 decrypt)
+2016-02-03 19:37:19.003084
+Results:
+3.7
+Samples: 1
+Pavg: 3.700
+Pmax: 3.700
+Pmin: 3.700
+Pstdev: 0.000
+Joules: 3.700
+beginning trial 2-2-3D of 3 (large.random, AES-GCM decrypt)
+2016-02-03 19:37:28.305526
+Results:
+3.7
+3.7
+3.8
+3.8
+3.8
+Samples: 5
+Pavg: 3.760
+Pmax: 3.800
+Pmin: 3.700
+Pstdev: 0.049
+Joules: 18.800
+beginning trial 2-2-4D of 3 (large.random, ChaCha20-Poly1305 decrypt)
+2016-02-03 19:37:34.597849
+Results:
+3.7
+3.7
+3.8
+Samples: 3
+Pavg: 3.733
+Pmax: 3.800
+Pmin: 3.700
+Pstdev: 0.047
+Joules: 11.200
+beginning trial 2-2-5D of 3 (large.random, AES-CBC decrypt)
+2016-02-03 19:37:41.666403
+Results:
+3.7
+3.7
+3.7
+3.8
+Samples: 4
+Pavg: 3.725
+Pmax: 3.800
+Pmin: 3.700
+Pstdev: 0.043
+Joules: 14.900
+beginning trial 3-2-1E of 3 (large.random, AES-CTR encrypt)
+2016-02-03 19:37:48.714810
+Results:
+3.7
+3.7
+3.7
+3.7
+Samples: 4
+Pavg: 3.700
+Pmax: 3.700
+Pmin: 3.700
+Pstdev: 0.000
+Joules: 14.800
+beginning trial 3-2-2E of 3 (large.random, ChaCha20 encrypt)
+2016-02-03 19:37:53.722349
+Results:
+3.7
+3.7
+Samples: 2
+Pavg: 3.700
+Pmax: 3.700
+Pmin: 3.700
+Pstdev: 0.000
+Joules: 7.400
+beginning trial 3-2-3E of 3 (large.random, AES-GCM encrypt)
+2016-02-03 19:38:03.160668
+Results:
+3.6
+3.7
+3.7
+3.7
+3.7
+3.7
+Samples: 6
+Pavg: 3.683
+Pmax: 3.700
+Pmin: 3.600
+Pstdev: 0.037
+Joules: 22.100
+beginning trial 3-2-4E of 3 (large.random, ChaCha20-Poly1305 encrypt)
+2016-02-03 19:38:09.191739
+Results:
+3.7
+3.7
+Samples: 2
+Pavg: 3.700
+Pmax: 3.700
+Pmin: 3.700
+Pstdev: 0.000
+Joules: 7.400
+beginning trial 3-2-5E of 3 (large.random, AES-CBC encrypt)
+2016-02-03 19:38:16.422922
+Results:
+3.7
+3.7
+3.7
+3.8
+Samples: 4
+Pavg: 3.725
+Pmax: 3.800
+Pmin: 3.700
+Pstdev: 0.043
+Joules: 14.900
+beginning trial 3-2-1D of 3 (large.random, AES-CTR decrypt)
+2016-02-03 19:38:23.477152
+Results:
+3.7
+3.7
+3.7
+3.7
+Samples: 4
+Pavg: 3.700
+Pmax: 3.700
+Pmin: 3.700
+Pstdev: 0.000
+Joules: 14.800
+beginning trial 3-2-2D of 3 (large.random, ChaCha20 decrypt)
+2016-02-03 19:38:28.485979
+Results:
+3.7
+3.7
+Samples: 2
+Pavg: 3.700
+Pmax: 3.700
+Pmin: 3.700
+Pstdev: 0.000
+Joules: 7.400
+beginning trial 3-2-3D of 3 (large.random, AES-GCM decrypt)
+2016-02-03 19:38:37.804232
+Results:
+3.6
+3.7
+3.7
+3.7
+3.8
+3.8
+Samples: 6
+Pavg: 3.717
+Pmax: 3.800
+Pmin: 3.600
+Pstdev: 0.069
+Joules: 22.300
+beginning trial 3-2-4D of 3 (large.random, ChaCha20-Poly1305 decrypt)
+2016-02-03 19:38:43.794618
+Results:
+3.7
+3.8
+3.8
+Samples: 3
+Pavg: 3.767
+Pmax: 3.800
+Pmin: 3.700
+Pstdev: 0.047
+Joules: 11.300
+beginning trial 3-2-5D of 3 (large.random, AES-CBC decrypt)
+2016-02-03 19:38:50.863439
+Results:
+3.7
+3.8
+3.8
+3.8
+Samples: 4
+Pavg: 3.775
+Pmax: 3.800
+Pmin: 3.700
+Pstdev: 0.043
+Joules: 15.100
+mf: 0x10 800000
+beginning trial 1-2-1E of 3 (large.random, AES-CTR encrypt)
+2016-02-03 19:39:07.648358
+Results:
+3.5
+3.5
+3.6
+3.6
+3.6
+3.6
+Samples: 6
+Pavg: 3.567
+Pmax: 3.600
+Pmin: 3.500
+Pstdev: 0.047
+Joules: 21.400
+beginning trial 1-2-2E of 3 (large.random, ChaCha20 encrypt)
+2016-02-03 19:39:12.952821
+Results:
+3.5
+3.6
+Samples: 2
+Pavg: 3.550
+Pmax: 3.600
+Pmin: 3.500
+Pstdev: 0.050
+Joules: 7.100
+beginning trial 1-2-3E of 3 (large.random, AES-GCM encrypt)
+2016-02-03 19:39:23.298073
+Results:
+3.6
+3.6
+3.6
+3.6
+3.7
+3.7
+Samples: 6
+Pavg: 3.633
+Pmax: 3.700
+Pmin: 3.600
+Pstdev: 0.047
+Joules: 21.800
+beginning trial 1-2-4E of 3 (large.random, ChaCha20-Poly1305 encrypt)
+2016-02-03 19:39:29.671986
+Results:
+3.6
+3.6
+3.7
+Samples: 3
+Pavg: 3.633
+Pmax: 3.700
+Pmin: 3.600
+Pstdev: 0.047
+Joules: 10.900
+beginning trial 1-2-5E of 3 (large.random, AES-CBC encrypt)
+2016-02-03 19:39:37.436827
+Results:
+3.6
+3.6
+3.6
+3.7
+3.7
+Samples: 5
+Pavg: 3.640
+Pmax: 3.700
+Pmin: 3.600
+Pstdev: 0.049
+Joules: 18.200
+beginning trial 1-2-1D of 3 (large.random, AES-CTR decrypt)
+2016-02-03 19:39:45.054771
+Results:
+3.6
+3.6
+3.6
+3.7
+Samples: 4
+Pavg: 3.625
+Pmax: 3.700
+Pmin: 3.600
+Pstdev: 0.043
+Joules: 14.500
+beginning trial 1-2-2D of 3 (large.random, ChaCha20 decrypt)
+2016-02-03 19:39:50.411682
+Results:
+3.6
+3.6
+Samples: 2
+Pavg: 3.600
+Pmax: 3.600
+Pmin: 3.600
+Pstdev: 0.000
+Joules: 7.200
+beginning trial 1-2-3D of 3 (large.random, AES-GCM decrypt)
+2016-02-03 19:40:00.735188
+Results:
+3.6
+3.6
+3.6
+3.7
+3.7
+3.7
+3.7
+Samples: 7
+Pavg: 3.657
+Pmax: 3.700
+Pmin: 3.600
+Pstdev: 0.049
+Joules: 25.600
+beginning trial 1-2-4D of 3 (large.random, ChaCha20-Poly1305 decrypt)
+2016-02-03 19:40:07.211484
+Results:
+3.6
+3.7
+3.7
+Samples: 3
+Pavg: 3.667
+Pmax: 3.700
+Pmin: 3.600
+Pstdev: 0.047
+Joules: 11.000
+beginning trial 1-2-5D of 3 (large.random, AES-CBC decrypt)
+2016-02-03 19:40:14.986886
+Results:
+3.6
+3.7
+3.7
+3.7
+Samples: 4
+Pavg: 3.675
+Pmax: 3.700
+Pmin: 3.600
+Pstdev: 0.043
+Joules: 14.700
+beginning trial 2-2-1E of 3 (large.random, AES-CTR encrypt)
+2016-02-03 19:40:22.673674
+Results:
+3.7
+3.7
+3.7
+3.7
+Samples: 4
+Pavg: 3.700
+Pmax: 3.700
+Pmin: 3.700
+Pstdev: 0.000
+Joules: 14.800
+beginning trial 2-2-2E of 3 (large.random, ChaCha20 encrypt)
+2016-02-03 19:40:28.035199
+Results:
+3.6
+3.7
+Samples: 2
+Pavg: 3.650
+Pmax: 3.700
+Pmin: 3.600
+Pstdev: 0.050
+Joules: 7.300
+beginning trial 2-2-3E of 3 (large.random, AES-GCM encrypt)
+2016-02-03 19:40:38.492758
+Results:
+3.6
+3.6
+3.6
+3.7
+3.7
+3.7
+3.7
+Samples: 7
+Pavg: 3.657
+Pmax: 3.700
+Pmin: 3.600
+Pstdev: 0.049
+Joules: 25.600
+beginning trial 2-2-4E of 3 (large.random, ChaCha20-Poly1305 encrypt)
+2016-02-03 19:40:44.914732
+Results:
+3.6
+3.6
+3.7
+Samples: 3
+Pavg: 3.633
+Pmax: 3.700
+Pmin: 3.600
+Pstdev: 0.047
+Joules: 10.900
+beginning trial 2-2-5E of 3 (large.random, AES-CBC encrypt)
+2016-02-03 19:40:52.609321
+Results:
+3.7
+3.7
+3.7
+3.7
+Samples: 4
+Pavg: 3.700
+Pmax: 3.700
+Pmin: 3.700
+Pstdev: 0.000
+Joules: 14.800
+beginning trial 2-2-1D of 3 (large.random, AES-CTR decrypt)
+2016-02-03 19:41:00.451107
+Results:
+3.6
+3.6
+3.6
+3.7
+3.7
+Samples: 5
+Pavg: 3.640
+Pmax: 3.700
+Pmin: 3.600
+Pstdev: 0.049
+Joules: 18.200
+beginning trial 2-2-2D of 3 (large.random, ChaCha20 decrypt)
+2016-02-03 19:41:05.808274
+Results:
+3.6
+3.6
+Samples: 2
+Pavg: 3.600
+Pmax: 3.600
+Pmin: 3.600
+Pstdev: 0.000
+Joules: 7.200
+beginning trial 2-2-3D of 3 (large.random, AES-GCM decrypt)
+2016-02-03 19:41:16.131669
+Results:
+3.6
+3.6
+3.7
+3.7
+3.7
+3.7
+3.7
+Samples: 7
+Pavg: 3.671
+Pmax: 3.700
+Pmin: 3.600
+Pstdev: 0.045
+Joules: 25.700
+beginning trial 2-2-4D of 3 (large.random, ChaCha20-Poly1305 decrypt)
+2016-02-03 19:41:22.751869
+Results:
+3.6
+3.6
+3.6
+Samples: 3
+Pavg: 3.600
+Pmax: 3.600
+Pmin: 3.600
+Pstdev: 0.000
+Joules: 10.800
+beginning trial 2-2-5D of 3 (large.random, AES-CBC decrypt)
+2016-02-03 19:41:30.498604
+Results:
+3.6
+3.6
+3.7
+3.7
+3.7
+Samples: 5
+Pavg: 3.660
+Pmax: 3.700
+Pmin: 3.600
+Pstdev: 0.049
+Joules: 18.300
+beginning trial 3-2-1E of 3 (large.random, AES-CTR encrypt)
+2016-02-03 19:41:38.183329
+Results:
+3.6
+3.6
+3.7
+3.7
+Samples: 4
+Pavg: 3.650
+Pmax: 3.700
+Pmin: 3.600
+Pstdev: 0.050
+Joules: 14.600
+beginning trial 3-2-2E of 3 (large.random, ChaCha20 encrypt)
+2016-02-03 19:41:43.786267
+Results:
+3.6
+3.7
+Samples: 2
+Pavg: 3.650
+Pmax: 3.700
+Pmin: 3.600
+Pstdev: 0.050
+Joules: 7.300
+beginning trial 3-2-3E of 3 (large.random, AES-GCM encrypt)
+2016-02-03 19:41:54.210381
+Results:
+3.6
+3.6
+3.6
+3.6
+3.7
+3.7
+3.7
+Samples: 7
+Pavg: 3.643
+Pmax: 3.700
+Pmin: 3.600
+Pstdev: 0.049
+Joules: 25.500
+beginning trial 3-2-4E of 3 (large.random, ChaCha20-Poly1305 encrypt)
+2016-02-03 19:42:00.691685
+Results:
+3.6
+3.6
+3.7
+Samples: 3
+Pavg: 3.633
+Pmax: 3.700
+Pmin: 3.600
+Pstdev: 0.047
+Joules: 10.900
+beginning trial 3-2-5E of 3 (large.random, AES-CBC encrypt)
+2016-02-03 19:42:08.447742
+Results:
+3.6
+3.6
+3.7
+3.7
+3.7
+Samples: 5
+Pavg: 3.660
+Pmax: 3.700
+Pmin: 3.600
+Pstdev: 0.049
+Joules: 18.300
+beginning trial 3-2-1D of 3 (large.random, AES-CTR decrypt)
+2016-02-03 19:42:16.123994
+Results:
+3.6
+3.6
+3.7
+3.7
+Samples: 4
+Pavg: 3.650
+Pmax: 3.700
+Pmin: 3.600
+Pstdev: 0.050
+Joules: 14.600
+beginning trial 3-2-2D of 3 (large.random, ChaCha20 decrypt)
+2016-02-03 19:42:21.625082
+Results:
+3.6
+3.6
+Samples: 2
+Pavg: 3.600
+Pmax: 3.600
+Pmin: 3.600
+Pstdev: 0.000
+Joules: 7.200
+beginning trial 3-2-3D of 3 (large.random, AES-GCM decrypt)
+2016-02-03 19:42:31.947466
+Results:
+3.6
+3.6
+3.6
+3.7
+3.6
+3.7
+3.7
+Samples: 7
+Pavg: 3.643
+Pmax: 3.700
+Pmin: 3.600
+Pstdev: 0.049
+Joules: 25.500
+beginning trial 3-2-4D of 3 (large.random, ChaCha20-Poly1305 decrypt)
+2016-02-03 19:42:38.428221
+Results:
+3.6
+3.7
+3.7
+Samples: 3
+Pavg: 3.667
+Pmax: 3.700
+Pmin: 3.600
+Pstdev: 0.047
+Joules: 11.000
+beginning trial 3-2-5D of 3 (large.random, AES-CBC decrypt)
+2016-02-03 19:42:46.158038
+Results:
+3.6
+3.6
+3.6
+3.7
+Samples: 4
+Pavg: 3.625
+Pmax: 3.700
+Pmin: 3.600
+Pstdev: 0.043
+Joules: 14.500
+mf: 0x10 700000
+beginning trial 1-2-1E of 3 (large.random, AES-CTR encrypt)
+2016-02-03 19:43:04.268522
+Results:
+3.4
+3.5
+3.5
+3.5
+3.6
+3.6
+Samples: 6
+Pavg: 3.517
+Pmax: 3.600
+Pmin: 3.400
+Pstdev: 0.069
+Joules: 21.100
+beginning trial 1-2-2E of 3 (large.random, ChaCha20 encrypt)
+2016-02-03 19:43:10.086213
+Results:
+3.5
+3.6
+Samples: 2
+Pavg: 3.550
+Pmax: 3.600
+Pmin: 3.500
+Pstdev: 0.050
+Joules: 7.100
+beginning trial 1-2-3E of 3 (large.random, AES-GCM encrypt)
+2016-02-03 19:43:21.791911
+Results:
+3.5
+3.5
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+Samples: 8
+Pavg: 3.575
+Pmax: 3.600
+Pmin: 3.500
+Pstdev: 0.043
+Joules: 28.600
+beginning trial 1-2-4E of 3 (large.random, ChaCha20-Poly1305 encrypt)
+2016-02-03 19:43:28.828229
+Results:
+3.5
+3.6
+3.6
+3.6
+Samples: 4
+Pavg: 3.575
+Pmax: 3.600
+Pmin: 3.500
+Pstdev: 0.043
+Joules: 14.300
+beginning trial 1-2-5E of 3 (large.random, AES-CBC encrypt)
+2016-02-03 19:43:37.456666
+Results:
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+Samples: 6
+Pavg: 3.600
+Pmax: 3.600
+Pmin: 3.600
+Pstdev: 0.000
+Joules: 21.600
+beginning trial 1-2-1D of 3 (large.random, AES-CTR decrypt)
+2016-02-03 19:43:45.956962
+Results:
+3.5
+3.6
+3.6
+3.6
+3.6
+Samples: 5
+Pavg: 3.580
+Pmax: 3.600
+Pmin: 3.500
+Pstdev: 0.040
+Joules: 17.900
+beginning trial 1-2-2D of 3 (large.random, ChaCha20 decrypt)
+2016-02-03 19:43:51.793053
+Results:
+3.6
+3.6
+Samples: 2
+Pavg: 3.600
+Pmax: 3.600
+Pmin: 3.600
+Pstdev: 0.000
+Joules: 7.200
+beginning trial 1-2-3D of 3 (large.random, AES-GCM decrypt)
+2016-02-03 19:44:03.522134
+Results:
+3.6
+3.6
+3.6
+3.6
+3.6
+3.7
+3.6
+3.6
+3.6
+Samples: 9
+Pavg: 3.611
+Pmax: 3.700
+Pmin: 3.600
+Pstdev: 0.031
+Joules: 32.500
+beginning trial 1-2-4D of 3 (large.random, ChaCha20-Poly1305 decrypt)
+2016-02-03 19:44:10.895750
+Results:
+3.6
+3.6
+3.6
+3.6
+Samples: 4
+Pavg: 3.600
+Pmax: 3.600
+Pmin: 3.600
+Pstdev: 0.000
+Joules: 14.400
+beginning trial 1-2-5D of 3 (large.random, AES-CBC decrypt)
+2016-02-03 19:44:19.502432
+Results:
+3.6
+3.7
+3.7
+3.7
+3.7
+Samples: 5
+Pavg: 3.680
+Pmax: 3.700
+Pmin: 3.600
+Pstdev: 0.040
+Joules: 18.400
+beginning trial 2-2-1E of 3 (large.random, AES-CTR encrypt)
+2016-02-03 19:44:28.079789
+Results:
+3.6
+3.6
+3.6
+3.6
+3.6
+Samples: 5
+Pavg: 3.600
+Pmax: 3.600
+Pmin: 3.600
+Pstdev: 0.000
+Joules: 18.000
+beginning trial 2-2-2E of 3 (large.random, ChaCha20 encrypt)
+2016-02-03 19:44:33.913646
+Results:
+3.6
+3.6
+Samples: 2
+Pavg: 3.600
+Pmax: 3.600
+Pmin: 3.600
+Pstdev: 0.000
+Joules: 7.200
+beginning trial 2-2-3E of 3 (large.random, AES-GCM encrypt)
+2016-02-03 19:44:45.691522
+Results:
+3.6
+3.6
+3.6
+3.6
+3.6
+3.7
+3.7
+3.7
+Samples: 8
+Pavg: 3.637
+Pmax: 3.700
+Pmin: 3.600
+Pstdev: 0.048
+Joules: 29.100
+beginning trial 2-2-4E of 3 (large.random, ChaCha20-Poly1305 encrypt)
+2016-02-03 19:44:52.797042
+Results:
+3.6
+3.6
+3.6
+3.6
+Samples: 4
+Pavg: 3.600
+Pmax: 3.600
+Pmin: 3.600
+Pstdev: 0.000
+Joules: 14.400
+beginning trial 2-2-5E of 3 (large.random, AES-CBC encrypt)
+2016-02-03 19:45:01.455514
+Results:
+3.6
+3.6
+3.6
+3.6
+3.6
+3.7
+Samples: 6
+Pavg: 3.617
+Pmax: 3.700
+Pmin: 3.600
+Pstdev: 0.037
+Joules: 21.700
+beginning trial 2-2-1D of 3 (large.random, AES-CTR decrypt)
+2016-02-03 19:45:10.061024
+Results:
+3.6
+3.6
+3.6
+3.6
+3.6
+Samples: 5
+Pavg: 3.600
+Pmax: 3.600
+Pmin: 3.600
+Pstdev: 0.000
+Joules: 18.000
+beginning trial 2-2-2D of 3 (large.random, ChaCha20 decrypt)
+2016-02-03 19:45:15.894826
+Results:
+3.6
+3.6
+Samples: 2
+Pavg: 3.600
+Pmax: 3.600
+Pmin: 3.600
+Pstdev: 0.000
+Joules: 7.200
+beginning trial 2-2-3D of 3 (large.random, AES-GCM decrypt)
+2016-02-03 19:45:27.542116
+Results:
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+Samples: 8
+Pavg: 3.600
+Pmax: 3.600
+Pmin: 3.600
+Pstdev: 0.000
+Joules: 28.800
+beginning trial 2-2-4D of 3 (large.random, ChaCha20-Poly1305 decrypt)
+2016-02-03 19:45:34.709280
+Results:
+3.6
+3.6
+3.6
+3.6
+Samples: 4
+Pavg: 3.600
+Pmax: 3.600
+Pmin: 3.600
+Pstdev: 0.000
+Joules: 14.400
+beginning trial 2-2-5D of 3 (large.random, AES-CBC decrypt)
+2016-02-03 19:45:43.450727
+Results:
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+Samples: 6
+Pavg: 3.600
+Pmax: 3.600
+Pmin: 3.600
+Pstdev: 0.000
+Joules: 21.600
+beginning trial 3-2-1E of 3 (large.random, AES-CTR encrypt)
+2016-02-03 19:45:52.027040
+Results:
+3.6
+3.6
+3.6
+3.6
+3.6
+Samples: 5
+Pavg: 3.600
+Pmax: 3.600
+Pmin: 3.600
+Pstdev: 0.000
+Joules: 18.000
+beginning trial 3-2-2E of 3 (large.random, ChaCha20 encrypt)
+2016-02-03 19:45:57.864961
+Results:
+3.6
+3.6
+Samples: 2
+Pavg: 3.600
+Pmax: 3.600
+Pmin: 3.600
+Pstdev: 0.000
+Joules: 7.200
+beginning trial 3-2-3E of 3 (large.random, AES-GCM encrypt)
+2016-02-03 19:46:09.632606
+Results:
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+Samples: 8
+Pavg: 3.600
+Pmax: 3.600
+Pmin: 3.600
+Pstdev: 0.000
+Joules: 28.800
+beginning trial 3-2-4E of 3 (large.random, ChaCha20-Poly1305 encrypt)
+2016-02-03 19:46:16.734351
+Results:
+3.5
+3.6
+3.6
+3.6
+Samples: 4
+Pavg: 3.575
+Pmax: 3.600
+Pmin: 3.500
+Pstdev: 0.043
+Joules: 14.300
+beginning trial 3-2-5E of 3 (large.random, AES-CBC encrypt)
+2016-02-03 19:46:25.441866
+Results:
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+Samples: 6
+Pavg: 3.600
+Pmax: 3.600
+Pmin: 3.600
+Pstdev: 0.000
+Joules: 21.600
+beginning trial 3-2-1D of 3 (large.random, AES-CTR decrypt)
+2016-02-03 19:46:34.002158
+Results:
+3.5
+3.6
+3.6
+3.6
+3.6
+Samples: 5
+Pavg: 3.580
+Pmax: 3.600
+Pmin: 3.500
+Pstdev: 0.040
+Joules: 17.900
+beginning trial 3-2-2D of 3 (large.random, ChaCha20 decrypt)
+2016-02-03 19:46:39.846961
+Results:
+3.5
+3.6
+Samples: 2
+Pavg: 3.550
+Pmax: 3.600
+Pmin: 3.500
+Pstdev: 0.050
+Joules: 7.100
+beginning trial 3-2-3D of 3 (large.random, AES-GCM decrypt)
+2016-02-03 19:46:51.484251
+Results:
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+3.6
+Samples: 8
+Pavg: 3.600
+Pmax: 3.600
+Pmin: 3.600
+Pstdev: 0.000
+Joules: 28.800
+beginning trial 3-2-4D of 3 (large.random, ChaCha20-Poly1305 decrypt)
+2016-02-03 19:46:58.655487
+Results:
+3.6
+3.6
+3.6
+3.6
+Samples: 4
+Pavg: 3.600
+Pmax: 3.600
+Pmin: 3.600
+Pstdev: 0.000
+Joules: 14.400
+beginning trial 3-2-5D of 3 (large.random, AES-CBC decrypt)
+2016-02-03 19:47:07.263944
+Results:
+3.5
+3.6
+3.6
+3.6
+3.6
+Samples: 5
+Pavg: 3.580
+Pmax: 3.600
+Pmin: 3.500
+Pstdev: 0.040
+Joules: 17.900
+mf: 0x10 600000
+beginning trial 1-2-1E of 3 (large.random, AES-CTR encrypt)
+2016-02-03 19:47:27.187625
+Results:
+3.4
+3.4
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+Samples: 8
+Pavg: 3.475
+Pmax: 3.500
+Pmin: 3.400
+Pstdev: 0.043
+Joules: 27.800
+beginning trial 1-2-2E of 3 (large.random, ChaCha20 encrypt)
+2016-02-03 19:47:33.740620
+Results:
+3.5
+3.5
+3.5
+Samples: 3
+Pavg: 3.500
+Pmax: 3.500
+Pmin: 3.500
+Pstdev: 0.000
+Joules: 10.500
+beginning trial 1-2-3E of 3 (large.random, AES-GCM encrypt)
+2016-02-03 19:47:47.313696
+Results:
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.6
+3.5
+3.6
+Samples: 10
+Pavg: 3.520
+Pmax: 3.600
+Pmin: 3.500
+Pstdev: 0.040
+Joules: 35.200
+beginning trial 1-2-4E of 3 (large.random, ChaCha20-Poly1305 encrypt)
+2016-02-03 19:47:55.248869
+Results:
+3.5
+3.5
+3.5
+3.6
+Samples: 4
+Pavg: 3.525
+Pmax: 3.600
+Pmin: 3.500
+Pstdev: 0.043
+Joules: 14.100
+beginning trial 1-2-5E of 3 (large.random, AES-CBC encrypt)
+2016-02-03 19:48:05.037147
+Results:
+3.5
+3.5
+3.5
+3.5
+3.6
+3.6
+Samples: 6
+Pavg: 3.533
+Pmax: 3.600
+Pmin: 3.500
+Pstdev: 0.047
+Joules: 21.200
+beginning trial 1-2-1D of 3 (large.random, AES-CTR decrypt)
+2016-02-03 19:48:14.774873
+Results:
+3.5
+3.5
+3.5
+3.5
+3.5
+3.6
+Samples: 6
+Pavg: 3.517
+Pmax: 3.600
+Pmin: 3.500
+Pstdev: 0.037
+Joules: 21.100
+beginning trial 1-2-2D of 3 (large.random, ChaCha20 decrypt)
+2016-02-03 19:48:21.404874
+Results:
+3.5
+3.5
+3.6
+3.6
+Samples: 4
+Pavg: 3.550
+Pmax: 3.600
+Pmin: 3.500
+Pstdev: 0.050
+Joules: 14.200
+beginning trial 1-2-3D of 3 (large.random, AES-GCM decrypt)
+2016-02-03 19:48:34.910852
+Results:
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.6
+3.5
+3.6
+3.6
+Samples: 10
+Pavg: 3.530
+Pmax: 3.600
+Pmin: 3.500
+Pstdev: 0.046
+Joules: 35.300
+beginning trial 1-2-4D of 3 (large.random, ChaCha20-Poly1305 decrypt)
+2016-02-03 19:48:43.010407
+Results:
+3.5
+3.5
+3.6
+3.6
+Samples: 4
+Pavg: 3.550
+Pmax: 3.600
+Pmin: 3.500
+Pstdev: 0.050
+Joules: 14.200
+beginning trial 1-2-5D of 3 (large.random, AES-CBC decrypt)
+2016-02-03 19:48:52.847754
+Results:
+3.5
+3.5
+3.5
+3.6
+3.6
+3.6
+Samples: 6
+Pavg: 3.550
+Pmax: 3.600
+Pmin: 3.500
+Pstdev: 0.050
+Joules: 21.300
+beginning trial 2-2-1E of 3 (large.random, AES-CTR encrypt)
+2016-02-03 19:49:02.653146
+Results:
+3.5
+3.5
+3.5
+3.5
+3.6
+3.6
+Samples: 6
+Pavg: 3.533
+Pmax: 3.600
+Pmin: 3.500
+Pstdev: 0.047
+Joules: 21.200
+beginning trial 2-2-2E of 3 (large.random, ChaCha20 encrypt)
+2016-02-03 19:49:09.179861
+Results:
+3.5
+3.5
+3.5
+Samples: 3
+Pavg: 3.500
+Pmax: 3.500
+Pmin: 3.500
+Pstdev: 0.000
+Joules: 10.500
+beginning trial 2-2-3E of 3 (large.random, AES-GCM encrypt)
+2016-02-03 19:49:22.871002
+Results:
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.6
+Samples: 10
+Pavg: 3.510
+Pmax: 3.600
+Pmin: 3.500
+Pstdev: 0.030
+Joules: 35.100
+beginning trial 2-2-4E of 3 (large.random, ChaCha20-Poly1305 encrypt)
+2016-02-03 19:49:31.086251
+Results:
+3.5
+3.5
+3.6
+3.6
+Samples: 4
+Pavg: 3.550
+Pmax: 3.600
+Pmin: 3.500
+Pstdev: 0.050
+Joules: 14.200
+beginning trial 2-2-5E of 3 (large.random, AES-CBC encrypt)
+2016-02-03 19:49:41.033947
+Results:
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+Samples: 6
+Pavg: 3.500
+Pmax: 3.500
+Pmin: 3.500
+Pstdev: 0.000
+Joules: 21.000
+beginning trial 2-2-1D of 3 (large.random, AES-CTR decrypt)
+2016-02-03 19:49:51.112251
+Results:
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+Samples: 6
+Pavg: 3.500
+Pmax: 3.500
+Pmin: 3.500
+Pstdev: 0.000
+Joules: 21.000
+beginning trial 2-2-2D of 3 (large.random, ChaCha20 decrypt)
+2016-02-03 19:49:57.744997
+Results:
+3.5
+3.5
+3.5
+Samples: 3
+Pavg: 3.500
+Pmax: 3.500
+Pmin: 3.500
+Pstdev: 0.000
+Joules: 10.500
+beginning trial 2-2-3D of 3 (large.random, AES-GCM decrypt)
+2016-02-03 19:50:11.217016
+Results:
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.6
+3.6
+3.5
+Samples: 10
+Pavg: 3.520
+Pmax: 3.600
+Pmin: 3.500
+Pstdev: 0.040
+Joules: 35.200
+beginning trial 2-2-4D of 3 (large.random, ChaCha20-Poly1305 decrypt)
+2016-02-03 19:50:19.640151
+Results:
+3.5
+3.5
+3.5
+3.5
+3.6
+Samples: 5
+Pavg: 3.520
+Pmax: 3.600
+Pmin: 3.500
+Pstdev: 0.040
+Joules: 17.600
+beginning trial 2-2-5D of 3 (large.random, AES-CBC decrypt)
+2016-02-03 19:50:29.523181
+Results:
+3.5
+3.5
+3.5
+3.5
+3.6
+3.6
+3.5
+Samples: 7
+Pavg: 3.529
+Pmax: 3.600
+Pmin: 3.500
+Pstdev: 0.045
+Joules: 24.700
+beginning trial 3-2-1E of 3 (large.random, AES-CTR encrypt)
+2016-02-03 19:50:39.453981
+Results:
+3.5
+3.5
+3.5
+3.5
+3.5
+3.6
+3.5
+Samples: 7
+Pavg: 3.514
+Pmax: 3.600
+Pmin: 3.500
+Pstdev: 0.035
+Joules: 24.600
+beginning trial 3-2-2E of 3 (large.random, ChaCha20 encrypt)
+2016-02-03 19:50:45.982811
+Results:
+3.5
+3.5
+3.5
+Samples: 3
+Pavg: 3.500
+Pmax: 3.500
+Pmin: 3.500
+Pstdev: 0.000
+Joules: 10.500
+beginning trial 3-2-3E of 3 (large.random, AES-GCM encrypt)
+2016-02-03 19:50:59.632964
+Results:
+3.5
+3.5
+3.5
+3.5
+3.5
+3.6
+3.5
+3.5
+3.6
+3.6
+Samples: 10
+Pavg: 3.530
+Pmax: 3.600
+Pmin: 3.500
+Pstdev: 0.046
+Joules: 35.300
+beginning trial 3-2-4E of 3 (large.random, ChaCha20-Poly1305 encrypt)
+2016-02-03 19:51:07.670020
+Results:
+3.5
+3.5
+3.5
+3.6
+3.6
+Samples: 5
+Pavg: 3.540
+Pmax: 3.600
+Pmin: 3.500
+Pstdev: 0.049
+Joules: 17.700
+beginning trial 3-2-5E of 3 (large.random, AES-CBC encrypt)
+2016-02-03 19:51:17.504197
+Results:
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+Samples: 7
+Pavg: 3.500
+Pmax: 3.500
+Pmin: 3.500
+Pstdev: 0.000
+Joules: 24.500
+beginning trial 3-2-1D of 3 (large.random, AES-CTR decrypt)
+2016-02-03 19:51:27.450670
+Results:
+3.5
+3.5
+3.5
+3.5
+3.5
+3.6
+3.6
+Samples: 7
+Pavg: 3.529
+Pmax: 3.600
+Pmin: 3.500
+Pstdev: 0.045
+Joules: 24.700
+beginning trial 3-2-2D of 3 (large.random, ChaCha20 decrypt)
+2016-02-03 19:51:33.978836
+Results:
+3.5
+3.5
+3.5
+Samples: 3
+Pavg: 3.500
+Pmax: 3.500
+Pmin: 3.500
+Pstdev: 0.000
+Joules: 10.500
+beginning trial 3-2-3D of 3 (large.random, AES-GCM decrypt)
+2016-02-03 19:51:47.507966
+Results:
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.6
+3.5
+3.6
+Samples: 10
+Pavg: 3.520
+Pmax: 3.600
+Pmin: 3.500
+Pstdev: 0.040
+Joules: 35.200
+beginning trial 3-2-4D of 3 (large.random, ChaCha20-Poly1305 decrypt)
+2016-02-03 19:51:55.621053
+Results:
+3.5
+3.5
+3.5
+3.5
+3.5
+Samples: 5
+Pavg: 3.500
+Pmax: 3.500
+Pmin: 3.500
+Pstdev: 0.000
+Joules: 17.500
+beginning trial 3-2-5D of 3 (large.random, AES-CBC decrypt)
+2016-02-03 19:52:05.479442
+Results:
+3.5
+3.5
+3.5
+3.5
+3.5
+3.6
+3.6
+Samples: 7
+Pavg: 3.529
+Pmax: 3.600
+Pmin: 3.500
+Pstdev: 0.045
+Joules: 24.700
+mf: 0x10 500000
+beginning trial 1-2-1E of 3 (large.random, AES-CTR encrypt)
+2016-02-03 19:52:28.169577
+Results:
+3.3
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.5
+3.5
+Samples: 10
+Pavg: 3.410
+Pmax: 3.500
+Pmin: 3.300
+Pstdev: 0.054
+Joules: 34.100
+beginning trial 1-2-2E of 3 (large.random, ChaCha20 encrypt)
+2016-02-03 19:52:35.734798
+Results:
+3.4
+3.4
+3.4
+3.5
+Samples: 4
+Pavg: 3.425
+Pmax: 3.500
+Pmin: 3.400
+Pstdev: 0.043
+Joules: 13.700
+beginning trial 1-2-3E of 3 (large.random, AES-GCM encrypt)
+2016-02-03 19:52:52.156533
+Results:
+3.4
+3.4
+3.4
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+Samples: 13
+Pavg: 3.477
+Pmax: 3.500
+Pmin: 3.400
+Pstdev: 0.042
+Joules: 45.200
+beginning trial 1-2-4E of 3 (large.random, ChaCha20-Poly1305 encrypt)
+2016-02-03 19:53:01.865728
+Results:
+3.4
+3.5
+3.4
+3.5
+3.5
+3.5
+Samples: 6
+Pavg: 3.467
+Pmax: 3.500
+Pmin: 3.400
+Pstdev: 0.047
+Joules: 20.800
+beginning trial 1-2-5E of 3 (large.random, AES-CBC encrypt)
+2016-02-03 19:53:13.497320
+Results:
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+Samples: 9
+Pavg: 3.500
+Pmax: 3.500
+Pmin: 3.500
+Pstdev: 0.000
+Joules: 31.500
+beginning trial 1-2-1D of 3 (large.random, AES-CTR decrypt)
+2016-02-03 19:53:25.067090
+Results:
+3.4
+3.4
+3.4
+3.5
+3.5
+3.5
+3.5
+3.5
+Samples: 8
+Pavg: 3.462
+Pmax: 3.500
+Pmin: 3.400
+Pstdev: 0.048
+Joules: 27.700
+beginning trial 1-2-2D of 3 (large.random, ChaCha20 decrypt)
+2016-02-03 19:53:32.737297
+Results:
+3.4
+3.4
+3.5
+3.5
+Samples: 4
+Pavg: 3.450
+Pmax: 3.500
+Pmin: 3.400
+Pstdev: 0.050
+Joules: 13.800
+beginning trial 1-2-3D of 3 (large.random, AES-GCM decrypt)
+2016-02-03 19:53:49.051871
+Results:
+3.4
+3.5
+3.4
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+Samples: 13
+Pavg: 3.485
+Pmax: 3.500
+Pmin: 3.400
+Pstdev: 0.036
+Joules: 45.300
+beginning trial 1-2-4D of 3 (large.random, ChaCha20-Poly1305 decrypt)
+2016-02-03 19:53:58.582451
+Results:
+3.4
+3.4
+3.4
+3.4
+3.5
+3.5
+Samples: 6
+Pavg: 3.433
+Pmax: 3.500
+Pmin: 3.400
+Pstdev: 0.047
+Joules: 20.600
+beginning trial 1-2-5D of 3 (large.random, AES-CBC decrypt)
+2016-02-03 19:54:10.307449
+Results:
+3.4
+3.4
+3.4
+3.5
+3.4
+3.5
+3.5
+3.5
+Samples: 8
+Pavg: 3.450
+Pmax: 3.500
+Pmin: 3.400
+Pstdev: 0.050
+Joules: 27.600
+beginning trial 2-2-1E of 3 (large.random, AES-CTR encrypt)
+2016-02-03 19:54:21.973485
+Results:
+3.4
+3.4
+3.4
+3.5
+3.5
+3.5
+3.5
+3.5
+Samples: 8
+Pavg: 3.462
+Pmax: 3.500
+Pmin: 3.400
+Pstdev: 0.048
+Joules: 27.700
+beginning trial 2-2-2E of 3 (large.random, ChaCha20 encrypt)
+2016-02-03 19:54:29.528611
+Results:
+3.4
+3.4
+3.5
+3.5
+Samples: 4
+Pavg: 3.450
+Pmax: 3.500
+Pmin: 3.400
+Pstdev: 0.050
+Joules: 13.800
+beginning trial 2-2-3E of 3 (large.random, AES-GCM encrypt)
+2016-02-03 19:54:46.041678
+Results:
+3.4
+3.4
+3.4
+3.4
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+Samples: 13
+Pavg: 3.469
+Pmax: 3.500
+Pmin: 3.400
+Pstdev: 0.046
+Joules: 45.100
+beginning trial 2-2-4E of 3 (large.random, ChaCha20-Poly1305 encrypt)
+2016-02-03 19:54:55.480525
+Results:
+3.4
+3.4
+3.5
+3.5
+3.5
+3.5
+Samples: 6
+Pavg: 3.467
+Pmax: 3.500
+Pmin: 3.400
+Pstdev: 0.047
+Joules: 20.800
+beginning trial 2-2-5E of 3 (large.random, AES-CBC encrypt)
+2016-02-03 19:55:07.164548
+Results:
+3.4
+3.5
+3.4
+3.5
+3.5
+3.5
+3.5
+3.5
+Samples: 8
+Pavg: 3.475
+Pmax: 3.500
+Pmin: 3.400
+Pstdev: 0.043
+Joules: 27.800
+beginning trial 2-2-1D of 3 (large.random, AES-CTR decrypt)
+2016-02-03 19:55:18.844217
+Results:
+3.4
+3.4
+3.4
+3.4
+3.4
+3.5
+3.5
+3.5
+Samples: 8
+Pavg: 3.438
+Pmax: 3.500
+Pmin: 3.400
+Pstdev: 0.048
+Joules: 27.500
+beginning trial 2-2-2D of 3 (large.random, ChaCha20 decrypt)
+2016-02-03 19:55:26.401483
+Results:
+3.4
+3.5
+3.5
+3.5
+Samples: 4
+Pavg: 3.475
+Pmax: 3.500
+Pmin: 3.400
+Pstdev: 0.043
+Joules: 13.900
+beginning trial 2-2-3D of 3 (large.random, AES-GCM decrypt)
+2016-02-03 19:55:42.707021
+Results:
+3.4
+3.4
+3.4
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.4
+3.5
+3.5
+3.5
+Samples: 13
+Pavg: 3.469
+Pmax: 3.500
+Pmin: 3.400
+Pstdev: 0.046
+Joules: 45.100
+beginning trial 2-2-4D of 3 (large.random, ChaCha20-Poly1305 decrypt)
+2016-02-03 19:55:52.241775
+Results:
+3.4
+3.4
+3.5
+3.4
+3.5
+3.5
+Samples: 6
+Pavg: 3.450
+Pmax: 3.500
+Pmin: 3.400
+Pstdev: 0.050
+Joules: 20.700
+beginning trial 2-2-5D of 3 (large.random, AES-CBC decrypt)
+2016-02-03 19:56:04.251428
+Results:
+3.4
+3.4
+3.4
+3.5
+3.5
+3.5
+3.5
+3.5
+Samples: 8
+Pavg: 3.462
+Pmax: 3.500
+Pmin: 3.400
+Pstdev: 0.048
+Joules: 27.700
+beginning trial 3-2-1E of 3 (large.random, AES-CTR encrypt)
+2016-02-03 19:56:15.920855
+Results:
+3.4
+3.4
+3.4
+3.4
+3.5
+3.5
+3.5
+3.5
+Samples: 8
+Pavg: 3.450
+Pmax: 3.500
+Pmin: 3.400
+Pstdev: 0.050
+Joules: 27.600
+beginning trial 3-2-2E of 3 (large.random, ChaCha20 encrypt)
+2016-02-03 19:56:23.481728
+Results:
+3.4
+3.4
+3.4
+3.4
+Samples: 4
+Pavg: 3.400
+Pmax: 3.400
+Pmin: 3.400
+Pstdev: 0.000
+Joules: 13.600
+beginning trial 3-2-3E of 3 (large.random, AES-GCM encrypt)
+2016-02-03 19:56:39.988066
+Results:
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.5
+3.4
+3.5
+3.5
+3.5
+3.5
+3.5
+Samples: 13
+Pavg: 3.446
+Pmax: 3.500
+Pmin: 3.400
+Pstdev: 0.050
+Joules: 44.800
+beginning trial 3-2-4E of 3 (large.random, ChaCha20-Poly1305 encrypt)
+2016-02-03 19:56:49.423298
+Results:
+3.4
+3.4
+3.4
+3.5
+3.5
+3.5
+Samples: 6
+Pavg: 3.450
+Pmax: 3.500
+Pmin: 3.400
+Pstdev: 0.050
+Joules: 20.700
+beginning trial 3-2-5E of 3 (large.random, AES-CBC encrypt)
+2016-02-03 19:57:01.108190
+Results:
+3.4
+3.4
+3.4
+3.4
+3.5
+3.5
+3.5
+3.5
+Samples: 8
+Pavg: 3.450
+Pmax: 3.500
+Pmin: 3.400
+Pstdev: 0.050
+Joules: 27.600
+beginning trial 3-2-1D of 3 (large.random, AES-CTR decrypt)
+2016-02-03 19:57:13.099543
+Results:
+3.4
+3.4
+3.4
+3.4
+3.5
+3.5
+3.5
+3.5
+Samples: 8
+Pavg: 3.450
+Pmax: 3.500
+Pmin: 3.400
+Pstdev: 0.050
+Joules: 27.600
+beginning trial 3-2-2D of 3 (large.random, ChaCha20 decrypt)
+2016-02-03 19:57:20.698720
+Results:
+3.4
+3.4
+3.5
+3.5
+Samples: 4
+Pavg: 3.450
+Pmax: 3.500
+Pmin: 3.400
+Pstdev: 0.050
+Joules: 13.800
+beginning trial 3-2-3D of 3 (large.random, AES-GCM decrypt)
+2016-02-03 19:57:37.549904
+Results:
+3.4
+3.4
+3.4
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+3.5
+Samples: 14
+Pavg: 3.479
+Pmax: 3.500
+Pmin: 3.400
+Pstdev: 0.041
+Joules: 48.700
+beginning trial 3-2-4D of 3 (large.random, ChaCha20-Poly1305 decrypt)
+2016-02-03 19:57:47.091035
+Results:
+3.4
+3.4
+3.4
+3.4
+3.5
+3.4
+Samples: 6
+Pavg: 3.417
+Pmax: 3.500
+Pmin: 3.400
+Pstdev: 0.037
+Joules: 20.500
+beginning trial 3-2-5D of 3 (large.random, AES-CBC decrypt)
+2016-02-03 19:57:58.863646
+Results:
+3.4
+3.4
+3.4
+3.4
+3.5
+3.4
+3.5
+3.5
+Samples: 8
+Pavg: 3.438
+Pmax: 3.500
+Pmin: 3.400
+Pstdev: 0.048
+Joules: 27.500
+mf: 0x10 400000
+beginning trial 1-2-1E of 3 (large.random, AES-CTR encrypt)
+2016-02-03 19:58:26.252799
+Results:
+3.3
+3.3
+3.3
+3.3
+3.3
+3.4
+3.3
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 14
+Pavg: 3.357
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.049
+Joules: 47.000
+beginning trial 1-2-2E of 3 (large.random, ChaCha20 encrypt)
+2016-02-03 19:58:35.444167
+Results:
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 6
+Pavg: 3.400
+Pmax: 3.400
+Pmin: 3.400
+Pstdev: 0.000
+Joules: 20.400
+beginning trial 1-2-3E of 3 (large.random, AES-GCM encrypt)
+2016-02-03 19:58:56.621140
+Results:
+3.3
+3.3
+3.4
+3.4
+3.4
+3.4
+3.4
+3.3
+3.3
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 18
+Pavg: 3.378
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.042
+Joules: 60.800
+beginning trial 1-2-4E of 3 (large.random, ChaCha20-Poly1305 encrypt)
+2016-02-03 19:59:08.422928
+Results:
+3.3
+3.3
+3.3
+3.3
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 9
+Pavg: 3.356
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.050
+Joules: 30.200
+beginning trial 1-2-5E of 3 (large.random, AES-CBC encrypt)
+2016-02-03 19:59:23.138681
+Results:
+3.3
+3.3
+3.4
+3.3
+3.3
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 11
+Pavg: 3.364
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.048
+Joules: 37.000
+beginning trial 1-2-1D of 3 (large.random, AES-CTR decrypt)
+2016-02-03 19:59:37.868656
+Results:
+3.3
+3.3
+3.3
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 11
+Pavg: 3.373
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.045
+Joules: 37.100
+beginning trial 1-2-2D of 3 (large.random, ChaCha20 decrypt)
+2016-02-03 19:59:47.158407
+Results:
+3.3
+3.4
+3.3
+3.4
+3.4
+Samples: 5
+Pavg: 3.360
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.049
+Joules: 16.800
+beginning trial 1-2-3D of 3 (large.random, AES-GCM decrypt)
+2016-02-03 20:00:08.148318
+Results:
+3.4
+3.3
+3.3
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 17
+Pavg: 3.388
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.032
+Joules: 57.600
+beginning trial 1-2-4D of 3 (large.random, ChaCha20-Poly1305 decrypt)
+2016-02-03 20:00:20.096174
+Results:
+3.3
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 8
+Pavg: 3.387
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.033
+Joules: 27.100
+beginning trial 1-2-5D of 3 (large.random, AES-CBC decrypt)
+2016-02-03 20:00:35.002843
+Results:
+3.4
+3.3
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 11
+Pavg: 3.391
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.029
+Joules: 37.300
+beginning trial 2-2-1E of 3 (large.random, AES-CTR encrypt)
+2016-02-03 20:00:50.257806
+Results:
+3.3
+3.4
+3.4
+3.3
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 11
+Pavg: 3.382
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.039
+Joules: 37.200
+beginning trial 2-2-2E of 3 (large.random, ChaCha20 encrypt)
+2016-02-03 20:00:59.826419
+Results:
+3.3
+3.3
+3.4
+3.4
+3.4
+3.4
+Samples: 6
+Pavg: 3.367
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.047
+Joules: 20.200
+beginning trial 2-2-3E of 3 (large.random, AES-GCM encrypt)
+2016-02-03 20:01:21.102559
+Results:
+3.3
+3.3
+3.4
+3.3
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 17
+Pavg: 3.382
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.038
+Joules: 57.500
+beginning trial 2-2-4E of 3 (large.random, ChaCha20-Poly1305 encrypt)
+2016-02-03 20:01:32.925536
+Results:
+3.3
+3.3
+3.3
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 8
+Pavg: 3.362
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.048
+Joules: 26.900
+beginning trial 2-2-5E of 3 (large.random, AES-CBC encrypt)
+2016-02-03 20:01:47.746418
+Results:
+3.3
+3.3
+3.3
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 11
+Pavg: 3.373
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.045
+Joules: 37.100
+beginning trial 2-2-1D of 3 (large.random, AES-CTR decrypt)
+2016-02-03 20:02:02.528538
+Results:
+3.3
+3.3
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 11
+Pavg: 3.382
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.039
+Joules: 37.200
+beginning trial 2-2-2D of 3 (large.random, ChaCha20 decrypt)
+2016-02-03 20:02:11.828022
+Results:
+3.3
+3.4
+3.3
+3.4
+3.4
+3.4
+Samples: 6
+Pavg: 3.367
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.047
+Joules: 20.200
+beginning trial 2-2-3D of 3 (large.random, AES-GCM decrypt)
+2016-02-03 20:02:32.804518
+Results:
+3.3
+3.4
+3.4
+3.4
+3.4
+3.4
+3.3
+3.3
+3.4
+3.4
+3.3
+3.4
+3.4
+3.3
+3.4
+3.4
+3.4
+Samples: 17
+Pavg: 3.371
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.046
+Joules: 57.300
+beginning trial 2-2-4D of 3 (large.random, ChaCha20-Poly1305 decrypt)
+2016-02-03 20:02:44.752425
+Results:
+3.3
+3.4
+3.3
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 8
+Pavg: 3.375
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.043
+Joules: 27.000
+beginning trial 2-2-5D of 3 (large.random, AES-CBC decrypt)
+2016-02-03 20:02:59.655530
+Results:
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 11
+Pavg: 3.400
+Pmax: 3.400
+Pmin: 3.400
+Pstdev: 0.000
+Joules: 37.400
+beginning trial 3-2-1E of 3 (large.random, AES-CTR encrypt)
+2016-02-03 20:03:14.505264
+Results:
+3.3
+3.3
+3.3
+3.4
+3.4
+3.4
+3.4
+3.4
+3.3
+3.4
+3.4
+3.3
+Samples: 12
+Pavg: 3.358
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.049
+Joules: 40.300
+beginning trial 3-2-2E of 3 (large.random, ChaCha20 encrypt)
+2016-02-03 20:03:23.815680
+Results:
+3.3
+3.3
+3.3
+3.3
+3.4
+3.4
+Samples: 6
+Pavg: 3.333
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.047
+Joules: 20.000
+beginning trial 3-2-3E of 3 (large.random, AES-GCM encrypt)
+2016-02-03 20:03:45.087482
+Results:
+3.3
+3.4
+3.4
+3.4
+3.3
+3.3
+3.4
+3.4
+3.3
+3.3
+3.4
+3.4
+3.4
+3.4
+3.4
+3.3
+3.4
+Samples: 17
+Pavg: 3.365
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.048
+Joules: 57.200
+beginning trial 3-2-4E of 3 (large.random, ChaCha20-Poly1305 encrypt)
+2016-02-03 20:03:57.215710
+Results:
+3.3
+3.3
+3.4
+3.3
+3.4
+3.4
+3.3
+3.4
+Samples: 8
+Pavg: 3.350
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.050
+Joules: 26.800
+beginning trial 3-2-5E of 3 (large.random, AES-CBC encrypt)
+2016-02-03 20:04:12.056552
+Results:
+3.3
+3.3
+3.3
+3.3
+3.3
+3.4
+3.3
+3.4
+3.4
+3.4
+3.4
+Samples: 11
+Pavg: 3.345
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.050
+Joules: 36.800
+beginning trial 3-2-1D of 3 (large.random, AES-CTR decrypt)
+2016-02-03 20:04:26.921725
+Results:
+3.3
+3.3
+3.3
+3.4
+3.3
+3.3
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 11
+Pavg: 3.355
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.050
+Joules: 36.900
+beginning trial 3-2-2D of 3 (large.random, ChaCha20 decrypt)
+2016-02-03 20:04:36.345630
+Results:
+3.3
+3.3
+3.4
+3.4
+3.3
+3.4
+Samples: 6
+Pavg: 3.350
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.050
+Joules: 20.100
+beginning trial 3-2-3D of 3 (large.random, AES-GCM decrypt)
+2016-02-03 20:04:57.327730
+Results:
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.4
+3.4
+3.3
+3.3
+3.4
+3.4
+3.3
+3.3
+3.4
+3.4
+3.4
+Samples: 17
+Pavg: 3.341
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.049
+Joules: 56.800
+beginning trial 3-2-4D of 3 (large.random, ChaCha20-Poly1305 decrypt)
+2016-02-03 20:05:09.407683
+Results:
+3.3
+3.3
+3.3
+3.4
+3.3
+3.4
+3.4
+3.4
+3.4
+Samples: 9
+Pavg: 3.356
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.050
+Joules: 30.200
+beginning trial 3-2-5D of 3 (large.random, AES-CBC decrypt)
+2016-02-03 20:05:24.278734
+Results:
+3.3
+3.3
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+3.4
+Samples: 11
+Pavg: 3.382
+Pmax: 3.400
+Pmin: 3.300
+Pstdev: 0.039
+Joules: 37.200
+mf: 0x10 300000
+beginning trial 1-2-1E of 3 (large.random, AES-CTR encrypt)
+2016-02-03 20:06:01.377415
+Results:
+3.2
+3.2
+3.2
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.2
+3.3
+3.3
+3.3
+3.3
+Samples: 21
+Pavg: 3.276
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.043
+Joules: 68.800
+beginning trial 1-2-2E of 3 (large.random, ChaCha20 encrypt)
+2016-02-03 20:06:14.130048
+Results:
+3.2
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 9
+Pavg: 3.278
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.042
+Joules: 29.500
+beginning trial 1-2-3E of 3 (large.random, AES-GCM encrypt)
+2016-02-03 20:06:45.127505
+Results:
+3.2
+3.3
+3.3
+3.3
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.2
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.2
+3.2
+3.3
+3.3
+Samples: 27
+Pavg: 3.278
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.042
+Joules: 88.500
+beginning trial 1-2-4E of 3 (large.random, ChaCha20-Poly1305 encrypt)
+2016-02-03 20:07:01.768201
+Results:
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 13
+Pavg: 3.292
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.027
+Joules: 42.800
+beginning trial 1-2-5E of 3 (large.random, AES-CBC encrypt)
+2016-02-03 20:07:22.941600
+Results:
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.2
+3.3
+3.3
+Samples: 17
+Pavg: 3.288
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.032
+Joules: 55.900
+beginning trial 1-2-1D of 3 (large.random, AES-CTR decrypt)
+2016-02-03 20:07:44.063785
+Results:
+3.3
+3.2
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 17
+Pavg: 3.288
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.032
+Joules: 55.900
+beginning trial 1-2-2D of 3 (large.random, ChaCha20 decrypt)
+2016-02-03 20:07:56.993529
+Results:
+3.3
+3.3
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 9
+Pavg: 3.289
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.031
+Joules: 29.600
+beginning trial 1-2-3D of 3 (large.random, AES-GCM decrypt)
+2016-02-03 20:08:27.875651
+Results:
+3.2
+3.3
+3.2
+3.3
+3.3
+3.2
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 27
+Pavg: 3.285
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.036
+Joules: 88.700
+beginning trial 1-2-4D of 3 (large.random, ChaCha20-Poly1305 decrypt)
+2016-02-03 20:08:45.534581
+Results:
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 14
+Pavg: 3.293
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.026
+Joules: 46.100
+beginning trial 1-2-5D of 3 (large.random, AES-CBC decrypt)
+2016-02-03 20:09:06.998537
+Results:
+3.2
+3.2
+3.2
+3.2
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.2
+3.2
+3.2
+3.3
+3.3
+3.3
+3.3
+Samples: 18
+Pavg: 3.256
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.050
+Joules: 58.600
+beginning trial 2-2-1E of 3 (large.random, AES-CTR encrypt)
+2016-02-03 20:09:28.317921
+Results:
+3.2
+3.2
+3.3
+3.2
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.2
+3.3
+Samples: 17
+Pavg: 3.271
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.046
+Joules: 55.600
+beginning trial 2-2-2E of 3 (large.random, ChaCha20 encrypt)
+2016-02-03 20:09:41.395435
+Results:
+3.2
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 10
+Pavg: 3.280
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.040
+Joules: 32.800
+beginning trial 2-2-3E of 3 (large.random, AES-GCM encrypt)
+2016-02-03 20:10:13.430342
+Results:
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.2
+3.3
+3.3
+3.3
+3.3
+Samples: 28
+Pavg: 3.293
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.026
+Joules: 92.200
+beginning trial 2-2-4E of 3 (large.random, ChaCha20-Poly1305 encrypt)
+2016-02-03 20:10:30.210642
+Results:
+3.2
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 13
+Pavg: 3.285
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.036
+Joules: 42.700
+beginning trial 2-2-5E of 3 (large.random, AES-CBC encrypt)
+2016-02-03 20:10:51.591209
+Results:
+3.2
+3.2
+3.3
+3.3
+3.3
+3.3
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.2
+3.2
+3.3
+3.3
+3.3
+Samples: 18
+Pavg: 3.272
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.045
+Joules: 58.900
+beginning trial 2-2-1D of 3 (large.random, AES-CTR decrypt)
+2016-02-03 20:11:12.964428
+Results:
+3.3
+3.3
+3.3
+3.3
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 17
+Pavg: 3.288
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.032
+Joules: 55.900
+beginning trial 2-2-2D of 3 (large.random, ChaCha20 decrypt)
+2016-02-03 20:11:25.874532
+Results:
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 9
+Pavg: 3.289
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.031
+Joules: 29.600
+beginning trial 2-2-3D of 3 (large.random, AES-GCM decrypt)
+2016-02-03 20:11:57.593613
+Results:
+3.2
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.2
+3.2
+3.3
+3.3
+3.3
+3.3
+3.2
+Samples: 27
+Pavg: 3.281
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.039
+Joules: 88.600
+beginning trial 2-2-4D of 3 (large.random, ChaCha20-Poly1305 decrypt)
+2016-02-03 20:12:14.570152
+Results:
+3.2
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 13
+Pavg: 3.285
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.036
+Joules: 42.700
+beginning trial 2-2-5D of 3 (large.random, AES-CBC decrypt)
+2016-02-03 20:12:36.036935
+Results:
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.2
+3.3
+3.3
+3.3
+3.3
+3.2
+3.3
+3.3
+3.3
+3.3
+Samples: 17
+Pavg: 3.282
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.038
+Joules: 55.800
+beginning trial 3-2-1E of 3 (large.random, AES-CTR encrypt)
+2016-02-03 20:12:57.510428
+Results:
+3.2
+3.2
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.2
+3.3
+3.3
+Samples: 18
+Pavg: 3.278
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.042
+Joules: 59.000
+beginning trial 3-2-2E of 3 (large.random, ChaCha20 encrypt)
+2016-02-03 20:13:10.441660
+Results:
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 9
+Pavg: 3.289
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.031
+Joules: 29.600
+beginning trial 3-2-3E of 3 (large.random, AES-GCM encrypt)
+2016-02-03 20:13:41.545549
+Results:
+3.3
+3.3
+3.3
+3.3
+3.2
+3.3
+3.3
+3.2
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.2
+3.3
+3.3
+3.3
+Samples: 26
+Pavg: 3.281
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.039
+Joules: 85.300
+beginning trial 3-2-4E of 3 (large.random, ChaCha20-Poly1305 encrypt)
+2016-02-03 20:13:58.354594
+Results:
+3.3
+3.2
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 13
+Pavg: 3.285
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.036
+Joules: 42.700
+beginning trial 3-2-5E of 3 (large.random, AES-CBC encrypt)
+2016-02-03 20:14:19.719350
+Results:
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 18
+Pavg: 3.294
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.023
+Joules: 59.300
+beginning trial 3-2-1D of 3 (large.random, AES-CTR decrypt)
+2016-02-03 20:14:41.083673
+Results:
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 17
+Pavg: 3.300
+Pmax: 3.300
+Pmin: 3.300
+Pstdev: 0.000
+Joules: 56.100
+beginning trial 3-2-2D of 3 (large.random, ChaCha20 decrypt)
+2016-02-03 20:14:54.015623
+Results:
+3.3
+3.2
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 9
+Pavg: 3.278
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.042
+Joules: 29.500
+beginning trial 3-2-3D of 3 (large.random, AES-GCM decrypt)
+2016-02-03 20:15:24.811989
+Results:
+3.2
+3.3
+3.3
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 27
+Pavg: 3.293
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.026
+Joules: 88.900
+beginning trial 3-2-4D of 3 (large.random, ChaCha20-Poly1305 decrypt)
+2016-02-03 20:15:41.771588
+Results:
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 13
+Pavg: 3.292
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.027
+Joules: 42.800
+beginning trial 3-2-5D of 3 (large.random, AES-CBC decrypt)
+2016-02-03 20:16:03.265186
+Results:
+3.2
+3.2
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+3.3
+Samples: 17
+Pavg: 3.288
+Pmax: 3.300
+Pmin: 3.200
+Pstdev: 0.032
+Joules: 55.900
+mf: 0x10 200000
