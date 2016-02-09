@@ -7,6 +7,7 @@ import sys
 import hashlib
 import statistics
 import copy
+import pprint
 import plotly.plotly as py
 from plotly.graph_objs import *
 
@@ -17,62 +18,28 @@ GHZ = 1000000
 CORE_TYPES = ['big', 'little']
 CRYPT_TYPES = ['encrypt', 'decrypt']
 ALGORITHMS = ['AES-CTR', 'AES-GCM', 'AES-CBC', 'ChaCha20', 'ChaCha20-Poly1305']
-TITLE_TEMPLATE = '{} [{}] {} over {} trials ({} inner trials)'
-# i.e. 54326543543 Encryption Energy over 3 trials (50 inner trials)
+DIMENSIONS = ['energy', 'power', 'time']
+TITLE_TEMPLATE = '{} [{} {}] {} over {} trials ({} inner trials)'
+# i.e. 54326543543 [LITTLE Encryption] Energy over 3 trials (50 inner trials)
 
-dataStruts = {
-    'energyTotal': [],
-    'powerAverage': [],
-    'durationAverage': []
-}
+scatterStruts = {
+    'xTitle': 'Frequency Sweep',
+    'xAxisTitle': 'Frequency Configurations (Ghz) [ {} ]',
+    'y': {
+        DIMENSIONS[0]: {
+            'title': 'Total Energy',
+            'axisTitle': 'Energy (joules)'
+        },
+        
+        DIMENSIONS[1]: {
+            'title': 'Average Power',
+            'axisTitle': 'Power (joules/s)'
+        },
 
-aggregateStruts = {
-    CRYPT_TYPES[0] + 'RATIOconfigsVSenergy': {
-        'xTitle': 'Frequency Sweep',
-        'xAxisTitle': 'Frequency Configurations (Ghz) [ {} ]',
-        'yTitle': 'Total Energy Ratio',
-        'yAxisTitle': 'big/LITTLE Energy (joules)',
-        'data': []
-    },
-    
-    CRYPT_TYPES[0] + 'RATIOconfigsVSpower': {
-        'xTitle': 'Frequency Sweep',
-        'xAxisTitle': 'Frequency Configurations (Ghz) [ {} ]',
-        'yTitle': 'Average Power Ratio',
-        'yAxisTitle': 'big/LITTLE Power (joules/s)',
-        'data': []
-    },
-    
-    CRYPT_TYPES[0] + 'RATIOconfigsVStime': {
-        'xTitle': 'Frequency Sweep',
-        'xAxisTitle': 'Frequency Configurations (Ghz) [ {} ]',
-        'yTitle': 'Average Duration Ratio',
-        'yAxisTitle': 'big/LITTLE Duration (seconds)',
-        'data': []
-    },
-
-    CRYPT_TYPES[1] + 'RATIOconfigsVSenergy': {
-        'xTitle': 'Frequency Sweep',
-        'xAxisTitle': 'Frequency Configurations (Ghz) [ {} ]',
-        'yTitle': 'Total Energy Ratio',
-        'yAxisTitle': 'big/LITTLE Energy (joules)',
-        'data': []
-    },
-    
-    CRYPT_TYPES[1] + 'RATIOconfigsVSpower': {
-        'xTitle': 'Frequency Sweep',
-        'xAxisTitle': 'Frequency Configurations (Ghz) [ {} ]',
-        'yTitle': 'Average Power Ratio',
-        'yAxisTitle': 'big/LITTLE Power (joules/s)',
-        'data': []
-    },
-    
-    CRYPT_TYPES[1] + 'RATIOconfigsVStime': {
-        'xTitle': 'Frequency Sweep',
-        'xAxisTitle': 'Frequency Configurations (Ghz) [ {} ]',
-        'yTitle': 'Average Duration Ratio',
-        'yAxisTitle': 'big/LITTLE Duration (seconds)',
-        'data': []
+        DIMENSIONS[2]: {
+            'title': 'Average Duration',
+            'axisTitle': 'Duration (seconds)'
+        }
     }
 }
 
@@ -118,7 +85,7 @@ def generateDicts():
 if __name__ == "__main__":
     filesdir   = None
     maskFilter = None
-    holisticDatastore = { 'aggregate': { 'scatters': aggregateStruts } }
+    holisticDatastore = {}
 
     if len(sys.argv) < 2 or len(sys.argv) > 3:
             print('Usage: {} <data directory>'.format(sys.argv[0]))
@@ -141,8 +108,11 @@ if __name__ == "__main__":
         for cryptType in CRYPT_TYPES:
             holisticDatastore[coreType][cryptType] = {}
 
-            for algo in ALGORITHMS:
-                holisticDatastore[coreType][cryptType][algo] = copy.deepcopy(dataStruts)
+            for dimension in DIMENSIONS:
+                holisticDatastore[coreType][cryptType][dimension] = {}
+
+                for algo in ALGORITHMS:
+                    holisticDatastore[coreType][cryptType][dimension][algo] = []
     
     # Loop over results and begin the aggregation/accumulation process
     for coreType in CORE_TYPES:
@@ -171,47 +141,65 @@ if __name__ == "__main__":
                                 durationActual = statistics.median(duration[cryptTypeActual][algoActual])
 
                                 configurations.add(currentLine.split(':')[1].strip())
-                                data[cryptTypeActual][algoActual]['energyTotal'].append(joulesActual)
-                                data[cryptTypeActual][algoActual]['durationAverage'].append(durationActual)
-                                data[cryptTypeActual][algoActual]['powerAverage'].append(joulesActual / durationActual) # there is some error introduced here (via resolution)
+                                data[cryptTypeActual][DIMENSIONS[0]][algoActual].append(joulesActual)
+                                data[cryptTypeActual][DIMENSIONS[2]][algoActual].append(durationActual)
+                                data[cryptTypeActual][DIMENSIONS[1]][algoActual].append(joulesActual / durationActual) # there is some error introduced here (via resolution)
 
                     joules, duration = generateDicts()
                     cryptType = None
                     algo = None
 
+    #pprint.pprint(holisticDatastore[CORE_TYPES[0]])
+    
     rawFrequencies = [conf.split(' ') for conf in configurations]
     frequencies = [int(raw[1]) / GHZ for raw in rawFrequencies]
     niceConfigurations = ['{}Ghz (mask: {})'.format(int(raw[1]) / GHZ, raw[0]) for raw in rawFrequencies]
 
-    createRatio = lambda a, b: [rat[0]/rat[1] for rat in zip(a, b)]
     cdsi = lambda y, name: createDefaultScatterInstance(frequencies, y, name, niceConfigurations)
+    accumulated = {}
     
-    # XXX: create more holistic scatter instances and add them to their proper datastores right here!
-    for cryptType in CRYPT_TYPES:
-        for algo in ALGORITHMS:
-            dFrag = holisticDatastore
+    # Create scatter instances and accumulate them
+    for coreType in CORE_TYPES:
+        for cryptType in CRYPT_TYPES:
+            for dimension in DIMENSIONS:
+                for algo in ALGORITHMS:
+                    data = holisticDatastore[coreType][cryptType][dimension][algo]
+                    key  = ';'.join((coreType, cryptType, dimension))
 
-            energyRatios = createRatio(dFrag[CORE_TYPES[0]][cryptType][algo]['energyTotal'], dFrag[CORE_TYPES[1]][cryptType][algo]['energyTotal'])
-            powerRatios = createRatio(dFrag[CORE_TYPES[0]][cryptType][algo]['powerAverage'], dFrag[CORE_TYPES[1]][cryptType][algo]['powerAverage'])
-            durationRatios = createRatio(dFrag[CORE_TYPES[0]][cryptType][algo]['durationAverage'], dFrag[CORE_TYPES[1]][cryptType][algo]['durationAverage'])
+                    # Accumulate on algo
+                    if key not in accumulated:
+                        accumulated[key] = []
 
-            holisticDatastore['aggregate']['scatters'][cryptType + 'RATIOconfigsVSenergy']['data'].append(cdsi(energyRatios, algo))
-            holisticDatastore['aggregate']['scatters'][cryptType + 'RATIOconfigsVSpower']['data'].append(cdsi(powerRatios, algo))
-            holisticDatastore['aggregate']['scatters'][cryptType + 'RATIOconfigsVStime']['data'].append(cdsi(durationRatios, algo))
+                    accumulated[key].append(cdsi(data, algo))
 
     print('uploading...')
-
+    #pprint.pprint(accumulated)
+    
     titlePrefix = filesdir.strip('/').split('/')[-1]
 
-    # Handle the global "cross-set" datasets
-    for scatterKey, scatterData in holisticDatastore['aggregate']['scatters'].items():
-        title = TITLE_TEMPLATE.format(titlePrefix, scatterKey.split('RATIO')[0].upper(), scatterData['yTitle'], TRIALS, INNER_TRIALS)
+    # Loop again, this time dealing with the accumulated Scatter instances
+    for scatterKey, scatterData in accumulated.items():
+        metadata  = scatterKey.split(';')
+        coreType  = metadata[0]
+        cryptType = metadata[1]
+        dimension = metadata[2]
+        yTitle    = scatterStruts['y'][dimension]['title']
+
+        title = TITLE_TEMPLATE.format(
+            titlePrefix,
+            coreType.upper(),
+            cryptType.capitalize(),
+            yTitle,
+            TRIALS,
+            INNER_TRIALS
+        )
+        
         uploadAndPrint(
-            scatterData['data'],
+            scatterData,
             title,
-            scatterData['xAxisTitle'].format('see mask' if maskFilter is None else maskFilter),
-            scatterData['yAxisTitle'],
-            hashlib.md5(bytes(filesdir + scatterKey + title, "ascii")).hexdigest()
+            scatterStruts['xAxisTitle'].format('see mask' if maskFilter is None else maskFilter),
+            scatterStruts['y'][dimension]['axisTitle'],
+            hashlib.md5(bytes(filesdir + scatterKey + title, 'ascii')).hexdigest()
         )
 
     print('done!')

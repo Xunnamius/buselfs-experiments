@@ -755,7 +755,7 @@ Pmax: 3.700
 Pmin: 3.600
 Pstdev: 0.049
 Joules: 62.200
-mf: 1 1400000
+mf: 0x10 1400000
 beginning trial 1-2-1E of 3 (large.random, AES-CTR encrypt)
 2016-02-04 17:12:59.138093
 Results:
@@ -1528,7 +1528,7 @@ Pmax: 3.600
 Pmin: 3.500
 Pstdev: 0.038
 Joules: 60.900
-mf: 1 1300000
+mf: 0x10 1300000
 beginning trial 1-2-1E of 3 (large.random, AES-CTR encrypt)
 2016-02-04 17:23:33.335709
 Results:
@@ -2342,7 +2342,7 @@ Pmax: 3.600
 Pmin: 3.500
 Pstdev: 0.049
 Joules: 63.700
-mf: 1 1200000
+mf: 0x10 1200000
 beginning trial 1-2-1E of 3 (large.random, AES-CTR encrypt)
 2016-02-04 17:34:40.206786
 Results:
@@ -3190,7 +3190,7 @@ Pmax: 3.500
 Pmin: 3.400
 Pstdev: 0.031
 Joules: 66.300
-mf: 1 1100000
+mf: 0x10 1100000
 beginning trial 1-2-1E of 3 (large.random, AES-CTR encrypt)
 2016-02-04 17:46:23.510144
 Results:
@@ -4082,7 +4082,7 @@ Pmax: 3.500
 Pmin: 3.400
 Pstdev: 0.049
 Joules: 69.200
-mf: 1 1000000
+mf: 0x10 1000000
 beginning trial 1-2-1E of 3 (large.random, AES-CTR encrypt)
 2016-02-04 17:58:57.551227
 Results:
@@ -5039,7 +5039,7 @@ Pmax: 3.400
 Pmin: 3.300
 Pstdev: 0.028
 Joules: 78.000
-mf: 1 900000
+mf: 0x10 900000
 beginning trial 1-2-1E of 3 (large.random, AES-CTR encrypt)
 2016-02-04 18:12:33.856103
 Results:
@@ -6060,7 +6060,7 @@ Pmax: 3.400
 Pmin: 3.300
 Pstdev: 0.043
 Joules: 84.400
-mf: 1 800000
+mf: 0x10 800000
 beginning trial 1-2-1E of 3 (large.random, AES-CTR encrypt)
 2016-02-04 18:27:21.398918
 Results:
@@ -7179,7 +7179,7 @@ Pmax: 3.400
 Pmin: 3.300
 Pstdev: 0.048
 Joules: 93.400
-mf: 1 700000
+mf: 0x10 700000
 beginning trial 1-2-1E of 3 (large.random, AES-CTR encrypt)
 2016-02-04 18:43:48.985648
 Results:
@@ -8423,7 +8423,7 @@ Pmax: 3.300
 Pmin: 3.200
 Pstdev: 0.017
 Joules: 105.500
-mf: 1 600000
+mf: 0x10 600000
 beginning trial 1-2-1E of 3 (large.random, AES-CTR encrypt)
 2016-02-04 19:02:27.517152
 Results:
@@ -9840,7 +9840,7 @@ Pmax: 3.300
 Pmin: 3.200
 Pstdev: 0.031
 Joules: 125.000
-mf: 1 500000
+mf: 0x10 500000
 beginning trial 1-2-1E of 3 (large.random, AES-CTR encrypt)
 2016-02-04 19:24:07.684087
 Results:
@@ -11536,7 +11536,7 @@ Pmax: 3.300
 Pmin: 3.200
 Pstdev: 0.049
 Joules: 153.300
-mf: 1 400000
+mf: 0x10 400000
 beginning trial 1-2-1E of 3 (large.random, AES-CTR encrypt)
 2016-02-04 19:50:42.540541
 Results:
@@ -13703,7 +13703,7 @@ Pmax: 3.300
 Pmin: 3.200
 Pstdev: 0.049
 Joules: 207.400
-mf: 1 300000
+mf: 0x10 300000
 beginning trial 1-2-1E of 3 (large.random, AES-CTR encrypt)
 2016-02-04 20:25:46.698775
 Results:
@@ -16883,4 +16883,4 @@ Pmax: 3.300
 Pmin: 3.200
 Pstdev: 0.033
 Joules: 308.400
-mf: 1 200000
+mf: 0x10 200000
