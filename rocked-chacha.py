@@ -46,12 +46,10 @@ scatterStruts = {
 ################################################################################
 
 def createDefaultScatterInstance(x, y, name, text):
-    return Scatter(
+    return Bar(
         x=x, y=y,
-        mode='markers',
         name=name,
         text=text
-        # marker=Marker(size=12)
     )
 
 def uploadAndPrint(scatterData, title, xaxis, yaxis, hsh):
@@ -62,7 +60,8 @@ def uploadAndPrint(scatterData, title, xaxis, yaxis, hsh):
                 layout = Layout(
                     title=title,
                     xaxis1 = XAxis(title='{}'.format(xaxis)),
-                    yaxis1 = YAxis(title='{}'.format(yaxis))
+                    yaxis1 = YAxis(title='{}'.format(yaxis)),
+                    barmode = 'group'
             )),
             filename='energy-AESXTS1-endecomp-' + hsh,
             auto_open=False
