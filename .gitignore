@@ -1,6 +1,6 @@
 # Workflow #
 ###########
-vendor/github/lfs/
+vendor/github/
 lfslog
 
 # Grunt & Composer #
