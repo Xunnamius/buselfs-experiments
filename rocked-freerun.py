@@ -11,11 +11,11 @@ import plotly.plotly as py
 from plotly.graph_objs import *
 
 OPS = 25000*2
-TRIALS = 10
+TRIALS = 4
 GHZ = 1000000
 
-CORE_TYPES = ['big', 'little']
-FS_TYPES = ['fde', 'nfde']
+CORE_TYPES = ['big']
+FS_TYPES = ["ext4", "fuseFDE", "nofuseFDE", "nofuse"]
 TITLE_TEMPLATE = '{} {} vs {} over {} iops {} trials'
 
 dataStruts = {

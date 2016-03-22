@@ -89,3 +89,4 @@ Pmax: 8.000
 Pmin: 7.400
 Pstdev: 0.206
 Joules: 61.900
+mf: 0xF0 2000000
