@@ -10,7 +10,7 @@ import subprocess
 import serial
 from vendor.pyWattsup import WattsUp
 
-TRIALS = 10
+TRIALS = 5
 
 ################################################################################
 
