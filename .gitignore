@@ -1,6 +1,7 @@
 # Workflow #
 ###########
-
+vendor/github/lfs/
+lfslog
 
 # Grunt & Composer #
 ###########
@@ -42,3 +43,4 @@ composer.phar
 node_modules/
 build/
 tmp/
+__pycache__/
