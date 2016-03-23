@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-# This script crunches the shmoo.<CORETYPE>.<FSTYPE>.results file in the results folder
+"""This script crunches the shmoo.<CORETYPE>.<FSTYPE>.results file in the results folder"""
 
 import os
 import sys
@@ -8,7 +8,7 @@ import hashlib
 import statistics
 import copy
 import plotly.plotly as py
-from plotly.graph_objs import *
+from plotly.graph_objs import Scatter, Figure, Data, Layout, Marker, XAxis, YAxis
 
 OPS = 25000*2
 TRIALS = 4
@@ -41,21 +41,21 @@ scattersStruts = {
         'yTitle': 'Average Power',
         'yAxisTitle': 'Power (joules/s)'
     },
-    
+
     'configsVSenergy': {
         'xTitle': 'Frequency Sweep',
         'xAxisTitle': 'Frequency Configurations (Ghz) [ {} ]',
         'yTitle': 'Total Energy',
         'yAxisTitle': 'Energy (joules)'
     },
-    
+
     'configsVSpower': {
         'xTitle': 'Frequency Sweep',
         'xAxisTitle': 'Frequency Configurations (Ghz) [ {} ]',
         'yTitle': 'Average Power',
         'yAxisTitle': 'Power (joules/s)'
     },
-    
+
     'configsVStime': {
         'xTitle': 'Frequency Sweep',
         'xAxisTitle': 'Frequency Configurations (Ghz) [ {} ]',
@@ -72,7 +72,7 @@ aggregateStruts = {
         'yAxisTitle': 'FDE/NFDE Energy (joules)',
         'data': []
     },
-    
+
     'RATIOconfigsVSpower': {
         'xTitle': 'Frequency Sweep',
         'xAxisTitle': 'Frequency Configurations (Ghz) [ {} ]',
@@ -80,7 +80,7 @@ aggregateStruts = {
         'yAxisTitle': 'FDE/NFDE Power (joules/s)',
         'data': []
     },
-    
+
     'RATIOconfigsVStime': {
         'xTitle': 'Frequency Sweep',
         'xAxisTitle': 'Frequency Configurations (Ghz) [ {} ]',
@@ -93,6 +93,7 @@ aggregateStruts = {
 ################################################################################
 
 def createDefaultScatterInstance(x, y, name, text):
+    """Creates a default Scatter instance"""
     return Scatter(
         x=x, y=y,
         mode='markers',
@@ -101,13 +102,15 @@ def createDefaultScatterInstance(x, y, name, text):
         marker=Marker(size=12)
     )
 
+
 def uploadAndPrint(scatterData, title, xaxis, yaxis, hsh):
+    """Uploads the data to the web and returns a printout of URLS"""
     print('{: <90} {}'.format(title,
         py.plot(
             Figure(
                 data = Data(scatterData),
                 layout = Layout(
-                    title=title,
+                    title = title,
                     xaxis1 = XAxis(title='{}'.format(xaxis)),
                     yaxis1 = YAxis(title='{}'.format(yaxis))
             )),
@@ -121,9 +124,9 @@ if __name__ == "__main__":
     holisticDatastore = { 'aggregate': { 'scatters': aggregateStruts } }
 
     if len(sys.argv) < 2 or len(sys.argv) > 3:
-            print('Usage: {} <data directory> [<mask hex>]'.format(sys.argv[0]))
-            print('If no mask is specified, all masks will be included'.format(sys.argv[0]))
-            sys.exit(1)
+        print('Usage: {} <data directory> [<mask hex>]'.format(sys.argv[0]))
+        print('If no mask is specified, all masks will be included')
+        sys.exit(1)
     else:
         filesdir   = sys.argv[1].strip('/')
         maskFilter = sys.argv[2] if len(sys.argv) == 3 else None
@@ -141,7 +144,7 @@ if __name__ == "__main__":
 
             for key in scattersStruts:
                 holisticDatastore[coreType][fsType]['scatters'][key] = []
-    
+
     # Loop over results and begin the aggregation/accumulation process
     for coreType in CORE_TYPES:
         for fsType in FS_TYPES:
@@ -210,14 +213,14 @@ if __name__ == "__main__":
         name,
         holisticDatastore[CORE_TYPES[0]][FS_TYPES[0]]['data']['niceConfigurations']
     )
-    
+
     # XXX: create more holistic scatter instances and add them to their proper datastores right here!
     for coreType in CORE_TYPES:
         dataFragment = holisticDatastore[coreType]
         energyRatios = createRatio(dataFragment[FS_TYPES[0]]['data']['energyTotal'], dataFragment[FS_TYPES[1]]['data']['energyTotal'])
         powerRatios = createRatio(dataFragment[FS_TYPES[0]]['data']['powerAverage'], dataFragment[FS_TYPES[1]]['data']['powerAverage'])
         durationRatios = createRatio(dataFragment[FS_TYPES[0]]['data']['durationAverage'], dataFragment[FS_TYPES[1]]['data']['durationAverage'])
-        
+
         newName = coreType.upper() + ' cores'
 
         holisticDatastore['aggregate']['scatters']['RATIOconfigsVSenergy']['data'].append(cdsi(energyRatios, newName))

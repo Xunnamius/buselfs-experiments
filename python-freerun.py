@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 
-# This script generates hashes for the experiment, timing it and reporting on the
-# results
+"""This script generates hashes for the experiment, timing it and reporting on
+the results"""
 
-import os
+# pylint: disable=E0401
+
 import sys
 import time
 import subprocess
@@ -42,7 +43,7 @@ with open('/home/odroid/bd3/rsync/energy-AES-1/results/shmoo.{}.{}.results'.form
 
         wattsup.clearMemory()
         wattsup.logInternal(1)
-        
+
         # Begin logging with Wattsup (above), run filebench (here), close out the
         # Wattsup logger (below)
         print("dd-write returned: ", subprocess.call(['/home/odroid/bd3/rsync/energy-AES-1/dd-write.sh', writeto + str(trial), coreType, fsType], stdout=out))
