@@ -12,6 +12,8 @@ import serial
 from vendor.pyWattsup import WattsUp
 
 TRIALS = 4
+REPO = '/home/odroid/bd3/rsync/energy-AES-1'
+
 
 ################################################################################
 
@@ -27,13 +29,16 @@ trials = TRIALS
 
 wattsup = WattsUp('/dev/ttyUSB0', 115200, verbose=False)
 
-with open('/home/odroid/bd3/rsync/energy-AES-1/results/shmoo.{}.{}.results'.format(coreType, fsType), 'a') as out:
+print("prescript execution returned: ", subprocess.call([REPO + '/freerun-prescript.sh'], stdout=out))
+
+with open(REPO + '/results/shmoo.{}.{}.results'.format(coreType, fsType), 'a') as out:
     while trials:
         trials = trials - 1
         trial = TRIALS-trials
         print('beginning trial {} of {}'.format(trial, TRIALS))
 
         print('waiting for write buffer flush...')
+        
         time.sleep(2)
 
         try:
@@ -46,8 +51,8 @@ with open('/home/odroid/bd3/rsync/energy-AES-1/results/shmoo.{}.{}.results'.form
 
         # Begin logging with Wattsup (above), run filebench (here), close out the
         # Wattsup logger (below)
-        print("dd-write returned: ", subprocess.call(['/home/odroid/bd3/rsync/energy-AES-1/dd-write.sh', writeto + str(trial), coreType, fsType], stdout=out))
-        print("dd-read returned: ", subprocess.call(['/home/odroid/bd3/rsync/energy-AES-1/dd-read.sh', writeto + str(trial), coreType, fsType], stdout=out))
+        print("dd-write returned: ", subprocess.call([REPO + '/dd-write.sh', writeto + str(trial), coreType, fsType], stdout=out))
+        print("dd-read returned: ", subprocess.call([REPO + '/dd-read.sh', writeto + str(trial), coreType, fsType], stdout=out))
 
         # This loop handles any annoying errors we may encounter
         while True:

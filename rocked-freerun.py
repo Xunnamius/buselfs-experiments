@@ -15,7 +15,8 @@ TRIALS = 4
 GHZ = 1000000
 
 CORE_TYPES = ['big']
-FS_TYPES = ["ext4", "fuseFDE", "nofuseFDE", "nofuse"]
+#FS_TYPES = ["kernel", "fuse+ext4", "fuse+lfs", "kernel+aesxts", "fuse+lfs+aesxts", "fuse+lfs+chacha+poly"]
+FS_TYPES = ["kernel+ext4", "fuse+ext4", "fuse+lfs", "kernel+aesxts"]
 TITLE_TEMPLATE = '{} {} vs {} over {} iops {} trials'
 
 dataStruts = {
@@ -215,17 +216,17 @@ if __name__ == "__main__":
     )
 
     # XXX: create more holistic scatter instances and add them to their proper datastores right here!
-    for coreType in CORE_TYPES:
-        dataFragment = holisticDatastore[coreType]
-        energyRatios = createRatio(dataFragment[FS_TYPES[0]]['data']['energyTotal'], dataFragment[FS_TYPES[1]]['data']['energyTotal'])
-        powerRatios = createRatio(dataFragment[FS_TYPES[0]]['data']['powerAverage'], dataFragment[FS_TYPES[1]]['data']['powerAverage'])
-        durationRatios = createRatio(dataFragment[FS_TYPES[0]]['data']['durationAverage'], dataFragment[FS_TYPES[1]]['data']['durationAverage'])
+    # for coreType in CORE_TYPES:
+    #     dataFragment = holisticDatastore[coreType]
+    #     energyRatios = createRatio(dataFragment[FS_TYPES[0]]['data']['energyTotal'], dataFragment[FS_TYPES[1]]['data']['energyTotal'])
+    #     powerRatios = createRatio(dataFragment[FS_TYPES[0]]['data']['powerAverage'], dataFragment[FS_TYPES[1]]['data']['powerAverage'])
+    #     durationRatios = createRatio(dataFragment[FS_TYPES[0]]['data']['durationAverage'], dataFragment[FS_TYPES[1]]['data']['durationAverage'])
 
-        newName = coreType.upper() + ' cores'
+    #     newName = coreType.upper() + ' cores'
 
-        holisticDatastore['aggregate']['scatters']['RATIOconfigsVSenergy']['data'].append(cdsi(energyRatios, newName))
-        holisticDatastore['aggregate']['scatters']['RATIOconfigsVSpower']['data'].append(cdsi(powerRatios, newName))
-        holisticDatastore['aggregate']['scatters']['RATIOconfigsVStime']['data'].append(cdsi(durationRatios, newName))
+    #     holisticDatastore['aggregate']['scatters']['RATIOconfigsVSenergy']['data'].append(cdsi(energyRatios, newName))
+    #     holisticDatastore['aggregate']['scatters']['RATIOconfigsVSpower']['data'].append(cdsi(powerRatios, newName))
+    #     holisticDatastore['aggregate']['scatters']['RATIOconfigsVStime']['data'].append(cdsi(durationRatios, newName))
 
     print('uploading...')
 
@@ -252,14 +253,14 @@ if __name__ == "__main__":
         )
 
     # One final loop: handle the global "cross-set" datasets
-    for scatterKey, scatterData in holisticDatastore['aggregate']['scatters'].items():
-        title = TITLE_TEMPLATE.format(titlePrefix, scatterData['xTitle'], scatterData['yTitle'], OPS, TRIALS)
-        uploadAndPrint(
-            scatterData['data'],
-            title,
-            scatterData['xAxisTitle'].format('see mask' if maskFilter is None else maskFilter),
-            scatterData['yAxisTitle'],
-            hashlib.md5(bytes(filesdir + scatterKey + title, "ascii")).hexdigest()
-        )
+    # for scatterKey, scatterData in holisticDatastore['aggregate']['scatters'].items():
+    #     title = TITLE_TEMPLATE.format(titlePrefix, scatterData['xTitle'], scatterData['yTitle'], OPS, TRIALS)
+    #     uploadAndPrint(
+    #         scatterData['data'],
+    #         title,
+    #         scatterData['xAxisTitle'].format('see mask' if maskFilter is None else maskFilter),
+    #         scatterData['yAxisTitle'],
+    #         hashlib.md5(bytes(filesdir + scatterKey + title, "ascii")).hexdigest()
+    #     )
 
     print('done!')
