@@ -1,0 +1,274 @@
+20000+0 records in
+20000+0 records out
+20480000 bytes (20 MB) copied, 3.45289 s, 5.9 MB/s
+1
+20000+0 records in
+20000+0 records out
+20480000 bytes (20 MB) copied, 0.472711 s, 43.3 MB/s
+20000+0 records in
+20000+0 records out
+20480000 bytes (20 MB) copied, 3.29572 s, 6.2 MB/s
+1
+20000+0 records in
+20000+0 records out
+20480000 bytes (20 MB) copied, 0.443705 s, 46.2 MB/s
+20000+0 records in
+20000+0 records out
+20480000 bytes (20 MB) copied, 3.29182 s, 6.2 MB/s
+1
+20000+0 records in
+20000+0 records out
+20480000 bytes (20 MB) copied, 0.467864 s, 43.8 MB/s
+20000+0 records in
+20000+0 records out
+20480000 bytes (20 MB) copied, 3.29697 s, 6.2 MB/s
+1
+20000+0 records in
+20000+0 records out
+20480000 bytes (20 MB) copied, 0.469727 s, 43.6 MB/s
+20000+0 records in
+20000+0 records out
+20480000 bytes (20 MB) copied, 3.33519 s, 6.1 MB/s
+1
+20000+0 records in
+20000+0 records out
+20480000 bytes (20 MB) copied, 0.456167 s, 44.9 MB/s
+20000+0 records in
+20000+0 records out
+20480000 bytes (20 MB) copied, 3.29659 s, 6.2 MB/s
+1
+20000+0 records in
+20000+0 records out
+20480000 bytes (20 MB) copied, 0.467131 s, 43.8 MB/s
+20000+0 records in
+20000+0 records out
+20480000 bytes (20 MB) copied, 3.29627 s, 6.2 MB/s
+1
+20000+0 records in
+20000+0 records out
+20480000 bytes (20 MB) copied, 0.48261 s, 42.4 MB/s
+20000+0 records in
+20000+0 records out
+20480000 bytes (20 MB) copied, 3.29614 s, 6.2 MB/s
+1
+20000+0 records in
+20000+0 records out
+20480000 bytes (20 MB) copied, 0.459085 s, 44.6 MB/s
+20000+0 records in
+20000+0 records out
+20480000 bytes (20 MB) copied, 3.30192 s, 6.2 MB/s
+1
+20000+0 records in
+20000+0 records out
+20480000 bytes (20 MB) copied, 0.461216 s, 44.4 MB/s
+20000+0 records in
+20000+0 records out
+20480000 bytes (20 MB) copied, 3.34232 s, 6.1 MB/s
+1
+20000+0 records in
+20000+0 records out
+20480000 bytes (20 MB) copied, 0.435535 s, 47.0 MB/s
+20000+0 records in
+20000+0 records out
+20480000 bytes (20 MB) copied, 3.74959 s, 5.5 MB/s
+1
+20000+0 records in
+20000+0 records out
+20480000 bytes (20 MB) copied, 1.01295 s, 20.2 MB/s
+20000+0 records in
+20000+0 records out
+20480000 bytes (20 MB) copied, 5.43243 s, 3.8 MB/s
+1
+20000+0 records in
+20000+0 records out
+20480000 bytes (20 MB) copied, 0.417927 s, 49.0 MB/s
+20000+0 records in
+20000+0 records out
+20480000 bytes (20 MB) copied, 3.61384 s, 5.7 MB/s
+1
+20000+0 records in
+20000+0 records out
+20480000 bytes (20 MB) copied, 0.587459 s, 34.9 MB/s
+20000+0 records in
+20000+0 records out
+20480000 bytes (20 MB) copied, 3.66255 s, 5.6 MB/s
+1
+20000+0 records in
+20000+0 records out
+20480000 bytes (20 MB) copied, 0.385141 s, 53.2 MB/s
+20000+0 records in
+20000+0 records out
+20480000 bytes (20 MB) copied, 3.48958 s, 5.9 MB/s
+1
+dd: error reading ‘/var/5.fs.ext4/15’: Software caused connection abort
+6514+0 records in
+6514+0 records out
+6670336 bytes (6.7 MB) copied, 0.640986 s, 10.4 MB/s
+2016-04-14 16:10:58.574249
+Results:
+172.2
+183.4
+183.4
+183.5
+Samples: 4
+Pavg: 180.625
+Pmax: 183.500
+Pmin: 172.200
+Pstdev: 4.864
+Joules: 722.500
+2016-04-14 16:11:05.704820
+Results:
+180.6
+180.8
+181.1
+Samples: 3
+Pavg: 180.833
+Pmax: 181.100
+Pmin: 180.600
+Pstdev: 0.205
+Joules: 542.500
+2016-04-14 16:11:12.853808
+Results:
+179.0
+179.4
+179.8
+Samples: 3
+Pavg: 179.400
+Pmax: 179.800
+Pmin: 179.000
+Pstdev: 0.327
+Joules: 538.200
+2016-04-14 16:11:20.016860
+Results:
+173.7
+182.8
+182.8
+Samples: 3
+Pavg: 179.767
+Pmax: 182.800
+Pmin: 173.700
+Pstdev: 4.290
+Joules: 539.300
+2016-04-14 16:11:27.207833
+Results:
+175.2
+182.8
+182.8
+Samples: 3
+Pavg: 180.267
+Pmax: 182.800
+Pmin: 175.200
+Pstdev: 3.583
+Joules: 540.800
+2016-04-14 16:11:34.332812
+Results:
+182.6
+182.6
+Samples: 2
+Pavg: 182.600
+Pmax: 182.600
+Pmin: 182.600
+Pstdev: 0.000
+Joules: 365.200
+2016-04-14 16:11:41.576823
+Results:
+182.2
+182.3
+182.4
+Samples: 3
+Pavg: 182.300
+Pmax: 182.400
+Pmin: 182.200
+Pstdev: 0.082
+Joules: 546.900
+2016-04-14 16:11:48.725815
+Results:
+180.4
+180.7
+181.0
+Samples: 3
+Pavg: 180.700
+Pmax: 181.000
+Pmin: 180.400
+Pstdev: 0.245
+Joules: 542.100
+2016-04-14 16:11:55.877864
+Results:
+178.6
+179.1
+179.6
+Samples: 3
+Pavg: 179.100
+Pmax: 179.600
+Pmin: 178.600
+Pstdev: 0.408
+Joules: 537.300
+2016-04-14 16:12:03.061869
+Results:
+174.1
+183.0
+183.4
+Samples: 3
+Pavg: 180.167
+Pmax: 183.400
+Pmin: 174.100
+Pstdev: 4.293
+Joules: 540.500
+2016-04-14 16:12:11.332205
+Results:
+183.0
+183.0
+188.6
+Samples: 3
+Pavg: 184.867
+Pmax: 188.600
+Pmin: 183.000
+Pstdev: 2.640
+Joules: 554.600
+2016-04-14 16:12:20.891251
+Results:
+183.6
+183.7
+183.8
+184.0
+196.7
+Samples: 5
+Pavg: 186.360
+Pmax: 196.700
+Pmin: 183.600
+Pstdev: 5.172
+Joules: 931.800
+2016-04-14 16:12:28.989489
+Results:
+180.6
+192.9
+193.4
+193.0
+Samples: 4
+Pavg: 189.975
+Pmax: 193.400
+Pmin: 180.600
+Pstdev: 5.416
+Joules: 759.900
+2016-04-14 16:12:36.859032
+Results:
+191.9
+191.8
+192.0
+Samples: 3
+Pavg: 191.900
+Pmax: 192.000
+Pmin: 191.800
+Pstdev: 0.082
+Joules: 575.700
+2016-04-14 16:12:45.194238
+Results:
+192.7
+192.8
+192.4
+Samples: 3
+Pavg: 192.633
+Pmax: 192.800
+Pmin: 192.400
+Pstdev: 0.170
+Joules: 577.900

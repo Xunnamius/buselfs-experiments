@@ -5,16 +5,20 @@ the results"""
 
 # pylint: disable=E0401
 
+import os
 import sys
 import time
 import subprocess
 import serial
 from vendor.pyWattsup import WattsUp
 
-TRIALS = 4
+TTY = '/dev/ttyUSB0'
 #REPO = '/home/odroid/bd3/rsync/energy-AES-1'
 REPO = '/home/xunnamius/repos/research/energy-AES-1'
 NO_SHMOO = True # set to False if shmoo-ing
+CLEANUP = True # delete files directly after trial finishes so as to not take up space
+
+TRIALS = 20
 
 ################################################################################
 
@@ -28,7 +32,7 @@ writeto = sys.argv[3]
 
 trials = TRIALS
 
-wattsup = WattsUp('/dev/ttyUSB0', 115200, verbose=False)
+wattsup = WattsUp(TTY, 115200, verbose=False)
 
 #print("prescript execution returned: ", subprocess.call([REPO + '/freerun-prescript.sh']))
 
@@ -48,19 +52,17 @@ with open(REPO + '/results/shmoo.{}.{}.results'.format(coreType, fsType), 'a') a
             print('Serial exception (ignoring because already open)!')
 
         print('beginning...')
-        
+
         wattsup.clearMemory()
         wattsup.logInternal(1)
 
-        print('executing...')
+        target = os.path.join(writeto, '') + str(trial)
+        print('writing -> ' + target)
 
         # Begin logging with Wattsup (above), run filebench (here), close out the
         # Wattsup logger (below)
-        print("dd-write returned: ", subprocess.call([REPO + '/dd-write.sh', writeto + str(trial), coreType, fsType], stdout=out))
-        print("dd-read returned: ", subprocess.call([REPO + '/dd-read.sh', writeto + str(trial), coreType, fsType], stdout=out))
-
-        if NO_SHMOO:
-            print("mf: 0x10 2000000", stdout=out)
+        print("dd-write returned: ", subprocess.call([REPO + '/dd-write.sh', target, coreType, fsType], stdout=out))
+        print("dd-read returned: ", subprocess.call([REPO + '/dd-read.sh', target, coreType, fsType], stdout=out))
 
         # This loop handles any annoying errors we may encounter
         while True:
@@ -75,7 +77,15 @@ with open(REPO + '/results/shmoo.{}.{}.results'.format(coreType, fsType), 'a') a
                 time.sleep(0.1) # Give Wattsup a moment to get its shit together
                 wattsup.serial.open()
                 continue
+
+        if CLEANUP:
+            print('removing ' + target)
+            os.remove(target)
+
         print('trial {}/{} complete'.format(trial, TRIALS))
+
+    if NO_SHMOO:
+        print("mf: 0x10 2000000", file=out)
 
 wattsup.serial.close()
 print('done')
