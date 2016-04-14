@@ -12,8 +12,9 @@ import serial
 from vendor.pyWattsup import WattsUp
 
 TRIALS = 4
-REPO = '/home/odroid/bd3/rsync/energy-AES-1'
-
+#REPO = '/home/odroid/bd3/rsync/energy-AES-1'
+REPO = '/home/xunnamius/repos/research/energy-AES-1'
+NO_SHMOO = True # set to False if shmoo-ing
 
 ################################################################################
 
@@ -29,7 +30,7 @@ trials = TRIALS
 
 wattsup = WattsUp('/dev/ttyUSB0', 115200, verbose=False)
 
-print("prescript execution returned: ", subprocess.call([REPO + '/freerun-prescript.sh'], stdout=out))
+print("prescript execution returned: ", subprocess.call([REPO + '/freerun-prescript.sh']))
 
 with open(REPO + '/results/shmoo.{}.{}.results'.format(coreType, fsType), 'a') as out:
     while trials:
@@ -38,7 +39,7 @@ with open(REPO + '/results/shmoo.{}.{}.results'.format(coreType, fsType), 'a') a
         print('beginning trial {} of {}'.format(trial, TRIALS))
 
         print('waiting for write buffer flush...')
-        
+
         time.sleep(2)
 
         try:
@@ -53,6 +54,9 @@ with open(REPO + '/results/shmoo.{}.{}.results'.format(coreType, fsType), 'a') a
         # Wattsup logger (below)
         print("dd-write returned: ", subprocess.call([REPO + '/dd-write.sh', writeto + str(trial), coreType, fsType], stdout=out))
         print("dd-read returned: ", subprocess.call([REPO + '/dd-read.sh', writeto + str(trial), coreType, fsType], stdout=out))
+
+        if NO_SHMOO:
+            print("mf: 0x10 2000000", stdout=out)
 
         # This loop handles any annoying errors we may encounter
         while True:
