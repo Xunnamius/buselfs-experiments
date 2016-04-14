@@ -30,7 +30,7 @@ trials = TRIALS
 
 wattsup = WattsUp('/dev/ttyUSB0', 115200, verbose=False)
 
-print("prescript execution returned: ", subprocess.call([REPO + '/freerun-prescript.sh']))
+#print("prescript execution returned: ", subprocess.call([REPO + '/freerun-prescript.sh']))
 
 with open(REPO + '/results/shmoo.{}.{}.results'.format(coreType, fsType), 'a') as out:
     while trials:
@@ -41,14 +41,18 @@ with open(REPO + '/results/shmoo.{}.{}.results'.format(coreType, fsType), 'a') a
         print('waiting for write buffer flush...')
 
         time.sleep(2)
-
+        print('opening connection...')
         try:
             wattsup.serial.open()
         except serial.serialutil.SerialException:
-            pass
+            print('Serial exception (ignoring because already open)!')
 
+        print('beginning...')
+        
         wattsup.clearMemory()
         wattsup.logInternal(1)
+
+        print('executing...')
 
         # Begin logging with Wattsup (above), run filebench (here), close out the
         # Wattsup logger (below)
