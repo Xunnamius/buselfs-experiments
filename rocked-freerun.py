@@ -103,7 +103,6 @@ def createDefaultScatterInstance(x, y, name, text):
         marker=Marker(size=12)
     )
 
-
 def uploadAndPrint(scatterData, title, xaxis, yaxis, hsh):
     """Uploads the data to the web and returns a printout of URLS"""
     print('{: <90} {}'.format(title,
