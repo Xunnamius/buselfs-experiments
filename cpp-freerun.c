@@ -3,7 +3,7 @@
 #include <errno.h>
 #include <inttypes.h>
 #include "energymon/energymon-default.h"
-#include "energymon/energymon-time-util.h"
+#include "vendor/energymon/energymon-time-util.h"
 
 int main()
 {
@@ -12,6 +12,7 @@ int main()
     uint64_t time_end_ns;
     uint64_t energy_start_uj;
     uint64_t energy_end_uj;
+    double watts;
 
     if(energymon_get_default(&monitor))
     {
@@ -38,6 +39,7 @@ int main()
     
     printf("Got start reading: %"PRIu64"\n", energy_start_uj);
     time_start_ns = energymon_gettime_ns();
+    printf("Got start time: %"PRIu64"\n", time_start_ns);
 
     // Run the experiment here
     energymon_sleep_us(2000000); // Sleep for two seconds
@@ -55,8 +57,9 @@ int main()
     
     printf("Got end reading: %"PRIu64"\n", energy_end_uj);
     time_end_ns = energymon_gettime_ns();
+    printf("Got end time: %"PRIu64"\n", time_end_ns);
 
-    watts = (energy_start_uj - energy_end_uj) * 1000 / (time_start_ns - time_end_ns);
+    watts = (energy_end_uj - energy_start_uj) * 1000.0 / (time_end_ns - time_start_ns);
     printf("Watts: %f\n", watts);
 
     if(monitor.ffinish(&monitor))
