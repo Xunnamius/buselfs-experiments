@@ -25,22 +25,44 @@ int main()
         return 2;
     }
 
+    // Grab the initial energy use and time
     errno = 0;
-    result = monitor.fread(&monitor);
+    energy_start_uj = monitor.fread(&monitor);
 
-    if(result == 0 && errno)
+    if(!energy_start_uj && errno)
     {
         perror("fread");
-	monitor.ffinish(&monitor)
-        return 1;
+        monitor.ffinish(&monitor);
+        return 3;
     }
     
-    printf("Got reading: %"PRIu64"\n", result);
+    printf("Got start reading: %"PRIu64"\n", energy_start_uj);
+    time_start_ns = energymon_gettime_ns();
+
+    // Run the experiment here
+    energymon_sleep_us(2000000); // Sleep for two seconds
+
+    // Grab the end energy use and time
+    errno = 0;
+    energy_end_uj = monitor.fread(&monitor);
+
+    if(!energy_end_uj && errno)
+    {
+        perror("fread");
+        monitor.ffinish(&monitor);
+        return 3;
+    }
+    
+    printf("Got end reading: %"PRIu64"\n", energy_end_uj);
+    time_end_ns = energymon_gettime_ns();
+
+    watts = (energy_start_uj - energy_end_uj) * 1000 / (time_start_ns - time_end_ns);
+    printf("Watts: %f\n", watts);
 
     if(monitor.ffinish(&monitor))
     {
         perror("ffinish");
-        return 1;
+        return 5;
     }
     
     printf("Finished reading\n");
