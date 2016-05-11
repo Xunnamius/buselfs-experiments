@@ -1,18 +1,11 @@
 SHELL = /bin/sh
 CC = gcc
 CFLAGS = -Wall
-SOURCES = $(wildcard *.c)
 
-.SUFFIXES:
-.SUFFIXES: .c
-.PHONY: clean all
+.PHONY: clean
 
-all: $(subst .c,,$(SOURCES))
-
-ioctl: $(CC) $(CFLAGS) cpp-freerun.c -o bin/cpp-freerun -lenergymon-default -lpthread
-
-%:
-    $(CC) $(CFLAGS) $@.c -o bin/$@
+freerun:
+	$(CC) $(CFLAGS) cpp-freerun.c -o bin/cpp-freerun -lenergymon-default -lpthread
 
 clean:
-    rm -f bin/*
+	rm -f bin/*
