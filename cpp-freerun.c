@@ -5,7 +5,7 @@
 #include "energymon/energymon-default.h"
 #include "vendor/energymon/energymon-time-util.h"
 
-int main()
+int main(int argc, char * argv[])
 {
     energymon monitor;
     uint64_t time_start_ns;
@@ -13,6 +13,21 @@ int main()
     uint64_t energy_start_uj;
     uint64_t energy_end_uj;
     double watts;
+
+    // Accept non-optional args coreType, fsType, writeTo
+    if(argc != 4)
+    {
+        printf("Usage: cpp-freerun <coretype> <fstype> <writeto>");
+        return -1;
+    }
+
+    char * coreType = argv[1];
+    char * fsType = argv[2];
+    char * writeTo = argv[3];
+
+    printf("CoreType: %s", coreType);
+    printf("FSType: %s", fsType);
+    printf("WriteTo: %s", writeTo);
 
     if(energymon_get_default(&monitor))
     {
@@ -42,9 +57,11 @@ int main()
     printf("Got start time: %"PRIu64"\n", time_start_ns);
 
     // Run the experiment here
-    energymon_sleep_us(2000000); // Sleep for two seconds
+    // energymon_sleep_us(2000000); // Sleep for two seconds
 
-    // Grab the end energy use and time
+    // Run the dd-write and then dd-read
+
+    // Grab the terminal energy use and time
     errno = 0;
     energy_end_uj = monitor.fread(&monitor);
 
