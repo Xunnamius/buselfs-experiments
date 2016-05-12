@@ -81,7 +81,11 @@ int main(int argc, char * argv[])
     snprintf(path_shard, PATH_BUFF_SIZE, "results/shmoo.%s.%s.results", core_type, fs_type);
     get_real_path(output_path, path_shard);
 
-    foutput = fopen(output_path, "a");
+    if(foutput = fopen(output_path, "a"))
+    {
+        perror("failed to fopen output_path");
+        return 6;
+    }
 
     // Begin the trials
     int trials = TRIALS;
@@ -143,7 +147,7 @@ int main(int argc, char * argv[])
         {
             perror("fread");
             monitor.ffinish(&monitor);
-            return 3;
+            return 4;
         }
         
         printf("got end reading: %"PRIu64"\n", energy_end_uj);
