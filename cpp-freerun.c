@@ -4,6 +4,7 @@
 #include <inttypes.h>
 #include <unistd.h>
 #include <sys/types.h>
+#include <signal.h>
 #include "energymon/energymon-default.h"
 #include "vendor/energymon/energymon-time-util.h"
 
@@ -12,8 +13,16 @@
 
 const int TRIALS = 20;
 const char * REPO_PATH = "/home/odroid/bd3/repos/energy-AES-1"; // No trailing /
-const int CLEANUP = 0;
+const int CLEANUP = 1;
 const int NO_SHMOO = 1;
+
+// Prepare to catch interrupt
+static volatile int keepRunning = 1;
+
+void interrupt_handler(int dummy)
+{
+    _exit(-3);
+}
 
 /**
  * Appends path to REPO_PATH, separated by a /, and places it in buff. A maximum
@@ -54,6 +63,8 @@ int main(int argc, char * argv[])
         printf("Must run this as root!");
         return -2;
     }
+
+    signal(SIGINT, interrupt_handler);
 
     energymon monitor;
     char output_path[PATH_BUFF_SIZE];
@@ -183,6 +194,9 @@ int main(int argc, char * argv[])
             printf("removing target %s\n", target);
             remove(target);
         }
+
+        // Flush the results
+        fflush(foutput);
     }
 
     if(NO_SHMOO)
