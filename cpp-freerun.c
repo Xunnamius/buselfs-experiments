@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <errno.h>
 #include <inttypes.h>
+#include <unistd.h>
+#include <sys/types.h>
 #include "energymon/energymon-default.h"
 #include "vendor/energymon/energymon-time-util.h"
 
@@ -45,6 +47,14 @@ int callsys(const char * exec_path)
 
 int main(int argc, char * argv[])
 {
+    uid_t euid = geteuid();
+
+    if(euid != 0)
+    {
+        printf("Must run this as root!");
+        return -2;
+    }
+
     energymon monitor;
     char output_path[PATH_BUFF_SIZE];
     FILE * foutput;
