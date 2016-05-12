@@ -19,6 +19,7 @@ const int NO_SHMOO = 1;
 // Prepare to catch interrupt
 static volatile int keepRunning = 1;
 
+// Not working :(
 void interrupt_handler(int dummy)
 {
     keepRunning = 0;
