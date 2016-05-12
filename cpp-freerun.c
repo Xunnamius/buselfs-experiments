@@ -9,7 +9,7 @@
 #define CMD_BUFF_SIZE 512
 
 const int TRIALS = 20;
-const char * REPO_PATH = "/home/odroid/bd3/rsync/energy-AES-1"; // No trailing /
+const char * REPO_PATH = "/home/odroid/bd3/repos/energy-AES-1"; // No trailing /
 const int CLEANUP = 1;
 const int NO_SHMOO = 1;
 
