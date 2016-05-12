@@ -12,7 +12,7 @@
 
 const int TRIALS = 20;
 const char * REPO_PATH = "/home/odroid/bd3/repos/energy-AES-1"; // No trailing /
-const int CLEANUP = 1;
+const int CLEANUP = 0;
 const int NO_SHMOO = 1;
 
 /**
