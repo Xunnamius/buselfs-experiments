@@ -21,7 +21,7 @@ static volatile int keepRunning = 1;
 
 void interrupt_handler(int dummy)
 {
-    _exit(-3);
+    keepRunning = 0;
 }
 
 /**
@@ -116,7 +116,7 @@ int main(int argc, char * argv[])
     // Begin the trials
     int trials = TRIALS;
 
-    while(trials--)
+    while(keepRunning && trials--)
     {
         uint64_t time_start_ns;
         uint64_t time_end_ns;
@@ -197,6 +197,12 @@ int main(int argc, char * argv[])
 
         // Flush the results
         fflush(foutput);
+    }
+
+    if(!keepRunning)
+    {
+        printf("Interrupted!\n");
+        return 7;
     }
 
     if(NO_SHMOO)
