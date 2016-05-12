@@ -60,7 +60,7 @@ int main(int argc, char * argv[])
 
     if(euid != 0)
     {
-        printf("Must run this as root!");
+        printf("Must run this as root!\n");
         return -2;
     }
 
