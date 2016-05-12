@@ -52,8 +52,8 @@ int main(int argc, char * argv[])
     // Accept non-optional args core_type, fs_type, write_to
     if(argc != 4)
     {
-        printf("Usage: cpp-freerun <core_type> <fs_type> <write_to>");
-        printf("No trailing slash for <write_to>!");
+        printf("Usage: cpp-freerun <core_type> <fs_type> <write_to>\n");
+        printf("No trailing slash for <write_to>!\n");
         return -1;
     }
 
@@ -61,9 +61,9 @@ int main(int argc, char * argv[])
     char * fs_type = argv[2];
     char * write_to = argv[3];
 
-    printf("core_type: %s", core_type);
-    printf("fs_type: %s", fs_type);
-    printf("write_to: %s", write_to);
+    printf("core_type: %s\n", core_type);
+    printf("fs_type: %s\n", fs_type);
+    printf("write_to: %s\n", write_to);
 
     if(energymon_get_default(&monitor))
     {
@@ -97,7 +97,7 @@ int main(int argc, char * argv[])
         double duration;
 
         int trial = TRIALS - trials;
-        printf("--> beginning trial %d of %d", trial, TRIALS);
+        printf("--> beginning trial %d of %d\n", trial, TRIALS);
 
         char write_cmd[CMD_BUFF_SIZE];
         char read_cmd[CMD_BUFF_SIZE];
@@ -107,9 +107,9 @@ int main(int argc, char * argv[])
         snprintf(write_cmd, CMD_BUFF_SIZE, "dd-write.sh %s %s %s", target, core_type, fs_type);
         snprintf(read_cmd, CMD_BUFF_SIZE, "dd-read.sh %s %s %s", target, core_type, fs_type);
 
-        printf("target: %s", target);
-        printf("write_cmd: %s", write_cmd);
-        printf("read_cmd: %s", read_cmd);
+        printf("target: %s\n", target);
+        printf("write_cmd: %s\n", write_cmd);
+        printf("read_cmd: %s\n", read_cmd);
 
         // Grab the initial energy use and time
         errno = 0;
@@ -131,9 +131,9 @@ int main(int argc, char * argv[])
 
         // Run the dd-write and then dd-read
         int write_ret = callsys(write_cmd);
-        printf("write_cmd returned %d", write_ret);
+        printf("write_cmd returned %d\n", write_ret);
         int read_ret = callsys(read_cmd);
-        printf("read_cmd returned %d", read_ret);
+        printf("read_cmd returned %d\n", read_ret);
 
         // Grab the terminal energy use and time
         errno = 0;
@@ -161,13 +161,13 @@ int main(int argc, char * argv[])
 
         if(CLEANUP)
         {
-            printf("removing target %s", target);
+            printf("removing target %s\n", target);
             remove(target);
         }
     }
 
     if(NO_SHMOO)
-        fprintf(foutput, "%s", "mf: 0x10 2000000");
+        fprintf(foutput, "%s", "mf: 0x10 2000000\n");
 
     if(monitor.ffinish(&monitor))
     {
