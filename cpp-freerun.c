@@ -14,6 +14,20 @@ const int CLEANUP = 1;
 const int NO_SHMOO = 1;
 
 /**
+ * Appends path to REPO_PATH, separated by a /, and places it in buff. A maximum
+ * of PATH_BUFF_SIZE bytes will be written into buff.
+ *
+ * @param  buff Buffer to put the resultant string into
+ * @param  path String to append to the end of REPO_PATH
+ *
+ * @return      The result of snprintf()
+ */
+int get_real_path(char * buff, const char * path)
+{
+    return snprintf(buff, PATH_BUFF_SIZE, "%s/%s", REPO_PATH, path);
+}
+
+/**
  * Returns the result of calling system(x) where x is the string
  * REPO_PATH + "/" + exec_path (see below). Path will at most be PATH_BUFF_SIZE
  * bytes in size.
@@ -27,20 +41,6 @@ int callsys(const char * exec_path)
     char realpath[PATH_BUFF_SIZE];
     get_real_path(realpath, exec_path);
     return system(realpath);
-}
-
-/**
- * Appends path to REPO_PATH, separated by a /, and places it in buff. A maximum
- * of PATH_BUFF_SIZE bytes will be written into buff.
- *
- * @param  buff Buffer to put the resultant string into
- * @param  path String to append to the end of REPO_PATH
- *
- * @return      The result of snprintf()
- */
-int get_real_path(char * buff, const char * path)
-{
-    return snprintf(buff, PATH_BUFF_SIZE, "%s/%s", REPO_PATH, path);
 }
 
 int main(int argc, char * argv[])
