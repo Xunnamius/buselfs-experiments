@@ -25,7 +25,7 @@ const int NO_SHMOO = 1;
 int callsys(const char * exec_path)
 {
     char realpath[PATH_BUFF_SIZE];
-    get_real_path(realpath, exec_path)
+    get_real_path(realpath, exec_path);
     return system(realpath);
 }
 
@@ -40,7 +40,7 @@ int callsys(const char * exec_path)
  */
 int get_real_path(char * buff, const char * path)
 {
-    return snprintf(buff, PATH_BUFF_SIZE, "%s/%s", REPO_PATH, exec_path);
+    return snprintf(buff, PATH_BUFF_SIZE, "%s/%s", REPO_PATH, path);
 }
 
 int main(int argc, char * argv[])
