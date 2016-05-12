@@ -80,8 +80,13 @@ int main(int argc, char * argv[])
     char path_shard[PATH_BUFF_SIZE];
     snprintf(path_shard, PATH_BUFF_SIZE, "results/shmoo.%s.%s.results", core_type, fs_type);
     get_real_path(output_path, path_shard);
-
-    if(foutput = fopen(output_path, "a"))
+    
+    printf("output_path: %s\n", output_path);
+    
+    errno = 0;
+    foutput = fopen(output_path, "a");
+    
+    if(!foutput && errno)
     {
         perror("failed to fopen output_path");
         return 6;
