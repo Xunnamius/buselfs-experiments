@@ -4,58 +4,50 @@
 import os
 import sys
 import hashlib
+import pprint
+from decimal import Decimal
 from statistics import median
+from plotly.graph_objs import Bar, Figure, Layout
 import plotly.plotly as py
-from plotly.graph_objs import Scatter, Figure, Data, Layout, XAxis, YAxis, Marker
 
 OPS = 25000*2
 TRIALS = 20
 GHZ = 1000000
 
-CORE_TYPES = ['big', 'little']
-FS_TYPES = ['fde', 'nfde']
-TITLE_TEMPLATE = '{} {} {} [{} iops {} trials]'
+CORE_TYPES = ['big']
+#FS_TYPES = ['1-kext4-normal', '3-kext4+fuse-ext4', '4-kext4+dmc+fuse-ext4', '5-kext4+fuse-lfs']
+FS_TYPES = ['1-kext4-normal']
+COLORS = ['rgb(49,130,189)', 'rgb(204,204,204)', 'rgb(255,102,0)']
+TITLE_TEMPLATE = '{} FS Energy Measurements [{} iops {} trials]'
 
 ################################################################################
 
-def createDefaultScatterInstance(x, y, name, text):
-    return Scatter(
+def createDefaultTraceInstance(x, y, name, text, color=None):
+    """Creates a default graph object instance"""
+    trace = Bar(
         x=x, y=y,
-        mode='markers',
         name=name,
-        text=text,
-        marker=Marker(size=12)
+        text=text
     )
 
-def uploadAndPrint(scatterData, title, xaxis, yaxis, hsh):
-    print('{: <90} {}'.format(title,
-        py.plot(
-            Figure(
-                data = Data(scatterData),
-                layout = Layout(
-                    title=title,
-                    xaxis1 = XAxis(title='{}'.format(xaxis)),
-                    yaxis1 = YAxis(title='{}'.format(yaxis))
-            )),
-            filename='energy-AESXTS1-cpp-' + hsh,
-            auto_open=False
-    )))
+    if color is not None:
+        trace.marker = dict( color=color )
+
+    return trace
 
 def lineToNumber(line):
     """Converts a line string like "energy: 55" into a number"""
-    return float(line.split(': ')[1])
+    return Decimal(line.split(': ')[1])
 
 if __name__ == "__main__":
     filesdir   = None
-    maskFilter = None
 
-    if 2 >= len(sys.argv) <= 3:
-        print('Usage: {} <data directory> [<mask hex>]'.format(sys.argv[0]))
-        print('If no mask is specified, all masks will be included')
+    if len(sys.argv) != 2:
+        print('Usage: {} <data directory>'.format(sys.argv[0]))
         sys.exit(1)
     else:
-        filesdir   = sys.argv[1].strip('/')
-        maskFilter = sys.argv[2] if len(sys.argv) == 3 else None
+        filesdir = sys.argv[1].strip('/')
+
         if not os.path.exists(filesdir) or not os.path.isdir(filesdir):
             print('{} does not exist or is not a directory.'.format(filesdir))
             sys.exit(1)
@@ -85,19 +77,70 @@ if __name__ == "__main__":
                 for metric in ('energy', 'power', 'duration'):
                     dataFragment[metric] = median(dataFragment[metric])
 
+                dataFragment['energy'] /= 1000000
+                dataFragment['duration'] /= 1000000000
+
     print('uploading...')
 
     titlePrefix = filesdir.strip('/').split('/')[-1]
+    title = TITLE_TEMPLATE.format(titlePrefix, OPS, TRIALS)
+
+    # XXX: create new trace instances and do what needs doing to construct the bar chart
+    cdsi = lambda x, y, name, color: createDefaultTraceInstance(x, y, name, None, color)
 
     # Compile the data into charts/graphs and throw it online
-    for scatterKey, scatterData in holisticDatastore['aggregate']['scatters'].items():
-        title = TITLE_TEMPLATE.format(titlePrefix, scatterData['xTitle'], scatterData['yTitle'], OPS, TRIALS)
-        uploadAndPrint(
-            scatterData['data'],
-            title,
-            scatterData['xAxisTitle'].format('see mask' if maskFilter is None else maskFilter),
-            scatterData['yAxisTitle'],
-            hashlib.md5(bytes(filesdir + scatterKey + title, "ascii")).hexdigest()
-        )
+
+    # x = FS_TYPES
+    y0 = []
+    y1 = []
+    y2 = []
+
+    for coreType in CORE_TYPES:
+        coreFragment = data[coreType]
+
+        for fs in FS_TYPES:
+            fsFragment = coreFragment[fs]
+
+            y0.append(fsFragment['energy'])
+            y1.append(fsFragment['power'])
+            y2.append(fsFragment['duration'])
+
+    traces = [
+        cdsi(FS_TYPES, y0, 'Energy', COLORS[0]),
+        cdsi(FS_TYPES, y1, 'Power', COLORS[1]),
+        cdsi(FS_TYPES, y2, 'Duration', COLORS[2])
+    ]
+
+    layout = Layout(
+        xaxis = dict(
+            # set x-axis' labels direction at 45 degree angle
+            tickangle = -5,
+            title = 'Filesystems'
+        ),
+        yaxis = dict( title='Energy (j, j/s)' ),
+        barmode = 'group',
+        title = title
+    )
+
+    fig = Figure(data=traces, layout=layout)
+
+    pprint.PrettyPrinter(indent=4).pprint(data)
+    print('~~~~~')
+    pprint.PrettyPrinter(indent=4).pprint(traces)
+
+    user_input = input('Look good? (y/N): ')
+    if user_input != 'y':
+        print('not continuing!')
+        sys.exit(1)
+
+    print('uploading...')
+
+    print('{: <90} {}'.format(title,
+        py.plot(
+            fig,
+            filename='energy-AESXTS1-cppgraph-' + hashlib.md5(bytes(filesdir + title, 'ascii')).hexdigest(),
+            auto_open=False
+        ))
+    )
 
     print('done!')
