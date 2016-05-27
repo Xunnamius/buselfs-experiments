@@ -52,6 +52,7 @@ int callsys(const char * exec_path)
 {
     char realpath[PATH_BUFF_SIZE];
     get_real_path(realpath, exec_path);
+    printf("callsys: %s\n", realpath);
     return system(realpath);
 }
 
