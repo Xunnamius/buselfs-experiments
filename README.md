@@ -20,6 +20,6 @@ This repository houses my energy/AES related experiments for the purposes of eve
 * `setupfilesystems.sh` can be called without arguments and will setup the twelve filesystems used in the more recent experiments
 * `small.random` and `large.random` are files filled with random bits and are copied around during the lfs experiments
 
-Call `make` in order to compile the cpp-* experimental scripts. You can then call them by name in `bin/`
+Call `make` in order to compile the cpp-* experiment scripts. You can then call them individually by name in `bin/` or run the entire current experiment by calling `make run`. You can test the cpp-* experiment scripts using `make test`. You can clear out `bin/` with `make clean`.
 
-**Note that most of these commands should probably be run as `root`. When it comes to the experiments, _definitely_ run those as `root`!**
+**Note that most of the executables in this project should probably be run as `root`. When it comes to the experiments, _definitely_ run those as `root`!**
