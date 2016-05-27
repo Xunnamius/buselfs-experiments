@@ -1,5 +1,7 @@
 # Experiments, Progression, Usage
 
+We have come a long way...
+
 ## Experimental progression
 
 ```
