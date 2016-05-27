@@ -2,25 +2,18 @@
 
 ## Experimental progression
 
+```
 shmoo+Filebench "timed" experiments
-
             |
-
             V
-
 shmoo+Filebench "freerun" experiments
-
             |
-
             V
-
 shmoo+dd "freerun" FDE/NFDE experiments
-
             |
-
             V
-            
 dd lfs/chacha experiments
+```
 
 # Usage
 
