@@ -2,7 +2,8 @@
 
 This repository houses my energy/AES related experiments for the purposes of eventually developing a chacha-based LFS utilizing poly1305.
 
-Structure:
+## Structure
+
 * `bin/` contains any compiled experiments and data crunching code
 * `docs` contains expansive documentation and detailed usage instructions
 * `fb-personalities` contains the filebench personalities used in earlier phases of the experiment
@@ -10,7 +11,8 @@ Structure:
 * `test` is a dummy directory that some of the experiments are allowed to write to for testing purposes
 * `vendor` contains third-party and outside code that is not strictly under my control
 
-Files:
+## Files
+
 * `dd-read.sh` and `dd-write.sh` are the scripts used by many of the experiment scripts to read and write data to the various filesystems for testing purposes
 * The rocked-* scripts and executables are used for turning results (typically in the `results/` directory) into pretty graphs using plotly
 * `storeresults.sh` can be called without arguments and will take whatever result files are currently floating around in `results/` and put the in a subdir named with a timestamp
