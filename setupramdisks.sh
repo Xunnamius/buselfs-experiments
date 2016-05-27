@@ -1,3 +1,9 @@
+# If a ramdisk already exists where we want to make one, then fail out
+if [ -d "/dev/ram0" ]; then
+    echo 'A ramdisk already exists at /dev/ram0!'
+    exit 1
+fi
+
 # Creates ram0 (nfde) and ram1 (fde)
 sudo modprobe brd rd_nr=2 rd_size=524288
 # badpasswordsarebad is the password

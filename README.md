@@ -1,51 +1,23 @@
-# ENERGY/AES EXPERIMENTS (phase 1)
+# Bernard's Energy-AES-1
 
-**WARNING: Make sure to RUN ALL TESTS AS ROOT!**
+This repository houses my energy/AES related experiments for the purposes of eventually developing a chacha-based LFS utilizing poly1305.
 
-## Freerun Results (python-freerun.py)
+Structure:
+* `bin/` contains any compiled experiments and data crunching code
+* `docs` contains expansive documentation and detailed usage instructions
+* `fb-personalities` contains the filebench personalities used in earlier phases of the experiment
+* `results` contains all the results from running the experiment code
+* `test` is a dummy directory that some of the experiments are allowed to write to for testing purposes
+* `vendor` contains third-party and outside code that is not strictly under my control
 
-[2015-12-06--100958 (N)FDE vs Total Energy over 50000 iops 10 trials](https://plot.ly/~Xunnamius/198.embed)
+Files:
+* `dd-read.sh` and `dd-write.sh` are the scripts used by many of the experiment scripts to read and write data to the various filesystems for testing purposes
+* The rocked-* scripts and executables are used for turning results (typically in the `results/` directory) into pretty graphs using plotly
+* `storeresults.sh` can be called without arguments and will take whatever result files are currently floating around in `results/` and put the in a subdir named with a timestamp
+* `setupramdisks.sh` can be called without arguments and will setup a couple RAM disks. This is used for the older FDE vs NFDE experiments
+* `setupfilesystems.sh` can be called without arguments and will setup the twelve filesystems used in the more recent experiments
+* `small.random` and `large.random` are files filled with random bits and are copied around during the lfs experiments
 
-[2015-12-06--100958 (N)FDE vs Average Power over 50000 iops 10 trials](https://plot.ly/~Xunnamius/196.embed)
+Call `make` in order to compile the cpp-* experimental scripts. You can then call them by name in `bin/`
 
-[2015-12-06--100958 Frequency Sweep vs Total Energy over 50000 iops 10 trials](https://plot.ly/~Xunnamius/217.embed)
-
-[2015-12-06--100958 Frequency Sweep vs Average Power over 50000 iops 10 trials](https://plot.ly/~Xunnamius/215.embed)
-
-[2015-12-06--100958 Frequency Sweep vs Average Duration over 50000 iops 10 trials](https://plot.ly/~Xunnamius/219.embed)
-
-[2015-12-06--100958 Frequency Sweep vs Total Energy Ratio over 50000 iops 10 trials](https://plot.ly/~Xunnamius/223.embed)
-
-[2015-12-06--100958 Frequency Sweep vs Average Power Ratio over 50000 iops 10 trials](https://plot.ly/~Xunnamius/221.embed)
-
-[2015-12-06--100958 Frequency Sweep vs Average Duration Ratio over 50000 iops 10 trials](https://plot.ly/~Xunnamius/225.embed)
-
-## Chacha Results (python-chacha.py)
-
-### Encryption
-
-[2016-02-04--045529 [BIG Encrypt] Average Power over 3 trials (50 inner trials)](https://plot.ly/~Xunnamius/307.embed)
-
-[2016-02-04--045529 [LITTLE Encrypt] Average Power over 3 trials (50 inner trials)](https://plot.ly/~Xunnamius/309.embed)
-
-[2016-02-04--045529 [BIG Encrypt] Total Energy over 3 trials (50 inner trials)](https://plot.ly/~Xunnamius/315.embed)
-
-[2016-02-04--045529 [LITTLE Encrypt] Total Energy over 3 trials (50 inner trials)](https://plot.ly/~Xunnamius/329.embed)
-
-[2016-02-04--045529 [BIG Encrypt] Average Duration over 3 trials (50 inner trials)](https://plot.ly/~Xunnamius/317.embed)
-
-[2016-02-04--045529 [LITTLE Encrypt] Average Duration over 3 trials (50 inner trials)](https://plot.ly/~Xunnamius/319.embed)
-
-### Decryption
-
-[2016-02-04--045529 [BIG Decrypt] Average Power over 3 trials (50 inner trials)](https://plot.ly/~Xunnamius/325.embed)
-
-[2016-02-04--045529 [LITTLE Decrypt] Average Power over 3 trials (50 inner trials)](https://plot.ly/~Xunnamius/321.embed)
-
-[2016-02-04--045529 [BIG Decrypt] Total Energy over 3 trials (50 inner trials)](https://plot.ly/~Xunnamius/323.embed)
-
-[2016-02-04--045529 [LITTLE Decrypt] Total Energy over 3 trials (50 inner trials)](https://plot.ly/~Xunnamius/327.embed)
-
-[2016-02-04--045529 [BIG Decrypt] Average Duration over 3 trials (50 inner trials)](https://plot.ly/~Xunnamius/313.embed)
-
-[2016-02-04--045529 [LITTLE Decrypt] Average Duration over 3 trials (50 inner trials)](https://plot.ly/~Xunnamius/311.embed)
+**Note that most of these commands should probably be run as `root`. When it comes to the experiments, _definitely_ run those as `root`!**
