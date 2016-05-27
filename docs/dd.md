@@ -13,6 +13,7 @@ They both accept the same parameters:
 ## Example usage
 
 `./dd-write.sh test/testfile big testfs`
+
 `./dd-read.sh test/testfile big testfs`
 
 Note that these two scripts do drop the system page cache via `echo 1 | sudo tee /proc/sys/vm/drop_caches`. Further, they engage in direct IO via flags.
