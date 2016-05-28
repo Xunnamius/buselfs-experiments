@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
+# pylint: disable=E0202
 """This script crunches the shmoo.<CORETYPE>.<FSTYPE>.results file in the results folder"""
 
 import os
 import sys
 import hashlib
 import pprint
+import json
 from decimal import Decimal
 from statistics import median
 from plotly.graph_objs import Bar, Figure, Layout
@@ -20,7 +22,7 @@ FS_TYPES = [
     '01-kext4-normal',
     '02-kext4-fuse-ext4',
     '03-kext4-fuse-ext4-dmc',
-    '04-kext4-dmc-fuse-ext4',
+    #'04-kext4-dmc-fuse-ext4',
     #'05-kext4-fuse-lfs',
     #'06-kext4-fuse-lfs-chacha-poly',
     #'07-rdext4-normal',
@@ -115,9 +117,9 @@ if __name__ == "__main__":
         for fs in FS_TYPES:
             fsFragment = coreFragment[fs]
 
-            y0.append(fsFragment['energy'])
-            y1.append(fsFragment['power'])
-            y2.append(fsFragment['duration'])
+            y0.append(float(fsFragment['energy']))
+            y1.append(float(fsFragment['power']))
+            y2.append(float(fsFragment['duration']))
 
     traces = [
         cdsi(FS_TYPES, y0, 'Energy', COLORS[0]),
