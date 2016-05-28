@@ -71,9 +71,9 @@ sudo cryptsetup open --type luks /home/odroid/bd3/fuse/mnt/03-kext4-fuse-ext4-dm
 sudo mount -t ext4 /dev/mapper/03.fs.dmc /home/odroid/bd3/fuse/mnt/03-kext4-fuse-ext4-dmc/write/write
 
 echo '>>> Mounting filesystem 04'
-sudo cryptsetup open --type luks /home/odroid/bd3/fuse/mnt/04-kext4-dmc-fuse-ext/fs.dmc 04.fs.dmc
-sudo mount -t ext4 /dev/mapper/04.fs.dmc /home/odroid/bd3/fuse/mnt/04-kext4-dmc-fuse-ext/write
-sudo fuse-ext2 /home/odroid/bd3/fuse/mnt/04-kext4-dmc-fuse-ext/write/fs.ext4 /home/odroid/bd3/fuse/mnt/04-kext4-dmc-fuse-ext/write/write -o rw+
+sudo cryptsetup open --type luks /home/odroid/bd3/fuse/mnt/04-kext4-dmc-fuse-ext4/fs.dmc 04.fs.dmc
+sudo mount -t ext4 /dev/mapper/04.fs.dmc /home/odroid/bd3/fuse/mnt/04-kext4-dmc-fuse-ext4/write
+sudo fuse-ext2 /home/odroid/bd3/fuse/mnt/04-kext4-dmc-fuse-ext4/write/fs.ext4 /home/odroid/bd3/fuse/mnt/04-kext4-dmc-fuse-ext4/write/write -o rw+
 
 echo '>>> Mounting filesystem 05'
 ## todo
