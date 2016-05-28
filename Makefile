@@ -14,7 +14,7 @@ test:
 	sudo ./bin/cpp-freerun big testfs /home/odroid/bd3/repos/energy-AES-1/test
 
 run:
-	echo 'If you did not call `make freerun` or did not run setupfilesystems.sh, then ctrl+c NOW!'
+	@echo 'If you did not call `make freerun` or did not run setupfilesystems.sh, then ctrl+c NOW!'
 	sleep 5
 	sudo ./bin/cpp-freerun big 01-kext4-normal /home/odroid/bd3/fuse/mnt/01-kext4-normal/write
 	sudo ./bin/cpp-freerun big 02-kext4-fuse-ext4 /home/odroid/bd3/fuse/mnt/02-kext4-fuse-ext4/write
