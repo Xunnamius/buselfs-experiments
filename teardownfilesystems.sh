@@ -47,6 +47,7 @@ echo 'Unmounting filesystem 12'
 ## todo
 
 echo 'Destroying ram disk 0 (hopefully)'
+sudo umount /media/rd
 sudo blockdev --flushbufs /dev/ram0
 sudo rm /dev/ram0
 sudo rmmod brd
