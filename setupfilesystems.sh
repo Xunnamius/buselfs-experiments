@@ -1,12 +1,11 @@
+set -e
+
 # If a ramdisk already exists where we want to make one, then fail out
 if [ -b /dev/ram0 ]; then
     echo 'A ramdisk already exists at /dev/ram0!'
-    echo 'Deallocate ramdisks with: sudo blockdev --flushbufs /dev/ramX followed by `sudo rm /dev/ramX`'
+    echo 'Deallocate ramdisks with: `sudo blockdev --flushbufs /dev/ramX` followed by `sudo rm /dev/ramX`'
     exit 1
 fi
-
-echo 'Becoming root'
-sudo -s
 
 # Creates ram0
 echo 'Creating (1) ram disk of size 512MB'
@@ -83,4 +82,3 @@ echo 'Mounting filesystem 06'
 ## todo
 
 echo 'Done'
-exit
