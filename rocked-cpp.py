@@ -22,13 +22,13 @@ FS_TYPES = [
     '01-kext4-normal',
     '02-kext4-fuse-ext4',
     '03-kext4-fuse-ext4-dmc',
-    #'04-kext4-dmc-fuse-ext4',
+    '04-kext4-dmc-fuse-ext4',
     #'05-kext4-fuse-lfs',
     #'06-kext4-fuse-lfs-chacha-poly',
-    #'07-rdext4-normal',
-    #'08-rdext4-fuse-ext4',
-    #'09-rdext4-fuse-ext4-dmc',
-    #'10-rdext4-dmc-fuse-ext4',
+    '07-rdext4-normal',
+    '08-rdext4-fuse-ext4',
+    '09-rdext4-fuse-ext4-dmc',
+    '10-rdext4-dmc-fuse-ext4',
     #'11-rdext4-fuse-lfs',
     #'12-rdext4-fuse-lfs-chacha-poly'
 ]
