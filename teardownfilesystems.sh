@@ -15,8 +15,8 @@ sudo cryptsetup close --type luks 03.fs.dmc
 sudo umount /home/odroid/bd3/fuse/mnt/03-kext4-fuse-ext4-dmc/write
 
 echo 'Unmounting filesystem 04'
-sudo umount /home/odroid/bd3/fuse/mnt/04-kext4-dmc-fuse-ext/write/write
-sudo umount /home/odroid/bd3/fuse/mnt/04-kext4-dmc-fuse-ext/write
+sudo umount /home/odroid/bd3/fuse/mnt/04-kext4-dmc-fuse-ext4/write/write
+sudo umount /home/odroid/bd3/fuse/mnt/04-kext4-dmc-fuse-ext4/write
 sudo cryptsetup close --type luks 04.fs.dmc
 
 echo 'Unmounting filesystem 05'
