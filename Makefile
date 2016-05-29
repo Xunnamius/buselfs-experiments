@@ -22,9 +22,9 @@ run:
 	sudo ./bin/cpp-freerun big 04-kext4-dmc-fuse-ext4 /home/odroid/bd3/fuse/mnt/04-kext4-dmc-fuse-ext4/write/write
 	#sudo ./bin/cpp-freerun big 05-kext4-fuse-lfs /home/odroid/bd3/fuse/mnt/05-kext4-fuse-lfs/write
 	#sudo ./bin/cpp-freerun big 06-kext4-fuse-lfs-chacha-poly /home/odroid/bd3/fuse/mnt/06-kext4-fuse-lfs-chacha-poly/write
-	sudo ./bin/cpp-freerun big 07-rdext4-normal /home/odroid/bd3/fuse/mnt/07-rdext4-normal/write
-	sudo ./bin/cpp-freerun big 08-rdext4-fuse-ext4 /home/odroid/bd3/fuse/mnt/08-rdext4-fuse-ext4/write
-	sudo ./bin/cpp-freerun big 09-rdext4-fuse-ext4-dmc /home/odroid/bd3/fuse/mnt/09-rdext4-fuse-ext4-dmc/write/write
-	sudo ./bin/cpp-freerun big 10-rdext4-dmc-fuse-ext4 /home/odroid/bd3/fuse/mnt/10-rdext4-dmc-fuse-ext4/write/write
-	#sudo ./bin/cpp-freerun big 11-rdext4-fuse-lfs /home/odroid/bd3/fuse/mnt/11-rdext4-fuse-lfs/write
-	#sudo ./bin/cpp-freerun big 12-rdext4-fuse-lfs-chacha-poly /home/odroid/bd3/fuse/mnt/12-rdext4-fuse-lfs-chacha-poly/write
+	sudo ./bin/cpp-freerun big 07-rdext4-normal /media/rd/07-rdext4-normal/write
+	sudo ./bin/cpp-freerun big 08-rdext4-fuse-ext4 /media/rd/08-rdext4-fuse-ext4/write
+	sudo ./bin/cpp-freerun big 09-rdext4-fuse-ext4-dmc /media/rd/09-rdext4-fuse-ext4-dmc/write/write
+	sudo ./bin/cpp-freerun big 10-rdext4-dmc-fuse-ext4 /media/rd/10-rdext4-dmc-fuse-ext4/write/write
+	#sudo ./bin/cpp-freerun big 11-rdext4-fuse-lfs /media/rd/11-rdext4-fuse-lfs/write
+	#sudo ./bin/cpp-freerun big 12-rdext4-fuse-lfs-chacha-poly /media/rd/12-rdext4-fuse-lfs-chacha-poly/write
