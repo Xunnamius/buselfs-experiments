@@ -222,7 +222,7 @@ def aes_cbc_decrypt(data, nonce, key):
 
     return decryptor.update(next(data)) + decryptor.finalize()
 
-with open('/home/odroid/bd3/rsync/energy-AES-1/results/shmoo.{}.results'.format(coreType), 'a') as out:
+with open('/home/odroid/bd3/rsync/energy-AES-1/results/shmoo.{}.results'.format(coreType), 'a+') as out:
     while trials:
         trials = trials - 1
         trial = TRIALS-trials

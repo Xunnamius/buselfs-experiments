@@ -36,7 +36,7 @@ wattsup = WattsUp(TTY, 115200, verbose=False)
 
 #print("prescript execution returned: ", subprocess.call([REPO + '/freerun-prescript.sh']))
 
-with open(REPO + '/results/shmoo.{}.{}.results'.format(coreType, fsType), 'a') as out:
+with open(REPO + '/results/shmoo.{}.{}.results'.format(coreType, fsType), 'a+') as out:
     while trials:
         trials = trials - 1
         trial = TRIALS-trials
