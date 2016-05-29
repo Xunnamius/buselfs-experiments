@@ -6,10 +6,9 @@ import os
 import sys
 import hashlib
 import pprint
-import json
 from decimal import Decimal
 from statistics import median
-from plotly.graph_objs import Bar, Figure, Layout
+from plotly.graph_objs import Bar, Figure, Layout, Box
 import plotly.plotly as py
 
 OPS = 25000*2
@@ -124,18 +123,26 @@ if __name__ == "__main__":
     traces = [
         cdsi(FS_TYPES, y0, 'Energy', COLORS[0]),
         cdsi(FS_TYPES, y1, 'Power', COLORS[1]),
-        cdsi(FS_TYPES, y2, 'Duration', COLORS[2])
+        Box(
+            x=FS_TYPES, y=y2,
+            name='Duration',
+            fillcolor=COLORS[2],
+            line=dict(color=COLORS[2]),
+            yaxis='y2'
+        )
     ]
 
     layout = Layout(
         xaxis = dict(
             # set x-axis' labels direction at 45 degree angle
-            tickangle = -5,
+            tickangle = 50,
             title = 'Filesystems'
         ),
-        yaxis = dict( title='Energy (j, j/s)' ),
+        yaxis = dict( title='Energy (j), Power (j/s)', autorange=False, range=[0, 30], side='left' ),
+        yaxis2 = dict( title='Duration (seconds)', autorange=False, range=[0, 20], side='right', gridwidth=2.5, overlaying='y' ),
         barmode = 'group',
-        title = title
+        title = title,
+        margin = dict( b=160 )
     )
 
     fig = Figure(data=traces, layout=layout)
