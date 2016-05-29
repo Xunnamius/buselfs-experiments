@@ -18,7 +18,8 @@ GHZ = 1000000
 #CORE_TYPES = ['big', 'little']
 CORE_TYPES = ['big']
 #FS_TYPES = ["kernel", "fuse+ext4", "fuse+lfs", "kernel+aesxts", "fuse+lfs+aesxts", "fuse+lfs+chacha+poly"]
-FS_TYPES = ['1-kext4-normal', '3-kext4+fuse-ext4', '4-kext4+dmc+fuse-ext4', '5-kext4+fuse-lfs']
+#FS_TYPES = ['1-kext4-normal', '3-kext4+fuse-ext4', '4-kext4+dmc+fuse-ext4', '5-kext4+fuse-lfs']
+FS_TYPES = ['fde', 'nfde']
 COLORS = ['rgb(49,130,189)', 'rgb(204,204,204)', 'rgb(255,102,0)']
 TITLE_TEMPLATE = '{} {} vs {} over {} iops {} trials'
 
