@@ -61,8 +61,8 @@ with open(REPO + '/results/shmoo.{}.{}.results'.format(coreType, fsType), 'a') a
 
         # Begin logging with Wattsup (above), run filebench (here), close out the
         # Wattsup logger (below)
-        print("dd-write returned: ", subprocess.call([REPO + '/dd-write.sh', target, coreType, fsType], stdout=out))
-        print("dd-read returned: ", subprocess.call([REPO + '/dd-read.sh', target, coreType, fsType], stdout=out))
+        print("dd-write returned: ", subprocess.call([REPO + '/dd-write-old.sh', target, coreType, fsType], stdout=out))
+        print("dd-read returned: ", subprocess.call([REPO + '/dd-read-old.sh', target, coreType, fsType], stdout=out))
 
         # This loop handles any annoying errors we may encounter
         while True:
