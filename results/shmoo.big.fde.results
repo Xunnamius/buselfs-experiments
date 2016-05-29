@@ -1,0 +1,269 @@
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+2016-05-30 08:41:59.576169
+Results:
+5.9
+6.1
+6.3
+6.4
+6.6
+Samples: 5
+Pavg: 6.260
+Pmax: 6.600
+Pmin: 5.900
+Pstdev: 0.242
+Joules: 31.300
+2016-05-30 08:42:08.341505
+Results:
+6.5
+6.7
+6.8
+6.9
+Samples: 4
+Pavg: 6.725
+Pmax: 6.900
+Pmin: 6.500
+Pstdev: 0.148
+Joules: 26.900
+2016-05-30 08:42:17.208181
+Results:
+6.5
+6.7
+6.8
+6.9
+Samples: 4
+Pavg: 6.725
+Pmax: 6.900
+Pmin: 6.500
+Pstdev: 0.148
+Joules: 26.900
+2016-05-30 08:42:25.948073
+Results:
+6.8
+6.8
+6.9
+7.0
+Samples: 4
+Pavg: 6.875
+Pmax: 7.000
+Pmin: 6.800
+Pstdev: 0.083
+Joules: 27.500
+2016-05-30 08:42:34.720882
+Results:
+6.7
+6.8
+6.9
+7.0
+7.1
+Samples: 5
+Pavg: 6.900
+Pmax: 7.100
+Pmin: 6.700
+Pstdev: 0.141
+Joules: 34.500
+2016-05-30 08:42:43.586888
+Results:
+6.9
+6.9
+7.0
+7.1
+7.2
+Samples: 5
+Pavg: 7.020
+Pmax: 7.200
+Pmin: 6.900
+Pstdev: 0.117
+Joules: 35.100
+2016-05-30 08:42:52.338762
+Results:
+6.8
+6.9
+6.9
+7.0
+Samples: 4
+Pavg: 6.900
+Pmax: 7.000
+Pmin: 6.800
+Pstdev: 0.071
+Joules: 27.600
+2016-05-30 08:43:01.214574
+Results:
+6.3
+6.4
+6.6
+6.7
+Samples: 4
+Pavg: 6.500
+Pmax: 6.700
+Pmin: 6.300
+Pstdev: 0.158
+Joules: 26.000
+2016-05-30 08:43:09.965268
+Results:
+6.6
+6.7
+6.8
+6.9
+Samples: 4
+Pavg: 6.750
+Pmax: 6.900
+Pmin: 6.600
+Pstdev: 0.112
+Joules: 27.000
+2016-05-30 08:43:18.743078
+Results:
+6.6
+6.7
+6.8
+6.9
+7.0
+Samples: 5
+Pavg: 6.800
+Pmax: 7.000
+Pmin: 6.600
+Pstdev: 0.141
+Joules: 34.000
+2016-05-30 08:43:27.603515
+Results:
+6.8
+6.9
+6.9
+7.0
+7.1
+Samples: 5
+Pavg: 6.940
+Pmax: 7.100
+Pmin: 6.800
+Pstdev: 0.102
+Joules: 34.700
+2016-05-30 08:43:36.405575
+Results:
+6.7
+6.8
+6.9
+6.9
+Samples: 4
+Pavg: 6.825
+Pmax: 6.900
+Pmin: 6.700
+Pstdev: 0.083
+Joules: 27.300
+2016-05-30 08:43:45.225889
+Results:
+6.3
+6.3
+6.3
+6.4
+Samples: 4
+Pavg: 6.325
+Pmax: 6.400
+Pmin: 6.300
+Pstdev: 0.043
+Joules: 25.300
+2016-05-30 08:43:53.972927
+Results:
+6.5
+6.6
+6.7
+6.8
+Samples: 4
+Pavg: 6.650
+Pmax: 6.800
+Pmin: 6.500
+Pstdev: 0.112
+Joules: 26.600
+2016-05-30 08:44:02.790105
+Results:
+6.5
+6.7
+6.7
+6.8
+6.9
+Samples: 5
+Pavg: 6.720
+Pmax: 6.900
+Pmin: 6.500
+Pstdev: 0.133
+Joules: 33.600
+2016-05-30 08:44:11.724702
+Results:
+6.4
+6.4
+6.4
+6.5
+6.6
+Samples: 5
+Pavg: 6.460
+Pmax: 6.600
+Pmin: 6.400
+Pstdev: 0.080
+Joules: 32.300
+2016-05-30 08:44:20.621861
+Results:
+6.5
+6.7
+6.7
+6.8
+6.8
+Samples: 5
+Pavg: 6.700
+Pmax: 6.800
+Pmin: 6.500
+Pstdev: 0.110
+Joules: 33.500
+2016-05-30 08:44:29.379209
+Results:
+6.0
+6.1
+6.1
+6.1
+Samples: 4
+Pavg: 6.075
+Pmax: 6.100
+Pmin: 6.000
+Pstdev: 0.043
+Joules: 24.300
+2016-05-30 08:44:38.244476
+Results:
+6.2
+6.4
+6.5
+6.6
+Samples: 4
+Pavg: 6.425
+Pmax: 6.600
+Pmin: 6.200
+Pstdev: 0.148
+Joules: 25.700
+2016-05-30 08:44:46.989214
+Results:
+6.1
+6.2
+6.4
+6.5
+Samples: 4
+Pavg: 6.300
+Pmax: 6.500
+Pmin: 6.100
+Pstdev: 0.158
+Joules: 25.200
+mf: 0x10 2000000

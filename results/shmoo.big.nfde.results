@@ -1,0 +1,205 @@
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+2016-05-30 08:45:27.088080
+Results:
+4.9
+Samples: 1
+Pavg: 4.900
+Pmax: 4.900
+Pmin: 4.900
+Pstdev: 0.000
+Joules: 4.900
+2016-05-30 08:45:32.728297
+Results:
+5.1
+5.3
+Samples: 2
+Pavg: 5.200
+Pmax: 5.300
+Pmin: 5.100
+Pstdev: 0.100
+Joules: 10.400
+2016-05-30 08:45:38.341694
+Results:
+5.8
+Samples: 1
+Pavg: 5.800
+Pmax: 5.800
+Pmin: 5.800
+Pstdev: 0.000
+Joules: 5.800
+2016-05-30 08:45:44.008373
+Results:
+6.0
+Samples: 1
+Pavg: 6.000
+Pmax: 6.000
+Pmin: 6.000
+Pstdev: 0.000
+Joules: 6.000
+2016-05-30 08:45:49.641019
+Results:
+6.1
+6.3
+Samples: 2
+Pavg: 6.200
+Pmax: 6.300
+Pmin: 6.100
+Pstdev: 0.100
+Joules: 12.400
+2016-05-30 08:45:55.235231
+Results:
+6.3
+Samples: 1
+Pavg: 6.300
+Pmax: 6.300
+Pmin: 6.300
+Pstdev: 0.000
+Joules: 6.300
+2016-05-30 08:46:00.829759
+Results:
+6.5
+Samples: 1
+Pavg: 6.500
+Pmax: 6.500
+Pmin: 6.500
+Pstdev: 0.000
+Joules: 6.500
+2016-05-30 08:46:06.568575
+Results:
+6.3
+6.3
+Samples: 2
+Pavg: 6.300
+Pmax: 6.300
+Pmin: 6.300
+Pstdev: 0.000
+Joules: 12.600
+2016-05-30 08:46:12.162178
+Results:
+6.3
+Samples: 1
+Pavg: 6.300
+Pmax: 6.300
+Pmin: 6.300
+Pstdev: 0.000
+Joules: 6.300
+2016-05-30 08:46:17.766776
+Results:
+6.3
+Samples: 1
+Pavg: 6.300
+Pmax: 6.300
+Pmin: 6.300
+Pstdev: 0.000
+Joules: 6.300
+2016-05-30 08:46:23.363026
+Results:
+6.0
+Samples: 1
+Pavg: 6.000
+Pmax: 6.000
+Pmin: 6.000
+Pstdev: 0.000
+Joules: 6.000
+2016-05-30 08:46:28.959862
+Results:
+6.3
+Samples: 1
+Pavg: 6.300
+Pmax: 6.300
+Pmin: 6.300
+Pstdev: 0.000
+Joules: 6.300
+2016-05-30 08:46:34.576789
+Results:
+6.1
+6.1
+Samples: 2
+Pavg: 6.100
+Pmax: 6.100
+Pmin: 6.100
+Pstdev: 0.000
+Joules: 12.200
+2016-05-30 08:46:40.175656
+Results:
+5.7
+Samples: 1
+Pavg: 5.700
+Pmax: 5.700
+Pmin: 5.700
+Pstdev: 0.000
+Joules: 5.700
+2016-05-30 08:46:45.775638
+Results:
+5.6
+Samples: 1
+Pavg: 5.600
+Pmax: 5.600
+Pmin: 5.600
+Pstdev: 0.000
+Joules: 5.600
+2016-05-30 08:46:51.381526
+Results:
+5.9
+Samples: 1
+Pavg: 5.900
+Pmax: 5.900
+Pmin: 5.900
+Pstdev: 0.000
+Joules: 5.900
+2016-05-30 08:46:57.187308
+Results:
+6.1
+Samples: 1
+Pavg: 6.100
+Pmax: 6.100
+Pmin: 6.100
+Pstdev: 0.000
+Joules: 6.100
+2016-05-30 08:47:02.787566
+Results:
+5.8
+Samples: 1
+Pavg: 5.800
+Pmax: 5.800
+Pmin: 5.800
+Pstdev: 0.000
+Joules: 5.800
+2016-05-30 08:47:08.388204
+Results:
+6.1
+Samples: 1
+Pavg: 6.100
+Pmax: 6.100
+Pmin: 6.100
+Pstdev: 0.000
+Joules: 6.100
+2016-05-30 08:47:14.113248
+Results:
+6.2
+Samples: 1
+Pavg: 6.200
+Pmax: 6.200
+Pmin: 6.200
+Pstdev: 0.000
+Joules: 6.200
+mf: 0x10 2000000
