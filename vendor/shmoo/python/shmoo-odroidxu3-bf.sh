@@ -64,13 +64,13 @@ else
 fi
 
 # Run all configuration for big or LITTLE cores
-for (( i=$CORES_END; i>=$CORES_START; i-- ))
-do
-
-  for (( mask=0x01, ctr=$i; ctr > $CORES_START; ctr-- ))
-  do
-    mask=$((mask << 1 | 0x01))
-  done
+# for (( i=$CORES_END; i>=$CORES_START; i-- ))
+# do
+  mask=0x01
+  # for (( mask=0x01, ctr=$i; ctr > $CORES_START; ctr-- ))
+  # do
+  #   mask=$((mask << 1 | 0x01))
+  # done
   mask=$((mask << CORES_START))
   mask=`printf "0x%X" $mask` # Get the hex value as a string
 
@@ -151,4 +151,4 @@ do
     sleep 10
 
   done
-done
+# done
