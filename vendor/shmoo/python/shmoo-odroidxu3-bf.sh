@@ -36,7 +36,7 @@ fi
 #rm -Rf ${HEARTBEAT_ENABLED_DIR}
 #mkdir -p ${HEARTBEAT_ENABLED_DIR}
 
-RESULTS_FILE="/home/odroid/bd3/rsync/energy-AES-1/results/shmoo.big.fde.results"
+RESULTS_FILE="/home/odroid/bd3/repos/energy-AES-1/results/shmoo.big.fde.results"
 POWER_MON=pyWattsup.py
 
 # System properties
@@ -117,7 +117,7 @@ do
         $POWER_MON start
       fi
     
-      command="taskset $mask python3 /home/odroid/bd3/rsync/energy-AES-1/python-freerun.py big fde /media/fde-RAMDSK/tmp.txt"
+      command="taskset $mask python3 /home/odroid/bd3/repos/energy-AES-1/python-freerun.py big fde /media/fde-RAMDSK"
       echo $command
       $command
       c="$?"

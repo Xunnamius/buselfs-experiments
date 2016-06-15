@@ -6,6 +6,7 @@ import os
 import sys
 import hashlib
 import pprint
+import copy
 from decimal import Decimal
 from statistics import median
 from plotly.graph_objs import Bar, Figure, Layout, Box
@@ -33,7 +34,7 @@ FS_TYPES = [
 ]
 
 COLORS = ['rgb(49,130,189)', 'rgb(204,204,204)', 'rgb(255,102,0)']
-TITLE_TEMPLATE = '{} FS Energy Measurements [{} iops {} trials]'
+TITLE_TEMPLATE = '{} FS Measurements [{} iops {} trials]'
 
 ################################################################################
 
@@ -55,17 +56,29 @@ def lineToNumber(line):
     return Decimal(line.split(': ')[1])
 
 if __name__ == "__main__":
-    filesdir   = None
+    filesdir     = None
+    durationBaseline = None
 
-    if len(sys.argv) != 2:
-        print('Usage: {} <data directory>'.format(sys.argv[0]))
+    # TODO: Use the more advanced python opts API
+    if len(sys.argv) != 2 and len(sys.argv) != 4:
+        print('Usage: {} [-d baseline] <data directory>'.format(sys.argv[0]))
+        print('"-d" enables duration mode (results will only deal with duration ratios)')
+        print('When using -d, you must follow it with a number that will be the index starting at 0 of the baseline FS_TYPE')
         sys.exit(1)
+
     else:
         filesdir = sys.argv[1].strip('/')
+
+        if len(sys.argv) == 4 and sys.argv[1] == '-d':
+            filesdir = sys.argv[3].strip('/')
+            durationBaseline = int(sys.argv[2])
 
         if not os.path.exists(filesdir) or not os.path.isdir(filesdir):
             print('{} does not exist or is not a directory.'.format(filesdir))
             sys.exit(1)
+
+    print('result files directory: {}'.format(filesdir))
+    print('duration baseline: {}'.format(durationBaseline))
 
     print('crunching...')
 
@@ -95,10 +108,25 @@ if __name__ == "__main__":
                 dataFragment['energy'] /= 1000000
                 dataFragment['duration'] /= 1000000000
 
+    if durationBaseline is not None:
+        for coreType in CORE_TYPES:
+            baselineFragment = copy.deepcopy(data[coreType][FS_TYPES[durationBaseline]])
+
+            for fsType in FS_TYPES:
+                dataFragment = data[coreType][fsType]
+
+                print('>>> df: {}\nbf: {}'.format(dataFragment, baselineFragment))
+
+                dataFragment['energy'] = round(dataFragment['energy'] / baselineFragment['energy'], 1)
+                dataFragment['power'] = round(dataFragment['power'] / baselineFragment['power'], 1)
+                dataFragment['duration'] = round(dataFragment['duration'] / baselineFragment['duration'], 1)
+
+                print('>>> ndf: {}\nnbf: {}'.format(dataFragment, baselineFragment))
+
     print('uploading...')
 
     titlePrefix = filesdir.strip('/').split('/')[-1]
-    title = TITLE_TEMPLATE.format(titlePrefix, OPS, TRIALS)
+    title = TITLE_TEMPLATE.format(titlePrefix, OPS, TRIALS) + (' (duration ratios)' if durationBaseline is not None else '')
 
     # XXX: create new trace instances and do what needs doing to construct the bar chart
     cdsi = lambda x, y, name, color: createDefaultTraceInstance(x, y, name, None, color)
@@ -110,6 +138,7 @@ if __name__ == "__main__":
     y1 = []
     y2 = []
 
+    # TODO: This isn't going to work for multiple cores...
     for coreType in CORE_TYPES:
         coreFragment = data[coreType]
 
@@ -120,30 +149,47 @@ if __name__ == "__main__":
             y1.append(float(fsFragment['power']))
             y2.append(float(fsFragment['duration']))
 
-    traces = [
-        cdsi(FS_TYPES, y0, 'Energy', COLORS[0]),
-        cdsi(FS_TYPES, y1, 'Power', COLORS[1]),
-        Box(
-            x=FS_TYPES, y=y2,
-            name='Duration',
-            fillcolor=COLORS[2],
-            line=dict(color=COLORS[2]),
-            yaxis='y2'
-        )
-    ]
+    if durationBaseline is not None:
+        traces = [
+            cdsi(FS_TYPES, y2, 'Duration', COLORS[2]),
+        ]
 
-    layout = Layout(
-        xaxis = dict(
-            # set x-axis' labels direction at 45 degree angle
-            tickangle = 50,
-            title = 'Filesystems'
-        ),
-        yaxis = dict( title='Energy (j), Power (j/s)', autorange=False, range=[0, 30], side='left' ),
-        yaxis2 = dict( title='Duration (seconds)', autorange=False, range=[0, 20], side='right', gridwidth=2.5, overlaying='y' ),
-        barmode = 'group',
-        title = title,
-        margin = dict( b=160 )
-    )
+        layout = Layout(
+            xaxis = dict(
+                # set x-axis' labels direction at 45 degree angle
+                tickangle = 50,
+                title = 'Filesystems'
+            ),
+            yaxis = dict( title='Duration Ratio (seconds in respect to 1x baseline)', autorange=True, side='left' ),
+            title = title,
+            margin = dict( b=160 )
+        )
+
+    else:
+        traces = [
+            cdsi(FS_TYPES, y0, 'Energy', COLORS[0]),
+            cdsi(FS_TYPES, y1, 'Power', COLORS[1]),
+            Box(
+                x=FS_TYPES, y=y2,
+                name='Duration',
+                fillcolor=COLORS[2],
+                line=dict(color=COLORS[2]),
+                yaxis='y2'
+            )
+        ]
+
+        layout = Layout(
+            xaxis = dict(
+                # set x-axis' labels direction at 45 degree angle
+                tickangle = 50,
+                title = 'Filesystems'
+            ),
+            yaxis = dict( title='Energy (j), Power (j/s)', autorange=False, range=[0, 30], side='left' ),
+            yaxis2 = dict( title='Duration (seconds)', autorange=False, range=[0, 20], side='right', gridwidth=2.5, overlaying='y' ),
+            barmode = 'group',
+            title = title,
+            margin = dict( b=160 )
+        )
 
     fig = Figure(data=traces, layout=layout)
 
