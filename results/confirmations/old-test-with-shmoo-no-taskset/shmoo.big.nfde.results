@@ -330,7 +330,6 @@ Pmin: 5.100
 Pstdev: 0.050
 Joules: 10.300
 mf: 0x10 2000000
-mf: 0x10 2000000
 25000+0 records in
 25000+0 records out
 12800000 bytes (13 MB) copied, 1.67562 s, 7.6 MB/s
@@ -667,7 +666,6 @@ Pmax: 5.000
 Pmin: 4.900
 Pstdev: 0.050
 Joules: 9.900
-mf: 0x10 2000000
 mf: 0x10 1900000
 25000+0 records in
 25000+0 records out
@@ -1007,7 +1005,6 @@ Pmax: 4.700
 Pmin: 4.600
 Pstdev: 0.050
 Joules: 9.300
-mf: 0x10 2000000
 mf: 0x10 1800000
 25000+0 records in
 25000+0 records out
@@ -1349,7 +1346,6 @@ Pmax: 4.500
 Pmin: 4.400
 Pstdev: 0.050
 Joules: 8.900
-mf: 0x10 2000000
 mf: 0x10 1700000
 25000+0 records in
 25000+0 records out
@@ -1692,7 +1688,6 @@ Pmax: 4.300
 Pmin: 4.300
 Pstdev: 0.000
 Joules: 8.600
-mf: 0x10 2000000
 mf: 0x10 1600000
 25000+0 records in
 25000+0 records out
@@ -2038,7 +2033,6 @@ Pmax: 4.200
 Pmin: 4.100
 Pstdev: 0.050
 Joules: 8.300
-mf: 0x10 2000000
 mf: 0x10 1500000
 25000+0 records in
 25000+0 records out
@@ -2385,7 +2379,6 @@ Pmax: 4.000
 Pmin: 4.000
 Pstdev: 0.000
 Joules: 8.000
-mf: 0x10 2000000
 mf: 0x10 1400000
 25000+0 records in
 25000+0 records out
@@ -2738,7 +2731,6 @@ Pmax: 4.000
 Pmin: 4.000
 Pstdev: 0.000
 Joules: 8.000
-mf: 0x10 2000000
 mf: 0x10 1300000
 25000+0 records in
 25000+0 records out
@@ -3088,7 +3080,6 @@ Pmax: 3.900
 Pmin: 3.800
 Pstdev: 0.050
 Joules: 7.700
-mf: 0x10 2000000
 mf: 0x10 1200000
 25000+0 records in
 25000+0 records out
@@ -3448,7 +3439,6 @@ Pmax: 3.800
 Pmin: 3.700
 Pstdev: 0.047
 Joules: 11.300
-mf: 0x10 2000000
 mf: 0x10 1100000
 25000+0 records in
 25000+0 records out
@@ -3816,7 +3806,6 @@ Pmax: 3.700
 Pmin: 3.700
 Pstdev: 0.000
 Joules: 11.100
-mf: 0x10 2000000
 mf: 0x10 1000000
 25000+0 records in
 25000+0 records out
@@ -4196,7 +4185,6 @@ Pmax: 3.600
 Pmin: 3.600
 Pstdev: 0.000
 Joules: 14.400
-mf: 0x10 2000000
 mf: 0x10 900000
 25000+0 records in
 25000+0 records out
@@ -4579,7 +4567,6 @@ Pmax: 3.500
 Pmin: 3.500
 Pstdev: 0.000
 Joules: 14.000
-mf: 0x10 2000000
 mf: 0x10 800000
 25000+0 records in
 25000+0 records out
@@ -4970,7 +4957,6 @@ Pmax: 3.500
 Pmin: 3.400
 Pstdev: 0.040
 Joules: 17.400
-mf: 0x10 2000000
 mf: 0x10 700000
 25000+0 records in
 25000+0 records out
@@ -5380,7 +5366,6 @@ Pmax: 3.400
 Pmin: 3.400
 Pstdev: 0.000
 Joules: 20.400
-mf: 0x10 2000000
 mf: 0x10 600000
 25000+0 records in
 25000+0 records out
@@ -5811,7 +5796,6 @@ Pmax: 3.400
 Pmin: 3.300
 Pstdev: 0.035
 Joules: 23.700
-mf: 0x10 2000000
 mf: 0x10 500000
 25000+0 records in
 25000+0 records out
@@ -6279,7 +6263,6 @@ Pmax: 3.400
 Pmin: 3.300
 Pstdev: 0.042
 Joules: 29.900
-mf: 0x10 2000000
 mf: 0x10 400000
 25000+0 records in
 25000+0 records out
@@ -6804,7 +6787,6 @@ Pmax: 3.300
 Pmin: 3.200
 Pstdev: 0.048
 Joules: 35.900
-mf: 0x10 2000000
 mf: 0x10 300000
 25000+0 records in
 25000+0 records out
@@ -7447,5 +7429,4 @@ Pmax: 3.300
 Pmin: 3.200
 Pstdev: 0.048
 Joules: 55.000
-mf: 0x10 2000000
 mf: 0x10 200000
