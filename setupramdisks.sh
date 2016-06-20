@@ -15,6 +15,7 @@ sudo modprobe brd rd_nr=2 rd_size=524288
 echo 'Setting up AES-XTS (use password: badpasswordsarebad)'
 sudo cryptsetup --verbose --cipher aes-xts-plain64 --key-size 512 --hash sha512 --iter-time 5000 --use-random luksFormat /dev/ram1
 sudo cryptsetup open --type luks /dev/ram1 fde
+sudo cryptsetup open --type luks /home/odroid/bd3/fuse/mnt/01-kext4-normal/fs.dmc faker.dmc
 
 # Makes filesystems
 echo 'Making the filesystems'
@@ -25,6 +26,7 @@ sudo mkfs.ext4 /dev/ram0
 echo 'Mounting the filesystems'
 sudo mount -t ext4 /dev/mapper/fde /media/fde-RAMDSK
 sudo mount -t ext4 /dev/ram0 /media/nfde-RAMDSK
+sudo mount -t ext4 /dev/mapper/faker.dmc /home/odroid/bd3/fuse/mnt/01-kext4-normal/write/faker
 
 echo 'Disabling kernel virtual address space randomization for filebench'
 sudo sh -c 'echo 0 > /proc/sys/kernel/randomize_va_space'

@@ -5,11 +5,11 @@ This repository houses my energy/AES related experiments for the purposes of eve
 ## Structure
 
 * `bin/` contains any compiled experiments and data crunching code
-* `docs` contains expansive documentation and detailed usage instructions
-* `fb-personalities` contains the filebench personalities used in earlier phases of the experiment
-* `results` contains all the results from running the experiment code
-* `test` is a dummy directory that some of the experiments are allowed to write to for testing purposes
-* `vendor` contains third-party and outside code that is not strictly under my control
+* `docs/` contains expansive documentation and detailed usage instructions
+* `fb-personalities/` contains the filebench personalities used in earlier phases of the experiment
+* `results/` contains all the results from running the experiment code, typically stored by category and then by datetime
+* `test/` is a dummy directory that some of the experiments are allowed to write to for testing purposes
+* `vendor/` contains third-party and outside code that is not strictly under my control
 
 ## Files
 
@@ -18,7 +18,9 @@ This repository houses my energy/AES related experiments for the purposes of eve
 * `storeresults.sh` can be called without arguments and will take whatever result files are currently floating around in `results/` and put the in a subdir named with a timestamp. Note that results from experiment scripts are dumped unorganized into the `results/` directory.
 * `setupramdisks.sh` can be called without arguments and will setup a couple RAM disks. This is used for the older FDE vs NFDE experiments
 * `setupfilesystems.sh` can be called without arguments and will setup the twelve filesystems used in the more recent experiments
-* `small.random` and `large.random` are files filled with random bits and are copied around during the lfs experiments
+* `teardownramdisks.sh` can be called without arguments and will completely undo whatever `setupramdisks.sh` has done to the system
+* `teardownfilesystems.sh` can be called without arguments and will completely undo whatever `setupfilesystems.sh` has done to the system
+* `data.random` is a file filled with random bits to be copied around during the various experiments (as a bare-bones replacement for dd)
 
 Call `make` in order to compile the cpp-* experiment scripts. You can then call them individually by name in `bin/` or run the entire current experiment by calling `make run`. You can test the cpp-* experiment scripts using `make test`. You can clear out `bin/` with `make clean`.
 
