@@ -115,13 +115,9 @@ if __name__ == "__main__":
             for fsType in FS_TYPES:
                 dataFragment = data[coreType][fsType]
 
-                print('>>> df: {}\nbf: {}'.format(dataFragment, baselineFragment))
-
                 dataFragment['energy'] = round(dataFragment['energy'] / baselineFragment['energy'], 1)
                 dataFragment['power'] = round(dataFragment['power'] / baselineFragment['power'], 1)
                 dataFragment['duration'] = round(dataFragment['duration'] / baselineFragment['duration'], 1)
-
-                print('>>> ndf: {}\nnbf: {}'.format(dataFragment, baselineFragment))
 
     print('uploading...')
 
