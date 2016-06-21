@@ -1,6 +1,6 @@
 if ! [ -b /dev/ram0 ]; then
     echo '>>> A ramdisk does not exist at /dev/ram0!'
-    echo '>>> Did you mean to run setupfilesystems.sh ?'
+    echo '>>> Did you mean to run setupramdisks.sh ?'
     exit 1
 fi
 
