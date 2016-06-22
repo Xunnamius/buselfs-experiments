@@ -5,21 +5,21 @@
 #include <unistd.h>
 #include <sys/types.h>
 #include <signal.h>
-#include "energymon/energymon-default.h"
-#include "vendor/energymon/energymon-time-util.h"
+//#include "energymon/energymon-default.h"
+//#include "vendor/energymon/energymon-time-util.h"
 
 #define PATH_BUFF_SIZE 255
 #define CMD_BUFF_SIZE 512
 
 const int TRIALS = 20;
 const char * REPO_PATH = "/home/odroid/bd3/repos/energy-AES-1"; // No trailing /
-const int CLEANUP = 1;
+const int CLEANUP = 0;
 const int NO_SHMOO = 1;
 
 // Prepare to catch interrupt
 static volatile int keepRunning = 1;
 
-// Working now!
+// Not working :(
 void interrupt_handler(int dummy)
 {
     keepRunning = 0;
@@ -163,16 +163,9 @@ int main(int argc, char * argv[])
         // Run the experiment here
         // energymon_sleep_us(2000000); // Sleep for two seconds
 
-        // Break out if we're interrupted
-        if(!keepRunning) break;
-
         // Run the dd-write and then dd-read
         int write_ret = callsys(write_cmd);
         printf("write_cmd returned %d\n", write_ret);
-
-        // Break out if we're interrupted
-        if(!keepRunning) break;
-
         int read_ret = callsys(read_cmd);
         printf("read_cmd returned %d\n", read_ret);
 
@@ -199,9 +192,6 @@ int main(int argc, char * argv[])
 
         // Output the results
         fprintf(foutput, "energy: %f\nduration: %f\npower: %f\n---\n", energy, duration, power);
-
-        // Break out if we're interrupted
-        if(!keepRunning) break;
 
         if(CLEANUP)
         {

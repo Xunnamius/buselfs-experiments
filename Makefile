@@ -7,6 +7,12 @@ CFLAGS = -Wall
 freerun:
 	$(CC) $(CFLAGS) cpp-freerun.c -o bin/cpp-freerun -lenergymon-default -lpthread
 
+simple:
+	$(CC) $(CFLAGS) cpp-simple-freerun.c -o bin/cpp-simple-freerun -lenergymon-default -lpthread
+
+simpler:
+	$(CC) $(CFLAGS) cpp-simple-freerun.c -o bin/cpp-simple-freerun
+
 clean:
 	rm -f bin/*
 
