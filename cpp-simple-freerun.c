@@ -250,7 +250,7 @@ int main(int argc, char * argv[])
         // Run the simpler version of the experiment with writes coming from the
         // random oracle file RANDOM_PATH, i.e. randomness
         unsigned int times = COPY_INTO_TIMES;
-        int trailoutf = open(target, O_CREAT | O_WRONLY | O_APPEND | O_DIRECT | O_SYNC, 0666);
+        int trailoutf = open(target, O_CREAT | O_WRONLY | O_APPEND | O_DIRECT | O_SYNC, 0777);
 
         if(trailoutf < 0)
         {
