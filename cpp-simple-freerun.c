@@ -261,9 +261,10 @@ int main(int argc, char * argv[])
 
         while(times--)
         {
-            if(write(trailoutf, randomness, fsize) != fsize)
+            size_t wrtsize = write(trailoutf, randomness, fsize);
+            if(wrtsize != fsize)
             {
-                fprintf(stderr, "%s\n", "write failed");
+                fprintf(stderr, "%s: wrote %i but expected %i\n", "write failed", wrtsize, fsize);
                 monitor.ffinish(&monitor);
                 return 14;
             }
