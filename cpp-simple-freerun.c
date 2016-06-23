@@ -250,7 +250,7 @@ int main(int argc, char * argv[])
         // Run the simpler version of the experiment with writes coming from the
         // random oracle file RANDOM_PATH, i.e. randomness
         unsigned int times = COPY_INTO_TIMES;
-        int trailoutf = open(target, O_CREAT | O_WRONLY | O_APPEND | O_DIRECT | O_SYNC, 0777);
+        int trailoutf = open(target, O_CREAT | O_WRONLY, 0777);
 
         if(trailoutf < 0)
         {
@@ -259,8 +259,8 @@ int main(int argc, char * argv[])
             return 13;
         }
 
-        while(times--)
-        {
+        /*while(times--)
+        {*/
             size_t wrtsize = write(trailoutf, randomness, fsize);
             if(wrtsize != fsize)
             {
@@ -268,7 +268,7 @@ int main(int argc, char * argv[])
                 monitor.ffinish(&monitor);
                 return 14;
             }
-        }
+        /*}*/
 
         // Grab the terminal energy use and time
         errno = 0;
