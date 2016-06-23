@@ -133,17 +133,17 @@ int main(int argc, char * argv[])
         int trial = TRIALS - trials;
         printf("--> beginning trial %d of %d\n", trial, TRIALS);
 
-        char write_cmd[CMD_BUFF_SIZE];
-        char read_cmd[CMD_BUFF_SIZE];
+        /*char write_cmd[CMD_BUFF_SIZE];
+        char read_cmd[CMD_BUFF_SIZE];*/
         char target[PATH_BUFF_SIZE];
 
         snprintf(target, PATH_BUFF_SIZE, "%s/%d", write_to, trial);
-        snprintf(write_cmd, CMD_BUFF_SIZE, "dd-write.sh %s %s %s", target, core_type, fs_type);
-        snprintf(read_cmd, CMD_BUFF_SIZE, "dd-read.sh %s %s %s", target, core_type, fs_type);
+        /*snprintf(write_cmd, CMD_BUFF_SIZE, "dd-write.sh %s %s %s", target, core_type, fs_type);
+        snprintf(read_cmd, CMD_BUFF_SIZE, "dd-read.sh %s %s %s", target, core_type, fs_type);*/
 
         printf("target: %s\n", target);
-        printf("write_cmd: %s\n", write_cmd);
-        printf("read_cmd: %s\n", read_cmd);
+        /*printf("write_cmd: %s\n", write_cmd);
+        printf("read_cmd: %s\n", read_cmd);*/
 
         // Grab the initial energy use and time
         errno = 0;
@@ -163,11 +163,14 @@ int main(int argc, char * argv[])
         // Run the experiment here
         // energymon_sleep_us(2000000); // Sleep for two seconds
 
-        // Run the dd-write and then dd-read
+        /*// Run the dd-write and then dd-read
         int write_ret = callsys(write_cmd);
         printf("write_cmd returned %d\n", write_ret);
         int read_ret = callsys(read_cmd);
-        printf("read_cmd returned %d\n", read_ret);
+        printf("read_cmd returned %d\n", read_ret);*/
+
+        // Run the simpler version of the experiment with reads and writes coming
+        // from the random oracle file "data.random"
 
         // Grab the terminal energy use and time
         errno = 0;
