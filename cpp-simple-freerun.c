@@ -265,7 +265,7 @@ int main(int argc, char * argv[])
             if(wrtsize != fsize)
             {
 /*                fprintf(stderr, "%s: wrote %zd but expected %ld\n", "write failed", wrtsize, fsize);
-*/              perror('write failed')
+*/              perror("write failed")
                 monitor.ffinish(&monitor);
                 return 14;
             }
