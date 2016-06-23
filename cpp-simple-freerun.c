@@ -250,7 +250,8 @@ int main(int argc, char * argv[])
         // Run the simpler version of the experiment with writes coming from the
         // random oracle file RANDOM_PATH, i.e. randomness
         unsigned int times = COPY_INTO_TIMES;
-        int trailoutf = open(target, O_CREAT | O_WRONLY | O_DIRECT | O_SYNC, 0777);
+        // | O_DIRECT | O_SYNC
+        int trailoutf = open(target, O_CREAT | O_WRONLY | O_SYNC, 0777);
 
         if(trailoutf < 0)
         {
@@ -264,8 +265,8 @@ int main(int argc, char * argv[])
             size_t wrtsize = write(trailoutf, randomness, fsize);
             if(wrtsize != fsize)
             {
-/*                fprintf(stderr, "%s: wrote %zd but expected %ld\n", "write failed", wrtsize, fsize);
-*/              perror("write failed")
+                //fprintf(stderr, "%s: wrote %zd but expected %ld\n", "write failed", wrtsize, fsize);
+                perror("write failed");
                 monitor.ffinish(&monitor);
                 return 14;
             }
