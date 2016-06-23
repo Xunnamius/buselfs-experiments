@@ -3,16 +3,20 @@
 #include <errno.h>
 #include <inttypes.h>
 #include <unistd.h>
+#include <fcntl.h>
 #include <sys/types.h>
+#include <sys/stat.h>
 #include <signal.h>
-//#include "energymon/energymon-default.h"
-//#include "vendor/energymon/energymon-time-util.h"
+#include "energymon/energymon-default.h"
+#include "vendor/energymon/energymon-time-util.h"
 
 #define PATH_BUFF_SIZE 255
 #define CMD_BUFF_SIZE 512
+#define COPY_INTO_TIMES 1 // randomness written COPY_INTO_TIMES into same file
 
 const int TRIALS = 20;
 const char * REPO_PATH = "/home/odroid/bd3/repos/energy-AES-1"; // No trailing /
+const char * RANDOM_PATH = "/home/odroid/bd3/repos/energy-AES-1/data.random";
 const int CLEANUP = 0;
 const int NO_SHMOO = 1;
 
@@ -73,6 +77,7 @@ int main(int argc, char * argv[])
     energymon monitor;
     char output_path[PATH_BUFF_SIZE];
     FILE * foutput;
+    FILE * frandom;
 
     // Accept non-optional args core_type, fs_type, write_to
     if(argc != 4)
@@ -90,17 +95,7 @@ int main(int argc, char * argv[])
     printf("fs_type: %s\n", fs_type);
     printf("write_to: %s\n", write_to);
 
-    if(energymon_get_default(&monitor))
-    {
-        perror("energymon_get_default");
-        return 1;
-    }
-
-    if(monitor.finit(&monitor))
-    {
-        perror("finit");
-        return 2;
-    }
+    // Get read path from shards
 
     char path_shard[PATH_BUFF_SIZE];
     snprintf(path_shard, PATH_BUFF_SIZE, "results/shmoo.%s.%s.results", core_type, fs_type);
@@ -115,6 +110,89 @@ int main(int argc, char * argv[])
     {
         perror("failed to fopen output_path");
         return 6;
+    }
+
+    // Read entire randomness file into memory buffer
+    
+    errno = 0;
+    frandom = fopen(RANDOM_PATH, "rb+");
+
+    if(!frandom && errno)
+    {
+        perror("failed to fopen RANDOM_PATH");
+        return 8;
+    }
+
+    int fsk = 0;
+    errno = 0;
+
+    fsk = fseek(frandom, 0, SEEK_END);
+
+    if(!fsk && errno)
+    {
+        perror("failed to fseek RANDOM_PATH");
+        return 9;
+    }
+
+    errno = 0;
+    long fsize = ftell(frandom);
+
+    if(fsize < 0 && errno)
+    {
+        perror("ftell failed on RANDOM_PATH");
+        return 10;
+    }
+
+    errno = 0;
+    rewind(frandom);
+
+    if(errno)
+    {
+        perror("failed to rewind RANDOM_PATH");
+        return 9;
+    }
+
+    errno = 0;
+    char * randomness = malloc(fsize + 1); // + the NULL TERMINATOR
+
+    if(!randomness && errno)
+    {
+        perror("malloc failed");
+        return 11;
+    }
+
+    errno = 0;
+    size_t frd = fread(randomness, fsize, 1, frandom);
+
+    if(frd != fsize && errno)
+    {
+        perror("fread of RANDOM_PATH failed");
+        return 12;
+    }
+
+    // Close randomness file
+    fclose(frandom);
+
+    // Add the NULL TERMINATOR for good measure
+    randomness[fsize] = '\0';
+
+    printf("randomness fsize (+1): %ld\n", fsize);
+
+    // Setup energymon
+    errno = 0;
+
+    if(energymon_get_default(&monitor))
+    {
+        perror("energymon_get_default");
+        return 1;
+    }
+
+    errno = 0;
+
+    if(monitor.finit(&monitor))
+    {
+        perror("finit");
+        return 2;
     }
 
     // Begin the trials
@@ -169,8 +247,27 @@ int main(int argc, char * argv[])
         int read_ret = callsys(read_cmd);
         printf("read_cmd returned %d\n", read_ret);*/
 
-        // Run the simpler version of the experiment with reads and writes coming
-        // from the random oracle file "data.random"
+        // Run the simpler version of the experiment with writes coming from the
+        // random oracle file RANDOM_PATH, i.e. randomness
+        unsigned int times = COPY_INTO_TIMES;
+        int trailoutf = open(target, O_CREAT | O_WRONLY | O_APPEND | O_DIRECT | O_SYNC);
+
+        if(trailoutf < 0)
+        {
+            fprintf(stderr, "%s\n", "open failed");
+            monitor.ffinish(&monitor);
+            return 13;
+        }
+
+        while(times--)
+        {
+            if(write(trailoutf, randomness, fsize) != fsize)
+            {
+                fprintf(stderr, "%s\n", "write failed");
+                monitor.ffinish(&monitor);
+                return 14;
+            }
+        }
 
         // Grab the terminal energy use and time
         errno = 0;
@@ -220,6 +317,9 @@ int main(int argc, char * argv[])
         perror("ffinish");
         return 5;
     }
+
+    // Free randomness buffer
+    free(randomness);
     
     printf("Finished reading\n");
     fclose(foutput);

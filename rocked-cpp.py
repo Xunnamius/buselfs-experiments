@@ -19,18 +19,20 @@ GHZ = 1000000
 #CORE_TYPES = ['big', 'little']
 CORE_TYPES = ['big']
 FS_TYPES = [
-    '01-kext4-normal',
-    '02-kext4-fuse-ext4',
-    '03-kext4-fuse-ext4-dmc',
-    '04-kext4-dmc-fuse-ext4',
+    # '01-kext4-normal',
+    # '02-kext4-fuse-ext4',
+    # '03-kext4-fuse-ext4-dmc',
+    # '04-kext4-dmc-fuse-ext4',
     #'05-kext4-fuse-lfs',
     #'06-kext4-fuse-lfs-chacha-poly',
-    '07-rdext4-normal',
-    '08-rdext4-fuse-ext4',
-    '09-rdext4-fuse-ext4-dmc',
-    '10-rdext4-dmc-fuse-ext4',
+    # '07-rdext4-normal',
+    # '08-rdext4-fuse-ext4',
+    # '09-rdext4-fuse-ext4-dmc',
+    # '10-rdext4-dmc-fuse-ext4',
     #'11-rdext4-fuse-lfs',
     #'12-rdext4-fuse-lfs-chacha-poly'
+    'fde',
+    'nfde'
 ]
 
 COLORS = ['rgb(49,130,189)', 'rgb(204,204,204)', 'rgb(255,102,0)']

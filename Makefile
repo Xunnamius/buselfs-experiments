@@ -1,6 +1,6 @@
 SHELL = /bin/sh
 CC = gcc
-CFLAGS = -Wall
+CFLAGS = -Wall -D_GNU_SOURCE
 
 .PHONY: clean test run
 
