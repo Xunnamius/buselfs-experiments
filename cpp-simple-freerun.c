@@ -264,7 +264,8 @@ int main(int argc, char * argv[])
             size_t wrtsize = write(trailoutf, randomness, fsize);
             if(wrtsize != fsize)
             {
-                fprintf(stderr, "%s: wrote %zd but expected %ld\n", "write failed", wrtsize, fsize);
+/*                fprintf(stderr, "%s: wrote %zd but expected %ld\n", "write failed", wrtsize, fsize);
+*/              perror('write failed')
                 monitor.ffinish(&monitor);
                 return 14;
             }
