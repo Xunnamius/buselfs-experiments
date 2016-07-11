@@ -26,7 +26,10 @@ sudo mkfs.ext4 /dev/ram0
 echo 'Mounting the filesystems'
 sudo mount -t ext4 /dev/mapper/fde /media/fde-RAMDSK
 sudo mount -t ext4 /dev/ram0 /media/nfde-RAMDSK
+# Faker is the non-RAMDISK dmcrypt container
 sudo mount -t ext4 /dev/mapper/faker.dmc /home/odroid/bd3/fuse/mnt/01-kext4-normal/write/faker
+# Maker is the non-RAMDISK ext4 container
+sudo mount -t ext4 /home/odroid/bd3/fuse/mnt/01-kext4-normal/fs.ext4 /home/odroid/bd3/fuse/mnt/01-kext4-normal/write/maker
 
 echo 'Disabling kernel virtual address space randomization for filebench'
 sudo sh -c 'echo 0 > /proc/sys/kernel/randomize_va_space'
