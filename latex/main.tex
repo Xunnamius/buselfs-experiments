@@ -28,18 +28,21 @@
 \date{}
 
 %make title bold and 14 pt font (Latex default is non-bold, 16 pt)
-\title{\Large \bf Hycat: More Performant Full Disk Encryption with Chacha and Poly1305}
+\title{\Large \bf Hycrypt: More Performant Full Disk Encryption with Chacha and Poly1305}
 
 %for single author (just remove % characters)
 \author{
 {\rm Bernard Dickens}\\
 University of Chicago
-\and
-{\rm Hank Hoffmann}\\
-University of Chicago
+bd3@cs.uchicago.edu
 \and
 {\rm Ariel Feldman}\\
 University of Chicago
+arielfeldman@cs.uchicago.edu
+\and
+{\rm Henry Hoffmann}\\
+University of Chicago
+hankhoffmann@cs.uchicago.edu
 % copy the following lines to add more authors
 % \and
 % {\rm Name}\\
@@ -54,32 +57,55 @@ University of Chicago
 
 
 \subsection*{Abstract}
+Have Your Cake and eat it too \\
 Summarize problem, introduction/contributions, implementation, conclusion in 250? interesting words or less.
 
 \section{Introduction}
-Is this worth it? Argue project meaningfulness. Status quo disk encryption has a non-trivial cost. Show empirically.
-This cost can be lessened, a trade-off made. What tradeoff(s)? Tease apart and enumerate different contributions.
+Somewhat concise introduction like in the Chacha paper. Is this worth it? Briefly address project meaningfulness.
+Status quo disk encryption has a non-trivial cost. Enumerate any potential tradeoffs. Describe extra benefits of a
+Chacha-LFS construction (i.e. integrity checking, simpler design) over XTS.
 
-Characterize cost. ``We save X at the cost of Y''. DE is the problem. The solution is Z. It costs Y. If willing to pay.
+Caveats, major limitations, and how they're handled.
 
-Caveats, limitations, and how they're handled.
+\begin{itemize}
+  \item Here we summarize the main contributions (as with the brief introduction) with a focus on the justification for
+  the project's existence. Tease apart and enumerate any other contributions.
+  \item Argue that this is a meaningful project by showing that encryption has a non-trivial cost [use initial FDE vs
+  NFDE experiments]
+  \item Chart FDE vs NFDE for reads/writes of random data (perhaps dd tests, perhaps random data file tests) assists
+  \item Limitation: hardware accelerated AES makes the disparity between NFDE and FDE disappear; countered by HAAES not being
+  available very widly on many mobile devices, especially embedded
+  \item Show Chacha as a stream cipher to be faster than AES in a stream cipher-ey mode (CTR or GSM to compare
+  with integrity checking). Need to show that these modes of AES are always? faster than the very slow double-keyed XTS
+  construction. This would establish that there is some slack to be played with between AES-XTS and other modes and something like a chacha.
+  \item Argue (perhaps in the Salsa20 section below) that making a stream cipher work for FDE in this instance is non-trivial
+  and comes with costs. Characterize. ``We save X at the cost of Y''. DE is the problem. The solution is Z. It costs Y. If willing to pay.
+  \item Need to tell what these costs are, if and how they can be minimized, and what trade-offs they constitute.
+\end{itemize}
+
 
 \section{Related Works}
+(broken off from the introduction)
 \subsection{AES-XTS}
 \subsection{Salsa20/Chacha20}
 
+\section{Hycrypt Full Disk Encryption}
+\subsection{Threat Model}
+(this will be very similar to the threat model established by the XTS project and writeups)
 
-\section{Threat Model}
+\subsection{Design and Implementation}
+Describe LFS construction in detail, explain design decisions, preservation of security guarantees, extra benefits
+(i.e. integrity checking, simpler design) over XTS
 
+\section{Experimental Setup}
+Describe evaluation of Chacha-LFS versus AES-XTS
 
-\section{Design and Implementation}
-
-
-\section{Evaluation}
-
-
-\section{Results}
-
+\section{Experimental Evaluation}
+\begin{itemize}
+  \item Charts showing actual benchmarks of i/o bound and/or i/o heavy applications (i.e. git, several others) under
+  NFDE (control), AES-XTS, and ChaCha-LFS
+  \item Benchmarking suites? TBD
+\end{itemize}
 
 \section{Conclusion}
 
