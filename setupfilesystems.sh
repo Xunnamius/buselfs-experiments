@@ -55,7 +55,7 @@ sudo fuse-ext2 /media/rd/10-rdext4-dmc-fuse-ext4/write/fs.ext4 /media/rd/10-rdex
 echo '>>> Setting up and mounting directory structure 11 on ram disk'
 sudo mkdir -p /media/rd/11-rdext4-fuse-lfs/write
 cd /media/rd/11-rdext4-fuse-lfs
-sudo sh -c "vendor/github/lfs/lfs /media/rd/11-rdext4-fuse-lfs/write"
+sudo sh -c "/home/odroid/bd3/repos/energy-AES-1/vendor/github/lfs /media/rd/11-rdext4-fuse-lfs/write"
 cd -
 
 echo '>>> Setting up and mounting directory structure 12 on ram disk'
