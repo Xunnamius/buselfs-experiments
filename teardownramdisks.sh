@@ -17,7 +17,7 @@ echo '>>> Unmounting faker.dmc'
 sudo umount /home/odroid/bd3/fuse/mnt/01-kext4-normal/write/faker
 
 echo '>>> Unmounting fs.ext4 "maker"'
-sudo umount /home/odroid/bd3/fuse/mnt/01-kext4-normal/write/make
+sudo umount /home/odroid/bd3/fuse/mnt/01-kext4-normal/write/maker
 
 echo '>>> Closing cryptsetups'
 sudo cryptsetup close --type luks fde
