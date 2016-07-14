@@ -60,6 +60,10 @@ echo '>>> Setting up and mounting directory structure 12 on ram disk'
 sudo mkdir -p /media/rd/12-rdext4-fuse-lfs-chacha-poly/write
 ## todo
 
+echo '>>> Setting up and mounting directory structure 13 on ram disk'
+sudo mkdir -p /media/rd/13-rdext4-fuse-lfs-AES-GCM/write
+## todo
+
 echo '>>> Mounting filesystem 01 (trivial)'
 
 echo '>>> Mounting filesystem 02'
