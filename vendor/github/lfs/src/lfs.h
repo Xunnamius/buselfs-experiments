@@ -12,10 +12,10 @@
 #include <assert.h>
 
 #define MAXNAMELEN			128
-#define BLKSIZE				32768
-#define SEG_SIZE			600 * BLKSIZE	// size of segment in bytes
-#define MAX_SEG_BLKS		600		// maximum number of blocks per segment
-#define MAX_NUM_SEG     	60		// maximum number of segements
+#define BLKSIZE				16384
+#define SEG_SIZE			300 * BLKSIZE	// size of segment in bytes
+#define MAX_SEG_BLKS		300		// maximum number of blocks per segment
+#define MAX_NUM_SEG     	30		// maximum number of segements
 #define MAX_BLKS_FOR_FILE	25000	// Maximum number of blocks a file can occupy
 #define MAX_INODES			4096
 
