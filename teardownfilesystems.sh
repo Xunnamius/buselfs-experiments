@@ -41,7 +41,8 @@ sudo umount /media/rd/10-rdext4-dmc-fuse-ext4/write
 sudo cryptsetup close --type luks 10.fs.dmc
 
 echo '>>> Unmounting filesystem 11'
-## todo
+sudo fusermount -u /media/rd/11-rdext4-fuse-lfs/write
+sudo rm -f /media/rd/11-rdext4-fuse-lfs/lfslog
 
 echo '>>> Unmounting filesystem 12'
 ## todo
