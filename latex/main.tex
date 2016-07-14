@@ -33,16 +33,16 @@
 %for single author (just remove % characters)
 \author{
 {\rm Bernard Dickens}\\
-University of Chicago
-bd3@cs.uchicago.edu
+University of Chicago\\
+bd3@uchicago.edu
 \and
 {\rm Ariel Feldman}\\
-University of Chicago
-arielfeldman@cs.uchicago.edu
+University of Chicago\\
+arielfeldman@uchicago.edu
 \and
 {\rm Henry Hoffmann}\\
-University of Chicago
-hankhoffmann@cs.uchicago.edu
+University of Chicago\\
+hankhoffmann@uchicago.edu
 % copy the following lines to add more authors
 % \and
 % {\rm Name}\\
@@ -54,7 +54,6 @@ hankhoffmann@cs.uchicago.edu
 % Use the following at camera-ready time to suppress page numbers.
 % Comment it out when you first submit the paper for review.
 \thispagestyle{empty}
-
 
 \subsection*{Abstract}
 Have Your Cake and eat it too \\
@@ -69,60 +68,93 @@ Caveats, major limitations, and how they're handled.
 
 \begin{itemize}
   \item Here we summarize the main contributions (as with the brief introduction) with a focus on the justification for
-  the project's existence. Tease apart and enumerate any other contributions.
-  \item Argue that this is a meaningful project by showing that encryption has a non-trivial cost [use initial FDE vs
-  NFDE experiments]
-  \item Chart FDE vs NFDE for reads/writes of random data (perhaps dd tests, perhaps random data file tests) assists
-  \item Limitation: hardware accelerated AES makes the disparity between NFDE and FDE disappear; countered by HAAES not being
-  available very widly on many mobile devices, especially embedded
-  \item Show Chacha as a stream cipher to be faster than AES in a stream cipher-ey mode (CTR or GSM to compare
-  with integrity checking). Need to show that these modes of AES are always? faster than the very slow double-keyed XTS
-  construction. This would establish that there is some slack to be played with between AES-XTS and other modes and something like a chacha.
-  \item Argue (perhaps in the Salsa20 section below) that making a stream cipher work for FDE in this instance is non-trivial
-  and comes with costs. Characterize. ``We save X at the cost of Y''. DE is the problem. The solution is Z. It costs Y. If willing to pay.
-  \item Need to tell what these costs are, if and how they can be minimized, and what trade-offs they constitute.
+  the project's existence. Tease apart and enumerate any other contributions at the end (see MEANTIME paper for format).
+  \item Argue that this is a meaningful project by showing (via chart) that encryption has a non-trivial cost. We would 
+  use the initial FDE vs  NFDE on RD experiment charts.
+  \item Do we address limitations here or in the conclusion at the end?
+  \item Argue that making a stream cipher work for FDE in this instance is non-trivial and comes with costs. Characterize.
+  ``We save X at the cost of Y''. DE is the problem. The solution is Z. It costs Y. If willing to pay.
+  \item Need to tell what the above costs are, if and how they can be minimized, and what trade-offs they constitute.
 \end{itemize}
 
+\section{Motivational Example}
+(mobile phone battery life example, android K/L/M FDE stats)
 
 \section{Related Works}
 (broken off from the introduction)
+
 \subsection{AES-XTS}
+AES-XTS background information
+
 \subsection{Salsa20/Chacha20}
+Stream Cipher and Salsa20/Chacha20 background information
+
+Show Chacha as a stream cipher to be faster than AES in a stream cipher-ey mode (CTR or GSM to compare with integrity
+checking). Need to show that these modes of AES are always? faster than the very slow double-keyed XTS construction.
+This would establish that there is some slack to be played with.
 
 \section{Hycrypt Full Disk Encryption}
+(maybe a short blurb here; see MEANTIME paper for direction)
+
 \subsection{Threat Model}
 (this will be very similar to the threat model established by the XTS project and writeups)
 
 \subsection{Design and Implementation}
-Describe LFS construction in detail, explain design decisions, preservation of security guarantees, extra benefits
-(i.e. integrity checking, simpler design) over XTS
+Describe LFS construction in detail, explain design decisions, argue security and preservation of crypto guarantees via
+assumed cryptographic primitives, describe perceived extra benefits (i.e. integrity checking, simpler design) over XTS
 
 \section{Experimental Setup}
-Describe evaluation of Chacha-LFS versus AES-XTS
+\begin{itemize}
+  \item RD+Fuse-Ext4 is the baseline for all experiments
+  \item Crafting the story by gathering meaningful data using the performance of so-called ``I/O bound applications'' as
+  metrics. Currently under consideration: git, mobile bench (as a suite), Chrome/FF (mobile and non-mobile; talk to
+  Connor about FF), VLC x264 playback, graphg/social graph, Ferret (read paper), SQLite/Access/No-SQL local DB,
+  Filezilla FTP, Google Maps offline map caching, mobile SMS history
+  \item The above would be evaluated across NFDE (RDFx4), dmcrypt (RDFx4D), then LFS-Chacha (RDLC) and LFS-AESGCM (RDLA)
+  [and also RDLFS for good measure]
+  \item Describe how I/O bound applications were classified as such and why they were selected (explain I/O profiling
+  tool usage and setup)
+  \item Any official standard benchmarking suites?
+\end{itemize}
 
 \section{Experimental Evaluation}
+Describe evaluation of Chacha-LFS versus AES-XTS
 \begin{itemize}
-  \item Charts showing actual benchmarks of i/o bound and/or i/o heavy applications (i.e. git, several others) under
-  NFDE (control), AES-XTS, and ChaCha-LFS
-  \item Benchmarking suites? TBD
+  \item Charts showing actual benchmarks of i/o bound and/or i/o heavy applications evaluated across testbed of filesystems
+  \item Show a chart depicting energy use on mobile or device with typical pure NAND flash + dmcrypt FDE versus NAND
+  flash + LFS Chacha versus NAND flash + LFS Chacha in ``energy saving mode'' (saving garbage collection etc for later).
+  We would expect to see a decrease in energy use from dmcrypt down to LFS in energy saving mode but little to no
+  degredation i performance from dmcrypt to LFS! 
+  \item Chart showing how the LFS performs with Chacha20+Poly1305 as stream cipher versus AES-GCM as stream cipher. This
+  would demonstrated that the performance gains are not just from using the LFS over Ext4. We should expect to see the LFS
+  under C20+P1305 outperform LFS under AES-GCM.
 \end{itemize}
 
 \section{Conclusion}
-
+\begin{itemize}
+  \item Address (defend?) the use of RD+Fuse-Ext4 as a baseline. It would be best if we could relate any RD+Fuse-Ext4 based
+  performance metrics with performance on a standard SSD (in Experimental Evaluation) so that it does not look like we're
+  trying to hide anything.
+  \item Address limitation: why would this project remain important even if SSDs sped up dramatically? (b/c energy savings)
+  \item Address limitation: would this project remain relevant if hardware accelerated AES become prevalent? (yes b/c
+  embedded devices and energy savings)
+  \item Address choice of benchmarking suite
+\end{itemize}
 
 \section{Acknowledgments}
 
-A polite author always includes acknowledgments. Thank everyone, especially those who funded the work. 
+A polite author such as myself always includes acknowledgments. Thank everyone, especially those who funded the work.
 
 \section{Availability}
 
-It's great when this section says that MyWonderfulApp is free software, available via anonymous FTP from
+Release LFS code, LFS+Chacha20, LFS+AESGCM, I/O profiling tool(s)/setup, etc. Do we released entire repo/all experimental
+code as well?
 
 \begin{center}
 {\tt ftp.site.dom/pub/myname/Wonderful}\\
 \end{center}
 
-Also, it's even greater when you can write that information is also available on the Wonderful homepage at 
+Will also throw up some sort of homepage or webpage at some point:
 
 \begin{center}
 {\tt http://www.site.dom/\~{}myname/SWIG}
