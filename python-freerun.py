@@ -13,8 +13,8 @@ import serial
 from vendor.pyWattsup import WattsUp
 
 TTY = '/dev/ttyUSB0'
-REPO = '/home/odroid/bd3/repos/energy-AES-1'
-#REPO = '/home/xunnamius/repos/research/energy-AES-1'
+#REPO = '/home/odroid/bd3/repos/energy-AES-1'
+REPO = '/home/xunnamius/repos/research/energy-AES-1'
 NO_SHMOO = True # set to False if shmoo-ing
 CLEANUP = True # delete files directly after trial finishes so as to not take up space
 
