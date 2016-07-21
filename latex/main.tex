@@ -28,7 +28,7 @@
 \date{}
 
 %make title bold and 14 pt font (Latex default is non-bold, 16 pt)
-\title{\Large \bf Hycrypt: More Performant Full Disk Encryption with Chacha and Poly1305}
+\title{\Large \bf Hycrypt: XTS Full Disk Encryption Alternative with Chacha and Poly1305}
 
 %for single author (just remove % characters)
 \author{
@@ -56,8 +56,14 @@ hankhoffmann@uchicago.edu
 \thispagestyle{empty}
 
 \subsection*{Abstract}
-Have Your Cake and eat it too \\
-Summarize problem, introduction/contributions, implementation, conclusion in 250? interesting words or less.
+Block-level full-disk encryption (FDE) is a non-trivial engineering problem rife with competing interests and
+messy tradeoffs. An ideal FDE solution must ensure data confidentiality, data integrity, and efficient operation
+within a potentially highly-constrained total energy budget, such as with a mobile or embedded system. All of this must
+be accomplished without adding significant overhead to system performance. The current de-facto FDE standard,
+AES in XTS mode, achieves only data confidentiality and does so by sacrificing energy and system performance while
+abandoning data integrity guarantees entirely. However, recent work on faster and more energy-efficient alternatives to
+the AES cipher allow us to revisit some of the design decisions that underpin AES-XTS. Specifically, we propose Hycat: an
+FDE alternative to AES-XTS utilizing the Chacha20 stream cipher and Poly1305 MAC algorithm.
 
 \section{Introduction}
 Somewhat concise introduction like in the Chacha paper. Is this worth it? Briefly address project meaningfulness.
