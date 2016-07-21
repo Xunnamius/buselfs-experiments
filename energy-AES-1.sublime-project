@@ -1,0 +1,12 @@
+{
+	"folders":
+	[
+		{
+			"file_exclude_patterns":
+			[
+				"energy-AES-1.sublime-project"
+			],
+			"path": "."
+		}
+	]
+}
