@@ -13,6 +13,9 @@ simple:
 simpler:
 	$(CC) $(CFLAGS) cpp-simple-freerun.c -o bin/cpp-simple-freerun
 
+duration:
+	$(CC) $(CFLAGS) vendor/energymon/energymon-time-util.c cpp-duration.c -o bin/cpp-duration
+
 clean:
 	rm -f bin/*
 
