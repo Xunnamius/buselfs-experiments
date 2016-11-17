@@ -11,9 +11,9 @@
 #define PATH_BUFF_SIZE 255
 #define CMD_BUFF_SIZE 512
 
-const int TRIALS = 20;
+const int TRIALS = 25;
 const char * REPO_PATH = "/home/odroid/bd3/repos/energy-AES-1"; // No trailing /
-const int CLEANUP = 1;
+const int CLEANUP = 0;
 const int NO_SHMOO = 1;
 
 // Prepare to catch interrupt

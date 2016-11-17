@@ -1,6 +1,0 @@
-*.o
-test
-lfs
-lfslog
-testcases/lfs_test
-testcases/other_tests
