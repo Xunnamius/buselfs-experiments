@@ -13,7 +13,7 @@
 const int TRIALS = 20;
 const char * REPO_PATH = "/home/odroid/bd3/repos/energy-AES-1"; // No trailing /
 // const char * REPO_PATH = "/home/xunnamius/repos/research/energy-AES-1";
-const int CLEANUP = 1;
+const int CLEANUP = 0;
 const int NO_SHMOO = 1;
 
 // Prepare to catch interrupt
