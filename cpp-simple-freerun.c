@@ -262,6 +262,8 @@ int main(int argc, char * argv[])
 
         /*while(times--)
         {*/
+            // Write should be small enough to go through in one pass without a
+            // loop, but we check just in case
             size_t wrtsize = write(trailoutf, randomness, fsize);
             if(wrtsize != fsize)
             {
@@ -270,8 +272,11 @@ int main(int argc, char * argv[])
                 monitor.ffinish(&monitor);
                 return 14;
             }
+
         /*}*/
 
+        sync();
+        
         // Grab the terminal energy use and time
         errno = 0;
         energy_end_uj = monitor.fread(&monitor);
