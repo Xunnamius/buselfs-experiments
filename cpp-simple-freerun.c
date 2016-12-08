@@ -135,7 +135,7 @@ int main(int argc, char * argv[])
     }
 
     errno = 0;
-    long fsize = ftell(frandom);
+    u_int64_t fsize = ftell(frandom);
 
     if(fsize < 0 && errno)
     {
@@ -252,49 +252,65 @@ int main(int argc, char * argv[])
 
         // Run the simpler version of the experiment with writes coming from the
         // random oracle file RANDOM_PATH, i.e. randomness
-        unsigned int times = COPY_INTO_TIMES;
+        // unsigned int times = COPY_INTO_TIMES;
         // | O_DIRECT | O_SYNC
-        int trailoutf = open(target, O_CREAT | O_RDWR | O_SYNC, 0777);
+        int trialoutfd = open(target, O_CREAT | O_RDWR | O_SYNC, 0777);
 
-        if(trailoutf < 0)
+        if(trialoutfd < 0)
         {
             fprintf(stderr, "%s\n", "open failed");
             monitor.ffinish(&monitor);
             return 13;
         }
 
-        /*while(times--)
-        {*/
-            // Write should be small enough to go through in one pass without a
-            // loop, but we check just in case (marked FIXME:)
-            size_t wrtsize = write(trailoutf, randomness, fsize);
-            if(wrtsize != fsize)
+        u_int64_t writelen = fsize;
+        char * randomnessCopy = randomness;
+
+        lseek64(trialoutfd, 0, SEEK_SET);
+        while(writelen > 0)
+        {
+            u_int64_t bytesWritten = write(trialoutfd, randomnessCopy, writelen);
+
+            if(bytesWritten <= 0)
             {
                 perror("write failed");
                 monitor.ffinish(&monitor);
                 return 14;
             }
-        /*
-        }*/
 
+            writelen -= bytesWritten;
+            randomnessCopy = randomnessCopy + bytesWritten;
+        }
+
+        free(readbackOriginal);
+
+        // Make sure everything writes through
         sync();
 
         // Drop the page cache before the next read
         write(pcachefd, droppcache, sizeof(char));
 
-        /*while(times--)
-        {*/
-            // Read should be small enough to go through in one pass without a
-            // loop, but we check just in case (marked FIXME:)
-            size_t rdsize = read(trailoutf, randomness, fsize);
-            if(rdsize != fsize)
+        u_int64_t readlen = fsize;
+        char * readback = malloc(readlen);
+        char * readbackOriginal = readback;
+
+        lseek64(trialoutfd, 0, SEEK_SET);
+        while(readlen > 0)
+        {
+            u_int64_t bytesRead = read(trialoutfd, readback, readlen);
+
+            if(bytesRead <= 0)
             {
                 perror("read failed");
                 monitor.ffinish(&monitor);
                 return 15;
             }
-        /*
-        }*/
+
+            readlen -= bytesRead;
+            readback = readback + bytesRead;
+        }
+
+        free(readbackOriginal);
         
         // Grab the terminal energy use and time
         errno = 0;
