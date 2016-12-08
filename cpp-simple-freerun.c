@@ -176,7 +176,7 @@ int main(int argc, char * argv[])
     // Add the NULL TERMINATOR for good measure
     randomness[fsize] = 0;
 
-    printf("randomness fsize (+1): %ld\n", fsize);
+    printf("randomness fsize (+1): %"PRIu64"\n", fsize);
 
     // Setup energymon
     errno = 0;
@@ -281,8 +281,6 @@ int main(int argc, char * argv[])
             writelen -= bytesWritten;
             randomnessCopy = randomnessCopy + bytesWritten;
         }
-
-        free(readbackOriginal);
 
         // Make sure everything writes through
         sync();
