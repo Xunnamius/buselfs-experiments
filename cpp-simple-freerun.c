@@ -197,6 +197,9 @@ int main(int argc, char * argv[])
 
     // Begin the trials
     int trials = TRIALS;
+    int pcachefd = open("/proc/sys/vm/drop_caches", O_WRONLY);
+
+    const char * droppcache = "3";
 
     while(keepRunning && trials--)
     {
@@ -251,7 +254,7 @@ int main(int argc, char * argv[])
         // random oracle file RANDOM_PATH, i.e. randomness
         unsigned int times = COPY_INTO_TIMES;
         // | O_DIRECT | O_SYNC
-        int trailoutf = open(target, O_CREAT | O_WRONLY | O_SYNC, 0777);
+        int trailoutf = open(target, O_CREAT | O_RDWR | O_SYNC, 0777);
 
         if(trailoutf < 0)
         {
@@ -263,19 +266,35 @@ int main(int argc, char * argv[])
         /*while(times--)
         {*/
             // Write should be small enough to go through in one pass without a
-            // loop, but we check just in case
+            // loop, but we check just in case (marked FIXME:)
             size_t wrtsize = write(trailoutf, randomness, fsize);
             if(wrtsize != fsize)
             {
-                //fprintf(stderr, "%s: wrote %zd but expected %ld\n", "write failed", wrtsize, fsize);
                 perror("write failed");
                 monitor.ffinish(&monitor);
                 return 14;
             }
-
-        /*}*/
+        /*
+        }*/
 
         sync();
+
+        // Drop the page cache before the next read
+        write(pcachefd, droppcache, sizeof(char));
+
+        /*while(times--)
+        {*/
+            // Read should be small enough to go through in one pass without a
+            // loop, but we check just in case (marked FIXME:)
+            size_t rdsize = read(trailoutf, randomness, fsize);
+            if(rdsize != fsize)
+            {
+                perror("read failed");
+                monitor.ffinish(&monitor);
+                return 15;
+            }
+        /*
+        }*/
         
         // Grab the terminal energy use and time
         errno = 0;
@@ -329,8 +348,9 @@ int main(int argc, char * argv[])
     // Free randomness buffer
     free(randomness);
     
-    printf("Finished reading\n");
+    printf("Done!\n");
     fclose(foutput);
+    close(pcachefd);
 
     return 0;
 }
