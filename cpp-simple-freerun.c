@@ -346,17 +346,6 @@ int main(int argc, char * argv[])
         printf("READ METRICS :: got end time (ns): %"PRIu64"\n", read_metrics_end.time_ns);
 
         free(readbackOriginal);
-        
-        // Grab the terminal energy use and time
-        errno = 0;
-        energy_end_uj = monitor.fread(&monitor);
-
-        if(!energy_end_uj && errno)
-        {
-            perror("fread");
-            monitor.ffinish(&monitor);
-            return 4;
-        }
 
         // Crunch the results
         double w_energy = write_metrics_end.energy_uj - write_metrics_start.energy_uj;
