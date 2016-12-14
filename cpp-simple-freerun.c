@@ -29,6 +29,28 @@ void interrupt_handler(int dummy)
     keepRunning = 0;
 }
 
+// Struct that holds duration/energy/power data
+typedef struct Metrics {
+    uint64_t time_ns;
+    uint64_t energy_uj;
+} Metrics;
+
+void collect_metrics(Metrics * metrics, energymon * monitor)
+{
+    // Grab the initial energy use and time
+    errno = 0;
+    metrics->energy_uj = monitor->fread(monitor);
+
+    if(!energy_start_uj && errno)
+    {
+        perror("fread");
+        monitor->ffinish(monitor);
+        return 3;
+    }
+
+    metrics->time_ns = energymon_gettime_ns();
+}
+
 /**
  * Appends path to REPO_PATH, separated by a /, and places it in buff. A maximum
  * of PATH_BUFF_SIZE bytes will be written into buff.
@@ -203,14 +225,6 @@ int main(int argc, char * argv[])
 
     while(keepRunning && trials--)
     {
-        uint64_t time_start_ns;
-        uint64_t time_end_ns;
-        uint64_t energy_start_uj;
-        uint64_t energy_end_uj;
-        double power;
-        double energy;
-        double duration;
-
         int trial = TRIALS - trials;
         printf("--> beginning trial %d of %d\n", trial, TRIALS);
 
@@ -226,20 +240,11 @@ int main(int argc, char * argv[])
         /*printf("write_cmd: %s\n", write_cmd);
         printf("read_cmd: %s\n", read_cmd);*/
 
-        // Grab the initial energy use and time
-        errno = 0;
-        energy_start_uj = monitor.fread(&monitor);
+        Metrics write_metrics_start;
+        collect_metrics(&write_metrics_start, &monitor);
 
-        if(!energy_start_uj && errno)
-        {
-            perror("fread");
-            monitor.ffinish(&monitor);
-            return 3;
-        }
-        
-        printf("got start reading: %"PRIu64"\n", energy_start_uj);
-        time_start_ns = energymon_gettime_ns();
-        printf("got start time: %"PRIu64"\n", time_start_ns);
+        printf("WRITE METRICS:: got start energy (uj): %"PRIu64"\n", write_metrics_start.energy_uj);
+        printf("WRITE METRICS:: got start time (ns): %"PRIu64"\n", write_metrics_start.time_ns);
 
         // Run the experiment here
         // energymon_sleep_us(2000000); // Sleep for two seconds
@@ -254,7 +259,7 @@ int main(int argc, char * argv[])
         // random oracle file RANDOM_PATH, i.e. randomness
         // unsigned int times = COPY_INTO_TIMES;
         // | O_DIRECT | O_SYNC
-        int trialoutfd = open(target, O_CREAT | O_RDWR | O_SYNC, 0777);
+        int trialoutfd = open(target, O_CREAT | O_RDWR, 0777);
 
         if(trialoutfd < 0)
         {
@@ -285,8 +290,20 @@ int main(int argc, char * argv[])
         // Make sure everything writes through
         sync();
 
+        Metrics write_metrics_end;
+        collect_metrics(&write_metrics_end, &monitor);
+
+        printf("WRITE METRICS:: got end energy (uj): %"PRIu64"\n", write_metrics_end.energy_uj);
+        printf("WRITE METRICS:: got end time (ns): %"PRIu64"\n", write_metrics_end.time_ns);
+
         // Drop the page cache before the next read
         write(pcachefd, droppcache, sizeof(char));
+
+        Metrics read_metrics_start;
+        collect_metrics(&read_metrics_start, &monitor);
+
+        printf("READ METRICS :: got start energy (uj): %"PRIu64"\n", read_metrics_start.energy_uj);
+        printf("READ METRICS :: got start time (ns): %"PRIu64"\n", read_metrics_start.time_ns);
 
         u_int64_t readlen = fsize;
         char * readback = malloc(readlen);
@@ -308,6 +325,12 @@ int main(int argc, char * argv[])
             readback = readback + bytesRead;
         }
 
+        Metrics read_metrics_end;
+        collect_metrics(&read_metrics_end, &monitor);
+
+        printf("READ METRICS :: got end energy (uj): %"PRIu64"\n", read_metrics_end.energy_uj);
+        printf("READ METRICS :: got end time (ns): %"PRIu64"\n", read_metrics_end.time_ns);
+
         free(readbackOriginal);
         
         // Grab the terminal energy use and time
@@ -320,19 +343,22 @@ int main(int argc, char * argv[])
             monitor.ffinish(&monitor);
             return 4;
         }
-        
-        printf("got end reading: %"PRIu64"\n", energy_end_uj);
-        time_end_ns = energymon_gettime_ns();
-        printf("got end time: %"PRIu64"\n", time_end_ns);
 
-        energy = energy_end_uj - energy_start_uj;
-        duration = time_end_ns - time_start_ns;
-        power = energy * 1000.0 / duration;
+        // Crunch the results
+        double w_energy = write_metrics_end.energy_uj - write_metrics_start.energy_uj;
+        double w_duration = write_metrics_end.time_ns - write_metrics_start.time_ns;
+        double w_power = w_energy * 1000.0 / w_duration;
 
-        printf("energy: %fuj\nduration: %fns\npower: %fw\n", energy, duration, power);
+        double r_energy = read_metrics_end.energy_uj - read_metrics_start.energy_uj;
+        double r_duration = read_metrics_end.time_ns - read_metrics_start.time_ns;
+        double r_power = w_energy * 1000.0 / w_duration;
+
+        printf("==> WRITES <==\nenergy: %fj\nduration: %fs\npower: %fw\n", w_energy / 1000000.0, w_duration / 1000000000.0, w_power);
+        printf("==> READS <==\nenergy: %fj\nduration: %fs\npower: %fw\n", r_energy / 1000000.0, r_duration / 1000000000.0, r_power);
 
         // Output the results
-        fprintf(foutput, "energy: %f\nduration: %f\npower: %f\n---\n", energy, duration, power);
+        fprintf(foutput, "w_energy: %f\nw_duration: %f\nw_power: %f\nr_energy: %f\nr_duration: %f\nr_power: %f\n---\n",
+                w_energy, w_duration, w_power, r_energy, r_duration, r_power);
 
         if(CLEANUP)
         {
