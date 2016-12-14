@@ -35,13 +35,13 @@ typedef struct Metrics {
     uint64_t energy_uj;
 } Metrics;
 
-void collect_metrics(Metrics * metrics, energymon * monitor)
+int collect_metrics(Metrics * metrics, energymon * monitor)
 {
     // Grab the initial energy use and time
     errno = 0;
     metrics->energy_uj = monitor->fread(monitor);
 
-    if(!energy_start_uj && errno)
+    if(!metrics->energy_uj && errno)
     {
         perror("fread");
         monitor->ffinish(monitor);
@@ -49,6 +49,7 @@ void collect_metrics(Metrics * metrics, energymon * monitor)
     }
 
     metrics->time_ns = energymon_gettime_ns();
+    return 0;
 }
 
 /**
@@ -225,6 +226,7 @@ int main(int argc, char * argv[])
 
     while(keepRunning && trials--)
     {
+        int retval = 0;
         int trial = TRIALS - trials;
         printf("--> beginning trial %d of %d\n", trial, TRIALS);
 
@@ -241,7 +243,10 @@ int main(int argc, char * argv[])
         printf("read_cmd: %s\n", read_cmd);*/
 
         Metrics write_metrics_start;
-        collect_metrics(&write_metrics_start, &monitor);
+        retval = collect_metrics(&write_metrics_start, &monitor);
+
+        if(retval != 0)
+            return retval;
 
         printf("WRITE METRICS:: got start energy (uj): %"PRIu64"\n", write_metrics_start.energy_uj);
         printf("WRITE METRICS:: got start time (ns): %"PRIu64"\n", write_metrics_start.time_ns);
@@ -291,7 +296,10 @@ int main(int argc, char * argv[])
         sync();
 
         Metrics write_metrics_end;
-        collect_metrics(&write_metrics_end, &monitor);
+        retval = collect_metrics(&write_metrics_end, &monitor);
+
+        if(retval != 0)
+            return retval;
 
         printf("WRITE METRICS:: got end energy (uj): %"PRIu64"\n", write_metrics_end.energy_uj);
         printf("WRITE METRICS:: got end time (ns): %"PRIu64"\n", write_metrics_end.time_ns);
@@ -300,7 +308,10 @@ int main(int argc, char * argv[])
         write(pcachefd, droppcache, sizeof(char));
 
         Metrics read_metrics_start;
-        collect_metrics(&read_metrics_start, &monitor);
+        retval = collect_metrics(&read_metrics_start, &monitor);
+
+        if(retval != 0)
+            return retval;
 
         printf("READ METRICS :: got start energy (uj): %"PRIu64"\n", read_metrics_start.energy_uj);
         printf("READ METRICS :: got start time (ns): %"PRIu64"\n", read_metrics_start.time_ns);
@@ -326,7 +337,10 @@ int main(int argc, char * argv[])
         }
 
         Metrics read_metrics_end;
-        collect_metrics(&read_metrics_end, &monitor);
+        retval = collect_metrics(&read_metrics_end, &monitor);
+
+        if(retval != 0)
+            return retval;
 
         printf("READ METRICS :: got end energy (uj): %"PRIu64"\n", read_metrics_end.energy_uj);
         printf("READ METRICS :: got end time (ns): %"PRIu64"\n", read_metrics_end.time_ns);
