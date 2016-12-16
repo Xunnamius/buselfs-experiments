@@ -1,6 +1,6 @@
 SHELL = /bin/sh
 CC = gcc
-CFLAGS = -Wall -D_GNU_SOURCE
+CFLAGS = -Wall -D_GNU_SOURCE vendor/energymon/energymon-time-util.c
 
 .PHONY: clean test run
 
@@ -14,7 +14,7 @@ simpler:
 	$(CC) $(CFLAGS) cpp-simple-freerun.c -o bin/cpp-simple-freerun
 
 duration:
-	$(CC) $(CFLAGS) vendor/energymon/energymon-time-util.c cpp-duration.c -o bin/cpp-duration
+	$(CC) $(CFLAGS) cpp-duration.c -o bin/cpp-duration
 
 clean:
 	rm -f bin/*
