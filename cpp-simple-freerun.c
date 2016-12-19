@@ -264,7 +264,7 @@ int main(int argc, char * argv[])
         // random oracle file RANDOM_PATH, i.e. randomness
         // unsigned int times = COPY_INTO_TIMES;
         // | O_DIRECT | O_SYNC
-        int trialoutfd = open(target, O_CREAT | O_RDWR, 0777);
+        int trialoutfd = open(target, O_CREAT | O_RDWR | O_SYNC, 0777);
 
         if(trialoutfd < 0)
         {
