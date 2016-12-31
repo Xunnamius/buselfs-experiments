@@ -1,6 +1,7 @@
 # Workflow #
 ###########
 lfslog
+*.rand*
 
 # Grunt & Composer #
 ###########
