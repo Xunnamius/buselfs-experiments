@@ -354,7 +354,7 @@ int main(int argc, char * argv[])
 
         double r_energy = read_metrics_end.energy_uj - read_metrics_start.energy_uj;
         double r_duration = read_metrics_end.time_ns - read_metrics_start.time_ns;
-        double r_power = w_energy * 1000.0 / w_duration;
+        double r_power = w_energy * 1000.0 / r_duration;
 
         printf("==> WRITES <==\nenergy: %fj\nduration: %fs\npower: %fw\n", w_energy / 1000000.0, w_duration / 1000000000.0, w_power);
         printf("==> READS <==\nenergy: %fj\nduration: %fs\npower: %fw\n", r_energy / 1000000.0, r_duration / 1000000000.0, r_power);
