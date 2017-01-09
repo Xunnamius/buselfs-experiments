@@ -14,7 +14,7 @@
 #define CMD_BUFF_SIZE 512
 #define COPY_INTO_TIMES 1 // randomness written COPY_INTO_TIMES into same file
 
-const int TRIALS = 20;
+const int TRIALS = 15;
 const char * REPO_PATH = "/home/odroid/bd3/repos/energy-AES-1"; // No trailing /
 const char * RANDOM_PATH = "/home/odroid/bd3/repos/energy-AES-1/data.randomabitmore";
 const int CLEANUP = 0;
