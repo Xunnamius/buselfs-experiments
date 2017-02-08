@@ -233,17 +233,11 @@ int main(int argc, char * argv[])
         int trial = TRIALS - trials;
         printf("--> beginning trial %d of %d\n", trial, TRIALS);
 
-        /*char write_cmd[CMD_BUFF_SIZE];
-        char read_cmd[CMD_BUFF_SIZE];*/
         char target[PATH_BUFF_SIZE];
 
         snprintf(target, PATH_BUFF_SIZE, "%s/%d", write_to, trial);
-        /*snprintf(write_cmd, CMD_BUFF_SIZE, "dd-write.sh %s %s %s", target, core_type, fs_type);
-        snprintf(read_cmd, CMD_BUFF_SIZE, "dd-read.sh %s %s %s", target, core_type, fs_type);*/
 
         printf("target: %s\n", target);
-        /*printf("write_cmd: %s\n", write_cmd);
-        printf("read_cmd: %s\n", read_cmd);*/
 
         Metrics write_metrics_start;
         retval = collect_metrics(&write_metrics_start, &monitor);
@@ -253,15 +247,6 @@ int main(int argc, char * argv[])
 
         printf("WRITE METRICS:: got start energy (uj): %"PRIu64"\n", write_metrics_start.energy_uj);
         printf("WRITE METRICS:: got start time (ns): %"PRIu64"\n", write_metrics_start.time_ns);
-
-        // Run the experiment here
-        // energymon_sleep_us(2000000); // Sleep for two seconds
-
-        /*// Run the dd-write and then dd-read
-        int write_ret = callsys(write_cmd);
-        printf("write_cmd returned %d\n", write_ret);
-        int read_ret = callsys(read_cmd);
-        printf("read_cmd returned %d\n", read_ret);*/
 
         // Run the simpler version of the experiment with writes coming from the
         // random oracle file RANDOM_PATH, i.e. randomness
@@ -382,8 +367,8 @@ int main(int argc, char * argv[])
         return 7;
     }
 
-    if(NO_SHMOO)
-        fprintf(foutput, "%s", "mf: 0x10 2000000\n");
+    /*if(NO_SHMOO)
+        fprintf(foutput, "%s", "mf: 0x10 2000000\n");*/
 
     if(monitor.ffinish(&monitor))
     {
