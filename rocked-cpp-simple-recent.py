@@ -263,7 +263,7 @@ if __name__ == "__main__":
     print('{: <90} {}'.format(read_title,
         py.plot(
             read_fig,
-            filename = 'energy-AESXTS1-cppgraph-read-' + hashlib.md5(bytes(filesdir + read_title, 'ascii')).hexdigest(),
+            filename = 'energy-AESXTS1-cppgraph-reads-' + hashlib.md5(bytes(filesdir + read_title, 'ascii')).hexdigest(),
             auto_open = False
         ))
     )
@@ -271,7 +271,7 @@ if __name__ == "__main__":
     print('{: <90} {}'.format(write_title,
         py.plot(
             write_fig,
-            filename = 'energy-AESXTS1-cppgraph-write-' + hashlib.md5(bytes(filesdir + write_title, 'ascii')).hexdigest(),
+            filename = 'energy-AESXTS1-cppgraph-writes-' + hashlib.md5(bytes(filesdir + write_title, 'ascii')).hexdigest(),
             auto_open = False
         ))
     )
