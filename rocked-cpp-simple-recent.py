@@ -74,7 +74,7 @@ if __name__ == "__main__":
     print('crunching...')
 
     data = {}
-    resultFiles = [pth for pth in Path.cwd().glob('results/*.results')]
+    resultFiles = [pth for pth in Path(os.path.realpath(__file__)).glob('{}/*.results'.format(filesdir))]
     resultFileNames = [file.name for file in resultFiles]
 
     # Loop over results and begin the aggregation/accumulation process
