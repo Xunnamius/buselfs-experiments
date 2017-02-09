@@ -25,7 +25,7 @@ GHZ = 1000000
 METRICS = ('energy', 'power', 'duration')
 COLORS_READ = ['rgb(49,130,189)', 'rgb(204,204,204)', 'rgb(255,102,0)']
 COLORS_WRITE = ['rgb(25,65,95)', 'rgb(102,102,102)', 'rgb(255,102,0)']
-TITLE_TEMPLATE = './{}/ <{}> FS Measurements [{} iops {} trials]'
+TITLE_TEMPLATE = '{} <{}> FS Measurements [{} iops {} trials]'
 
 ################################################################################
 
@@ -74,7 +74,7 @@ if __name__ == "__main__":
     print('crunching...')
 
     data = {}
-    resultFiles = [pth for pth in Path(os.path.realpath(__file__)).glob('{}/*.results'.format(filesdir))]
+    resultFiles = [pth for pth in Path(os.path.dirname(os.path.realpath(__file__))).glob(os.path.join(filesdir, '*.results'))]
     resultFileNames = [file.name for file in resultFiles]
 
     # Loop over results and begin the aggregation/accumulation process
