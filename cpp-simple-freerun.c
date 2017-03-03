@@ -14,11 +14,11 @@
 #define CMD_BUFF_SIZE 512
 #define COPY_INTO_TIMES 1 // randomness written COPY_INTO_TIMES into same file
 
-const int TRIALS = 20;
-//const char * REPO_PATH = "/home/odroid/bd3/repos/energy-AES-1"; // No trailing /
-const char * REPO_PATH = "/home/xunnamius/repos/research/energy-AES-1"; // No trailing /
-//const char * RANDOM_PATH = "/home/odroid/bd3/repos/energy-AES-1/data.random";
-const char * RANDOM_PATH = "/home/xunnamius/repos/research/energy-AES-1/data.random";
+const int TRIALS = 15;
+const char * REPO_PATH = "/home/odroid/bd3/repos/energy-AES-1"; // No trailing /
+//const char * REPO_PATH = "/home/xunnamius/repos/research/energy-AES-1"; // No trailing /
+const char * RANDOM_PATH = "/home/odroid/bd3/repos/energy-AES-1/data.randomabitmore";
+//const char * RANDOM_PATH = "/home/xunnamius/repos/research/energy-AES-1/data.random";
 
 const int CLEANUP = 0;
 const int NO_SHMOO = 1;
