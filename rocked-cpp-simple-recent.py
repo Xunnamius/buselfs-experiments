@@ -77,7 +77,7 @@ if __name__ == "__main__":
     print('crunching...')
 
     data = {}
-    resultFiles = [pth for pth in Path(os.path.dirname(os.path.realpath(__file__))).glob(os.path.join(filesdir, '*.results'))]
+    resultFiles = sorted([pth for pth in Path(os.path.dirname(os.path.realpath(__file__))).glob(os.path.join(filesdir, '*.results'))])
     resultFileNames = [filenameToProperName(file.name) for file in resultFiles]
 
     # Loop over results and begin the aggregation/accumulation process
@@ -152,7 +152,7 @@ if __name__ == "__main__":
     y1_writes = []
     y2_writes = []
 
-    for resultFileName in resultFileNames:
+    for resultFileName in sorted(resultFileNames):
         dataFragment = data[resultFileName]
 
         y0_reads.append(float(dataFragment['read']['energy']))
