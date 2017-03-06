@@ -46,6 +46,9 @@ def lineToNumber(line):
     """Converts a line string like "energy: 55" into a number"""
     return Decimal(line.split(': ')[1])
 
+def filenameToProperName(filename):
+    return "".join(filename.split('.results')[0].split('shmoo.big.'))
+
 if __name__ == "__main__":
     filesdir     = None
     durationBaseline = None
@@ -75,11 +78,11 @@ if __name__ == "__main__":
 
     data = {}
     resultFiles = [pth for pth in Path(os.path.dirname(os.path.realpath(__file__))).glob(os.path.join(filesdir, '*.results'))]
-    resultFileNames = [file.name for file in resultFiles]
+    resultFileNames = [filenameToProperName(file.name) for file in resultFiles]
 
     # Loop over results and begin the aggregation/accumulation process
     for resultFile in resultFiles:
-        resultFileName = resultFile.name
+        resultFileName = filenameToProperName(resultFile.name)
 
         data[resultFileName] = {
             'read' : { 'energy': [], 'power': [], 'duration': [] },
