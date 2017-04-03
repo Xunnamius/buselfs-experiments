@@ -121,6 +121,10 @@ if __name__ == "__main__":
         dataFragment['write']['energy'] /= 1000000
         dataFragment['write']['duration'] /= 1000000000
 
+        # Sometimes we can't trust the power we read!
+        dataFragment['read']['power'] = dataFragment['read']['energy'] / dataFragment['read']['duration']
+        dataFragment['write']['power'] = dataFragment['write']['energy'] / dataFragment['write']['duration']
+
     if durationBaseline is not None:
         baselineFragment = copy.deepcopy(data[resultFileNames[durationBaseline]])
 
