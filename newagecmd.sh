@@ -92,7 +92,7 @@ sudo umount /tmp/nbd4
 
 ##### (ENCRYPTED) BUSE+NILFS2
 
-sudo ./buselfs --default-password create nbd5 > ~/bd3/nbd5.debug-log 2>&1 &
+sudo /home/odroid/bd3/repos/buselfs/build/buselfs --default-password create nbd5 > ~/bd3/nbd5.debug-log 2>&1 &
 sudo tail -f ~/bd3/nbd5.debug-log
 # WAIT!
 sudo mkfs -t nilfs2 /dev/nbd5
@@ -108,7 +108,7 @@ sudo umount /tmp/nbd5
 
 ##### (ENCRYPTED) BUSE+F2FS
 
-sudo ./buselfs --default-password create nbd6 > ~/bd3/nbd6.debug-log 2>&1 &
+sudo /home/odroid/bd3/repos/buselfs/build/buselfs --default-password create nbd6 > ~/bd3/nbd6.debug-log 2>&1 &
 sudo tail -f ~/bd3/nbd6.debug-log
 # WAIT!
 sudo mkfs -t f2fs /dev/nbd6
@@ -124,7 +124,7 @@ sudo umount /tmp/nbd6
 
 ##### (ENCRYPTED) BUSE+LOGFS
 
-sudo ./buselfs --default-password create nbd7 > ~/bd3/nbd7.debug-log 2>&1 &
+sudo /home/odroid/bd3/repos/buselfs/build/buselfs --default-password create nbd7 > ~/bd3/nbd7.debug-log 2>&1 &
 sudo tail -f ~/bd3/nbd7.debug-log
 # WAIT!
 sudo mkfs -t logfs /dev/nbd7
@@ -141,7 +141,7 @@ sudo umount /tmp/nbd7
 
 ##### (ENCRYPTED) BUSE+EXT4OJ
 
-sudo ./buselfs --default-password create nbd8 > ~/bd3/nbd8.debug-log 2>&1 &
+sudo /home/odroid/bd3/repos/buselfs/build/buselfs --default-password create nbd8 > ~/bd3/nbd8.debug-log 2>&1 &
 sudo tail -f ~/bd3/nbd8.debug-log
 # WAIT!
 sudo mkfs -t ext4 /dev/nbd8
@@ -157,7 +157,7 @@ sudo umount /tmp/nbd8
 
 ##### (ENCRYPTED) BUSE+EXT4FJ
 
-sudo ./buselfs --default-password create nbd9 > ~/bd3/nbd9.debug-log 2>&1 &
+sudo /home/odroid/bd3/repos/buselfs/build/buselfs --default-password create nbd9 > ~/bd3/nbd9.debug-log 2>&1 &
 sudo tail -f ~/bd3/nbd9.debug-log
 # WAIT!
 sudo mkfs -t ext4 /dev/nbd9
