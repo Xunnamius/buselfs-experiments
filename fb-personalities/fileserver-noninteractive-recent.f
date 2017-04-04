@@ -23,7 +23,7 @@
 # Use is subject to license terms.
 #
 
-set $dir=/tmp/nilfs2
+set $dir=/tmp/nbd6
 set $nfiles=2500
 set $meandirwidth=20
 set $meanfilesize=256k
