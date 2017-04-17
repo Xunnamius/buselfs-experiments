@@ -1,0 +1,68 @@
+::EBUSE+F2FS MMC::
+
+61.018: Run took 60 seconds...
+61.018: Per-Operation Breakdown
+statfile1            3ops        0ops/s   0.0mb/s      0.0ms/op [0.01ms -  0.02ms]
+deletefile1          3ops        0ops/s   0.0mb/s     88.4ms/op [88.15ms - 88.85ms]
+closefile3           3ops        0ops/s   0.0mb/s      0.0ms/op [0.01ms -  0.02ms]
+readfile1            3ops        0ops/s   2.0mb/s     85.7ms/op [84.61ms - 86.89ms]
+openfile2            4ops        0ops/s   0.0mb/s      0.0ms/op [0.03ms -  0.04ms]
+closefile2           4ops        0ops/s   0.0mb/s      0.0ms/op [0.01ms -  0.01ms]
+appendfilerand1      4ops        0ops/s   0.0mb/s      5.1ms/op [1.25ms - 16.01ms]
+openfile1            4ops        0ops/s   0.0mb/s      0.1ms/op [0.05ms -  0.08ms]
+closefile1           4ops        0ops/s   0.0mb/s      0.0ms/op [0.02ms -  0.04ms]
+wrtfile1             4ops        0ops/s   2.7mb/s  14153.7ms/op [13862.64ms - 15824.58ms]
+createfile1          4ops        0ops/s   0.0mb/s      0.1ms/op [0.09ms -  0.19ms]
+61.018: IO Summary:    40 ops 0.667 ops/s 0/0 rd/wr   4.7mb/s 5450.8ms/op
+
+::EBUSE+F2FS RAM::
+
+61.018: Run took 60 seconds...
+61.018: Per-Operation Breakdown
+statfile1            3ops        0ops/s   0.0mb/s      0.0ms/op [0.01ms -  0.02ms]
+deletefile1          3ops        0ops/s   0.0mb/s     88.7ms/op [88.29ms - 89.34ms]
+closefile3           3ops        0ops/s   0.0mb/s      0.0ms/op [0.02ms -  0.02ms]
+readfile1            3ops        0ops/s   2.0mb/s     86.8ms/op [86.08ms - 87.29ms]
+openfile2            3ops        0ops/s   0.0mb/s      0.0ms/op [0.03ms -  0.04ms]
+closefile2           3ops        0ops/s   0.0mb/s      0.0ms/op [0.01ms -  0.01ms]
+appendfilerand1      3ops        0ops/s   0.0mb/s      6.3ms/op [1.36ms - 15.99ms]
+openfile1            3ops        0ops/s   0.0mb/s      0.1ms/op [0.06ms -  0.08ms]
+closefile1           3ops        0ops/s   0.0mb/s      0.0ms/op [0.02ms -  0.04ms]
+wrtfile1             3ops        0ops/s   2.0mb/s  13618.1ms/op [12973.35ms - 14660.03ms]
+createfile1          4ops        0ops/s   0.0mb/s      0.1ms/op [0.09ms -  0.19ms]
+61.018: IO Summary:    34 ops 0.567 ops/s 0/0 rd/wr   4.0mb/s 4836.1ms/op
+
+::AES-XTS+F2FS MMC::
+
+61.019: Run took 60 seconds...
+61.019: Per-Operation Breakdown
+statfile1            4ops        0ops/s   0.0mb/s      0.0ms/op [0.02ms -  0.02ms]
+deletefile1          4ops        0ops/s   0.0mb/s     98.3ms/op [90.26ms - 101.38ms]
+closefile3           4ops        0ops/s   0.0mb/s      0.0ms/op [0.02ms -  0.02ms]
+readfile1            4ops        0ops/s   2.7mb/s    601.5ms/op [92.4ms - 2140.09ms]
+openfile2            4ops        0ops/s   0.0mb/s      0.0ms/op [0.04ms -  0.04ms]
+closefile2           4ops        0ops/s   0.0mb/s      0.0ms/op [0.01ms -  0.02ms]
+appendfilerand1      4ops        0ops/s   0.0mb/s      2.3ms/op [1.47ms -  4.25ms]
+openfile1            4ops        0ops/s   0.0mb/s      0.1ms/op [0.05ms -  0.08ms]
+closefile1           4ops        0ops/s   0.0mb/s      0.0ms/op [0.02ms -  0.04ms]
+wrtfile1             4ops        0ops/s   2.7mb/s  14882.3ms/op [14467.11ms - 16101.77ms]
+createfile1          5ops        0ops/s   0.0mb/s      0.1ms/op [0.10ms -  0.21ms]
+61.019: IO Summary:    45 ops 0.775 ops/s 0/0 rd/wr   5.1mb/s 5659.2ms/op
+
+
+::AES-XTS+F2FS RAM::
+
+86.836: Run took 60 seconds...
+86.837: Per-Operation Breakdown
+statfile1            4ops        0ops/s   0.0mb/s      0.0ms/op [0.02ms -  0.02ms]
+deletefile1          4ops        0ops/s   0.0mb/s     88.8ms/op [87.12ms - 89.93ms]
+closefile3           4ops        0ops/s   0.0mb/s      0.0ms/op [0.01ms -  0.02ms]
+readfile1            4ops        0ops/s   2.7mb/s    592.5ms/op [84.78ms - 2002.28ms]
+openfile2            4ops        0ops/s   0.0mb/s      0.0ms/op [0.04ms -  0.04ms]
+closefile2           4ops        0ops/s   0.0mb/s      0.0ms/op [0.01ms -  0.01ms]
+appendfilerand1      4ops        0ops/s   0.0mb/s      1.8ms/op [1.44ms -  2.18ms]
+openfile1            4ops        0ops/s   0.0mb/s      0.1ms/op [0.05ms -  0.07ms]
+closefile1           4ops        0ops/s   0.0mb/s      0.0ms/op [0.02ms -  0.03ms]
+wrtfile1             4ops        0ops/s   2.7mb/s  13924.7ms/op [13187.86ms - 15452.25ms]
+createfile1          5ops        0ops/s   0.0mb/s      0.1ms/op [0.09ms -  0.30ms]
+86.837: IO Summary:    45 ops 0.750 ops/s 0/0 rd/wr   5.3mb/s 5033.4ms/op

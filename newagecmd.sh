@@ -6,6 +6,9 @@ sudo modprobe nilfs2
 sudo modprobe f2fs
 
 mkdir /tmp/ram0 /tmp/nbd0 /tmp/nbd1 /tmp/nbd2 /tmp/nbd3 /tmp/nbd4 /tmp/nbd5 /tmp/nbd6 /tmp/nbd7 /tmp/nbd8 /tmp/nbd9 /tmp/nbd10 /tmp/nbd11 /tmp/nbd12 /tmp/nbd13 /tmp/nbd14 /tmp/nbd15
+mkdir /tmp/config /tmp/run
+
+cp /home/odroid/bd3/repos/buselfs/config/zlog_conf.conf /tmp/config/
 
 sudo mount -t tmpfs -o size=1024M tmpfs /tmp/ram0
 mount
@@ -100,7 +103,7 @@ sudo rm -f logfs-* blfs-*
 
 ##### (ENCRYPTED) BUSE+NILFS2
 
-sudo /home/odroid/bd3/repos/buselfs/build/buselfs --backstore-size 943718400 --default-password create nbd5 > ~/bd3/nbd5.debug-log 2>&1 &
+sudo /home/odroid/bd3/repos/buselfs/build/buselfs --backstore-size 900 --default-password create nbd5 > ~/bd3/nbd5.debug-log 2>&1 &
 sudo tail -f ~/bd3/nbd5.debug-log
 # WAIT!
 sudo mkfs -t nilfs2 /dev/nbd5
@@ -119,7 +122,7 @@ sudo rm -f logfs-* blfs-*
 
 ##### (ENCRYPTED) BUSE+F2FS
 
-sudo /home/odroid/bd3/repos/buselfs/build/buselfs --backstore-size 943718400 --default-password create nbd6 > ~/bd3/nbd6.debug-log 2>&1 &
+sudo /home/odroid/bd3/repos/buselfs/build/buselfs --backstore-size 900 --default-password create nbd6 > ~/bd3/nbd6.debug-log 2>&1 &
 sudo tail -f ~/bd3/nbd6.debug-log
 # WAIT!
 sudo mkfs -t f2fs /dev/nbd6
@@ -138,7 +141,7 @@ sudo rm -f logfs-* blfs-*
 
 ##### (ENCRYPTED) BUSE+LOGFS
 
-sudo /home/odroid/bd3/repos/buselfs/build/buselfs --backstore-size 943718400 --default-password create nbd7 > ~/bd3/nbd7.debug-log 2>&1 &
+sudo /home/odroid/bd3/repos/buselfs/build/buselfs --backstore-size 900 --default-password create nbd7 > ~/bd3/nbd7.debug-log 2>&1 &
 sudo tail -f ~/bd3/nbd7.debug-log
 # WAIT!
 sudo mkfs -t logfs /dev/nbd7
@@ -158,7 +161,7 @@ sudo rm -f logfs-* blfs-*
 
 ##### (ENCRYPTED) BUSE+EXT4OJ
 
-sudo /home/odroid/bd3/repos/buselfs/build/buselfs --backstore-size 943718400 --default-password create nbd8 > ~/bd3/nbd8.debug-log 2>&1 &
+sudo /home/odroid/bd3/repos/buselfs/build/buselfs --backstore-size 900 --default-password create nbd8 > ~/bd3/nbd8.debug-log 2>&1 &
 sudo tail -f ~/bd3/nbd8.debug-log
 # WAIT!
 sudo mkfs -t ext4 /dev/nbd8
@@ -177,7 +180,7 @@ sudo rm -f logfs-* blfs-*
 
 ##### (ENCRYPTED) BUSE+EXT4FJ
 
-sudo /home/odroid/bd3/repos/buselfs/build/buselfs --backstore-size 943718400 --default-password create nbd9 > ~/bd3/nbd9.debug-log 2>&1 &
+sudo /home/odroid/bd3/repos/buselfs/build/buselfs --backstore-size 900 --default-password create nbd9 > ~/bd3/nbd9.debug-log 2>&1 &
 sudo tail -f ~/bd3/nbd9.debug-log
 # WAIT!
 sudo mkfs -t ext4 /dev/nbd9

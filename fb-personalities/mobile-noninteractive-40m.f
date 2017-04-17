@@ -24,29 +24,22 @@
 #
 
 set $dir=/tmp/nbd6
-set $nfiles=2500
-set $meandirwidth=20
-set $meanfilesize=256k
-set $nthreads=4
-set $iosize=1m
+set $nfiles=15
+set $meandirwidth=2
+set $meanfilesize=40m
+set $workingset=20m
+set $nthreads=1
+set $iosize=4k
 set $meanappendsize=16k
 
-define fileset name=bigfileset,path=$dir,size=$meanfilesize,entries=$nfiles,dirwidth=$meandirwidth,prealloc=80
+define fileset name=bigfileset,path=$dir,size=$meanfilesize,entries=$nfiles,dirwidth=$meandirwidth,prealloc=80,reuse
 
 define process name=filereader,instances=1
 {
   thread name=filereaderthread,memsize=10m,instances=$nthreads
   {
-    flowop createfile name=createfile1,filesetname=bigfileset,fd=1,directio,dsync
-    flowop writewholefile name=wrtfile1,srcfd=1,fd=1,iosize=$iosize,dsync
-    flowop closefile name=closefile1,fd=1
-    flowop openfile name=openfile1,filesetname=bigfileset,fd=1,directio,dsync
-    flowop appendfilerand name=appendfilerand1,iosize=$meanappendsize,fd=1,dsync
-    flowop closefile name=closefile2,fd=1
-    flowop openfile name=openfile2,filesetname=bigfileset,fd=1,directio,dsync
-    flowop readwholefile name=readfile1,fd=1,iosize=$iosize
-    flowop closefile name=closefile3,fd=1
-    flowop deletefile name=deletefile1,filesetname=bigfileset
+    flowop read name=randread1,filesetname=bigfileset,iosize=$iosize,random,workingset=$workingset,directio,dsync
+    flowop write name=randwrite1,filesetname=bigfileset,iosize=$iosize,random,workingset=$workingset,directio,dsync
     flowop statfile name=statfile1,filesetname=bigfileset
   }
 }
@@ -60,4 +53,4 @@ echo  "File-server Version 3.0-custom-noninteractive personality successfully lo
 # usage "       set \$iosize=<size>  defaults to $iosize"
 # usage "       set \$meandirwidth=<size> defaults to $meandirwidth"
 # usage "       run runtime (e.g. run 60)"
-run 30
+run 60

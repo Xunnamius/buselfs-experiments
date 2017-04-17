@@ -23,28 +23,28 @@
 # Use is subject to license terms.
 #
 
-set $dir=/media/nfde
-set $nfiles=2500
-set $meandirwidth=20
-set $meanfilesize=128k
-set $nthreads=4
-set $iosize=1m
+set $dir=/tmp/nbd6
+set $nfiles=15
+set $meandirwidth=2
+set $meanfilesize=1k
+set $nthreads=1
+set $iosize=4k
 set $meanappendsize=16k
 
-define fileset name=bigfileset,path=$dir,size=$meanfilesize,entries=$nfiles,dirwidth=$meandirwidth,prealloc=80
+define fileset name=bigfileset,path=$dir,size=$meanfilesize,entries=$nfiles,dirwidth=$meandirwidth,prealloc=80,reuse
 
 define process name=filereader,instances=1
 {
   thread name=filereaderthread,memsize=10m,instances=$nthreads
   {
-    flowop createfile name=createfile1,filesetname=bigfileset,fd=1
-    flowop writewholefile name=wrtfile1,srcfd=1,fd=1,iosize=$iosize
+    flowop createfile name=createfile1,filesetname=bigfileset,fd=1,dsync
+    flowop writewholefile name=wrtfile1,srcfd=1,fd=1,iosize=$iosize,dsync
     flowop closefile name=closefile1,fd=1
-    flowop openfile name=openfile1,filesetname=bigfileset,fd=1
-    flowop appendfilerand name=appendfilerand1,iosize=$meanappendsize,fd=1
+    flowop openfile name=openfile1,filesetname=bigfileset,fd=1,dsync
+    flowop appendfilerand name=appendfilerand1,iosize=$meanappendsize,fd=1,dsync
     flowop closefile name=closefile2,fd=1
     flowop openfile name=openfile2,filesetname=bigfileset,fd=1
-    flowop readwholefile name=readfile1,fd=1,iosize=$iosize
+    flowop readwholefile name=readfile1,fd=1,iosize=$iosize,directio
     flowop closefile name=closefile3,fd=1
     flowop deletefile name=deletefile1,filesetname=bigfileset
     flowop statfile name=statfile1,filesetname=bigfileset
@@ -60,4 +60,4 @@ echo  "File-server Version 3.0-custom-noninteractive personality successfully lo
 # usage "       set \$iosize=<size>  defaults to $iosize"
 # usage "       set \$meandirwidth=<size> defaults to $meandirwidth"
 # usage "       run runtime (e.g. run 60)"
-run 30
+run 60
