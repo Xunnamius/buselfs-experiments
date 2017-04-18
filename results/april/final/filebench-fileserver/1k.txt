@@ -1,0 +1,59 @@
+::MMC SB+F2FS Fileserver Personality 1K Filesize 15 Files 4k IOsize 60 Seconds::
+
+statfile1            2121ops       35ops/s   0.0mb/s      0.0ms/op [0.01ms -  0.07ms]
+deletefile1          2121ops       35ops/s   0.0mb/s      0.1ms/op [0.11ms -  0.51ms]
+closefile3           2121ops       35ops/s   0.0mb/s      0.0ms/op [0.01ms -  0.04ms]
+**readfile1            2121ops       35ops/s   0.0mb/s      0.0ms/op [0.02ms -  0.09ms]**
+openfile2            2121ops       35ops/s   0.0mb/s      0.0ms/op [0.03ms -  0.15ms]
+closefile2           2121ops       35ops/s   0.0mb/s      0.0ms/op [0.01ms -  0.06ms]
+appendfilerand1      2121ops       35ops/s   0.3mb/s     14.3ms/op [0.98ms - 34.93ms]
+openfile1            2122ops       35ops/s   0.0mb/s      0.0ms/op [0.03ms -  0.09ms]
+closefile1           2122ops       35ops/s   0.0mb/s      0.0ms/op [0.01ms -  0.06ms]
+**wrtfile1             2122ops       35ops/s   0.0mb/s     13.5ms/op [0.99ms - 76.67ms]**
+createfile1          2122ops       35ops/s   0.0mb/s      0.1ms/op [0.10ms -  0.49ms]
+61.054: IO Summary: 23335 ops 388.872 ops/s 35/71 rd/wr   0.3mb/s   9.4ms/op
+
+::MMC AES-XTS+F2FS Fileserver Personality 1K Filesize 15 Files 4k IOsize 60 Seconds::
+
+statfile1            19067ops      318ops/s   0.0mb/s      0.0ms/op [0.01ms -  0.18ms]
+deletefile1          19067ops      318ops/s   0.0mb/s      0.1ms/op [0.07ms -  0.70ms]
+closefile3           19067ops      318ops/s   0.0mb/s      0.0ms/op [0.01ms -  0.16ms]
+**readfile1            19067ops      318ops/s   0.3mb/s      0.0ms/op [0.01ms -  0.24ms]**
+openfile2            19067ops      318ops/s   0.0mb/s      0.0ms/op [0.02ms -  0.17ms]
+closefile2           19067ops      318ops/s   0.0mb/s      0.0ms/op [0.01ms -  0.14ms]
+appendfilerand1      19067ops      318ops/s   2.5mb/s      1.6ms/op [0.94ms - 24.19ms]
+openfile1            19068ops      318ops/s   0.0mb/s      0.0ms/op [0.02ms -  0.23ms]
+closefile1           19068ops      318ops/s   0.0mb/s      0.0ms/op [0.01ms -  0.14ms]
+**wrtfile1             19068ops      318ops/s   0.3mb/s      1.1ms/op [0.94ms - 25.87ms]**
+createfile1          19068ops      318ops/s   0.0mb/s      0.1ms/op [0.07ms - 16.94ms]
+61.062: IO Summary: 209741 ops 3495.261 ops/s 318/636 rd/wr   3.1mb/s   1.0ms/op
+
+::RAM SB+F2FS Fileserver Personality 1K Filesize 15 Files 4k IOsize 60 Seconds::
+
+statfile1            2123ops       35ops/s   0.0mb/s      0.0ms/op [0.01ms -  0.07ms]
+deletefile1          2123ops       35ops/s   0.0mb/s      0.1ms/op [0.10ms -  0.51ms]
+closefile3           2123ops       35ops/s   0.0mb/s      0.0ms/op [0.01ms -  0.10ms]
+**readfile1            2123ops       35ops/s   0.0mb/s      0.0ms/op [0.02ms -  0.09ms]**
+openfile2            2123ops       35ops/s   0.0mb/s      0.0ms/op [0.03ms -  0.10ms]
+closefile2           2123ops       35ops/s   0.0mb/s      0.0ms/op [0.01ms -  0.06ms]
+appendfilerand1      2123ops       35ops/s   0.3mb/s     14.3ms/op [0.98ms - 33.66ms]
+openfile1            2124ops       35ops/s   0.0mb/s      0.0ms/op [0.03ms -  0.09ms]
+closefile1           2124ops       35ops/s   0.0mb/s      0.0ms/op [0.01ms -  0.06ms]
+**wrtfile1             2124ops       35ops/s   0.0mb/s     13.5ms/op [0.99ms - 75.65ms]**
+createfile1          2124ops       35ops/s   0.0mb/s      0.1ms/op [0.10ms -  0.49ms]
+61.019: IO Summary: 23357 ops 389.240 ops/s 35/71 rd/wr   0.3mb/s   9.4ms/op
+
+::RAM AES-XTS+F2FS Fileserver Personality 1K Filesize 15 Files 4k IOsize 60 Seconds::
+
+statfile1            19108ops      318ops/s   0.0mb/s      0.0ms/op [0.01ms -  0.23ms]
+deletefile1          19108ops      318ops/s   0.0mb/s      0.1ms/op [0.07ms -  1.44ms]
+closefile3           19108ops      318ops/s   0.0mb/s      0.0ms/op [0.01ms -  0.14ms]
+**readfile1            19108ops      318ops/s   0.3mb/s      0.0ms/op [0.01ms -  0.14ms]**
+openfile2            19108ops      318ops/s   0.0mb/s      0.0ms/op [0.02ms -  0.24ms]
+closefile2           19108ops      318ops/s   0.0mb/s      0.0ms/op [0.01ms -  0.14ms]
+appendfilerand1      19108ops      318ops/s   2.5mb/s      1.6ms/op [0.94ms - 19.84ms]
+openfile1            19109ops      318ops/s   0.0mb/s      0.0ms/op [0.02ms -  0.17ms]
+closefile1           19109ops      318ops/s   0.0mb/s      0.0ms/op [0.01ms -  0.14ms]
+**wrtfile1             19109ops      318ops/s   0.3mb/s      1.1ms/op [0.94ms - 23.59ms]**
+createfile1          19109ops      318ops/s   0.0mb/s      0.1ms/op [0.07ms - 17.73ms]
+61.055: IO Summary: 210192 ops 3502.776 ops/s 318/637 rd/wr   3.1mb/s   1.0ms/op
