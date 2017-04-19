@@ -24,7 +24,7 @@
 #
 
 set $dir=/tmp/nbd6
-set $nfiles=15
+set $nfiles=150
 set $meandirwidth=2
 set $meanfilesize=512k
 set $nthreads=1

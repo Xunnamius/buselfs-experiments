@@ -24,7 +24,7 @@
 #
 
 set $dir=/tmp/nbd6
-set $nfiles=15
+set $nfiles=1500
 set $meandirwidth=2
 set $meanfilesize=1k
 set $nthreads=1
@@ -60,4 +60,4 @@ echo  "File-server Version 3.0-custom-noninteractive personality successfully lo
 # usage "       set \$iosize=<size>  defaults to $iosize"
 # usage "       set \$meandirwidth=<size> defaults to $meandirwidth"
 # usage "       run runtime (e.g. run 60)"
-run 60
+run 60*10
