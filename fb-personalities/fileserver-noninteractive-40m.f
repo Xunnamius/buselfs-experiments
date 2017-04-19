@@ -26,9 +26,9 @@
 set $dir=/tmp/nbd6
 set $nfiles=15
 set $meandirwidth=2
-set $meanfilesize=1k
+set $meanfilesize=40m
 set $nthreads=1
-set $iosize=1k
+set $iosize=40m
 set $meanappendsize=16k
 
 define fileset name=bigfileset,path=$dir,size=$meanfilesize,entries=$nfiles,dirwidth=$meandirwidth,prealloc=80,reuse
