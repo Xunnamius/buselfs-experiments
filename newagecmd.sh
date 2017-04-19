@@ -34,17 +34,17 @@ sudo rm -f logfs-* blfs-*
 
 ##### BUSE+F2FS
 
-sudo /home/odroid/bd3/repos/BUSE/buselogfs --size $((1024*1024*900)) /dev/nbd1 2> ~/bd3/debug-nbd1.debug-log &
-sudo mkfs -t f2fs /dev/nbd1
-sudo mount -t f2fs /dev/nbd1 /tmp/nbd1
+sudo /home/odroid/bd3/repos/BUSE/buselogfs --size $((1024*1024*900)) /dev/nbd6 2> ~/bd3/debug-nbd6.debug-log &
+sudo mkfs -t f2fs /dev/nbd6
+sudo mount -t f2fs /dev/nbd6 /tmp/nbd6
 mount
 
 echo 1 | sudo tee /proc/sys/vm/drop_caches
-sudo bin/cpp-simple-freerun big mmc+buse+f2fs /tmp/nbd1
+sudo bin/cpp-simple-freerun big mmc+buse+f2fs /tmp/nbd6
 
 # CLEANUP
 
-sudo umount /tmp/nbd1
+sudo umount /tmp/nbd6
 # Now close buselfs!
 sudo rm -f logfs-* blfs-*
 
@@ -220,24 +220,24 @@ sudo cryptsetup close nbd10
 
 # BUSE+AES-XTS+F2FS
 
-sudo /home/odroid/bd3/repos/BUSE/buselogfs --size $((1024*1024*900)) /dev/nbd11 2> ~/bd3/debug-nbd11.debug-log &
-sudo cryptsetup --verbose --cipher aes-xts-plain64 --key-size 512 --hash sha512 --iter-time 5000 --use-urandom luksFormat /dev/nbd11
+sudo /home/odroid/bd3/repos/BUSE/buselogfs --size $((1024*1024*900)) /dev/nbd6 2> ~/bd3/debug-nbd6.debug-log &
+sudo cryptsetup --verbose --cipher aes-xts-plain64 --key-size 512 --hash sha512 --iter-time 5000 --use-urandom luksFormat /dev/nbd6
 # YES
 # password: t
-sudo cryptsetup open --type luks /dev/nbd11 nbd11
+sudo cryptsetup open --type luks /dev/nbd6 nbd6
 # password: t
-sudo mkfs -t f2fs /dev/mapper/nbd11
-sudo mount -t f2fs /dev/mapper/nbd11 /tmp/nbd11
+sudo mkfs -t f2fs /dev/mapper/nbd6
+sudo mount -t f2fs /dev/mapper/nbd6 /tmp/nbd6
 mount
 
 echo 1 | sudo tee /proc/sys/vm/drop_caches
-sudo bin/cpp-simple-freerun big mmc+buse+aes-xts+f2fs /tmp/nbd11
+sudo bin/cpp-simple-freerun big mmc+buse+aes-xts+f2fs /tmp/nbd6
 
 # CLEANUP
-sudo umount /tmp/nbd11
+sudo umount /tmp/nbd6
 # Now close BUSE first...
 sudo rm -f logfs-* blfs-*
-sudo cryptsetup close nbd11
+sudo cryptsetup close nbd6
 
 # BUSE+AES-XTS+LOGFS
 
