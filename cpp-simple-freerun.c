@@ -7,12 +7,17 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <signal.h>
+#include <limits.h>
 #include "energymon/energymon-default.h"
 #include "vendor/energymon/energymon-time-util.h"
 
+//#define IOSIZE 4096
+#define IOSIZE INT_MAX
 #define PATH_BUFF_SIZE 255
 #define CMD_BUFF_SIZE 512
 #define COPY_INTO_TIMES 1 // randomness written COPY_INTO_TIMES into same file
+
+#define MIN(a,b) __extension__ ({ __typeof__ (a) _a = (a); __typeof__ (b) _b = (b); _a < _b ? _a : _b; })
 
 const int TRIALS = 15;
 const char * REPO_PATH = "/home/odroid/bd3/repos/energy-AES-1"; // No trailing /
@@ -267,7 +272,7 @@ int main(int argc, char * argv[])
         lseek64(trialoutfd, 0, SEEK_SET);
         while(writelen > 0)
         {
-            u_int64_t bytesWritten = write(trialoutfd, randomnessCopy, writelen);
+            u_int64_t bytesWritten = write(trialoutfd, randomnessCopy, MIN(writelen, IOSIZE));
 
             if(bytesWritten <= 0)
             {
@@ -311,7 +316,7 @@ int main(int argc, char * argv[])
         lseek64(trialoutfd, 0, SEEK_SET);
         while(readlen > 0)
         {
-            u_int64_t bytesRead = read(trialoutfd, readback, readlen);
+            u_int64_t bytesRead = read(trialoutfd, readback, MIN(writelen, IOSIZE));
 
             if(bytesRead <= 0)
             {
