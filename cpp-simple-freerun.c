@@ -316,7 +316,7 @@ int main(int argc, char * argv[])
         lseek64(trialoutfd, 0, SEEK_SET);
         while(readlen > 0)
         {
-            u_int64_t bytesRead = read(trialoutfd, readback, MIN(writelen, IOSIZE));
+            u_int64_t bytesRead = read(trialoutfd, readback, MIN(readlen, IOSIZE));
 
             if(bytesRead <= 0)
             {
