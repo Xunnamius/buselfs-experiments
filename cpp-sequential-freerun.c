@@ -11,8 +11,8 @@
 #include "energymon/energymon-default.h"
 #include "vendor/energymon/energymon-time-util.h"
 
-//#define IOSIZE 4096
-#define IOSIZE INT_MAX
+#define IOSIZE 131072
+//#define IOSIZE INT_MAX
 #define PATH_BUFF_SIZE 255
 #define CMD_BUFF_SIZE 512
 #define COPY_INTO_TIMES 1 // randomness written COPY_INTO_TIMES into same file
@@ -267,12 +267,13 @@ int main(int argc, char * argv[])
         }
 
         u_int64_t writelen = fsize;
+        u_int64_t write_iosize = MIN(writelen, IOSIZE);
         char * randomnessCopy = randomness;
 
         lseek64(trialoutfd, 0, SEEK_SET);
         while(writelen > 0)
         {
-            u_int64_t bytesWritten = write(trialoutfd, randomnessCopy, MIN(writelen, IOSIZE));
+            u_int64_t bytesWritten = write(trialoutfd, randomnessCopy, write_iosize);
 
             if(bytesWritten <= 0)
             {
@@ -310,13 +311,14 @@ int main(int argc, char * argv[])
         printf("READ METRICS :: got start time (ns): %"PRIu64"\n", read_metrics_start.time_ns);
 
         u_int64_t readlen = fsize;
+        u_int64_t read_iosize = MIN(readlen, IOSIZE);
         char * readback = malloc(readlen);
         char * readbackOriginal = readback;
 
         lseek64(trialoutfd, 0, SEEK_SET);
         while(readlen > 0)
         {
-            u_int64_t bytesRead = read(trialoutfd, readback, MIN(readlen, IOSIZE));
+            u_int64_t bytesRead = read(trialoutfd, readback, read_iosize);
 
             if(bytesRead <= 0)
             {
