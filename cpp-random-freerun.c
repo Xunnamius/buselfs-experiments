@@ -20,6 +20,8 @@
 #define CMD_BUFF_SIZE 512
 #define COPY_INTO_TIMES 1 // randomness written COPY_INTO_TIMES into same file
 
+#define MIN(a,b) __extension__ ({ __typeof__ (a) _a = (a); __typeof__ (b) _b = (b); _a < _b ? _a : _b; })
+
 const int TRIALS = 15;
 const char * REPO_PATH = "/home/odroid/bd3/repos/energy-AES-1"; // No trailing /
 // const char * REPO_PATH = "/home/xunnamius/repos/research/energy-AES-1"; // No trailing /
@@ -175,10 +177,8 @@ int main(int argc, char * argv[])
         return 10;
     }
 
-    u_int64_t seeklimit = fsize - IOSIZE - 1;
-
-    if(fsize < IOSIZE + 1)
-        seeklimit = fsize;
+    u_int64_t iosize_actual = MIN(fsize / 2, IOSIZE);
+    u_int64_t seeklimit = fsize - iosize_actual;
 
     errno = 0;
     rewind(frandom);
@@ -281,7 +281,7 @@ int main(int argc, char * argv[])
         while(writelen > 0)
         {
             u_int64_t offset = rand() % seeklimit;
-            u_int64_t bytesWritten = pwrite(trialoutfd, randomnessCopy + offset, IOSIZE, offset);
+            u_int64_t bytesWritten = pwrite(trialoutfd, randomnessCopy + offset, iosize_actual, offset);
 
             if(bytesWritten <= 0)
             {
@@ -328,7 +328,7 @@ int main(int argc, char * argv[])
         while(readlen > 0)
         {
             u_int64_t offset = rand() % seeklimit;
-            u_int64_t bytesRead = pread(trialoutfd, readback, IOSIZE, offset);
+            u_int64_t bytesRead = pread(trialoutfd, readback, iosize_actual, offset);
 
             if(bytesRead <= 0)
             {
