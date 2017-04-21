@@ -11,8 +11,8 @@
 #include "energymon/energymon-default.h"
 #include "vendor/energymon/energymon-time-util.h"
 
-#define IOSIZE 4096
-//#define IOSIZE INT_MAX
+//#define IOSIZE 4096
+#define IOSIZE INT_MAX
 #define PATH_BUFF_SIZE 255
 #define CMD_BUFF_SIZE 512
 #define COPY_INTO_TIMES 1 // randomness written COPY_INTO_TIMES into same file

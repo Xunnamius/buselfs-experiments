@@ -17,13 +17,13 @@ mount
 
 ##### BUSE+NILFS2
 
-sudo /home/odroid/bd3/repos/BUSE/buselogfs --size $((1024*1024*900)) /dev/nbd0 2> ~/bd3/debug-nbd0.debug-log &
+sudo /home/odroid/bd3/repos/BUSE/buselogfs --size $((1024*1024*900)) /dev/nbd0 2> ~/bd3/nbd0.debug-log &
 sudo mkfs -t nilfs2 /dev/nbd0
 sudo mount -t nilfs2 /dev/nbd0 /tmp/nbd0
 mount
 
 echo 1 | sudo tee /proc/sys/vm/drop_caches
-sudo /home/odroid/bd3/repos/energy-AES-1/bin/cpp-simple-freerun big mmc+buse+nilfs2 /tmp/nbd0
+sudo /home/odroid/bd3/repos/energy-AES-1/bin/cpp-simple-freerun big ram+buse+nilfs2 /tmp/nbd0
 
 # CLEANUP
 
@@ -34,13 +34,13 @@ sudo rm -f logfs-* blfs-*
 
 ##### BUSE+F2FS
 
-sudo /home/odroid/bd3/repos/BUSE/buselogfs --size $((1024*1024*900)) /dev/nbd1 2> ~/bd3/debug-nbd1.debug-log &
+sudo /home/odroid/bd3/repos/BUSE/buselogfs --size $((1024*1024*900)) /dev/nbd1 2> ~/bd3/nbd1.debug-log &
 sudo mkfs -t f2fs /dev/nbd1
 sudo mount -t f2fs /dev/nbd1 /tmp/nbd1
 mount
 
 echo 1 | sudo tee /proc/sys/vm/drop_caches
-sudo /home/odroid/bd3/repos/energy-AES-1/bin/cpp-simple-freerun big mmc+buse+f2fs /tmp/nbd1
+sudo /home/odroid/bd3/repos/energy-AES-1/bin/cpp-simple-freerun big ram+buse+f2fs /tmp/nbd1
 
 # CLEANUP
 
@@ -51,14 +51,14 @@ sudo rm -f logfs-* blfs-*
 
 # BUSE+LOGFS
 
-sudo /home/odroid/bd3/repos/BUSE/buselogfs --size $((1024*1024*900)) /dev/nbd2 2> ~/bd3/debug-nbd2.debug-log &
+sudo /home/odroid/bd3/repos/BUSE/buselogfs --size $((1024*1024*900)) /dev/nbd2 2> ~/bd3/nbd2.debug-log &
 sudo mkfs -t logfs /dev/nbd2
 # CONFIRM
 sudo mount -t logfs /dev/nbd2 /tmp/nbd2
 mount
 
 echo 1 | sudo tee /proc/sys/vm/drop_caches
-sudo /home/odroid/bd3/repos/energy-AES-1/bin/cpp-simple-freerun big mmc+buse+logfs /tmp/nbd2
+sudo /home/odroid/bd3/repos/energy-AES-1/bin/cpp-simple-freerun big ram+buse+logfs /tmp/nbd2
 
 # CLEANUP
 
@@ -69,13 +69,13 @@ sudo rm -f logfs-* blfs-*
 
 # BUSE+EXT4OJ
 
-sudo /home/odroid/bd3/repos/BUSE/buselogfs --size $((1024*1024*900)) /dev/nbd3 2> ~/bd3/debug-nbd3.debug-log &
+sudo /home/odroid/bd3/repos/BUSE/buselogfs --size $((1024*1024*900)) /dev/nbd3 2> ~/bd3/nbd3.debug-log &
 sudo mkfs -t ext4 /dev/nbd3
 sudo mount -t ext4 /dev/nbd3 /tmp/nbd3
 mount
 
 echo 1 | sudo tee /proc/sys/vm/drop_caches
-sudo /home/odroid/bd3/repos/energy-AES-1/bin/cpp-simple-freerun big mmc+buse+ext4-oj /tmp/nbd3
+sudo /home/odroid/bd3/repos/energy-AES-1/bin/cpp-simple-freerun big ram+buse+ext4-oj /tmp/nbd3
 
 # CLEANUP
 
@@ -86,13 +86,13 @@ sudo rm -f logfs-* blfs-*
 
 # BUSE+EXT4FJ
 
-sudo /home/odroid/bd3/repos/BUSE/buselogfs --size $((1024*1024*900)) /dev/nbd4 2> ~/bd3/debug-nbd4.debug-log &
+sudo /home/odroid/bd3/repos/BUSE/buselogfs --size $((1024*1024*900)) /dev/nbd4 2> ~/bd3/nbd4.debug-log &
 sudo mkfs -t ext4 /dev/nbd4
 sudo mount -t ext4 -o data=journal /dev/nbd4 /tmp/nbd4
 mount
 
 echo 1 | sudo tee /proc/sys/vm/drop_caches
-sudo /home/odroid/bd3/repos/energy-AES-1/bin/cpp-simple-freerun big mmc+buse+ext4-fj /tmp/nbd4
+sudo /home/odroid/bd3/repos/energy-AES-1/bin/cpp-simple-freerun big ram+buse+ext4-fj /tmp/nbd4
 
 # CLEANUP
 
@@ -111,7 +111,7 @@ sudo mount -t nilfs2 /dev/nbd5 /tmp/nbd5
 mount
 
 echo 1 | sudo tee /proc/sys/vm/drop_caches
-sudo /home/odroid/bd3/repos/energy-AES-1/bin/cpp-simple-freerun big mmc+newbuse+nilfs2 /tmp/nbd5
+sudo /home/odroid/bd3/repos/energy-AES-1/bin/cpp-simple-freerun big ram+newbuse+nilfs2 /tmp/nbd5
 
 # CLEANUP
 
@@ -130,7 +130,7 @@ sudo mount -t f2fs /dev/nbd6 /tmp/nbd6
 mount
 
 echo 1 | sudo tee /proc/sys/vm/drop_caches
-sudo /home/odroid/bd3/repos/energy-AES-1/bin/cpp-simple-freerun big mmc+newbuse+f2fs /tmp/nbd6
+sudo /home/odroid/bd3/repos/energy-AES-1/bin/cpp-simple-freerun big ram+newbuse+f2fs /tmp/nbd6
 
 # CLEANUP
 
@@ -150,7 +150,7 @@ sudo mount -t logfs /dev/nbd7 /tmp/nbd7
 mount
 
 echo 1 | sudo tee /proc/sys/vm/drop_caches
-sudo /home/odroid/bd3/repos/energy-AES-1/bin/cpp-simple-freerun big mmc+newbuse+logfs /tmp/nbd7
+sudo /home/odroid/bd3/repos/energy-AES-1/bin/cpp-simple-freerun big ram+newbuse+logfs /tmp/nbd7
 
 # CLEANUP
 
@@ -169,7 +169,7 @@ sudo mount -t ext4 /dev/nbd8 /tmp/nbd8
 mount
 
 echo 1 | sudo tee /proc/sys/vm/drop_caches
-sudo /home/odroid/bd3/repos/energy-AES-1/bin/cpp-simple-freerun big mmc+newbuse+ext4-oj /tmp/nbd8
+sudo /home/odroid/bd3/repos/energy-AES-1/bin/cpp-simple-freerun big ram+newbuse+ext4-oj /tmp/nbd8
 
 # CLEANUP
 
@@ -188,7 +188,7 @@ sudo mount -t ext4 -o data=journal /dev/nbd9 /tmp/nbd9
 mount
 
 echo 1 | sudo tee /proc/sys/vm/drop_caches
-sudo /home/odroid/bd3/repos/energy-AES-1/bin/cpp-simple-freerun big mmc+newbuse+ext4-fj /tmp/nbd9
+sudo /home/odroid/bd3/repos/energy-AES-1/bin/cpp-simple-freerun big ram+newbuse+ext4-fj /tmp/nbd9
 
 # CLEANUP
 
@@ -199,7 +199,7 @@ sudo rm -f logfs-* blfs-*
 
 # BUSE+AES-XTS+NILFS2
 
-sudo /home/odroid/bd3/repos/BUSE/buselogfs --size $((1024*1024*900)) /dev/nbd10 2> ~/bd3/debug-nbd10.debug-log &
+sudo /home/odroid/bd3/repos/BUSE/buselogfs --size $((1024*1024*900)) /dev/nbd10 2> ~/bd3/nbd10.debug-log &
 sudo cryptsetup --verbose --cipher aes-xts-plain64 --key-size 512 --hash sha512 --iter-time 5000 --use-urandom luksFormat /dev/nbd10
 # YES
 # password: t
@@ -210,7 +210,7 @@ sudo mount -t nilfs2 /dev/mapper/nbd10 /tmp/nbd10
 mount
 
 echo 1 | sudo tee /proc/sys/vm/drop_caches
-sudo /home/odroid/bd3/repos/energy-AES-1/bin/cpp-simple-freerun big mmc+buse+aes-xts+nilfs2 /tmp/nbd10
+sudo /home/odroid/bd3/repos/energy-AES-1/bin/cpp-simple-freerun big ram+buse+aes-xts+nilfs2 /tmp/nbd10
 
 # CLEANUP
 sudo umount /tmp/nbd10
@@ -220,7 +220,7 @@ sudo cryptsetup close nbd10
 
 # BUSE+AES-XTS+F2FS
 
-sudo /home/odroid/bd3/repos/BUSE/buselogfs --size $((1024*1024*900)) /dev/nbd11 2> ~/bd3/debug-nbd11.debug-log &
+sudo /home/odroid/bd3/repos/BUSE/buselogfs --size $((1024*1024*900)) /dev/nbd11 2> ~/bd3/nbd11.debug-log &
 sudo cryptsetup --verbose --cipher aes-xts-plain64 --key-size 512 --hash sha512 --iter-time 5000 --use-urandom luksFormat /dev/nbd11
 # YES
 # password: t
@@ -231,7 +231,7 @@ sudo mount -t f2fs /dev/mapper/nbd11 /tmp/nbd11
 mount
 
 echo 1 | sudo tee /proc/sys/vm/drop_caches
-sudo /home/odroid/bd3/repos/energy-AES-1/bin/cpp-simple-freerun big mmc+buse+aes-xts+f2fs /tmp/nbd11
+sudo /home/odroid/bd3/repos/energy-AES-1/bin/cpp-simple-freerun big ram+buse+aes-xts+f2fs /tmp/nbd11
 
 # CLEANUP
 sudo umount /tmp/nbd11
@@ -241,7 +241,7 @@ sudo cryptsetup close nbd11
 
 # BUSE+AES-XTS+LOGFS
 
-sudo /home/odroid/bd3/repos/BUSE/buselogfs --size $((1024*1024*900)) /dev/nbd12 2> ~/bd3/debug-nbd12.debug-log &
+sudo /home/odroid/bd3/repos/BUSE/buselogfs --size $((1024*1024*900)) /dev/nbd12 2> ~/bd3/nbd12.debug-log &
 sudo cryptsetup --verbose --cipher aes-xts-plain64 --key-size 512 --hash sha512 --iter-time 5000 --use-urandom luksFormat /dev/nbd12
 # YES
 # password: t
@@ -253,7 +253,7 @@ sudo mount -t logfs /dev/mapper/nbd12 /tmp/nbd12
 mount
 
 echo 1 | sudo tee /proc/sys/vm/drop_caches
-sudo /home/odroid/bd3/repos/energy-AES-1/bin/cpp-simple-freerun big mmc+buse+aes-xts+logfs /tmp/nbd12
+sudo /home/odroid/bd3/repos/energy-AES-1/bin/cpp-simple-freerun big ram+buse+aes-xts+logfs /tmp/nbd12
 
 # CLEANUP
 sudo umount /tmp/nbd12
@@ -263,7 +263,7 @@ sudo cryptsetup close nbd12
 
 # BUSE+AES-XTS+EXT4OJ
 
-sudo /home/odroid/bd3/repos/BUSE/buselogfs --size $((1024*1024*900)) /dev/nbd13 2> ~/bd3/debug-nbd13.debug-log &
+sudo /home/odroid/bd3/repos/BUSE/buselogfs --size $((1024*1024*900)) /dev/nbd13 2> ~/bd3/nbd13.debug-log &
 sudo cryptsetup --verbose --cipher aes-xts-plain64 --key-size 512 --hash sha512 --iter-time 5000 --use-urandom luksFormat /dev/nbd13
 # YES
 # password: t
@@ -274,7 +274,7 @@ sudo mount -t ext4 /dev/mapper/nbd13 /tmp/nbd13
 mount
 
 echo 1 | sudo tee /proc/sys/vm/drop_caches
-sudo /home/odroid/bd3/repos/energy-AES-1/bin/cpp-simple-freerun big mmc+buse+aes-xts+ext4-oj /tmp/nbd13
+sudo /home/odroid/bd3/repos/energy-AES-1/bin/cpp-simple-freerun big ram+buse+aes-xts+ext4-oj /tmp/nbd13
 
 # CLEANUP
 sudo umount /tmp/nbd13
@@ -284,7 +284,7 @@ sudo cryptsetup close nbd13
 
 # BUSE+AES-XTS+EXT4FJ
 
-sudo /home/odroid/bd3/repos/BUSE/buselogfs --size $((1024*1024*900)) /dev/nbd14 2> ~/bd3/debug-nbd14.debug-log &
+sudo /home/odroid/bd3/repos/BUSE/buselogfs --size $((1024*1024*900)) /dev/nbd14 2> ~/bd3/nbd14.debug-log &
 sudo cryptsetup --verbose --cipher aes-xts-plain64 --key-size 512 --hash sha512 --iter-time 5000 --use-urandom luksFormat /dev/nbd14
 # YES
 # password: t
@@ -295,7 +295,7 @@ sudo mount -t ext4 -o data=journal /dev/mapper/nbd14 /tmp/nbd14
 mount
 
 echo 1 | sudo tee /proc/sys/vm/drop_caches
-sudo /home/odroid/bd3/repos/energy-AES-1/bin/cpp-simple-freerun big mmc+buse+aes-xts+ext4-fj /tmp/nbd14
+sudo /home/odroid/bd3/repos/energy-AES-1/bin/cpp-simple-freerun big ram+buse+aes-xts+ext4-fj /tmp/nbd14
 
 # CLEANUP
 sudo umount /tmp/nbd14
