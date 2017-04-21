@@ -11,4 +11,4 @@ rnd:
 	$(CC) $(CFLAGS) cpp-random-freerun.c -o bin/cpp-simple-freerun -lenergymon-default -lpthread
 
 clean:
-	rm -f bin/*
+	rm -rf bin/*
