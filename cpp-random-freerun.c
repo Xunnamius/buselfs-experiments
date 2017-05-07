@@ -22,7 +22,7 @@
 
 #define MIN(a,b) __extension__ ({ __typeof__ (a) _a = (a); __typeof__ (b) _b = (b); _a < _b ? _a : _b; })
 
-const int TRIALS = 15;
+const int TRIALS = 30;
 const char * REPO_PATH = "/home/odroid/bd3/repos/energy-AES-1"; // No trailing /
 // const char * REPO_PATH = "/home/xunnamius/repos/research/energy-AES-1"; // No trailing /
 const char * RANDOM_PATH = "/home/odroid/bd3/repos/energy-AES-1/data.randomabitmore";
