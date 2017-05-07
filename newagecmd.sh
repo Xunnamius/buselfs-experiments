@@ -15,6 +15,16 @@ mount
 
 ######################################
 
+######################
+# EMERGENCY SHUTDOWN #
+######################
+
+# sudo -s
+echo 1 > /proc/sys/kernel/sysrq 
+echo b > /proc/sysrq-trigger
+
+######################################
+
 ##### BUSE+NILFS2
 
 sudo /home/odroid/bd3/repos/BUSE/buselogfs --size $((1024*1024*900)) /dev/nbd0 2> ~/bd3/nbd0.debug-log &
