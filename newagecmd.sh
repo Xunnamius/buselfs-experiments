@@ -68,19 +68,29 @@ sudo rm -f logfs-* blfs-*
 
 ##### BUSE+F2FS
 
+sudo /home/odroid/bd3/repos/BUSE/buselogfs --size $((1024*1024*900)) /dev/nbd0 2> ~/bd3/nbd0.debug-log &
 sudo /home/odroid/bd3/repos/BUSE/buselogfs --size $((1024*1024*900)) /dev/nbd1 2> ~/bd3/nbd1.debug-log &
+sudo /home/odroid/bd3/repos/BUSE/buselogfs --size $((1024*1024*900)) /dev/nbd2 2> ~/bd3/nbd2.debug-log &
+sudo /home/odroid/bd3/repos/BUSE/buselogfs --size $((1024*1024*900)) /dev/nbd3 2> ~/bd3/nbd3.debug-log &
+
+sudo mkfs -t f2fs /dev/nbd0
 sudo mkfs -t f2fs /dev/nbd1
+sudo mkfs -t f2fs /dev/nbd2
+sudo mkfs -t f2fs /dev/nbd3
+
+sudo mount -t f2fs /dev/nbd0 /tmp/nbd0
 sudo mount -t f2fs /dev/nbd1 /tmp/nbd1
+sudo mount -t f2fs /dev/nbd2 /tmp/nbd2
+sudo mount -t f2fs /dev/nbd3 /tmp/nbd3
+
 mount
 
 echo 1 | sudo tee /proc/sys/vm/drop_caches
-sudo /home/odroid/bd3/repos/energy-AES-1/bin/cpp-simple-freerun big ram+buse+f2fs /tmp/nbd1
+
+sudo /home/odroid/bd3/repos/energy-AES-1/bin/cpp-simple-freerun ram buse+f2fs
 
 # CLEANUP
-
-sudo umount /tmp/nbd1
-# Now close buselfs!
-sudo rm -f logfs-* blfs-*
+# Now close the four buselfs instances!
 
 
 # BUSE+LOGFS
@@ -156,21 +166,35 @@ sudo rm -f logfs-* blfs-*
 
 ##### (ENCRYPTED) BUSE+F2FS
 
-sudo /home/odroid/bd3/repos/buselfs/build/buselfs --backstore-size 900 --default-password create nbd6 > ~/bd3/nbd6.debug-log 2>&1 &
-sudo tail -f ~/bd3/nbd6.debug-log
+sudo /home/odroid/bd3/repos/buselfs/build/buselfs --backstore-size 900 --default-password create nbd0 > ~/bd3/nbd0.debug-log 2>&1 &
+sudo /home/odroid/bd3/repos/buselfs/build/buselfs --backstore-size 900 --default-password create nbd1 > ~/bd3/nbd1.debug-log 2>&1 &
+sudo /home/odroid/bd3/repos/buselfs/build/buselfs --backstore-size 900 --default-password create nbd2 > ~/bd3/nbd2.debug-log 2>&1 &
+sudo /home/odroid/bd3/repos/buselfs/build/buselfs --backstore-size 900 --default-password create nbd3 > ~/bd3/nbd3.debug-log 2>&1 &
+
+sudo tail -f ~/bd3/nbd0.debug-log
+sudo tail -f ~/bd3/nbd1.debug-log
+sudo tail -f ~/bd3/nbd2.debug-log
+sudo tail -f ~/bd3/nbd3.debug-log
+
 # WAIT!
-sudo mkfs -t f2fs /dev/nbd6
-sudo mount -t f2fs /dev/nbd6 /tmp/nbd6
+
+sudo mkfs -t f2fs /dev/nbd0
+sudo mkfs -t f2fs /dev/nbd1
+sudo mkfs -t f2fs /dev/nbd2
+sudo mkfs -t f2fs /dev/nbd3
+
+sudo mount -t f2fs /dev/nbd0 /tmp/nbd0
+sudo mount -t f2fs /dev/nbd1 /tmp/nbd1
+sudo mount -t f2fs /dev/nbd2 /tmp/nbd2
+sudo mount -t f2fs /dev/nbd3 /tmp/nbd3
+
 mount
 
 echo 1 | sudo tee /proc/sys/vm/drop_caches
-sudo /home/odroid/bd3/repos/energy-AES-1/bin/cpp-simple-freerun big ram+newbuse+f2fs /tmp/nbd6
+sudo /home/odroid/bd3/repos/energy-AES-1/bin/cpp-simple-freerun ram newbuse+f2fs
 
 # CLEANUP
-
-sudo umount /tmp/nbd6
-# Now close buselfs!
-sudo rm -f logfs-* blfs-*
+# Now close the buselfs instaces!
 
 
 ##### (ENCRYPTED) BUSE+LOGFS
