@@ -13,11 +13,11 @@ BACKEND_SIZE    = 900 # MiB
 EXPAND_TABS     = 15 # tab stops
 FREERUN_TIMEOUT = 300 # seconds
 DROP_CACHE_PATH = '/proc/sys/vm/drop_caches'
-TMP_ROOT_PATH   = '/home/xunnamius'
-RAM0_PATH       = '/home/xunnamius/ram0'
+TMP_ROOT_PATH   = '/tmp'
+RAM0_PATH       = '/tmp/ram0'
 BUSE_PATH       = '/home/odroid/bd3/repos/BUSE/buselogfs'
 BUSELFS_PATH    = '/home/odroid/bd3/repos/buselfs/build/buselfs'
-LOG_FILE_PATH   = '/tmp/runner.log'
+LOG_FILE_PATH   = '/home/odroid/bd3/runner.log'
 
 ################################################################################
 
