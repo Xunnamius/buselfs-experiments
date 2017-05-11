@@ -128,7 +128,7 @@ def createSbBackend(logfile, device, fs_type, mount_args=None):
                  stdout=logfile,
                  stderr=logfile)
 
-    sleep(60)
+    sleep(30)
 
     if buse.poll() is not None:
         lexit('the StrongBox process does not appear to have survived', logfile=logfile, device=device, exitcode=17)
