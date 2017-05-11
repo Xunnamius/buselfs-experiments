@@ -1,5 +1,7 @@
+###################
+# INIT (run once) #
+###################
 
-# INIT (run once)
 sudo modprobe nbd
 sudo modprobe logfs
 sudo modprobe nilfs2
@@ -23,29 +25,11 @@ mount
 echo 1 > /proc/sys/kernel/sysrq
 echo b > /proc/sysrq-trigger
 
-######################################
+###############
+# BRIM FILLER #
+###############
 
-######################################
-
-#################################
-# BRIM FILLER (30KiB left over) #
-#################################
-sudo dd if=/dev/zero of=/tmp/nbd1/filler bs=1K count=767197
-
-#####################################
-# BRIM FILLER (512KiB*30 left over) #
-#####################################
-sudo dd if=/dev/zero of=/tmp/nbd1/filler bs=1K count=759600
-
-###################################
-# BRIM FILLER (5MiB*30 left over) #
-###################################
-sudo dd if=/dev/zero of=/tmp/nbd1/filler bs=1K count=609021
-
-####################################
-# BRIM FILLER (40MiB*15 left over) #
-####################################
-sudo dd if=/dev/zero of=/tmp/nbd1/filler bs=1K count=151552
+sudo dd if=/dev/zero of=/tmp/nbd1/filler bs=1M count=750
 
 ######################################
 

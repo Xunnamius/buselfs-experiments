@@ -5,14 +5,15 @@ import sys
 import time
 import glob
 import pexpect
+from collections import namedtuple
 from datetime import datetime
 
 BACKEND_SIZE    = 900 # MiB
 EXPAND_TABS     = 15 # tab stops
 FREERUN_TIMEOUT = 300 # seconds
 DROP_CACHE_PATH = '/proc/sys/vm/drop_caches'
-TMP_ROOT_PATH   = '/tmp'
-RAM0_PATH       = '/tmp/ram0'
+TMP_ROOT_PATH   = '/home/xunnamius'
+RAM0_PATH       = '/home/xunnamius/ram0'
 BUSE_PATH       = '/home/odroid/bd3/repos/BUSE/buselogfs'
 BUSELFS_PATH    = '/home/odroid/bd3/repos/buselfs/build/buselfs'
 LOG_FILE_PATH   = '/tmp/runner.log'
@@ -22,7 +23,7 @@ LOG_FILE_PATH   = '/tmp/runner.log'
 def lprint(*args, logfile=None, severity='INFO', device=None):
     """Super special print"""
     preamble = '[{}{}]:\t'.format(severity, ':{}'.format(device) if device else '')
-    print(preamble.expandtabs(EXPAND_TABS), *args)
+    print(preamble.expandtabs(EXPAND_TABS), *args, flush=True)
 
     if logfile:
         print(preamble.expandtabs(0), *args, file=logfile)
@@ -85,7 +86,7 @@ def createVanillaBackend(logfile, device, fs_type, mount_args=None):
     mkfs.close()
 
     if mkfs.exitstatus != 0:
-        lexit(logfile=logfile, device=device, exitcode=17)
+        lexit(logfile=logfile, device=device, exitcode=-mkfs.exitstatus)
 
     lprint('running mount', logfile=logfile, device=device)
 
@@ -147,7 +148,7 @@ def createSbBackend(logfile, device, fs_type, mount_args=None):
     mkfs.close()
 
     if mkfs.exitstatus != 0:
-        lexit(logfile=logfile, device=device, exitcode=13)
+        lexit(logfile=logfile, device=device, exitcode=-mkfs.exitstatus)
 
     lprint('running mount', logfile=logfile, device=device)
 
@@ -242,7 +243,7 @@ def createDmcBackend(logfile, device, fs_type, mount_args=None):
     mkfs.close()
 
     if mkfs.exitstatus != 0:
-        lexit(logfile=logfile, device=device, exitcode=5)
+        lexit(logfile=logfile, device=device, exitcode=-mkfs.exitstatus)
 
     lprint('running mount', logfile=logfile, device=device)
 
@@ -452,15 +453,50 @@ if __name__ == "__main__":
 
         clearBackstoreFiles()
 
-        nbd0 = createVanillaBackend(file, 'nbd0', 'ext4', ['-o', 'data=journal'])
+        lprint('constructing configurations', logfile=file)
 
-        dropPageCache()
+        num_nbd_devices = 16
+        num_nbd_device = 0
+        filesizes = ['1k', '4k', '512k', '5m', '40m']
 
-        sleep(30)
+        backendFnTuples = (
+            (createVanillaBackend, destroyVanillaBackend, 'vanilla'),
+            (createSbBackend, destroySbBackend, 'strongbox'),
+            (createDmcBackend, destroyDmcBackend, 'dmcrypt')
+        )
 
-        destroyVanillaBackend(file, 'nbd0', nbd0)
+        Configuration = namedtuple('Configuration', ['proto_test_name', 'fs_type', 'mount_args'])
 
-        clearBackstoreFiles()
+        configurations = (
+            Configuration('nilfs2', 'nilfs2', []),
+            Configuration('f2fs', 'f2fs', []),
+            Configuration('ext4-oj', 'ext4', []),
+            Configuration('ext4-fj', 'ext4', ['-o', 'data=journal'])
+        )
+
+        lprint('starting experiment', logfile=file)
+
+        # for conf in configurations:
+        #     for backendFn in backendFnTuples:
+        #         for runFn in (sequentialFreerun, randomFreerun):
+        #             for filesize in filesizes:
+        #                 device = 'nbd{}'.format(num_nbd_device)
+
+        #                 backend = backendFn[0](file, device, conf.fs_type, conf.mount_args)
+        #                 dropPageCache()
+        #                 runFn(file, device, filesize, '{}-{}-{}'.format(filesize, conf.proto_test_name, backendFn[2]))
+        #                 backendFn[1](file, device, backend)
+        #                 clearBackstoreFiles()
+
+        #                 num_nbd_device = (num_nbd_device + 1) % num_nbd_devices
+
+        # clearBackstoreFiles()
+        dev = 'nbd{}'.format(num_nbd_device)
+        backend = backendFnTuples[0][0](file, dev, configurations[0].fs_type, configurations[0].mount_args)
+        # dropPageCache()
+        # sequentialFreerun(file, dev, '1k', '{}-{}-{}'.format('1k', configurations[0].proto_test_name, backendFnTuples[0][2]))
+        # backendFnTuples[0][1](file, dev, backend)
+        # clearBackstoreFiles()
         
         print('\n---------\n(finished)', file=file)
         lprint('done', severity='OK')
