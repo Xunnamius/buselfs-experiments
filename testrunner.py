@@ -450,19 +450,17 @@ if __name__ == "__main__":
         os.chdir(RAM0_PATH)
         lprint('working directory set to {}'.format(RAM0_PATH), logfile=file)
 
-        # clearBackstoreFiles()
+        clearBackstoreFiles()
 
-        # nbd0 = createVanillaBackend(file, 'nbd0', 'ext4', ['-o', 'data=journal'])
+        nbd0 = createVanillaBackend(file, 'nbd0', 'ext4', ['-o', 'data=journal'])
 
-        # dropPageCache()
+        dropPageCache()
 
-        # sleep(30)
+        sleep(30)
 
-        # destroyVanillaBackend(file, 'nbd0', nbd0)
+        destroyVanillaBackend(file, 'nbd0', nbd0)
 
-        # clearBackstoreFiles()
-
-        #sequentialFreerun(file, 'nbd13', 'data512k', 'faker-faker-faker2')
-        #randomFreerun(file, 'nbd13', 'data512k', 'faker-faker-faker3')
+        clearBackstoreFiles()
+        
         print('\n---------\n(finished)', file=file)
         lprint('done', severity='OK')
