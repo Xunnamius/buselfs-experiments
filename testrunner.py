@@ -476,27 +476,21 @@ if __name__ == "__main__":
 
         lprint('starting experiment', logfile=file)
 
-        # for conf in configurations:
-        #     for backendFn in backendFnTuples:
-        #         for runFn in (sequentialFreerun, randomFreerun):
-        #             for filesize in filesizes:
-        #                 device = 'nbd{}'.format(num_nbd_device)
+        for conf in configurations:
+            for backendFn in backendFnTuples:
+                for runFn in (sequentialFreerun, randomFreerun):
+                    for filesize in filesizes:
+                        device = 'nbd{}'.format(num_nbd_device)
 
-        #                 backend = backendFn[0](file, device, conf.fs_type, conf.mount_args)
-        #                 dropPageCache()
-        #                 runFn(file, device, filesize, '{}-{}-{}'.format(filesize, conf.proto_test_name, backendFn[2]))
-        #                 backendFn[1](file, device, backend)
-        #                 clearBackstoreFiles()
+                        backend = backendFn[0](file, device, conf.fs_type, conf.mount_args)
+                        dropPageCache()
+                        runFn(file, device, filesize, '{}-{}-{}'.format(filesize, conf.proto_test_name, backendFn[2]))
+                        backendFn[1](file, device, backend)
+                        clearBackstoreFiles()
 
-        #                 num_nbd_device = (num_nbd_device + 1) % num_nbd_devices
+                        num_nbd_device = (num_nbd_device + 1) % num_nbd_devices
 
-        # clearBackstoreFiles()
-        dev = 'nbd{}'.format(num_nbd_device)
-        backend = backendFnTuples[0][0](file, dev, configurations[0].fs_type, configurations[0].mount_args)
-        # dropPageCache()
-        # sequentialFreerun(file, dev, '1k', '{}-{}-{}'.format('1k', configurations[0].proto_test_name, backendFnTuples[0][2]))
-        # backendFnTuples[0][1](file, dev, backend)
-        # clearBackstoreFiles()
+        clearBackstoreFiles()
         
         print('\n---------\n(finished)', file=file)
         lprint('done', severity='OK')
