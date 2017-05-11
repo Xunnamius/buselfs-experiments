@@ -5,6 +5,7 @@ import sys
 import time
 import glob
 import pexpect
+from subprocess import DEVNULL, PIPE, Popen
 from collections import namedtuple
 from datetime import datetime
 
@@ -12,8 +13,8 @@ BACKEND_SIZE    = 900 # MiB
 EXPAND_TABS     = 15 # tab stops
 FREERUN_TIMEOUT = 300 # seconds
 DROP_CACHE_PATH = '/proc/sys/vm/drop_caches'
-TMP_ROOT_PATH   = '/tmp'
-RAM0_PATH       = '/tmp/ram0'
+TMP_ROOT_PATH   = '/home/xunnamius'
+RAM0_PATH       = '/home/xunnamius/ram0'
 BUSE_PATH       = '/home/odroid/bd3/repos/BUSE/buselogfs'
 BUSELFS_PATH    = '/home/odroid/bd3/repos/buselfs/build/buselfs'
 LOG_FILE_PATH   = '/tmp/runner.log'
@@ -55,7 +56,7 @@ def clearBackstoreFiles():
     files = glob.glob('{}/*'.format(RAM0_PATH))
     for f in files:
         os.remove(f)
-    
+
 def createVanillaBackend(logfile, device, fs_type, mount_args=None):
     """Creates a buselogfs backend"""
 
@@ -63,16 +64,14 @@ def createVanillaBackend(logfile, device, fs_type, mount_args=None):
 
     lprint('creating vanilla backend ({})'.format(device), logfile=logfile, device=device)
 
-    buse = pexpect.spawn(BUSE_PATH,
-                         ['--size', str(BACKEND_SIZE * 1024 * 1024), '/dev/{}'.format(device)],
-                         logfile=logfile,
-                         echo=True,
-                         encoding='utf-8')
+    buse = Popen([BUSE_PATH, '--size', str(BACKEND_SIZE * 1024 * 1024), '/dev/{}'.format(device)],
+                 stdout=logfile,
+                 stderr=logfile)
 
-    sleep(5)
+    sleep(3)
 
-    if not buse.isalive():
-        lexit('the buselogfs process does not appear to have survived', logfile=logfile, device=device, exitcode=16)
+    if buse.poll() is not None:
+        lexit('the buselogfs process does not appear to have survived', logfile=logfile, device=device, exitcode=17)
 
     lprint('running mkfs', logfile=logfile, device=device)
 
@@ -80,6 +79,7 @@ def createVanillaBackend(logfile, device, fs_type, mount_args=None):
                          ['-t', fs_type, '/dev/{}'.format(device)],
                          logfile=logfile,
                          echo=False,
+                         timeout=5,
                          encoding='utf-8')
 
     mkfs.expect(pexpect.EOF)
@@ -94,21 +94,21 @@ def createVanillaBackend(logfile, device, fs_type, mount_args=None):
                          mount_args + ['-t', fs_type, '/dev/{}'.format(device), '{}/{}'.format(TMP_ROOT_PATH, device)],
                          logfile=logfile,
                          echo=False,
+                         timeout=5,
                          encoding='utf-8')
 
     mount.expect(pexpect.EOF)
-    mount.close()
 
-    if mount.exitstatus != 0:
-        lexit(logfile=logfile, device=device, exitcode=18)
+    lprint('checking mount', logfile=logfile, device=device)
 
     mount = pexpect.spawn('mount',
                          logfile=logfile,
                          echo=False,
+                         timeout=5,
                          encoding='utf-8')
 
     mount_out = mount.expect([r'/dev/{} on {}/{}'.format(device, TMP_ROOT_PATH, device), pexpect.EOF])
-    
+
     if mount_out == 1:
         lexit("could not verify successful mount of /dev/{} on {}/{}".format(device, TMP_ROOT_PATH, device),
               logfile=logfile,
@@ -124,17 +124,14 @@ def createSbBackend(logfile, device, fs_type, mount_args=None):
 
     lprint('creating StrongBox backend ({})'.format(device), logfile=logfile, device=device)
 
-    buse = pexpect.spawn(BUSELFS_PATH,
-                         ['--backstore-size', str(BACKEND_SIZE),
-                         '--default-password', 'create', device],
-                         logfile=logfile,
-                         echo=False,
-                         encoding='utf-8')
+    buse = Popen([BUSELFS_PATH, '--backstore-size', str(BACKEND_SIZE), '--default-password', 'create', device],
+                 stdout=logfile,
+                 stderr=logfile)
 
-    buse_out = buse.expect(['100%', pexpect.EOF])
+    sleep(60)
 
-    if buse_out == 1:
-        lexit('the StrongBox process does not appear to have survived', logfile=logfile, device=device, exitcode=11)
+    if buse.poll() is not None:
+        lexit('the StrongBox process does not appear to have survived', logfile=logfile, device=device, exitcode=17)
 
     lprint('running mkfs', logfile=logfile, device=device)
 
@@ -142,6 +139,7 @@ def createSbBackend(logfile, device, fs_type, mount_args=None):
                          ['-t', fs_type, '/dev/{}'.format(device)],
                          logfile=logfile,
                          echo=False,
+                         timeout=5,
                          encoding='utf-8')
 
     mkfs.expect(pexpect.EOF)
@@ -156,21 +154,21 @@ def createSbBackend(logfile, device, fs_type, mount_args=None):
                          mount_args + ['-t', fs_type, '/dev/{}'.format(device), '{}/{}'.format(TMP_ROOT_PATH, device)],
                          logfile=logfile,
                          echo=False,
+                         timeout=5,
                          encoding='utf-8')
 
     mount.expect(pexpect.EOF)
-    mount.close()
 
-    if mount.exitstatus != 0:
-        lexit(logfile=logfile, device=device, exitcode=14)
+    lprint('checking mount', logfile=logfile, device=device)
 
     mount = pexpect.spawn('mount',
                          logfile=logfile,
                          echo=False,
+                         timeout=5,
                          encoding='utf-8')
 
     mount_out = mount.expect([r'/dev/{} on {}/{}'.format(device, TMP_ROOT_PATH, device), pexpect.EOF])
-    
+
     if mount_out == 1:
         lexit("could not verify successful mount of /dev/{} on {}/{}".format(device, TMP_ROOT_PATH, device),
               logfile=logfile,
@@ -186,15 +184,13 @@ def createDmcBackend(logfile, device, fs_type, mount_args=None):
 
     lprint('creating dm-crypt LUKS volume buselogfs backend ({})'.format(device), logfile=logfile, device=device)
 
-    buse = pexpect.spawn(BUSE_PATH,
-                         ['--size', str(BACKEND_SIZE * 1024 * 1024), '/dev/{}'.format(device)],
-                         logfile=logfile,
-                         echo=True,
-                         encoding='utf-8')
+    buse = Popen([BUSE_PATH, '--size', str(BACKEND_SIZE * 1024 * 1024), '/dev/{}'.format(device)],
+                 stdout=logfile,
+                 stderr=logfile)
 
-    sleep(5)
+    sleep(3)
 
-    if not buse.isalive():
+    if buse.poll() is not None:
         lexit('the buselogfs process does not appear to have survived', logfile=logfile, device=device, exitcode=8)
 
     lprint('using cryptsetup', logfile=logfile, device=device)
@@ -237,6 +233,7 @@ def createDmcBackend(logfile, device, fs_type, mount_args=None):
                          ['-t', fs_type, '/dev/mapper/{}'.format(device)],
                          logfile=logfile,
                          echo=False,
+                         timeout=5,
                          encoding='utf-8')
 
     mkfs.expect(pexpect.EOF)
@@ -251,21 +248,21 @@ def createDmcBackend(logfile, device, fs_type, mount_args=None):
                          mount_args + ['-t', fs_type, '/dev/mapper/{}'.format(device), '{}/{}'.format(TMP_ROOT_PATH, device)],
                          logfile=logfile,
                          echo=False,
+                         timeout=5,
                          encoding='utf-8')
 
     mount.expect(pexpect.EOF)
-    mount.close()
 
-    if mount.exitstatus != 0:
-        lexit(logfile=logfile, device=device, exitcode=6)
+    lprint('checking mount', logfile=logfile, device=device)
 
     mount = pexpect.spawn('mount',
                          logfile=logfile,
                          echo=False,
+                         timeout=5,
                          encoding='utf-8')
 
     mount_out = mount.expect([r'/dev/mapper/{} on {}/{}'.format(device, TMP_ROOT_PATH, device), pexpect.EOF])
-    
+
     if mount_out == 1:
         lexit("could not verify successful mount of /dev/mapper/{} on {}/{}".format(device, TMP_ROOT_PATH, device),
               logfile=logfile,
@@ -273,7 +270,7 @@ def createDmcBackend(logfile, device, fs_type, mount_args=None):
               exitcode=7)
 
     return buse
-    
+
 def destroyVanillaBackend(logfile, device, backend_proc):
     """Destroys the backend, unmounts, deletes files, etc (but does not end proc)"""
 
@@ -293,7 +290,7 @@ def destroyVanillaBackend(logfile, device, backend_proc):
 
     lprint('terminating background fs process', logfile=logfile, device=device)
 
-    backend_proc.terminate(True)
+    backend_proc.terminate()
 
 def destroySbBackend(logfile, device, backend_proc):
     """Destroys the backend, unmounts, deletes files, etc (but does not end proc)"""
@@ -314,7 +311,7 @@ def destroySbBackend(logfile, device, backend_proc):
 
     lprint('terminating background fs process', logfile=logfile, device=device)
 
-    backend_proc.terminate(True)
+    backend_proc.terminate()
 
 def destroyDmcBackend(logfile, device, backend_proc):
     """Destroys the backend, unmounts, deletes files, etc (but does not end proc)"""
@@ -345,7 +342,7 @@ def destroyDmcBackend(logfile, device, backend_proc):
 
     lprint('terminating background fs process', logfile=logfile, device=device)
 
-    backend_proc.terminate(True)
+    backend_proc.terminate()
 
 def symlinkDataClass(logfile, device, data_class):
     """Symlinks the proper data file to be written and read in by experiments"""
@@ -373,17 +370,14 @@ def symlinkDataClass(logfile, device, data_class):
 
 def sequentialFreerun(logfile, device, data_class, test_name):
     """Runs the sequential cpp freerun tests"""
-    
+
     symlinkDataClass(logfile, device, data_class)
-    
-    lprint('running sequential freerun test', logfile=logfile, device=device)
+
+    lprint('running sequential freerun test target {}'.format(test_name), logfile=logfile, device=device)
 
     test = pexpect.spawn('/home/odroid/bd3/repos/energy-AES-1/bin/cpp-sequential-freerun',
                          ['ram', test_name, '{}/{}'.format(TMP_ROOT_PATH, device)],
-                         logfile=logfile,
-                         timeout=FREERUN_TIMEOUT,
-                         echo=False,
-                         encoding='utf-8')
+                         timeout=FREERUN_TIMEOUT)
 
     test_out = test.expect([pexpect.EOF, pexpect.TIMEOUT])
     test.close()
@@ -392,24 +386,21 @@ def sequentialFreerun(logfile, device, data_class, test_name):
         lexit('cpp-sequential-freerun timed out', logfile=logfile, device=device, exitcode=23)
 
     elif test.exitstatus != 0:
-        lexit('cpp-sequential-freerun returned non-zero error code <{}>'.format(test.exitstatus),
+        lexit('cpp-sequential-freerun returned non-zero error code (-{})'.format(test.exitstatus),
               logfile=logfile,
               device=device,
               exitcode=24)
 
 def randomFreerun(logfile, device, data_class, test_name):
     """Runs the random cpp freerun tests"""
-    
+
     symlinkDataClass(logfile, device, data_class)
-    
-    lprint('running random freerun test', logfile=logfile, device=device)
+
+    lprint('running random freerun test target {}'.format(test_name), logfile=logfile, device=device)
 
     test = pexpect.spawn('/home/odroid/bd3/repos/energy-AES-1/bin/cpp-random-freerun',
                          ['ram', test_name, '{}/{}'.format(TMP_ROOT_PATH, device)],
-                         logfile=logfile,
-                         timeout=FREERUN_TIMEOUT,
-                         echo=False,
-                         encoding='utf-8')
+                         timeout=FREERUN_TIMEOUT)
 
     test_out = test.expect([pexpect.EOF, pexpect.TIMEOUT])
     test.close()
@@ -418,7 +409,7 @@ def randomFreerun(logfile, device, data_class, test_name):
         lexit('cpp-random-freerun timed out', logfile=logfile, device=device, exitcode=27)
 
     elif test.exitstatus != 0:
-        lexit('cpp-random-freerun returned non-zero error code <{}>'.format(test.exitstatus),
+        lexit('cpp-random-freerun returned non-zero error code (-{})'.format(test.exitstatus),
               logfile=logfile,
               device=device,
               exitcode=28)
@@ -491,6 +482,6 @@ if __name__ == "__main__":
                         num_nbd_device = (num_nbd_device + 1) % num_nbd_devices
 
         clearBackstoreFiles()
-        
+
         print('\n---------\n(finished)', file=file)
         lprint('done', severity='OK')
