@@ -8,7 +8,8 @@ import pexpect
 from datetime import datetime
 
 BACKEND_SIZE    = 900 # MiB
-EXPAND_TABS     = 15
+EXPAND_TABS     = 15 # tab stops
+FREERUN_TIMEOUT = 300 # seconds
 DROP_CACHE_PATH = '/proc/sys/vm/drop_caches'
 TMP_ROOT_PATH   = '/tmp'
 RAM0_PATH       = '/tmp/ram0'
@@ -127,7 +128,6 @@ def createSbBackend(logfile, device, fs_type, mount_args=None):
                          '--default-password', 'create', device],
                          logfile=logfile,
                          echo=False,
-                         timeout=100,
                          encoding='utf-8')
 
     buse_out = buse.expect(['100%', pexpect.EOF])
@@ -380,17 +380,21 @@ def sequentialFreerun(logfile, device, data_class, test_name):
     test = pexpect.spawn('/home/odroid/bd3/repos/energy-AES-1/bin/cpp-sequential-freerun',
                          ['ram', test_name, '{}/{}'.format(TMP_ROOT_PATH, device)],
                          logfile=logfile,
-                         timeout=300,
+                         timeout=FREERUN_TIMEOUT,
                          echo=False,
                          encoding='utf-8')
 
-    test_out = test.expect(pexpect.EOF, pexpect.TIMEOUT)
+    test_out = test.expect([pexpect.EOF, pexpect.TIMEOUT])
     test.close()
 
     if test_out == 1:
         lexit('cpp-sequential-freerun timed out', logfile=logfile, device=device, exitcode=23)
+
     elif test.exitstatus != 0:
-        lexit('cpp-sequential-freerun returned non-zero error code', logfile=logfile, device=device, exitcode=24)
+        lexit('cpp-sequential-freerun returned non-zero error code <{}>'.format(test.exitstatus),
+              logfile=logfile,
+              device=device,
+              exitcode=24)
 
 def randomFreerun(logfile, device, data_class, test_name):
     """Runs the random cpp freerun tests"""
@@ -402,17 +406,21 @@ def randomFreerun(logfile, device, data_class, test_name):
     test = pexpect.spawn('/home/odroid/bd3/repos/energy-AES-1/bin/cpp-random-freerun',
                          ['ram', test_name, '{}/{}'.format(TMP_ROOT_PATH, device)],
                          logfile=logfile,
-                         timeout=600,
+                         timeout=FREERUN_TIMEOUT,
                          echo=False,
                          encoding='utf-8')
 
-    test_out = test.expect(pexpect.EOF, pexpect.TIMEOUT)
+    test_out = test.expect([pexpect.EOF, pexpect.TIMEOUT])
     test.close()
 
     if test_out == 1:
         lexit('cpp-random-freerun timed out', logfile=logfile, device=device, exitcode=27)
+
     elif test.exitstatus != 0:
-        lexit('cpp-random-freerun returned non-zero error code', logfile=logfile, device=device, exitcode=28)
+        lexit('cpp-random-freerun returned non-zero error code <{}>'.format(test.exitstatus),
+              logfile=logfile,
+              device=device,
+              exitcode=28)
 
 if __name__ == "__main__":
     try:
@@ -441,7 +449,7 @@ if __name__ == "__main__":
 
         os.chdir(RAM0_PATH)
         lprint('working directory set to {}'.format(RAM0_PATH), logfile=file)
-        symlinkDataClass(file, 'nbd0', '40m')
+
         # clearBackstoreFiles()
 
         # nbd0 = createVanillaBackend(file, 'nbd0', 'ext4', ['-o', 'data=journal'])

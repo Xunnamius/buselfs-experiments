@@ -278,7 +278,7 @@ int main(int argc, char * argv[])
 
         if(trialoutfd < 0)
         {
-            fprintf(stderr, "%s\n", "open failed");
+            fprintf(stderr, "open of %s failed\n", writeout_target);
             monitor.ffinish(&monitor);
             return 13;
         }
