@@ -19,7 +19,7 @@ from plotly.graph_objs import Bar, Figure, Layout, Box
 import plotly.plotly as py
 
 OPS = 25000 * 2
-TRIALS = 15 # XXX: THIS SHOULD MATCH THE SAME CONSTANT IN cpp-simple-freeun.c!
+TRIALS = 10 # XXX: THIS SHOULD MATCH THE SAME CONSTANT IN cpp-simple-freeun.c!
 GHZ = 1000000
 
 METRICS = ('energy', 'power', 'duration')
