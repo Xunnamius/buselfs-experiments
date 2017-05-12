@@ -451,18 +451,18 @@ if __name__ == "__main__":
         filesizes = ['1k', '4k', '512k', '5m', '40m']
 
         backendFnTuples = (
-            (createVanillaBackend, destroyVanillaBackend, 'vanilla'),
+            #(createVanillaBackend, destroyVanillaBackend, 'vanilla'),
             (createSbBackend, destroySbBackend, 'strongbox'),
-            (createDmcBackend, destroyDmcBackend, 'dmcrypt')
+            #(createDmcBackend, destroyDmcBackend, 'dmcrypt')
         )
 
         Configuration = namedtuple('Configuration', ['proto_test_name', 'fs_type', 'mount_args'])
 
         configurations = (
-            Configuration('nilfs2', 'nilfs2', []),
+            #Configuration('nilfs2', 'nilfs2', []),
             Configuration('f2fs', 'f2fs', []),
-            Configuration('ext4-oj', 'ext4', []),
-            Configuration('ext4-fj', 'ext4', ['-o', 'data=journal'])
+            #Configuration('ext4-oj', 'ext4', []),
+            #Configuration('ext4-fj', 'ext4', ['-o', 'data=journal'])
         )
 
         lprint('starting experiment', logfile=file)
