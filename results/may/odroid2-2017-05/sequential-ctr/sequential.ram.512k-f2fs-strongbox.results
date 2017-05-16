@@ -1,70 +1,70 @@
-w_energy: 353174.000000
-w_duration: 264615696.000000
-w_power: 1.334668
+w_energy: 0.000000
+w_duration: 138294790.000000
+w_power: 0.000000
 r_energy: 0.000000
-r_duration: 67083650.000000
+r_duration: 22655022.000000
 r_power: 0.000000
 ---
 w_energy: 0.000000
-w_duration: 158020195.000000
+w_duration: 66855985.000000
 w_power: 0.000000
 r_energy: 0.000000
-r_duration: 66147487.000000
-r_power: 0.000000
----
-w_energy: 657459.000000
-w_duration: 223374850.000000
-w_power: 2.943299
-r_energy: 0.000000
-r_duration: 67023567.000000
-r_power: 0.000000
----
-w_energy: 676537.000000
-w_duration: 158854859.000000
-w_power: 4.258837
-r_energy: 0.000000
-r_duration: 65918404.000000
-r_power: 0.000000
----
-w_energy: 682040.000000
-w_duration: 155608618.000000
-w_power: 4.383048
-r_energy: 0.000000
-r_duration: 66916901.000000
+r_duration: 22834521.000000
 r_power: 0.000000
 ---
 w_energy: 0.000000
-w_duration: 160642812.000000
+w_duration: 85321809.000000
 w_power: 0.000000
 r_energy: 0.000000
-r_duration: 65086614.000000
-r_power: 0.000000
----
-w_energy: 659947.000000
-w_duration: 218593280.000000
-w_power: 3.019064
-r_energy: 0.000000
-r_duration: 66128903.000000
-r_power: 0.000000
----
-w_energy: 655608.000000
-w_duration: 162293184.000000
-w_power: 4.039652
-r_energy: 0.000000
-r_duration: 67090276.000000
-r_power: 0.000000
----
-w_energy: 674469.000000
-w_duration: 305787584.000000
-w_power: 2.205678
-r_energy: 0.000000
-r_duration: 65964653.000000
+r_duration: 22607313.000000
 r_power: 0.000000
 ---
 w_energy: 0.000000
-w_duration: 163455305.000000
+w_duration: 69982518.000000
+w_power: 0.000000
+r_energy: 629931.000000
+r_duration: 22652563.000000
+r_power: 27.808376
+---
+w_energy: 0.000000
+w_duration: 68663563.000000
 w_power: 0.000000
 r_energy: 0.000000
-r_duration: 67650482.000000
+r_duration: 22719479.000000
 r_power: 0.000000
+---
+w_energy: 0.000000
+w_duration: 70726100.000000
+w_power: 0.000000
+r_energy: 0.000000
+r_duration: 22658022.000000
+r_power: 0.000000
+---
+w_energy: 625891.000000
+w_duration: 90081213.000000
+w_power: 6.948075
+r_energy: 0.000000
+r_duration: 22612356.000000
+r_power: 0.000000
+---
+w_energy: 0.000000
+w_duration: 69402353.000000
+w_power: 0.000000
+r_energy: 0.000000
+r_duration: 22669564.000000
+r_power: 0.000000
+---
+w_energy: 631268.000000
+w_duration: 128075818.000000
+w_power: 4.928862
+r_energy: 0.000000
+r_duration: 22641897.000000
+r_power: 0.000000
+---
+w_energy: 0.000000
+w_duration: 69049812.000000
+w_power: 0.000000
+r_energy: 607480.000000
+r_duration: 22671980.000000
+r_power: 26.794307
 ---
