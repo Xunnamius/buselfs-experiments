@@ -29,7 +29,7 @@ def lprint(*args, logfile=None, severity='INFO', device=None):
     if logfile:
         print(preamble.expandtabs(0), *args, file=logfile)
 
-def lexit(*args, logfile=None, device=None, exitcode=-1):
+def lexit(*args, logfile=None, device=None, exitcode=1):
     """Super special exit"""
     if not args:
         args=['non-zero error code encountered ({})'.format(exitcode)]
@@ -86,7 +86,7 @@ def createVanillaBackend(logfile, device, fs_type, mount_args=None):
     mkfs.close()
 
     if mkfs.exitstatus != 0:
-        lexit(logfile=logfile, device=device, exitcode=-mkfs.exitstatus)
+        lexit(logfile=logfile, device=device, exitcode=-1*mkfs.exitstatus)
 
     lprint('running mount', logfile=logfile, device=device)
 
@@ -146,7 +146,7 @@ def createSbBackend(logfile, device, fs_type, mount_args=None):
     mkfs.close()
 
     if mkfs.exitstatus != 0:
-        lexit(logfile=logfile, device=device, exitcode=-mkfs.exitstatus)
+        lexit(logfile=logfile, device=device, exitcode=-1*mkfs.exitstatus)
 
     lprint('running mount', logfile=logfile, device=device)
 
@@ -240,7 +240,7 @@ def createDmcBackend(logfile, device, fs_type, mount_args=None):
     mkfs.close()
 
     if mkfs.exitstatus != 0:
-        lexit(logfile=logfile, device=device, exitcode=-mkfs.exitstatus)
+        lexit(logfile=logfile, device=device, exitcode=-1*mkfs.exitstatus)
 
     lprint('running mount', logfile=logfile, device=device)
 
@@ -448,7 +448,8 @@ if __name__ == "__main__":
 
         num_nbd_devices = 16
         num_nbd_device = 0
-        filesizes = ['1k', '4k', '512k', '5m', '40m']
+        #filesizes = ['1k', '4k', '512k', '5m', '40m']
+        filesizes = ['40m']
 
         backendFnTuples = (
             #(createVanillaBackend, destroyVanillaBackend, 'vanilla'),
@@ -460,7 +461,7 @@ if __name__ == "__main__":
 
         configurations = (
             #Configuration('nilfs2', 'nilfs2', []),
-            Configuration('f2fs', 'f2fs', []),
+            Configuration('f2fs', 'f2fs', ['-o', 'background_gc=off']),
             #Configuration('ext4-oj', 'ext4', []),
             #Configuration('ext4-fj', 'ext4', ['-o', 'data=journal'])
         )
