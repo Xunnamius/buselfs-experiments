@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
 
+from subprocess import Popen
+from collections import namedtuple
+from datetime import datetime
+
 import os
 import sys
 import time
 import glob
 import pexpect
-from subprocess import DEVNULL, PIPE, Popen
-from collections import namedtuple
-from datetime import datetime
 
 BACKEND_SIZE    = 900 # MiB
 EXPAND_TABS     = 15 # tab stops
