@@ -63,17 +63,19 @@ def createRawBackend(logfile, device, fs_type, mount_args=None):
 
     mount_args = mount_args or []
     backend_size_bytes = BACKEND_SIZE * 1024 * 1024
-    backend_file_name = '{}/logfs-{}.bkstr'.format(os.path.realpath(__file__), device)
+    backend_file_name = '{}/logfs-{}.bkstr'.format(RAM0_PATH, device)
 
     lprint('creating RAW backend ({} @ {})'.format(device, backend_file_name), logfile=logfile, device=device)
 
     f = open(backend_file_name, 'wb')
     f.seek(backend_size_bytes - 1)
-    f.write('\0')
+    f.write(b'\0')
     f.close()
 
-    if os.stat(backend_file_name).st_size is not backend_size_bytes:
-        lexit('RAW backend file could not be created', logfile=logfile, device=device, exitcode=17)
+    fsize = os.path.getsize(backend_file_name)
+    if fsize != backend_size_bytes:
+        lexit('RAW backend file could not be created ({}!={})'.format(fsize, backend_size_bytes),
+              logfile=logfile, device=device, exitcode=17)
 
     lprint('running mkfs', logfile=logfile, device=device)
 
@@ -88,7 +90,8 @@ def createRawBackend(logfile, device, fs_type, mount_args=None):
     mkfs.close()
 
     if mkfs.exitstatus != 0:
-        lexit(logfile=logfile, device=device, exitcode=-1*mkfs.exitstatus)
+        lexit('mkfs -t {} {} failed ({})'.format(fs_type, backend_file_name, mkfs.exitstatus),
+            logfile=logfile, device=device, exitcode=-1*mkfs.exitstatus)
 
     lprint('running mount', logfile=logfile, device=device)
 
@@ -124,17 +127,20 @@ def createRawDmcBackend(logfile, device, fs_type, mount_args=None):
 
     mount_args = mount_args or []
     backend_size_bytes = BACKEND_SIZE * 1024 * 1024
-    backend_file_name = '{}/logfs-{}.bkstr'.format(os.path.realpath(__file__), device)
+    backend_file_name = '{}/logfs-{}.bkstr'.format(RAM0_PATH, device)
 
-    lprint('creating RAW dm-crypt LUKS volume backend ({} @ {})'.format(device, backend_file_name), logfile=logfile, device=device)
+    lprint('creating RAW dm-crypt LUKS volume backend ({} @ {})'.format(device, backend_file_name),
+           logfile=logfile, device=device)
 
     f = open(backend_file_name, 'wb')
     f.seek(backend_size_bytes - 1)
-    f.write('\0')
+    f.write(b'\0')
     f.close()
 
-    if os.stat(backend_file_name).st_size is not backend_size_bytes:
-        lexit('RAW backend file could not be created', logfile=logfile, device=device, exitcode=17)
+    fsize = os.path.getsize(backend_file_name)
+    if fsize != backend_size_bytes:
+        lexit('RAW dm-crypt LUKS volume backend file could not be created ({}!={})'.format(fsize, backend_size_bytes),
+              logfile=logfile, device=device, exitcode=17)
 
     lprint('using cryptsetup', logfile=logfile, device=device)
 
@@ -183,7 +189,8 @@ def createRawDmcBackend(logfile, device, fs_type, mount_args=None):
     mkfs.close()
 
     if mkfs.exitstatus != 0:
-        lexit(logfile=logfile, device=device, exitcode=-1*mkfs.exitstatus)
+        lexit('mkfs -t {} {} failed'.format(fs_type, '/dev/mapper/{}'.format(device)),
+              logfile=logfile, device=device, exitcode=-1*mkfs.exitstatus)
 
     lprint('running mount', logfile=logfile, device=device)
 
@@ -593,7 +600,7 @@ def sequentialFreerun(logfile, device, data_class, test_name):
     test = pexpect.spawn('/home/odroid/bd3/repos/energy-AES-1/bin/cpp-sequential-freerun',
                          ['ram', test_name, '{}/{}'.format(TMP_ROOT_PATH, device)],
                          timeout=FREERUN_TIMEOUT)
-
+    
     test_out = test.expect([pexpect.EOF, pexpect.TIMEOUT])
     test.close()
 
