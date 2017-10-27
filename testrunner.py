@@ -96,7 +96,7 @@ def createRawBackend(logfile, device, fs_type, mount_args=None):
     lprint('running mount', logfile=logfile, device=device)
 
     mount = pexpect.spawn('mount',
-                         mount_args + ['-t', fs_type, backend_file_name, '{}/{}'.format(TMP_ROOT_PATH, device)],
+                         mount_args + ['-t', fs_type, backend_file_name, '{}/{}'.format(TMP_ROOT_PATH, device), '-o', 'loop'],
                          logfile=logfile,
                          echo=False,
                          timeout=5,
@@ -195,7 +195,7 @@ def createRawDmcBackend(logfile, device, fs_type, mount_args=None):
     lprint('running mount', logfile=logfile, device=device)
 
     mount = pexpect.spawn('mount',
-                         mount_args + ['-t', fs_type, '/dev/mapper/{}'.format(device), '{}/{}'.format(TMP_ROOT_PATH, device)],
+                         mount_args + ['-t', fs_type, '/dev/mapper/{}'.format(device), '{}/{}'.format(TMP_ROOT_PATH, device), '-o', 'loop'],
                          logfile=logfile,
                          echo=False,
                          timeout=5,
@@ -600,7 +600,7 @@ def sequentialFreerun(logfile, device, data_class, test_name):
     test = pexpect.spawn('/home/odroid/bd3/repos/energy-AES-1/bin/cpp-sequential-freerun',
                          ['ram', test_name, '{}/{}'.format(TMP_ROOT_PATH, device)],
                          timeout=FREERUN_TIMEOUT)
-    
+
     test_out = test.expect([pexpect.EOF, pexpect.TIMEOUT])
     test.close()
 
@@ -671,13 +671,13 @@ if __name__ == "__main__":
         num_nbd_devices = 16
         num_nbd_device = 0
         #filesizes = ['1k', '4k', '512k', '5m', '40m']
-        filesizes = ['512k']
+        filesizes = ['4k', '512k', '5m', '40m']
 
         backendFnTuples = (
-            #(createVanillaBackend, destroyVanillaBackend, 'vanilla'),
-            (createRawBackend, destroyRawBackend, 'raw1'),
-            (createRawDmcBackend, destroyRawDmcBackend, 'raw2'),
-            #(createDmcBackend, destroyDmcBackend, 'dmcrypt')
+            (createRawBackend, destroyRawBackend, 'raw-vanilla'),
+            (createVanillaBackend, destroyVanillaBackend, 'vanilla'),
+            (createRawDmcBackend, destroyRawDmcBackend, 'raw-dmcrypt'),
+            (createDmcBackend, destroyDmcBackend, 'dmcrypt')
         )
 
         Configuration = namedtuple('Configuration', ['proto_test_name', 'fs_type', 'mount_args'])
