@@ -114,11 +114,9 @@ def createRawBackend(logfile, device, fs_type, mount_args=None):
                          timeout=5,
                          encoding='utf-8')
 
-    mount_out = mount.expect([r'{} on {}/{}'.format(backend_file_name, TMP_ROOT_PATH, device), pexpect.EOF])
-
+    mount_out = mount.expect([r'on {}/{}'.format(TMP_ROOT_PATH, device), pexpect.EOF])
     if mount_out == 1:
-        lexit('could not verify successful mount of {} on {}/{}'.format(backend_file_name, TMP_ROOT_PATH, device),
-              logfile=logfile,
+        lexit('Could not verify successful mount of {} on {}/{}'.format(backend_file_name, TMP_ROOT_PATH, device), logfile=logfile,
               device=device,
               exitcode=19)
 
@@ -215,7 +213,7 @@ def createRawDmcBackend(logfile, device, fs_type, mount_args=None):
                          timeout=5,
                          encoding='utf-8')
 
-    mount_out = mount.expect([r'/dev/mapper/{} on {}/{}'.format(device, TMP_ROOT_PATH, device), pexpect.EOF])
+    mount_out = mount.expect([r'on {}/{}'.format(TMP_ROOT_PATH, device), pexpect.EOF])
 
     if mount_out == 1:
         lexit("could not verify successful mount of /dev/mapper/{} on {}/{}".format(device, TMP_ROOT_PATH, device),
@@ -277,7 +275,7 @@ def createVanillaBackend(logfile, device, fs_type, mount_args=None):
                          timeout=5,
                          encoding='utf-8')
 
-    mount_out = mount.expect([r'/dev/{} on {}/{}'.format(device, TMP_ROOT_PATH, device), pexpect.EOF])
+    mount_out = mount.expect([r'on {}/{}'.format(TMP_ROOT_PATH, device), pexpect.EOF])
 
     if mount_out == 1:
         lexit("could not verify successful mount of /dev/{} on {}/{}".format(device, TMP_ROOT_PATH, device),
@@ -339,7 +337,7 @@ def createSbBackend(logfile, device, fs_type, mount_args=None):
                          timeout=5,
                          encoding='utf-8')
 
-    mount_out = mount.expect([r'/dev/{} on {}/{}'.format(device, TMP_ROOT_PATH, device), pexpect.EOF])
+    mount_out = mount.expect([r'on {}/{}'.format(TMP_ROOT_PATH, device), pexpect.EOF])
 
     if mount_out == 1:
         lexit("could not verify successful mount of /dev/{} on {}/{}".format(device, TMP_ROOT_PATH, device),
@@ -435,7 +433,7 @@ def createDmcBackend(logfile, device, fs_type, mount_args=None):
                          timeout=5,
                          encoding='utf-8')
 
-    mount_out = mount.expect([r'/dev/mapper/{} on {}/{}'.format(device, TMP_ROOT_PATH, device), pexpect.EOF])
+    mount_out = mount.expect([r'on {}/{}'.format(TMP_ROOT_PATH, device), pexpect.EOF])
 
     if mount_out == 1:
         lexit("could not verify successful mount of /dev/mapper/{} on {}/{}".format(device, TMP_ROOT_PATH, device),
