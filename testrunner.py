@@ -104,8 +104,6 @@ def createRawBackend(logfile, device, fs_type, mount_args=None):
 
     mount.expect(pexpect.EOF)
     
-    sleep(3)
-
     lprint('checking mount', logfile=logfile, device=device)
 
     mount = pexpect.spawn('mount',
@@ -203,8 +201,6 @@ def createRawDmcBackend(logfile, device, fs_type, mount_args=None):
 
     mount.expect(pexpect.EOF)
     
-    sleep(3)
-
     lprint('checking mount', logfile=logfile, device=device)
 
     mount = pexpect.spawn('mount',
@@ -265,8 +261,6 @@ def createVanillaBackend(logfile, device, fs_type, mount_args=None):
 
     mount.expect(pexpect.EOF)
     
-    sleep(3)
-
     lprint('checking mount', logfile=logfile, device=device)
 
     mount = pexpect.spawn('mount',
@@ -327,8 +321,6 @@ def createSbBackend(logfile, device, fs_type, mount_args=None):
 
     mount.expect(pexpect.EOF)
     
-    sleep(3)
-
     lprint('checking mount', logfile=logfile, device=device)
 
     mount = pexpect.spawn('mount',
@@ -423,8 +415,6 @@ def createDmcBackend(logfile, device, fs_type, mount_args=None):
 
     mount.expect(pexpect.EOF)
     
-    sleep(3)
-
     lprint('checking mount', logfile=logfile, device=device)
 
     mount = pexpect.spawn('mount',
