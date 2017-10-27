@@ -450,12 +450,15 @@ def destroyRawBackend(logfile, device, backend_proc):
     if mount.exitstatus != 0:
         lexit(logfile=logfile, device=device, exitcode=21)
 
-    lprint('deleting raw file-based backing store', logfile=logfile, device=device)
+    lprint('deleting raw file-based backing store {}'.format(backend_proc), logfile=logfile, device=device)
+
+    if not os.path.isfile(backend_proc):
+        lexit('RAW backend file {} does not exist?!'.format(backend_proc), logfile=logfile, device=device, exitcode=23)
 
     os.remove(backend_proc)
 
     if os.path.isfile(backend_proc):
-        lexit('RAW backend file could not be destroyed?!', logfile=logfile, device=device, exitcode=22)
+        lexit('RAW backend file {} could not be destroyed?!'.format(backend_proc), logfile=logfile, device=device, exitcode=22)
 
 def destroyRawDmcBackend(logfile, device, backend_proc):
     """Destroys the backend, unmounts, deletes files, etc (but does not end proc)"""
@@ -484,12 +487,15 @@ def destroyRawDmcBackend(logfile, device, backend_proc):
 
     setup.expect(pexpect.EOF)
 
-    lprint('deleting raw file-based backing store', logfile=logfile, device=device)
+    lprint('deleting raw file-based backing store {}'.format(backend_proc), logfile=logfile, device=device)
+
+    if not os.path.isfile(backend_proc):
+        lexit('RAW backend file {} does not exist?!'.format(backend_proc), logfile=logfile, device=device, exitcode=23)
 
     os.remove(backend_proc)
 
     if os.path.isfile(backend_proc):
-        lexit('RAW backend file could not be destroyed?!', logfile=logfile, device=device, exitcode=21)
+        lexit('RAW backend file {} could not be destroyed?!'.format(backend_proc), logfile=logfile, device=device, exitcode=21)
 
 def destroyVanillaBackend(logfile, device, backend_proc):
     """Destroys the backend, unmounts, deletes files, etc (but does not end proc)"""
