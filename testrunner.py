@@ -103,6 +103,8 @@ def createRawBackend(logfile, device, fs_type, mount_args=None):
                          encoding='utf-8')
 
     mount.expect(pexpect.EOF)
+    
+    sleep(3)
 
     lprint('checking mount', logfile=logfile, device=device)
 
@@ -202,6 +204,8 @@ def createRawDmcBackend(logfile, device, fs_type, mount_args=None):
                          encoding='utf-8')
 
     mount.expect(pexpect.EOF)
+    
+    sleep(3)
 
     lprint('checking mount', logfile=logfile, device=device)
 
@@ -262,6 +266,8 @@ def createVanillaBackend(logfile, device, fs_type, mount_args=None):
                          encoding='utf-8')
 
     mount.expect(pexpect.EOF)
+    
+    sleep(3)
 
     lprint('checking mount', logfile=logfile, device=device)
 
@@ -322,6 +328,8 @@ def createSbBackend(logfile, device, fs_type, mount_args=None):
                          encoding='utf-8')
 
     mount.expect(pexpect.EOF)
+    
+    sleep(3)
 
     lprint('checking mount', logfile=logfile, device=device)
 
@@ -416,6 +424,8 @@ def createDmcBackend(logfile, device, fs_type, mount_args=None):
                          encoding='utf-8')
 
     mount.expect(pexpect.EOF)
+    
+    sleep(3)
 
     lprint('checking mount', logfile=logfile, device=device)
 
