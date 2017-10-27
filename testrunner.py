@@ -58,6 +58,162 @@ def clearBackstoreFiles():
     for f in files:
         os.remove(f)
 
+def createRawBackend(logfile, device, fs_type, mount_args=None):
+    """Creates a non-BUSE raw drive-backed backend"""
+
+    mount_args = mount_args or []
+    backend_size_bytes = BACKEND_SIZE * 1024 * 1024
+    backend_file_name = '{}/logfs-{}.bkstr'.format(os.path.realpath(__file__), device)
+
+    lprint('creating RAW backend ({} @ {})'.format(device, backend_file_name), logfile=logfile, device=device)
+
+    f = open(backend_file_name, 'wb')
+    f.seek(backend_size_bytes - 1)
+    f.write('\0')
+    f.close()
+
+    if os.stat(backend_file_name).st_size is not backend_size_bytes:
+        lexit('RAW backend file could not be created', logfile=logfile, device=device, exitcode=17)
+
+    lprint('running mkfs', logfile=logfile, device=device)
+
+    mkfs = pexpect.spawn('mkfs',
+                         ['-t', fs_type, backend_file_name],
+                         logfile=logfile,
+                         echo=False,
+                         timeout=5,
+                         encoding='utf-8')
+
+    mkfs.expect(pexpect.EOF)
+    mkfs.close()
+
+    if mkfs.exitstatus != 0:
+        lexit(logfile=logfile, device=device, exitcode=-1*mkfs.exitstatus)
+
+    lprint('running mount', logfile=logfile, device=device)
+
+    mount = pexpect.spawn('mount',
+                         mount_args + ['-t', fs_type, backend_file_name, '{}/{}'.format(TMP_ROOT_PATH, device)],
+                         logfile=logfile,
+                         echo=False,
+                         timeout=5,
+                         encoding='utf-8')
+
+    mount.expect(pexpect.EOF)
+
+    lprint('checking mount', logfile=logfile, device=device)
+
+    mount = pexpect.spawn('mount',
+                         logfile=logfile,
+                         echo=False,
+                         timeout=5,
+                         encoding='utf-8')
+
+    mount_out = mount.expect([r'{} on {}/{}'.format(backend_file_name, TMP_ROOT_PATH, device), pexpect.EOF])
+
+    if mount_out == 1:
+        lexit('could not verify successful mount of {} on {}/{}'.format(backend_file_name, TMP_ROOT_PATH, device),
+              logfile=logfile,
+              device=device,
+              exitcode=19)
+
+    return backend_file_name
+
+def createRawDmcBackend(logfile, device, fs_type, mount_args=None):
+    """Creates a non-BUSE raw drive-backed dm-crypt backend"""
+
+    mount_args = mount_args or []
+    backend_size_bytes = BACKEND_SIZE * 1024 * 1024
+    backend_file_name = '{}/logfs-{}.bkstr'.format(os.path.realpath(__file__), device)
+
+    lprint('creating RAW dm-crypt LUKS volume backend ({} @ {})'.format(device, backend_file_name), logfile=logfile, device=device)
+
+    f = open(backend_file_name, 'wb')
+    f.seek(backend_size_bytes - 1)
+    f.write('\0')
+    f.close()
+
+    if os.stat(backend_file_name).st_size is not backend_size_bytes:
+        lexit('RAW backend file could not be created', logfile=logfile, device=device, exitcode=17)
+
+    lprint('using cryptsetup', logfile=logfile, device=device)
+
+    setup = pexpect.spawn('cryptsetup',
+                         ['--verbose', '--cipher', 'aes-xts-plain64', '--key-size', '512', '--hash', 'sha512',
+                          '--iter-time', '5000', '--use-urandom', 'luksFormat', backend_file_name],
+                         logfile=logfile,
+                         echo=False,
+                         encoding='utf-8')
+
+    setup.expect(r'\(Type uppercase yes\): ')
+    setup.sendline('YES')
+    setup.expect('Enter passphrase: ')
+    setup.sendline('t')
+    setup.expect('Verify passphrase: ')
+    setup.sendline('t')
+
+    setup_out = setup.expect(['Command successful.', pexpect.EOF])
+
+    if setup_out == 1:
+        lexit(logfile=logfile, device=device, exitcode=9)
+
+    lprint('opening dm-crypt LUKS volume', logfile=logfile, device=device)
+
+    setup = pexpect.spawn('cryptsetup',
+                         ['open', '--type', 'luks', backend_file_name, device],
+                         logfile=logfile,
+                         echo=False,
+                         encoding='utf-8')
+
+    setup.expect('Enter passphrase for {}: '.format(backend_file_name))
+    setup.sendline('t')
+
+    setup.expect(pexpect.EOF)
+
+    lprint('running mkfs', logfile=logfile, device=device)
+
+    mkfs = pexpect.spawn('mkfs',
+                         ['-t', fs_type, '/dev/mapper/{}'.format(device)],
+                         logfile=logfile,
+                         echo=False,
+                         timeout=5,
+                         encoding='utf-8')
+
+    mkfs.expect(pexpect.EOF)
+    mkfs.close()
+
+    if mkfs.exitstatus != 0:
+        lexit(logfile=logfile, device=device, exitcode=-1*mkfs.exitstatus)
+
+    lprint('running mount', logfile=logfile, device=device)
+
+    mount = pexpect.spawn('mount',
+                         mount_args + ['-t', fs_type, '/dev/mapper/{}'.format(device), '{}/{}'.format(TMP_ROOT_PATH, device)],
+                         logfile=logfile,
+                         echo=False,
+                         timeout=5,
+                         encoding='utf-8')
+
+    mount.expect(pexpect.EOF)
+
+    lprint('checking mount', logfile=logfile, device=device)
+
+    mount = pexpect.spawn('mount',
+                         logfile=logfile,
+                         echo=False,
+                         timeout=5,
+                         encoding='utf-8')
+
+    mount_out = mount.expect([r'/dev/mapper/{} on {}/{}'.format(device, TMP_ROOT_PATH, device), pexpect.EOF])
+
+    if mount_out == 1:
+        lexit("could not verify successful mount of /dev/mapper/{} on {}/{}".format(device, TMP_ROOT_PATH, device),
+              logfile=logfile,
+              device=device,
+              exitcode=7)
+
+    return backend_file_name
+
 def createVanillaBackend(logfile, device, fs_type, mount_args=None):
     """Creates a buselogfs backend"""
 
@@ -272,6 +428,64 @@ def createDmcBackend(logfile, device, fs_type, mount_args=None):
 
     return buse
 
+def destroyRawBackend(logfile, device, backend_proc):
+    """Destroys the backend, unmounts, deletes files, etc (but does not end proc)"""
+
+    lprint('running umount', logfile=logfile, device=device)
+
+    mount = pexpect.spawn('umount',
+                         ['{}/{}'.format(TMP_ROOT_PATH, device)],
+                         logfile=logfile,
+                         echo=False,
+                         encoding='utf-8')
+
+    mount.expect(pexpect.EOF)
+    mount.close()
+
+    if mount.exitstatus != 0:
+        lexit(logfile=logfile, device=device, exitcode=21)
+
+    lprint('deleting raw file-based backing store', logfile=logfile, device=device)
+
+    os.remove(backend_proc)
+
+    if os.path.isfile(backend_proc):
+        lexit('RAW backend file could not be destroyed?!', logfile=logfile, device=device, exitcode=22)
+
+def destroyRawDmcBackend(logfile, device, backend_proc):
+    """Destroys the backend, unmounts, deletes files, etc (but does not end proc)"""
+
+    lprint('running umount', logfile=logfile, device=device)
+
+    mount = pexpect.spawn('umount',
+                         ['{}/{}'.format(TMP_ROOT_PATH, device)],
+                         logfile=logfile,
+                         echo=False,
+                         encoding='utf-8')
+
+    mount.expect(pexpect.EOF)
+    mount.close()
+
+    if mount.exitstatus != 0:
+        lexit(logfile=logfile, device=device, exitcode=20)
+
+    lprint('closing dm-crypt LUKS volume', logfile=logfile, device=device)
+
+    setup = pexpect.spawn('cryptsetup',
+                         ['close', device],
+                         logfile=logfile,
+                         echo=False,
+                         encoding='utf-8')
+
+    setup.expect(pexpect.EOF)
+
+    lprint('deleting raw file-based backing store', logfile=logfile, device=device)
+
+    os.remove(backend_proc)
+
+    if os.path.isfile(backend_proc):
+        lexit('RAW backend file could not be destroyed?!', logfile=logfile, device=device, exitcode=21)
+
 def destroyVanillaBackend(logfile, device, backend_proc):
     """Destroys the backend, unmounts, deletes files, etc (but does not end proc)"""
 
@@ -450,11 +664,12 @@ if __name__ == "__main__":
         num_nbd_devices = 16
         num_nbd_device = 0
         #filesizes = ['1k', '4k', '512k', '5m', '40m']
-        filesizes = ['40m']
+        filesizes = ['512k']
 
         backendFnTuples = (
             #(createVanillaBackend, destroyVanillaBackend, 'vanilla'),
-            (createSbBackend, destroySbBackend, 'strongbox'),
+            (createRawBackend, destroyRawBackend, 'raw1'),
+            (createRawDmcBackend, destroyRawDmcBackend, 'raw2'),
             #(createDmcBackend, destroyDmcBackend, 'dmcrypt')
         )
 
