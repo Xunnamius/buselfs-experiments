@@ -698,7 +698,7 @@ if __name__ == "__main__":
 
         for conf in configurations:
             for backendFn in backendFnTuples:
-                for runFn in (sequentialFreerun, randomFreerun):
+                for runFn in [sequentialFreerun]: #(sequentialFreerun, randomFreerun):
                     for filesize in filesizes:
                         device = 'nbd{}'.format(num_nbd_device)
 
