@@ -10,9 +10,9 @@ import time
 import glob
 import pexpect
 
-BACKEND_SIZE    = 900 # MiB
+BACKEND_SIZE    = 6144 # MiB
 EXPAND_TABS     = 15 # tab stops
-FREERUN_TIMEOUT = 300 # seconds
+FREERUN_TIMEOUT = 900 # seconds
 DROP_CACHE_PATH = '/proc/sys/vm/drop_caches'
 TMP_ROOT_PATH   = '/tmp'
 RAM0_PATH       = '/tmp/ram0'
@@ -675,13 +675,13 @@ if __name__ == "__main__":
         num_nbd_devices = 16
         num_nbd_device = 0
         #filesizes = ['1k', '4k', '512k', '5m', '40m']
-        filesizes = ['4k', '512k', '5m', '40m']
+        filesizes = ['5g']
 
         backendFnTuples = (
-            (createRawBackend, destroyRawBackend, 'raw-vanilla'),
+            #(createRawBackend, destroyRawBackend, 'raw-vanilla'),
             (createVanillaBackend, destroyVanillaBackend, 'vanilla'),
-            (createRawDmcBackend, destroyRawDmcBackend, 'raw-dmcrypt'),
-            (createDmcBackend, destroyDmcBackend, 'dmcrypt')
+            (createDmcBackend, destroyDmcBackend, 'dmcrypt'),
+            (createSbBackend, destroySbBackend, 'strongbox')
         )
 
         Configuration = namedtuple('Configuration', ['proto_test_name', 'fs_type', 'mount_args'])
