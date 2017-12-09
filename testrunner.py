@@ -286,7 +286,7 @@ def createSbBackend(logfile, device, fs_type, mount_args=None):
 
     lprint('creating StrongBox backend ({})'.format(device), logfile=logfile, device=device)
 
-    buse = Popen([BUSELFS_PATH, '--backstore-size', str(BACKEND_SIZE), '--default-password', 'create', device],
+    buse = Popen([BUSELFS_PATH, '--backstore-size', str(BACKEND_SIZE), '--cipher', 'sc_hc128', '--default-password', 'create', device],
                  stdout=logfile,
                  stderr=logfile)
 
@@ -678,12 +678,12 @@ if __name__ == "__main__":
         #filesizes = ['5g']
         filesizes = ['1k', '5m']
 
-        backendFnTuples = (
+        backendFnTuples = [
             #(createRawBackend, destroyRawBackend, 'raw-vanilla'),
-            (createVanillaBackend, destroyVanillaBackend, 'vanilla'),
-            (createDmcBackend, destroyDmcBackend, 'dmcrypt'),
+            #(createVanillaBackend, destroyVanillaBackend, 'vanilla'),
+            #(createDmcBackend, destroyDmcBackend, 'dmcrypt'),
             (createSbBackend, destroySbBackend, 'strongbox')
-        )
+        ]
 
         Configuration = namedtuple('Configuration', ['proto_test_name', 'fs_type', 'mount_args'])
 
