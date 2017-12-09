@@ -675,7 +675,8 @@ if __name__ == "__main__":
         num_nbd_devices = 16
         num_nbd_device = 0
         #filesizes = ['1k', '4k', '512k', '5m', '40m']
-        filesizes = ['5g']
+        #filesizes = ['5g']
+        filesizes = ['1k', '5m']
 
         backendFnTuples = (
             #(createRawBackend, destroyRawBackend, 'raw-vanilla'),
@@ -686,6 +687,7 @@ if __name__ == "__main__":
 
         Configuration = namedtuple('Configuration', ['proto_test_name', 'fs_type', 'mount_args'])
 
+        # TODO: add ability to provide configuration parameters to SB from here!
         configurations = (
             #Configuration('nilfs2', 'nilfs2', []),
             #Configuration('f2fs', 'f2fs', ['-o', 'background_gc_off']),
