@@ -15,6 +15,8 @@ cp /home/odroid/bd3/repos/buselfs/config/zlog_conf.conf /tmp/config/
 sudo mount -t tmpfs -o size=1024M tmpfs /tmp/ram0
 mount
 
+# sudo mount -t tmpfs -o size=6G tmpfs /tmp/ram1
+
 ######################################
 
 ######################
