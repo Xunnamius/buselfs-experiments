@@ -10,7 +10,7 @@ import time
 import glob
 import pexpect
 
-BACKEND_SIZE    = 6144 # MiB
+BACKEND_SIZE    = 800 # MiB
 EXPAND_TABS     = 15 # tab stops
 FREERUN_TIMEOUT = 900 # seconds
 DROP_CACHE_PATH = '/proc/sys/vm/drop_caches'
