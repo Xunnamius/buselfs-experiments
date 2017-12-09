@@ -286,7 +286,7 @@ def createSbBackend(logfile, device, fs_type, mount_args=None):
 
     lprint('creating StrongBox backend ({})'.format(device), logfile=logfile, device=device)
 
-    buse = Popen([BUSELFS_PATH, '--backstore-size', str(BACKEND_SIZE), '--cipher', 'sc_hc128', '--default-password', 'create', device],
+    buse = Popen([BUSELFS_PATH, '--backstore-size', str(BACKEND_SIZE), '--default-password', 'create', device],
                  stdout=logfile,
                  stderr=logfile)
 
