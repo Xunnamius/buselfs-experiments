@@ -1,0 +1,10 @@
+{
+    "cSpell.words": [
+        "filebench",
+        "setupfilesystems",
+        "setupramdisks",
+        "storeresults",
+        "teardownfilesystems",
+        "teardownramdisks"
+    ]
+}

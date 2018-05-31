@@ -1,4 +1,4 @@
-# Bernard's Energy-AES-1
+# Bernard's Buselfs Experiments
 
 This repository houses my energy/AES related experiments for the purposes of eventually developing a chacha-based LFS utilizing poly1305.
 
