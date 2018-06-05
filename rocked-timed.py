@@ -4,8 +4,9 @@
 
 import os
 import sys
+import hashlib
 import plotly.plotly as py
-from plotly.graph_objs import *
+from plotly.graph_objs import Scatter, Marker, Figure, Data, Layout, XAxis, YAxis
 
 DURATION = 30
 
@@ -127,7 +128,7 @@ enerAESPowerDE = Figure(
 enerAESEnergyConfigs = Figure(
     data = Data(scattersEnergy_configs),
     layout = Layout(
-        title='Frequency Sweeep vs Total Energy over {} seconds'.format(DURATION),
+        title='Frequency Sweep vs Total Energy over {} seconds'.format(DURATION),
         xaxis1 = XAxis(title='Disk Encryption'),
         yaxis1 = YAxis(title='Energy (joules)')
     )
@@ -136,7 +137,7 @@ enerAESEnergyConfigs = Figure(
 enerAESPowerConfigs = Figure(
     data = Data(scattersPower_configs),
     layout = Layout(
-        title='Frequency Sweeep vs Average Power over {} seconds'.format(DURATION),
+        title='Frequency Sweep vs Average Power over {} seconds'.format(DURATION),
         xaxis1 = XAxis(title='Disk Encryption'),
         yaxis1 = YAxis(title='Power (joules/s)')
     )

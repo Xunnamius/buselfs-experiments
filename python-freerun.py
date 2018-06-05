@@ -48,7 +48,7 @@ with open(REPO + '/results/shmoo.{}.{}.results'.format(coreType, fsType), 'a') a
         print('opening connection...')
         try:
             wattsup.serial.open()
-        except serial.serialutil.SerialException:
+        except serial.serialutil.SerialException: # pylint: disable=E1101
             print('Serial exception (ignoring because already open)!')
 
         print('beginning...')

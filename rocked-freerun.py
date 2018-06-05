@@ -140,7 +140,7 @@ if __name__ == "__main__":
                         assimilationStep(currentLine)
 
             if len(joules) or len(duration):
-                assimilationStep(None) # Seems someone has shittily-formatted data...
+                assimilationStep(None) # Seems someone has badly-formatted data...
 
             assert len(data['energyTotal']) == len(data['configurations']) == len(data['powerAverage'])
 

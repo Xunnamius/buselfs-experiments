@@ -55,7 +55,7 @@ def do_trial(description, out, fn):
 
     try:
         wattsup.serial.open()
-    except serial.serialutil.SerialException:
+    except serial.serialutil.SerialException: # pylint: disable=E1101
         pass
 
     wattsup.clearMemory()
@@ -78,7 +78,7 @@ def do_trial(description, out, fn):
             diff = len(retvals) - len(inner_retvals)
 
             if diff != 0:
-                for i in range(abs(diff)):
+                for i in range(abs(diff)): # pylint: disable=W0612
                     retvals.append([])
 
             for index in range(len(inner_retvals)):

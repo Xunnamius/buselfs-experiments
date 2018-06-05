@@ -9,7 +9,7 @@ import statistics
 import copy
 import pprint
 import plotly.plotly as py
-from plotly.graph_objs import *
+from plotly.graph_objs import Figure, Data, Layout, XAxis, YAxis, Bar
 
 TRIALS = 3
 INNER_TRIALS = 50

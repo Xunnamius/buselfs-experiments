@@ -6,7 +6,7 @@ import os
 import sys
 import hashlib
 import plotly.plotly as py
-from plotly.graph_objs import *
+from plotly.graph_objs import Scatter, Figure, Data, Layout, XAxis, YAxis
 
 DURATION = 30
 
