@@ -1,4 +1,4 @@
-# The setup*.sh Scripts
+# The setupX.sh Scripts
 
 These scripts are handy little creations that automate the setup process for various parts of the experiment.
 
