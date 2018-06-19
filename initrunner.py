@@ -95,7 +95,7 @@ def initialize(verbose=False):
                 sys.exit(2)
         
         mkdir = pexpect.spawn('mkdir',
-            ['{}/{}'.format(CONFIG['TMP_ROOT_PATH'], dirr) for dirr in MODPROBE_DIRS] + [CONFIG['RAM0_PATH']],
+            ['-p'] + ['{}/{}'.format(CONFIG['TMP_ROOT_PATH'], dirr) for dirr in MODPROBE_DIRS] + [CONFIG['RAM0_PATH']],
             timeout=5,
             encoding='utf-8'
         )
