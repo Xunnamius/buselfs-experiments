@@ -24,9 +24,11 @@
         "ccpnonce",
         "cdsi",
         "cnfs",
+        "conf",
         "coretype",
         "cppgraph",
         "decryptor",
+        "dirr",
         "dmcrypt",
         "ehthumbs",
         "encryptor",
@@ -78,13 +80,15 @@
         "testfile",
         "testfs",
         "testrunner",
+        "tmpfs",
         "trialoutfd",
         "umount",
         "unmounts",
         "urandom",
         "writeto",
         "xaxis",
-        "yaxis"
+        "yaxis",
+        "zlog"
     ],
     "python.formatting.provider": "none"
 }

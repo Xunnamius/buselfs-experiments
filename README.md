@@ -22,9 +22,11 @@ These files are filled with random bits to be copied around during the various e
 
 ### `experiments/`
 
-Call `make` in order to compile the `cpp-*` experiments. You can then call them individually by name in `bin/`. You can clear out `bin/` with `make clean`.
+Call `make` in order to compile the `*.c` experiments. You can then call them individually by name in `bin/`. You can clear out `bin/` with `make clean`.
 
 The testrunner-X.py scripts attempt to fully automate the latest StrongBox experiments from initialization through setup, execution, and tear down.
+
+The initrunner.py script just lays the groundwork for eventual environment initialization/test running by the other experiments. You should call this before running any of the non-automated executables (i.e. the binaries in `bin/`).
 
 ### `results/`
 
@@ -37,3 +39,19 @@ The rest of the directories and files in this directory hold the results of runn
 ### `vendor/`
 
 These are third party files and repositories whose source is not under our control.
+
+## A Big Shiny Glass Box That Reads: "Break In Case of Fire!"
+
+### LINUX EMERGENCY SHUTDOWN
+
+```bash
+sudo -s
+echo 1 > /proc/sys/kernel/sysrq
+echo b > /proc/sysrq-trigger
+```
+
+### BRIM FILLER
+
+```bash
+sudo dd if=/dev/zero of=XXX/filler bs=1M count=750
+```

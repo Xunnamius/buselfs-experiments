@@ -12,11 +12,17 @@ import sys
 import hashlib
 import pprint
 import copy
+import inspect
+import plotly.plotly as py
 from pathlib import Path
 from decimal import Decimal
 from statistics import median
 from plotly.graph_objs import Bar, Figure, Layout, Box
-import plotly.plotly as py
+
+# ? This adds the parent directory (where initrunner.py lives) to the module path
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))))
+
+import initrunner
 
 OPS = 25000 * 2
 GHZ = 1000000
@@ -26,36 +32,9 @@ COLORS_READ = ['rgb(49,130,189)', 'rgb(204,204,204)', 'rgb(255,102,0)']
 COLORS_WRITE = ['rgb(25,65,95)', 'rgb(102,102,102)', 'rgb(255,102,0)']
 TITLE_TEMPLATE = '{} <{}> FS Measurements [{} iops {} trials]'
 
-CONFIG_PATH = "{}/../config/vars.mk".format(os.path.dirname(os.path.realpath(__file__)))
-CONFIG_KEY = "CONFIG_COMPILE_FLAGS"
-PRINT_CONFIG = True
 CONFIG = {}
 
 ################################################################################
-
-def parseConfigLine(configLine):
-    lhs_rhs = ''.join(configLine.split(' \\')[0].split('-D')[1:]).split('=')
-    rhs = ''.join(lhs_rhs[1:]).strip('"\' ')
-    lhs = lhs_rhs[0].strip(' ')
-    
-    return (lhs, rhs)
-
-def parseConfigVars():
-    with open(CONFIG_PATH, 'r') as varsFile:
-        inConfigVar = False
-
-        for line in varsFile:
-            if line.startswith(CONFIG_KEY):
-                inConfigVar = True
-                continue
-            
-            if inConfigVar:
-                line = line.strip('\n')
-                if not line.endswith("\\"):
-                    inConfigVar = False
-                
-                (varName, varValue) = parseConfigLine(line)
-                CONFIG[varName] = int(varValue) if varName.endswith('_INT') else varValue
 
 def createDefaultTraceInstance(x, y, name, text, color=None):
     """Creates a default graph object instance"""
@@ -78,20 +57,26 @@ def filenameToProperName(filename):
     return "".join(filename.split('.results')[0].split('shmoo.big.'))
 
 if __name__ == "__main__":
-    parseConfigVars()
-
-    if PRINT_CONFIG:
-        print(CONFIG)
+    CONFIG = initrunner.parseConfigVars()
 
     filesdir = None
     durationBaseline = None
+
+    try:
+        os.geteuid
+    except AttributeError:
+        os.geteuid = lambda: -1
+
+    if os.geteuid() != 0:
+        print('must be root/sudo')
+        sys.exit(1)
 
     # TODO: Use the more advanced python opts API
     if len(sys.argv) != 2 and len(sys.argv) != 4:
         print('Usage: {} [-d baseline] <data directory>'.format(sys.argv[0]))
         print('"-d" enables duration mode (results will only deal with duration ratios)')
         print('When using -d, you must follow it with a number that will be the index starting at 0 of the baseline result file in fs order')
-        sys.exit(1)
+        sys.exit(2)
 
     else:
         filesdir = sys.argv[1].strip('/')
@@ -102,7 +87,7 @@ if __name__ == "__main__":
 
         if not os.path.exists(filesdir) or not os.path.isdir(filesdir):
             print('{} does not exist or is not a directory.'.format(filesdir))
-            sys.exit(1)
+            sys.exit(3)
 
     print('result files directory: {}'.format(filesdir))
     print('duration baseline: {}'.format(durationBaseline))
@@ -296,14 +281,14 @@ if __name__ == "__main__":
     user_input = input('Look good? (y/N): ')
     if user_input != 'y':
         print('not continuing!')
-        sys.exit(1)
+        sys.exit(4)
 
     print('uploading...')
 
     print('{: <90} {}'.format(read_title,
         py.plot(
             read_fig,
-            filename = 'energy-AESXTS1-cppgraph-reads-' + hashlib.md5(bytes(filesdir + read_title, 'ascii')).hexdigest(),
+            filename = 'StrongBox-graphed-reads-' + hashlib.md5(bytes(filesdir + read_title, 'ascii')).hexdigest(),
             auto_open = False
         ))
     )
@@ -311,7 +296,7 @@ if __name__ == "__main__":
     print('{: <90} {}'.format(write_title,
         py.plot(
             write_fig,
-            filename = 'energy-AESXTS1-cppgraph-writes-' + hashlib.md5(bytes(filesdir + write_title, 'ascii')).hexdigest(),
+            filename = 'StrongBox-graphed-writes-' + hashlib.md5(bytes(filesdir + write_title, 'ascii')).hexdigest(),
             auto_open = False
         ))
     )

@@ -1,3 +1,5 @@
+# COPY THIS FILE and remove the `-dist` extension to have these settings loaded!
+#
 # These global flags are included all over the place! For all of the paths
 # below, there MUST NOT be a trailing / The units of BACKEND_SIZE_INT is
 # "mebibytes," EXPAND_TABS_INT is "tab stops," and FREERUN_TIMEOUT_INT is
@@ -10,14 +12,12 @@
 # undefined behavior elsewhere. Also, the backslash (\) should not appear
 # anywhere except at the end of the line OR ELSE!
 #
-# Also, variables will not be expanded, so don't try any interpolation!
-#
 # DO NOT MODIFY IN ANY WAY THE LINE IMMEDIATELY FOLLOWING THIS COMMENT!
 CONFIG_COMPILE_FLAGS := \
-						-DBUSELFS_PATH="/home/xunnamius/repos/research/buselfs" \
-						-DBUSE_PATH="/home/xunnamius/repos/.github/BUSE/buselogfs" \
-						-DREPO_PATH="/home/xunnamius/repos/research/buselfs-experiments" \
-						-DLOG_FILE_PATH="/home/xunnamius/repos/research/buselfs-experiments/bin/runner.log" \
+						-DBUSELFS_PATH="/home/odroid/bd3/repos/buselfs/build/buselfs" \
+						-DBUSE_PATH="/home/odroid/bd3/repos/BUSE/buselogfs" \
+						-DREPO_PATH="/home/odroid/bd3/repos/buselfs-experiments" \
+						-DLOG_FILE_PATH="/home/odroid/bd3/runner.log" \
 						-DDROP_CACHE_PATH="/proc/sys/vm/drop_caches" \
 						-DRAM0_PATH="/tmp/ram0" \
 						-DTMP_ROOT_PATH="/tmp" \

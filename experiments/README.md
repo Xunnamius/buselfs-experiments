@@ -20,10 +20,10 @@ We have come a long way...
 (2017) ramdisk/filesystems experiments (setup/teardown)
             |
             V
-(2017) newagecmd + semi-automatic testrunner experiments
+(2017) newagecmd + semi-automatic testrunner experiment suite
             |
             V
-(2018) fully-automatic testrunner experiment suite
+(2018) fully-automatic testrunner-X experiment suites
             |
             V
     (whatever is next!)

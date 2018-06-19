@@ -122,7 +122,7 @@ int main(int argc, char * argv[])
     // Accept non-optional args core_type, fs_type, write_to
     if(argc != 4)
     {
-        printf("Usage: cpp-freerun <core_type> <fs_type> <write_to>\n");
+        printf("Usage: sequential-freerun <core_type> <fs_type> <write_to>\n");
         printf("No trailing slash for <write_to>!\n");
         return -1;
     }

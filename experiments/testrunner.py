@@ -9,38 +9,16 @@ import sys
 import time
 import glob
 import pexpect
+import inspect
 
-# This gets populated dynamically later (see parseConfigVars())
-CONFIG_PATH = "{}/../config/vars.mk".format(os.path.dirname(os.path.realpath(__file__)))
-CONFIG_KEY = "CONFIG_COMPILE_FLAGS"
-PRINT_CONFIG = False
+# ? This adds the parent directory (where initrunner.py lives) to the module path
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))))
+
+import initrunner
+
 CONFIG = {}
 
 ################################################################################
-
-def parseConfigLine(configLine):
-    lhs_rhs = ''.join(configLine.split(' \\')[0].split('-D')[1:]).split('=')
-    rhs = ''.join(lhs_rhs[1:]).strip('"\' ')
-    lhs = lhs_rhs[0].strip(' ')
-    
-    return (lhs, rhs)
-
-def parseConfigVars():
-    with open(CONFIG_PATH, 'r') as varsFile:
-        inConfigVar = False
-
-        for line in varsFile:
-            if line.startswith(CONFIG_KEY):
-                inConfigVar = True
-                continue
-            
-            if inConfigVar:
-                line = line.strip('\n')
-                if not line.endswith("\\"):
-                    inConfigVar = False
-                
-                (varName, varValue) = parseConfigLine(line)
-                CONFIG[varName] = int(varValue) if varName.endswith('_INT') else varValue
 
 def lprint(*args, logfile=None, severity='INFO', device=None):
     """Super special print"""
@@ -123,6 +101,7 @@ def createRawBackend(logfile, device, fs_type, mount_args=None):
                          encoding='utf-8')
 
     mount.expect(pexpect.EOF)
+    mount.close()
     
     lprint('checking mount', logfile=logfile, device=device)
 
@@ -138,6 +117,7 @@ def createRawBackend(logfile, device, fs_type, mount_args=None):
               device=device,
               exitcode=19)
 
+    mount.close()
     return backend_file_name
 
 def createRawDmcBackend(logfile, device, fs_type, mount_args=None):
@@ -220,6 +200,7 @@ def createRawDmcBackend(logfile, device, fs_type, mount_args=None):
                          encoding='utf-8')
 
     mount.expect(pexpect.EOF)
+    mount.close()
     
     lprint('checking mount', logfile=logfile, device=device)
 
@@ -237,6 +218,7 @@ def createRawDmcBackend(logfile, device, fs_type, mount_args=None):
               device=device,
               exitcode=7)
 
+    mount.close()
     return backend_file_name
 
 def createVanillaBackend(logfile, device, fs_type, mount_args=None):
@@ -280,6 +262,7 @@ def createVanillaBackend(logfile, device, fs_type, mount_args=None):
                          encoding='utf-8')
 
     mount.expect(pexpect.EOF)
+    mount.close()
     
     lprint('checking mount', logfile=logfile, device=device)
 
@@ -297,6 +280,7 @@ def createVanillaBackend(logfile, device, fs_type, mount_args=None):
               device=device,
               exitcode=19)
 
+    mount.close()
     return buse
 
 def createSbBackend(logfile, device, fs_type, mount_args=None):
@@ -306,7 +290,7 @@ def createSbBackend(logfile, device, fs_type, mount_args=None):
 
     lprint('creating StrongBox backend ({})'.format(device), logfile=logfile, device=device)
 
-    buse = Popen([CONFIG['BUSELFS_PATH'], '--backstore-size', str(CONFIG['BACKEND_SIZE_INT']), '--default-password', 'create', device],
+    buse = Popen(['{}/build/buselfs'.format(CONFIG['BUSELFS_PATH']), '--backstore-size', str(CONFIG['BACKEND_SIZE_INT']), '--default-password', 'create', device],
                  stdout=logfile,
                  stderr=logfile)
 
@@ -340,6 +324,7 @@ def createSbBackend(logfile, device, fs_type, mount_args=None):
                          encoding='utf-8')
 
     mount.expect(pexpect.EOF)
+    mount.close()
     
     lprint('checking mount', logfile=logfile, device=device)
 
@@ -356,7 +341,8 @@ def createSbBackend(logfile, device, fs_type, mount_args=None):
               logfile=logfile,
               device=device,
               exitcode=15)
-
+    
+    mount.close()
     return buse
 
 def createDmcBackend(logfile, device, fs_type, mount_args=None):
@@ -434,7 +420,8 @@ def createDmcBackend(logfile, device, fs_type, mount_args=None):
                          encoding='utf-8')
 
     mount.expect(pexpect.EOF)
-    
+    mount.close()
+
     lprint('checking mount', logfile=logfile, device=device)
 
     mount = pexpect.spawn('mount',
@@ -451,6 +438,7 @@ def createDmcBackend(logfile, device, fs_type, mount_args=None):
               device=device,
               exitcode=7)
 
+    mount.close()
     return buse
 
 def destroyRawBackend(logfile, device, backend_proc):
@@ -615,13 +603,13 @@ def symlinkDataClass(logfile, device, data_class):
         lexit('os.symlink failed to create {}'.format(symlfile), logfile=logfile, device=device, exitcode=26)
 
 def sequentialFreerun(logfile, device, data_class, test_name):
-    """Runs the sequential cpp freerun tests"""
+    """Runs the sequential freerun tests"""
 
     symlinkDataClass(logfile, device, data_class)
 
     lprint('running sequential freerun test target {}'.format(test_name), logfile=logfile, device=device)
 
-    test = pexpect.spawn('{}/bin/cpp-sequential-freerun'.format(CONFIG['REPO_PATH']),
+    test = pexpect.spawn('{}/bin/sequential-freerun'.format(CONFIG['REPO_PATH']),
                          ['ram', test_name, '{}/{}'.format(CONFIG['TMP_ROOT_PATH'], device)],
                          timeout=CONFIG['FREERUN_TIMEOUT_INT'])
 
@@ -629,22 +617,22 @@ def sequentialFreerun(logfile, device, data_class, test_name):
     test.close()
 
     if test_out == 1:
-        lexit('cpp-sequential-freerun timed out', logfile=logfile, device=device, exitcode=23)
+        lexit('sequential-freerun timed out', logfile=logfile, device=device, exitcode=23)
 
     elif test.exitstatus != 0:
-        lexit('cpp-sequential-freerun returned non-zero error code (-{})'.format(test.exitstatus),
+        lexit('sequential-freerun returned non-zero error code (-{})'.format(test.exitstatus),
               logfile=logfile,
               device=device,
               exitcode=24)
 
 def randomFreerun(logfile, device, data_class, test_name):
-    """Runs the random cpp freerun tests"""
+    """Runs the random freerun tests"""
 
     symlinkDataClass(logfile, device, data_class)
 
     lprint('running random freerun test target {}'.format(test_name), logfile=logfile, device=device)
 
-    test = pexpect.spawn('{}/bin/cpp-random-freerun'.format(CONFIG['REPO_PATH']),
+    test = pexpect.spawn('{}/bin/random-freerun'.format(CONFIG['REPO_PATH']),
                          ['ram', test_name, '{}/{}'.format(CONFIG['TMP_ROOT_PATH'], device)],
                          timeout=CONFIG['FREERUN_TIMEOUT_INT'])
 
@@ -652,19 +640,16 @@ def randomFreerun(logfile, device, data_class, test_name):
     test.close()
 
     if test_out == 1:
-        lexit('cpp-random-freerun timed out', logfile=logfile, device=device, exitcode=27)
+        lexit('random-freerun timed out', logfile=logfile, device=device, exitcode=27)
 
     elif test.exitstatus != 0:
-        lexit('cpp-random-freerun returned non-zero error code (-{})'.format(test.exitstatus),
+        lexit('random-freerun returned non-zero error code (-{})'.format(test.exitstatus),
               logfile=logfile,
               device=device,
               exitcode=28)
 
 if __name__ == "__main__":
-    parseConfigVars()
-
-    if PRINT_CONFIG:
-        print(CONFIG)
+    CONFIG = initrunner.parseConfigVars()
 
     try:
         os.geteuid
@@ -673,6 +658,9 @@ if __name__ == "__main__":
 
     if os.geteuid() != 0:
         lexit('must be root/sudo', exitcode=1)
+    
+    # Bare bones basic initialization
+    initrunner.initialize()
 
     if not os.path.exists(CONFIG['RAM0_PATH']):
         lexit("did you forget to do the initial setup? (can't find {})".format(CONFIG['RAM0_PATH']), exitcode=2)
@@ -680,11 +668,11 @@ if __name__ == "__main__":
     if not os.path.exists('/dev/nbd0'):
         lexit("did you forget to do the initial setup? (can't find /dev/nbd0)", exitcode=3)
 
-    if not os.path.exists('{}/bin/cpp-sequential-freerun'.format(CONFIG['REPO_PATH'])) \
-       or not os.path.exists('{}/bin/cpp-random-freerun'.format(CONFIG['REPO_PATH'])):
+    if not os.path.exists('{}/bin/sequential-freerun'.format(CONFIG['REPO_PATH'])) \
+       or not os.path.exists('{}/bin/random-freerun'.format(CONFIG['REPO_PATH'])):
         lexit("did you forget to run `make all` in buselfs-experiments?", exitcode=4)
 
-    if not os.path.exists(CONFIG['BUSELFS_PATH']):
+    if not os.path.exists('{}/build/buselfs'.format(CONFIG['BUSELFS_PATH'])):
         lexit("did you forget to run `make` in buselfs/build?", exitcode=10)
 
     with open(CONFIG['LOG_FILE_PATH'], 'w') as file:
