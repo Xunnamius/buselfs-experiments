@@ -1,19 +1,6 @@
 # Workflow #
 ###########
 lfslog
-data.target
-data5g.random
-
-# Grunt & Composer #
-###########
-# Put the server's version of the Gruntfile.js or the package.json directly
-Gruntfile.js
-/package.json
-
-# Sublime #
-###########
-*.sublime-*
-!*.sublime-project
 
 # Logs and Databases #
 ######################

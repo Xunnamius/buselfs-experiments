@@ -19,7 +19,6 @@ from plotly.graph_objs import Bar, Figure, Layout, Box
 import plotly.plotly as py
 
 OPS = 25000 * 2
-TRIALS = 10 # XXX: THIS SHOULD MATCH THE SAME CONSTANT IN cpp-simple-freeun.c!
 GHZ = 1000000
 
 METRICS = ('energy', 'power', 'duration')
@@ -27,7 +26,36 @@ COLORS_READ = ['rgb(49,130,189)', 'rgb(204,204,204)', 'rgb(255,102,0)']
 COLORS_WRITE = ['rgb(25,65,95)', 'rgb(102,102,102)', 'rgb(255,102,0)']
 TITLE_TEMPLATE = '{} <{}> FS Measurements [{} iops {} trials]'
 
+CONFIG_PATH = "{}/../config/vars.mk".format(os.path.dirname(os.path.realpath(__file__)))
+CONFIG_KEY = "CONFIG_COMPILE_FLAGS"
+PRINT_CONFIG = True
+CONFIG = {}
+
 ################################################################################
+
+def parseConfigLine(configLine):
+    lhs_rhs = ''.join(configLine.split(' \\')[0].split('-D')[1:]).split('=')
+    rhs = ''.join(lhs_rhs[1:]).strip('"\' ')
+    lhs = lhs_rhs[0].strip(' ')
+    
+    return (lhs, rhs)
+
+def parseConfigVars():
+    with open(CONFIG_PATH, 'r') as varsFile:
+        inConfigVar = False
+
+        for line in varsFile:
+            if line.startswith(CONFIG_KEY):
+                inConfigVar = True
+                continue
+            
+            if inConfigVar:
+                line = line.strip('\n')
+                if not line.endswith("\\"):
+                    inConfigVar = False
+                
+                (varName, varValue) = parseConfigLine(line)
+                CONFIG[varName] = int(varValue) if varName.endswith('_INT') else varValue
 
 def createDefaultTraceInstance(x, y, name, text, color=None):
     """Creates a default graph object instance"""
@@ -50,7 +78,12 @@ def filenameToProperName(filename):
     return "".join(filename.split('.results')[0].split('shmoo.big.'))
 
 if __name__ == "__main__":
-    filesdir     = None
+    parseConfigVars()
+
+    if PRINT_CONFIG:
+        print(CONFIG)
+
+    filesdir = None
     durationBaseline = None
 
     # TODO: Use the more advanced python opts API
@@ -140,8 +173,8 @@ if __name__ == "__main__":
     titlePrefix = filesdir.strip('/').split('/')[-1]
 
     # TODO: Compact this into a function or
-    read_title = TITLE_TEMPLATE.format(titlePrefix, 'reads', OPS, TRIALS) + (' (duration ratios)' if durationBaseline is not None else '')
-    write_title = TITLE_TEMPLATE.format(titlePrefix, 'writes', OPS, TRIALS) + (' (duration ratios)' if durationBaseline is not None else '')
+    read_title = TITLE_TEMPLATE.format(titlePrefix, 'reads', OPS, CONFIG['TRIALS_INT']) + (' (duration ratios)' if durationBaseline is not None else '')
+    write_title = TITLE_TEMPLATE.format(titlePrefix, 'writes', OPS, CONFIG['TRIALS_INT']) + (' (duration ratios)' if durationBaseline is not None else '')
 
     # XXX: create new trace instances and do what needs doing to construct the bar chart
     cdsi = lambda x, y, name, color: createDefaultTraceInstance(x, y, name, None, color)

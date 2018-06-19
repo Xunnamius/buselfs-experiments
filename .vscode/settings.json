@@ -85,5 +85,6 @@
         "writeto",
         "xaxis",
         "yaxis"
-    ]
+    ],
+    "python.formatting.provider": "none"
 }

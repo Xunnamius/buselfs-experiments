@@ -10,22 +10,42 @@ import time
 import glob
 import pexpect
 
-BACKEND_SIZE    = 800 # MiB
-EXPAND_TABS     = 15 # tab stops
-FREERUN_TIMEOUT = 900 # seconds
-DROP_CACHE_PATH = '/proc/sys/vm/drop_caches'
-TMP_ROOT_PATH   = '/tmp'
-RAM0_PATH       = '/tmp/ram0'
-BUSE_PATH       = '/home/odroid/bd3/repos/BUSE/buselogfs'
-BUSELFS_PATH    = '/home/odroid/bd3/repos/buselfs/build/buselfs'
-LOG_FILE_PATH   = '/home/odroid/bd3/runner.log'
+# This gets populated dynamically later (see parseConfigVars())
+CONFIG_PATH = "{}/../config/vars.mk".format(os.path.dirname(os.path.realpath(__file__)))
+CONFIG_KEY = "CONFIG_COMPILE_FLAGS"
+PRINT_CONFIG = False
+CONFIG = {}
 
 ################################################################################
 
+def parseConfigLine(configLine):
+    lhs_rhs = ''.join(configLine.split(' \\')[0].split('-D')[1:]).split('=')
+    rhs = ''.join(lhs_rhs[1:]).strip('"\' ')
+    lhs = lhs_rhs[0].strip(' ')
+    
+    return (lhs, rhs)
+
+def parseConfigVars():
+    with open(CONFIG_PATH, 'r') as varsFile:
+        inConfigVar = False
+
+        for line in varsFile:
+            if line.startswith(CONFIG_KEY):
+                inConfigVar = True
+                continue
+            
+            if inConfigVar:
+                line = line.strip('\n')
+                if not line.endswith("\\"):
+                    inConfigVar = False
+                
+                (varName, varValue) = parseConfigLine(line)
+                CONFIG[varName] = int(varValue) if varName.endswith('_INT') else varValue
+
 def lprint(*args, logfile=None, severity='INFO', device=None):
     """Super special print"""
-    preamble = '[{}{}]:\t'.format(severity, ':{}'.format(device) if device else '')
-    print(preamble.expandtabs(EXPAND_TABS), *args, flush=True)
+    preamble = '[{}{}]: '.format(severity, ':{}'.format(device) if device else '')
+    print(preamble.expandtabs(CONFIG['EXPAND_TABS_INT']), *args, flush=True)
 
     if logfile:
         print(preamble.expandtabs(0), *args, file=logfile)
@@ -42,7 +62,7 @@ def dropPageCache():
     """Drop the linux page cache programmatically"""
     lprint('dropping the page cache')
 
-    with open(DROP_CACHE_PATH, 'w') as cache:
+    with open(CONFIG['DROP_CACHE_PATH'], 'w') as cache:
         cache.write('1\n')
 
 def sleep(seconds):
@@ -54,7 +74,7 @@ def clearBackstoreFiles():
     """Removes all RAM0_PATH/* files"""
     lprint('clearing backstore files')
 
-    files = glob.glob('{}/*'.format(RAM0_PATH))
+    files = glob.glob('{}/*'.format(CONFIG['RAM0_PATH']))
     for f in files:
         os.remove(f)
 
@@ -62,8 +82,8 @@ def createRawBackend(logfile, device, fs_type, mount_args=None):
     """Creates a non-BUSE raw drive-backed backend"""
 
     mount_args = mount_args or []
-    backend_size_bytes = BACKEND_SIZE * 1024 * 1024
-    backend_file_name = '{}/logfs-{}.bkstr'.format(RAM0_PATH, device)
+    backend_size_bytes = CONFIG['BACKEND_SIZE_INT'] * 1024 * 1024
+    backend_file_name = '{}/logfs-{}.bkstr'.format(CONFIG['RAM0_PATH'], device)
 
     lprint('creating RAW backend ({} @ {})'.format(device, backend_file_name), logfile=logfile, device=device)
 
@@ -96,7 +116,7 @@ def createRawBackend(logfile, device, fs_type, mount_args=None):
     lprint('running mount', logfile=logfile, device=device)
 
     mount = pexpect.spawn('mount',
-                         mount_args + ['-t', fs_type, backend_file_name, '{}/{}'.format(TMP_ROOT_PATH, device), '-o', 'loop'],
+                         mount_args + ['-t', fs_type, backend_file_name, '{}/{}'.format(CONFIG['TMP_ROOT_PATH'], device), '-o', 'loop'],
                          logfile=logfile,
                          echo=False,
                          timeout=5,
@@ -112,9 +132,9 @@ def createRawBackend(logfile, device, fs_type, mount_args=None):
                          timeout=5,
                          encoding='utf-8')
 
-    mount_out = mount.expect([r'on {}/{}'.format(TMP_ROOT_PATH, device), pexpect.EOF])
+    mount_out = mount.expect([r'on {}/{}'.format(CONFIG['TMP_ROOT_PATH'], device), pexpect.EOF])
     if mount_out == 1:
-        lexit('Could not verify successful mount of {} on {}/{}'.format(backend_file_name, TMP_ROOT_PATH, device), logfile=logfile,
+        lexit('Could not verify successful mount of {} on {}/{}'.format(backend_file_name, CONFIG['TMP_ROOT_PATH'], device), logfile=logfile,
               device=device,
               exitcode=19)
 
@@ -124,8 +144,8 @@ def createRawDmcBackend(logfile, device, fs_type, mount_args=None):
     """Creates a non-BUSE raw drive-backed dm-crypt backend"""
 
     mount_args = mount_args or []
-    backend_size_bytes = BACKEND_SIZE * 1024 * 1024
-    backend_file_name = '{}/logfs-{}.bkstr'.format(RAM0_PATH, device)
+    backend_size_bytes = CONFIG['BACKEND_SIZE_INT'] * 1024 * 1024
+    backend_file_name = '{}/logfs-{}.bkstr'.format(CONFIG['RAM0_PATH'], device)
 
     lprint('creating RAW dm-crypt LUKS volume backend ({} @ {})'.format(device, backend_file_name),
            logfile=logfile, device=device)
@@ -193,7 +213,7 @@ def createRawDmcBackend(logfile, device, fs_type, mount_args=None):
     lprint('running mount', logfile=logfile, device=device)
 
     mount = pexpect.spawn('mount',
-                         mount_args + ['-t', fs_type, '/dev/mapper/{}'.format(device), '{}/{}'.format(TMP_ROOT_PATH, device), '-o', 'loop'],
+                         mount_args + ['-t', fs_type, '/dev/mapper/{}'.format(device), '{}/{}'.format(CONFIG['TMP_ROOT_PATH'], device), '-o', 'loop'],
                          logfile=logfile,
                          echo=False,
                          timeout=5,
@@ -209,10 +229,10 @@ def createRawDmcBackend(logfile, device, fs_type, mount_args=None):
                          timeout=5,
                          encoding='utf-8')
 
-    mount_out = mount.expect([r'on {}/{}'.format(TMP_ROOT_PATH, device), pexpect.EOF])
+    mount_out = mount.expect([r'on {}/{}'.format(CONFIG['TMP_ROOT_PATH'], device), pexpect.EOF])
 
     if mount_out == 1:
-        lexit("could not verify successful mount of /dev/mapper/{} on {}/{}".format(device, TMP_ROOT_PATH, device),
+        lexit("could not verify successful mount of /dev/mapper/{} on {}/{}".format(device, CONFIG['TMP_ROOT_PATH'], device),
               logfile=logfile,
               device=device,
               exitcode=7)
@@ -226,7 +246,7 @@ def createVanillaBackend(logfile, device, fs_type, mount_args=None):
 
     lprint('creating vanilla backend ({})'.format(device), logfile=logfile, device=device)
 
-    buse = Popen([BUSE_PATH, '--size', str(BACKEND_SIZE * 1024 * 1024), '/dev/{}'.format(device)],
+    buse = Popen([CONFIG['BUSE_PATH'], '--size', str(CONFIG['BACKEND_SIZE_INT'] * 1024 * 1024), '/dev/{}'.format(device)],
                  stdout=logfile,
                  stderr=logfile)
 
@@ -253,7 +273,7 @@ def createVanillaBackend(logfile, device, fs_type, mount_args=None):
     lprint('running mount', logfile=logfile, device=device)
 
     mount = pexpect.spawn('mount',
-                         mount_args + ['-t', fs_type, '/dev/{}'.format(device), '{}/{}'.format(TMP_ROOT_PATH, device)],
+                         mount_args + ['-t', fs_type, '/dev/{}'.format(device), '{}/{}'.format(CONFIG['TMP_ROOT_PATH'], device)],
                          logfile=logfile,
                          echo=False,
                          timeout=5,
@@ -269,10 +289,10 @@ def createVanillaBackend(logfile, device, fs_type, mount_args=None):
                          timeout=5,
                          encoding='utf-8')
 
-    mount_out = mount.expect([r'on {}/{}'.format(TMP_ROOT_PATH, device), pexpect.EOF])
+    mount_out = mount.expect([r'on {}/{}'.format(CONFIG['TMP_ROOT_PATH'], device), pexpect.EOF])
 
     if mount_out == 1:
-        lexit("could not verify successful mount of /dev/{} on {}/{}".format(device, TMP_ROOT_PATH, device),
+        lexit("could not verify successful mount of /dev/{} on {}/{}".format(device, CONFIG['TMP_ROOT_PATH'], device),
               logfile=logfile,
               device=device,
               exitcode=19)
@@ -286,7 +306,7 @@ def createSbBackend(logfile, device, fs_type, mount_args=None):
 
     lprint('creating StrongBox backend ({})'.format(device), logfile=logfile, device=device)
 
-    buse = Popen([BUSELFS_PATH, '--backstore-size', str(BACKEND_SIZE), '--default-password', 'create', device],
+    buse = Popen([CONFIG['BUSELFS_PATH'], '--backstore-size', str(CONFIG['BACKEND_SIZE_INT']), '--default-password', 'create', device],
                  stdout=logfile,
                  stderr=logfile)
 
@@ -313,7 +333,7 @@ def createSbBackend(logfile, device, fs_type, mount_args=None):
     lprint('running mount', logfile=logfile, device=device)
 
     mount = pexpect.spawn('mount',
-                         mount_args + ['-t', fs_type, '/dev/{}'.format(device), '{}/{}'.format(TMP_ROOT_PATH, device)],
+                         mount_args + ['-t', fs_type, '/dev/{}'.format(device), '{}/{}'.format(CONFIG['TMP_ROOT_PATH'], device)],
                          logfile=logfile,
                          echo=False,
                          timeout=5,
@@ -329,10 +349,10 @@ def createSbBackend(logfile, device, fs_type, mount_args=None):
                          timeout=5,
                          encoding='utf-8')
 
-    mount_out = mount.expect([r'on {}/{}'.format(TMP_ROOT_PATH, device), pexpect.EOF])
+    mount_out = mount.expect([r'on {}/{}'.format(CONFIG['TMP_ROOT_PATH'], device), pexpect.EOF])
 
     if mount_out == 1:
-        lexit("could not verify successful mount of /dev/{} on {}/{}".format(device, TMP_ROOT_PATH, device),
+        lexit("could not verify successful mount of /dev/{} on {}/{}".format(device, CONFIG['TMP_ROOT_PATH'], device),
               logfile=logfile,
               device=device,
               exitcode=15)
@@ -346,7 +366,7 @@ def createDmcBackend(logfile, device, fs_type, mount_args=None):
 
     lprint('creating dm-crypt LUKS volume buselogfs backend ({})'.format(device), logfile=logfile, device=device)
 
-    buse = Popen([BUSE_PATH, '--size', str(BACKEND_SIZE * 1024 * 1024), '/dev/{}'.format(device)],
+    buse = Popen([CONFIG['BUSE_PATH'], '--size', str(CONFIG['BACKEND_SIZE_INT'] * 1024 * 1024), '/dev/{}'.format(device)],
                  stdout=logfile,
                  stderr=logfile)
 
@@ -407,7 +427,7 @@ def createDmcBackend(logfile, device, fs_type, mount_args=None):
     lprint('running mount', logfile=logfile, device=device)
 
     mount = pexpect.spawn('mount',
-                         mount_args + ['-t', fs_type, '/dev/mapper/{}'.format(device), '{}/{}'.format(TMP_ROOT_PATH, device)],
+                         mount_args + ['-t', fs_type, '/dev/mapper/{}'.format(device), '{}/{}'.format(CONFIG['TMP_ROOT_PATH'], device)],
                          logfile=logfile,
                          echo=False,
                          timeout=5,
@@ -423,10 +443,10 @@ def createDmcBackend(logfile, device, fs_type, mount_args=None):
                          timeout=5,
                          encoding='utf-8')
 
-    mount_out = mount.expect([r'on {}/{}'.format(TMP_ROOT_PATH, device), pexpect.EOF])
+    mount_out = mount.expect([r'on {}/{}'.format(CONFIG['TMP_ROOT_PATH'], device), pexpect.EOF])
 
     if mount_out == 1:
-        lexit("could not verify successful mount of /dev/mapper/{} on {}/{}".format(device, TMP_ROOT_PATH, device),
+        lexit("could not verify successful mount of /dev/mapper/{} on {}/{}".format(device, CONFIG['TMP_ROOT_PATH'], device),
               logfile=logfile,
               device=device,
               exitcode=7)
@@ -439,7 +459,7 @@ def destroyRawBackend(logfile, device, backend_proc):
     lprint('running umount', logfile=logfile, device=device)
 
     mount = pexpect.spawn('umount',
-                         ['{}/{}'.format(TMP_ROOT_PATH, device)],
+                         ['{}/{}'.format(CONFIG['TMP_ROOT_PATH'], device)],
                          logfile=logfile,
                          echo=False,
                          encoding='utf-8')
@@ -466,7 +486,7 @@ def destroyRawDmcBackend(logfile, device, backend_proc):
     lprint('running umount', logfile=logfile, device=device)
 
     mount = pexpect.spawn('umount',
-                         ['{}/{}'.format(TMP_ROOT_PATH, device)],
+                         ['{}/{}'.format(CONFIG['TMP_ROOT_PATH'], device)],
                          logfile=logfile,
                          echo=False,
                          encoding='utf-8')
@@ -503,7 +523,7 @@ def destroyVanillaBackend(logfile, device, backend_proc):
     lprint('running umount', logfile=logfile, device=device)
 
     mount = pexpect.spawn('umount',
-                         ['{}/{}'.format(TMP_ROOT_PATH, device)],
+                         ['{}/{}'.format(CONFIG['TMP_ROOT_PATH'], device)],
                          logfile=logfile,
                          echo=False,
                          encoding='utf-8')
@@ -524,7 +544,7 @@ def destroySbBackend(logfile, device, backend_proc):
     lprint('running umount', logfile=logfile, device=device)
 
     mount = pexpect.spawn('umount',
-                         ['{}/{}'.format(TMP_ROOT_PATH, device)],
+                         ['{}/{}'.format(CONFIG['TMP_ROOT_PATH'], device)],
                          logfile=logfile,
                          echo=False,
                          encoding='utf-8')
@@ -545,7 +565,7 @@ def destroyDmcBackend(logfile, device, backend_proc):
     lprint('running umount', logfile=logfile, device=device)
 
     mount = pexpect.spawn('umount',
-                         ['{}/{}'.format(TMP_ROOT_PATH, device)],
+                         ['{}/{}'.format(CONFIG['TMP_ROOT_PATH'], device)],
                          logfile=logfile,
                          echo=False,
                          encoding='utf-8')
@@ -573,8 +593,8 @@ def destroyDmcBackend(logfile, device, backend_proc):
 def symlinkDataClass(logfile, device, data_class):
     """Symlinks the proper data file to be written and read in by experiments"""
 
-    datafile = '/home/odroid/bd3/repos/energy-AES-1/data{}.random'.format(data_class)
-    symlfile = '/home/odroid/bd3/repos/energy-AES-1/data.target'
+    datafile = '{}/data/data{}.random'.format(CONFIG['REPO_PATH'], data_class)
+    symlfile = '{}/data/data.target'.format(CONFIG['REPO_PATH'])
 
     lprint('setting data target to class {}'.format(data_class), logfile=logfile, device=device)
 
@@ -601,9 +621,9 @@ def sequentialFreerun(logfile, device, data_class, test_name):
 
     lprint('running sequential freerun test target {}'.format(test_name), logfile=logfile, device=device)
 
-    test = pexpect.spawn('/home/odroid/bd3/repos/energy-AES-1/bin/cpp-sequential-freerun',
-                         ['ram', test_name, '{}/{}'.format(TMP_ROOT_PATH, device)],
-                         timeout=FREERUN_TIMEOUT)
+    test = pexpect.spawn('{}/bin/cpp-sequential-freerun'.format(CONFIG['REPO_PATH']),
+                         ['ram', test_name, '{}/{}'.format(CONFIG['TMP_ROOT_PATH'], device)],
+                         timeout=CONFIG['FREERUN_TIMEOUT_INT'])
 
     test_out = test.expect([pexpect.EOF, pexpect.TIMEOUT])
     test.close()
@@ -624,9 +644,9 @@ def randomFreerun(logfile, device, data_class, test_name):
 
     lprint('running random freerun test target {}'.format(test_name), logfile=logfile, device=device)
 
-    test = pexpect.spawn('/home/odroid/bd3/repos/energy-AES-1/bin/cpp-random-freerun',
-                         ['ram', test_name, '{}/{}'.format(TMP_ROOT_PATH, device)],
-                         timeout=FREERUN_TIMEOUT)
+    test = pexpect.spawn('{}/bin/cpp-random-freerun'.format(CONFIG['REPO_PATH']),
+                         ['ram', test_name, '{}/{}'.format(CONFIG['TMP_ROOT_PATH'], device)],
+                         timeout=CONFIG['FREERUN_TIMEOUT_INT'])
 
     test_out = test.expect([pexpect.EOF, pexpect.TIMEOUT])
     test.close()
@@ -641,6 +661,11 @@ def randomFreerun(logfile, device, data_class, test_name):
               exitcode=28)
 
 if __name__ == "__main__":
+    parseConfigVars()
+
+    if PRINT_CONFIG:
+        print(CONFIG)
+
     try:
         os.geteuid
     except AttributeError:
@@ -649,24 +674,24 @@ if __name__ == "__main__":
     if os.geteuid() != 0:
         lexit('must be root/sudo', exitcode=1)
 
-    if not os.path.exists(RAM0_PATH):
-        lexit("did you forget to do the initial setup? (can't find {})".format(RAM0_PATH), exitcode=2)
+    if not os.path.exists(CONFIG['RAM0_PATH']):
+        lexit("did you forget to do the initial setup? (can't find {})".format(CONFIG['RAM0_PATH']), exitcode=2)
 
     if not os.path.exists('/dev/nbd0'):
         lexit("did you forget to do the initial setup? (can't find /dev/nbd0)", exitcode=3)
 
-    if not os.path.exists('/home/odroid/bd3/repos/energy-AES-1/bin/cpp-sequential-freerun') \
-       or not os.path.exists('/home/odroid/bd3/repos/energy-AES-1/bin/cpp-random-freerun'):
-        lexit("did you forget to run `make all` in energy-AES-1?", exitcode=4)
+    if not os.path.exists('{}/bin/cpp-sequential-freerun'.format(CONFIG['REPO_PATH'])) \
+       or not os.path.exists('{}/bin/cpp-random-freerun'.format(CONFIG['REPO_PATH'])):
+        lexit("did you forget to run `make all` in buselfs-experiments?", exitcode=4)
 
-    if not os.path.exists(BUSELFS_PATH):
+    if not os.path.exists(CONFIG['BUSELFS_PATH']):
         lexit("did you forget to run `make` in buselfs/build?", exitcode=10)
 
-    with open(LOG_FILE_PATH, 'w') as file:
+    with open(CONFIG['LOG_FILE_PATH'], 'w') as file:
         print(str(datetime.now()), '\n---------\n', file=file)
 
-        os.chdir(RAM0_PATH)
-        lprint('working directory set to {}'.format(RAM0_PATH), logfile=file)
+        os.chdir(CONFIG['RAM0_PATH'])
+        lprint('working directory set to {}'.format(CONFIG['RAM0_PATH']), logfile=file)
 
         clearBackstoreFiles()
 

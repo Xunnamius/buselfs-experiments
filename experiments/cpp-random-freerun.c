@@ -17,16 +17,23 @@
 
 #define IOSIZE 131072
 //#define IOSIZE INT_MAX
+#define SRAND_SEED1 76532543U
+#define SRAND_SEED2 34567970U
 #define PATH_BUFF_SIZE 255
 #define CMD_BUFF_SIZE 512
 #define COPY_INTO_TIMES 1 // randomness written COPY_INTO_TIMES into same file
-#define REPO_PATH "/home/odroid/bd3/repos/energy-AES-1" // No trailing /
+
+#ifndef REPO_PATH
+#define REPO_PATH "." // No trailing / ; see config/vars.mk
+#endif
+
+#ifndef TRIALS_INT
+#define TRIALS_INT 10 // No trailing / ; see config/vars.mk
+#endif
 
 #define MIN(a,b) __extension__ ({ __typeof__ (a) _a = (a); __typeof__ (b) _b = (b); _a < _b ? _a : _b; })
 
-const int TRIALS = 10;
 const int CLEANUP = 0;
-const int NO_SHMOO = 1;
 
 // For random data from /dev/urandom
 const char * RANDOM_PATH = REPO_PATH"/data.target";
@@ -133,7 +140,7 @@ int main(int argc, char * argv[])
     // Get read path from shards
 
     char path_shard[PATH_BUFF_SIZE];
-    snprintf(path_shard, PATH_BUFF_SIZE, "results/sequential.%s.%s.results", core_type, fs_type);
+    snprintf(path_shard, PATH_BUFF_SIZE, "results/random.%s.%s.results", core_type, fs_type);
     get_real_path(output_path, path_shard);
     
     printf("output_path: %s\n", output_path);
@@ -150,6 +157,7 @@ int main(int argc, char * argv[])
     // Read entire randomness file into memory buffer
     
     errno = 0;
+
     frandom = fopen(RANDOM_PATH, "rb+");
 
     if(!frandom && errno)
@@ -158,8 +166,9 @@ int main(int argc, char * argv[])
         return 8;
     }
 
-    int fsk = fseek(frandom, 0, SEEK_END);
+    int fsk = 0;
     errno = 0;
+    fsk = fseek(frandom, 0, SEEK_END);
 
     if(!fsk && errno)
     {
@@ -169,7 +178,6 @@ int main(int argc, char * argv[])
 
     errno = 0;
     u_int64_t fsize = 0;
-
     fsize = ftell(frandom);
 
     if(fsize < 0 && errno)
@@ -179,7 +187,10 @@ int main(int argc, char * argv[])
     }
 
     u_int64_t iosize_actual = 0;
-    iosize_actual = MIN(fsize, IOSIZE);
+    u_int64_t seeklimit = 0;
+
+    iosize_actual = MIN(fsize / 2, IOSIZE);
+    seeklimit = fsize - iosize_actual;
     errno = 0;
 
     rewind(frandom);
@@ -202,7 +213,7 @@ int main(int argc, char * argv[])
     errno = 0;
     size_t frd = fread(randomness, fsize, 1, frandom);
 
-    if(frd && errno)
+    if(frd != fsize && errno)
     {
         perror("fread of RANDOM_PATH failed");
         return 12;
@@ -236,16 +247,15 @@ int main(int argc, char * argv[])
     // Begin the trials
     
     int pcachefd = open("/proc/sys/vm/drop_caches", O_WRONLY);
-    int trials = TRIALS;
-
     const char * droppcache = "3";
+    int trials = TRIALS_INT;
 
     while(keepRunning && trials--)
     {
         int retval = 0;
-        int trial = TRIALS - trials;
+        int trial = TRIALS_INT - trials;
 
-        printf("--> beginning trial %d of %d\n", trial, TRIALS);
+        printf("--> beginning trial %d of %d\n", trial, TRIALS_INT);
 
         char writeout_target[PATH_BUFF_SIZE];
 
@@ -283,10 +293,12 @@ int main(int argc, char * argv[])
         char * randomnessCopy = randomness;
 
         lseek64(trialoutfd, 0, SEEK_SET);
+        srand(SRAND_SEED1);
 
         while(writelen > 0)
         {
-            u_int64_t bytesWritten = write(trialoutfd, randomnessCopy, iosize_actual);
+            u_int64_t offset = rand() % seeklimit;
+            u_int64_t bytesWritten = pwrite(trialoutfd, randomnessCopy + offset, iosize_actual, fsize - writelen);
 
             if(bytesWritten <= 0)
             {
@@ -296,7 +308,7 @@ int main(int argc, char * argv[])
             }
 
             writelen -= bytesWritten;
-            randomnessCopy = randomnessCopy + bytesWritten;
+            //randomnessCopy = randomnessCopy + bytesWritten;
         }
 
         // Make sure everything writes through
@@ -328,10 +340,12 @@ int main(int argc, char * argv[])
         char * readbackOriginal = readback;
 
         lseek64(trialoutfd, 0, SEEK_SET);
+        srand(SRAND_SEED2);
 
         while(readlen > 0)
         {
-            u_int64_t bytesRead = read(trialoutfd, readback, iosize_actual);
+            u_int64_t offset = rand() % seeklimit;
+            u_int64_t bytesRead = pread(trialoutfd, readback, iosize_actual, offset);
 
             if(bytesRead <= 0)
             {
@@ -402,9 +416,6 @@ int main(int argc, char * argv[])
         return 7;
     }
 
-    /*if(NO_SHMOO)
-        fprintf(flog_output, "%s", "mf: 0x10 2000000\n");*/
-
     if(monitor.ffinish(&monitor))
     {
         perror("ffinish");
@@ -419,9 +430,7 @@ int main(int argc, char * argv[])
 
     // Free randomness buffer
     free(randomness);
-    
     printf("Done!\n");
-
     fclose(flog_output);
     close(pcachefd);
 
