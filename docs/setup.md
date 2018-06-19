@@ -1,6 +1,8 @@
-# The setupX.sh Scripts
+# NOTE: These experiments have been obsoleted. See [README](README.md) and [testrunner](testrunner.md) for more up to date information!
 
-These scripts are handy little creations that automate the setup process for various parts of the experiment.
+# The `setupX.sh` Scripts
+
+These scripts were handy little creations that automated the setup process for various parts of earlier buselfs experiments.
 
 ## Expected Structure
 
@@ -15,7 +17,7 @@ mnt
 │   └── write (mount point for fs.ext4)
 ├── 03-kext4-fuse-ext4-dmc
 │   ├── fs.ext4
-│   └── write (mount pount for fs.ext4; contents only exist when fs.ext4 is mounted)
+│   └── write (mount point for fs.ext4; contents only exist when fs.ext4 is mounted)
 │       ├── fs.dmc
 │       └── write (mount point for fs.dmc)
 ├── 04-kext4-dmc-fuse-ext4

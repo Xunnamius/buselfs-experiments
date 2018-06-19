@@ -1,3 +1,5 @@
+# NOTE: **YOU ARE IN THE OBSOLETED BRANCH!** Everything here is old and is kept around for the purposes of documentation. Switch back to master if you're trying to run experiments and stuff!
+
 # StrongBox (AKA/FKA: Buselfs) Experiments
 
 This repository houses my energy/AES related experiments for the purposes of eventually developing a chacha-based device mapper utilizing poly1305 and LFS officially known
