@@ -3,13 +3,33 @@
 """Formerly known as the 'new age' initializing bash commands, this python
 script is responsible for ensuring the system is ready to run experiments"""
 
+# TODO: Add a "--force" option that forces initialization even if ram0 detected
+
 import os
 import sys
 import pprint
 import pexpect
 
 # ! All of these dirs will be prefixed with CONFIG['TMP_ROOT_PATH']
-MODPROBE_DIRS = ['/nbd0', '/nbd1', '/nbd2', '/nbd3', '/nbd4', '/nbd5', '/nbd6', '/nbd7', '/nbd8', '/nbd9', '/nbd10', '/nbd11', '/nbd12', '/nbd13', '/nbd14', '/nbd15', '/config', '/run'] # + [CONFIG['RAM0_PATH']]
+MODPROBE_DIRS = ['nbd0',
+                 'nbd1',
+                 'nbd2',
+                 'nbd3',
+                 'nbd4',
+                 'nbd5',
+                 'nbd6',
+                 'nbd7',
+                 'nbd8',
+                 'nbd9',
+                 'nbd10',
+                 'nbd11',
+                 'nbd12',
+                 'nbd13',
+                 'nbd14',
+                 'nbd15',
+                 'config',
+                 'run'
+] # + [CONFIG['RAM0_PATH']]
 
 CONFIG_PATH = "{}/config/vars.mk".format(os.path.dirname(os.path.realpath(__file__)))
 CONFIG_KEY = "CONFIG_COMPILE_FLAGS"
@@ -56,15 +76,17 @@ def checkMount():
 
     return expecting
 
-def initialize():
+def initialize(verbose=False):
     """Idempotent initialization of the experimental testbed."""
 
     # 1 => not found
     if checkMount() == 1:
-        print('(ramdisk not found, executing initialization procedure...)')
+        print('(mounted ramdisk not found, executing initialization procedure...)')
 
         for mod in ('nbd', 'logfs', 'nilfs', 'f2fs'):
             modprobe = pexpect.spawn('modprobe', ['nbd'], timeout=5, encoding='utf-8')
+
+            modprobe.logfile = sys.stdout if verbose else None
             modprobe.expect(pexpect.EOF)
             modprobe.close()
 
@@ -77,7 +99,8 @@ def initialize():
             timeout=5,
             encoding='utf-8'
         )
-        
+
+        mkdir.logfile = sys.stdout if verbose else None
         mkdir.expect(pexpect.EOF)
         mkdir.close()
 
@@ -91,6 +114,7 @@ def initialize():
             encoding='utf-8'
         )
 
+        cp.logfile = sys.stdout if verbose else None
         cp.expect(pexpect.EOF)
         cp.close()
 
@@ -105,6 +129,7 @@ def initialize():
             encoding='utf-8'
         )
 
+        mount.logfile = sys.stdout if verbose else None
         mount.expect(pexpect.EOF)
         mount.close()
 
@@ -116,7 +141,7 @@ def initialize():
             print('Could not verify successful initialization mount on {} (bad exit status {})'.format(CONFIG['RAM0_PATH'], mount.exitstatus))
             sys.exit(6)
     else:
-        print('(found ramdisk, initialization procedure skipped!)')
+        print('(found mounted ramdisk, initialization procedure skipped! Use --force to force re-initialization)')
 
 if __name__ == "__main__":
     try:
@@ -133,6 +158,6 @@ if __name__ == "__main__":
     pprint.PrettyPrinter(indent=4).pprint(CONFIG)
     print()
 
-    initialize()
+    initialize(True)
 
     print("Testbed manual initialization successful.")
