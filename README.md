@@ -14,7 +14,7 @@ Any experiment that requires compilation will have said compilation yielded here
 
 ### `config/`
 
-Any experimental configuration is stored in this directory. If you need to change, for example, where experiments are run you're probably looking for some setting that exists in this directory.
+Any experimental configuration is stored in this directory. If you need to change, for example, where experiments are run then you're probably looking for some setting that exists in this directory.
 
 ### `data/`
 
