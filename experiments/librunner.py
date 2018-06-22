@@ -7,9 +7,17 @@ import glob
 import pexpect
 import inspect
 
+# ? This is encountered when the exit status of a command returns None for some
+# ? ungodly reason...
+BADEXITSTATUS = 115
+
+# ? Amount of time to wait before we consider a command as failed
+STANDARD_TIMEOUT=10
+
 from subprocess import Popen
 
 # TODO: DRY the methods of this class out (so much repetition!)
+# TODO: make the output from the C binaries get recorded in the logs properly!
 class Librunner():
     def __init__(self, config={}):
         self.config = config
@@ -30,7 +38,7 @@ class Librunner():
         self.lprint(*args, severity='FATAL', logfile=logfile, device=device)
         sys.exit(exitcode)
 
-    def dropPageCache(self, ):
+    def dropPageCache(self):
         """Drop the linux page cache programmatically"""
         self.lprint('dropping the page cache')
 
@@ -42,7 +50,7 @@ class Librunner():
         self.lprint('waiting for {} seconds...'.format(seconds))
         time.sleep(seconds)
 
-    def clearBackstoreFiles(self, ):
+    def clearBackstoreFiles(self):
         """Removes all RAM0_PATH/* files"""
         self.lprint('clearing backstore files')
 
@@ -75,7 +83,7 @@ class Librunner():
                             ['-t', fs_type, backend_file_name],
                             logfile=logfile,
                             echo=False,
-                            timeout=5,
+                            timeout=STANDARD_TIMEOUT,
                             encoding='utf-8')
 
         mkfs.expect(pexpect.EOF)
@@ -83,7 +91,7 @@ class Librunner():
 
         if mkfs.exitstatus != 0:
             self.lexit('mkfs -t {} {} failed ({})'.format(fs_type, backend_file_name, mkfs.exitstatus),
-                logfile=logfile, device=device, exitcode=-1*mkfs.exitstatus)
+                logfile=logfile, device=device, exitcode=(-1*mkfs.exitstatus if mkfs.exitstatus else BADEXITSTATUS))
 
         self.lprint('running mount', logfile=logfile, device=device)
 
@@ -91,7 +99,7 @@ class Librunner():
                             mount_args + ['-t', fs_type, backend_file_name, '{}/{}'.format(self.config['TMP_ROOT_PATH'], device), '-o', 'loop'],
                             logfile=logfile,
                             echo=False,
-                            timeout=5,
+                            timeout=STANDARD_TIMEOUT,
                             encoding='utf-8')
 
         mount.expect(pexpect.EOF)
@@ -102,7 +110,7 @@ class Librunner():
         mount = pexpect.spawn('mount',
                             logfile=logfile,
                             echo=False,
-                            timeout=5,
+                            timeout=STANDARD_TIMEOUT,
                             encoding='utf-8')
 
         mount_out = mount.expect([r'on {}/{}'.format(self.config['TMP_ROOT_PATH'], device), pexpect.EOF])
@@ -174,7 +182,7 @@ class Librunner():
                             ['-t', fs_type, '/dev/mapper/{}'.format(device)],
                             logfile=logfile,
                             echo=False,
-                            timeout=5,
+                            timeout=STANDARD_TIMEOUT,
                             encoding='utf-8')
 
         mkfs.expect(pexpect.EOF)
@@ -182,7 +190,7 @@ class Librunner():
 
         if mkfs.exitstatus != 0:
             self.lexit('mkfs -t {} {} failed'.format(fs_type, '/dev/mapper/{}'.format(device)),
-                logfile=logfile, device=device, exitcode=-1*mkfs.exitstatus)
+                logfile=logfile, device=device, exitcode=(-1*mkfs.exitstatus if mkfs.exitstatus else BADEXITSTATUS))
 
         self.lprint('running mount', logfile=logfile, device=device)
 
@@ -190,7 +198,7 @@ class Librunner():
                             mount_args + ['-t', fs_type, '/dev/mapper/{}'.format(device), '{}/{}'.format(self.config['TMP_ROOT_PATH'], device), '-o', 'loop'],
                             logfile=logfile,
                             echo=False,
-                            timeout=5,
+                            timeout=STANDARD_TIMEOUT,
                             encoding='utf-8')
 
         mount.expect(pexpect.EOF)
@@ -201,7 +209,7 @@ class Librunner():
         mount = pexpect.spawn('mount',
                             logfile=logfile,
                             echo=False,
-                            timeout=5,
+                            timeout=STANDARD_TIMEOUT,
                             encoding='utf-8')
 
         mount_out = mount.expect([r'on {}/{}'.format(self.config['TMP_ROOT_PATH'], device), pexpect.EOF])
@@ -237,14 +245,14 @@ class Librunner():
                             ['-t', fs_type, '/dev/{}'.format(device)],
                             logfile=logfile,
                             echo=False,
-                            timeout=5,
+                            timeout=STANDARD_TIMEOUT,
                             encoding='utf-8')
 
         mkfs.expect(pexpect.EOF)
         mkfs.close()
 
         if mkfs.exitstatus != 0:
-            self.lexit(logfile=logfile, device=device, exitcode=-1*mkfs.exitstatus)
+            self.lexit(logfile=logfile, device=device, exitcode=(-1*mkfs.exitstatus if mkfs.exitstatus else BADEXITSTATUS))
 
         self.lprint('running mount', logfile=logfile, device=device)
 
@@ -252,7 +260,7 @@ class Librunner():
                             mount_args + ['-t', fs_type, '/dev/{}'.format(device), '{}/{}'.format(self.config['TMP_ROOT_PATH'], device)],
                             logfile=logfile,
                             echo=False,
-                            timeout=5,
+                            timeout=STANDARD_TIMEOUT,
                             encoding='utf-8')
 
         mount.expect(pexpect.EOF)
@@ -263,7 +271,7 @@ class Librunner():
         mount = pexpect.spawn('mount',
                             logfile=logfile,
                             echo=False,
-                            timeout=5,
+                            timeout=STANDARD_TIMEOUT,
                             encoding='utf-8')
 
         mount_out = mount.expect([r'on {}/{}'.format(self.config['TMP_ROOT_PATH'], device), pexpect.EOF])
@@ -284,7 +292,7 @@ class Librunner():
 
         self.lprint('creating StrongBox backend ({})'.format(device), logfile=logfile, device=device)
 
-        buse = Popen(['{}/build/buselfs'.format(self.config['BUSELFS_PATH']), '--backstore-size', str(self.config['BACKEND_SIZE_INT']), '--default-self, password', 'create', device],
+        buse = Popen(['{}/build/sb'.format(self.config['BUSELFS_PATH']), '--backstore-size', str(self.config['BACKEND_SIZE_INT']), '--default-password', 'create', device],
                     stdout=logfile,
                     stderr=logfile)
 
@@ -299,14 +307,14 @@ class Librunner():
                             ['-t', fs_type, '/dev/{}'.format(device)],
                             logfile=logfile,
                             echo=False,
-                            timeout=5,
+                            timeout=STANDARD_TIMEOUT,
                             encoding='utf-8')
 
         mkfs.expect(pexpect.EOF)
         mkfs.close()
 
         if mkfs.exitstatus != 0:
-            self.lexit(logfile=logfile, device=device, exitcode=-1*mkfs.exitstatus)
+            self.lexit(logfile=logfile, device=device, exitcode=(-1*mkfs.exitstatus if mkfs.exitstatus else BADEXITSTATUS))
 
         self.lprint('running mount', logfile=logfile, device=device)
 
@@ -314,7 +322,7 @@ class Librunner():
                             mount_args + ['-t', fs_type, '/dev/{}'.format(device), '{}/{}'.format(self.config['TMP_ROOT_PATH'], device)],
                             logfile=logfile,
                             echo=False,
-                            timeout=5,
+                            timeout=STANDARD_TIMEOUT,
                             encoding='utf-8')
 
         mount.expect(pexpect.EOF)
@@ -325,7 +333,7 @@ class Librunner():
         mount = pexpect.spawn('mount',
                             logfile=logfile,
                             echo=False,
-                            timeout=5,
+                            timeout=STANDARD_TIMEOUT,
                             encoding='utf-8')
 
         mount_out = mount.expect([r'on {}/{}'.format(self.config['TMP_ROOT_PATH'], device), pexpect.EOF])
@@ -395,14 +403,14 @@ class Librunner():
                             ['-t', fs_type, '/dev/mapper/{}'.format(device)],
                             logfile=logfile,
                             echo=False,
-                            timeout=5,
+                            timeout=STANDARD_TIMEOUT,
                             encoding='utf-8')
 
         mkfs.expect(pexpect.EOF)
         mkfs.close()
 
         if mkfs.exitstatus != 0:
-            self.lexit(logfile=logfile, device=device, exitcode=-1*mkfs.exitstatus)
+            self.lexit(logfile=logfile, device=device, exitcode=(-1*mkfs.exitstatus if mkfs.exitstatus else BADEXITSTATUS))
 
         self.lprint('running mount', logfile=logfile, device=device)
 
@@ -410,7 +418,7 @@ class Librunner():
                             mount_args + ['-t', fs_type, '/dev/mapper/{}'.format(device), '{}/{}'.format(self.config['TMP_ROOT_PATH'], device)],
                             logfile=logfile,
                             echo=False,
-                            timeout=5,
+                            timeout=STANDARD_TIMEOUT,
                             encoding='utf-8')
 
         mount.expect(pexpect.EOF)
@@ -421,7 +429,7 @@ class Librunner():
         mount = pexpect.spawn('mount',
                             logfile=logfile,
                             echo=False,
-                            timeout=5,
+                            timeout=STANDARD_TIMEOUT,
                             encoding='utf-8')
 
         mount_out = mount.expect([r'on {}/{}'.format(self.config['TMP_ROOT_PATH'], device), pexpect.EOF])
@@ -608,7 +616,7 @@ class Librunner():
         or not os.path.exists('{}/bin/random-freerun'.format(self.config['REPO_PATH'])):
             self.lexit("did you forget to run `make` in this repository?", exitcode=4)
 
-        if not os.path.exists('{}/build/buselfs'.format(self.config['BUSELFS_PATH'])):
+        if not os.path.exists('{}/build/sb'.format(self.config['BUSELFS_PATH'])):
             self.lexit('did you forget to run `make` in {}?'.format(self.config['BUSELFS_PATH']), exitcode=10)
 
         if not os.path.exists(self.config['BUSE_PATH']):

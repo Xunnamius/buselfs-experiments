@@ -50,7 +50,7 @@ For Odroids outside of U of C, where permission separation and other concerns ar
 
 1. `sudo apt update && sudo apt upgrade`
 2. (maybe do the following, potentially dangerous) `sudo apt full-upgrade`
-3. `sudo apt install build-essential nilfs-tools f2fs-tools cryptsetup ruby xclip python3-pip ne ubuntu-keyring telnet dnsutils`
+3. `sudo apt install build-essential nilfs-tools f2fs-tools cryptsetup ruby xclip python3-pip ne ubuntu-keyring telnet dnsutils tree`
 4. `sudo pip3 install pexpect`
 4. *`sudo apt install proxychains` and copy over `/etc/proxychains.conf`*
     - *You can test proxychains with `proxychains curl https://ipinfo.io/ip` (public ip == success!)*

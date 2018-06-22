@@ -4,7 +4,7 @@
 script is responsible for ensuring the system is ready to run experiments"""
 
 # TODO: create a script (perhaps exitrunner.py) that will clean up any mess left
-# TODO: over from running any of the testrunner-X.py scritps
+# TODO: over from running any of the testrunner-X.py scripts
 
 import os
 import sys
@@ -31,11 +31,17 @@ MODPROBE_DIRS = ['nbd0',
                  'nbd15',
                  'config',
                  'run'
-] # + [CONFIG['RAM0_PATH']]
+] #*             CONFIG['RAM0_PATH']
 
+# ? Config parameters
 CONFIG_PATH = "{}/../config/vars.mk".format(os.path.dirname(os.path.realpath(__file__)))
 CONFIG_KEY = "CONFIG_COMPILE_FLAGS"
+
+# ? Size of the initial ramdisk
 RAMDISK_SIZE = "1024M"
+
+# ? Amount of time to wait before we consider a command as failed
+STANDARD_TIMEOUT=10
 
 CONFIG = {}
 
@@ -74,7 +80,7 @@ def parseConfigVars():
 def checkMount():
     mount = pexpect.spawn('mount',
                          echo=False,
-                         timeout=5,
+                         timeout=STANDARD_TIMEOUT,
                          encoding='utf-8')
 
     expecting = mount.expect([r'on {}'.format(CONFIG['RAM0_PATH']), pexpect.EOF])
@@ -90,7 +96,7 @@ def initialize(verbose=False, force=False):
         print('(mounted ramdisk not found or re-initialization forced; executing initialization procedure...)')
 
         for mod in ('nbd', 'nilfs2', 'f2fs'): #('nbd', 'nilfs2', 'f2fs'):
-            modprobe = pexpect.spawn('modprobe', [mod], timeout=5, encoding='utf-8')
+            modprobe = pexpect.spawn('modprobe', [mod], timeout=STANDARD_TIMEOUT, encoding='utf-8')
 
             modprobe.logfile = sys.stdout if verbose else None
             modprobe.expect(pexpect.EOF)
@@ -102,7 +108,7 @@ def initialize(verbose=False, force=False):
         
         mkdir = pexpect.spawn('mkdir',
             ['-p'] + ['{}/{}'.format(CONFIG['TMP_ROOT_PATH'], dirr) for dirr in MODPROBE_DIRS] + [CONFIG['RAM0_PATH']],
-            timeout=5,
+            timeout=STANDARD_TIMEOUT,
             encoding='utf-8'
         )
 
@@ -116,7 +122,7 @@ def initialize(verbose=False, force=False):
         
         cp = pexpect.spawn('cp',
             ['{}/config/zlog_conf.conf'.format(CONFIG['BUSELFS_PATH']), '{}/config/'.format(CONFIG['TMP_ROOT_PATH'])],
-            timeout=5,
+            timeout=STANDARD_TIMEOUT,
             encoding='utf-8'
         )
 
@@ -131,7 +137,7 @@ def initialize(verbose=False, force=False):
         mount = pexpect.spawn('mount',
             ['-t', 'tmpfs', '-o', 'size={}'.format(RAMDISK_SIZE), 'tmpfs', CONFIG['RAM0_PATH']],
             echo=False,
-            timeout=5,
+            timeout=STANDARD_TIMEOUT,
             encoding='utf-8'
         )
 
