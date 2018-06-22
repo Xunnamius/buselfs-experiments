@@ -26,7 +26,7 @@ Call `make` in order to compile the `*.c` experiments. You can then call them in
 
 The testrunner-X.py scripts attempt to fully automate the latest StrongBox experiments from initialization through setup, execution, and tear down.
 
-The initrunner.py script just lays the groundwork for eventual environment initialization/test running by the other experiments. You should call this before running any of the non-automated executables (i.e. the binaries in `bin/`).
+The `../initrunner.py` script just lays the groundwork for eventual environment initialization/test running by the other experiments. You can call this manually to test your setup and verify your [vars.mk](config/vars.mk-dist) is being interpreted properly, but it is not mandatory and will be called automatically by the testrunner-X scripts (it's idempotent).
 
 ### `results/`
 
@@ -58,7 +58,7 @@ sudo dd if=/dev/zero of=XXX/filler bs=1M count=750
 
 ## How To Initialize Odroids
 
-For Odroids outside of U of C, where permissions separations and other concerns are not an issue, the italicized commands can be massaged into more standard/less annoying alternatives. Also, see [vars.mk](config/vars.mk-dist) to customize the experiment suite, including overriding the default locations of the repositories below.
+For Odroids outside of U of C, where permission separation and other concerns are not an issue, the italicized commands can be massaged into more standard/less annoying alternatives. Also, see [vars.mk](config/vars.mk-dist) to customize the experiment suite, including overriding the default locations of the repositories below.
 
 1. `sudo apt update && sudo apt upgrade`
 2. (maybe do the following, potentially dangerous) `sudo apt full-upgrade`
@@ -72,6 +72,7 @@ For Odroids outside of U of C, where permissions separations and other concerns 
     6. `make oldconfig`
     7. Use `ne .config` to enable (by adding `=m`) any extra modules
     8. `make prepare`
+        * *maybe `make odroidxu4_defconfig` as well; only run it if things aren't working [[hint?]](https://wiki.odroid.com/odroid-xu4/software/building_kernel#y)*
     9. `make modules_prepare`
     10. `make SUBDIRS=scripts/mod`
     11. `make SUBDIRS=relative/path/to/where/module/lives modules`
