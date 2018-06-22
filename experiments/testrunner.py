@@ -687,14 +687,12 @@ if __name__ == "__main__":
 
         num_nbd_devices = 16
         num_nbd_device = 0
-        #filesizes = ['1k', '4k', '512k', '5m', '40m']
-        #filesizes = ['5g']
-        filesizes = ['1k', '5m']
+        filesizes = ['1k', '4k', '512k', '5m', '40m']
 
         backendFnTuples = [
-            #(createRawBackend, destroyRawBackend, 'raw-vanilla'),
-            #(createVanillaBackend, destroyVanillaBackend, 'vanilla'),
-            #(createDmcBackend, destroyDmcBackend, 'dmcrypt'),
+            (createRawBackend, destroyRawBackend, 'raw-vanilla'),
+            (createVanillaBackend, destroyVanillaBackend, 'vanilla'),
+            (createDmcBackend, destroyDmcBackend, 'dmcrypt'),
             (createSbBackend, destroySbBackend, 'strongbox')
         ]
 
@@ -702,18 +700,18 @@ if __name__ == "__main__":
 
         # TODO: add ability to provide configuration parameters to SB from here!
         configurations = (
-            #Configuration('nilfs2', 'nilfs2', []),
-            #Configuration('f2fs', 'f2fs', ['-o', 'background_gc_off']),
+            Configuration('nilfs2', 'nilfs2', []),
+            Configuration('f2fs', 'f2fs', ['-o', 'background_gc_off']),
             Configuration('f2fs', 'f2fs', []),
-            #Configuration('ext4-oj', 'ext4', []),
-            #Configuration('ext4-fj', 'ext4', ['-o', 'data=journal'])
+            Configuration('ext4-oj', 'ext4', []),
+            Configuration('ext4-fj', 'ext4', ['-o', 'data=journal'])
         )
 
         lprint('starting experiment', logfile=file)
 
         for conf in configurations:
             for backendFn in backendFnTuples:
-                for runFn in [sequentialFreerun]: #(sequentialFreerun, randomFreerun):
+                for runFn in (sequentialFreerun, randomFreerun):
                     for filesize in filesizes:
                         device = 'nbd{}'.format(num_nbd_device)
 

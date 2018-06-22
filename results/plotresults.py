@@ -3,8 +3,8 @@
 # pylint: disable=E0202
 
 """
-This is the 2/7/2017 version of the script that script crunches any files that
-ends with the extension "result" and are direct children of the /results folder.
+This is the 7/7/2018 version of a script that script crunches any files that
+ends with the extension ".result" and are direct children of the `results/` dir.
 """
 
 import os

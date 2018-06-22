@@ -10,7 +10,7 @@ import sys
 import pprint
 import pexpect
 
-# ! All of these dirs will be prefixed with CONFIG['TMP_ROOT_PATH']
+# ! All of these are dirs that will be prefixed with CONFIG['TMP_ROOT_PATH']/
 MODPROBE_DIRS = ['nbd0',
                  'nbd1',
                  'nbd2',
@@ -83,7 +83,7 @@ def initialize(verbose=False):
     if checkMount() == 1:
         print('(mounted ramdisk not found, executing initialization procedure...)')
 
-        for mod in ('nbd', 'logfs', 'nilfs', 'f2fs'):
+        for mod in ('nbd', 'nilfs2', 'f2fs'): #('nbd', 'logfs', 'nilfs2', 'f2fs'):
             modprobe = pexpect.spawn('modprobe', ['nbd'], timeout=5, encoding='utf-8')
 
             modprobe.logfile = sys.stdout if verbose else None
