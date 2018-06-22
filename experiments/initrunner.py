@@ -3,8 +3,6 @@
 """Formerly known as the 'new age' initializing bash commands, this python
 script is responsible for ensuring the system is ready to run experiments"""
 
-# TODO: Add a "--force" option that forces initialization even if ram0 detected
-
 import os
 import sys
 import pprint

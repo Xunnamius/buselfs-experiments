@@ -42,22 +42,6 @@ The rest of the directories and files in this directory hold the results of runn
 
 These are third party files and repositories whose source is not under our control.
 
-## A Big Shiny Glass Box That Reads: "Break In Case of Fire!"
-
-### LINUX EMERGENCY SHUTDOWN
-
-```bash
-sudo -s
-echo 1 > /proc/sys/kernel/sysrq
-echo b > /proc/sysrq-trigger
-```
-
-### BRIM FILLER
-
-```bash
-sudo dd if=/dev/zero of=XXX/filler bs=1M count=750
-```
-
 ## How To Initialize Odroids
 
 For Odroids outside of U of C, where permission separation and other concerns are not an issue, the italicized commands can be massaged into more standard/less annoying alternatives. Also, see [vars.mk](config/vars.mk-dist) to customize the experiment suite, including overriding the default locations of the repositories below.
@@ -102,10 +86,30 @@ For Odroids outside of U of C, where permission separation and other concerns ar
     - [Energymon repository for installing energymon](https://github.com/energymon/energymon)
 10. Copy [vars.mk-dist](config/vars.mk-dist) to [vars.mk](config/vars.mk-dist) and modify the settings to your liking
 
-### Test Odroid Initialization
+## Test Odroid Initialization
 
 Not an exhaustive test, but it will catch most of the more glaring oversights:
 
 ```bash
 sudo ./initrunner.py
+```
+
+## Run Experiment Suite
+
+See [experiments/README.md](experiments/README.md)
+
+## A Big Shiny Glass Box That Reads: "Break In Case of Fire!"
+
+### LINUX EMERGENCY SHUTDOWN
+
+```bash
+sudo -s
+echo 1 > /proc/sys/kernel/sysrq
+echo b > /proc/sysrq-trigger
+```
+
+### BRIM FILLER
+
+```bash
+sudo dd if=/dev/zero of=XXX/filler bs=1M count=750
 ```
