@@ -39,7 +39,7 @@
 const int CLEANUP = 0;
 
 // For random data from /dev/urandom
-const char * RANDOM_PATH = STRINGIZE_VALUE_OF(REPO_PATH)"/data.target";
+const char * RANDOM_PATH = STRINGIZE_VALUE_OF(REPO_PATH)"/data/data.target";
 
 // Prepare to catch interrupt
 static volatile int keepRunning = 1;
@@ -147,7 +147,8 @@ int main(int argc, char * argv[])
     get_real_path(output_path, path_shard);
     
     printf("output_path: %s\n", output_path);
-    
+    printf("RANDOM_PATH: %s\n", RANDOM_PATH);
+
     errno = 0;
     flog_output = fopen(output_path, "a");
     

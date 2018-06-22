@@ -37,7 +37,7 @@
 const int CLEANUP = 0;
 
 // For random data from /dev/urandom
-const char *RANDOM_PATH = STRINGIZE_VALUE_OF(REPO_PATH)"/data.target";
+const char *RANDOM_PATH = STRINGIZE_VALUE_OF(REPO_PATH)"/data/data.target";
 
 // Prepare to catch interrupt
 static volatile int keepRunning = 1;
