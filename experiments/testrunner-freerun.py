@@ -40,9 +40,9 @@ if __name__ == "__main__":
         filesizes = ['1k', '4k', '512k', '5m', '40m']
 
         backendFnTuples = [
-            (lib.createRawBackend, lib.destroyRawBackend, 'raw-vanilla'),
-            (lib.createVanillaBackend, lib.destroyVanillaBackend, 'vanilla'),
-            (lib.createDmcBackend, lib.destroyDmcBackend, 'dmcrypt'),
+            #(lib.createRawBackend, lib.destroyRawBackend, 'raw-vanilla'),
+            #(lib.createVanillaBackend, lib.destroyVanillaBackend, 'vanilla'),
+            #(lib.createDmcBackend, lib.destroyDmcBackend, 'dmcrypt'),
             (lib.createSbBackend, lib.destroySbBackend, 'strongbox')
         ]
 
