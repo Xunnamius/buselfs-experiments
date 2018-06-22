@@ -9,6 +9,7 @@ import os
 import sys
 import pprint
 import pexpect
+import argparse
 
 # ! All of these are dirs that will be prefixed with CONFIG['TMP_ROOT_PATH']/
 MODPROBE_DIRS = ['nbd0',
@@ -80,15 +81,15 @@ def checkMount():
 
     return expecting
 
-def initialize(verbose=False):
+def initialize(verbose=False, force=False):
     """Idempotent initialization of the experimental testbed."""
 
     # 1 => not found
-    if checkMount() == 1:
-        print('(mounted ramdisk not found, executing initialization procedure...)')
+    if force or checkMount() == 1:
+        print('(mounted ramdisk not found or re-initialization forced; executing initialization procedure...)')
 
-        for mod in ('nbd', 'nilfs2', 'f2fs'): #('nbd', 'logfs', 'nilfs2', 'f2fs'):
-            modprobe = pexpect.spawn('modprobe', ['nbd'], timeout=5, encoding='utf-8')
+        for mod in ('nbd', 'nilfs2', 'f2fs'): #('nbd', 'nilfs2', 'f2fs'):
+            modprobe = pexpect.spawn('modprobe', [mod], timeout=5, encoding='utf-8')
 
             modprobe.logfile = sys.stdout if verbose else None
             modprobe.expect(pexpect.EOF)
@@ -163,6 +164,10 @@ if __name__ == "__main__":
     pprint.PrettyPrinter(indent=4).pprint(CONFIG)
     print()
 
-    initialize(True)
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--force', action='store_true')
+    options = parser.parse_args()
+
+    initialize(verbose=True, force=options.force)
 
     print("Testbed manual initialization successful.")

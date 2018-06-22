@@ -66,7 +66,13 @@ For Odroids outside of U of C, where permission separation and other concerns ar
 
 1. `sudo apt update && sudo apt upgrade`
 2. (maybe do the following, potentially dangerous) `sudo apt full-upgrade`
-3. `sudo apt install build-essential nilfs-tools f2fs-tools cryptsetup ruby xclip python3-pexpect python3-pip ne ubuntu-keyring`
+3. `sudo apt install build-essential nilfs-tools f2fs-tools cryptsetup ruby xclip python3-pip ne ubuntu-keyring telnet dnsutils`
+4. `sudo pip3 install pexpect`
+4. *`sudo apt install proxychains` and copy over `/etc/proxychains.conf`*
+    - *You can test proxychains with `proxychains curl https://ipinfo.io/ip` (public ip == success!)*
+    - *You can use proxychains to get around pesky network restrictions (especially on pip3 and apt)*
+    - *You can also make use of apt's built in proxy settings at `/etc/apt/apt.conf.d/99proxy`*
+        - `/etc/apt/apt.conf.d/99proxy` <-- `Acquire::http::Proxy "http://webproxy.cs.uchicago.edu:3128";`
 4. Compile NBD, NILFS2, and F2FS modules if they are not available via `modprobe`
     1. `git clone https://github.com/hardkernel/linux hardkernel-linux`
     2. `cd hardkernel-linux`
