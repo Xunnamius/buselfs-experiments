@@ -113,3 +113,7 @@ echo b > /proc/sysrq-trigger
 ```bash
 sudo dd if=/dev/zero of=XXX/filler bs=1M count=750
 ```
+
+## Interesting Behavior
+
+- If you specify too many trials or generally don't leave enough space on the drive for the tests to run, things may begin to fail silently and lock up. If a test is taking too long, check out how much space is left with `df -h`!
