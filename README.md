@@ -60,6 +60,8 @@ sudo dd if=/dev/zero of=XXX/filler bs=1M count=750
 
 For Odroids outside of U of C, where permission separation and other concerns are not an issue, the italicized commands can be massaged into more standard/less annoying alternatives. Also, see [vars.mk](config/vars.mk-dist) to customize the experiment suite, including overriding the default locations of the repositories below.
 
+> Note that `sudo`/`root` is not necessary with many of the following commands!
+
 1. `sudo apt update && sudo apt upgrade`
 2. (maybe do the following, potentially dangerous) `sudo apt full-upgrade`
 3. `sudo apt install build-essential nilfs-tools f2fs-tools cryptsetup ruby xclip python3-pexpect python3-pip ne ubuntu-keyring`
