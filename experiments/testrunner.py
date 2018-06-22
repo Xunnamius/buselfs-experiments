@@ -22,24 +22,13 @@ if __name__ == "__main__":
     
     # Bare bones basic initialization
     initrunner.initialize()
-
-    if not os.path.exists(config['RAM0_PATH']):
-        lib.lexit("did you forget to do the initial setup? (can't find {})".format(config['RAM0_PATH']), exitcode=2)
-
-    if not os.path.exists('/dev/nbd0'):
-        lib.lexit("did you forget to do the initial setup? (can't find /dev/nbd0)", exitcode=3)
-
-    if not os.path.exists('{}/bin/sequential-freerun'.format(config['REPO_PATH'])) \
-       or not os.path.exists('{}/bin/random-freerun'.format(config['REPO_PATH'])):
-        lib.lexit("did you forget to run `make all` in buselfs-experiments?", exitcode=4)
-
-    if not os.path.exists('{}/build/buselfs'.format(config['BUSELFS_PATH'])):
-        lib.lexit("did you forget to run `make` in buselfs/build?", exitcode=10)
+    lib.checkSanity()
 
     with open(config['LOG_FILE_PATH'], 'w') as file:
         print(str(datetime.now()), '\n---------\n', file=file)
 
         os.chdir(config['RAM0_PATH'])
+        
         lib.lprint('working directory set to {}'.format(config['RAM0_PATH']), logfile=file)
 
         lib.clearBackstoreFiles()

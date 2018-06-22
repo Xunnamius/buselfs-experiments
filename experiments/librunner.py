@@ -595,6 +595,24 @@ class Librunner():
 
         if not os.path.exists(symlfile):
             self.lexit('os.symlink failed to create {}'.format(symlfile), logfile=logfile, device=device, exitcode=26)
+    
+    def checkSanity(self):
+        """Bails out of the program if anything that is expected to be there is in fact not there"""
+        if not os.path.exists(self.config['RAM0_PATH']):
+            self.lexit("did initrunner.py fail?! (can't find {})".format(self.config['RAM0_PATH']), exitcode=2)
+
+        if not os.path.exists('/dev/nbd0'):
+            self.lexit("did initrunner.py fail?! (can't find /dev/nbd0)", exitcode=3)
+
+        if not os.path.exists('{}/bin/sequential-freerun'.format(self.config['REPO_PATH'])) \
+        or not os.path.exists('{}/bin/random-freerun'.format(self.config['REPO_PATH'])):
+            self.lexit("did you forget to run `make` in this repository?", exitcode=4)
+
+        if not os.path.exists('{}/build/buselfs'.format(self.config['BUSELFS_PATH'])):
+            self.lexit('did you forget to run `make` in {}?'.format(self.config['BUSELFS_PATH']), exitcode=10)
+
+        if not os.path.exists(self.config['BUSE_PATH']):
+            self.lexit('did you forget to run `make buselogfs` in the BUSE repository? (looking for {})'.format(self.config['BUSE_PATH']), exitcode=10)
 
     def sequentialFreerun(self, logfile, device, data_class, test_name):
         """Runs the sequential freerun tests"""
