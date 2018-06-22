@@ -1,6 +1,7 @@
 # Workflow #
 ###########
-lfslog
+*lfslog*
+/results/*.results
 
 # Logs and Databases #
 ######################
