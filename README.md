@@ -24,9 +24,9 @@ These files are filled with random bits to be copied around during the various e
 
 Call `make` in order to compile the `*.c` experiments. You can then call them individually by name in `bin/`. You can clear out `bin/` with `make clean`.
 
-The testrunner-X.py scripts attempt to fully automate the latest StrongBox experiments from initialization through setup, execution, and tear down.
+The `testrunner-X.py` scripts attempt to fully automate the latest StrongBox experiments from initialization through setup, execution, and tear down.
 
-The `../initrunner.py` script just lays the groundwork for eventual environment initialization/test running by the other experiments. You can call this manually to test your setup and verify your [vars.mk](config/vars.mk-dist) is being interpreted properly, but it is not mandatory and will be called automatically by the testrunner-X scripts (it's idempotent).
+The `../initrunner.py` script just lays the groundwork for eventual environment initialization/test running by the other experiments. You can call this manually to test your setup and verify your [vars.mk](config/vars.mk-dist) is being interpreted properly, but it is not mandatory and will be called automatically by the `testrunner-X.py` scripts (it's idempotent).
 
 ### `results/`
 
@@ -34,7 +34,7 @@ The scripts and executables in this directory are used for turning result files 
 
 `storeresults.sh` can be called without arguments and will take whatever result files are currently floating around in this directory and put them in a subdir named with a timestamp. Note that results from experiments are typically dumped unorganized into this directory.
 
-The rest of the directories and files in this directory hold the results of running experiments. Check the README.md files for plotly visualizations.
+The rest of the directories and files in this directory hold the results of running experiments. Check the local `README.md` files for plotly visualizations.
 
 ### `vendor/`
 
