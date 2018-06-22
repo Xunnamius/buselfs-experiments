@@ -33,10 +33,13 @@
 
 #define MIN(a,b) __extension__ ({ __typeof__ (a) _a = (a); __typeof__ (b) _b = (b); _a < _b ? _a : _b; })
 
+#define STRINGIZE(x) #x
+#define STRINGIZE_VALUE_OF(x) STRINGIZE(x)
+
 const int CLEANUP = 0;
 
 // For random data from /dev/urandom
-const char * RANDOM_PATH = REPO_PATH"/data.target";
+const char * RANDOM_PATH = STRINGIZE_VALUE_OF(REPO_PATH)"/data.target";
 
 // Prepare to catch interrupt
 static volatile int keepRunning = 1;
@@ -81,7 +84,7 @@ int collect_metrics(Metrics * metrics, energymon * monitor)
  */
 int get_real_path(char * buff, const char * path)
 {
-    return snprintf(buff, PATH_BUFF_SIZE, "%s/%s", REPO_PATH, path);
+    return snprintf(buff, PATH_BUFF_SIZE, "%s/%s", STRINGIZE_VALUE_OF(REPO_PATH), path);
 }
 
 /**

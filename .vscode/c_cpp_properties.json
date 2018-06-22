@@ -10,6 +10,8 @@
             },
             "includePath": [
                 "Z:/gitr/research/buselfs-experiments",
+                "Z:/gitr/research/buselfs-experiments/vendor",
+                "Z:/gitr/research/buselfs-experiments/vendor/energymon",
                 "F:/OneDrive/linux/usr/local/include",
                 "F:/OneDrive/linux/usr/include/arm-linux-gnueabihf",
                 "F:/OneDrive/linux/usr/lib/gcc/arm-linux-gnueabihf/5/include-fixed",

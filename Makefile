@@ -1,6 +1,6 @@
 SHELL = /bin/sh
 CC = gcc
-CFLAGS = -Wall -D_GNU_SOURCE vendor/energymon/energymon-time-util.c
+CFLAGS = -Wall -D_GNU_SOURCE vendor/energymon/energymon-time-util.c -I.
 
 include config/vars.mk
 

@@ -78,6 +78,7 @@
         "setupramdisks",
         "ssdx",
         "storeresults",
+        "stringize",
         "symlfile",
         "symlinks",
         "sysrq",
@@ -97,5 +98,9 @@
         "yaxis",
         "zlog"
     ],
-    "python.formatting.provider": "none"
+    "python.formatting.provider": "none",
+    "files.associations": {
+        "unistd.h": "c",
+        "energymon-time-util.h": "c"
+    }
 }
