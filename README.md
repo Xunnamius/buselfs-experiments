@@ -62,7 +62,7 @@ For Odroids outside of U of C, where permission separation and other concerns ar
 
 1. `sudo apt update && sudo apt upgrade`
 2. (maybe do the following, potentially dangerous) `sudo apt full-upgrade`
-3. `sudo apt install build-essential nilfs-tools f2fs-tools cryptsetup ruby xclip python3-pexpect python3-pip ne keyring debian-keyring`
+3. `sudo apt install build-essential nilfs-tools f2fs-tools cryptsetup ruby xclip python3-pexpect python3-pip ne ubuntu-keyring`
 4. Compile NBD, NILFS2, and F2FS modules if they are not available via `modprobe`
     1. `git clone https://github.com/hardkernel/linux hardkernel-linux`
     2. `cd hardkernel-linux`

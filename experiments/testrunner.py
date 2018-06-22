@@ -703,8 +703,8 @@ if __name__ == "__main__":
             Configuration('nilfs2', 'nilfs2', []),
             Configuration('f2fs', 'f2fs', ['-o', 'background_gc_off']),
             Configuration('f2fs', 'f2fs', []),
-            Configuration('ext4-oj', 'ext4', []),
-            Configuration('ext4-fj', 'ext4', ['-o', 'data=journal'])
+            #Configuration('ext4-oj', 'ext4', []),
+            #Configuration('ext4-fj', 'ext4', ['-o', 'data=journal'])
         )
 
         lprint('starting experiment', logfile=file)
