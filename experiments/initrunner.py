@@ -3,6 +3,9 @@
 """Formerly known as the 'new age' initializing bash commands, this python
 script is responsible for ensuring the system is ready to run experiments"""
 
+# TODO: create a script (perhaps exitrunner.py) that will clean up any mess left
+# TODO: over from running any of the testrunner-X.py scritps
+
 import os
 import sys
 import pprint
