@@ -32,6 +32,7 @@ MODPROBE_DIRS = ['nbd0',
                  'config',
                  'run'
 ] #*             CONFIG['RAM0_PATH']
+  #*             '../config'
 
 # ? Config parameters
 CONFIG_PATH = "{}/../config/vars.mk".format(os.path.dirname(os.path.realpath(__file__)))
@@ -107,7 +108,9 @@ def initialize(verbose=False, force=False):
                 sys.exit(2)
         
         mkdir = pexpect.spawn('mkdir',
-            ['-p'] + ['{}/{}'.format(CONFIG['TMP_ROOT_PATH'], dirr) for dirr in MODPROBE_DIRS] + [CONFIG['RAM0_PATH']],
+            ['-p']
+                + ['{}/{}'.format(CONFIG['TMP_ROOT_PATH'], dirr) for dirr in MODPROBE_DIRS]
+                + [CONFIG['RAM0_PATH'], '../config'],
             timeout=STANDARD_TIMEOUT,
             encoding='utf-8'
         )
@@ -133,6 +136,20 @@ def initialize(verbose=False, force=False):
         if cp.exitstatus != 0:
             print('cp returned non-zero error code (-{})'.format(cp.exitstatus))
             sys.exit(4)
+        
+        cp2 = pexpect.spawn('cp',
+            ['{}/config/zlog_conf.conf'.format(CONFIG['BUSELFS_PATH']), '../config/'],
+            timeout=STANDARD_TIMEOUT,
+            encoding='utf-8'
+        )
+
+        cp2.logfile = sys.stdout if verbose else None
+        cp2.expect(pexpect.EOF)
+        cp2.close()
+
+        if cp2.exitstatus != 0:
+            print('cp returned non-zero error code (-{})'.format(cp2.exitstatus))
+            sys.exit(42)
 
         mount = pexpect.spawn('mount',
             ['-t', 'tmpfs', '-o', 'size={}'.format(RAMDISK_SIZE), 'tmpfs', CONFIG['RAM0_PATH']],
