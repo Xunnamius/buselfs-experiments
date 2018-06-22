@@ -47,21 +47,25 @@ def parseConfigLine(configLine):
     return (lhs, rhs)
 
 def parseConfigVars():
-    with open(CONFIG_PATH, 'r') as varsFile:
-        inConfigVar = False
+    try:
+        with open(CONFIG_PATH, 'r') as varsFile:
+            inConfigVar = False
 
-        for line in varsFile:
-            if line.startswith(CONFIG_KEY):
-                inConfigVar = True
-                continue
-            
-            if inConfigVar:
-                line = line.strip('\n')
-                if not line.endswith("\\"):
-                    inConfigVar = False
+            for line in varsFile:
+                if line.startswith(CONFIG_KEY):
+                    inConfigVar = True
+                    continue
                 
-                (varName, varValue) = parseConfigLine(line)
-                CONFIG[varName] = int(varValue) if varName.endswith('_INT') else varValue
+                if inConfigVar:
+                    line = line.strip('\n')
+                    if not line.endswith("\\"):
+                        inConfigVar = False
+                    
+                    (varName, varValue) = parseConfigLine(line)
+                    CONFIG[varName] = int(varValue) if varName.endswith('_INT') else varValue
+
+    except FileNotFoundError:
+        raise FileNotFoundError('vars.mk not found')
 
     return CONFIG
 
@@ -153,7 +157,8 @@ if __name__ == "__main__":
         print('must be root/sudo')
         sys.exit(1)
 
-    CONFIG = parseConfigVars()
+    if not parseConfigVars():
+        raise ValueError('')
 
     pprint.PrettyPrinter(indent=4).pprint(CONFIG)
     print()
