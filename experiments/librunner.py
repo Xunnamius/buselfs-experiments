@@ -329,8 +329,8 @@ class Librunner():
             mkfs.close()
 
             if mkfs.exitstatus != 0:
-                waittime = 5
-                self.lprint('mkfs attempt failed but the StrongBox is still alive. Strange. Retrying in {} seconds...'.format(waittime), logfile=logfile, device=device)
+                waittime = 30 if waittime == 5 else 5
+                self.lprint('mkfs -t {} /dev/{} failed but the StrongBox is still alive. Retrying in {} seconds...'.format(fs_type, device, waittime), logfile=logfile, device=device)
                 # self.lexit(logfile=logfile, device=device, exitcode=(-1*mkfs.exitstatus if mkfs.exitstatus else BADEXITSTATUS))
             else:
                 self.lprint('mkfs succeeded!', logfile=logfile, device=device)
