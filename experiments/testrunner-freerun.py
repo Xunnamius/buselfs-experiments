@@ -19,13 +19,7 @@ filesizes = ['1k', '512k', '40m'] #['1k', '4k', '512k', '5m', '40m']
 
 experiments = [lib.sequentialFreerun] #[lib.sequentialFreerun, lib.randomFreerun]
 
-ciphers = ['sc_salsa8',
-           'sc_salsa12',
-           'sc_salsa20',
-           'sc_aes128_ctr',
-           'sc_aes256_ctr',
-           'sc_hc128',
-           'sc_rabbit',
+ciphers = ['sc_rabbit',
            'sc_sosemanuk'
 ]
 
