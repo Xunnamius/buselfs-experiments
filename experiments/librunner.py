@@ -307,9 +307,6 @@ class Librunner():
         target.append('create')
         target.append(device)
 
-        print('LIBRUNNER SAYS: target = ', target)
-        print('LIBRUNNER SAYS: logfile = ', logfile)
-        
         buse = Popen(target,
                     stdout=logfile,
                     stderr=logfile)
