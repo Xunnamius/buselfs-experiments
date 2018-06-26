@@ -14,8 +14,8 @@ lib = Librunner(config)
 num_nbd_devices = 16
 num_nbd_device = 0
 
-filesystems = ['nilfs', 'f2fs']
-filesizes = ['1k', '4k', '512k', '5m', '40m']
+filesystems = ['f2fs']
+filesizes = ['1k']
 
 flksizes = [128, 256, 512, 1024, 2048, 8192, 16384, 32768, 65536]
 fpns = [2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192]
@@ -69,15 +69,15 @@ if __name__ == "__main__":
             configurations.append(Configuration('{}#baseline'.format(filesystem), filesystem, [], []))
             for fpn in fpns:
                 for flk_size in flksizes:
-                    configurations += [
+                    configurations.extend([
                         Configuration('{}#{}'.format(filesystem, cipher),
                                       filesystem,
                                       [],
                                       ['--cipher', cipher, '--flake-size', str(flk_size), '--flakes-per-nugget', str(fpn)]
-                        ) for cipher in ciphers]
+                        ) for cipher in ciphers])
 
         confcount = len(configurations) * len(backendFnTuples) * len(filesizes) * len(experiments)
-        
+
         lib.lprint('starting experiment ({} configurations; estimated {} minutes)'
            .format(confcount, confcount * 45 / 60), logfile=file)
 

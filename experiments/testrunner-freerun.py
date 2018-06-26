@@ -14,7 +14,9 @@ lib = Librunner(config)
 num_nbd_devices = 16
 num_nbd_device = 0
 
-filesizes = ['1k', '4k', '512k', '5m', '40m']
+filesystems = ['f2fs']
+filesizes = ['1k']
+
 experiments = [lib.sequentialFreerun] #[lib.sequentialFreerun, lib.randomFreerun]
 
 ciphers = ['sc_chacha8',
@@ -68,10 +70,11 @@ if __name__ == "__main__":
         # )
 
         # * Cipher suite perf tests
-        configurations = \
-          [Configuration('f2fs#baseline', 'f2fs', [], []), Configuration('nilfs#baseline', 'nilfs', [], [])]
-        + [Configuration('f2fs#{}'.format(cipher), 'f2fs', [], ['--cipher', cipher]) for cipher in ciphers]
-        + [Configuration('nilfs#{}'.format(cipher), 'nilfs', [], ['--cipher', cipher]) for cipher in ciphers]
+        configurations = []
+
+        for filesystem in filesystems:
+            configurations.append(Configuration('{}#baseline'.format(filesystem), filesystem, [], []))
+            configurations.extend([Configuration('{}#{}'.format(filesystem, cipher), filesystem, [], ['--cipher', cipher]) for cipher in ciphers])
 
         confcount = len(configurations) * len(backendFnTuples) * len(filesizes) * len(experiments)
         
