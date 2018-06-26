@@ -14,8 +14,8 @@ lib = Librunner(config)
 num_nbd_devices = 16
 num_nbd_device = 0
 
-filesystems = ['f2fs']
-filesizes = ['1k']
+filesystems = ['nilfs', 'f2fs']
+filesizes = ['1k', '4k', '512k', '5m', '40m']
 
 experiments = [lib.sequentialFreerun] #[lib.sequentialFreerun, lib.randomFreerun]
 
@@ -71,7 +71,7 @@ if __name__ == "__main__":
         configurations = []
 
         for filesystem in filesystems:
-            #configurations.append(Configuration('{}#baseline'.format(filesystem), filesystem, [], []))
+            configurations.append(Configuration('{}#baseline'.format(filesystem), filesystem, [], []))
             configurations.extend([Configuration('{}#{}'.format(filesystem, cipher), filesystem, [], ['--cipher', cipher]) for cipher in ciphers])
 
         confcount = len(configurations) * len(backendFnTuples) * len(filesizes) * len(experiments)
