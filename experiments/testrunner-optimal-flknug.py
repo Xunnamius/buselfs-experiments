@@ -14,7 +14,12 @@ lib = Librunner(config)
 num_nbd_devices = 16
 num_nbd_device = 0
 
+filesystems = ['nilfs', 'f2fs']
 filesizes = ['1k', '4k', '512k', '5m', '40m']
+
+flksizes = [128, 256, 512, 1024, 2048, 8192, 16384, 32768, 65536]
+fpns = [2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192]
+
 experiments = [lib.sequentialFreerun] #[lib.sequentialFreerun, lib.randomFreerun]
 
 ciphers = ['sc_chacha8',
@@ -58,20 +63,18 @@ if __name__ == "__main__":
         lib.clearBackstoreFiles()
         lib.lprint('constructing configurations', logfile=file)
 
-        # * Normal perf tests
-        configurations = (
-            # Configuration('nilfs2', 'nilfs2', [], []),
-            # Configuration('f2fs', 'f2fs', ['-o', 'background_gc_off'], []),
-            Configuration('f2fs', 'f2fs', [], []),
-            # Configuration('ext4-oj', 'ext4', [], []),
-            # Configuration('ext4-fj', 'ext4', ['-o', 'data=journal'], [])
-        )
-
-        # * Cipher suite perf tests
-        # configurations = \
-        #   [Configuration('f2fs#baseline', 'f2fs', [], []), Configuration('nilfs#baseline', 'nilfs', [], [])]
-        # + [Configuration('f2fs#{}'.format(cipher), 'f2fs', [], ['--cipher', cipher]) for cipher in ciphers]
-        # + [Configuration('nilfs#{}'.format(cipher), 'nilfs', [], ['--cipher', cipher]) for cipher in ciphers]
+        # * Optimal flake/nugget size perf test
+        configurations = []
+        for filesystem in filesystems:
+            configurations.append(Configuration('{}#baseline'.format(filesystem), filesystem, [], []))
+            for fpn in fpns:
+                for flk_size in flksizes:
+                    configurations += [
+                        Configuration('{}#{}'.format(filesystem, cipher),
+                                      filesystem,
+                                      [],
+                                      ['--cipher', cipher, '--flake-size', str(flk_size), '--flakes-per-nugget', str(fpn)]
+                        ) for cipher in ciphers]
 
         confcount = len(configurations) * len(backendFnTuples) * len(filesizes) * len(experiments)
         

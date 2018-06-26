@@ -7,14 +7,18 @@ import glob
 import pexpect
 import inspect
 
+from collections import namedtuple
+
 # ? This is encountered when the exit status of a command returns None for some
 # ? ungodly reason...
 BADEXITSTATUS = 115
 
 # ? Amount of time to wait before we consider a command as failed
-STANDARD_TIMEOUT=10
+STANDARD_TIMEOUT=5
 
 from subprocess import Popen
+
+Configuration = namedtuple('Configuration', ['proto_test_name', 'fs_type', 'mount_args', 'sb_args'])
 
 # TODO: DRY the methods of this class out (so much repetition!)
 # TODO: make the output from the C binaries get recorded in the logs properly!
@@ -285,14 +289,19 @@ class Librunner():
         mount.close()
         return buse
 
-    def createSbBackend(self, logfile, device, fs_type, mount_args=None):
+    def createSbBackend(self, logfile, device, fs_type, mount_args=None, sb_args=None):
         """Creates a StrongBox backend"""
 
         mount_args = mount_args or []
+        sb_args = sb_args or []
 
         self.lprint('creating StrongBox backend ({})'.format(device), logfile=logfile, device=device)
 
-        buse = Popen(['{}/build/sb'.format(self.config['BUSELFS_PATH']), '--backstore-size', str(self.config['BACKEND_SIZE_INT']), '--default-password', 'create', device],
+        buse = Popen(['{}/build/sb'.format(self.config['BUSELFS_PATH']),
+                      '--backstore-size',
+                      str(self.config['BACKEND_SIZE_INT']),
+                      '--default-password'
+                     ] + sb_args + ['create', device],
                     stdout=logfile,
                     stderr=logfile)
 
