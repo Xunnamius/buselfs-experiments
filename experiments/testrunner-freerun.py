@@ -49,40 +49,40 @@ if __name__ == "__main__":
     initrunner.initialize()
     lib.checkSanity()
 
-    with open(config['LOG_FILE_PATH'], 'w') as file:
-        print(str(datetime.now()), '\n---------\n', file=file)
+    os.chdir(config['RAM0_PATH'])
+    
+    lib.lprint('working directory set to {}'.format(config['RAM0_PATH']))
+    lib.clearBackstoreFiles()
+    lib.lprint('constructing configurations')
 
-        os.chdir(config['RAM0_PATH'])
-        
-        lib.lprint('working directory set to {}'.format(config['RAM0_PATH']), logfile=file)
-        lib.clearBackstoreFiles()
-        lib.lprint('constructing configurations', logfile=file)
+    # * Normal perf tests
+    # configurations = (
+        # Configuration('nilfs2', 'nilfs2', [], []),
+        # Configuration('f2fs', 'f2fs', ['-o', 'background_gc_off'], []),
+        # Configuration('f2fs', 'f2fs', [], []),
+        # Configuration('ext4-oj', 'ext4', [], []),
+        # Configuration('ext4-fj', 'ext4', ['-o', 'data=journal'], [])
+    # )
 
-        # * Normal perf tests
-        # configurations = (
-            # Configuration('nilfs2', 'nilfs2', [], []),
-            # Configuration('f2fs', 'f2fs', ['-o', 'background_gc_off'], []),
-            # Configuration('f2fs', 'f2fs', [], []),
-            # Configuration('ext4-oj', 'ext4', [], []),
-            # Configuration('ext4-fj', 'ext4', ['-o', 'data=journal'], [])
-        # )
+    # * Cipher suite perf tests
+    configurations = []
 
-        # * Cipher suite perf tests
-        configurations = []
+    for filesystem in filesystems:
+        configurations.append(Configuration('{}:baseline'.format(filesystem), filesystem, [], []))
+        configurations.extend([Configuration('{}:{}'.format(filesystem, cipher), filesystem, [], ['--cipher', cipher]) for cipher in ciphers])
 
-        for filesystem in filesystems:
-            configurations.append(Configuration('{}:baseline'.format(filesystem), filesystem, [], []))
-            configurations.extend([Configuration('{}:{}'.format(filesystem, cipher), filesystem, [], ['--cipher', cipher]) for cipher in ciphers])
+    confcount = len(configurations) * len(backendFnTuples) * len(filesizes) * len(experiments)
+    
+    lib.lprint('starting experiment ({} configurations; estimated {} minutes)'
+        .format(confcount, confcount * 45 / 60))
 
-        confcount = len(configurations) * len(backendFnTuples) * len(filesizes) * len(experiments)
-        
-        lib.lprint('starting experiment ({} configurations; estimated {} minutes)'
-           .format(confcount, confcount * 45 / 60), logfile=file)
+    for conf in configurations:
+        for backendFn in backendFnTuples:
+            for runFn in experiments:
+                for filesize in filesizes:
+                    with open(config['LOG_FILE_PATH'], 'w') as file:
+                        print(str(datetime.now()), '\n---------\n', file=file)
 
-        for conf in configurations:
-            for backendFn in backendFnTuples:
-                for runFn in experiments:
-                    for filesize in filesizes:
                         device = 'nbd{}'.format(num_nbd_device)
 
                         backend = backendFn[0](file, device, conf.fs_type, conf.mount_args, conf.sb_args)
@@ -93,7 +93,6 @@ if __name__ == "__main__":
 
                         num_nbd_device = (num_nbd_device + 1) % num_nbd_devices
 
-        lib.clearBackstoreFiles()
-
-        print('\n---------\n(finished)', file=file)
-        lib.lprint('done', severity='OK')
+                        print('\n---------\n(finished)', file=file)
+    
+    lib.lprint('done', severity='OK')

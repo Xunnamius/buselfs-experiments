@@ -14,14 +14,16 @@ from collections import namedtuple
 BADEXITSTATUS = 115
 
 # ? Amount of time to wait before we consider a command as failed
-STANDARD_TIMEOUT=5
+STANDARD_TIMEOUT = 900
 
 from subprocess import Popen
 
 Configuration = namedtuple('Configuration', ['proto_test_name', 'fs_type', 'mount_args', 'sb_args'])
 
 # TODO: DRY the methods of this class out (so much repetition!)
-# TODO: make the output from the C binaries get recorded in the logs properly!
+# TODO: Make this an actual class, not just an old collection of functions calls (BAD!)
+# TODO: i.e. stop passing around logfile and other internal vars as params
+# TODO: i.e. turns all calls to exit into exceptions that are raised (where sensible)
 class Librunner():
     def __init__(self, config={}):
         self.config = config

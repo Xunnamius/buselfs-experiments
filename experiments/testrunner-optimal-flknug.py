@@ -52,37 +52,37 @@ if __name__ == "__main__":
     initrunner.initialize()
     lib.checkSanity()
 
-    with open(config['LOG_FILE_PATH'], 'w') as file:
-        print(str(datetime.now()), '\n---------\n', file=file)
+    os.chdir(config['RAM0_PATH'])
+    
+    lib.lprint('working directory set to {}'.format(config['RAM0_PATH']))
+    lib.clearBackstoreFiles()
+    lib.lprint('constructing configurations')
 
-        os.chdir(config['RAM0_PATH'])
-        
-        lib.lprint('working directory set to {}'.format(config['RAM0_PATH']), logfile=file)
-        lib.clearBackstoreFiles()
-        lib.lprint('constructing configurations', logfile=file)
+    # * Optimal flake/nugget size perf test
+    configurations = []
+    for filesystem in filesystems:
+        configurations.append(Configuration('{}:baseline'.format(filesystem), filesystem, [], []))
+        for fpn in fpns:
+            for flk_size in flksizes:
+                configurations.extend([
+                    Configuration('{}:{}:{}:{}'.format(filesystem, cipher, flk_size, fpn),
+                                    filesystem,
+                                    [],
+                                    ['--cipher', cipher, '--flake-size', str(flk_size), '--flakes-per-nugget', str(fpn)]
+                    ) for cipher in ciphers])
 
-        # * Optimal flake/nugget size perf test
-        configurations = []
-        for filesystem in filesystems:
-            configurations.append(Configuration('{}:baseline'.format(filesystem), filesystem, [], []))
-            for fpn in fpns:
-                for flk_size in flksizes:
-                    configurations.extend([
-                        Configuration('{}:{}:{}:{}'.format(filesystem, cipher, flk_size, fpn),
-                                      filesystem,
-                                      [],
-                                      ['--cipher', cipher, '--flake-size', str(flk_size), '--flakes-per-nugget', str(fpn)]
-                        ) for cipher in ciphers])
+    confcount = len(configurations) * len(backendFnTuples) * len(filesizes) * len(experiments)
 
-        confcount = len(configurations) * len(backendFnTuples) * len(filesizes) * len(experiments)
+    lib.lprint('starting experiment ({} configurations; estimated {} minutes)'
+        .format(confcount, confcount * 45 / 60))
 
-        lib.lprint('starting experiment ({} configurations; estimated {} minutes)'
-           .format(confcount, confcount * 45 / 60), logfile=file)
+    for conf in configurations:
+        for backendFn in backendFnTuples:
+            for runFn in experiments:
+                for filesize in filesizes:
+                    with open(config['LOG_FILE_PATH'], 'w') as file:
+                        print(str(datetime.now()), '\n---------\n', file=file)
 
-        for conf in configurations:
-            for backendFn in backendFnTuples:
-                for runFn in experiments:
-                    for filesize in filesizes:
                         device = 'nbd{}'.format(num_nbd_device)
 
                         backend = backendFn[0](file, device, conf.fs_type, conf.mount_args, conf.sb_args)
@@ -93,7 +93,6 @@ if __name__ == "__main__":
 
                         num_nbd_device = (num_nbd_device + 1) % num_nbd_devices
 
-        lib.clearBackstoreFiles()
+                        print('\n---------\n(finished)', file=file)
 
-        print('\n---------\n(finished)', file=file)
-        lib.lprint('done', severity='OK')
+    lib.lprint('done', severity='OK')
