@@ -22,9 +22,7 @@ fpns = [2, 4, 8, 16, 32, 64, 128, 256]
 
 experiments = [lib.sequentialFreerun] #[lib.sequentialFreerun, lib.randomFreerun]
 
-ciphers = ['sc_chacha8',
-           'sc_chacha12',
-           'sc_salsa8',
+ciphers = ['sc_salsa8',
            'sc_salsa12',
            'sc_salsa20',
            'sc_aes128_ctr',
