@@ -59,19 +59,19 @@ if __name__ == "__main__":
         lib.lprint('constructing configurations', logfile=file)
 
         # * Normal perf tests
-        configurations = (
+        # configurations = (
             # Configuration('nilfs2', 'nilfs2', [], []),
             # Configuration('f2fs', 'f2fs', ['-o', 'background_gc_off'], []),
-            Configuration('f2fs', 'f2fs', [], []),
+            # Configuration('f2fs', 'f2fs', [], []),
             # Configuration('ext4-oj', 'ext4', [], []),
             # Configuration('ext4-fj', 'ext4', ['-o', 'data=journal'], [])
-        )
+        # )
 
         # * Cipher suite perf tests
-        # configurations = \
-        #   [Configuration('f2fs#baseline', 'f2fs', [], []), Configuration('nilfs#baseline', 'nilfs', [], [])]
-        # + [Configuration('f2fs#{}'.format(cipher), 'f2fs', [], ['--cipher', cipher]) for cipher in ciphers]
-        # + [Configuration('nilfs#{}'.format(cipher), 'nilfs', [], ['--cipher', cipher]) for cipher in ciphers]
+        configurations = \
+          [Configuration('f2fs#baseline', 'f2fs', [], []), Configuration('nilfs#baseline', 'nilfs', [], [])]
+        + [Configuration('f2fs#{}'.format(cipher), 'f2fs', [], ['--cipher', cipher]) for cipher in ciphers]
+        + [Configuration('nilfs#{}'.format(cipher), 'nilfs', [], ['--cipher', cipher]) for cipher in ciphers]
 
         confcount = len(configurations) * len(backendFnTuples) * len(filesizes) * len(experiments)
         
