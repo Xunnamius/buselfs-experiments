@@ -311,25 +311,28 @@ class Librunner():
                     stdout=logfile,
                     stderr=logfile)
 
-        self.sleep(30)
+        while True:
+            self.sleep(30)
 
-        if buse.poll() is not None:
-            self.lexit('the StrongBox process does not appear to have survived', logfile=logfile, device=device, exitcode=17)
+            bpoll = buse.poll()
+            if bpoll is not None:
+                self.lexit('the StrongBox process does not appear to have survived (exit code {})'.format(bpoll), logfile=logfile, device=device, exitcode=17)
 
-        self.lprint('running mkfs', logfile=logfile, device=device)
+            self.lprint('attempting mkfs', logfile=logfile, device=device)
 
-        mkfs = pexpect.spawn('mkfs',
-                            ['-t', fs_type, '/dev/{}'.format(device)],
-                            logfile=logfile,
-                            echo=False,
-                            timeout=STANDARD_TIMEOUT,
-                            encoding='utf-8')
+            mkfs = pexpect.spawn('mkfs',
+                                ['-t', fs_type, '/dev/{}'.format(device)],
+                                logfile=logfile,
+                                echo=False,
+                                timeout=STANDARD_TIMEOUT,
+                                encoding='utf-8')
 
-        mkfs.expect(pexpect.EOF)
-        mkfs.close()
+            mkfs.expect(pexpect.EOF)
+            mkfs.close()
 
-        if mkfs.exitstatus != 0:
-            self.lexit(logfile=logfile, device=device, exitcode=(-1*mkfs.exitstatus if mkfs.exitstatus else BADEXITSTATUS))
+            if mkfs.exitstatus != 0:
+                self.lprint('mkfs attempt failed but the StrongBox is still alive. Strange. Retrying in 30 seconds...', logfile=logfile, device=device)
+                # self.lexit(logfile=logfile, device=device, exitcode=(-1*mkfs.exitstatus if mkfs.exitstatus else BADEXITSTATUS))
 
         self.lprint('running mount', logfile=logfile, device=device)
 
