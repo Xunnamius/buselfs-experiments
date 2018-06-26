@@ -14,7 +14,7 @@ lib = Librunner(config)
 num_nbd_devices = 16
 num_nbd_device = 0
 
-filesystems = ['nilfs', 'f2fs']
+filesystems = ['nilfs2', 'f2fs']
 filesizes = ['1k', '4k', '512k', '5m', '40m']
 
 experiments = [lib.sequentialFreerun] #[lib.sequentialFreerun, lib.randomFreerun]
