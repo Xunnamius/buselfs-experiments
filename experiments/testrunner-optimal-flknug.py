@@ -14,7 +14,7 @@ lib = Librunner(config)
 num_nbd_devices = 16
 num_nbd_device = 0
 
-filesystems = ['f2fs']
+filesystems = ['f2fs'] # ['f2fs', 'nilfs']
 filesizes = ['5m']
 
 flksizes = [512, 1024, 2048, 4096, 8192, 16384, 32768, 65536]
