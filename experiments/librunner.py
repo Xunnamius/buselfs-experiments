@@ -14,7 +14,7 @@ from collections import namedtuple
 BADEXITSTATUS = 115
 
 # ? Amount of time to wait before we consider a command as failed
-STANDARD_TIMEOUT = 900
+STANDARD_TIMEOUT = None
 
 from subprocess import Popen
 
@@ -89,7 +89,7 @@ class Librunner():
                             ['-t', fs_type, backend_file_name],
                             logfile=logfile,
                             echo=False,
-                            timeout=STANDARD_TIMEOUT,
+                            #timeout=STANDARD_TIMEOUT,
                             encoding='utf-8')
 
         mkfs.expect(pexpect.EOF)
@@ -105,7 +105,7 @@ class Librunner():
                             mount_args + ['-t', fs_type, backend_file_name, '{}/{}'.format(self.config['TMP_ROOT_PATH'], device), '-o', 'loop'],
                             logfile=logfile,
                             echo=False,
-                            timeout=STANDARD_TIMEOUT,
+                            #timeout=STANDARD_TIMEOUT,
                             encoding='utf-8')
 
         mount.expect(pexpect.EOF)
@@ -116,7 +116,7 @@ class Librunner():
         mount = pexpect.spawn('mount',
                             logfile=logfile,
                             echo=False,
-                            timeout=STANDARD_TIMEOUT,
+                            #timeout=STANDARD_TIMEOUT,
                             encoding='utf-8')
 
         mount_out = mount.expect([r'on {}/{}'.format(self.config['TMP_ROOT_PATH'], device), pexpect.EOF])
@@ -188,7 +188,7 @@ class Librunner():
                             ['-t', fs_type, '/dev/mapper/{}'.format(device)],
                             logfile=logfile,
                             echo=False,
-                            timeout=STANDARD_TIMEOUT,
+                            #timeout=STANDARD_TIMEOUT,
                             encoding='utf-8')
 
         mkfs.expect(pexpect.EOF)
@@ -204,7 +204,7 @@ class Librunner():
                             mount_args + ['-t', fs_type, '/dev/mapper/{}'.format(device), '{}/{}'.format(self.config['TMP_ROOT_PATH'], device), '-o', 'loop'],
                             logfile=logfile,
                             echo=False,
-                            timeout=STANDARD_TIMEOUT,
+                            #timeout=STANDARD_TIMEOUT,
                             encoding='utf-8')
 
         mount.expect(pexpect.EOF)
@@ -215,7 +215,7 @@ class Librunner():
         mount = pexpect.spawn('mount',
                             logfile=logfile,
                             echo=False,
-                            timeout=STANDARD_TIMEOUT,
+                            #timeout=STANDARD_TIMEOUT,
                             encoding='utf-8')
 
         mount_out = mount.expect([r'on {}/{}'.format(self.config['TMP_ROOT_PATH'], device), pexpect.EOF])
@@ -251,7 +251,7 @@ class Librunner():
                             ['-t', fs_type, '/dev/{}'.format(device)],
                             logfile=logfile,
                             echo=False,
-                            timeout=STANDARD_TIMEOUT,
+                            #timeout=STANDARD_TIMEOUT,
                             encoding='utf-8')
 
         mkfs.expect(pexpect.EOF)
@@ -266,7 +266,7 @@ class Librunner():
                             mount_args + ['-t', fs_type, '/dev/{}'.format(device), '{}/{}'.format(self.config['TMP_ROOT_PATH'], device)],
                             logfile=logfile,
                             echo=False,
-                            timeout=STANDARD_TIMEOUT,
+                            #timeout=STANDARD_TIMEOUT,
                             encoding='utf-8')
 
         mount.expect(pexpect.EOF)
@@ -277,7 +277,7 @@ class Librunner():
         mount = pexpect.spawn('mount',
                             logfile=logfile,
                             echo=False,
-                            timeout=STANDARD_TIMEOUT,
+                            #timeout=STANDARD_TIMEOUT,
                             encoding='utf-8')
 
         mount_out = mount.expect([r'on {}/{}'.format(self.config['TMP_ROOT_PATH'], device), pexpect.EOF])
@@ -344,7 +344,7 @@ class Librunner():
                             mount_args + ['-t', fs_type, '/dev/{}'.format(device), '{}/{}'.format(self.config['TMP_ROOT_PATH'], device)],
                             logfile=logfile,
                             echo=False,
-                            timeout=STANDARD_TIMEOUT,
+                            #timeout=STANDARD_TIMEOUT,
                             encoding='utf-8')
 
         mount.expect(pexpect.EOF)
@@ -355,7 +355,7 @@ class Librunner():
         mount = pexpect.spawn('mount',
                             logfile=logfile,
                             echo=False,
-                            timeout=STANDARD_TIMEOUT,
+                            #timeout=STANDARD_TIMEOUT,
                             encoding='utf-8')
 
         mount_out = mount.expect([r'on {}/{}'.format(self.config['TMP_ROOT_PATH'], device), pexpect.EOF])
@@ -425,7 +425,7 @@ class Librunner():
                             ['-t', fs_type, '/dev/mapper/{}'.format(device)],
                             logfile=logfile,
                             echo=False,
-                            timeout=STANDARD_TIMEOUT,
+                            #timeout=STANDARD_TIMEOUT,
                             encoding='utf-8')
 
         mkfs.expect(pexpect.EOF)
@@ -440,7 +440,7 @@ class Librunner():
                             mount_args + ['-t', fs_type, '/dev/mapper/{}'.format(device), '{}/{}'.format(self.config['TMP_ROOT_PATH'], device)],
                             logfile=logfile,
                             echo=False,
-                            timeout=STANDARD_TIMEOUT,
+                            #timeout=STANDARD_TIMEOUT,
                             encoding='utf-8')
 
         mount.expect(pexpect.EOF)
@@ -451,7 +451,7 @@ class Librunner():
         mount = pexpect.spawn('mount',
                             logfile=logfile,
                             echo=False,
-                            timeout=STANDARD_TIMEOUT,
+                            #timeout=STANDARD_TIMEOUT,
                             encoding='utf-8')
 
         mount_out = mount.expect([r'on {}/{}'.format(self.config['TMP_ROOT_PATH'], device), pexpect.EOF])
