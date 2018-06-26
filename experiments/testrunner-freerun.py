@@ -71,8 +71,8 @@ if __name__ == "__main__":
         configurations = []
 
         for filesystem in filesystems:
-            configurations.append(Configuration('{}#baseline'.format(filesystem), filesystem, [], []))
-            configurations.extend([Configuration('{}#{}'.format(filesystem, cipher), filesystem, [], ['--cipher', cipher]) for cipher in ciphers])
+            configurations.append(Configuration('{}:baseline'.format(filesystem), filesystem, [], []))
+            configurations.extend([Configuration('{}:{}'.format(filesystem, cipher), filesystem, [], ['--cipher', cipher]) for cipher in ciphers])
 
         confcount = len(configurations) * len(backendFnTuples) * len(filesizes) * len(experiments)
         

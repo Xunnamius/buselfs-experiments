@@ -64,11 +64,11 @@ if __name__ == "__main__":
         # * Optimal flake/nugget size perf test
         configurations = []
         for filesystem in filesystems:
-            configurations.append(Configuration('{}#baseline'.format(filesystem), filesystem, [], []))
+            configurations.append(Configuration('{}:baseline'.format(filesystem), filesystem, [], []))
             for fpn in fpns:
                 for flk_size in flksizes:
                     configurations.extend([
-                        Configuration('{}#{}'.format(filesystem, cipher),
+                        Configuration('{}:{}:{}:{}'.format(filesystem, cipher, flk_size, fpn),
                                       filesystem,
                                       [],
                                       ['--cipher', cipher, '--flake-size', str(flk_size), '--flakes-per-nugget', str(fpn)]
