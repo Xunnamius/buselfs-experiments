@@ -84,7 +84,12 @@ For Odroids outside of U of C, where permission separation and other concerns ar
     - [StrongBox (Buselfs)](https://git.xunn.io/research/buselfs) **(required)**
     - [The StrongBox suite of experiments (this repository)](https://git.xunn.io/research/buselfs-experiments) **(required)**
     - [Energymon repository for installing energymon](https://github.com/energymon/energymon)
+    - [e/MMC Controller to handle RPMB](https://git.kernel.org/pub/scm/linux/kernel/git/cjb/mmc-utils.git/)
 10. Copy [vars.mk-dist](config/vars.mk-dist) to [vars.mk](config/vars.mk-dist) and modify the settings to your liking
+11. Initialize the RPMB of the MMC. This is a one-time operation! Make sure you know what you're doing first.
+    1. Write the key: `echo -n thirtycharactersecurecounterkey! | mmc rpmb write-key /dev/mmcblk0rpmb -`
+    2. Write a block at address 0x02: `echo -n 'ZivBE56hTKi8eiEHQZqrGjjUwT80GePRO0Qd2RL9UUD4jeQ0csPbXr8VUHmGS76YO4btBSHm5vHLjxZaiH0EBE6scQx8IT5GTjbwJm1I7fdI73F7riTIwhvHhs9T13YLBTQJyMtjAMYugNIthumjBKfXSlKc3aUdf23YjRWpfXJwXubE0lCTJ1NELZTGgPjgWI4bBykXLUplAGoN1BTkMEh6P8hFseueVIbl6KjbrK8HYXfWiJ1A6pI4O5CypJ1Wthirtycharactersecurecounterkey!' | sudo ./mmc rpmb write-block /dev/mmcblk0rpmb 0x02 - -`
+    3. Read a block at said address:  `echo -n thirtycharactersecurecounterkey! | sudo ./mmc rpmb read-block /dev/mmcblk0rpmb 0x02 2 - -`
 
 ## Test Odroid Initialization
 
