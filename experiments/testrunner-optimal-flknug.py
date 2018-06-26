@@ -15,10 +15,10 @@ num_nbd_devices = 16
 num_nbd_device = 0
 
 filesystems = ['f2fs']
-filesizes = ['1k']
+filesizes = ['5m']
 
-flksizes = [128, 256, 512, 1024, 2048, 8192, 16384, 32768, 65536]
-fpns = [2, 4, 8, 16, 32, 64, 128, 256]
+flksizes = [512, 1024, 2048, 4096, 8192, 16384, 32768, 65536]
+fpns = [8, 16, 32, 64, 128, 256]
 
 experiments = [lib.sequentialFreerun] #[lib.sequentialFreerun, lib.randomFreerun]
 
