@@ -308,9 +308,10 @@ class Librunner():
         target.append(device)
 
         buse = Popen(target, stdout=logfile, stderr=logfile)
+        waittime = 5
 
         while True:
-            self.sleep(30)
+            self.sleep(waittime)
 
             bpoll = buse.poll()
             if bpoll is not None:
@@ -322,14 +323,14 @@ class Librunner():
                                 ['-t', fs_type, '/dev/{}'.format(device)],
                                 logfile=logfile,
                                 echo=False,
-                                timeout=STANDARD_TIMEOUT,
                                 encoding='utf-8')
 
             mkfs.expect(pexpect.EOF)
             mkfs.close()
 
             if mkfs.exitstatus != 0:
-                self.lprint('mkfs attempt failed but the StrongBox is still alive. Strange. Retrying in 30 seconds...', logfile=logfile, device=device)
+                waittime += 5
+                self.lprint('mkfs attempt failed but the StrongBox is still alive. Strange. Retrying in {} seconds...'.format(waittime), logfile=logfile, device=device)
                 # self.lexit(logfile=logfile, device=device, exitcode=(-1*mkfs.exitstatus if mkfs.exitstatus else BADEXITSTATUS))
             else:
                 self.lprint('mkfs succeeded!', logfile=logfile, device=device)
