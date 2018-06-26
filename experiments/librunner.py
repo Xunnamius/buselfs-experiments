@@ -307,9 +307,7 @@ class Librunner():
         target.append('create')
         target.append(device)
 
-        buse = Popen(target,
-                    stdout=logfile,
-                    stderr=logfile)
+        buse = Popen(target, stdout=logfile, stderr=logfile)
 
         while True:
             self.sleep(30)
@@ -333,6 +331,9 @@ class Librunner():
             if mkfs.exitstatus != 0:
                 self.lprint('mkfs attempt failed but the StrongBox is still alive. Strange. Retrying in 30 seconds...', logfile=logfile, device=device)
                 # self.lexit(logfile=logfile, device=device, exitcode=(-1*mkfs.exitstatus if mkfs.exitstatus else BADEXITSTATUS))
+            else:
+                self.lprint('mkfs succeeded!', logfile=logfile, device=device)
+                break
 
         self.lprint('running mount', logfile=logfile, device=device)
 
