@@ -18,7 +18,7 @@ dataClasses = ['1k', '40m'] #['1k', '4k', '512k', '5m', '40m']
 
 experiments = [lib.sequentialFreerun] #[lib.sequentialFreerun, lib.randomFreerun]
 
-ciphers = ['sc_hc128',
+ciphers = [#'sc_hc128', # ! too slow to test >:O
            'sc_rabbit',
            'sc_sosemanuk',
            'sc_salsa8',
@@ -44,7 +44,7 @@ if __name__ == "__main__":
         os.geteuid = lambda: -1
 
     if os.geteuid() != 0:
-        sys.exit('must be root/sudo', exitcode=1)
+        sys.exit('must be root/sudo')
     
     # Bare bones basic initialization
     initrunner.initialize()
@@ -84,14 +84,16 @@ if __name__ == "__main__":
                         print(str(datetime.now()), '\n---------\n', file=file)
 
                         lib.logFile = file
+                        identifier = '{}-{}-{}'.format(dataClass, conf.proto_test_name, backendFn[2])
 
+                        lib.print(' ------------------ Experiment "{}" ------------------ '.format(identifier))
                         backendFn[0](conf.fs_type, conf.mount_args, conf.device_args)
                         lib.dropPageCache()
-                        runFn(dataClass, '{}-{}-{}'.format(dataClass, conf.proto_test_name, backendFn[2]))
+                        runFn(dataClass, identifier)
                         backendFn[1]()
                         lib.clearBackstoreFiles()
 
+                        lib.print(' ------------------ *** ------------------ ')
                         lib.logFile = None
-                        print('\n---------\n(finished)', file=file)
     
     lib.print('done', severity='OK')

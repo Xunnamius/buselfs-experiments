@@ -7,7 +7,7 @@ import pexpect
 
 from subprocess import Popen
 from datetime import datetime
-from librunner.exception import CommandExecutionError, TaskError
+from librunner.exception import CommandExecutionError, TaskError, ExperimentError
 from librunner.util import (
     STANDARD_WAIT,
     REDUCED_WAIT,
@@ -264,11 +264,20 @@ class Librunner():
     def _shell_saw(self, executable, args):
         self.print('<shell saw: `{}`>'.format('{} {}'.format(executable, ' '.join(args))))
 
-    def _spawn_actual(self, executable, args, spawn_expect=None):
+    def _spawn_actual(self, executable, args, spawn_expect=None, timeout=None):
         self._shell_saw(executable, args)
 
+        if timeout:
+            timeout = int(timeout)
+            self.print(
+                'the next command will be terminated by force if it does not complete in {} seconds'.format(timeout),
+                severity='WARN'
+            )
+        else:
+            timeout = self.timeout
+
         time.sleep(1)
-        proc = pexpect.spawn(executable, args, logfile=self.logFile, echo=False, timeout=self.timeout, encoding='utf-8')
+        proc = pexpect.spawn(executable, args, logfile=self.logFile, echo=False, timeout=timeout, encoding='utf-8')
 
         if not spawn_expect:
             proc.expect(pexpect.EOF)
@@ -291,7 +300,9 @@ class Librunner():
 
         self.print((verifyMessage or 'verifying {} completed successfully').format(executable))
 
-        checkFn(proc)
+        checkFn(executable, args, proc)
+
+        return proc
 
     def _mkfs(self, args):
         return self._spawn('mkfs', args)
@@ -332,57 +343,42 @@ class Librunner():
 
     def _cryptsetup_close(self, args=None):
         args = args or []
-
         return self._spawn('cryptsetup', ['close', self.currentDeviceName] + args, runMessage='closing dm-crypt LUKS volume')
 
     def _cp(self, args):
         return self._spawn('cp', args)
 
-    def _check_mkfs(self, proc):
+    def _check_mkfs(self, executable, args, proc):
+        # ? A good exit code will do just nicely
         pass
     
-    def _check_mount(self, proc):
-        # mount = pexpect.spawn('mount',
-        #                     logfile=logfile,
-        #                     echo=False,
-        #                     #timeout=STANDARD_TIMEOUT,
-        #                     encoding='utf-8')
+    def _check_mount(self, executable, args, proc):
+        def spawn_expect(executable, args, proc):
+            try:
+                proc.expect(r'on {}'.format(self.currentDeviceTmpPath))
 
-        # mount_out = mount.expect([r'on {}/{}'.format(self.config['TMP_ROOT_PATH'], device), pexpect.EOF])
-        # if mount_out == 1:
-        #     raise CommandExecutionError('Could not verify successful mount of {} on {}/{}'.format(backend_file_name, self.config['TMP_ROOT_PATH'], device), logfile=logfile,
-        #         device=device,
-        #         exitcode=19)
+            except pexpect.EOF:
+                raise CommandExecutionError('could not verify successful mount onto {}'.format(self.currentDeviceTmpPath))
 
-        # also this version:
-        # if mount_out == 1:
-        #     raise CommandExecutionError("could not verify successful mount of /dev/mapper/{} on {}/{}".format(device, self.config['TMP_ROOT_PATH'], device),
-        #         logfile=logfile,
-        #         device=device,
-        #         exitcode=7)
+        self._spawn_actual('mount', [], spawn_expect=spawn_expect)
 
-        # also this version:
-        # raise CommandExecutionError("could not verify successful mount of /dev/{} on {}/{}".format(device, self.config['TMP_ROOT_PATH'], device),
-        #         logfile=logfile,
-        #         device=device,
-        #         exitcode=19)
+    def _check_umount(self, executable, args, proc):
+        def spawn_expect(executable, args, proc):
+            try:
+                proc.expect(r'on {}'.format(self.currentDeviceTmpPath))
+                raise CommandExecutionError('could not verify successful umount from {}'.format(self.currentDeviceTmpPath))
 
-        # also this version:
-        # raise CommandExecutionError("could not verify successful mount of /dev/{} on {}/{}".format(device, self.config['TMP_ROOT_PATH'], device),
-        #         logfile=logfile,
-        #         device=device,
-        #         exitcode=15)
+            except pexpect.EOF:
+                pass # ? Success!
 
-        # mount.close()
+        self._spawn_actual('mount', [], spawn_expect=spawn_expect)
+
+    def _check_cryptsetup(self, executable, args, proc):
+        # ? A good exit code will do just nicely
         pass
 
-    def _check_umount(self, proc):
-        pass
-
-    def _check_cryptsetup(self, proc):
-        pass
-
-    def _check_cp(self, proc):
+    def _check_cp(self, executable, args, proc):
+        # ? A good exit code will do just nicely
         pass
 
     # *
@@ -493,8 +489,8 @@ class Librunner():
                 break
             
             except CommandExecutionError as e:
-                self.print(str(e), severity='IGNORED')
-                self.print('Retrying in {} seconds...'.format(waittimes[0]))
+                self.print(str(e), severity='WARN')
+                self.print('Retrying in {} seconds...'.format(waittimes[0]), severity='WARN')
 
         self._mount(mount_args + ['-t', fs_type, self.currentDeviceDevPath, self.currentDeviceTmpPath])
 
@@ -535,7 +531,7 @@ class Librunner():
     # * Backends (Destruction)
     # *
 
-    def _terminateBackgroundFilesystemProcesses(self):
+    def _terminateLingeringProcesses(self):
         self.print('terminating background fs process')
         
         self._lingeringBackgroundProcess.terminate()
@@ -562,7 +558,7 @@ class Librunner():
         """
 
         self._umount([self.currentDeviceTmpPath])
-        self._terminateBackgroundFilesystemProcesses()
+        self._terminateLingeringProcesses()
 
     def destroySbBackend(self):
         """Unmounts, deletes files, terminates proc but does not delete files in
@@ -570,7 +566,7 @@ class Librunner():
         """
 
         self._umount([self.currentDeviceTmpPath])
-        self._terminateBackgroundFilesystemProcesses()
+        self._terminateLingeringProcesses()
 
     def destroyDmcBackend(self):
         """Unmounts, deletes files, terminates proc but does not delete files in
@@ -579,7 +575,7 @@ class Librunner():
 
         self._umount([self.currentDeviceTmpPath])
         self._cryptsetup_close()
-        self._terminateBackgroundFilesystemProcesses()
+        self._terminateLingeringProcesses()
 
     # *
     # * Experiments
@@ -592,10 +588,15 @@ class Librunner():
 
         self.print('running sequential freerun test target {}'.format(test_name))
 
-        self._spawn_actual(
-            '{}/bin/sequential-freerun'.format(self.config['REPO_PATH']),
-            ['ram', test_name, self.currentDeviceTmpPath]
-        )
+        try:
+            return self._spawn_actual(
+                '{}/bin/sequential-freerun'.format(self.config['REPO_PATH']),
+                ['ram', test_name, self.currentDeviceTmpPath],
+                timeout=self.config['FREERUN_TIMEOUT_INT']
+            )
+        
+        except pexpect.TIMEOUT:
+            raise ExperimentError('experiment timed out (exceeded {} seconds'.format(self.config['FREERUN_TIMEOUT_INT']))
 
     def randomFreerun(self, data_class, test_name):
         """Runs the random freerun tests"""
@@ -604,7 +605,12 @@ class Librunner():
 
         self.print('running random freerun test target {}'.format(test_name))
 
-        self._spawn_actual(
-            '{}/bin/random-freerun'.format(self.config['REPO_PATH']),
-            ['ram', test_name, self.currentDeviceTmpPath]
-        )
+        try:
+            return self._spawn_actual(
+                '{}/bin/random-freerun'.format(self.config['REPO_PATH']),
+                ['ram', test_name, self.currentDeviceTmpPath],
+                timeout=self.config['FREERUN_TIMEOUT_INT']
+            )
+        
+        except pexpect.TIMEOUT:
+            raise ExperimentError('experiment timed out (exceeded {} seconds'.format(self.config['FREERUN_TIMEOUT_INT']))
