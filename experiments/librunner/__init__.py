@@ -489,7 +489,7 @@ class Librunner():
                 break
             
             except CommandExecutionError as e:
-                if e.exitcode >= 255:
+                if int(e.exitcode) >= 255:
                     self.print('failed to create backend: system is likely in an unstable state (try calling `sync`). Please reboot!', severity='FATAL')
                     raise TaskError('failed to create backend due to system instability')
 
