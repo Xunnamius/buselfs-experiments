@@ -13,6 +13,7 @@ lib = Librunner(config)
 
 ### * Configurables * ###
 
+# ! REMEMBER: it's nilfs2 (TWO) with a 2! Not just 'nilfs'!
 filesystems = ['nilfs2'] #['f2fs', 'nilfs2']
 dataClasses = ['1k', '40m'] #['1k', '4k', '512k', '5m', '40m']
 

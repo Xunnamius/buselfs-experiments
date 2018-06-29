@@ -13,20 +13,21 @@ lib = Librunner(config)
 
 ### * Configurables * ###
 
-filesystems = ['f2fs'] # ['f2fs', 'nilfs2']
-dataClasses = ['5m']
+# ! REMEMBER: it's nilfs2 (TWO) with a 2! Not just 'nilfs'!
+filesystems = ['f2fs', 'nilfs2']
+dataClasses = ['1k', '512k', '5m', '40m']
 
 flksizes = [512, 1024, 2048, 4096, 8192, 16384, 32768, 65536]
 fpns = [8, 16, 32, 64, 128, 256]
 
-experiments = [lib.sequentialFreerun] #[lib.sequentialFreerun, lib.randomFreerun]
+experiments = [lib.sequentialFreerun, lib.randomFreerun]
 
 ciphers = ['sc_salsa8',
            'sc_salsa12',
            'sc_salsa20',
            'sc_aes128_ctr',
            'sc_aes256_ctr',
-           'sc_hc128',
+           #'sc_hc128', # ! too slow to test >:O
            'sc_rabbit',
            'sc_sosemanuk'
 ]
@@ -73,6 +74,7 @@ if __name__ == "__main__":
 
     confcount = len(configurations) * len(backendFnTuples) * len(dataClasses) * len(experiments)
 
+    lib.clearBackstoreFiles()
     lib.print('starting experiment ({} configurations; estimated {} minutes)'.format(confcount, confcount * ESTIMATION_METRIC))
 
     for conf in configurations:
@@ -83,14 +85,16 @@ if __name__ == "__main__":
                         print(str(datetime.now()), '\n---------\n', file=file)
 
                         lib.logFile = file
+                        identifier = '{}-{}-{}'.format(dataClass, conf.proto_test_name, backendFn[2])
 
+                        lib.print(' ------------------ Experiment "{}" ------------------ '.format(identifier))
                         backendFn[0](conf.fs_type, conf.mount_args, conf.device_args)
                         lib.dropPageCache()
-                        runFn(dataClass, '{}-{}-{}'.format(dataClass, conf.proto_test_name, backendFn[2]))
+                        runFn(dataClass, identifier)
                         backendFn[1]()
                         lib.clearBackstoreFiles()
 
+                        lib.print(' ------------------ *** ------------------ ')
                         lib.logFile = None
-                        print('\n---------\n(finished)', file=file)
 
     lib.print('done', severity='OK')
