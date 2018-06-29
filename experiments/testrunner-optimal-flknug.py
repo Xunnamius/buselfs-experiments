@@ -13,7 +13,7 @@ lib = Librunner(config)
 
 ### * Configurables * ###
 
-filesystems = ['f2fs'] # ['f2fs', 'nilfs']
+filesystems = ['f2fs'] # ['f2fs', 'nilfs2']
 dataClasses = ['5m']
 
 flksizes = [512, 1024, 2048, 4096, 8192, 16384, 32768, 65536]

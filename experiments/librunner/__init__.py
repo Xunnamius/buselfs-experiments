@@ -522,7 +522,7 @@ class Librunner():
         bpoll = buse.poll()
 
         if bpoll is not None:
-            CommandExecutionError('the buselogfs process does not appear to have survived ({})'.format(bpoll))
+            CommandExecutionError('the buselogfs process does not appear to have survived ({})'.format(bpoll), bpoll)
 
         self._cryptsetup_init(['--verbose', '--cipher', 'aes-xts-plain64', '--key-size', '512', '--hash', 'sha512',
                                '--iter-time', '5000', '--use-urandom'] + device_args + ['luksFormat', self.currentDeviceDevPath])
