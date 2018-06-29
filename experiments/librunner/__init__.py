@@ -262,7 +262,7 @@ class Librunner():
     # *
 
     def _shell_saw(self, executable, args):
-        self.print('<shell saw: `{}`>'.format('{} {}'.format(executable, ' '.join(args))))
+        self.print('<shell saw: `{}`>'.format('{}{}'.format(executable, ' ' + ' '.join(str(a) for a in args) if len(args) else '')))
 
     def _spawn_actual(self, executable, args, spawn_expect=None, timeout=None):
         self._shell_saw(executable, args)
@@ -489,8 +489,12 @@ class Librunner():
                 break
             
             except CommandExecutionError as e:
-                self.print(str(e), severity='WARN')
-                self.print('Retrying in {} seconds...'.format(waittimes[0]), severity='WARN')
+                # if e.exitcode == 255:
+                #     self.print('mkfs failed but returned an error code indicating that the device is already mounted...?', severity='WARN')
+                #     break
+
+                # else:
+                self.print(e.message, severity='WARN')
 
         self._mount(mount_args + ['-t', fs_type, self.currentDeviceDevPath, self.currentDeviceTmpPath])
 
