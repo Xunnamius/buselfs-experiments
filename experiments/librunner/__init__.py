@@ -489,12 +489,12 @@ class Librunner():
                 break
             
             except CommandExecutionError as e:
-                # if e.exitcode == 255:
-                #     self.print('mkfs failed but returned an error code indicating that the device is already mounted...?', severity='WARN')
-                #     break
+                if e.exitcode >= 255:
+                    lib.print('failed to create backend: system is likely in an unstable state (try calling `sync`). Please reboot!', severity='FATAL')
+                    raise TaskError('failed to create backend due to system instability')
 
-                # else:
-                self.print(e.message, severity='WARN')
+                else:
+                    self.print(e.message, severity='WARN')
 
         self._mount(mount_args + ['-t', fs_type, self.currentDeviceDevPath, self.currentDeviceTmpPath])
 

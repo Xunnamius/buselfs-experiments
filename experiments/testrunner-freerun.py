@@ -74,6 +74,7 @@ if __name__ == "__main__":
 
     confcount = len(configurations) * len(backendFnTuples) * len(dataClasses) * len(experiments)
     
+    lib.clearBackstoreFiles()
     lib.print('starting experiment ({} configurations; estimated {} minutes)'.format(confcount, confcount * ESTIMATION_METRIC))
 
     for conf in configurations:
