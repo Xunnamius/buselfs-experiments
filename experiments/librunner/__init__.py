@@ -235,6 +235,8 @@ class Librunner():
 
         if os.getcwd() != os.path.abspath(self.config['RAM0_PATH']):
             raise TaskError('current working directory is incorrect (should be {})'.format(self.config['RAM0_PATH']))
+        
+        # TODO: add checks for existing sb processes and check if nbd device already mounted
     
     def createScratchFile(self, filepath=None, filesize=None):
         """Takes a filepath and filesize and creates a scratch file of that
@@ -325,7 +327,7 @@ class Librunner():
                 proc.expect('Command successful.')
 
             except pexpect.EOF:
-                raise CommandExecutionError('process {} failed (returned unexpected output)'.format(executable))
+                raise TaskError('process {} failed (returned unexpected output)'.format(executable))
 
         return self._spawn('cryptsetup', args, spawn_expect=spawn_expect)
     
@@ -337,7 +339,7 @@ class Librunner():
                 proc.expect(pexpect.EOF)
 
             except pexpect.EOF:
-                raise CommandExecutionError('process {} failed (returned unexpected output)'.format(executable))
+                raise TaskError('process {} failed (returned unexpected output)'.format(executable))
 
         return self._spawn('cryptsetup', args, runMessage='opening dm-crypt LUKS volume', spawn_expect=spawn_expect)
 
@@ -358,7 +360,7 @@ class Librunner():
                 proc.expect(r'on {}'.format(self.currentDeviceTmpPath))
 
             except pexpect.EOF:
-                raise CommandExecutionError('could not verify successful mount onto {}'.format(self.currentDeviceTmpPath))
+                raise TaskError('could not verify successful mount onto {}'.format(self.currentDeviceTmpPath))
 
         self._spawn_actual('mount', [], spawn_expect=spawn_expect)
 
@@ -366,7 +368,7 @@ class Librunner():
         def spawn_expect(executable, args, proc):
             try:
                 proc.expect(r'on {}'.format(self.currentDeviceTmpPath))
-                raise CommandExecutionError('could not verify successful umount from {}'.format(self.currentDeviceTmpPath))
+                raise TaskError('could not verify successful umount from {}'.format(self.currentDeviceTmpPath))
 
             except pexpect.EOF:
                 pass # ? Success!
@@ -444,7 +446,7 @@ class Librunner():
         bpoll = buse.poll()
 
         if bpoll is not None:
-            CommandExecutionError('the buselogfs process does not appear to have survived ({})'.format(bpoll))
+            CommandExecutionError('the buselogfs process does not appear to have survived ({})'.format(bpoll), bpoll)
 
         self._mkfs(['-t', fs_type, self.currentDeviceDevPath])
         self._mount(mount_args + ['-t', fs_type, self.currentDeviceDevPath, self.currentDeviceTmpPath])
@@ -481,7 +483,7 @@ class Librunner():
             bpoll = buse.poll()
 
             if bpoll is not None:
-                raise CommandExecutionError('the StrongBox process does not appear to have survived (exit code {})'.format(bpoll))
+                raise CommandExecutionError('the StrongBox process does not appear to have survived (exit code {})'.format(bpoll), bpoll)
 
             try:
                 self._mkfs(['-t', fs_type, self.currentDeviceDevPath])
