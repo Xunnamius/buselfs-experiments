@@ -87,6 +87,7 @@ if __name__ == "__main__":
                         lib.logFile = file
                         identifier = '{}-{}-{}'.format(dataClass, conf.proto_test_name, backendFn[2])
 
+                        # TODO: include progress indicator
                         lib.print(' ------------------ Experiment "{}" ------------------ '.format(identifier))
                         backendFn[0](conf.fs_type, conf.mount_args, conf.device_args)
                         lib.dropPageCache()

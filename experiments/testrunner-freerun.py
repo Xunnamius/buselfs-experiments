@@ -14,8 +14,8 @@ lib = Librunner(config)
 ### * Configurables * ###
 
 # ! REMEMBER: it's nilfs2 (TWO) with a 2! Not just 'nilfs'!
-filesystems = ['nilfs2'] #['f2fs', 'nilfs2']
-dataClasses = ['1k', '40m'] #['1k', '4k', '512k', '5m', '40m']
+filesystems = ['f2fs', 'nilfs2']
+dataClasses = ['1k', '4k', '512k', '5m', '40m']
 
 experiments = [lib.sequentialFreerun] #[lib.sequentialFreerun, lib.randomFreerun]
 
@@ -88,6 +88,7 @@ if __name__ == "__main__":
                         lib.logFile = file
                         identifier = '{}-{}-{}'.format(dataClass, conf.proto_test_name, backendFn[2])
 
+                        # TODO: include progress indicator
                         lib.print(' ------------------ Experiment "{}" ------------------ '.format(identifier))
                         backendFn[0](conf.fs_type, conf.mount_args, conf.device_args)
                         lib.dropPageCache()
