@@ -89,7 +89,8 @@ if __name__ == "__main__":
                         runFn(dataClass, '{}-{}-{}'.format(dataClass, conf.proto_test_name, backendFn[2]))
                         backendFn[1]()
                         lib.clearBackstoreFiles()
-                        
+
+                        lib.logFile = None
                         print('\n---------\n(finished)', file=file)
 
     lib.print('done', severity='OK')

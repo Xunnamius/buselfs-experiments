@@ -91,6 +91,7 @@ if __name__ == "__main__":
                         backendFn[1]()
                         lib.clearBackstoreFiles()
 
+                        lib.logFile = None
                         print('\n---------\n(finished)', file=file)
     
     lib.print('done', severity='OK')
