@@ -149,7 +149,7 @@ class Librunner():
            info; also simultaneously outputs to log files
         """
 
-        timestamp = '{0:%B}/{0:%d} at {0:%I:%M%p}'.format(datetime.now())
+        timestamp = '{0:%B} {0:%d} at {0:%I:%M:%S%p} {0:%f}'.format(datetime.now())
         preamble = '[{} | {}:{}]: '.format(timestamp, severity, self.currentDeviceName)
 
         if self.verbose:
