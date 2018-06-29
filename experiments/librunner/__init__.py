@@ -103,7 +103,11 @@ class Librunner():
     def logFile(self, logFile):
         """Sets the internal file object to a user-defined value"""
 
-        self.print('logging file set to {}'.format(logFile.name))
+        if logFile:
+            self.print('logging file set to {}'.format(logFile.name))
+        else:
+            self.print('logging file unset')
+
         self._logFile = logFile
     
     # ! internal
