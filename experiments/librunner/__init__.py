@@ -103,7 +103,7 @@ class Librunner():
     def logFile(self, logFile):
         """Sets the internal file object to a user-defined value"""
 
-        self.print('logging file set to {}'.format(logFile))
+        self.print('logging file set to {}'.format(logFile.name))
         self._logFile = logFile
     
     # ! internal
@@ -134,7 +134,7 @@ class Librunner():
             raise RuntimeError('_deviceList is empty (all devices quarantined?)')
 
         self._deviceList = [self._deviceList.pop()] + self._deviceList
-        self.print('current nbd device set to {}'.format(self.currentDeviceName))
+        self.print('device set to {}'.format(self.currentDeviceName))
 
     # *
     # * Utilities
@@ -281,11 +281,11 @@ class Librunner():
     def _spawn(self, executable, args, runMessage=None, verifyMessage=None, spawn_expect=None):
         checkFn = getattr(self, '_check_{}'.format(executable))
 
-        self.print((str(runMessage) or 'running {}').format(executable))
+        self.print((runMessage or 'running {}').format(executable))
 
         proc = self._spawn_actual(executable, args)
 
-        self.print((str(verifyMessage) or 'verifying {} completed successfully').format(executable))
+        self.print((verifyMessage or 'verifying {} completed successfully').format(executable))
 
         checkFn(proc)
 
@@ -531,17 +531,6 @@ class Librunner():
     # * Backends (Destruction)
     # *
 
-    def _destroyBackendFilePath(self):
-        self.print('deleting backend @ {}'.format(self.backendFilePath))
-
-        if not os.path.isfile(self.backendFilePath):
-            raise TaskError('cannot delete backend: file {} does not exist'.format(self.backendFilePath))
-
-        os.remove(self.backendFilePath)
-        
-        if os.path.isfile(self.backendFilePath):
-            raise TaskError('cannot delete backend: file {} is immortal?!'.format(self.backendFilePath))
-    
     def _terminateBackgroundFilesystemProcesses(self):
         self.print('terminating background fs process')
         
@@ -549,49 +538,44 @@ class Librunner():
         self._lingeringBackgroundProcess = None
 
     def destroyRawBackend(self):
-        """Destroys the backend, unmounts, deletes files, etc (but does not end
-           proc)
+        """Unmounts, deletes files, terminates proc but does not delete files in
+           RAM0_PATH!
         """
 
         self._umount([self.currentDeviceTmpPath])
-        self._destroyBackendFilePath()
 
     def destroyRawDmcBackend(self):
-        """Destroys the backend, unmounts, deletes files, etc (but does not end
-           proc)
+        """Unmounts, deletes files, terminates proc but does not delete files in
+           RAM0_PATH!
         """
 
         self._umount([self.currentDeviceTmpPath])
         self._cryptsetup_close()
-        self._destroyBackendFilePath()
 
     def destroyVanillaBackend(self):
-        """Destroys the backend, unmounts, deletes files, etc (but does not end
-           proc)
+        """Unmounts, deletes files, terminates proc but does not delete files in
+           RAM0_PATH!
         """
 
         self._umount([self.currentDeviceTmpPath])
         self._terminateBackgroundFilesystemProcesses()
-        self._destroyBackendFilePath()
 
     def destroySbBackend(self):
-        """Destroys the backend, unmounts, deletes files, etc (but does not end
-           proc)
+        """Unmounts, deletes files, terminates proc but does not delete files in
+           RAM0_PATH!
         """
 
         self._umount([self.currentDeviceTmpPath])
         self._terminateBackgroundFilesystemProcesses()
-        self._destroyBackendFilePath()
 
     def destroyDmcBackend(self):
-        """Destroys the backend, unmounts, deletes files, etc (but does not end
-           proc)
+        """Unmounts, deletes files, terminates proc but does not delete files in
+           RAM0_PATH!
         """
 
         self._umount([self.currentDeviceTmpPath])
         self._cryptsetup_close()
         self._terminateBackgroundFilesystemProcesses()
-        self._destroyBackendFilePath()
 
     # *
     # * Experiments
