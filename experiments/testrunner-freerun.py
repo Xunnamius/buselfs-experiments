@@ -1,26 +1,31 @@
 #!/usr/bin/env python3
 
 import os
+import sys
 from datetime import datetime
 
 import initrunner
-from librunner import Librunner, Configuration
+from librunner import Librunner
+from librunner.util import Configuration, ESTIMATION_METRIC
 
 config = initrunner.parseConfigVars()
 lib = Librunner(config)
 
-### Configurables ###
-
-num_nbd_devices = 16
-num_nbd_device = 0
+### * Configurables * ###
 
 filesystems = ['f2fs'] #['f2fs', 'nilfs']
-filesizes = ['1k', '512k', '40m'] #['1k', '4k', '512k', '5m', '40m']
+dataClasses = ['1k', '40m'] #['1k', '4k', '512k', '5m', '40m']
 
 experiments = [lib.sequentialFreerun] #[lib.sequentialFreerun, lib.randomFreerun]
 
-ciphers = ['sc_rabbit',
-           'sc_sosemanuk'
+ciphers = ['sc_hc128',
+           'sc_rabbit',
+           'sc_sosemanuk',
+           'sc_salsa8',
+           'sc_salsa12',
+           'sc_salsa20',
+           'sc_aes128_ctr',
+           'sc_aes256_ctr'
 ]
 
 backendFnTuples = [
@@ -30,6 +35,8 @@ backendFnTuples = [
     (lib.createSbBackend, lib.destroySbBackend, 'strongbox')
 ]
 
+### *** ###
+
 if __name__ == "__main__":
     try:
         os.geteuid
@@ -37,19 +44,19 @@ if __name__ == "__main__":
         os.geteuid = lambda: -1
 
     if os.geteuid() != 0:
-        lib.lexit('must be root/sudo', exitcode=1)
+        sys.exit('must be root/sudo', exitcode=1)
     
     # Bare bones basic initialization
     initrunner.initialize()
+    initrunner.cwdToRAMDir()
     lib.checkSanity()
-
-    os.chdir(config['RAM0_PATH'])
     
-    lib.lprint('working directory set to {}'.format(config['RAM0_PATH']))
+    lib.print('working directory set to {}'.format(config['RAM0_PATH']))
     lib.clearBackstoreFiles()
-    lib.lprint('constructing configurations')
+    lib.print('constructing configurations')
 
     # * Normal perf tests
+    # TODO: split ^ off into testrunner-asplos17
     # configurations = (
         # Configuration('nilfs2', 'nilfs2', [], []),
         # Configuration('f2fs', 'f2fs', ['-o', 'background_gc_off'], []),
@@ -62,31 +69,28 @@ if __name__ == "__main__":
     configurations = []
 
     for filesystem in filesystems:
-        configurations.append(Configuration('{}:baseline'.format(filesystem), filesystem, [], []))
-        configurations.extend([Configuration('{}:{}'.format(filesystem, cipher), filesystem, [], ['--cipher', cipher]) for cipher in ciphers])
+        configurations.append(Configuration('{}#baseline'.format(filesystem), filesystem, [], []))
+        configurations.extend([Configuration('{}#{}'.format(filesystem, cipher), filesystem, [], ['--cipher', cipher]) for cipher in ciphers])
 
-    confcount = len(configurations) * len(backendFnTuples) * len(filesizes) * len(experiments)
+    confcount = len(configurations) * len(backendFnTuples) * len(dataClasses) * len(experiments)
     
-    lib.lprint('starting experiment ({} configurations; estimated {} minutes)'
-        .format(confcount, confcount * 45 / 60))
+    lib.print('starting experiment ({} configurations; estimated {} minutes)'.format(confcount, confcount * ESTIMATION_METRIC))
 
     for conf in configurations:
         for backendFn in backendFnTuples:
             for runFn in experiments:
-                for filesize in filesizes:
+                for dataClass in dataClasses:
                     with open(config['LOG_FILE_PATH'], 'w') as file:
                         print(str(datetime.now()), '\n---------\n', file=file)
 
-                        device = 'nbd{}'.format(num_nbd_device)
+                        lib.logFile = file
 
-                        backend = backendFn[0](file, device, conf.fs_type, conf.mount_args, conf.sb_args)
+                        backendFn[0](conf.fs_type, conf.mount_args, conf.device_args)
                         lib.dropPageCache()
-                        runFn(file, device, filesize, '{}-{}-{}'.format(filesize, conf.proto_test_name, backendFn[2]))
-                        backendFn[1](file, device, backend)
+                        runFn(dataClass, '{}-{}-{}'.format(dataClass, conf.proto_test_name, backendFn[2]))
+                        backendFn[1]()
                         lib.clearBackstoreFiles()
-
-                        num_nbd_device = (num_nbd_device + 1) % num_nbd_devices
 
                         print('\n---------\n(finished)', file=file)
     
-    lib.lprint('done', severity='OK')
+    lib.print('done', severity='OK')

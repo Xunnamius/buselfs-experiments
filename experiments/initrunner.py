@@ -49,6 +49,8 @@ CONFIG = {}
 ################################################################################
 
 def parseConfigLine(configLine):
+    """Parses a single configuration line and returns lhs and rhs values"""
+    
     lhs_rhs = ''.join(configLine.split(' \\')[0].split('-D')[1:]).split('=')
     rhs = ''.join(lhs_rhs[1:]).strip('"\' ')
     lhs = lhs_rhs[0].strip(' ')
@@ -56,6 +58,8 @@ def parseConfigLine(configLine):
     return (lhs, rhs)
 
 def parseConfigVars():
+    """Opens and parses config/vars.mk, returning a config object"""
+
     try:
         with open(CONFIG_PATH, 'r') as varsFile:
             inConfigVar = False
@@ -79,6 +83,8 @@ def parseConfigVars():
     return CONFIG
 
 def checkMount():
+    """Ensure mount operation succeeded"""
+
     mount = pexpect.spawn('mount',
                          echo=False,
                          timeout=STANDARD_TIMEOUT,
@@ -88,6 +94,11 @@ def checkMount():
     mount.close()
 
     return expecting
+
+def cwdToRAMDir():
+    """Change the current working directory to the configured ramdisk path"""
+
+    os.chdir(CONFIG['RAM0_PATH'])
 
 def initialize(verbose=False, force=False):
     """Idempotent initialization of the experimental testbed."""

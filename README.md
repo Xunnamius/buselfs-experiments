@@ -28,7 +28,7 @@ The `testrunner-X.py` scripts attempt to fully automate the latest StrongBox exp
 
 The `initrunner.py` script just lays the groundwork for eventual environment initialization/test running by the other experiments. You can call this manually to test your setup and verify your [vars.mk](config/vars.mk-dist) is being interpreted properly, but it is not mandatory and will be called automatically by the `testrunner-X.py` scripts (it's idempotent).
 
-`librunner.py` is a base Python module that holds most of the shared test suite code. If you're looking to add new test features, start there. Next, you'll want to make a new `testrunner-X.py` script with the new experiment's implementation (import `librunner.py` and `initrunner.py`; see other `testrunner-X.py` scripts for an example).
+`experiments/librunner/` is a Python library (package) that holds most of the shared test suite code. If you're looking to add new test features, start there. Next, you'll want to make a new `testrunner-X.py` script with the new experiment's implementation. See other `testrunner-X.py` scripts for example usage.
 
 ### `results/`
 
