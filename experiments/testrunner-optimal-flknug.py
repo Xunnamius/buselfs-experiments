@@ -15,7 +15,7 @@ lib = Librunner(config)
 
 # ! REMEMBER: it's nilfs2 (TWO) with a 2! Not just 'nilfs'!
 filesystems = ['f2fs', 'nilfs2']
-dataClasses = ['1k', '512k', '5m', '40m']
+dataClasses = ['1k', '4k', '512k', '5m', '40m']
 
 flksizes = [512, 1024, 2048, 4096, 8192, 16384, 32768, 65536]
 fpns = [8, 16, 32, 64, 128, 256]
