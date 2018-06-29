@@ -13,7 +13,7 @@ lib = Librunner(config)
 
 ### * Configurables * ###
 
-filesystems = ['f2fs'] #['f2fs', 'nilfs']
+filesystems = ['f2fs', 'nilfs'] #['f2fs', 'nilfs']
 dataClasses = ['1k', '40m'] #['1k', '4k', '512k', '5m', '40m']
 
 experiments = [lib.sequentialFreerun] #[lib.sequentialFreerun, lib.randomFreerun]
