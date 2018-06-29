@@ -35,8 +35,11 @@ class Librunner():
         self._backendSizeBytes = config['BACKEND_SIZE_INT'] * KBYTES_IN_A_MB * BYTES_IN_A_KB
         self._backendFilePath = BACKEND_FILE_TEMPLATE.format(config['RAM0_PATH'], '{}')
         self.verbose = config['verbose'] if 'verbose' in config else True
-        self._deviceList = list(range(NBD_DEVICE_UPPER_BOUND)).reverse()
+        self._deviceList = list(range(NBD_DEVICE_UPPER_BOUND))
         self._quarantinedDeviceList = []
+        self._lingeringBackgroundProcess = None
+
+        self._deviceList.reverse()
 
     # *
     # * Properties
@@ -58,8 +61,7 @@ class Librunner():
     def currentDeviceNumber(self):
         """Returns the number of the currently active nbd device"""
 
-        self._deviceList = [self._deviceList.pop()] + self.deviceList
-        return self._deviceList
+        return self._deviceList[-1]
     
     @property
     def currentDeviceName(self):
