@@ -491,12 +491,14 @@ class Librunner():
                 break
             
             except CommandExecutionError as e:
-                if int(e.exitcode) >= 255:
-                    self.print('failed to create backend: system is likely in an unstable state (try calling `sync`). Please reboot!', severity='FATAL')
-                    raise TaskError('failed to create backend due to system instability')
+                bpoll = buse.poll()
+
+                if bpoll is not None:
+                    self.print('failed to create backend: mkfs failed and StrongBox died ({})'.format(bpoll), severity='FATAL')
+                    raise TaskError('mkfs failed and StrongBox died')
 
                 else:
-                    self.print(e.message, severity='WARN')
+                    self.print('ignoring error during mkfs since StrongBox is still alive ("{}")'.format(e.message), severity='WARN')
 
         self._mount(mount_args + ['-t', fs_type, self.currentDeviceDevPath, self.currentDeviceTmpPath])
 

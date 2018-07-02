@@ -3,7 +3,7 @@
 # pylint: disable=E0202
 
 """
-This is the 6/29/2018 version of a script that script crunches any files that
+This is the 7/7/2017 version of a script that script crunches any files that
 ends with the extension ".result" and are direct children of the `results/` dir.
 """
 
@@ -30,7 +30,7 @@ GHZ = 1000000
 METRICS = ('energy', 'power', 'duration')
 COLORS_READ = ['rgb(49,130,189)', 'rgb(204,204,204)', 'rgb(255,102,0)']
 COLORS_WRITE = ['rgb(25,65,95)', 'rgb(102,102,102)', 'rgb(255,102,0)']
-TITLE_TEMPLATE = '{} <{}> Cipher Sweep Measurements [{} iops {} trials]'
+TITLE_TEMPLATE = '{} <{}> FS Measurements [{} iops {} trials]'
 
 CONFIG = {}
 
@@ -54,8 +54,7 @@ def lineToNumber(line):
     return Decimal(line.split(': ')[1])
 
 def filenameToProperName(filename):
-    # TODO: more dynamic this needs to be
-    return "".join(filename.split('.results')[0].split('sequential.ram.'))
+    return "".join(filename.split('.results')[0].split('shmoo.big.'))
 
 if __name__ == "__main__":
     CONFIG = initrunner.parseConfigVars()
@@ -96,7 +95,7 @@ if __name__ == "__main__":
     print('crunching...')
 
     data = {}
-    resultFiles = sorted(list(Path(os.path.realpath(filesdir)).glob('*.results')))
+    resultFiles = sorted([pth for pth in Path(os.path.dirname(os.path.realpath(__file__))).glob(os.path.join(filesdir, '*.results'))])
     resultFileNames = [filenameToProperName(file.name) for file in resultFiles]
 
     # Loop over results and begin the aggregation/accumulation process
