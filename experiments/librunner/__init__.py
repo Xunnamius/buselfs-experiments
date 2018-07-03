@@ -474,7 +474,7 @@ class Librunner():
         self._shell_saw(executable, args)
 
         buse = Popen([executable] + args, stdout=self.logFile, stderr=self.logFile)
-        waittimes = [STANDARD_WAIT, REDUCED_WAIT]
+        waittimes = [REDUCED_WAIT, STANDARD_WAIT]
 
         while True:
             self.sleep(waittimes[0])
