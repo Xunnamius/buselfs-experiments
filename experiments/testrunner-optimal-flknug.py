@@ -120,7 +120,8 @@ if __name__ == "__main__":
                                 lib.print('THE SYSTEM IS VERY LIKELY IN AN UNSTABLE STATE!', severity='CRITICAL')
                                 lib.print('1. `umount` any mounted NBD/mapper devices', severity='CRITICAL')
                                 lib.print('2. `fprocs` and `kill -9` any experimental backend processes', severity='CRITICAL')
-                                lib.print('3. call `sync`', severity='CRITICAL')
+                                lib.print('3. `sudo rm {}/*`'.format(config['RAM0_PATH']), severity='CRITICAL')
+                                lib.print('4. call `sync`', severity='CRITICAL')
                                 raise
 
                             backendFn[1]()
