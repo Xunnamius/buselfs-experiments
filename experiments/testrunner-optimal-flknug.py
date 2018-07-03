@@ -21,6 +21,7 @@ dataClasses = ['1k', '4k', '512k', '5m', '40m']
 flksizes = [512, 1024, 2048, 4096, 8192, 16384, 32768, 65536]
 fpns = [8, 16, 32, 64, 128, 256]
 
+# TODO: add stringified names to experiments (tuples?)
 experiments = [lib.sequentialFreerun, lib.randomFreerun]
 
 ciphers = ['sc_salsa8',
@@ -96,7 +97,7 @@ if __name__ == "__main__":
                         predictedResultFileName = RESULTS_FILE_NAME.format(
                             'sequential' if experiments == lib.sequentialFreerun else 'random',
                             identifier
-                        )
+                        ) # TODO: make string name of experiment part of configs at the top
 
                         predictedResultFilePath = os.path.realpath(
                             RESULTS_PATH.format(config['REPO_PATH'], predictedResultFileName)

@@ -6,7 +6,8 @@ from datetime import datetime
 
 import initrunner
 from librunner import Librunner
-from librunner.util import Configuration, ESTIMATION_METRIC
+from librunner.util import Configuration, ESTIMATION_METRIC, RESULTS_PATH, RESULTS_FILE_NAME
+from librunner.exception import ExperimentError
 
 config = initrunner.parseConfigVars()
 lib = Librunner(config)
@@ -17,6 +18,7 @@ lib = Librunner(config)
 filesystems = ['f2fs', 'nilfs2']
 dataClasses = ['1k', '4k', '512k', '5m', '40m']
 
+# TODO: add stringified names to experiments (tuples?)
 experiments = [lib.sequentialFreerun] #[lib.sequentialFreerun, lib.randomFreerun]
 
 ciphers = [#'sc_hc128', # ! too slow to test (see buselfs source for rationale)
@@ -88,13 +90,43 @@ if __name__ == "__main__":
                         lib.logFile = file
                         identifier = '{}-{}-{}'.format(dataClass, conf.proto_test_name, backendFn[2])
 
+                        # TODO: standardize naming, i.e. make seq/rnd test
+                        # TODO: *.results files have their names come entirely
+                        # TODO: from passed params instead of just the
+                        # TODO: identifier part to make the skipping logic below
+                        # TODO: much more flexible w/ result filenames and etc
+                        predictedResultFileName = RESULTS_FILE_NAME.format(
+                            'sequential' if experiments == lib.sequentialFreerun else 'random',
+                            identifier
+                        ) # TODO: make string name of experiment part of configs at the top
+
+                        predictedResultFilePath = os.path.realpath(
+                            RESULTS_PATH.format(config['REPO_PATH'], predictedResultFileName)
+                        )
+
                         # TODO: include progress indicator
                         lib.print(' ------------------ Experiment "{}" ------------------ '.format(identifier))
-                        backendFn[0](conf.fs_type, conf.mount_args, conf.device_args)
-                        lib.dropPageCache()
-                        runFn(dataClass, identifier)
-                        backendFn[1]()
-                        lib.clearBackstoreFiles()
+
+                        if os.path.exists(predictedResultFilePath):
+                            lib.print('Results file {} was found, experiment skipped!'.format(predictedResultFilePath))
+
+                        else:
+                            backendFn[0](conf.fs_type, conf.mount_args, conf.device_args)
+                            lib.dropPageCache()
+
+                            try:
+                                runFn(dataClass, identifier)
+
+                            except ExperimentError:
+                                lib.print('THE SYSTEM IS VERY LIKELY IN AN UNSTABLE STATE!', severity='CRITICAL')
+                                lib.print('1. `umount` any mounted NBD/mapper devices', severity='CRITICAL')
+                                lib.print('2. `fprocs` and `kill -9` any experimental backend processes', severity='CRITICAL')
+                                lib.print('3. `sudo rm {}/*`'.format(config['RAM0_PATH']), severity='CRITICAL')
+                                lib.print('4. call `sync`', severity='CRITICAL')
+                                raise
+
+                            backendFn[1]()
+                            lib.clearBackstoreFiles()
 
                         lib.print(' ------------------ *** ------------------ ')
                         lib.logFile = None
