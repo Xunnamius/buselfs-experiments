@@ -60,6 +60,7 @@
         "flksizes",
         "foutput",
         "fpns",
+        "fprocs",
         "freerun",
         "freeun",
         "fsize",

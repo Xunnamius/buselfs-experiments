@@ -15,5 +15,7 @@ BACKEND_FILE_TEMPLATE = '{}/logfs-{}.bkstr'
 DEFAULT_DATA_FILE = '{}/data/data{}.random'
 DEFAULT_DATA_SYM = '{}/data/data.target'
 SB_EXECUTABLE_FILE = '{}/build/sb'
+RESULTS_FILE_NAME = '{}.ram.{}.results'
+RESULTS_PATH = '{}/results/{}'
 
 Configuration = namedtuple('Configuration', ['proto_test_name', 'fs_type', 'mount_args', 'device_args'])

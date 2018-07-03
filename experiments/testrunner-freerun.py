@@ -19,7 +19,7 @@ dataClasses = ['1k', '4k', '512k', '5m', '40m']
 
 experiments = [lib.sequentialFreerun] #[lib.sequentialFreerun, lib.randomFreerun]
 
-ciphers = [#'sc_hc128', # ! too slow to test >:O
+ciphers = [#'sc_hc128', # ! too slow to test (see buselfs source for rationale)
            'sc_rabbit',
            'sc_sosemanuk',
            'sc_salsa8',
