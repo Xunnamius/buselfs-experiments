@@ -3,10 +3,11 @@
 # pylint: disable=E0202
 
 """
-This is the 7/7/2017 version of a script that script crunches any files that
+This is the 6/29/2018 version of a script that script crunches any files that
 ends with the extension ".result" and are direct children of the `results/` dir.
 
-This script generates the perf/energy/power bar graphs from the asplos17 paper.
+This script generates a set of tradeoff space charts plotting security vs energy
+use, security vs power, and security vs performance.
 """
 
 import os
@@ -26,7 +27,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(inspect.getfi
 
 import initrunner
 
-TEST_IDENT = 'StrongBox-experiments-graphed1'
+TEST_IDENT = 'StrongBox-experiments-tradeoffspace1'
 
 OPS = 25000 * 2
 GHZ = 1000000
@@ -34,7 +35,7 @@ GHZ = 1000000
 METRICS = ('energy', 'power', 'duration')
 COLORS_READ = ['rgb(49,130,189)', 'rgb(204,204,204)', 'rgb(255,102,0)']
 COLORS_WRITE = ['rgb(25,65,95)', 'rgb(102,102,102)', 'rgb(255,102,0)']
-TITLE_TEMPLATE = '{} <{}> FS Measurements [{} iops {} trials]'
+TITLE_TEMPLATE = '{} <{}> Tradeoff 1 [{} iops {} trials]'
 
 CONFIG = {}
 
@@ -66,7 +67,6 @@ if __name__ == "__main__":
     CONFIG = initrunner.parseConfigVars()
 
     filesdir = None
-    durationBaseline = None
 
     try:
         os.geteuid
@@ -78,30 +78,23 @@ if __name__ == "__main__":
         sys.exit(1)
 
     # TODO: Use the more advanced python opts API
-    if len(sys.argv) != 2 and len(sys.argv) != 4:
-        print('Usage: {} [-d baseline] <data directory>'.format(sys.argv[0]))
-        print('"-d" enables duration mode (results will only deal with duration ratios)')
-        print('When using -d, you must follow it with a number that will be the index starting at 0 of the baseline result file in fs order')
+    if len(sys.argv) != 2:
+        print('Usage: {} <data directory>'.format(sys.argv[0]))
         sys.exit(2)
 
     else:
         filesdir = sys.argv[1].strip('/')
-
-        if len(sys.argv) == 4 and sys.argv[1] == '-d':
-            filesdir = sys.argv[3].strip('/')
-            durationBaseline = int(sys.argv[2])
 
         if not os.path.exists(filesdir) or not os.path.isdir(filesdir):
             print('{} does not exist or is not a directory.'.format(filesdir))
             sys.exit(3)
 
     print('result files directory: {}'.format(filesdir))
-    print('duration baseline: {}'.format(durationBaseline))
 
     print('crunching...')
 
     data = {}
-    resultFiles = sorted([pth for pth in Path(os.path.dirname(os.path.realpath(__file__))).glob(os.path.join(filesdir, '*.results'))])
+    resultFiles = sorted(list(Path(os.path.realpath(filesdir)).glob('*.results')))
     resultFileNames = [filenameToProperName(file.name) for file in resultFiles]
 
     # Loop over results and begin the aggregation/accumulation process
@@ -149,23 +142,13 @@ if __name__ == "__main__":
         dataFragment['read']['power'] = dataFragment['read']['energy'] / dataFragment['read']['duration']
         dataFragment['write']['power'] = dataFragment['write']['energy'] / dataFragment['write']['duration']
 
-    if durationBaseline is not None:
-        baselineFragment = copy.deepcopy(data[resultFileNames[durationBaseline]])
-
-        for resultFileName in resultFileNames:
-            dataFragment = data[resultFileName]
-
-            for metric in METRICS:
-                dataFragment['read'][metric] = round(dataFragment['read'][metric] / baselineFragment['read'][metric], 1)
-                dataFragment['write'][metric] = round(dataFragment['write'][metric] / baselineFragment['write'][metric], 1)
-
     print('uploading...')
 
     titlePrefix = filesdir.strip('/').split('/')[-1]
 
-    # TODO: Compact this into a function or
-    read_title = TITLE_TEMPLATE.format(titlePrefix, 'reads', OPS, CONFIG['TRIALS_INT']) + (' (duration ratios)' if durationBaseline is not None else '')
-    write_title = TITLE_TEMPLATE.format(titlePrefix, 'writes', OPS, CONFIG['TRIALS_INT']) + (' (duration ratios)' if durationBaseline is not None else '')
+    # TODO: Compact this into a function
+    read_title = TITLE_TEMPLATE.format(titlePrefix, 'reads', OPS, CONFIG['TRIALS_INT'])
+    write_title = TITLE_TEMPLATE.format(titlePrefix, 'writes', OPS, CONFIG['TRIALS_INT'])
 
     # XXX: create new trace instances and do what needs doing to construct the bar chart
     cdsi = lambda x, y, name, color: createDefaultTraceInstance(x, y, name, None, color)
@@ -191,88 +174,55 @@ if __name__ == "__main__":
         y1_writes.append(float(dataFragment['write']['power']))
         y2_writes.append(float(dataFragment['write']['duration']))
 
-    # TODO: Compact these next two conditional clauses into nice functions/for loops!
-    if durationBaseline is not None:
-        read_traces = [
-            cdsi(resultFileNames, y2_reads, 'Duration', COLORS_READ[2]),
-        ]
-
-        read_layout = Layout(
-            xaxis = dict(
-                # set x-axis' labels direction at 45 degree angle
-                tickangle = 50,
-                title = 'Filesystems'
-            ),
-            yaxis = dict(title = 'Duration Ratio (seconds in respect to 1x baseline)', autorange = True, side = 'left'),
-            title = read_title,
-            margin = dict(b = 160)
+    read_traces = [
+        cdsi(resultFileNames, y0_reads, 'Energy', COLORS_READ[0]),
+        cdsi(resultFileNames, y1_reads, 'Power', COLORS_READ[1]),
+        Box(
+            x = resultFileNames, y = y2_reads,
+            name = 'Duration',
+            fillcolor = COLORS_READ[2],
+            line = dict(color = COLORS_READ[2]),
+            yaxis = 'y2'
         )
+    ]
 
-        write_traces = [
-            cdsi(resultFileNames, y2_writes, 'Duration', COLORS_WRITE[2]),
-        ]
+    read_layout = Layout(
+        xaxis = dict(
+            # set x-axis' labels direction at 45 degree angle
+            tickangle = 50,
+            title = 'Filesystems'
+        ),
+        yaxis = dict(title = 'Energy (j), Power (j/s)', autorange = False, range = [0, 30], side = 'left'),
+        yaxis2 = dict(title = 'Duration (seconds)', autorange = False, range = [0, 20], side = 'right', gridwidth = 2.5, overlaying = 'y'),
+        barmode = 'group',
+        title = read_title,
+        margin = dict(b = 160)
+    )
 
-        write_layout = Layout(
-            xaxis = dict(
-                # set x-axis' labels direction at 45 degree angle
-                tickangle = 50,
-                title = 'Filesystems'
-            ),
-            yaxis = dict(title = 'Duration Ratio (seconds in respect to 1x baseline)', autorange = True, side = 'left'),
-            title = write_title,
-            margin = dict(b = 160)
+    write_traces = [
+        cdsi(resultFileNames, y0_writes, 'Energy', COLORS_WRITE[0]),
+        cdsi(resultFileNames, y1_writes, 'Power', COLORS_WRITE[1]),
+        Box(
+            x = resultFileNames, y = y2_writes,
+            name = 'Duration',
+            fillcolor = COLORS_WRITE[2],
+            line = dict(color = COLORS_WRITE[2]),
+            yaxis = 'y2'
         )
+    ]
 
-    else:
-        read_traces = [
-            cdsi(resultFileNames, y0_reads, 'Energy', COLORS_READ[0]),
-            cdsi(resultFileNames, y1_reads, 'Power', COLORS_READ[1]),
-            Box(
-                x = resultFileNames, y = y2_reads,
-                name = 'Duration',
-                fillcolor = COLORS_READ[2],
-                line = dict(color = COLORS_READ[2]),
-                yaxis = 'y2'
-            )
-        ]
-
-        read_layout = Layout(
-            xaxis = dict(
-                # set x-axis' labels direction at 45 degree angle
-                tickangle = 50,
-                title = 'Filesystems'
-            ),
-            yaxis = dict(title = 'Energy (j), Power (j/s)', autorange = False, range = [0, 30], side = 'left'),
-            yaxis2 = dict(title = 'Duration (seconds)', autorange = False, range = [0, 20], side = 'right', gridwidth = 2.5, overlaying = 'y'),
-            barmode = 'group',
-            title = read_title,
-            margin = dict(b = 160)
-        )
-
-        write_traces = [
-            cdsi(resultFileNames, y0_writes, 'Energy', COLORS_WRITE[0]),
-            cdsi(resultFileNames, y1_writes, 'Power', COLORS_WRITE[1]),
-            Box(
-                x = resultFileNames, y = y2_writes,
-                name = 'Duration',
-                fillcolor = COLORS_WRITE[2],
-                line = dict(color = COLORS_WRITE[2]),
-                yaxis = 'y2'
-            )
-        ]
-
-        write_layout = Layout(
-            xaxis = dict(
-                # set x-axis' labels direction at 45 degree angle
-                tickangle = 50,
-                title = 'Filesystems'
-            ),
-            yaxis = dict(title = 'Energy (j), Power (j/s)', autorange = False, range = [0, 30], side = 'left'),
-            yaxis2 = dict(title = 'Duration (seconds)', autorange = False, range = [0, 20], side = 'right', gridwidth = 2.5, overlaying = 'y'),
-            barmode = 'group',
-            title = write_title,
-            margin = dict(b = 160)
-        )
+    write_layout = Layout(
+        xaxis = dict(
+            # set x-axis' labels direction at 45 degree angle
+            tickangle = 50,
+            title = 'Filesystems'
+        ),
+        yaxis = dict(title = 'Energy (j), Power (j/s)', autorange = False, range = [0, 30], side = 'left'),
+        yaxis2 = dict(title = 'Duration (seconds)', autorange = False, range = [0, 20], side = 'right', gridwidth = 2.5, overlaying = 'y'),
+        barmode = 'group',
+        title = write_title,
+        margin = dict(b = 160)
+    )
 
     read_fig = Figure(data = read_traces, layout = read_layout)
     write_fig = Figure(data = write_traces, layout = write_layout)
