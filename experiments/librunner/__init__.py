@@ -23,8 +23,6 @@ from librunner.util import (
 
 # TODO: replace timeout mechanic with retry mechanic; all timeout params set to None!
 # TODO: later: re-implement experiments as strategy pattern instances
-# TODO: later: try to exit normally, then try to kill the sb process via sudo kill -9, then quarantine and move along
-# TODO: if quarantined by the end, recommend breaking the glass (super shutdown)
 class Librunner():
     """This class is responsible for running and managing experiments in an automated fashion"""
 
