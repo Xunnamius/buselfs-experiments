@@ -1,70 +1,70 @@
-w_energy: 1909932.000000
-w_duration: 933744438.000000
-w_power: 2.045455
-r_energy: 727043.000000
-r_duration: 205628943.000000
-r_power: 3.535704
----
-w_energy: 2198149.000000
-w_duration: 782161451.000000
-w_power: 2.810352
-r_energy: 742411.000000
-r_duration: 171789168.000000
-r_power: 4.321640
----
-w_energy: 2153813.000000
-w_duration: 743949840.000000
-w_power: 2.895105
+w_energy: 1569133.000000
+w_duration: 819540714.000000
+w_power: 1.914649
 r_energy: 0.000000
-r_duration: 171741002.000000
+r_duration: 156044444.000000
 r_power: 0.000000
 ---
-w_energy: 2321468.000000
-w_duration: 751856680.000000
-w_power: 3.087647
-r_energy: 764938.000000
-r_duration: 171674294.000000
-r_power: 4.455752
----
-w_energy: 2212260.000000
-w_duration: 750995012.000000
-w_power: 2.945772
-r_energy: 763512.000000
-r_duration: 171715627.000000
-r_power: 4.446375
----
-w_energy: 2159805.000000
-w_duration: 782260244.000000
-w_power: 2.760980
+w_energy: 1723667.000000
+w_duration: 665495854.000000
+w_power: 2.590049
 r_energy: 0.000000
-r_duration: 171737794.000000
+r_duration: 122573489.000000
 r_power: 0.000000
 ---
-w_energy: 2428709.000000
-w_duration: 758318684.000000
-w_power: 3.202755
+w_energy: 1819787.000000
+w_duration: 666707395.000000
+w_power: 2.729514
+r_energy: 559566.000000
+r_duration: 121479738.000000
+r_power: 4.606250
+---
+w_energy: 1248097.000000
+w_duration: 706451391.000000
+w_power: 1.766713
+r_energy: 580144.000000
+r_duration: 122470405.000000
+r_power: 4.737014
+---
+w_energy: 1333128.000000
+w_duration: 665739687.000000
+w_power: 2.002476
 r_energy: 0.000000
-r_duration: 169739000.000000
+r_duration: 121957321.000000
 r_power: 0.000000
 ---
-w_energy: 2110527.000000
-w_duration: 760868269.000000
-w_power: 2.773840
-r_energy: 696989.000000
-r_duration: 172513711.000000
-r_power: 4.040195
+w_energy: 1848178.000000
+w_duration: 670842270.000000
+w_power: 2.755011
+r_energy: 0.000000
+r_duration: 122792072.000000
+r_power: 0.000000
 ---
-w_energy: 2142773.000000
-w_duration: 747852510.000000
-w_power: 2.865235
-r_energy: 781417.000000
-r_duration: 172637253.000000
-r_power: 4.526352
+w_energy: 1798628.000000
+w_duration: 674266853.000000
+w_power: 2.667531
+r_energy: 0.000000
+r_duration: 122585113.000000
+r_power: 0.000000
 ---
-w_energy: 2226389.000000
-w_duration: 790265750.000000
-w_power: 2.817266
-r_energy: 798799.000000
-r_duration: 172708544.000000
-r_power: 4.625127
+w_energy: 1214841.000000
+w_duration: 709950766.000000
+w_power: 1.711162
+r_energy: 575352.000000
+r_duration: 125503697.000000
+r_power: 4.584343
+---
+w_energy: 1270326.000000
+w_duration: 666549853.000000
+w_power: 1.905823
+r_energy: 0.000000
+r_duration: 125250405.000000
+r_power: 0.000000
+---
+w_energy: 1851891.000000
+w_duration: 672861437.000000
+w_power: 2.752262
+r_energy: 0.000000
+r_duration: 125007613.000000
+r_power: 0.000000
 ---
