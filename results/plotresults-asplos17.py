@@ -21,9 +21,6 @@ from decimal import Decimal
 from statistics import median
 from plotly.graph_objs import Bar, Figure, Layout, Box
 
-# ? This adds the parent directory (where initrunner.py lives) to the module path
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))))
-
 import initrunner
 
 TEST_IDENT = 'StrongBox-experiments-graphed1'
