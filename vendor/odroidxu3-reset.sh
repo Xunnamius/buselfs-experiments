@@ -4,7 +4,7 @@
 # Must run script with root privileges
 if [ `id -u` -ne 0 ]
 then
-  echo "Please run with root privileges"
+  echo "must be run with root privileges"
   exit 1
 fi
 
@@ -25,4 +25,4 @@ do
   echo 2000000 > /sys/devices/system/cpu/cpu$i/cpufreq/scaling_max_freq
 done
 
-echo "(odroid core clocks reset successfully)"
+echo "(attempted to reset odroid cpu clocks)"

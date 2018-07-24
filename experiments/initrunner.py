@@ -12,7 +12,7 @@ import pprint
 import pexpect
 import argparse
 
-# ! All of these are dirs that will be prefixed with CONFIG['TMP_ROOT_PATH']/
+# ! All of these are dirs that will be prefixed with vars.mk['TMP_ROOT_PATH']/
 MODPROBE_DIRS = ['nbd0',
                  'nbd1',
                  'nbd2',
@@ -31,7 +31,7 @@ MODPROBE_DIRS = ['nbd0',
                  'nbd15',
                  'config',
                  'run'
-] #*             CONFIG['RAM0_PATH']
+] #*             vars.mk['RAM0_PATH']
   #*             '../config'
 
 # ? Config parameters
@@ -43,8 +43,6 @@ RAMDISK_SIZE = "1024M"
 
 # ? Amount of time to wait before we consider a command as failed
 STANDARD_TIMEOUT=10
-
-CONFIG = {}
 
 ################################################################################
 
@@ -59,6 +57,8 @@ def parseConfigLine(configLine):
 
 def parseConfigVars():
     """Opens and parses config/vars.mk, returning a config object"""
+
+    config = {}
 
     try:
         with open(CONFIG_PATH, 'r') as varsFile:
@@ -75,36 +75,36 @@ def parseConfigVars():
                         inConfigVar = False
                     
                     (varName, varValue) = parseConfigLine(line)
-                    CONFIG[varName] = int(varValue) if varName.endswith('_INT') else varValue
+                    config[varName] = int(varValue) if varName.endswith('_INT') else varValue
 
     except FileNotFoundError:
-        raise FileNotFoundError('vars.mk not found')
+        raise FileNotFoundError('{} not found'.format(CONFIG_PATH))
 
-    return CONFIG
+    return config
 
-def checkMount():
+def checkMount(config, verbose=False):
     """Ensure mount operation succeeded"""
 
     mount = pexpect.spawn('mount',
-                         echo=False,
+                         echo=True if verbose else False,
                          timeout=STANDARD_TIMEOUT,
                          encoding='utf-8')
 
-    expecting = mount.expect([r'on {}'.format(CONFIG['RAM0_PATH']), pexpect.EOF])
+    expecting = mount.expect([r'on {}'.format(config['RAM0_PATH']), pexpect.EOF])
     mount.close()
 
     return expecting
 
-def cwdToRAMDir():
+def cwdToRAMDir(config):
     """Change the current working directory to the configured ramdisk path"""
 
-    os.chdir(CONFIG['RAM0_PATH'])
+    os.chdir(config['RAM0_PATH'])
 
-def initialize(verbose=False, force=False):
+def initialize(config, verbose=False, force=False):
     """Idempotent initialization of the experimental testbed."""
 
     # 1 => not found
-    if force or checkMount() == 1:
+    if force or checkMount(config, verbose) == 1:
         print('(mounted ramdisk not found or re-initialization forced; executing initialization procedure...)')
 
         for mod in ('nbd', 'nilfs2', 'f2fs'): #('nbd', 'nilfs2', 'f2fs'):
@@ -125,8 +125,8 @@ def initialize(verbose=False, force=False):
         
         mkdir = pexpect.spawn('mkdir',
             ['-p']
-                + ['{}/{}'.format(CONFIG['TMP_ROOT_PATH'], dirr) for dirr in MODPROBE_DIRS]
-                + [CONFIG['RAM0_PATH'], '../config'],
+                + ['{}/{}'.format(config['TMP_ROOT_PATH'], dirr) for dirr in MODPROBE_DIRS]
+                + [config['RAM0_PATH'], '../config'],
             timeout=STANDARD_TIMEOUT,
             encoding='utf-8'
         )
@@ -140,7 +140,7 @@ def initialize(verbose=False, force=False):
             sys.exit(3)
         
         cp = pexpect.spawn('cp',
-            ['{}/config/zlog_conf.conf'.format(CONFIG['BUSELFS_PATH']), '{}/config/'.format(CONFIG['TMP_ROOT_PATH'])],
+            ['{}/config/zlog_conf.conf'.format(config['BUSELFS_PATH']), '{}/config/'.format(config['TMP_ROOT_PATH'])],
             timeout=STANDARD_TIMEOUT,
             encoding='utf-8'
         )
@@ -154,7 +154,7 @@ def initialize(verbose=False, force=False):
             sys.exit(4)
         
         cp2 = pexpect.spawn('cp',
-            ['{}/config/zlog_conf.conf'.format(CONFIG['BUSELFS_PATH']), '../config/'],
+            ['{}/config/zlog_conf.conf'.format(config['BUSELFS_PATH']), '../config/'],
             timeout=STANDARD_TIMEOUT,
             encoding='utf-8'
         )
@@ -168,8 +168,8 @@ def initialize(verbose=False, force=False):
             sys.exit(42)
 
         mount = pexpect.spawn('mount',
-            ['-t', 'tmpfs', '-o', 'size={}'.format(RAMDISK_SIZE), 'tmpfs', CONFIG['RAM0_PATH']],
-            echo=False,
+            ['-t', 'tmpfs', '-o', 'size={}'.format(RAMDISK_SIZE), 'tmpfs', config['RAM0_PATH']],
+            echo=True if verbose else False,
             timeout=STANDARD_TIMEOUT,
             encoding='utf-8'
         )
@@ -178,18 +178,18 @@ def initialize(verbose=False, force=False):
         mount.expect(pexpect.EOF)
         mount.close()
 
-        if checkMount() == 1:
-            print('could not verify successful initialization mount on {}'.format(CONFIG['RAM0_PATH']))
+        if checkMount(config, verbose) == 1:
+            print('could not verify successful initialization mount on {}'.format(config['RAM0_PATH']))
             sys.exit(5)
 
         if mount.exitstatus != 0:
-            print('could not verify successful initialization mount on {} (bad exit status {})'.format(CONFIG['RAM0_PATH'], mount.exitstatus))
+            print('could not verify successful initialization mount on {} (bad exit status {})'.format(config['RAM0_PATH'], mount.exitstatus))
             sys.exit(6)
     else:
         print('(found mounted ramdisk, initialization procedure skipped! Use --force to force re-initialization)')
     
-    reset = pexpect.spawn('bash -c "{}/vendor/odroidxu3-reset.sh"'.format(CONFIG['REPO_PATH']),
-        echo=False,
+    reset = pexpect.spawn('bash -c "{}/vendor/odroidxu3-reset.sh"'.format(config['REPO_PATH']),
+        echo=True if verbose else False,
         timeout=STANDARD_TIMEOUT,
         encoding='utf-8'
     )
@@ -208,16 +208,18 @@ if __name__ == "__main__":
         print('must be root/sudo')
         sys.exit(1)
 
-    if not parseConfigVars():
-        raise ValueError('')
+    config = parseConfigVars()
 
-    pprint.PrettyPrinter(indent=4).pprint(CONFIG)
+    if not config:
+        raise ValueError('failed to load {}'.format(CONFIG_PATH))
+
+    pprint.PrettyPrinter(indent=4).pprint(config)
     print()
 
     parser = argparse.ArgumentParser()
     parser.add_argument('--force', action='store_true')
     options = parser.parse_args()
 
-    initialize(verbose=True, force=options.force)
+    initialize(config=config, verbose=True, force=options.force)
 
     print("testbed manual initialization complete")

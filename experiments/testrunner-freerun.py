@@ -54,8 +54,8 @@ if __name__ == "__main__":
         sys.exit('must be root/sudo')
     
     # Bare bones basic initialization
-    initrunner.initialize()
-    initrunner.cwdToRAMDir()
+    initrunner.initialize(config)
+    initrunner.cwdToRAMDir(config)
     lib.checkSanity()
     
     lib.print('working directory set to {}'.format(config['RAM0_PATH']))
