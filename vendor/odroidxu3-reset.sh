@@ -24,3 +24,5 @@ for ((i=4; i<=7; i++))
 do
   echo 2000000 > /sys/devices/system/cpu/cpu$i/cpufreq/scaling_max_freq
 done
+
+echo "(odroid core clocks reset successfully)"

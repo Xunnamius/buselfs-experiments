@@ -27,41 +27,13 @@ import initrunner
 
 TEST_IDENT = 'StrongBox-experiments-tradeoffspace-splom'
 
-DEFAULT_CIPHER_IDENT = 'sc_chacha20'
-DEFAULT_FLAKESIZE = 4096
-DEFAULT_FPN = 64
-
 # TODO: change "duration" to latency
-METRICS = ('energy', 'power', 'duration') #, 'security'
-COLORS_READ = ['rgb(49,130,189)', 'rgb(204,204,204)', 'rgb(255,102,0)']
-COLORS_WRITE = ['rgb(25,65,95)', 'rgb(102,102,102)', 'rgb(255,102,0)']
-TITLE_TEMPLATE = '{} [{}] Tradeoff SPLOM ({} trials/run)'
+RESULT_FILE_METRICS = ('energy', 'power', 'duration')
+PLOT_AXES = ('security', 'latency', 'energy', 'power', 'flakesize', 'fpn')
 
-CONFIG = {}
+TITLE_TEMPLATE = '{} [{}] Tradeoff SPLOM ({} trials/runs)'
 
-# 0 = least secure, 4 = most secure
-SECURITY_RANKING = {
-    'sc_chacha8_neon': 0,
-    'sc_chacha12_neon': 1,
-    'sc_chacha20_neon': 2,
-    'sc_chacha20': 2,
-    'sc_salsa8': 0,
-    'sc_salsa12': 1,
-    'sc_salsa20': 2,
-    'sc_aes128_ctr': 1,
-    'sc_aes256_ctr': 2,
-    'sc_hc128': 2,
-    'sc_rabbit': 1,
-    'sc_sosemanuk': 1,
-    'sc_freestyle_fast': 1,
-    'sc_freestyle_balanced': 2,
-    'sc_freestyle_secure': 3,
-    'sc_aes256_xts': 2,
-}
 
-# TODO: create libcruncher library, add redundant code (like the below) there
-
-ResultProperties = namedtuple('ResultProperties', ['raw', 'order', 'medium', 'iops', 'backstore', 'fs', 'cipher', 'flakesize', 'fpn'])
 
 ################################################################################
 
@@ -114,6 +86,59 @@ def resultPropertiesToProperName(resultProperties, hideProperties=[]):
 
     return ''.join(properName).strip()
 
+def generateTrace(data, idents):
+    return Splom(
+        dimensions=[
+            { 'label': 'energy', 'values': data['energy']},
+            { 'label': 'power', 'values': data['power']},
+            { 'label': 'duration', 'values': data['duration']},
+            { 'label': 'security', 'values': data['security']},
+            { 'label': 'flakesize', 'values': data['flakesize']},
+            { 'label': 'fpn', 'values': data['fpn']},
+        ],
+        text=data['idents'],
+        marker={
+            #'color': color_vals,
+            'size': 7,
+            #'colorscale': pl_colorscale,
+            'showscale': False,
+            'line': { 'width': 0.5, 'color': 'rgb(230,230,230)' }
+        },
+    )
+
+def generateSharedLayout(title):
+    axis = {
+        'showline': True,
+        'zeroline': False,
+        'gridcolor': '#fff',
+        'ticklen': 4,
+    }
+
+    return Layout(
+        dragmode='select',
+        hovermode='closest',
+        title=title,
+        margin=dict(b=160),
+        #width=600,
+        #height=600,
+        #autosize=False,
+        plot_bgcolor='rgba(240,240,240, 0.95)',
+
+        xaxis1=dict(axis),
+        xaxis2=dict(axis),
+        xaxis3=dict(axis),
+        xaxis4=dict(axis),
+        xaxis5=dict(axis),
+        xaxis6=dict(axis),
+
+        yaxis1=dict(axis),
+        yaxis2=dict(axis),
+        yaxis3=dict(axis),
+        yaxis4=dict(axis),
+        yaxis5=dict(axis),
+        yaxis6=dict(axis),
+    )
+
 if __name__ == "__main__":
     CONFIG = initrunner.parseConfigVars()
 
@@ -146,7 +171,7 @@ if __name__ == "__main__":
     data = { 'read': {}, 'write': {}, 'idents': [] }
 
     for op in ['read', 'write']:
-        for metric in METRICS:
+        for metric in RESULT_FILE_METRICS:
             data[op][metric] = []
 
         data[op]['security'] = []
@@ -171,12 +196,12 @@ if __name__ == "__main__":
         localData = { 'read': {}, 'write': {}}
 
         for op in ['read', 'write']:
-            for metric in METRICS:
+            for metric in RESULT_FILE_METRICS:
                 localData[op][metric] = []
 
         with open(resultFile.absolute().as_posix(), 'r') as lines:
             for currentLine in lines:
-                for metric in METRICS:
+                for metric in RESULT_FILE_METRICS:
                     if not localData['read'][metric]:
                         localData['read'][metric] = []
                     
@@ -200,7 +225,7 @@ if __name__ == "__main__":
                     print('Bad data at read/write distinction: "{}"'.format(currentLine))
                     raise 'Bad data at read/write distinction (see above)'
         
-        for metric in METRICS:
+        for metric in RESULT_FILE_METRICS:
             localData['read'][metric]  = median(localData['read'][metric])
             localData['write'][metric] = median(localData['write'][metric])
 
@@ -215,10 +240,10 @@ if __name__ == "__main__":
         localData['write']['power'] = localData['write']['energy'] / localData['write']['duration']
         
         for op in ['read', 'write']:
-            for metric in METRICS:
+            for metric in RESULT_FILE_METRICS:
                 data[op][metric].append(localData[op][metric])
 
-            data[op]['security'].append(SECURITY_RANKING[props.cipher])
+            data[op]['security'].append(SC_SECURITY_RANKING[props.cipher])
             data[op]['flakesize'].append(props.flakesize)
             data[op]['fpn'].append(props.fpn)
 
@@ -232,106 +257,14 @@ if __name__ == "__main__":
 
     # TODO: make all the code that proceeds this line be not bad, dry it out, do not rely on constant string names, etc
 
-    read_trace = Splom(
-        dimensions=[
-            { 'label': 'energy', 'values': data['read']['energy']},
-            { 'label': 'power', 'values': data['read']['power']},
-            { 'label': 'duration', 'values': data['read']['duration']},
-            { 'label': 'security', 'values': data['read']['security']},
-            { 'label': 'flakesize', 'values': data['read']['flakesize']},
-            { 'label': 'fpn', 'values': data['read']['fpn']},
-        ],
-        text=data['idents'],
-        marker={
-            #'color': color_vals,
-            'size': 7,
-            #'colorscale': pl_colorscale,
-            'showscale': False,
-            'line': { 'width': 0.5, 'color': 'rgb(230,230,230)' }
-        },
-    )
-
-    write_trace = Splom(
-        dimensions=[
-            { 'label': 'energy', 'values': data['write']['energy']},
-            { 'label': 'power', 'values': data['write']['power']},
-            { 'label': 'duration', 'values': data['write']['duration']},
-            { 'label': 'security', 'values': data['write']['security']},
-            { 'label': 'flakesize', 'values': data['write']['flakesize']},
-            { 'label': 'fpn', 'values': data['write']['fpn']},
-        ],
-        text=data['idents'],
-        marker={
-            #'color': color_vals,
-            'size': 7,
-            #'colorscale': pl_colorscale,
-            'showscale': False,
-            'line': { 'width': 0.5, 'color': 'rgb(230,230,230)' }
-        },
-    )
-
-    axis = {
-        'showline': True,
-        'zeroline': False,
-        'gridcolor': '#fff',
-        'ticklen': 4,
-    }
-
-    read_layout = Layout(
-        dragmode='select',
-        hovermode='closest',
-        title=read_title,
-        margin=dict(b=160),
-        #width=600,
-        #height=600,
-        #autosize=False,
-        plot_bgcolor='rgba(240,240,240, 0.95)',
-
-        xaxis1=dict(axis),
-        xaxis2=dict(axis),
-        xaxis3=dict(axis),
-        xaxis4=dict(axis),
-        xaxis5=dict(axis),
-        xaxis6=dict(axis),
-
-        yaxis1=dict(axis),
-        yaxis2=dict(axis),
-        yaxis3=dict(axis),
-        yaxis4=dict(axis),
-        yaxis5=dict(axis),
-        yaxis6=dict(axis),
-    )
-
-    write_layout = Layout(
-        dragmode='select',
-        hovermode='closest',
-        title=write_title,
-        margin=dict(b=160),
-        #width=600,
-        #height=600,
-        #autosize=False,
-        plot_bgcolor='rgba(240,240,240, 0.95)',
-
-        xaxis1=dict(axis),
-        xaxis2=dict(axis),
-        xaxis3=dict(axis),
-        xaxis4=dict(axis),
-        xaxis5=dict(axis),
-        xaxis6=dict(axis),
-
-        yaxis1=dict(axis),
-        yaxis2=dict(axis),
-        yaxis3=dict(axis),
-        yaxis4=dict(axis),
-        yaxis5=dict(axis),
-        yaxis6=dict(axis),
-    )
+    read_trace = generateTrace(data['read'], data['idents'])
+    write_trace = generateTrace(data['write'], data['idents'])
 
     read_trace['diagonal'].update(visible=False)
     write_trace['diagonal'].update(visible=False)
 
-    read_fig = Figure(data=[read_trace], layout=read_layout)
-    write_fig = Figure(data=[write_trace], layout=write_layout)
+    read_fig = Figure(data=[read_trace], layout=generateSharedLayout(read_title))
+    write_fig = Figure(data=[write_trace], layout=generateSharedLayout(write_title))
 
     print('Aggregate data properties (all values should match):')
     print('energy values: r={};w={}'.format(len(data['read']['energy']), len(data['write']['energy'])))

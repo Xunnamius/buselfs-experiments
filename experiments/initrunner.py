@@ -116,7 +116,12 @@ def initialize(verbose=False, force=False):
 
             if modprobe.exitstatus != 0:
                 print('modprobe {} returned non-zero error code (-{})'.format(mod, modprobe.exitstatus))
-                sys.exit(2)
+
+                if verbose:
+                    print('(the above error was ignored because verbose=True)')
+                
+                else:
+                    sys.exit(2)
         
         mkdir = pexpect.spawn('mkdir',
             ['-p']
@@ -174,14 +179,24 @@ def initialize(verbose=False, force=False):
         mount.close()
 
         if checkMount() == 1:
-            print('Could not verify successful initialization mount on {}'.format(CONFIG['RAM0_PATH']))
+            print('could not verify successful initialization mount on {}'.format(CONFIG['RAM0_PATH']))
             sys.exit(5)
 
         if mount.exitstatus != 0:
-            print('Could not verify successful initialization mount on {} (bad exit status {})'.format(CONFIG['RAM0_PATH'], mount.exitstatus))
+            print('could not verify successful initialization mount on {} (bad exit status {})'.format(CONFIG['RAM0_PATH'], mount.exitstatus))
             sys.exit(6)
     else:
         print('(found mounted ramdisk, initialization procedure skipped! Use --force to force re-initialization)')
+    
+    reset = pexpect.spawn('bash -c "{}/vendor/odroidxu3-reset.sh"'.format(CONFIG['REPO_PATH']),
+        echo=False,
+        timeout=STANDARD_TIMEOUT,
+        encoding='utf-8'
+    )
+
+    reset.logfile = sys.stdout if verbose else None
+    reset.expect(pexpect.EOF)
+    reset.close()
 
 if __name__ == "__main__":
     try:
@@ -205,4 +220,4 @@ if __name__ == "__main__":
 
     initialize(verbose=True, force=options.force)
 
-    print("Testbed manual initialization successful.")
+    print("testbed manual initialization complete")
