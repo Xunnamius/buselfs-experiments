@@ -1,5 +1,6 @@
 #!/bin/bash
 # Reset CPU settings
+set -e
 
 # Must run script with root privileges
 if [ `id -u` -ne 0 ]

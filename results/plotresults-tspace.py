@@ -33,8 +33,6 @@ PLOT_AXES = ('security', 'latency', 'energy', 'power', 'flakesize', 'fpn')
 
 TITLE_TEMPLATE = '{} [{}] Tradeoff SPLOM ({} trials/runs)'
 
-
-
 ################################################################################
 
 def lineToNumber(line):

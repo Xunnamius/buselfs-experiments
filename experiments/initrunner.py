@@ -105,7 +105,7 @@ def initialize(config, verbose=False, force=False):
 
     # 1 => not found
     if force or checkMount(config, verbose) == 1:
-        print('(mounted ramdisk not found or re-initialization forced; executing initialization procedure...)')
+        print('(mounted ramdisk not found or re-initialization forced; executing primary initialization...)')
 
         for mod in ('nbd', 'nilfs2', 'f2fs'): #('nbd', 'nilfs2', 'f2fs'):
             modprobe = pexpect.spawn('modprobe', [mod], timeout=STANDARD_TIMEOUT, encoding='utf-8')
@@ -186,7 +186,7 @@ def initialize(config, verbose=False, force=False):
             print('could not verify successful initialization mount on {} (bad exit status {})'.format(config['RAM0_PATH'], mount.exitstatus))
             sys.exit(6)
     else:
-        print('(found mounted ramdisk, initialization procedure skipped! Use --force to force re-initialization)')
+        print('(found mounted ramdisk, primary initialization skipped! Use --force to  re-initialize)')
     
     reset = pexpect.spawn('bash -c "{}/vendor/odroidxu3-reset.sh"'.format(config['REPO_PATH']),
         echo=True if verbose else False,
@@ -197,6 +197,10 @@ def initialize(config, verbose=False, force=False):
     reset.logfile = sys.stdout if verbose else None
     reset.expect(pexpect.EOF)
     reset.close()
+
+    if reset.exitstatus != 0:
+        print('ERROR: cpu clock reset failed')
+        sys.exit(16)
 
 if __name__ == "__main__":
     try:
