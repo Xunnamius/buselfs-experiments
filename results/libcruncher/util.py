@@ -1,3 +1,5 @@
+"""Utility objects for use with the libcruncher library"""
+
 from collections import namedtuple
 
 # 0 = least secure, 3 = most secure
@@ -27,4 +29,8 @@ DEFAULT_FPN = 64
 COLORS_A = ['rgb(49,130,189)', 'rgb(204,204,204)', 'rgb(255,102,0)']
 COLORS_B = ['rgb(25,65,95)', 'rgb(102,102,102)', 'rgb(255,102,0)']
 
-ResultProperties = namedtuple('ResultProperties', ['raw', 'order', 'medium', 'iops', 'backstore', 'fs', 'cipher', 'flakesize', 'fpn', 'baseline'])
+ResultProperties = namedtuple('ResultProperties', ['path', 'name', 'order', 'medium', 'iops', 'backstore', 'fs', 'cipher', 'flakesize', 'fpn', 'baseline'])
+
+ResultProperty = namedtuple('ResultProperty', ['name', 'value'])
+
+ExecutionProperties = namedtuple('ExecutionProperties', ['resultFiles', 'observeBaseline', 'filterProps', 'filterStrict'])

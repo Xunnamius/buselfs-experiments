@@ -26,4 +26,4 @@ do
   echo 2000000 > /sys/devices/system/cpu/cpu$i/cpufreq/scaling_max_freq
 done
 
-echo "(attempted to reset odroid cpu clocks)"
+echo "(successfully reset odroid cpu clocks)"
