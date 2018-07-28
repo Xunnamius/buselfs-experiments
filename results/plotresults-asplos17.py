@@ -12,7 +12,6 @@ This script generates the perf/energy/power bar graphs from the asplos17 paper.
 import os
 import sys
 import hashlib
-import pprint
 import copy
 import inspect
 import plotly.plotly as py
@@ -273,13 +272,6 @@ if __name__ == "__main__":
 
     read_fig = Figure(data = read_traces, layout = read_layout)
     write_fig = Figure(data = write_traces, layout = write_layout)
-
-    print('~~~~~DATA~~~~~')
-    pprint.PrettyPrinter(indent = 4).pprint(data)
-    print('~~~~~READ~~~~~')
-    pprint.PrettyPrinter(indent = 4).pprint(read_traces)
-    print('~~~~~WRITE~~~~~')
-    pprint.PrettyPrinter(indent = 4).pprint(write_traces)
 
     user_input = input('Look good? (y/N): ')
     if user_input != 'y':

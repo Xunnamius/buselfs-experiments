@@ -1,9 +1,6 @@
 #!/usr/bin/env python3
-
-# pylint: disable=E0202
-
 """
-This is the 6/29/2018 version of a script that script crunches any files that
+This is the 7/29/2018 version of a script that script crunches any files that
 ends with the extension ".result" and are direct children of the `results/` dir.
 
 This script generates a set of tradeoff space charts plotting security vs energy
@@ -12,152 +9,162 @@ use, security vs power, and security vs performance.
 
 import os
 import sys
-import hashlib
-import pprint
-import copy
-import inspect
-import plotly.plotly as py
 
 from pathlib import Path
 from statistics import median
-from collections import namedtuple
-from plotly.graph_objs import Splom, Layout, Figure
+from plotly.graph_objs import Splom
 
 import initrunner
 import libcruncher
-from libcruncher.util import SC_SECURITY_RANKING, DEFAULT_CIPHER_IDENT, DEFAULT_FLAKESIZE, DEFAULT_FPN, COLORS_A, COLORS_B
 
-TEST_IDENT = 'StrongBox-experiments-tradeoffspace-splom'
+from libcruncher.util import (generateTitleFrag,
+                              formatAndPlotFigure,
+                              SC_SECURITY_RANKING,
+                              DEFAULT_CIPHER_IDENT,
+                              DEFAULT_FLAKESIZE,
+                              DEFAULT_FPN,
+                              COLORS_A,
+                              COLORS_B)
 
-# TODO:! fix other testrunners
+TEST_IDENT = 'tspace-splom'
+TITLE_TEMPLATE = '{} [{}] Tradeoff SPLOM ({})'
 
-# TODO:! change "duration" to latency
+PLOT_OFFLINE = True
+
 RESULT_FILE_METRICS = ('energy', 'power', 'duration')
-PLOT_AXES = ('security', 'latency', 'energy', 'power', 'flakesize', 'fpn')
 
-# TODO:! also include if ramdisk vs non-ramdisk
-TITLE_TEMPLATE = '{} [{}] Tradeoff SPLOM ({} trials/runs)'
+PLOT_AXES = ('security (level)', 'latency (s)', 'energy (j)', 'power (w)', 'flakesize (b)', 'fpn')
+
+# ? X is aliased/points to Y (the original); 'X':'Y'
+AXIS_ALIASES = {
+    'latency (s)': 'duration',
+    'energy (j)': 'energy',
+    'power (w)': 'power'
+}
+
+# ! Note that subvalues in this dict are further refined dynamically later on
+SPECIAL_AXES = {
+    # ? key => an int matching the axis number, e.g. xaxis1 would be matched by key int(1)
+    # ? value => a dict representing an axis configuration (merged into default)
+    1: {
+        'tickvals': [0, 1, 2, 3],
+        'range': [-0.5, 3.5],
+    },
+    2: {
+        'rangemode': 'tozero',
+    },
+    3: {
+        'rangemode': 'tozero',
+        'ticksuffix': '=N/A',
+        'showticksuffix': 'first'
+    },
+    4: {
+        'rangemode': 'tozero',
+        'ticksuffix': '=N/A',
+        'showticksuffix': 'first'
+    },
+    5: {
+        'type': 'category',
+        'categoryorder': 'array',
+    },
+    6: {
+        'type': 'category',
+        'categoryorder': 'array',
+    },
+}
+
+# * In this file, marker colors correspond to iop size ("iops" is the "class")
+# * There are five (+1 -> 5g) iop sizes: 1024b (1k), 4096b (4k), 512kib (512k),
+# *  5mib (5m), 40mib (40m)
+# * Hence, for this class there should be five rgba colors specified below
+
+COLOR_OPACITY = 0.5
+
+SPECIAL_MARKER = {
+    # ? This is a mapping between list indices (corresponding to components of
+    # ?  the data[axis] vectors) and their "class" (described above)
+    # ! Note that this is typically defined dynamically during plot calculations
+    'color': [],
+    
+    # ? This is a list of rgba colors corresponding to the "classes" used in
+    # ?  SPECIAL_MARKER::colors (described above)
+    # ! Note that this is typically defined manually (by YOU, dev!)
+    # ? Also note that it doesn't have to be 1-to-1 (i.e. can have extra colors)
+    # ?  but there must be more (or equal) colors than there are "classes"
+    'colorscale': [
+        'rgba(25, 211, 243, {})'.format(COLOR_OPACITY),
+        'rgba(231, 99, 250, {})'.format(COLOR_OPACITY),
+        'rgba(99, 110, 250, {})'.format(COLOR_OPACITY),
+        'rgba(253, 95, 0, {})'.format(COLOR_OPACITY),
+        'rgba(0, 253, 95, {})'.format(COLOR_OPACITY),
+    ]
+}
+
+# SPECIAL_MARKERS = {
+#     # ? key => a string matching the name of an axis in PLOT_AXES
+#     # ? value => a dict representing a marker configuration (merged into default)
+# }
+
+SPECIAL_MARKERS = { key: SPECIAL_MARKER for key in PLOT_AXES }
+
 
 ################################################################################
 
-def generateTrace(data, idents):
-    return Splom(
-        dimensions=[
-            # TODO:! automate
-            { 'label': 'energy', 'values': data['energy']},
-            { 'label': 'power', 'values': data['power']},
-            { 'label': 'duration', 'values': data['duration']},
-            { 'label': 'security', 'values': data['security']},
-            { 'label': 'flakesize', 'values': data['flakesize']},
-            { 'label': 'fpn', 'values': data['fpn']},
-        ],
-        text=data['idents'],
-        marker={
-            #'color': color_vals,
-            'size': 7,
-            #'colorscale': pl_colorscale,
-            'showscale': False,
-            'line': { 'width': 0.5, 'color': 'rgb(230,230,230)' }
-        },
-    )
-
-def generateSharedLayout(title):
-    axis = {
-        'showline': True,
-        'zeroline': False,
-        'gridcolor': '#fff',
-        'ticklen': 4,
+def generateTrace(data, idents, plotAxes, specialMarkers={}):
+    marker = {
+        'size': 7,
+        'showscale': False,
+        'line': { 'width': 0.5, 'color': 'rgb(230,230,230)' },
     }
 
-    return Layout(
-        dragmode='select',
-        hovermode='closest',
-        title=title,
-        margin=dict(b=160),
-        #width=600,
-        #height=600,
-        #autosize=False,
-        plot_bgcolor='rgba(240,240,240, 0.95)',
-
-        # TODO:! automate
-        xaxis1=dict(axis),
-        xaxis2=dict(axis),
-        xaxis3=dict(axis),
-        xaxis4=dict(axis),
-        xaxis5=dict(axis),
-        xaxis6=dict(axis),
-
-        yaxis1=dict(axis),
-        yaxis2=dict(axis),
-        yaxis3=dict(axis),
-        yaxis4=dict(axis),
-        yaxis5=dict(axis),
-        yaxis6=dict(axis),
+    return Splom(
+        dimensions=[{ 'label': axis, 'values': data[axis] } for axis in plotAxes],
+        text=idents,
+        marker={ **marker, **specialMarkers[axis] } if axis in specialMarkers else marker, 
     )
 
 if __name__ == "__main__":
-    CONFIG = initrunner.parseConfigVars()
+    libcruncher.requireSudo()
 
-    filesdir = None
+    print('crunching metrics...')
 
-    # TODO:! automate root check
-    try:
-        os.geteuid
-    except AttributeError:
-        os.geteuid = lambda: -1
+    config = initrunner.parseConfigVars()
+    execCTX = libcruncher.argsToExecutionProperties(sys.argv[1:])
+    assumedResultsPathList = str(execCTX.resultFiles[0].path).strip('/').split('/')
 
-    if os.geteuid() != 0:
-        print('must be root/sudo')
-        sys.exit(1)
+    print('aggregating data ({} items after filter)...'.format(len(execCTX.resultFiles)))
 
-    # TODO:! Use the more advanced python opts API
-    # TODO:! Use new libcruncher API (i.e. automate)
-    if len(sys.argv) != 2:
-        print('Usage: {} <data directory>'.format(sys.argv[0]))
-        sys.exit(2)
-
-    else:
-        filesdir = sys.argv[1].strip('/')
-
-        if not os.path.exists(filesdir) or not os.path.isdir(filesdir):
-            print('{} does not exist or is not a directory.'.format(filesdir))
-            sys.exit(3)
-
-    print('result files directory: {}'.format(filesdir))
-
-    # TODO:! baselines get different icon representation?
-    # TODO:! different colors for different sizes
-    # TODO:! different icon representations for seq vs rnd
     data = { 'read': {}, 'write': {}, 'idents': [] }
+    dimensionClassesOrdered = []
+    flakesizeTickVals = set()
+    fpnTickVals = set()
+    classmap = {}
 
     for op in ['read', 'write']:
         for metric in RESULT_FILE_METRICS:
             data[op][metric] = []
 
-        data[op]['security'] = []
-        data[op]['flakesize'] = []
-        data[op]['fpn'] = []
-
-    resultFiles = sorted(list(Path(os.path.realpath(filesdir)).glob('*.results')))
-
-    print('crunching ({} data items)...'.format(len(resultFiles)))
+        data[op][PLOT_AXES[0]] = []
+        data[op][PLOT_AXES[4]] = []
+        data[op][PLOT_AXES[5]] = []
 
     # Loop over results and begin the aggregation/accumulation process
-    for (resultFile, props) in libcruncher.yieldResultsSubset(resultFiles):
-        # TODO:! make it easy to include/ignore parts of resultProps that we don't want to include
-        # ! (remove this later) we're going to skip non-40m non-sequential non-f2fs results!
-        if props.order != 'sequential' or props.iops != '40m' or props.fs != 'f2fs':
-            continue
+    for resultProps in execCTX.resultFiles:
+        localData = { 'read': {}, 'write': {} }
 
-        data['idents'].append(libcruncher.resultPropertiesToProperName(props))
-
-        localData = { 'read': {}, 'write': {}}
+        if resultProps.iops not in classmap:
+            classmap[resultProps.iops] = len(classmap)
+        
+        dimensionClassesOrdered.append(classmap[resultProps.iops])
+        flakesizeTickVals.add(resultProps.flakesize)
+        fpnTickVals.add(resultProps.fpn)
+        data['idents'].append(libcruncher.resultPropertiesToProperName(resultProps))
 
         for op in ['read', 'write']:
             for metric in RESULT_FILE_METRICS:
                 localData[op][metric] = []
 
-        with open(resultFile.absolute().as_posix(), 'r') as lines:
+        with open(resultProps.path.absolute().as_posix(), 'r') as lines:
             for currentLine in lines:
                 for metric in RESULT_FILE_METRICS:
                     if not localData['read'][metric]:
@@ -187,73 +194,118 @@ if __name__ == "__main__":
             localData['read'][metric]  = median(localData['read'][metric])
             localData['write'][metric] = median(localData['write'][metric])
 
-        localData['read']['energy'] /= 1000000
-        localData['read']['duration'] /= 1000000000
+        localData['read'][RESULT_FILE_METRICS[0]] /= 1000000
+        localData['read'][RESULT_FILE_METRICS[2]] /= 1000000000
 
-        localData['write']['energy'] /= 1000000
-        localData['write']['duration'] /= 1000000000
+        localData['write'][RESULT_FILE_METRICS[0]] /= 1000000
+        localData['write'][RESULT_FILE_METRICS[2]] /= 1000000000
 
         # Sometimes we can't trust the power we read!
-        localData['read']['power'] = localData['read']['energy'] / localData['read']['duration']
-        localData['write']['power'] = localData['write']['energy'] / localData['write']['duration']
+        localData['read'][RESULT_FILE_METRICS[1]] = (
+            localData['read'][RESULT_FILE_METRICS[0]] / localData['read'][RESULT_FILE_METRICS[2]]
+        )
+
+        localData['write'][RESULT_FILE_METRICS[1]] = (
+            localData['write'][RESULT_FILE_METRICS[0]] / localData['write'][RESULT_FILE_METRICS[2]]
+        )
         
         for op in ['read', 'write']:
             for metric in RESULT_FILE_METRICS:
                 data[op][metric].append(localData[op][metric])
 
-            data[op]['security'].append(SC_SECURITY_RANKING[props.cipher])
-            data[op]['flakesize'].append(props.flakesize)
-            data[op]['fpn'].append(props.fpn)
+            data[op][PLOT_AXES[0]].append(SC_SECURITY_RANKING[resultProps.cipher])
+            data[op][PLOT_AXES[4]].append(resultProps.flakesize)
+            data[op][PLOT_AXES[5]].append(resultProps.fpn)
+        
+    print('aliasing data...')
 
-    print('uploading...')
+    for axis in PLOT_AXES:
+        if axis in AXIS_ALIASES:
+            print('{} => {}'.format(AXIS_ALIASES[axis], axis))
+            data['read'][axis] = data['read'][AXIS_ALIASES[axis]]
+            data['write'][axis] = data['write'][AXIS_ALIASES[axis]]
+    
+    dimensionLength = len(dimensionClassesOrdered)
 
-    titlePrefix = filesdir.strip('/').split('/')[-1]
+    # * Sanity check
+    for axis in PLOT_AXES:
+        readlen = len(data['read'][axis])
+        writelen = len(data['write'][axis])
 
-    read_title = TITLE_TEMPLATE.format(titlePrefix, 'reads', CONFIG['TRIALS_INT'])
-    write_title = TITLE_TEMPLATE.format(titlePrefix, 'writes', CONFIG['TRIALS_INT'])
+        if dimensionLength != readlen or dimensionLength != writelen:
+            print(
+                'ERROR: one or both of the cardinalities r=({}) and w=({}) do not match expected ({}) for axis="{}"'
+                    .format(readlen, writelen, dimensionLength, axis)
+            )
+            sys.exit(64)
 
-    read_trace = generateTrace(data['read'], data['idents'])
-    write_trace = generateTrace(data['write'], data['idents'])
+    print('organizing results...')
 
-    read_trace['diagonal'].update(visible=False)
-    write_trace['diagonal'].update(visible=False)
+    titlePrefix = assumedResultsPathList[-2]
 
-    read_fig = Figure(data=[read_trace], layout=generateSharedLayout(read_title))
-    write_fig = Figure(data=[write_trace], layout=generateSharedLayout(write_title))
+    titleFrag = generateTitleFrag(execCTX.filterProps)
+    readTitle = TITLE_TEMPLATE.format(titlePrefix, 'reads', titleFrag)
+    writeTitle = TITLE_TEMPLATE.format(titlePrefix, 'writes', titleFrag)
 
-    # TODO:! automate
-    print('Aggregate data properties (all values should match):')
-    print('energy values: r={};w={}'.format(len(data['read']['energy']), len(data['write']['energy'])))
-    print('power values: r={};w={}'.format(len(data['read']['power']), len(data['write']['power'])))
-    print('duration values: r={};w={}'.format(len(data['read']['duration']), len(data['write']['duration'])))
-    print('security values: r={};w={}'.format(len(data['read']['security']), len(data['write']['security'])))
-    print('flakesize values: r={};w={}'.format(len(data['read']['flakesize']), len(data['write']['flakesize'])))
-    print('fpn values: r={};w={}'.format(len(data['read']['fpn']), len(data['write']['fpn'])))
-    print('text values: {}'.format(len(data['idents'])))
+    colorscaleLength = len(SPECIAL_MARKER['colorscale'])
+    classmapLength = len(classmap)
 
-    # TODO:! automate
-    user_input = input('Look good? (y/N): ')
-    if user_input != 'y':
-        print('not continuing!')
-        sys.exit(4)
+    if colorscaleLength < classmapLength:
+        print('Invalid colorscale length (expected {} >= {})'.format(colorscaleLength, classmapLength))
+        sys.exit(32)
 
-    print('uploading...')
+    # * Define and refine SPECIAL_MARKER
 
-    # TODO:! automate
-    print('{: <90} {}'.format(read_title,
-        py.plot(
-            read_fig,
-            filename = '{}-reads-{}'.format(TEST_IDENT, hashlib.md5(bytes(filesdir + read_title, 'ascii')).hexdigest()),
-            auto_open = False
-        ))
+    SPECIAL_MARKER['color'] = dimensionClassesOrdered
+    colorscaleActual = []
+    
+    for i in range(colorscaleLength):
+        colorscaleActual.append([i / colorscaleLength, SPECIAL_MARKER['colorscale'][i]])
+        colorscaleActual.append([(i + 1) / colorscaleLength, SPECIAL_MARKER['colorscale'][i]])
+    
+    SPECIAL_MARKER['colorscale'] = colorscaleActual
+
+    readTrace = generateTrace(data['read'], data['idents'], PLOT_AXES, SPECIAL_MARKERS)
+    writeTrace = generateTrace(data['write'], data['idents'], PLOT_AXES, SPECIAL_MARKERS)
+
+    readTrace['diagonal'].update(visible=False)
+    writeTrace['diagonal'].update(visible=False)
+
+    print('final dimension cardinality: {}'.format(dimensionLength))
+
+    libcruncher.confirmBeforeContinuing()
+
+    filenamePrefix = '/'+'/'.join(assumedResultsPathList[:-1]) if PLOT_OFFLINE else ''
+
+    print('generating plots...\n')
+    print('read plot: ', end='')
+
+    # * Refine SPECIAL_AXES
+    SPECIAL_AXES[5] = { **SPECIAL_AXES[5], **{ 'categoryarray': sorted(list(flakesizeTickVals)) } }
+    SPECIAL_AXES[6] = { **SPECIAL_AXES[6], **{ 'categoryarray': sorted(list(fpnTickVals)) } }
+
+    formatAndPlotFigure(
+        file_ident='read',
+        test_ident=TEST_IDENT,
+        trace=readTrace,
+        title=readTitle,
+        filesdir=filenamePrefix,
+        axisCount=len(PLOT_AXES),
+        specialAxes=SPECIAL_AXES,
+        offline=PLOT_OFFLINE
     )
 
-    print('{: <90} {}'.format(write_title,
-        py.plot(
-            write_fig,
-            filename = '{}-writes-{}'.format(TEST_IDENT, hashlib.md5(bytes(filesdir + write_title, 'ascii')).hexdigest()),
-            auto_open = False
-        ))
+    print('\nwrite plot: ', end='')
+
+    formatAndPlotFigure(
+        file_ident='write',
+        test_ident=TEST_IDENT,
+        trace=writeTrace,
+        title=writeTitle,
+        filesdir=filenamePrefix,
+        axisCount=len(PLOT_AXES),
+        specialAxes=SPECIAL_AXES,
+        offline=PLOT_OFFLINE
     )
 
-    print('done!')
+    print('\n -- plotting complete! -- ')

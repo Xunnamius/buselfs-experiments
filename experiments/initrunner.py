@@ -8,7 +8,7 @@ script is responsible for ensuring the system is ready to run experiments"""
 
 import os
 import sys
-import pprint
+import json
 import pexpect
 import argparse
 
@@ -199,8 +199,15 @@ def initialize(config, verbose=False, force=False):
     reset.close()
 
     if reset.exitstatus != 0:
-        print('ERROR: cpu clock reset failed')
-        sys.exit(16)
+        print('ERROR: cpu clock reset failed', end='')
+
+        if force:
+            print(' (this error was ignored because force=True)', end='')
+
+        else:
+            sys.exit(16)
+    
+    print()
 
 if __name__ == "__main__":
     try:
@@ -217,11 +224,10 @@ if __name__ == "__main__":
     if not config:
         raise ValueError('failed to load {}'.format(CONFIG_PATH))
 
-    pprint.PrettyPrinter(indent=4).pprint(config)
-    print()
+    print(json.dumps(config, sort_keys=True, indent=2, default=str), '\n')
 
     parser = argparse.ArgumentParser()
-    parser.add_argument('--force', action='store_true')
+    parser.add_argument('--force', action='store_true', help='force re-initialization and move past any errors')
     options = parser.parse_args()
 
     initialize(config=config, verbose=True, force=options.force)

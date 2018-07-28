@@ -13,7 +13,7 @@ class EmptyResultsSubsetError(RuntimeError):
 
 class InvalidPathError(RuntimeError):
     def __init__(self, path):
-        self.message = '"{}" is not a valid results path'.format(path)
+        self.message = '"{}" is not a valid result path (does it exist? do you have perms?)'.format(path)
         super().__init__(self.message)
 
 class FilenameTranslationError(RuntimeError):

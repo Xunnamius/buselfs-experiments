@@ -88,8 +88,8 @@ def resultPropertiesToProperName(resultProperties, hideProperties=[]):
     if 'backstore' not in hideProperties:
         properName.append('{}{}'.format(resultProperties.backstore, '-' if 'fs' not in hideProperties else ' '))
     
-    if 'fs' not in hideProperties:
-        properName.append('{} '.format(resultProperties.fs))
+    if 'filesystem' not in hideProperties:
+        properName.append('{} '.format(resultProperties.filesystem))
     
     if 'flakesize' not in hideProperties:
         properName.append('fs={}{}'.format(resultProperties.flakesize, ';' if 'fpn' not in hideProperties else ' '))
@@ -105,18 +105,19 @@ def resultPropertiesToProperName(resultProperties, hideProperties=[]):
 
     return ''.join(properName).strip()
 
-def yieldResultsSubset(resultPropertiesObjects, includeProps=[], allowPartialMatch=True):
+def yieldResultsSubset(resultPropertiesObjects, includeProps=None, allowPartialMatch=True):
     """Accepts a list of ResultProperties objects and returns a subset of them
     depending on the property=value pairs passed into includeProps"""
     
     results = []
+    includeProps = includeProps or []
 
     for resultProperties in resultPropertiesObjects:
         include = False
 
         for prop in includeProps:
             try:
-                if getattr(resultProperties, prop.name) == prop.value:
+                if str(getattr(resultProperties, str(prop.name))) == str(prop.value):
                     include = True
 
                     if allowPartialMatch:
@@ -139,14 +140,13 @@ def yieldResultsSubset(resultPropertiesObjects, includeProps=[], allowPartialMat
 
 def argsToExecutionProperties(argv, description=''):
     parser = argparse.ArgumentParser(description=description)
-    metaText = 'file|dir'
 
     parser.add_argument(
         'paths',
         nargs='+',
-        metavar=metaText,
+        metavar='file|dir',
         action=_StorePathsAsResultPropertiesAction,
-        help='one or more *.result files or directories containing such files'
+        help='one or more *.results files or directories containing such files'
     )
 
     parser.add_argument(
@@ -155,7 +155,7 @@ def argsToExecutionProperties(argv, description=''):
         nargs='+',
         metavar='prop=val',
         type=_filterGenerateTuple,
-        help='filter results by only including those satisfy at least one property=value pair (see ResultProperties)'
+        help='filter results by only including those that satisfy at least one property=value pair (see ResultProperties)'
     )
 
     parser.add_argument(
@@ -168,13 +168,24 @@ def argsToExecutionProperties(argv, description=''):
     parser.add_argument(
         '-b',
         '--baseline',
-        metavar=metaText,
+        metavar='file',
         help='elements will be plotted relative to the data in the specified result file (default is literal values)'
     )
 
     args = parser.parse_args(argv)
 
-    return ExecutionProperties(yieldResultsSubset(args.paths, args.filter, not args.strict_filtering), args.baseline, args.filter, args.strict_filtering)
+    return ExecutionProperties(
+        yieldResultsSubset(args.paths, args.filter, not args.strict_filtering),
+        args.baseline,
+        args.filter,
+        args.strict_filtering
+    )
+
+def confirmBeforeContinuing():
+    user_input = input('=> look good? (y/N): ')
+    if user_input != 'y':
+        print('not continuing!')
+        sys.exit(4)
 
 def requireSudo():
     try:
@@ -188,7 +199,7 @@ def requireSudo():
         raise SudoRequired()
 
 def _filterGenerateTuple(value):
-    match = re.match(r'(?P<prop>[A-Za-z0-9]+)=(?P<val>[A-Za-z0-9]*)', str(value))
+    match = re.match(r'(?P<prop>[A-Za-z0-9_]+)=(?P<val>[A-Z_\-.*\/\\#a-z0-9]*)', str(value))
 
     if match is None:
          raise argparse.ArgumentTypeError('"{}" has invalid syntax; expected X=Y'.format(value))
