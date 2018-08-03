@@ -31,11 +31,19 @@ experiments = [lib.sequentialFreerun, lib.randomFreerun]
 #            'sc_aes256_ctr',
 #            #'sc_hc128', # ! too slow to test (see buselfs source for rationale)
 #            'sc_rabbit',
-#            'sc_sosemanuk'
+#            'sc_sosemanuk',
+#            'sc_chacha20_neon',
+#            'sc_chacha12_neon',
+#            'sc_chacha8_neon',
+#            'sc_chacha20',
+#            'sc_freestyle_fast',
+#            'sc_freestyle_balanced',
+#            'sc_freestyle_secure',
 # ]
-ciphers = ['sc_chacha20_neon',
-           'sc_chacha12_neon',
-           'sc_chacha8_neon'
+ciphers = [
+    'sc_freestyle_fast',
+    'sc_freestyle_balanced',
+    'sc_freestyle_secure',
 ]
 
 backendFnTuples = [
