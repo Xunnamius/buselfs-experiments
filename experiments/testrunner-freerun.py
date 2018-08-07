@@ -21,18 +21,20 @@ dataClasses = ['1k', '4k', '512k', '5m', '40m']
 # TODO: add stringified names to experiments (tuples?)
 experiments = [lib.sequentialFreerun] #[lib.sequentialFreerun, lib.randomFreerun]
 
-# ciphers = [#'sc_hc128', # ! too slow to test (see buselfs source for rationale)
-#            'sc_rabbit',
-#            'sc_sosemanuk',
-#            'sc_salsa8',
-#            'sc_salsa12',
-#            'sc_salsa20',
-#            'sc_aes128_ctr',
-#            'sc_aes256_ctr'
-# ]
-ciphers = ['sc_chacha20_neon',
+ciphers = [#'sc_hc128', # ! too slow to test (see buselfs source for rationale)
+           'sc_rabbit',
+           'sc_sosemanuk',
+           'sc_salsa8',
+           'sc_salsa12',
+           'sc_salsa20',
+           'sc_aes128_ctr',
+           'sc_aes256_ctr',
+           'sc_chacha20_neon',
            'sc_chacha12_neon',
-           'sc_chacha8_neon'
+           'sc_chacha8_neon',
+           'sc_freestyle_fast',
+           'sc_freestyle_balanced',
+           'sc_freestyle_secure',
 ]
 
 backendFnTuples = [
