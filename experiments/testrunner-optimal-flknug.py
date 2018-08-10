@@ -86,6 +86,7 @@ if __name__ == "__main__":
     lib.clearBackstoreFiles()
     lib.print('starting experiment ({} configurations)'.format(confcount))
 
+    # TODO:! factor this all out and replace the custom parts with lambda/function pointers
     with outputProgressBarRedirection() as originalStdOut:
         with tqdm(total=confcount, file=originalStdOut, dynamic_ncols=True) as progressBar:
             for conf in configurations:
@@ -107,7 +108,7 @@ if __name__ == "__main__":
                                     RESULTS_PATH.format(config['REPO_PATH'], predictedResultFileName)
                                 )
 
-                                lib.print(' ------------------ Experiment "{}" ------------------ '.format(identifier))
+                                lib.print(' ------------------ Experiment "{}" ------------------'.format(identifier))
 
                                 # ? If the results file exists already, then skip this experiment!
                                 if os.path.exists(predictedResultFilePath):
@@ -120,6 +121,7 @@ if __name__ == "__main__":
                                     try:
                                         runFn(dataClass, identifier)
 
+                                    # TODO: make ctrl-c exit when appropriate
                                     except ExperimentError:
                                         printInstabilityWarning(lib, config)
                                         # TODO:! instead of printing the warning
@@ -132,7 +134,7 @@ if __name__ == "__main__":
                                     backendFn[1]()
                                     lib.clearBackstoreFiles()
 
-                                lib.print(' ------------------ *** ------------------ ')
+                                lib.print(' ------------------ *** ------------------')
                                 lib.logFile = None
 
                                 progressBar.update()
