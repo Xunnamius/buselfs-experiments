@@ -7,7 +7,7 @@ from tqdm import tqdm
 
 import initrunner
 from librunner import Librunner
-from librunner.util import outputProgressBarRedirection, Configuration, ESTIMATION_METRIC, RESULTS_PATH, RESULTS_FILE_NAME
+from librunner.util import outputProgressBarRedirection, printInstabilityWarning, Configuration, RESULTS_PATH, RESULTS_FILE_NAME
 from librunner.exception import ExperimentError
 
 config = initrunner.parseConfigVars()
@@ -16,7 +16,7 @@ lib = Librunner(config)
 ### * Configurables * ###
 
 # ! REMEMBER: it's nilfs2 (TWO) with a 2! Not just 'nilfs'!
-filesystems = ['f2fs', 'nilfs2']
+filesystems = ['f2fs']
 dataClasses = ['1k', '4k', '512k', '5m', '40m']
 
 flksizes = [512, 1024, 2048, 4096, 8192]#, 16384]
@@ -84,7 +84,7 @@ if __name__ == "__main__":
     confcount = len(configurations) * len(backendFnTuples) * len(dataClasses) * len(experiments)
 
     lib.clearBackstoreFiles()
-    lib.print('starting experiment ({} configurations; total runtime static guess: {} minutes)'.format(confcount, confcount * ESTIMATION_METRIC))
+    lib.print('starting experiment ({} configurations)'.format(confcount))
 
     with outputProgressBarRedirection() as originalStdOut:
         with tqdm(total=confcount, file=originalStdOut, dynamic_ncols=True) as progressBar:
@@ -121,11 +121,12 @@ if __name__ == "__main__":
                                         runFn(dataClass, identifier)
 
                                     except ExperimentError:
-                                        lib.print('THE SYSTEM IS VERY LIKELY IN AN UNSTABLE STATE!', severity='CRITICAL')
-                                        lib.print('1. `umount` any mounted NBD/mapper devices', severity='CRITICAL')
-                                        lib.print('2. `fprocs` and `kill -9` any experimental backend processes', severity='CRITICAL')
-                                        lib.print('3. `sudo rm {}/*`'.format(config['RAM0_PATH']), severity='CRITICAL')
-                                        lib.print('4. call `sync`', severity='CRITICAL')
+                                        printInstabilityWarning(lib, config)
+                                        # TODO:! instead of printing the warning
+                                        # TODO: and raising the error, just run
+                                        # TODO: the commands and attempt to
+                                        # TODO: continue! (but raise if it fails
+                                        # TODO: twice in a row)
                                         raise
 
                                     backendFn[1]()

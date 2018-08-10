@@ -13,7 +13,6 @@ NBD_DEVICE_UPPER_BOUND = 16
 DEFAULT_GLOBAL_TIMEOUT = None
 KBYTES_IN_A_MB = 1024
 BYTES_IN_A_KB = 1024
-ESTIMATION_METRIC = 45 / 60
 BACKEND_FILE_TEMPLATE = '{}/logfs-{}.bkstr'
 DEFAULT_DATA_FILE = '{}/data/data{}.random'
 DEFAULT_DATA_SYM = '{}/data/data.target'
@@ -35,7 +34,7 @@ class DummyTqdmFile():
     def write(self, string):
         # Avoid print() second call (useless \n)
         if len(string.rstrip()) > 0:
-            if string.endswith('\n'):
+            if not string.endswith(' '):
                 tqdm.write('{}{}'.format(self.accumulator, string), file=self.fd)
                 self.accumulator = ''
             
@@ -54,9 +53,16 @@ def outputProgressBarRedirection():
 
         for fd in originalOutputFiles:
             yield fd
-    
+
     except Exception as exc:
         raise exc
     
     finally:
         sys.stdout, sys.stderr = originalOutputFiles
+
+def printInstabilityWarning(lib, config):
+    lib.print('THE SYSTEM IS VERY LIKELY IN AN UNSTABLE STATE!', severity='CRITICAL')
+    lib.print('1. `umount` any mounted NBD/mapper devices', severity='CRITICAL')
+    lib.print('2. `fprocs` and `kill -9` any experimental backend processes', severity='CRITICAL')
+    lib.print('3. `sudo rm {}/*`'.format(config['RAM0_PATH']), severity='CRITICAL')
+    lib.print('4. call `sync`', severity='CRITICAL')
