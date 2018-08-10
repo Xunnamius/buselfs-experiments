@@ -36,37 +36,40 @@ def pathToResultProperties(path):
         data2 = data1[2].split('-')
         data3 = data2[1].split('#')
 
+        data3Len = len(data3)
+        usingDefaultCipher = data3Len == 1 or data3[1] == 'baseline'
+
         # ! If modifying file name metadata (i.e. ResultProperties), edit these
 
-        if data3[1] == 'baseline':
-            props = ResultProperties(
-                path,
-                filename,
-                data1[0],
-                data1[1],
-                data2[0],
-                data2[2],
-                data3[0],
-                DEFAULT_CIPHER_IDENT,
-                DEFAULT_FLAKESIZE,
-                DEFAULT_FPN,
-                True
-            )
-        
-        else:
-            props = ResultProperties(
-                path,
-                filename,
-                data1[0],
-                data1[1],
-                data2[0],
-                data2[2],
-                data3[0],
-                data3[1],
-                int(data3[2]),
-                int(data3[3]),
-                False
-            )
+        cipher = DEFAULT_CIPHER_IDENT
+        flakesize = DEFAULT_FLAKESIZE
+        flakesPerNugget = DEFAULT_FPN
+
+        if not (1 <= data3Len <= 4):
+            raise FilenameTranslationError('encountered invalid data3 length ({})'.format(data3Len))
+
+        if not usingDefaultCipher:
+            cipher = data3[1]
+
+        if data3Len >= 3:
+            flakesize = int(data3[2])
+
+        if data3Len >= 4:
+            flakesPerNugget = int(data3[3])
+
+        props = ResultProperties(
+            path,
+            filename,
+            data1[0],
+            data1[1],
+            data2[0],
+            data2[2],
+            data3[0],
+            cipher,
+            flakesize,
+            flakesPerNugget,
+            usingDefaultCipher and data3Len != 1
+        )
 
     except IndexError:
         raise FilenameTranslationError(filename)
@@ -117,7 +120,10 @@ def yieldResultsSubset(resultPropertiesObjects, includeProps=None, allowPartialM
 
         for prop in includeProps:
             try:
-                if str(getattr(resultProperties, str(prop.name))) == str(prop.value):
+                propValues = str(prop.value).split(',') or []
+                actualValue = str(getattr(resultProperties, str(prop.name)))
+
+                if actualValue in propValues:
                     include = True
 
                     if allowPartialMatch:
@@ -153,9 +159,9 @@ def argsToExecutionProperties(argv, description=''):
         '-f',
         '--filter',
         nargs='+',
-        metavar='prop=val',
+        metavar='prop=val1,val2,...',
         type=_filterGenerateTuple,
-        help='filter results by only including those that satisfy at least one property=value pair (see ResultProperties)'
+        help='filter results by only including those that satisfy at least one property=value pair (see ResultProperties) (commas are treated as special "or" syntax)'
     )
 
     parser.add_argument(
@@ -199,7 +205,7 @@ def requireSudo():
         raise SudoRequired()
 
 def _filterGenerateTuple(value):
-    match = re.match(r'(?P<prop>[A-Za-z0-9_]+)=(?P<val>[A-Z_\-.*\/\\#a-z0-9]*)', str(value))
+    match = re.match(r'^(?P<prop>[A-Za-z0-9_]+)=(?P<val>[A-Z_,\-.*\/\\#a-z0-9]*)$', str(value))
 
     if match is None:
          raise argparse.ArgumentTypeError('"{}" has invalid syntax; expected X=Y'.format(value))

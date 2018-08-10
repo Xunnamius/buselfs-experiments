@@ -17,19 +17,12 @@ from plotly.graph_objs import Splom
 import initrunner
 import libcruncher
 
-from libcruncher.util import (generateTitleFrag,
-                              formatAndPlotFigure,
-                              SC_SECURITY_RANKING,
-                              DEFAULT_CIPHER_IDENT,
-                              DEFAULT_FLAKESIZE,
-                              DEFAULT_FPN,
-                              COLORS_A,
-                              COLORS_B)
+from libcruncher.util import generateTitleFrag, formatAndPlotFigure, SC_SECURITY_RANKING
 
 TEST_IDENT = 'tspace-splom'
 TITLE_TEMPLATE = '{} [{}] Tradeoff SPLOM ({})'
 
-PLOT_OFFLINE = True
+PLOT_OFFLINE = False
 
 RESULT_FILE_METRICS = ('energy', 'power', 'duration')
 
@@ -272,6 +265,7 @@ if __name__ == "__main__":
     writeTrace['diagonal'].update(visible=False)
 
     print('final dimension cardinality: {}'.format(dimensionLength))
+    print('title frag: {}'.format(titleFrag))
 
     libcruncher.confirmBeforeContinuing()
 

@@ -189,5 +189,6 @@
         "results/initrunner.py": true,
         "results/plotresults.py": true,
         "~$*": true,
-    }
+    },
+    "git.ignoreLimitWarning": true
 }

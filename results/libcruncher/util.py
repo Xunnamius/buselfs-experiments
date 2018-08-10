@@ -40,9 +40,10 @@ ExecutionProperties = namedtuple('ExecutionProperties', ['resultFiles', 'observe
 
 def generateTitleFrag(filters):
     title_frag = ''
+    filters = filters or []
 
     for fltr in filters:
-        title_frag += '{}={},'.format(fltr.name, fltr.value)
+        title_frag += '{}={},'.format(fltr.name, fltr.value.replace(',', '|'))
 
     return title_frag.strip(',')
 

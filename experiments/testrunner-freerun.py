@@ -20,7 +20,7 @@ filesystems = ['f2fs']
 dataClasses = ['1k', '4k', '512k', '5m', '40m']
 
 # TODO: add stringified names to experiments (tuples?)
-experiments = [lib.sequentialFreerun] #[lib.sequentialFreerun, lib.randomFreerun]
+experiments = [lib.sequentialFreerun]
 
 ciphers = [#'sc_hc128', # ! too slow to test (see buselfs source for rationale)
            'sc_rabbit',
@@ -39,11 +39,11 @@ ciphers = [#'sc_hc128', # ! too slow to test (see buselfs source for rationale)
 ]
 
 backendFnTuples = [
-    #(lib.createRawBackend, lib.destroyRawBackend, 'raw-vanilla'),
-    #(lib.createVanillaBackend, lib.destroyVanillaBackend, 'vanilla'),
-    #(lib.createDmcBackend, lib.destroyDmcBackend, 'dmcrypt'),
     (lib.createSbBackend, lib.destroySbBackend, 'strongbox')
 ]
+
+# ? Constructed automatically later, but any manual entries can be added here
+configurations = []
 
 ### *** ###
 
@@ -64,19 +64,6 @@ if __name__ == "__main__":
     lib.print('working directory set to {}'.format(config['RAM0_PATH']))
     lib.clearBackstoreFiles()
     lib.print('constructing configurations')
-
-    # * Normal perf tests
-    # TODO: split ^ off into testrunner-asplos17
-    # configurations = (
-        # Configuration('nilfs2', 'nilfs2', [], []),
-        # Configuration('f2fs', 'f2fs', ['-o', 'background_gc_off'], []),
-        # Configuration('f2fs', 'f2fs', [], []),
-        # Configuration('ext4-oj', 'ext4', [], []),
-        # Configuration('ext4-fj', 'ext4', ['-o', 'data=journal'], [])
-    # )
-
-    # * Cipher suite perf tests
-    configurations = []
 
     for filesystem in filesystems:
         configurations.append(Configuration('{}#baseline'.format(filesystem), filesystem, [], []))
