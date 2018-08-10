@@ -27,13 +27,20 @@ class DummyTqdmFile():
     """Dummy file-like object that will write to the tqdm progress bar"""
 
     fd = None
+    accumulator = ''
+
     def __init__(self, fd):
         self.fd = fd
 
-    def write(self, x):
+    def write(self, string):
         # Avoid print() second call (useless \n)
-        if len(x.rstrip()) > 0:
-            tqdm.write(x, file=self.fd)
+        if len(string.rstrip()) > 0:
+            if string.endswith('\n'):
+                tqdm.write('{}{}'.format(self.accumulator, string), file=self.fd)
+                self.accumulator = ''
+            
+            else:
+                self.accumulator += string
 
     def flush(self):
         return getattr(self.fd, "flush", lambda: None)()
