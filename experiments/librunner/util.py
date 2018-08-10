@@ -1,7 +1,10 @@
 """Utility objects for use with the librunner library"""
 
+import sys
 import time
+import contextlib
 
+from tqdm import tqdm
 from collections import namedtuple
 
 STANDARD_WAIT = 30
@@ -19,3 +22,34 @@ RESULTS_FILE_NAME = '{}.ram.{}.results'
 RESULTS_PATH = '{}/results/{}'
 
 Configuration = namedtuple('Configuration', ['proto_test_name', 'fs_type', 'mount_args', 'device_args'])
+
+class DummyTqdmFile():
+    """Dummy file-like object that will write to the tqdm progress bar"""
+
+    fd = None
+    def __init__(self, fd):
+        self.fd = fd
+
+    def write(self, x):
+        # Avoid print() second call (useless \n)
+        if len(x.rstrip()) > 0:
+            tqdm.write(x, file=self.fd)
+
+    def flush(self):
+        return getattr(self.fd, "flush", lambda: None)()
+
+@contextlib.contextmanager
+def outputProgressBarRedirection():
+    originalOutputFiles = sys.stdout, sys.stderr
+
+    try:
+        sys.stdout, sys.stderr = map(DummyTqdmFile, originalOutputFiles)
+
+        for fd in originalOutputFiles:
+            yield fd
+    
+    except Exception as exc:
+        raise exc
+    
+    finally:
+        sys.stdout, sys.stderr = originalOutputFiles

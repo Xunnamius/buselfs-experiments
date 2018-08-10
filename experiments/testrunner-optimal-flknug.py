@@ -3,10 +3,11 @@
 import os
 import sys
 from datetime import datetime
+from tqdm import tqdm
 
 import initrunner
 from librunner import Librunner
-from librunner.util import Configuration, ESTIMATION_METRIC, RESULTS_PATH, RESULTS_FILE_NAME
+from librunner.util import outputProgressBarRedirection, Configuration, ESTIMATION_METRIC, RESULTS_PATH, RESULTS_FILE_NAME
 from librunner.exception import ExperimentError
 
 config = initrunner.parseConfigVars()
@@ -83,58 +84,56 @@ if __name__ == "__main__":
     confcount = len(configurations) * len(backendFnTuples) * len(dataClasses) * len(experiments)
 
     lib.clearBackstoreFiles()
-    lib.print('starting experiment ({} configurations; estimated {} minutes)'.format(confcount, confcount * ESTIMATION_METRIC))
+    lib.print('starting experiment ({} configurations; total runtime static guess: {} minutes)'.format(confcount, confcount * ESTIMATION_METRIC))
 
-    for conf in configurations:
-        for backendFn in backendFnTuples:
-            for runFn in experiments:
-                for dataClass in dataClasses:
-                    with open(config['LOG_FILE_PATH'], 'w') as file:
-                        print(str(datetime.now()), '\n---------\n', file=file)
+    with outputProgressBarRedirection() as originalStdOut:
+        with tqdm(total=confcount, file=originalStdOut, dynamic_ncols=True) as progressBar:
+            for conf in configurations:
+                for backendFn in backendFnTuples:
+                    for runFn in experiments:
+                        for dataClass in dataClasses:
+                            with open(config['LOG_FILE_PATH'], 'w') as file:
+                                print(str(datetime.now()), '\n---------\n', file=file)
 
-                        lib.logFile = file
-                        identifier = '{}-{}-{}'.format(dataClass, conf.proto_test_name, backendFn[2])
+                                lib.logFile = file
+                                identifier = '{}-{}-{}'.format(dataClass, conf.proto_test_name, backendFn[2])
 
-                        # TODO: standardize naming, i.e. make seq/rnd test
-                        # TODO: *.results files have their names come entirely
-                        # TODO: from passed params instead of just the
-                        # TODO: identifier part to make the skipping logic below
-                        # TODO: much more flexible w/ result filenames and etc
-                        predictedResultFileName = RESULTS_FILE_NAME.format(
-                            'sequential' if experiments == lib.sequentialFreerun else 'random',
-                            identifier
-                        ) # TODO: make string name of experiment part of configs at the top
+                                predictedResultFileName = RESULTS_FILE_NAME.format(
+                                    'sequential' if experiments == lib.sequentialFreerun else 'random',
+                                    identifier
+                                )
 
-                        predictedResultFilePath = os.path.realpath(
-                            RESULTS_PATH.format(config['REPO_PATH'], predictedResultFileName)
-                        )
+                                predictedResultFilePath = os.path.realpath(
+                                    RESULTS_PATH.format(config['REPO_PATH'], predictedResultFileName)
+                                )
 
-                        # TODO: include progress indicator
-                        lib.print(' ------------------ Experiment "{}" ------------------ '.format(identifier))
+                                lib.print(' ------------------ Experiment "{}" ------------------ '.format(identifier))
 
-                        # ? If the results file exists already, then skip this experiment!
-                        if os.path.exists(predictedResultFilePath):
-                            lib.print('Results file {} was found, experiment skipped!'.format(predictedResultFilePath))
+                                # ? If the results file exists already, then skip this experiment!
+                                if os.path.exists(predictedResultFilePath):
+                                    lib.print('Results file {} was found, experiment skipped!'.format(predictedResultFilePath))
 
-                        else:
-                            backendFn[0](conf.fs_type, conf.mount_args, conf.device_args)
-                            lib.dropPageCache()
+                                else:
+                                    backendFn[0](conf.fs_type, conf.mount_args, conf.device_args)
+                                    lib.dropPageCache()
 
-                            try:
-                                runFn(dataClass, identifier)
+                                    try:
+                                        runFn(dataClass, identifier)
 
-                            except ExperimentError:
-                                lib.print('THE SYSTEM IS VERY LIKELY IN AN UNSTABLE STATE!', severity='CRITICAL')
-                                lib.print('1. `umount` any mounted NBD/mapper devices', severity='CRITICAL')
-                                lib.print('2. `fprocs` and `kill -9` any experimental backend processes', severity='CRITICAL')
-                                lib.print('3. `sudo rm {}/*`'.format(config['RAM0_PATH']), severity='CRITICAL')
-                                lib.print('4. call `sync`', severity='CRITICAL')
-                                raise
+                                    except ExperimentError:
+                                        lib.print('THE SYSTEM IS VERY LIKELY IN AN UNSTABLE STATE!', severity='CRITICAL')
+                                        lib.print('1. `umount` any mounted NBD/mapper devices', severity='CRITICAL')
+                                        lib.print('2. `fprocs` and `kill -9` any experimental backend processes', severity='CRITICAL')
+                                        lib.print('3. `sudo rm {}/*`'.format(config['RAM0_PATH']), severity='CRITICAL')
+                                        lib.print('4. call `sync`', severity='CRITICAL')
+                                        raise
 
-                            backendFn[1]()
-                            lib.clearBackstoreFiles()
+                                    backendFn[1]()
+                                    lib.clearBackstoreFiles()
 
-                        lib.print(' ------------------ *** ------------------ ')
-                        lib.logFile = None
+                                lib.print(' ------------------ *** ------------------ ')
+                                lib.logFile = None
+
+                                progressBar.update()
 
     lib.print('done', severity='OK')
