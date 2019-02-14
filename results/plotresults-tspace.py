@@ -78,7 +78,7 @@ SPECIAL_MARKER = {
     # ?  the data[axis] vectors) and their "class" (described above)
     # ! Note that this is typically defined dynamically during plot calculations
     'color': [],
-    
+
     # ? This is a list of rgba colors corresponding to the "classes" used in
     # ?  SPECIAL_MARKER::colors (described above)
     # ! Note that this is typically defined manually (by YOU, dev!)
@@ -113,7 +113,7 @@ def generateTrace(data, idents, plotAxes, specialMarkers={}):
     return Splom(
         dimensions=[{ 'label': axis, 'values': data[axis] } for axis in plotAxes],
         text=idents,
-        marker={ **marker, **specialMarkers[axis] } if axis in specialMarkers else marker, 
+        marker={ **marker, **specialMarkers[axis] } if axis in specialMarkers else marker,
     )
 
 if __name__ == "__main__":
