@@ -80,7 +80,7 @@ SPECIAL_MARKER = {
     'color': [],
 
     # ? This is a list of rgba colors corresponding to the "classes" used in
-    # ?  SPECIAL_MARKER::colors (described above)
+    # ?  SPECIAL_MARKER::color (described above)
     # ! Note that this is typically defined manually (by YOU, dev!)
     # ? Also note that it doesn't have to be 1-to-1 (i.e. can have extra colors)
     # ?  but there must be more (or equal) colors than there are "classes"
@@ -147,7 +147,7 @@ if __name__ == "__main__":
 
         if resultProps.iops not in classmap:
             classmap[resultProps.iops] = len(classmap)
-        
+
         dimensionClassesOrdered.append(classmap[resultProps.iops])
         flakesizeTickVals.add(resultProps.flakesize)
         fpnTickVals.add(resultProps.fpn)
@@ -162,7 +162,7 @@ if __name__ == "__main__":
                 for metric in RESULT_FILE_METRICS:
                     if not localData['read'][metric]:
                         localData['read'][metric] = []
-                    
+
                     if not localData['write'][metric]:
                         localData['write'][metric] = []
 
@@ -182,7 +182,7 @@ if __name__ == "__main__":
                 else:
                     print('Bad data at read/write distinction: "{}"'.format(currentLine))
                     raise 'Bad data at read/write distinction (see above)'
-        
+
         for metric in RESULT_FILE_METRICS:
             localData['read'][metric]  = median(localData['read'][metric])
             localData['write'][metric] = median(localData['write'][metric])
@@ -201,7 +201,7 @@ if __name__ == "__main__":
         localData['write'][RESULT_FILE_METRICS[1]] = (
             localData['write'][RESULT_FILE_METRICS[0]] / localData['write'][RESULT_FILE_METRICS[2]]
         )
-        
+
         for op in ['read', 'write']:
             for metric in RESULT_FILE_METRICS:
                 data[op][metric].append(localData[op][metric])
@@ -209,7 +209,7 @@ if __name__ == "__main__":
             data[op][PLOT_AXES[0]].append(SC_SECURITY_RANKING[resultProps.cipher])
             data[op][PLOT_AXES[4]].append(resultProps.flakesize)
             data[op][PLOT_AXES[5]].append(resultProps.fpn)
-        
+
     print('aliasing data...')
 
     for axis in PLOT_AXES:
@@ -217,7 +217,7 @@ if __name__ == "__main__":
             print('{} => {}'.format(AXIS_ALIASES[axis], axis))
             data['read'][axis] = data['read'][AXIS_ALIASES[axis]]
             data['write'][axis] = data['write'][AXIS_ALIASES[axis]]
-    
+
     dimensionLength = len(dimensionClassesOrdered)
 
     # * Sanity check
@@ -251,11 +251,11 @@ if __name__ == "__main__":
 
     SPECIAL_MARKER['color'] = dimensionClassesOrdered
     colorscaleActual = []
-    
+
     for i in range(colorscaleLength):
         colorscaleActual.append([i / colorscaleLength, SPECIAL_MARKER['colorscale'][i]])
         colorscaleActual.append([(i + 1) / colorscaleLength, SPECIAL_MARKER['colorscale'][i]])
-    
+
     SPECIAL_MARKER['colorscale'] = colorscaleActual
 
     readTrace = generateTrace(data['read'], data['idents'], PLOT_AXES, SPECIAL_MARKERS)

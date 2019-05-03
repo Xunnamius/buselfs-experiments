@@ -120,16 +120,22 @@ def resultPropertiesToProperName(resultProperties, hideProperties=[]):
     if 'fpn' not in hideProperties:
         properName.append('fpn={} '.format(resultProperties.fpn))
 
-    if 'cipher' not in hideProperties:
-        properName.append('{}{}{}'.format(
-            '(primary cipher) ' if 'swapCipher' in hideProperties else '',
-            '-'.join(resultProperties.cipher.split('_')[1:]),
-            '=>' if 'swapCipher' not in hideProperties else ' '))
+    cipher = '-'.join(resultProperties.cipher.split('_')[1:])
+    swapCipher = '-'.join(resultProperties.swapCipher.split('_')[1:])
 
-    if 'swapCipher' not in hideProperties:
-        properName.append('{}{} '.format(
-            '(swap cipher) ' if 'cipher' in hideProperties else '', '-'.join(resultProperties.swapCipher.split('_')[1:])
-        ))
+    if 'cipher' not in hideProperties and 'swapCipher' not in hideProperties and cipher == swapCipher:
+        properName.append('{} '.format(cipher))
+
+    else:
+        if 'cipher' not in hideProperties:
+            properName.append('{}{}{}'.format(
+                '(primary cipher) ' if 'swapCipher' in hideProperties else '',
+                cipher,
+                '=>' if 'swapCipher' not in hideProperties else ' '
+            ))
+
+        if 'swapCipher' not in hideProperties:
+            properName.append('{}{} '.format('(swap cipher) ' if 'cipher' in hideProperties else '', swapCipher))
 
     if 'swapStrategy' not in hideProperties:
         properName.append('{} '.format('-'.join(resultProperties.swapStrategy.split('_')[1:])))
