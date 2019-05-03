@@ -22,12 +22,13 @@ from libcruncher.util import (ResultProperties,
                               ResultProperty,
                               DEFAULT_CIPHER_IDENT,
                               DEFAULT_FLAKESIZE,
-                              DEFAULT_FPN)
+                              DEFAULT_FPN,
+                              DEFAULT_STRATEGY)
 
 def lineToNumber(line):
     """Converts a line string like "energy: 55" into a number"""
     return Decimal(line.split(': ')[1])
-    
+
 def pathToResultProperties(path):
     """Converts a path into a ResultProperties object"""
     try:
@@ -44,8 +45,10 @@ def pathToResultProperties(path):
         cipher = DEFAULT_CIPHER_IDENT
         flakesize = DEFAULT_FLAKESIZE
         flakesPerNugget = DEFAULT_FPN
+        swapStrategy = DEFAULT_STRATEGY
+        swapCipher = None
 
-        if not (1 <= data3Len <= 4):
+        if not (1 <= data3Len <= 6):
             raise FilenameTranslationError('encountered invalid data3 length ({})'.format(data3Len))
 
         if not usingDefaultCipher:
@@ -56,6 +59,16 @@ def pathToResultProperties(path):
 
         if data3Len >= 4:
             flakesPerNugget = int(data3[3])
+
+        if data3Len >= 5:
+            swapCipher = data3[4]
+        else:
+            swapCipher = cipher
+
+        if data3Len >= 6:
+            swapStrategy = data3[5]
+
+        assert(swapCipher is not None)
 
         props = ResultProperties(
             path,
@@ -68,7 +81,9 @@ def pathToResultProperties(path):
             cipher,
             flakesize,
             flakesPerNugget,
-            usingDefaultCipher and data3Len != 1
+            usingDefaultCipher and data3Len != 1,
+            swapCipher,
+            swapStrategy
         )
 
     except IndexError:
@@ -85,33 +100,49 @@ def resultPropertiesToProperName(resultProperties, hideProperties=[]):
     if 'order' not in hideProperties and 'medium' not in hideProperties:
         properName.append('[{};{}] '.format(resultProperties.order, resultProperties.medium))
 
+    elif 'order' in hideProperties and 'medium' in hideProperties:
+        pass
+
     elif 'order' in hideProperties or 'medium' in hideProperties:
-        properName.append('[{}] '.format(resultProperties.order if 'order' in hideProperties else resultProperties.medium))
-    
+        properName.append('[{}] '.format(
+            resultProperties.medium if 'order' in hideProperties else resultProperties.order
+        ))
+
     if 'backstore' not in hideProperties:
-        properName.append('{}{}'.format(resultProperties.backstore, '-' if 'fs' not in hideProperties else ' '))
-    
+        properName.append('{}{}'.format(resultProperties.backstore, '-' if 'filesystem' not in hideProperties else ' '))
+
     if 'filesystem' not in hideProperties:
         properName.append('{} '.format(resultProperties.filesystem))
-    
+
     if 'flakesize' not in hideProperties:
-        properName.append('fs={}{}'.format(resultProperties.flakesize, ';' if 'fpn' not in hideProperties else ' '))
-    
+        properName.append('fs={} '.format(resultProperties.flakesize))
+
     if 'fpn' not in hideProperties:
         properName.append('fpn={} '.format(resultProperties.fpn))
-    
+
+    if 'cipher' not in hideProperties:
+        properName.append('{}{}{}'.format(
+            '(primary cipher) ' if 'swapCipher' in hideProperties else '',
+            '-'.join(resultProperties.cipher.split('_')[1:]),
+            '=>' if 'swapCipher' not in hideProperties else ' '))
+
+    if 'swapCipher' not in hideProperties:
+        properName.append('{}{} '.format(
+            '(swap cipher) ' if 'cipher' in hideProperties else '', '-'.join(resultProperties.swapCipher.split('_')[1:])
+        ))
+
+    if 'swapStrategy' not in hideProperties:
+        properName.append('{} '.format('-'.join(resultProperties.swapStrategy.split('_')[1:])))
+
     if 'iops' not in hideProperties:
         properName.append('{} '.format(resultProperties.iops))
-    
-    if 'cipher' not in hideProperties:
-        properName.append('{} '.format('-'.join(resultProperties.cipher.split('_')[1:])))
 
-    return ''.join(properName).strip()
+    return ''.join(properName).strip() or ''
 
 def yieldResultsSubset(resultPropertiesObjects, includeProps=None, allowPartialMatch=True):
     """Accepts a list of ResultProperties objects and returns a subset of them
     depending on the property=value pairs passed into includeProps"""
-    
+
     results = []
     includeProps = includeProps or []
 
@@ -128,17 +159,17 @@ def yieldResultsSubset(resultPropertiesObjects, includeProps=None, allowPartialM
 
                     if allowPartialMatch:
                         break
-                
+
                 elif not allowPartialMatch:
                     include = False
                     break
-            
+
             except AttributeError:
                 raise ResultPropertyAttributeError(prop.name)
 
         if not includeProps or include:
             results.append(resultProperties)
-    
+
     if not results:
         raise EmptyResultsSubsetError()
 
@@ -209,7 +240,7 @@ def _filterGenerateTuple(value):
 
     if match is None:
          raise argparse.ArgumentTypeError('"{}" has invalid syntax; expected X=Y'.format(value))
-    
+
     return ResultProperty(match.group('prop'), match.group('val') or '')
 
 class _StorePathsAsResultPropertiesAction(argparse.Action):
@@ -253,7 +284,7 @@ class _StorePathsAsResultPropertiesAction(argparse.Action):
 
             else:
                 paths.extend(path.glob('*.results'))
-        
+
         paths.sort()
 
         for path in paths:

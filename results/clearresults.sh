@@ -4,5 +4,5 @@ if [ "$(id -u)" -ne 0 ]; then
 fi
 
 cd results
-rm -vf -- *.results 
+rm -vf -- *.results
 cd -

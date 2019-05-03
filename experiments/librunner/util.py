@@ -37,7 +37,7 @@ class DummyTqdmFile():
             if not string.endswith(' '):
                 tqdm.write('{}{}'.format(self.accumulator, string), file=self.fd)
                 self.accumulator = ''
-            
+
             else:
                 self.accumulator += string
 
@@ -56,7 +56,7 @@ def outputProgressBarRedirection():
 
     except Exception as exc:
         raise exc
-    
+
     finally:
         sys.stdout, sys.stderr = originalOutputFiles
 

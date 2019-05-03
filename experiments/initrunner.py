@@ -48,11 +48,11 @@ STANDARD_TIMEOUT=10
 
 def parseConfigLine(configLine):
     """Parses a single configuration line and returns lhs and rhs values"""
-    
+
     lhs_rhs = ''.join(configLine.split(' \\')[0].split('-D')[1:]).split('=')
     rhs = ''.join(lhs_rhs[1:]).strip('"\' ')
     lhs = lhs_rhs[0].strip(' ')
-    
+
     return (lhs, rhs)
 
 def parseConfigVars():
@@ -68,12 +68,12 @@ def parseConfigVars():
                 if line.startswith(CONFIG_KEY):
                     inConfigVar = True
                     continue
-                
+
                 if inConfigVar:
                     line = line.strip('\n')
                     if not line.endswith("\\"):
                         inConfigVar = False
-                    
+
                     (varName, varValue) = parseConfigLine(line)
                     config[varName] = int(varValue) if varName.endswith('_INT') else varValue
 
@@ -119,10 +119,10 @@ def initialize(config, verbose=False, force=False):
 
                 if verbose:
                     print('(the above error was ignored because verbose=True)')
-                
+
                 else:
                     sys.exit(2)
-        
+
         mkdir = pexpect.spawn('mkdir',
             ['-p']
                 + ['{}/{}'.format(config['TMP_ROOT_PATH'], dirr) for dirr in MODPROBE_DIRS]
@@ -138,7 +138,7 @@ def initialize(config, verbose=False, force=False):
         if mkdir.exitstatus != 0:
             print('mkdir returned non-zero error code (-{})'.format(mkdir.exitstatus))
             sys.exit(3)
-        
+
         cp = pexpect.spawn('cp',
             ['{}/config/zlog_conf.conf'.format(config['BUSELFS_PATH']), '{}/config/'.format(config['TMP_ROOT_PATH'])],
             timeout=STANDARD_TIMEOUT,
@@ -152,7 +152,7 @@ def initialize(config, verbose=False, force=False):
         if cp.exitstatus != 0:
             print('cp returned non-zero error code (-{})'.format(cp.exitstatus))
             sys.exit(4)
-        
+
         cp2 = pexpect.spawn('cp',
             ['{}/config/zlog_conf.conf'.format(config['BUSELFS_PATH']), '../config/'],
             timeout=STANDARD_TIMEOUT,
@@ -187,7 +187,7 @@ def initialize(config, verbose=False, force=False):
             sys.exit(6)
     else:
         print('(found mounted ramdisk, primary initialization skipped! Use --force to  re-initialize)')
-    
+
     reset = pexpect.spawn('bash -c "{}/vendor/odroidxu3-reset.sh"'.format(config['REPO_PATH']),
         echo=True if verbose else False,
         timeout=STANDARD_TIMEOUT,
@@ -206,7 +206,7 @@ def initialize(config, verbose=False, force=False):
 
         else:
             sys.exit(16)
-    
+
     print()
 
 if __name__ == "__main__":

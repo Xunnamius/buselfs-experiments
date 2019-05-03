@@ -190,5 +190,8 @@
         "results/plotresults.py": true,
         "~$*": true,
     },
-    "git.ignoreLimitWarning": true
+    "git.ignoreLimitWarning": true,
+    "python.pythonPath": "C:\\Users\\berna\\AppData\\Local\\Programs\\Python\\Python37-32\\python.exe",
+    "python.linting.enabled": true,
+    "python.linting.pylintEnabled": true
 }

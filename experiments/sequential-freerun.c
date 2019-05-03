@@ -143,12 +143,12 @@ int main(int argc, char * argv[])
     char path_shard[PATH_BUFF_SIZE];
     snprintf(path_shard, PATH_BUFF_SIZE, "results/sequential.%s.%s.results", core_type, fs_type);
     get_real_path(output_path, path_shard);
-    
+
     printf("output_path: %s\n", output_path);
-    
+
     errno = 0;
     flog_output = fopen(output_path, "a");
-    
+
     if(!flog_output && errno)
     {
         perror("failed to fopen output_path");
@@ -156,7 +156,7 @@ int main(int argc, char * argv[])
     }
 
     // Read entire randomness file into memory buffer
-    
+
     errno = 0;
     frandom = fopen(RANDOM_PATH, "rb+");
 
@@ -242,7 +242,7 @@ int main(int argc, char * argv[])
     }
 
     // Begin the trials
-    
+
     int pcachefd = open("/proc/sys/vm/drop_caches", O_WRONLY);
     int trials = TRIALS_INT;
 
@@ -424,7 +424,7 @@ int main(int argc, char * argv[])
 
     // Free randomness buffer
     free(randomness);
-    
+
     printf("Done!\n");
 
     fclose(flog_output);

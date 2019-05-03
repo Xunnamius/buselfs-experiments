@@ -48,55 +48,55 @@ class Librunner():
         """Returns a list of non-quarantined nbd device numbers"""
 
         return list(self._deviceList)
-    
+
     @property
     def quarantinedDeviceList(self):
         """Returns a list of quarantined nbd device numbers"""
 
         return list(self._quarantinedDeviceList)
-    
+
     @property
     def currentDeviceNumber(self):
         """Returns the number of the currently active nbd device"""
 
         return self._deviceList[-1]
-    
+
     @property
     def currentDeviceName(self):
         """Returns the file name version of self.currentDeviceNumber"""
 
         return 'nbd{}'.format(self.currentDeviceNumber)
-    
+
     @property
     def currentDeviceDevPath(self):
         """Returns a path to the current nbd device in /dev"""
 
         return '/dev/{}'.format(self.currentDeviceName)
-    
+
     @property
     def currentDeviceTmpPath(self):
         """Returns the path to the current device's corresponding tmp folder"""
 
         return '{}/{}'.format(self.config['TMP_ROOT_PATH'], self.currentDeviceName)
-    
+
     @property
     def currentDeviceMapperPath(self):
         """Returns the path to the current device's corresponding tmp folder"""
 
         return '/dev/mapper/{}'.format(self.currentDeviceName)
-    
+
     @property
     def backendSizeBytes(self):
         """Returns the size in bytes of the backstore (aka: backend) file """
 
         return self._backendSizeBytes
-    
+
     @property
     def logFile(self):
         """Returns the internal file object representing the logging file"""
 
         return self._logFile
-    
+
     @logFile.setter
     def logFile(self, logFile):
         """Sets the internal file object to a user-defined value"""
@@ -107,7 +107,7 @@ class Librunner():
             self.print('logging file unset')
 
         self._logFile = logFile
-    
+
     # ! internal
     @property
     def backendFilePath(self):
@@ -126,7 +126,7 @@ class Librunner():
 
         self._deviceList.remove(device)
         self._quarantinedDeviceList.append(device)
-    
+
     def useNextDevice(self):
         """Advances internal state so that the next nbd device becomes the
            current device.
@@ -183,7 +183,7 @@ class Librunner():
         files = glob.glob('{}/*'.format(self.config['RAM0_PATH']))
         for f in files:
             os.remove(f)
-    
+
     def symlinkDataClass(self, data_class):
         """Symlinks the proper data file to be written and read in by
            experiments
@@ -207,12 +207,12 @@ class Librunner():
 
         if not os.path.exists(symlfile):
             raise TaskError('os.symlink failed to create {}'.format(symlfile))
-    
+
     def checkSanity(self):
         """Bails out of the program if the environment isn't set up properly"""
 
         self.print('performing sanity checks...')
-        
+
         if not os.path.exists(self.config['RAM0_PATH']):
             raise TaskError("did initrunner.py fail?! (can't find {})".format(self.config['RAM0_PATH']))
 
@@ -233,9 +233,9 @@ class Librunner():
 
         if os.getcwd() != os.path.abspath(self.config['RAM0_PATH']):
             raise TaskError('current working directory is incorrect (should be {})'.format(self.config['RAM0_PATH']))
-        
+
         # TODO: add checks for existing sb processes and check if nbd device already mounted
-    
+
     def createScratchFile(self, filepath=None, filesize=None):
         """Takes a filepath and filesize and creates a scratch file of that
            size
@@ -249,7 +249,7 @@ class Librunner():
         with open(filepath, 'wb') as f:
             f.seek(filesize - 1)
             f.write(b'\0')
-        
+
         fsize = os.path.getsize(filepath)
 
         if fsize != filesize:
@@ -290,7 +290,7 @@ class Librunner():
             spawn_expect(executable, args, proc)
 
         return proc
-    
+
     def _spawn(self, executable, args, runMessage=None, verifyMessage=None, spawn_expect=None):
         checkFn = getattr(self, '_check_{}'.format(executable))
 
@@ -306,7 +306,7 @@ class Librunner():
 
     def _mkfs(self, args):
         return self._spawn('mkfs', args)
-    
+
     def _mount(self, args):
         return self._spawn('mount', args)
 
@@ -328,7 +328,7 @@ class Librunner():
                 raise TaskError('process {} failed (returned unexpected output)'.format(executable))
 
         return self._spawn('cryptsetup', args, spawn_expect=spawn_expect)
-    
+
     def _cryptsetup_open(self, args):
         def spawn_expect(executable, args, proc):
             try:
@@ -351,7 +351,7 @@ class Librunner():
     def _check_mkfs(self, executable, args, proc):
         # ? A good exit code will do just nicely
         pass
-    
+
     def _check_mount(self, executable, args, proc):
         def spawn_expect(executable, args, proc):
             try:
@@ -433,7 +433,7 @@ class Librunner():
         device_args = device_args or []
 
         args = ['--size', str(self.backendSizeBytes), self.currentDeviceDevPath] + device_args
-        
+
         self.print('creating vanilla backend (@ {})'.format(self.currentDeviceTmpPath))
         self._shell_saw(self.config['BUSE_PATH'], args)
 
@@ -487,7 +487,7 @@ class Librunner():
                 self._mkfs(['-t', fs_type, self.currentDeviceDevPath])
                 self.print('mkfs succeeded!', severity='OK')
                 break
-            
+
             except CommandExecutionError as e:
                 bpoll = buse.poll()
 
@@ -539,7 +539,7 @@ class Librunner():
 
     def _terminateLingeringProcesses(self):
         self.print('terminating background fs process')
-        
+
         self._lingeringBackgroundProcess.terminate()
         self._lingeringBackgroundProcess = None
 
@@ -600,7 +600,7 @@ class Librunner():
                 ['ram', test_name, self.currentDeviceTmpPath],
                 timeout=self.config['FREERUN_TIMEOUT_INT']
             )
-        
+
         except pexpect.TIMEOUT:
             raise ExperimentError('experiment timed out (exceeded {} seconds'.format(self.config['FREERUN_TIMEOUT_INT']))
 
@@ -617,6 +617,6 @@ class Librunner():
                 ['ram', test_name, self.currentDeviceTmpPath],
                 timeout=self.config['FREERUN_TIMEOUT_INT']
             )
-        
+
         except pexpect.TIMEOUT:
             raise ExperimentError('experiment timed out (exceeded {} seconds)'.format(self.config['FREERUN_TIMEOUT_INT']))

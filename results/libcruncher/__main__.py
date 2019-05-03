@@ -1,7 +1,7 @@
 """A small test script for libcruncher. Be sure to call it with `python -m`!"""
 
 # * Call it like this:
-# * python -m libcruncher 2018/07-15--054851-flknug -xf flakesize=8192 fpn=128 iops=1k medium=ram order=sequential filesystem=f2fs baseline=False backstore="strongbox" cipher="sc_chacha20_neon"
+# * python -m libcruncher 2018/07-15--054851--flknug -xf flakesize=8192 fpn=128 iops=1k medium=ram order=sequential filesystem=f2fs isBaseline=False backstore="strongbox" cipher="sc_chacha20_neon"
 
 import sys
 import libcruncher

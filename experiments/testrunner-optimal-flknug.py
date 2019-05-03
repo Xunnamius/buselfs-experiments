@@ -58,12 +58,12 @@ if __name__ == "__main__":
 
     if os.geteuid() != 0:
         sys.exit('must be root/sudo')
-    
+
     # Bare bones basic initialization
     initrunner.initialize(config)
     initrunner.cwdToRAMDir(config)
     lib.checkSanity()
-    
+
     lib.print('working directory set to {}'.format(config['RAM0_PATH']))
     lib.clearBackstoreFiles()
     lib.print('constructing configurations')

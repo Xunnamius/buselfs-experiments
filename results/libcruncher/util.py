@@ -16,25 +16,26 @@ SC_SECURITY_RANKING = {
     'sc_salsa8': 0.4,
     'sc_salsa12': 0.9,
     'sc_salsa20': 1.4,
-    'sc_aes128_ctr': 0,
-    'sc_aes256_ctr': 1,
+    'sc_aes128_ctr': 0.5,
+    'sc_aes256_ctr': 1.5,
     'sc_hc128': 0.5,
-    'sc_rabbit': 0.8,
-    'sc_sosemanuk': 0.8,
+    'sc_rabbit': 1.4,
+    'sc_sosemanuk': 1.4,
     'sc_freestyle_fast': 2,
     'sc_freestyle_balanced': 2.5,
     'sc_freestyle_secure': 3,
-    'sc_aes256_xts': 1.2,
+    'sc_aes256_xts': 1.7,
 }
 
 DEFAULT_CIPHER_IDENT = 'sc_chacha20'
 DEFAULT_FLAKESIZE = 4096
 DEFAULT_FPN = 64
+DEFAULT_STRATEGY = 'swap_disabled'
 
 COLORS_A = ['rgb(49,130,189)', 'rgb(204,204,204)', 'rgb(255,102,0)']
 COLORS_B = ['rgb(25,65,95)', 'rgb(102,102,102)', 'rgb(255,102,0)']
 
-ResultProperties = namedtuple('ResultProperties', ['path', 'name', 'order', 'medium', 'iops', 'backstore', 'filesystem', 'cipher', 'flakesize', 'fpn', 'isBaseline'])
+ResultProperties = namedtuple('ResultProperties', ['path', 'name', 'order', 'medium', 'iops', 'backstore', 'filesystem', 'cipher', 'flakesize', 'fpn', 'isBaseline', 'swapCipher', 'swapStrategy'])
 ResultProperty = namedtuple('ResultProperty', ['name', 'value'])
 ExecutionProperties = namedtuple('ExecutionProperties', ['resultFiles', 'observeBaseline', 'filterProps', 'filterStrict'])
 
