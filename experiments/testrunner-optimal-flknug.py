@@ -47,7 +47,10 @@ fpns = [
 ]
 
 # TODO: add stringified names to experiments (tuples?)
-experiments = [lib.sequentialFreerun, lib.randomFreerun]
+experiments = [
+    lib.sequentialFreerun,
+    #lib.randomFreerun
+]
 
 ciphers = [#'sc_salsa8',
            #'sc_salsa12',

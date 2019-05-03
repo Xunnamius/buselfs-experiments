@@ -47,7 +47,10 @@ fpns = [
 ]
 
 # TODO: add stringified names to experiments (tuples?)
-experiments = [lib.sequentialFreerun, lib.randomFreerun]
+experiments = [
+    lib.sequentialFreerun,
+    #lib.randomFreerun
+]
 
 # ? These are all the cipher swapping pairs that will be tested
 # ? each element: (primary cipher, swap cipher, swap strategy)
