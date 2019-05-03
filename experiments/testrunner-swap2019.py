@@ -25,20 +25,11 @@ fpns = [8, 16, 32, 64, 128, 256]
 # TODO: add stringified names to experiments (tuples?)
 experiments = [lib.sequentialFreerun, lib.randomFreerun]
 
-ciphers = ['sc_salsa8',
-           'sc_salsa12',
-           'sc_salsa20',
-           'sc_aes128_ctr',
-           'sc_aes256_ctr',
-           #'sc_hc128', # ! too slow to test (see buselfs source for rationale)
-           'sc_rabbit',
-           'sc_sosemanuk',
-           'sc_chacha20_neon',
-           'sc_chacha12_neon',
-           'sc_chacha8_neon',
-           'sc_freestyle_fast',
-           'sc_freestyle_balanced',
-           'sc_freestyle_secure',
+# ? These are all the cipher swapping pairs that will be tested
+# ? each element: (primary cipher, swap cipher, swap strategy)
+cipherpairs = [
+    ('', '', ''),
+    ('', '', '')
 ]
 
 backendFnTuples = [
@@ -76,15 +67,17 @@ if __name__ == "__main__":
             for flk_size in flksizes:
                 configurations.extend([
                     Configuration(
-                        '{}#{}#{}#{}'.format(filesystem, cipher, flk_size, fpn),
+                        '{}#{}#{}#{}#{}#{}'.format(filesystem, cipherpair[0], flk_size, fpn, cipherpair[1], cipherpair[2]),
                         filesystem,
                         [],
                         [
-                            '--cipher', cipher,
+                            '--cipher', cipherpair[0],
                             '--flake-size', str(flk_size),
-                            '--flakes-per-nugget', str(fpn)
+                            '--flakes-per-nugget', str(fpn),
+                            '--swap-cipher', cipherpair[1],
+                            '--swap-strategy', cipherpair[2]
                         ]
-                    ) for cipher in ciphers])
+                    ) for cipherpair in cipherpairs])
 
     confcount = len(configurations) * len(backendFnTuples) * len(dataClasses) * len(experiments)
 
