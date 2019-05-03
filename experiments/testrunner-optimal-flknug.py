@@ -17,15 +17,15 @@ lib = Librunner(config)
 
 # ! REMEMBER: it's nilfs2 (TWO) with a 2! Not just 'nilfs'!
 filesystems = [
-    'f2fs'
+    'f2fs',
 ]
 
 dataClasses = [
     '1k',
-    #'4k',
-    #'512k',
-    #'5m',
-    '40m'
+    '4k',
+    '512k',
+    '5m',
+    '40m',
 ]
 
 flksizes = [
@@ -34,37 +34,42 @@ flksizes = [
     2048,
     4096,
     8192,
-    #16384
+    16384,
+    32768,
+    65536,
 ]
 
 fpns = [
-    #8,
-    #16,
+    1,
+    2,
+    4,
+    8,
+    16,
     32,
     64,
     128,
-    #256
+    #256,
 ]
 
 # TODO: add stringified names to experiments (tuples?)
 experiments = [
     lib.sequentialFreerun,
-    #lib.randomFreerun
+    lib.randomFreerun,
 ]
 
 ciphers = [#'sc_salsa8',
            #'sc_salsa12',
            #'sc_salsa20',
            'sc_aes128_ctr',
-           'sc_aes256_ctr',
+           #'sc_aes256_ctr',
            #'sc_hc128', # ! too slow to test (see buselfs source for rationale)
            #'sc_rabbit',
            #'sc_sosemanuk',
            'sc_chacha20_neon',
-           'sc_chacha12_neon',
+           #'sc_chacha12_neon',
            'sc_chacha8_neon',
            'sc_freestyle_fast',
-           'sc_freestyle_balanced',
+           #'sc_freestyle_balanced',
            'sc_freestyle_secure',
 ]
 
@@ -72,7 +77,7 @@ backendFnTuples = [
     #(lib.createRawBackend, lib.destroyRawBackend, 'raw-vanilla'),
     #(lib.createVanillaBackend, lib.destroyVanillaBackend, 'vanilla'),
     #(lib.createDmcBackend, lib.destroyDmcBackend, 'dmcrypt'),
-    (lib.createSbBackend, lib.destroySbBackend, 'strongbox')
+    (lib.createSbBackend, lib.destroySbBackend, 'strongbox'),
 ]
 
 ### *** ###

@@ -222,11 +222,16 @@ class Librunner():
         # ! Don't forget to check for any other experiments that are added later!
         # TODO: strategy pattern will solve this...
         if not os.path.exists('{}/bin/sequential-freerun'.format(self.config['REPO_PATH'])) \
-        or not os.path.exists('{}/bin/random-freerun'.format(self.config['REPO_PATH'])):
+        or not os.path.exists('{}/bin/random-freerun'.format(self.config['REPO_PATH'])) \
+        or not os.path.exists('{}/bin/sequential-freerun-wcs'.format(self.config['REPO_PATH'])) \
+        or not os.path.exists('{}/bin/random-freerun-wcs'.format(self.config['REPO_PATH'])):
             raise TaskError("did you forget to run `make` in this repository?")
 
         if not os.path.exists('{}/build/sb'.format(self.config['BUSELFS_PATH'])):
             raise TaskError('did you forget to run `make` in {}?'.format(self.config['BUSELFS_PATH']))
+
+        if not os.path.exists('{}/build/sbctl'.format(self.config['BUSELFS_PATH'])):
+            raise TaskError('did you forget to run `make strongboxctl` in {}?'.format(self.config['BUSELFS_PATH']))
 
         if not os.path.exists(self.config['BUSE_PATH']):
             raise TaskError('did you forget to run `make buselogfs` in the BUSE repository? (looking for {})'.format(self.config['BUSE_PATH']))
@@ -614,6 +619,40 @@ class Librunner():
         try:
             return self._spawn_actual(
                 '{}/bin/random-freerun'.format(self.config['REPO_PATH']),
+                ['ram', test_name, self.currentDeviceTmpPath],
+                timeout=self.config['FREERUN_TIMEOUT_INT']
+            )
+
+        except pexpect.TIMEOUT:
+            raise ExperimentError('experiment timed out (exceeded {} seconds)'.format(self.config['FREERUN_TIMEOUT_INT']))
+
+    def sequentialFreerunWithCipherSwitching(self, data_class, test_name):
+        """Runs the sequential freerun tests built to take advantage of cipher switching"""
+
+        self.symlinkDataClass(data_class)
+
+        self.print('running sequential freerun WCS test target {}'.format(test_name))
+
+        try:
+            return self._spawn_actual(
+                '{}/bin/sequential-freerun-wcs'.format(self.config['REPO_PATH']),
+                ['ram', test_name, self.currentDeviceTmpPath],
+                timeout=self.config['FREERUN_TIMEOUT_INT']
+            )
+
+        except pexpect.TIMEOUT:
+            raise ExperimentError('experiment timed out (exceeded {} seconds'.format(self.config['FREERUN_TIMEOUT_INT']))
+
+    def randomFreerunWithCipherSwitching(self, data_class, test_name):
+        """Runs the random freerun tests built to take advantage of cipher switching"""
+
+        self.symlinkDataClass(data_class)
+
+        self.print('running random freerun WCS test target {}'.format(test_name))
+
+        try:
+            return self._spawn_actual(
+                '{}/bin/random-freerun-wcs'.format(self.config['REPO_PATH']),
                 ['ram', test_name, self.currentDeviceTmpPath],
                 timeout=self.config['FREERUN_TIMEOUT_INT']
             )

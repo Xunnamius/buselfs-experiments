@@ -13,9 +13,11 @@ print_config:
 
 seq:
 	$(CC) $(CFLAGS) experiments/sequential-freerun.c $(CONFIG_COMPILE_FLAGS) -o bin/sequential-freerun -lenergymon-default -lpthread
+	$(CC) $(CFLAGS) experiments/sequential-freerun-wcs.c $(CONFIG_COMPILE_FLAGS) -o bin/sequential-freerun-wcs -lenergymon-default -lpthread
 
 rnd:
 	$(CC) $(CFLAGS) experiments/random-freerun.c $(CONFIG_COMPILE_FLAGS) -o bin/random-freerun -lenergymon-default -lpthread
+	$(CC) $(CFLAGS) experiments/random-freerun-wcs.c $(CONFIG_COMPILE_FLAGS) -o bin/random-freerun-wcs -lenergymon-default -lpthread
 
 clean:
 	rm -rf bin/*

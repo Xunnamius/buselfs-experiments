@@ -2,6 +2,7 @@
 
 TODO:!
 python -m libcruncher 2018/07-15--054851--flknug -xf flakesize=8192 fpn=128 iops=1k medium=ram order=sequential filesystem=f2fs isBaseline=False backstore="strongbox" cipher="sc_chacha20_neon"
+TODO:! add ability to quit the test after the next subtest finishes (ctrl+d) alongside immediate quit (ctrl+c)
 
 This repository houses my energy/AES related experiments for the purposes of ~~eventually~~ developing a cipher-swapping device mapper style log-structured file system utilizing poly1305 officially known as [StrongBox](https://git.xunn.io/research/buselfs).
 

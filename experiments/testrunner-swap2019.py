@@ -17,15 +17,15 @@ lib = Librunner(config)
 
 # ! REMEMBER: it's nilfs2 (TWO) with a 2! Not just 'nilfs'!
 filesystems = [
-    'f2fs'
+    'f2fs',
 ]
 
 dataClasses = [
     '1k',
-    #'4k',
-    #'512k',
-    #'5m',
-    '40m'
+    '4k',
+    '512k',
+    '5m',
+    '40m',
 ]
 
 flksizes = [
@@ -34,29 +34,50 @@ flksizes = [
     2048,
     4096,
     8192,
-    #16384
+    #16384,
 ]
 
 fpns = [
-    #8,
+    #1,
+    #2,
+    #4,
+    8,
     #16,
-    32,
-    64,
-    128,
-    #256
+    #32,
+    #64,
+    #128,
+    #256,
 ]
 
 # TODO: add stringified names to experiments (tuples?)
 experiments = [
-    lib.sequentialFreerun,
-    #lib.randomFreerun
+    #lib.sequentialFreerun,
+    #lib.randomFreerun,
+    lib.sequentialFreerunWithCipherSwitching,
+    lib.randomFreerunWithCipherSwitching,
 ]
 
 # ? These are all the cipher swapping pairs that will be tested
 # ? each element: (primary cipher, swap cipher, swap strategy)
 cipherpairs = [
-    ('', '', ''),
-    ('', '', '')
+    ('sc_chacha8_neon', 'sc_freestyle_fast', 'swap_forward'),
+    ('sc_chacha8_neon', 'sc_freestyle_fast', 'swap_aggressive'),
+    ('sc_chacha8_neon', 'sc_freestyle_fast', 'swap_mirrored'),
+    ('sc_chacha8_neon', 'sc_freestyle_secure', 'swap_forward'),
+    ('sc_chacha8_neon', 'sc_freestyle_secure', 'swap_aggressive'),
+    ('sc_chacha8_neon', 'sc_freestyle_secure', 'swap_mirrored'),
+    ('sc_chacha20_neon', 'sc_freestyle_fast', 'swap_forward'),
+    ('sc_chacha20_neon', 'sc_freestyle_fast', 'swap_aggressive'),
+    ('sc_chacha20_neon', 'sc_freestyle_fast', 'swap_mirrored'),
+    ('sc_chacha20_neon', 'sc_freestyle_secure', 'swap_forward'),
+    ('sc_chacha20_neon', 'sc_freestyle_secure', 'swap_aggressive'),
+    ('sc_chacha20_neon', 'sc_freestyle_secure', 'swap_mirrored'),
+    ('sc_aes128_ctr', 'sc_freestyle_fast', 'swap_forward'),
+    ('sc_aes128_ctr', 'sc_freestyle_fast', 'swap_aggressive'),
+    ('sc_aes128_ctr', 'sc_freestyle_fast', 'swap_mirrored'),
+    ('sc_aes128_ctr', 'sc_freestyle_secure', 'swap_forward'),
+    ('sc_aes128_ctr', 'sc_freestyle_secure', 'swap_aggressive'),
+    ('sc_aes128_ctr', 'sc_freestyle_secure', 'swap_mirrored'),
 ]
 
 backendFnTuples = [
