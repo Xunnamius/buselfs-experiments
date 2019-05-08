@@ -7,8 +7,8 @@ import contextlib
 from tqdm import tqdm
 from collections import namedtuple
 
-STANDARD_WAIT = 30
-REDUCED_WAIT = 15
+STANDARD_WAIT = 10
+REDUCED_WAIT = 5
 NBD_DEVICE_UPPER_BOUND = 16
 DEFAULT_GLOBAL_TIMEOUT = None
 KBYTES_IN_A_MB = 1024
