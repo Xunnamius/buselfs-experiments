@@ -128,7 +128,7 @@ if __name__ == "__main__":
 
         # TODO:! factor this all out and replace the custom parts with lambda/function pointers
         with outputProgressBarRedirection() as originalStdOut:
-            with tqdm(total=confcount, file=originalStdOut, unit=' experiments', dynamic_ncols=True) as progressBar:
+            with tqdm(total=confcount, file=originalStdOut, unit='observation', dynamic_ncols=True) as progressBar:
                 for conf in configurations:
                     for backendFn in backendFnTuples:
                         for runFn in experiments:
