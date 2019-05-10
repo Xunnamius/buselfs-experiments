@@ -149,9 +149,10 @@ class Librunner():
 
         timestamp = '{0:%B} {0:%d} at {0:%I:%M:%S%p} {0:%f}'.format(datetime.now())
         preamble = '[{} | {}:{}]: '.format(timestamp, severity, self.currentDeviceName)
+        xpreamble = preamble.expandtabs(self.config['EXPAND_TABS_INT'])
 
         if self.verbose:
-            print(preamble.expandtabs(self.config['EXPAND_TABS_INT']), *args, flush=True)
+            print(xpreamble, *args, flush=True)
 
         if self.logFile:
             try:
@@ -162,7 +163,7 @@ class Librunner():
                 os.fsync(fileno)
 
             except ValueError:
-                print(preamble.expandtabs(self.config['EXPAND_TABS_INT']),
+                print(xpreamble,
                       '[logfile I/O write failed; did an interupt happen?]',
                       flush=True
                 )
