@@ -26,6 +26,9 @@ We have come a long way...
 (2018) fully-automatic testrunner-X experiment suites
             |
             V
+(2019) several flexible error-recoverable fully-automatic testrunner-X experiment suites
+            |
+            V
     (whatever is next!)
 ```
 

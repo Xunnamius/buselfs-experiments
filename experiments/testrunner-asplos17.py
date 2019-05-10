@@ -60,6 +60,7 @@ if __name__ == "__main__":
     lib.print('starting experiment ({} configurations)'.format(confcount))
 
     # TODO:! factor this all out and replace the custom parts with lambda/function pointers
+    # ! This is old code. If we use this to gather results, it must be updated like optflknug and swap2019 are
     with outputProgressBarRedirection() as originalStdOut:
         with tqdm(total=confcount, file=originalStdOut, dynamic_ncols=True) as progressBar:
             for conf in configurations:
