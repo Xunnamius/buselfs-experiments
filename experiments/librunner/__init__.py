@@ -154,12 +154,18 @@ class Librunner():
             print(preamble.expandtabs(self.config['EXPAND_TABS_INT']), *args, flush=True)
 
         if self.logFile:
-            fileno = self.logFile.fileno()
+            try:
+                fileno = self.logFile.fileno()
+                os.fsync(fileno)
+                print(preamble.expandtabs(0), *args, file=self.logFile)
+                self.logFile.flush()
+                os.fsync(fileno)
 
-            os.fsync(fileno)
-            print(preamble.expandtabs(0), *args, file=self.logFile)
-            self.logFile.flush()
-            os.fsync(fileno)
+            except ValueError:
+                print(preamble.expandtabs(self.config['EXPAND_TABS_INT']),
+                      '[logfile I/O write failed; did an interupt happen?]',
+                      flush=True
+                )
 
     def dropPageCache(self):
         """Drop the linux page cache programmatically"""

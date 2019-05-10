@@ -46,22 +46,20 @@ class DummyTqdmFile():
 
 @contextlib.contextmanager
 def outputProgressBarRedirection():
-    originalOutputFiles = sys.stdout, sys.stderr
+    originalOutputFile = sys.stdout
 
     try:
-        sys.stdout, sys.stderr = map(DummyTqdmFile, originalOutputFiles)
+        sys.stdout = DummyTqdmFile(sys.stdout)
+        yield originalOutputFile
 
-        for fd in originalOutputFiles:
-            yield fd
-
-    except Exception as exc:
-        raise exc
+    except:
+        raise
 
     finally:
-        sys.stdout, sys.stderr = originalOutputFiles
+        sys.stdout = originalOutputFile
 
 def printInstabilityWarning(lib, config):
-    lib.print('THE SYSTEM IS VERY LIKELY IN AN UNSTABLE STATE!', severity='CRITICAL')
+    lib.print('THE SYSTEM IS VERY LIKELY IN AN UNSTABLE STATE! TO PROCEED:', severity='CRITICAL')
     lib.print('1. `umount` any mounted NBD/mapper devices', severity='CRITICAL')
     lib.print('2. `fprocs` and `kill -9` any experimental backend processes', severity='CRITICAL')
     lib.print('3. `sudo rm {}/*`'.format(config['RAM0_PATH']), severity='CRITICAL')

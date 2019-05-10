@@ -17,6 +17,7 @@ lib = Librunner(config)
 
 # ! REMEMBER: it's nilfs2 (TWO) with a 2! Not just 'nilfs'!
 filesystems = [
+    #'nilfs2',
     'f2fs',
 ]
 
@@ -26,29 +27,30 @@ dataClasses = [
     '512k',
     '5m',
     '40m',
+    #'5G',
 ]
 
 flksizes = [
-    #512,
-    #1024,
+    512,
+    1024,
     2048,
     4096,
     8192,
     16384,
-    #32768,
-    #65536,
+    32768,
+    65536,
 ]
 
 fpns = [
-    #1,
-    #2,
-    #4,
+    #1, (too small)
+    #2, (too small)
+    #4, (too small)
     8,
     16,
     32,
     64,
     128,
-    #256,
+    256,
 ]
 
 # TODO: add stringified names to experiments (tuples?)
@@ -91,89 +93,100 @@ if __name__ == "__main__":
     if os.geteuid() != 0:
         sys.exit('must be root/sudo')
 
-    # Bare bones basic initialization
-    initrunner.initialize(config)
-    initrunner.cwdToRAMDir(config)
-    lib.checkSanity()
+    try:
+        # Bare bones basic initialization
+        initrunner.initialize(config)
+        initrunner.cwdToRAMDir(config)
+        lib.checkSanity()
 
-    lib.print('working directory set to {}'.format(config['RAM0_PATH']))
-    lib.clearBackstoreFiles()
-    lib.print('constructing configurations')
+        lib.print('working directory set to {}'.format(config['RAM0_PATH']))
+        lib.clearBackstoreFiles()
+        lib.print('constructing configurations')
 
-    # * Optimal flake/nugget size perf test
-    configurations = []
-    for filesystem in filesystems:
-        configurations.append(Configuration('{}#baseline'.format(filesystem), filesystem, [], []))
-        for fpn in fpns:
-            for flk_size in flksizes:
-                configurations.extend([
-                    Configuration(
-                        '{}#{}#{}#{}'.format(filesystem, cipher, flk_size, fpn),
-                        filesystem,
-                        [],
-                        [
-                            '--cipher', cipher,
-                            '--flake-size', str(flk_size),
-                            '--flakes-per-nugget', str(fpn)
-                        ]
-                    ) for cipher in ciphers])
+        # * Optimal flake/nugget size perf test
+        configurations = []
+        for filesystem in filesystems:
+            configurations.append(Configuration('{}#baseline'.format(filesystem), filesystem, [], []))
+            for fpn in fpns:
+                for flk_size in flksizes:
+                    configurations.extend([
+                        Configuration(
+                            '{}#{}#{}#{}'.format(filesystem, cipher, flk_size, fpn),
+                            filesystem,
+                            [],
+                            [
+                                '--cipher', cipher,
+                                '--flake-size', str(flk_size),
+                                '--flakes-per-nugget', str(fpn)
+                            ]
+                        ) for cipher in ciphers])
 
-    confcount = len(configurations) * len(backendFnTuples) * len(dataClasses) * len(experiments)
+        confcount = len(configurations) * len(backendFnTuples) * len(dataClasses) * len(experiments)
 
-    lib.clearBackstoreFiles()
-    lib.print('starting experiment ({} configurations)'.format(confcount))
+        lib.clearBackstoreFiles()
+        lib.print('starting experiment ({} configurations)'.format(confcount))
 
-    # TODO:! factor this all out and replace the custom parts with lambda/function pointers
-    with outputProgressBarRedirection() as originalStdOut:
-        with tqdm(total=confcount, file=originalStdOut, dynamic_ncols=True) as progressBar:
-            for conf in configurations:
-                for backendFn in backendFnTuples:
-                    for runFn in experiments:
-                        for dataClass in dataClasses:
-                            with open(config['LOG_FILE_PATH'], 'w') as file:
-                                print(str(datetime.now()), '\n---------\n', file=file)
+        # TODO:! factor this all out and replace the custom parts with lambda/function pointers
+        with outputProgressBarRedirection() as originalStdOut:
+            with tqdm(total=confcount, file=originalStdOut, unit=' experiments', dynamic_ncols=True) as progressBar:
+                for conf in configurations:
+                    for backendFn in backendFnTuples:
+                        for runFn in experiments:
+                            for dataClass in dataClasses:
+                                with open(config['LOG_FILE_PATH'], 'w') as file:
+                                    print(str(datetime.now()), '\n---------\n', file=file)
 
-                                lib.logFile = file
-                                identifier = '{}-{}-{}'.format(dataClass, conf.proto_test_name, backendFn[2])
+                                    lib.logFile = file
+                                    identifier = '{}-{}-{}'.format(dataClass, conf.proto_test_name, backendFn[2])
 
-                                predictedResultFileName = RESULTS_FILE_NAME.format(
-                                    'sequential' if experiments == lib.sequentialFreerun else 'random',
-                                    identifier
-                                )
+                                    predictedResultFileName = RESULTS_FILE_NAME.format(
+                                        'sequential' if experiments == lib.sequentialFreerun else 'random',
+                                        identifier
+                                    )
 
-                                predictedResultFilePath = os.path.realpath(
-                                    RESULTS_PATH.format(config['REPO_PATH'], predictedResultFileName)
-                                )
+                                    predictedResultFilePath = os.path.realpath(
+                                        RESULTS_PATH.format(config['REPO_PATH'], predictedResultFileName)
+                                    )
 
-                                lib.print(' ------------------ Experiment "{}" ------------------'.format(identifier))
+                                    lib.print(' ------------------ Experiment "{}" ------------------'.format(identifier))
 
-                                # ? If the results file exists already, then skip this experiment!
-                                if os.path.exists(predictedResultFilePath):
-                                    lib.print('Results file {} was found, experiment skipped!'.format(predictedResultFilePath))
+                                    # ? If the results file exists already, then skip this experiment!
+                                    if os.path.exists(predictedResultFilePath):
+                                        lib.print('results file {} was found, experiment skipped!'.format(predictedResultFilePath))
 
-                                else:
-                                    backendFn[0](conf.fs_type, conf.mount_args, conf.device_args)
-                                    lib.dropPageCache()
+                                    else:
+                                        try:
+                                            backendFn[0](conf.fs_type, conf.mount_args, conf.device_args)
+                                            lib.dropPageCache()
 
-                                    try:
-                                        runFn(dataClass, identifier)
+                                        except KeyboardInterrupt:
+                                            progressBar.close()
+                                            lib.print('keyboard interrupt received, cleaning up...')
+                                            raise
 
-                                    # TODO: make ctrl-c exit when appropriate
-                                    except ExperimentError:
-                                        printInstabilityWarning(lib, config)
-                                        # TODO:! instead of printing the warning
-                                        # TODO: and raising the error, just run
-                                        # TODO: the commands and attempt to
-                                        # TODO: continue! (but raise if it fails
-                                        # TODO: twice in a row)
-                                        raise
+                                        try:
+                                            runFn(dataClass, identifier)
 
-                                    backendFn[1]()
-                                    lib.clearBackstoreFiles()
+                                        except KeyboardInterrupt:
+                                            progressBar.close()
+                                            lib.print('keyboard interrupt received, cleaning up...')
+                                            raise
 
-                                lib.print(' ------------------ *** ------------------')
-                                lib.logFile = None
+                                        finally:
+                                            try:
+                                                backendFn[1]()
+                                                lib.clearBackstoreFiles()
+                                            except:
+                                                progressBar.close()
+                                                printInstabilityWarning(lib, config)
+                                                raise
 
-                                progressBar.update()
+                                    lib.print(' ------------------ *** ------------------')
+                                    lib.logFile = None
 
-    lib.print('done', severity='OK')
+                                    progressBar.update()
+
+        lib.print('done', severity='OK')
+
+    except KeyboardInterrupt:
+        lib.print('done (experiment terminated via keyboard interrupt)', severity='WARN')
