@@ -176,6 +176,7 @@ if __name__ == "__main__":
                                             try:
                                                 backendFn[1]()
                                                 lib.clearBackstoreFiles()
+
                                             except:
                                                 progressBar.close()
                                                 printInstabilityWarning(lib, config)
