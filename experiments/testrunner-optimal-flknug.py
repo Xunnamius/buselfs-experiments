@@ -172,6 +172,10 @@ if __name__ == "__main__":
                                             lib.print('keyboard interrupt received, cleaning up...')
                                             raise
 
+                                        except:
+                                            progressBar.close()
+                                            lib.print('UNHANDLED EXCEPTION ENCOUNTERED!', severity="FATAL")
+
                                         finally:
                                             try:
                                                 backendFn[1]()
