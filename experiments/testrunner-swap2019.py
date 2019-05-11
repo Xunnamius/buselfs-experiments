@@ -15,6 +15,8 @@ lib = Librunner(config)
 
 ### * Configurables * ###
 
+DIE_ON_EXCEPTION = True
+
 # ! REMEMBER: it's nilfs2 (TWO) with a 2! Not just 'nilfs'!
 filesystems = [
     'f2fs',
@@ -175,6 +177,15 @@ if __name__ == "__main__":
                                             progressBar.close()
                                             lib.print('keyboard interrupt received, cleaning up...')
                                             raise
+
+                                        except:
+                                            if DIE_ON_EXCEPTION:
+                                                progressBar.close()
+
+                                            lib.print('UNHANDLED EXCEPTION ENCOUNTERED!', severity='FATAL')
+
+                                            if DIE_ON_EXCEPTION:
+                                                raise
 
                                         finally:
                                             try:
