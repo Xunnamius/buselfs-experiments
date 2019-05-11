@@ -3,6 +3,9 @@ if [ "$(id -u)" -ne 0 ]; then
     exit 1
 fi
 
-cd results
+SCRIPT=$(readlink -f "$0")
+SCRIPTPATH=$(dirname "$SCRIPT")
+
+cd $SCRIPTPATH
 rm -vf -- *.results
 cd -
