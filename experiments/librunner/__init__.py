@@ -666,3 +666,7 @@ class Librunner():
 
         except pexpect.TIMEOUT:
             raise ExperimentError('experiment timed out (exceeded {} seconds)'.format(self.config['FREERUN_TIMEOUT_INT']))
+
+    def filebenchWithCipherSwitching(self, data_class, test_name):
+        # TODO: implement me!
+        pass

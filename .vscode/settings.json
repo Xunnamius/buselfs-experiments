@@ -191,6 +191,7 @@
         "**/.git": true,
         "**/__pycache__": true,
         "**/*.html": true,
+        "results/2019": true,
         "results/2018": true,
         "results/2015-2017": true,
         "clearresults": true,

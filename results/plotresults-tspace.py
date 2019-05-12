@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """
-This is the 7/29/2018 version of a script that script crunches any files that
-ends with the extension ".result" and are direct children of the `results/` dir.
+This is the 5/13/2019 version of a script that script crunches any files that
+ends with the extension ".result" and are direct children of the `results/` dir
+while also accounting for swap ciphers, swap strategies, etc.
 
 This script generates a set of tradeoff space charts plotting security vs energy
 use, security vs power, and security vs performance.
@@ -22,7 +23,7 @@ from libcruncher.util import generateTitleFrag, formatAndPlotFigure, SC_SECURITY
 TEST_IDENT = 'tspace-splom'
 TITLE_TEMPLATE = '{} [{}] Tradeoff SPLOM ({})'
 
-PLOT_OFFLINE = False
+PLOT_OFFLINE = True
 
 RESULT_FILE_METRICS = ('energy', 'power', 'duration')
 
@@ -265,7 +266,7 @@ if __name__ == "__main__":
     writeTrace['diagonal'].update(visible=False)
 
     print('final dimension cardinality: {}'.format(dimensionLength))
-    print('title frag: {}'.format(titleFrag))
+    print('title frag: {}'.format(titleFrag or '(no props means no title frag)'))
 
     libcruncher.confirmBeforeContinuing()
 
