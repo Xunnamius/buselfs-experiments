@@ -36,6 +36,7 @@ def pathToResultProperties(path):
         data1 = filename.split('.')
         data2 = data1[2].split('-')
         data3 = data2[1].split('#')
+        data4 = 0
 
         data3Len = len(data3)
         usingDefaultCipher = data3Len == 1 or data3[1] == 'baseline'
@@ -46,7 +47,7 @@ def pathToResultProperties(path):
         flakesize = DEFAULT_FLAKESIZE
         flakesPerNugget = DEFAULT_FPN
         swapStrategy = DEFAULT_STRATEGY
-        swapCipher = None
+        swapCipher = 0
 
         if not (1 <= data3Len <= 6):
             raise FilenameTranslationError('encountered invalid data3 length ({})'.format(data3Len))
@@ -68,6 +69,9 @@ def pathToResultProperties(path):
         if data3Len >= 6:
             swapStrategy = data3[5]
 
+        if '+' in swapStrategy:
+            swapStrategy, data4 = swapStrategy.split('+')
+
         assert(swapCipher is not None)
 
         props = ResultProperties(
@@ -83,7 +87,8 @@ def pathToResultProperties(path):
             flakesPerNugget,
             usingDefaultCipher and data3Len != 1,
             swapCipher,
-            swapStrategy
+            swapStrategy,
+            int(data4) or 'N/A'
         )
 
     except IndexError:
@@ -142,6 +147,9 @@ def resultPropertiesToProperName(resultProperties, hideProperties=[]):
 
     if 'iops' not in hideProperties:
         properName.append('{} '.format(resultProperties.iops))
+
+    if 'phase' not in hideProperties and resultProperties.phase != 'N/A':
+        properName.append('(P{})'.format(resultProperties.phase))
 
     return ''.join(properName).strip() or ''
 

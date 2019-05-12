@@ -35,7 +35,23 @@ DEFAULT_STRATEGY = 'swap_disabled'
 COLORS_A = ['rgb(49,130,189)', 'rgb(204,204,204)', 'rgb(255,102,0)']
 COLORS_B = ['rgb(25,65,95)', 'rgb(102,102,102)', 'rgb(255,102,0)']
 
-ResultProperties = namedtuple('ResultProperties', ['path', 'name', 'order', 'medium', 'iops', 'backstore', 'filesystem', 'cipher', 'flakesize', 'fpn', 'isBaseline', 'swapCipher', 'swapStrategy'])
+ResultProperties = namedtuple('ResultProperties', [
+    'path',
+    'name',
+    'order',
+    'medium',
+    'iops',
+    'backstore',
+    'filesystem',
+    'cipher',
+    'flakesize',
+    'fpn',
+    'isBaseline',
+    'swapCipher',
+    'swapStrategy',
+    'phase'
+])
+
 ResultProperty = namedtuple('ResultProperty', ['name', 'value'])
 ExecutionProperties = namedtuple('ExecutionProperties', ['resultFiles', 'observeBaseline', 'filterProps', 'filterStrict'])
 
