@@ -634,7 +634,7 @@ class Librunner():
             raise ExperimentError('experiment timed out (exceeded {} seconds)'.format(self.config['FREERUN_TIMEOUT_INT']))
 
     def sequentialFreerunWithCipherSwitching(self, data_class, test_name):
-        """Runs the sequential freerun tests built to take advantage of cipher switching"""
+        """Runs the sequential freerun tests built to take advantage of cipher switching ioctl"""
 
         self.symlinkDataClass(data_class)
 
@@ -651,7 +651,7 @@ class Librunner():
             raise ExperimentError('experiment timed out (exceeded {} seconds'.format(self.config['FREERUN_TIMEOUT_INT']))
 
     def randomFreerunWithCipherSwitching(self, data_class, test_name):
-        """Runs the random freerun tests built to take advantage of cipher switching"""
+        """Runs the random freerun tests built to take advantage of cipher switching ioctl"""
 
         self.symlinkDataClass(data_class)
 
@@ -668,5 +668,6 @@ class Librunner():
             raise ExperimentError('experiment timed out (exceeded {} seconds)'.format(self.config['FREERUN_TIMEOUT_INT']))
 
     def filebenchWithCipherSwitching(self, data_class, test_name):
+        """Runs the filebench workloads bifurcated by cipher switching ioctl"""
         # TODO: implement me!
         pass

@@ -8,7 +8,7 @@ from tqdm import tqdm
 import initrunner
 from librunner import Librunner
 from librunner.util import outputProgressBarRedirection, printInstabilityWarning, Configuration, RESULTS_PATH, RESULTS_FILE_NAME
-from librunner.exception import ExperimentError
+from librunner.exception import ExperimentError, BadResultFileStructureError
 
 config = initrunner.parseConfigVars()
 lib = Librunner(config)
@@ -144,7 +144,7 @@ if __name__ == "__main__":
                                     print(str(datetime.now()), '\n---------\n', file=file)
 
                                     lib.logFile = file
-                                    identifier = '{}-{}-{}'.format(dataClass, conf.proto_test_name, backendFn[2]) # TODO
+                                    identifier = '{}-{}-{}+{}'.format(dataClass, conf.proto_test_name, backendFn[2], '{}')
 
                                     predictedResultFileName = RESULTS_FILE_NAME.format(
                                         'sequential' if experiments == lib.sequentialFreerun else 'random',
@@ -158,8 +158,15 @@ if __name__ == "__main__":
                                     lib.print(' ------------------ Experiment "{}" ------------------'.format(identifier))
 
                                     # ? If the results file exists already, then skip this experiment!
-                                    if os.path.exists(predictedResultFilePath):
-                                        lib.print('results file {} was found, experiment skipped!'.format(predictedResultFilePath))
+                                    # ! If the "3" in "range(3)" below changes, you should also update the exception
+                                    pathsExist = [os.path.exists(predictedResultFilePath.format(x)) for x in range(1, 4)]
+
+                                    if True in pathsExist:
+                                        if all(pathsExist):
+                                            lib.print('results file {} was found, experiment skipped!'.format(predictedResultFilePath))
+
+                                        else:
+                                            raise BadResultFileStructureError(predictedResultFileName, pathsExist)
 
                                     else:
                                         try:
