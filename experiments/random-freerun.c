@@ -23,12 +23,18 @@
 #define CMD_BUFF_SIZE 512
 #define COPY_INTO_TIMES 1 // randomness written COPY_INTO_TIMES into same file
 
-#ifndef REPO_PATH
-#define REPO_PATH "." // No trailing / ; see config/vars.mk
+#ifndef REPO_PATH // see config/vars.mk
+    #ifndef __INTELLISENSE__
+        #error "REPO_PATH must be defined in vars.mk!"
+    #endif
+    #define REPO_PATH "" // ! Dead code, but vscode needs it
 #endif
 
-#ifndef TRIALS_INT
-#define TRIALS_INT 10 // No trailing / ; see config/vars.mk
+#ifndef TRIALS_INT // see config/vars.mk
+    #ifndef __INTELLISENSE__
+        #error "TRIALS_INT must be defined in vars.mk!"
+    #endif
+    #define TRIALS_INT 0 // ! Dead code, but vscode needs it
 #endif
 
 #define MIN(a,b) __extension__ ({ __typeof__ (a) _a = (a); __typeof__ (b) _b = (b); _a < _b ? _a : _b; })
@@ -56,10 +62,16 @@ typedef struct Metrics {
     uint64_t energy_uj;
 } Metrics;
 
+/**
+ * Collect energy and timing metrics using energymon
+ *
+ * @return 0 if no error
+ */
 int collect_metrics(Metrics * metrics, energymon * monitor)
 {
-    // Grab the initial energy use and time
     errno = 0;
+
+    // Grab the initial energy use and time
     metrics->energy_uj = monitor->fread(monitor);
 
     if(!metrics->energy_uj && errno)
@@ -85,23 +97,6 @@ int collect_metrics(Metrics * metrics, energymon * monitor)
 int get_real_path(char * buff, const char * path)
 {
     return snprintf(buff, PATH_BUFF_SIZE, "%s/%s", STRINGIZE_VALUE_OF(REPO_PATH), path);
-}
-
-/**
- * Returns the result of calling system(x) where x is the string
- * REPO_PATH + "/" + exec_path (see below). Path will at most be PATH_BUFF_SIZE
- * bytes in size.
- *
- * @param  exec_path Path to the executable file starting at REPO_PATH
- *
- * @return           The result of system()
- */
-int callsys(const char * exec_path)
-{
-    char realpath[PATH_BUFF_SIZE];
-    get_real_path(realpath, exec_path);
-    printf("callsys: %s\n", realpath);
-    return system(realpath);
 }
 
 int main(int argc, char * argv[])
@@ -150,6 +145,7 @@ int main(int argc, char * argv[])
     printf("RANDOM_PATH: %s\n", RANDOM_PATH);
 
     errno = 0;
+
     flog_output = fopen(output_path, "a");
 
     if(!flog_output && errno)
@@ -170,9 +166,9 @@ int main(int argc, char * argv[])
         return 8;
     }
 
-    int fsk = 0;
     errno = 0;
-    fsk = fseek(frandom, 0, SEEK_END);
+
+    int fsk = fseek(frandom, 0, SEEK_END);
 
     if(!fsk && errno)
     {
@@ -181,8 +177,8 @@ int main(int argc, char * argv[])
     }
 
     errno = 0;
-    u_int64_t fsize = 0;
-    fsize = ftell(frandom);
+
+    u_int64_t fsize = ftell(frandom);
 
     if(fsize < 0 && errno)
     {
@@ -190,11 +186,9 @@ int main(int argc, char * argv[])
         return 10;
     }
 
-    u_int64_t iosize_actual = 0;
-    u_int64_t seeklimit = 0;
+    u_int64_t iosize_actual = MIN(fsize / 2, IOSIZE);
+    u_int64_t seeklimit = fsize - iosize_actual;
 
-    iosize_actual = MIN(fsize / 2, IOSIZE);
-    seeklimit = fsize - iosize_actual;
     errno = 0;
 
     rewind(frandom);
@@ -206,6 +200,7 @@ int main(int argc, char * argv[])
     }
 
     errno = 0;
+
     char * randomness = malloc(fsize + 1); // + the NULL TERMINATOR
 
     if(!randomness && errno)
@@ -215,9 +210,10 @@ int main(int argc, char * argv[])
     }
 
     errno = 0;
-    size_t frd = fread(randomness, fsize, 1, frandom);
 
-    if(frd != fsize && errno)
+    size_t frd = fread(randomness, 1, fsize, frandom);
+
+    if(frd != fsize)
     {
         perror("fread of RANDOM_PATH failed");
         return 12;
@@ -301,10 +297,12 @@ int main(int argc, char * argv[])
 
         while(writelen > 0)
         {
+            errno = 0;
+
             u_int64_t offset = rand() % seeklimit;
             u_int64_t bytesWritten = pwrite(trialoutfd, randomnessCopy + offset, iosize_actual, fsize - writelen);
 
-            if(bytesWritten <= 0)
+            if(errno)
             {
                 perror("write failed");
                 monitor.ffinish(&monitor);
@@ -348,10 +346,12 @@ int main(int argc, char * argv[])
 
         while(readlen > 0)
         {
+            errno = 0;
+
             u_int64_t offset = rand() % seeklimit;
             u_int64_t bytesRead = pread(trialoutfd, readback, iosize_actual, offset);
 
-            if(bytesRead <= 0)
+            if(errno)
             {
                 perror("read failed");
                 monitor.ffinish(&monitor);

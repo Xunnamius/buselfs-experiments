@@ -17,7 +17,7 @@ seq:
 
 rnd:
 	$(CC) $(CFLAGS) experiments/random-freerun.c $(CONFIG_COMPILE_FLAGS) -o bin/random-freerun -lenergymon-default -lpthread
-	$(CC) $(CFLAGS) experiments/random-freerun-wcs.c $(CONFIG_COMPILE_FLAGS) -o bin/random-freerun-wcs -lenergymon-default -lpthread
+	$(CC) $(CFLAGS) experiments/random-freerun-wcs.c $(CONFIG_COMPILE_FLAGS) -g -O0 -o bin/random-freerun-wcs -lenergymon-default -lpthread
 
 clean:
 	rm -rf bin/*

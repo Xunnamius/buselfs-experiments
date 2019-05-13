@@ -59,7 +59,7 @@ if __name__ == "__main__":
     lib.clearBackstoreFiles()
     lib.print('starting experiment ({} configurations)'.format(confcount))
 
-    # TODO:! factor this all out and replace the custom parts with lambda/function pointers
+    # TODO: factor this all out and replace the custom parts with lambda/function pointers
     # ! This is old code. If we use this to gather results, it must be updated like optflknug and swap2019 are
     with outputProgressBarRedirection() as originalStdOut:
         with tqdm(total=confcount, file=originalStdOut, dynamic_ncols=True) as progressBar:
@@ -98,7 +98,7 @@ if __name__ == "__main__":
                                     # TODO: make ctrl-c exit when appropriate
                                     except ExperimentError:
                                         printInstabilityWarning(lib, config)
-                                        # TODO:! instead of printing the warning
+                                        # TODO: instead of printing the warning
                                         # TODO: and raising the error, just run
                                         # TODO: the commands and attempt to
                                         # TODO: continue! (but raise if it fails

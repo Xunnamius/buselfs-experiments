@@ -23,17 +23,17 @@ filesystems = [
 ]
 
 dataClasses = [
-    #'1k',
+    '1k',
     '4k',
-    #'512k',
-    #'5m',
+    '512k',
+    '5m',
     '40m',
 ]
 
 flksizes = [
     #512,
     #1024,
-    2048,
+    #2048,
     4096,
     8192,
     #16384,
@@ -45,9 +45,9 @@ fpns = [
     #4,
     #8,
     #16,
-    32,
+    #32,
     64,
-    128,
+    #128,
     #256,
 ]
 
@@ -116,7 +116,7 @@ if __name__ == "__main__":
                 for flk_size in flksizes:
                     configurations.extend([
                         Configuration(
-                            '{}#{}#{}#{}#{}#{}'.format(filesystem, cipherpair[0], flk_size, fpn, cipherpair[1], cipherpair[2]),
+                            '{}#{}#{}#{}#{}#{}+{}'.format(filesystem, cipherpair[0], flk_size, fpn, cipherpair[1], cipherpair[2], '{}'),
                             filesystem,
                             [],
                             [
@@ -133,7 +133,7 @@ if __name__ == "__main__":
         lib.clearBackstoreFiles()
         lib.print('starting experiment ({} configurations)'.format(confcount))
 
-        # TODO:! factor this all out and replace the custom parts with lambda/function pointers
+        # TODO: factor this all out and replace the custom parts with lambda/function pointers
         with outputProgressBarRedirection() as originalStdOut:
             with tqdm(total=confcount, file=originalStdOut, unit='observation', dynamic_ncols=True) as progressBar:
                 for conf in configurations:
@@ -144,26 +144,27 @@ if __name__ == "__main__":
                                     print(str(datetime.now()), '\n---------\n', file=file)
 
                                     lib.logFile = file
-                                    identifier = '{}-{}-{}+{}'.format(dataClass, conf.proto_test_name, backendFn[2], '{}')
+                                    identifier = '{}-{}-{}'.format(dataClass, conf.proto_test_name, backendFn[2])
 
                                     predictedResultFileName = RESULTS_FILE_NAME.format(
                                         'sequential' if experiments == lib.sequentialFreerun else 'random',
                                         identifier
                                     )
 
-                                    predictedResultFilePath = os.path.realpath(
-                                        RESULTS_PATH.format(config['REPO_PATH'], predictedResultFileName)
+                                    predictedResultFilePath = RESULTS_PATH.format(
+                                        os.path.realpath(config['REPO_PATH']),
+                                        predictedResultFileName
                                     )
 
-                                    lib.print(' ------------------ Experiment "{}" ------------------'.format(identifier))
+                                    lib.print(' ------------------ Experiment "{}" ------------------'.format(identifier.format('X')))
 
                                     # ? If the results file exists already, then skip this experiment!
-                                    # ! If the "3" in "range(3)" below changes, you should also update the exception
+                                    # ! If the "4" in "range(1, 4)" below changes, you should also update the exception
                                     pathsExist = [os.path.exists(predictedResultFilePath.format(x)) for x in range(1, 4)]
 
                                     if True in pathsExist:
                                         if all(pathsExist):
-                                            lib.print('results file {} was found, experiment skipped!'.format(predictedResultFilePath))
+                                            lib.print('results files were found, experiment skipped!')
 
                                         else:
                                             raise BadResultFileStructureError(predictedResultFileName, pathsExist)
@@ -179,7 +180,8 @@ if __name__ == "__main__":
                                             raise
 
                                         try:
-                                            runFn(dataClass, identifier)
+                                            # ? %d is for snprintf in C
+                                            runFn(dataClass, identifier.format('%d'))
 
                                         except KeyboardInterrupt:
                                             progressBar.close()

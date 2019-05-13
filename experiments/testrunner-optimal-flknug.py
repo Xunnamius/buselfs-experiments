@@ -128,7 +128,7 @@ if __name__ == "__main__":
         lib.clearBackstoreFiles()
         lib.print('starting experiment ({} configurations)'.format(confcount))
 
-        # TODO:! factor this all out and replace the custom parts with lambda/function pointers
+        # TODO: factor this all out and replace the custom parts with lambda/function pointers
         with outputProgressBarRedirection() as originalStdOut:
             with tqdm(total=confcount, file=originalStdOut, unit='observation', dynamic_ncols=True) as progressBar:
                 for conf in configurations:

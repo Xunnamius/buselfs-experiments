@@ -1,0 +1,26 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "gdb",
+            "request": "launch",
+            "name": "gdb:rnd-wcs@morty",
+            "target": "./random-freerun-wcs",
+            "arguments": "tester '1k-f2fs#sc_aes128_ctr#1024#128#another_cipher#sstrat+%d-strongbox' /tmp/faker",
+            "cwd": "${workspaceRoot}/bin",
+            "ssh": {
+                "forwardX11": true,
+                "host": "192.168.115.5",
+                "cwd": "/gitr/research/buselfs-experiments/bin",
+                "keyfile": "Z:/ssh/xunnmorty_vscode_rsa",
+                "port": 1111,
+                "user": "xunnamius",
+                "x11host": "localhost",
+                "x11port": 6000
+            }
+        },
+    ]
+}

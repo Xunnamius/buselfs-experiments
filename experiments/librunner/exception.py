@@ -20,8 +20,8 @@ class BadResultFileStructureError(RuntimeError):
     def __init__(self, ident, phaseState):
         assert len(phaseState) == 3
 
-        self.message = ('Inconsistent result output for result set `{}`;'.format(ident)
-            + ' delete the inconsistent results to continue (missing phases: 1={},2={},3={})'.format(
+        self.message = ('Inconsistent result output for result set `{}`;'.format(ident.format('X'))
+            + ' delete the inconsistent results to continue (existing phases: 1={},2={},3={})'.format(
                 'yes' if phaseState[0] else 'no',
                 'yes' if phaseState[1] else 'no',
                 'yes' if phaseState[2] else 'no'

@@ -206,6 +206,6 @@
     },
     "git.ignoreLimitWarning": true,
     "python.pythonPath": "C:\\Program Files\\Python37\\python.exe",
-    "python.linting.enabled": true,
+    "python.linting.enabled": false,
     "python.linting.pylintEnabled": true
 }
