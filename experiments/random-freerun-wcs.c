@@ -139,13 +139,13 @@ int swap_ciphers()
 
 int main(int argc, char * argv[])
 {
-    // uid_t euid = geteuid();
+    uid_t euid = geteuid();
 
-    // if(euid != 0)
-    // {
-    //     printf("Must run this as root!\n");
-    //     return -2;
-    // }
+    if(euid != 0)
+    {
+        printf("Must run this as root!\n");
+        return -2;
+    }
 
     struct sigaction act;
     act.sa_handler = interrupt_handler;
