@@ -137,6 +137,16 @@ int swap_ciphers()
     return retval;
 }
 
+/**
+ * Wrapping your function call with ignore_result makes it more clear to
+ * readers, compilers and linters that you are, in fact, ignoring the
+ * function's return value on purpose.
+ */
+static inline void ignore_result(long long int unused_result)
+{
+    (void) unused_result;
+}
+
 int main(int argc, char * argv[])
 {
     uid_t euid = geteuid();
@@ -349,7 +359,7 @@ int main(int argc, char * argv[])
         // ? READ 1/2
 
         // Drop the page cache before the next read
-        pwrite(pcachefd, droppcache, sizeof(char), 0);
+        ignore_result(pwrite(pcachefd, droppcache, sizeof(char), 0));
 
         // Swap ciphers
         swap_ciphers();
@@ -407,7 +417,7 @@ int main(int argc, char * argv[])
         // ? WRITE 3/4
 
         // Drop the page cache before the next write
-        pwrite(pcachefd, droppcache, sizeof(char), 0);
+        ignore_result(pwrite(pcachefd, droppcache, sizeof(char), 0));
 
         // Swap ciphers
         swap_ciphers();
@@ -467,7 +477,7 @@ int main(int argc, char * argv[])
         // ? READ 1 (the whole thing)
 
         // Again, drop the page cache before the next read
-        pwrite(pcachefd, droppcache, sizeof(char), 0);
+        ignore_result(pwrite(pcachefd, droppcache, sizeof(char), 0));
 
         // Swap ciphers
         swap_ciphers();

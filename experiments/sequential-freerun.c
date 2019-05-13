@@ -97,6 +97,16 @@ int get_real_path(char * buff, const char * path)
     return snprintf(buff, PATH_BUFF_SIZE, "%s/%s", STRINGIZE_VALUE_OF(REPO_PATH), path);
 }
 
+/**
+ * Wrapping your function call with ignore_result makes it more clear to
+ * readers, compilers and linters that you are, in fact, ignoring the
+ * function's return value on purpose.
+ */
+static inline void ignore_result(long long int unused_result)
+{
+    (void) unused_result;
+}
+
 int main(int argc, char * argv[])
 {
     uid_t euid = geteuid();
@@ -319,7 +329,7 @@ int main(int argc, char * argv[])
         printf("WRITE METRICS:: got end time (ns): %"PRIu64"\n", write_metrics_end.time_ns);
 
         // Drop the page cache before the next read
-        pwrite(pcachefd, droppcache, sizeof(char), 0);
+        ignore_result(pwrite(pcachefd, droppcache, sizeof(char), 0));
 
         Metrics read_metrics_start;
         retval = collect_metrics(&read_metrics_start, &monitor);
