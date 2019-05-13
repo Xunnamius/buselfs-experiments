@@ -16,14 +16,14 @@
 #include "energymon/energymon-default.h"
 #include "vendor/energymon/energymon-time-util.h"
 
-#define IOSIZE 131072
+#define IOSIZE 131072U
 //#define IOSIZE INT_MAX
 #define SRAND_SEED1 76532543U
 #define SRAND_SEED2 34567970U
 #define SRAND_SEED3 25349875U
-#define PATH_BUFF_SIZE 255
-#define CMD_BUFF_SIZE 512
-#define COPY_INTO_TIMES 1 // randomness written COPY_INTO_TIMES into same file
+#define PATH_BUFF_SIZE 255U
+#define CMD_BUFF_SIZE 512U
+#define COPY_INTO_TIMES 1U // randomness written COPY_INTO_TIMES into same file
 
 #ifndef BUSELFS_PATH // see config/vars.mk
     #ifndef __INTELLISENSE__
@@ -71,6 +71,7 @@ static volatile int keepRunning = 1;
 // Working now!
 void interrupt_handler(int dummy)
 {
+    (void) dummy;
     keepRunning = 0;
 }
 
@@ -92,7 +93,7 @@ int collect_metrics(Metrics * metrics, energymon * monitor)
     // Grab the initial energy use and time
     metrics->energy_uj = monitor->fread(monitor);
 
-    if(!metrics->energy_uj && errno)
+    if(!metrics->energy_uj || errno)
     {
         perror("fread");
         monitor->ffinish(monitor);
@@ -202,7 +203,7 @@ int main(int argc, char * argv[])
 
         flog_outputs[i] = fopen(output_paths[i], "a");
 
-        if(!flog_outputs[i] && errno)
+        if(!flog_outputs[i] || errno)
         {
             perror("failed to fopen output path");
             return 6;
@@ -217,7 +218,7 @@ int main(int argc, char * argv[])
 
     frandom = fopen(RANDOM_PATH, "rb+");
 
-    if(!frandom && errno)
+    if(!frandom || errno)
     {
         perror("failed to fopen RANDOM_PATH");
         return 8;
@@ -227,7 +228,7 @@ int main(int argc, char * argv[])
 
     int fsk = fseek(frandom, 0, SEEK_END);
 
-    if(!fsk && errno)
+    if(!fsk || errno)
     {
         perror("failed to fseek RANDOM_PATH");
         return 9;
@@ -237,7 +238,7 @@ int main(int argc, char * argv[])
 
     u_int64_t fsize = ftell(frandom);
 
-    if(fsize < 0 && errno)
+    if(!fsize || errno)
     {
         perror("ftell failed on RANDOM_PATH");
         return 10;
@@ -257,7 +258,7 @@ int main(int argc, char * argv[])
 
     char * randomness = malloc(fsize + 1); // + the NULL TERMINATOR
 
-    if(!randomness && errno)
+    if(!randomness || errno)
     {
         perror("malloc failed");
         return 11;
@@ -267,7 +268,7 @@ int main(int argc, char * argv[])
 
     size_t frd = fread(randomness, 1, fsize, frandom);
 
-    if(frd != fsize)
+    if(frd != fsize || errno)
     {
         perror("fread of RANDOM_PATH failed");
         return 12;
