@@ -24,4 +24,5 @@ CONFIG_COMPILE_FLAGS := \
 						-DBACKEND_SIZE_INT=800 \
 						-DEXPAND_TABS_INT=15  \
 						-DFREERUN_TIMEOUT_INT=86400 \
+						-DBLFS_SV_QUEUE_INCOMING_NAME="/incoming.strongbox.xunn.io" \
 						-DTRIALS_INT=10
