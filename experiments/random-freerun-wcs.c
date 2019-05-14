@@ -228,7 +228,7 @@ int main(int argc, char * argv[])
 
     int fsk = fseek(frandom, 0, SEEK_END);
 
-    if(!fsk || errno)
+    if(fsk || errno)
     {
         perror("failed to fseek RANDOM_PATH");
         return 9;
