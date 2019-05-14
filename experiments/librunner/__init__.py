@@ -604,7 +604,7 @@ class Librunner():
     # * Experiments
     # *
 
-    @_experiment('Sequential')
+    @_experiment('sequential')
     def sequentialFreerun(self, data_class, test_name):
         """Runs the sequential freerun tests"""
 
@@ -622,7 +622,7 @@ class Librunner():
         except pexpect.TIMEOUT:
             raise ExperimentError('experiment timed out (exceeded {} seconds'.format(self.config['FREERUN_TIMEOUT_INT']))
 
-    @_experiment('Random')
+    @_experiment('random')
     def randomFreerun(self, data_class, test_name):
         """Runs the random freerun tests"""
 
@@ -640,7 +640,7 @@ class Librunner():
         except pexpect.TIMEOUT:
             raise ExperimentError('experiment timed out (exceeded {} seconds)'.format(self.config['FREERUN_TIMEOUT_INT']))
 
-    @_experiment('WCS-Sequential')
+    @_experiment('sequential_wcs')
     def sequentialFreerunWithCipherSwitching(self, data_class, test_name):
         """Runs the sequential freerun tests built to take advantage of cipher switching ioctl"""
 
@@ -658,7 +658,7 @@ class Librunner():
         except pexpect.TIMEOUT:
             raise ExperimentError('experiment timed out (exceeded {} seconds'.format(self.config['FREERUN_TIMEOUT_INT']))
 
-    @_experiment('WCS-Random')
+    @_experiment('random_wcs')
     def randomFreerunWithCipherSwitching(self, data_class, test_name):
         """Runs the random freerun tests built to take advantage of cipher switching ioctl"""
 
@@ -676,7 +676,7 @@ class Librunner():
         except pexpect.TIMEOUT:
             raise ExperimentError('experiment timed out (exceeded {} seconds)'.format(self.config['FREERUN_TIMEOUT_INT']))
 
-    @_experiment('Filebench')
+    @_experiment('filebench')
     def filebenchWithCipherSwitching(self, data_class, test_name):
         """Runs the filebench workloads bifurcated by cipher switching ioctl"""
         # TODO:! implement me

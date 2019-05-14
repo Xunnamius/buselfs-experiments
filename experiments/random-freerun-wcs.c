@@ -192,7 +192,7 @@ int main(int argc, char * argv[])
         char path_shard[PATH_BUFF_SIZE];
 
         // ? fs_type has "%d" contained within it (passed from python)!
-        snprintf(ident_shard, PATH_BUFF_SIZE, "results/random.%s.%s.results", core_type, fs_type);
+        snprintf(ident_shard, PATH_BUFF_SIZE, "results/random_wcs.%s.%s.results", core_type, fs_type);
         snprintf(path_shard, PATH_BUFF_SIZE, ident_shard, i + 1);
 
         get_real_path(output_paths[i], STRINGIZE_VALUE_OF(REPO_PATH), path_shard);
