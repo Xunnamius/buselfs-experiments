@@ -141,16 +141,16 @@ if __name__ == "__main__":
                                     lib.logFile = file
                                     identifier = '{}-{}-{}'.format(dataClass, conf.proto_test_name, backendFn[2])
 
-                                    predictedResultFileName = RESULTS_FILE_NAME.format(
-                                        'sequential' if experiments == lib.sequentialFreerun else 'random',
-                                        identifier
-                                    )
+                                    predictedResultFileName = RESULTS_FILE_NAME.format(runFn.experiment_name, identifier)
 
                                     predictedResultFilePath = os.path.realpath(
                                         RESULTS_PATH.format(config['REPO_PATH'], predictedResultFileName)
                                     )
 
-                                    lib.print(' ------------------ Experiment "{}" ------------------'.format(identifier))
+                                    lib.print(' ------------------ {} Experiment: {} ------------------'.format(
+                                        runFn.experiment_name,
+                                        identifier
+                                    ))
 
                                     # ? If the results file exists already, then skip this experiment!
                                     if os.path.exists(predictedResultFilePath):

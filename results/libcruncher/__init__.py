@@ -308,8 +308,8 @@ class _StorePathsAsResultPropertiesAction(argparse.Action):
 
         setattr(namespace, self.dest, actual)
 
-pathToResultProperties(Path('/home/odroid/bd3/repos/buselfs-experiments/results/filebench.ram.1k-f2fs#baseline-strongbox.results'))
-pathToResultProperties(Path('/home/odroid/bd3/repos/buselfs-experiments/results/filebench.ram.1k-f2fs#baseline+1-strongbox.results'))
-pathToResultProperties(Path('/home/odroid/bd3/repos/buselfs-experiments/results/filebench.ram.1k-f2fs#sc_freestyle_fast#512+3-strongbox.results'))
-pathToResultProperties(Path('/home/odroid/bd3/repos/buselfs-experiments/results/filebench.ram.1k-f2fs#sc_freestyle_fast#512#8#sc_chacha8_neon+3-strongbox.results'))
-pathToResultProperties(Path('/home/odroid/bd3/repos/buselfs-experiments/results/filebench.ram.1k-f2fs#sc_freestyle_fast#512#8#sc_chacha8_neon#swap_aggressive+2-strongbox.results'))
+# pathToResultProperties(Path('/home/odroid/bd3/repos/buselfs-experiments/results/filebench.ram.1k-f2fs#baseline-strongbox.results'))
+# pathToResultProperties(Path('/home/odroid/bd3/repos/buselfs-experiments/results/filebench.ram.1k-f2fs#baseline+1-strongbox.results'))
+# pathToResultProperties(Path('/home/odroid/bd3/repos/buselfs-experiments/results/filebench.ram.1k-f2fs#sc_freestyle_fast#512+3-strongbox.results'))
+# pathToResultProperties(Path('/home/odroid/bd3/repos/buselfs-experiments/results/filebench.ram.1k-f2fs#sc_freestyle_fast#512#8#sc_chacha8_neon+3-strongbox.results'))
+# pathToResultProperties(Path('/home/odroid/bd3/repos/buselfs-experiments/results/filebench.ram.1k-f2fs#sc_freestyle_fast#512#8#sc_chacha8_neon#swap_aggressive+2-strongbox.results'))

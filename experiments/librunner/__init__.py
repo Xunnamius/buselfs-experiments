@@ -21,8 +21,13 @@ from librunner.util import (
     SB_EXECUTABLE_FILE
 )
 
+def _experiment(name):
+    def __experiment(fn):
+        fn.experiment_name = name
+        return fn
+    return __experiment
+
 # TODO: replace timeout mechanic with retry mechanic; all timeout params set to None!
-# TODO: later: re-implement experiments as strategy pattern instances
 class Librunner():
     """This class is responsible for running and managing experiments in an automated fashion"""
 
@@ -599,6 +604,7 @@ class Librunner():
     # * Experiments
     # *
 
+    @_experiment('Sequential')
     def sequentialFreerun(self, data_class, test_name):
         """Runs the sequential freerun tests"""
 
@@ -616,6 +622,7 @@ class Librunner():
         except pexpect.TIMEOUT:
             raise ExperimentError('experiment timed out (exceeded {} seconds'.format(self.config['FREERUN_TIMEOUT_INT']))
 
+    @_experiment('Random')
     def randomFreerun(self, data_class, test_name):
         """Runs the random freerun tests"""
 
@@ -633,6 +640,7 @@ class Librunner():
         except pexpect.TIMEOUT:
             raise ExperimentError('experiment timed out (exceeded {} seconds)'.format(self.config['FREERUN_TIMEOUT_INT']))
 
+    @_experiment('WCS-Sequential')
     def sequentialFreerunWithCipherSwitching(self, data_class, test_name):
         """Runs the sequential freerun tests built to take advantage of cipher switching ioctl"""
 
@@ -650,6 +658,7 @@ class Librunner():
         except pexpect.TIMEOUT:
             raise ExperimentError('experiment timed out (exceeded {} seconds'.format(self.config['FREERUN_TIMEOUT_INT']))
 
+    @_experiment('WCS-Random')
     def randomFreerunWithCipherSwitching(self, data_class, test_name):
         """Runs the random freerun tests built to take advantage of cipher switching ioctl"""
 
@@ -667,6 +676,7 @@ class Librunner():
         except pexpect.TIMEOUT:
             raise ExperimentError('experiment timed out (exceeded {} seconds)'.format(self.config['FREERUN_TIMEOUT_INT']))
 
+    @_experiment('Filebench')
     def filebenchWithCipherSwitching(self, data_class, test_name):
         """Runs the filebench workloads bifurcated by cipher switching ioctl"""
         # TODO:! implement me

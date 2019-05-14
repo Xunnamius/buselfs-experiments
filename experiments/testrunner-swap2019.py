@@ -145,26 +145,16 @@ if __name__ == "__main__":
 
                                     lib.logFile = file
                                     identifier = '{}-{}-{}'.format(dataClass, conf.proto_test_name, backendFn[2])
-                                    experiment = '<unknown>'
 
-                                    if experiments == lib.sequentialFreerunWithCipherSwitching:
-                                        experiment = 'sequential_wcs'
-
-                                    elif experiments == lib.sequentialFreerunWithCipherSwitching:
-                                        experiment = 'random_wcs'
-
-                                    elif experiments == lib.filebenchWithCipherSwitching:
-                                        experiment = 'filebench'
-
-                                    predictedResultFileName = RESULTS_FILE_NAME.format(experiment, identifier)
+                                    predictedResultFileName = RESULTS_FILE_NAME.format(runFn.experiment_name, identifier)
 
                                     predictedResultFilePath = RESULTS_PATH.format(
                                         os.path.realpath(config['REPO_PATH']),
                                         predictedResultFileName
                                     )
 
-                                    lib.print(' ------------------ {} Experiment "{}" ------------------'.format(
-                                        experiment.capitalize(),
+                                    lib.print(' ------------------ {} Experiment: {} ------------------'.format(
+                                        runFn.experiment_name,
                                         identifier.format('X')
                                     ))
 
