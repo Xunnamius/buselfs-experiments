@@ -164,7 +164,7 @@ if __name__ == "__main__":
                                     )
 
                                     lib.print(' ------------------ {} Experiment "{}" ------------------'.format(
-                                        experiment,
+                                        capitalize(experiment),
                                         identifier.format('X')
                                     ))
 
