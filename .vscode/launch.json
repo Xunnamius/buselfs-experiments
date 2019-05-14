@@ -5,6 +5,54 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "py:active:results",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "cwd": "${fileDirname}",
+            "env": {
+                "PYTHONPATH": "z:/gitr/research/buselfs-experiments/results"
+            }
+        },
+        {
+            "name": "py:active:experiments",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "cwd": "${fileDirname}",
+            "env": {
+                "PYTHONPATH": "z:/gitr/research/buselfs-experiments/experiments"
+            }
+        },
+        {
+            "name": "ptvsd (morty)",
+            "type": "python",
+            "request": "attach",
+            "port": 4000,
+            "host": "192.168.115.5",
+            "pathMappings": [
+                {
+                    "localRoot": "${workspaceFolder}",
+                    "remoteRoot": "/gitr/research/buselfs-experiments"
+                }
+            ]
+        },
+        {
+            "name": "ptvsd (odroid2)",
+            "type": "python",
+            "request": "attach",
+            "port": 4000,
+            "host": "192.168.115.12",
+            "pathMappings": [
+                {
+                    "localRoot": "${workspaceFolder}",
+                    "remoteRoot": "/home/odroid/bd3/repos/buselfs-experiments"
+                }
+            ]
+        },
+        {
             "type": "gdb",
             "request": "launch",
             "name": "gdb:rnd-wcs@morty",

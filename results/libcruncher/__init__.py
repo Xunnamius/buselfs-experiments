@@ -36,10 +36,9 @@ def pathToResultProperties(path):
         data1 = filename.split('.')
         data2 = data1[2].split('-')
         data3 = data2[1].split('#')
-        data4 = 0
+        data4 = data2[1].split('+')
 
         data3Len = len(data3)
-        usingDefaultCipher = data3Len == 1 or data3[1] == 'baseline'
 
         # ! If modifying file name metadata (i.e. ResultProperties), edit these
 
@@ -51,6 +50,14 @@ def pathToResultProperties(path):
 
         if not (1 <= data3Len <= 6):
             raise FilenameTranslationError('encountered invalid data3 length ({})'.format(data3Len))
+
+        if len(data4) >= 2:
+            data2[1], data4 = data4
+            data3 = data2[1].split('#')
+        else:
+            data4 = 0
+
+        usingDefaultCipher = data3Len == 1 or data3[1] == 'baseline'
 
         if not usingDefaultCipher:
             cipher = data3[1]
@@ -68,11 +75,6 @@ def pathToResultProperties(path):
 
         if data3Len >= 6:
             swapStrategy = data3[5]
-
-        if '+' in swapStrategy:
-            swapStrategy, data4 = swapStrategy.split('+')
-
-        assert(swapCipher is not None)
 
         props = ResultProperties(
             path,
@@ -305,3 +307,9 @@ class _StorePathsAsResultPropertiesAction(argparse.Action):
             actual.append(pathToResultProperties(path))
 
         setattr(namespace, self.dest, actual)
+
+pathToResultProperties(Path('/home/odroid/bd3/repos/buselfs-experiments/results/filebench.ram.1k-f2fs#baseline-strongbox.results'))
+pathToResultProperties(Path('/home/odroid/bd3/repos/buselfs-experiments/results/filebench.ram.1k-f2fs#baseline+1-strongbox.results'))
+pathToResultProperties(Path('/home/odroid/bd3/repos/buselfs-experiments/results/filebench.ram.1k-f2fs#sc_freestyle_fast#512+3-strongbox.results'))
+pathToResultProperties(Path('/home/odroid/bd3/repos/buselfs-experiments/results/filebench.ram.1k-f2fs#sc_freestyle_fast#512#8#sc_chacha8_neon+3-strongbox.results'))
+pathToResultProperties(Path('/home/odroid/bd3/repos/buselfs-experiments/results/filebench.ram.1k-f2fs#sc_freestyle_fast#512#8#sc_chacha8_neon#swap_aggressive+2-strongbox.results'))
