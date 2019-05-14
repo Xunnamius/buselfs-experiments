@@ -75,9 +75,9 @@ int collect_metrics(Metrics * metrics, energymon * monitor)
     // Grab the initial energy use and time
     metrics->energy_uj = monitor->fread(monitor);
 
-    if(!metrics->energy_uj || errno)
+    if(errno)
     {
-        perror("fread");
+        perror("energymon fread failure");
         monitor->ffinish(monitor);
         return 3;
     }
@@ -202,7 +202,7 @@ int main(int argc, char * argv[])
 
     errno = 0;
 
-    rewind(frandom);
+    fsk = fseek(frandom, 0, SEEK_SET);
 
     if(errno)
     {
