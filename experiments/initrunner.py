@@ -38,9 +38,6 @@ MODPROBE_DIRS = ['nbd0',
 CONFIG_PATH = "{}/../config/vars.mk".format(os.path.dirname(os.path.realpath(__file__)))
 CONFIG_KEY = "CONFIG_COMPILE_FLAGS"
 
-# ? Size of the initial ramdisk
-RAMDISK_SIZE = "1024M"
-
 # ? Amount of time to wait before we consider a command as failed
 STANDARD_TIMEOUT=10
 
@@ -168,7 +165,7 @@ def initialize(config, verbose=False, force=False):
             sys.exit(42)
 
         mount = pexpect.spawn('mount',
-            ['-t', 'tmpfs', '-o', 'size={}'.format(RAMDISK_SIZE), 'tmpfs', config['RAM0_PATH']],
+            ['-t', 'tmpfs', '-o', 'size={}'.format(config['RAMDISK_SIZE_INT']), 'tmpfs', config['RAM0_PATH']],
             echo=True if verbose else False,
             timeout=STANDARD_TIMEOUT,
             encoding='utf-8'
