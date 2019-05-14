@@ -79,7 +79,10 @@ if __name__ == "__main__":
                                     RESULTS_PATH.format(config['REPO_PATH'], predictedResultFileName)
                                 )
 
-                                lib.print(' ------------------ Experiment "{}" ------------------'.format(identifier))
+                                lib.print(' ------------------ {} experiment: {} ------------------'.format(
+                                    runFn.experiment_name,
+                                    identifier
+                                ))
 
                                 # ? If the results file exists already, then skip this experiment!
                                 if os.path.exists(predictedResultFilePath):

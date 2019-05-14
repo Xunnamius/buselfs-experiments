@@ -147,7 +147,7 @@ if __name__ == "__main__":
                                         RESULTS_PATH.format(config['REPO_PATH'], predictedResultFileName)
                                     )
 
-                                    lib.print(' ------------------ {} Experiment: {} ------------------'.format(
+                                    lib.print(' ------------------ {} experiment: {} ------------------'.format(
                                         runFn.experiment_name,
                                         identifier
                                     ))
