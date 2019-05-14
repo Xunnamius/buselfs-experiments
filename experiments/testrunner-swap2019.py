@@ -141,7 +141,7 @@ if __name__ == "__main__":
                         for runFn in experiments:
                             for dataClass in dataClasses:
                                 with open(config['LOG_FILE_PATH'], 'w') as file:
-                                    print(str(datetime.now()), '\n----x----\n', file=file)
+                                    print(str(datetime.now()), '\n---------\n', file=file)
 
                                     lib.logFile = file
                                     identifier = '{}-{}-{}'.format(dataClass, conf.proto_test_name, backendFn[2])
@@ -153,7 +153,7 @@ if __name__ == "__main__":
                                         predictedResultFileName
                                     )
 
-                                    lib.print(' ----------------x- {} experiment: {} -x----------------'.format(
+                                    lib.print(' xxxx-------------- {} experiment: {} --------------xxxx'.format(
                                         runFn.experiment_name,
                                         identifier.format('X')
                                     ))
