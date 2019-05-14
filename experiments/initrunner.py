@@ -165,7 +165,7 @@ def initialize(config, verbose=False, force=False):
             sys.exit(42)
 
         mount = pexpect.spawn('mount',
-            ['-t', 'tmpfs', '-o', 'size={}'.format(config['RAMDISK_SIZE_INT']), 'tmpfs', config['RAM0_PATH']],
+            ['-t', 'tmpfs', '-o', 'size={}'.format(config['RAMDISK_SIZE']), 'tmpfs', config['RAM0_PATH']],
             echo=True if verbose else False,
             timeout=STANDARD_TIMEOUT,
             encoding='utf-8'
