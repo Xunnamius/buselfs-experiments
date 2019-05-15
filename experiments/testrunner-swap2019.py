@@ -53,30 +53,28 @@ fpns = [
 
 # TODO: add stringified names to experiments (tuples?)
 experiments = [
-    #lib.sequentialFreerun,
-    #lib.randomFreerun,
     lib.sequentialFreerunWithCipherSwitching,
     lib.randomFreerunWithCipherSwitching,
-    #lib.filebenchWithCipherSwitching,
+    lib.filebenchWithCipherSwitching,
 ]
 
 # ? These are all the cipher swapping pairs that will be tested
 # ? each element: (primary cipher, swap cipher, swap strategy)
 cipherpairs = [
     ('sc_chacha8_neon', 'sc_freestyle_fast', 'swap_forward'),
-#   ('sc_chacha8_neon', 'sc_freestyle_fast', 'swap_aggressive'),
+    ('sc_chacha8_neon', 'sc_freestyle_fast', 'swap_aggressive'),
     ('sc_chacha8_neon', 'sc_freestyle_fast', 'swap_mirrored'),
     ('sc_chacha20_neon', 'sc_freestyle_fast', 'swap_forward'),
-#   ('sc_chacha20_neon', 'sc_freestyle_fast', 'swap_aggressive'),
+    ('sc_chacha20_neon', 'sc_freestyle_fast', 'swap_aggressive'),
     ('sc_chacha20_neon', 'sc_freestyle_fast', 'swap_mirrored'),
     ('sc_aes128_ctr', 'sc_freestyle_fast', 'swap_forward'),
-#   ('sc_aes128_ctr', 'sc_freestyle_fast', 'swap_aggressive'),
+    ('sc_aes128_ctr', 'sc_freestyle_fast', 'swap_aggressive'),
     ('sc_aes128_ctr', 'sc_freestyle_fast', 'swap_mirrored'),
     ('sc_chacha8_neon', 'sc_aes128_ctr', 'swap_forward'),
-#   ('sc_chacha8_neon', 'sc_aes128_ctr', 'swap_aggressive'),
+    ('sc_chacha8_neon', 'sc_aes128_ctr', 'swap_aggressive'),
     ('sc_chacha8_neon', 'sc_aes128_ctr', 'swap_mirrored'),
     ('sc_chacha20_neon', 'sc_aes128_ctr', 'swap_forward'),
-#   ('sc_chacha20_neon', 'sc_aes128_ctr', 'swap_aggressive'),
+    ('sc_chacha20_neon', 'sc_aes128_ctr', 'swap_aggressive'),
     ('sc_chacha20_neon', 'sc_aes128_ctr', 'swap_mirrored'),
 ]
 
