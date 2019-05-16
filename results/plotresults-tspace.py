@@ -134,6 +134,9 @@ if __name__ == "__main__":
     fpnTickVals = set()
     classmap = {}
 
+    noReadData = False
+    noWriteData = False
+
     for op in ['read', 'write']:
         for metric in RESULT_FILE_METRICS:
             data[op][metric] = []
@@ -154,19 +157,13 @@ if __name__ == "__main__":
         fpnTickVals.add(resultProps.fpn)
         data['idents'].append(libcruncher.resultPropertiesToProperName(resultProps))
 
-        for op in ['read', 'write']:
-            for metric in RESULT_FILE_METRICS:
-                localData[op][metric] = []
+        for metric in RESULT_FILE_METRICS:
+            localData['read'][metric] = []
+            localData['write'][metric] = []
 
         with open(resultProps.path.absolute().as_posix(), 'r') as lines:
             for currentLine in lines:
                 for metric in RESULT_FILE_METRICS:
-                    if not localData['read'][metric]:
-                        localData['read'][metric] = []
-
-                    if not localData['write'][metric]:
-                        localData['write'][metric] = []
-
                     # We're dealing with read metrics...
                     if currentLine.startswith('r_' + metric):
                         localData['read'][metric].append(libcruncher.lineToNumber(currentLine))
@@ -181,10 +178,23 @@ if __name__ == "__main__":
                     elif currentLine.startswith('---') or len(currentLine.strip()) == 0 or currentLine.startswith('mf'):
                         break
                 else:
-                    print('Bad data at read/write distinction: "{}"'.format(currentLine))
-                    raise 'Bad data at read/write distinction (see above)'
+                    raise 'Bad data at read/write distinction: "{}"'.format(currentLine
+
+        if len(localData['read'][metric]) == 0:
+            localData['read'][metric] = [0]
+            print('Warning: no read data was observed!')
+            noReadData = True
+
+        if len(localData['write'][metric]) == 0:
+            localData['write'][metric] = [0]
+            print('Warning: no write data was observed!')
+            noWriteData = True
+
+        if noReadData and noWriteData:
+            raise 'No read or write data was collected (empty or malformed resultsets?)'
 
         for metric in RESULT_FILE_METRICS:
+            # ! `or [0]` in case there are no r/w results
             localData['read'][metric]  = median(localData['read'][metric])
             localData['write'][metric] = median(localData['write'][metric])
 
@@ -226,7 +236,7 @@ if __name__ == "__main__":
         readlen = len(data['read'][axis])
         writelen = len(data['write'][axis])
 
-        if dimensionLength != readlen or dimensionLength != writelen:
+        if (not noReadData and dimensionLength != readlen) or (not noWriteData and dimensionLength != writelen):
             print(
                 'ERROR: one or both of the cardinalities r=({}) and w=({}) do not match expected ({}) for axis="{}"'
                     .format(readlen, writelen, dimensionLength, axis)
@@ -265,6 +275,8 @@ if __name__ == "__main__":
     readTrace['diagonal'].update(visible=False)
     writeTrace['diagonal'].update(visible=False)
 
+    print('observed read data: {}'.format('NO' if noReadData else 'yes'))
+    print('observed write data: {}'.format('NO' if noWriteData else 'yes'))
     print('final dimension cardinality: {}'.format(dimensionLength))
     print('title frag: {}'.format(titleFrag or '(no props means no title frag)'))
 
@@ -273,34 +285,43 @@ if __name__ == "__main__":
     filenamePrefix = '/'+'/'.join(assumedResultsPathList[:-1]) if PLOT_OFFLINE else ''
 
     print('generating plots...\n')
-    print('read plot: ', end='')
 
     # * Refine SPECIAL_AXES
     SPECIAL_AXES[5] = { **SPECIAL_AXES[5], **{ 'categoryarray': sorted(list(flakesizeTickVals)) } }
     SPECIAL_AXES[6] = { **SPECIAL_AXES[6], **{ 'categoryarray': sorted(list(fpnTickVals)) } }
 
-    formatAndPlotFigure(
-        file_ident='read',
-        test_ident=TEST_IDENT,
-        trace=readTrace,
-        title=readTitle,
-        filesdir=filenamePrefix,
-        axisCount=len(PLOT_AXES),
-        specialAxes=SPECIAL_AXES,
-        offline=PLOT_OFFLINE
-    )
+    if noReadData:
+        print('(skipped read plot)')
 
-    print('\nwrite plot: ', end='')
+    else:
+        print('read plot: ', end='')
 
-    formatAndPlotFigure(
-        file_ident='write',
-        test_ident=TEST_IDENT,
-        trace=writeTrace,
-        title=writeTitle,
-        filesdir=filenamePrefix,
-        axisCount=len(PLOT_AXES),
-        specialAxes=SPECIAL_AXES,
-        offline=PLOT_OFFLINE
-    )
+        formatAndPlotFigure(
+            file_ident='read',
+            test_ident=TEST_IDENT,
+            trace=readTrace,
+            title=readTitle,
+            filesdir=filenamePrefix,
+            axisCount=len(PLOT_AXES),
+            specialAxes=SPECIAL_AXES,
+            offline=PLOT_OFFLINE
+        )
+
+    if noWriteData:
+        print('(skipped write plot)')
+
+    else:
+        print('\nwrite plot: ', end='')
+
+        formatAndPlotFigure(
+            file_ident='write',
+            test_ident=TEST_IDENT,
+            trace=writeTrace,
+            title=writeTitle,
+            filesdir=filenamePrefix,
+            axisCount=len(PLOT_AXES),
+            specialAxes=SPECIAL_AXES,
+            offline=PLOT_OFFLINE
+        )
 
     print('\n -- plotting complete! -- ')
