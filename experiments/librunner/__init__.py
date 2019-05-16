@@ -675,9 +675,3 @@ class Librunner():
 
         except pexpect.TIMEOUT:
             raise ExperimentError('experiment timed out (exceeded {} seconds)'.format(self.config['FREERUN_TIMEOUT_INT']))
-
-    @_experiment('filebench')
-    def filebenchWithCipherSwitching(self, data_class, test_name):
-        """Runs the filebench workloads bifurcated by cipher switching ioctl"""
-        # TODO:! implement me
-        pass

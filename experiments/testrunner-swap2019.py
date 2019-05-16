@@ -55,7 +55,6 @@ fpns = [
 experiments = [
     lib.sequentialFreerunWithCipherSwitching,
     lib.randomFreerunWithCipherSwitching,
-    lib.filebenchWithCipherSwitching,
 ]
 
 # ? These are all the cipher swapping pairs that will be tested
