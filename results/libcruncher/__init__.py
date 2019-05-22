@@ -226,13 +226,17 @@ def argsToExecutionProperties(argv, description=''):
     )
 
     args = parser.parse_args(argv)
+    resultsSubset = yieldResultsSubset(args.paths, args.filter, not args.strict_filtering)
 
-    return ExecutionProperties(
-        yieldResultsSubset(args.paths, args.filter, not args.strict_filtering),
+    execCTX = ExecutionProperties(
+        resultsSubset,
+        [resultProp for resultProp in resultsSubset if resultProp.isBaseline],
         args.baseline,
         args.filter,
         args.strict_filtering
     )
+
+    return execCTX
 
 def confirmBeforeContinuing():
     user_input = input('=> look good? (y/N): ')

@@ -53,7 +53,13 @@ ResultProperties = namedtuple('ResultProperties', [
 ])
 
 ResultProperty = namedtuple('ResultProperty', ['name', 'value'])
-ExecutionProperties = namedtuple('ExecutionProperties', ['resultFiles', 'observeBaseline', 'filterProps', 'filterStrict'])
+ExecutionProperties = namedtuple('ExecutionProperties', [
+    'resultFileProps',
+    'baselineFileProps',
+    'observeBaseline',
+    'filterPropsList',
+    'filterStrict'
+])
 
 def generateTitleFrag(filters):
     title_frag = ''
@@ -63,6 +69,9 @@ def generateTitleFrag(filters):
         title_frag += '{}={},'.format(fltr.name, fltr.value.replace(',', '|'))
 
     return title_frag.strip(',')
+
+def stringToValidFilename(string):
+    return string.replace('|', '!').replace(':', '!').replace('/', '').replace('\\', '')
 
 def formatAndPlotFigure(file_ident, test_ident, trace, title, filesdir, axisCount, specialAxes={}, offline=True):
     figure = Figure(data=[trace], layout=generateSharedLayout(title, axisCount, specialAxes))

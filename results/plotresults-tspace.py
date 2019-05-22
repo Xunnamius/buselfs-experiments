@@ -18,7 +18,7 @@ from plotly.graph_objs import Splom
 import initrunner
 import libcruncher
 
-from libcruncher.util import generateTitleFrag, formatAndPlotFigure, SC_SECURITY_RANKING
+from libcruncher.util import generateTitleFrag, stringToValidFilename, formatAndPlotFigure, SC_SECURITY_RANKING
 
 TEST_IDENT = 'tspace-splom'
 TITLE_TEMPLATE = '{} [{}] Tradeoff SPLOM ({})'
@@ -124,9 +124,11 @@ if __name__ == "__main__":
 
     config = initrunner.parseConfigVars()
     execCTX = libcruncher.argsToExecutionProperties(sys.argv[1:])
-    assumedResultsPathList = str(execCTX.resultFiles[0].path).strip('/').split('/')
+    # ? This is only used to come up with title fragment, so it doesn't have to
+    # ? be super accurate!
+    assumedResultsPathList = str(execCTX.resultFileProps[0].path).strip('/').split('/')
 
-    print('aggregating data ({} items after filter)...'.format(len(execCTX.resultFiles)))
+    print('aggregating data ({} items after filter)...'.format(len(execCTX.resultFileProps)))
 
     data = { 'read': {}, 'write': {}, 'idents': [] }
     dimensionClassesOrdered = []
@@ -146,7 +148,7 @@ if __name__ == "__main__":
         data[op][PLOT_AXES[5]] = []
 
     # Loop over results and begin the aggregation/accumulation process
-    for resultProps in execCTX.resultFiles:
+    for resultProps in execCTX.resultFileProps:
         localData = { 'read': {}, 'write': {} }
 
         if resultProps.iops not in classmap:
@@ -178,25 +180,25 @@ if __name__ == "__main__":
                     elif currentLine.startswith('---') or len(currentLine.strip()) == 0 or currentLine.startswith('mf'):
                         break
                 else:
-                    raise 'Bad data at read/write distinction: "{}"'.format(currentLine
+                    raise 'Bad data at read/write distinction: "{}"'.format(currentLine)
 
-        if len(localData['read'][metric]) == 0:
-            localData['read'][metric] = [0]
-            print('Warning: no read data was observed!')
-            noReadData = True
+        for metric in RESULT_FILE_METRICS:
+            if len(localData['read'][metric]) == 0:
+                localData['read'][metric] = 1
+                noReadData = True
 
-        if len(localData['write'][metric]) == 0:
-            localData['write'][metric] = [0]
-            print('Warning: no write data was observed!')
-            noWriteData = True
+            else:
+                localData['read'][metric] = median(localData['read'][metric])
+
+            if len(localData['write'][metric]) == 0:
+                localData['write'][metric] = 1
+                noWriteData = True
+
+            else:
+                localData['write'][metric] = median(localData['write'][metric])
 
         if noReadData and noWriteData:
             raise 'No read or write data was collected (empty or malformed resultsets?)'
-
-        for metric in RESULT_FILE_METRICS:
-            # ! `or [0]` in case there are no r/w results
-            localData['read'][metric]  = median(localData['read'][metric])
-            localData['write'][metric] = median(localData['write'][metric])
 
         localData['read'][RESULT_FILE_METRICS[0]] /= 1000000
         localData['read'][RESULT_FILE_METRICS[2]] /= 1000000000
@@ -220,6 +222,13 @@ if __name__ == "__main__":
             data[op][PLOT_AXES[0]].append(SC_SECURITY_RANKING[resultProps.cipher])
             data[op][PLOT_AXES[4]].append(resultProps.flakesize)
             data[op][PLOT_AXES[5]].append(resultProps.fpn)
+
+    if execCTX.observeBaseline:
+        print('applying baseline calculations...')
+
+        # TODO:!
+        #execCTX.observeBaseline
+        raise 'Not implemented'
 
     print('aliasing data...')
 
@@ -247,7 +256,7 @@ if __name__ == "__main__":
 
     titlePrefix = assumedResultsPathList[-2]
 
-    titleFrag = generateTitleFrag(execCTX.filterProps)
+    titleFrag = generateTitleFrag(execCTX.filterPropsList)
     readTitle = TITLE_TEMPLATE.format(titlePrefix, 'reads', titleFrag)
     writeTitle = TITLE_TEMPLATE.format(titlePrefix, 'writes', titleFrag)
 
@@ -278,6 +287,7 @@ if __name__ == "__main__":
     print('observed read data: {}'.format('NO' if noReadData else 'yes'))
     print('observed write data: {}'.format('NO' if noWriteData else 'yes'))
     print('final dimension cardinality: {}'.format(dimensionLength))
+    print('number of observed baselines: {}'.format(len(execCTX.baselineFileProps)))
     print('title frag: {}'.format(titleFrag or '(no props means no title frag)'))
 
     libcruncher.confirmBeforeContinuing()
@@ -297,7 +307,7 @@ if __name__ == "__main__":
         print('read plot: ', end='')
 
         formatAndPlotFigure(
-            file_ident='read',
+            file_ident='read{}'.format('-' + stringToValidFilename(titleFrag) if titleFrag else ''),
             test_ident=TEST_IDENT,
             trace=readTrace,
             title=readTitle,
@@ -314,7 +324,7 @@ if __name__ == "__main__":
         print('\nwrite plot: ', end='')
 
         formatAndPlotFigure(
-            file_ident='write',
+            file_ident='write{}'.format('-' + stringToValidFilename(titleFrag) if titleFrag else ''),
             test_ident=TEST_IDENT,
             trace=writeTrace,
             title=writeTitle,
