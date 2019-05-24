@@ -150,7 +150,7 @@ if __name__ == "__main__":
                                         predictedResultFileName
                                     )
 
-                                    lib.print(' xxxx-------------- {} experiment: {} --------------xxxx'.format(
+                                    lib.print('xxxx-------------- {} experiment: {} --------------xxxx'.format(
                                         runFn.experiment_name,
                                         identifier.format('X')
                                     ))
@@ -204,7 +204,7 @@ if __name__ == "__main__":
                                                 printInstabilityWarning(lib, config)
                                                 raise
 
-                                    lib.print(' ------------------ *** ------------------')
+                                    lib.print('------------------ *** ------------------')
                                     lib.logFile = None
 
                                     progressBar.update()
