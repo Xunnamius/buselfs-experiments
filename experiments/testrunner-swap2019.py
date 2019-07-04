@@ -23,10 +23,10 @@ filesystems = [
 ]
 
 dataClasses = [
-    '1k',
+    #'1k',
     '4k',
-    '512k',
-    '5m',
+    #'512k',
+    #'5m',
     '40m',
 ]
 
