@@ -604,7 +604,7 @@ class Librunner():
     # * Experiments
     # *
 
-    @_experiment('sequential')
+    @_experiment('sequential_freerun')
     def sequentialFreerun(self, data_class, test_name):
         """Runs the sequential freerun tests"""
 
@@ -622,7 +622,7 @@ class Librunner():
         except pexpect.TIMEOUT:
             raise ExperimentError('experiment timed out (exceeded {} seconds'.format(self.config['FREERUN_TIMEOUT_INT']))
 
-    @_experiment('random')
+    @_experiment('random_freerun')
     def randomFreerun(self, data_class, test_name):
         """Runs the random freerun tests"""
 
@@ -640,7 +640,7 @@ class Librunner():
         except pexpect.TIMEOUT:
             raise ExperimentError('experiment timed out (exceeded {} seconds)'.format(self.config['FREERUN_TIMEOUT_INT']))
 
-    @_experiment('sequential_wcs')
+    @_experiment('sequential_freerun_wcs')
     def sequentialFreerunWithCipherSwitching(self, data_class, test_name):
         """Runs the sequential freerun tests built to take advantage of cipher switching ioctl"""
 
@@ -658,7 +658,7 @@ class Librunner():
         except pexpect.TIMEOUT:
             raise ExperimentError('experiment timed out (exceeded {} seconds'.format(self.config['FREERUN_TIMEOUT_INT']))
 
-    @_experiment('random_wcs')
+    @_experiment('random_freerun_wcs')
     def randomFreerunWithCipherSwitching(self, data_class, test_name):
         """Runs the random freerun tests built to take advantage of cipher switching ioctl"""
 
@@ -669,6 +669,42 @@ class Librunner():
         try:
             return self._spawn_actual(
                 '{}/bin/random-freerun-wcs'.format(self.config['REPO_PATH']),
+                ['ram', test_name, self.currentDeviceTmpPath],
+                timeout=self.config['FREERUN_TIMEOUT_INT']
+            )
+
+        except pexpect.TIMEOUT:
+            raise ExperimentError('experiment timed out (exceeded {} seconds)'.format(self.config['FREERUN_TIMEOUT_INT']))
+
+    @_experiment('sequential_worm_wcs')
+    def sequentialWORMWithCipherSwitching(self, data_class, test_name):
+        """Runs the sequential WORM tests built to take advantage of cipher switching ioctl"""
+
+        self.symlinkDataClass(data_class)
+
+        self.print('running sequential WORM WCS test target {}'.format(test_name))
+
+        try:
+            return self._spawn_actual(
+                '{}/bin/sequential-worm-wcs'.format(self.config['REPO_PATH']),
+                ['ram', test_name, self.currentDeviceTmpPath],
+                timeout=self.config['FREERUN_TIMEOUT_INT']
+            )
+
+        except pexpect.TIMEOUT:
+            raise ExperimentError('experiment timed out (exceeded {} seconds'.format(self.config['FREERUN_TIMEOUT_INT']))
+
+    @_experiment('random_worm_wcs')
+    def randomWORMWithCipherSwitching(self, data_class, test_name):
+        """Runs the random WORM tests built to take advantage of cipher switching ioctl"""
+
+        self.symlinkDataClass(data_class)
+
+        self.print('running random WORM WCS test target {}'.format(test_name))
+
+        try:
+            return self._spawn_actual(
+                '{}/bin/random-worm-wcs'.format(self.config['REPO_PATH']),
                 ['ram', test_name, self.currentDeviceTmpPath],
                 timeout=self.config['FREERUN_TIMEOUT_INT']
             )

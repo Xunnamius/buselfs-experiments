@@ -29,7 +29,7 @@ dataClasses = [
     #'512k',
     #'5m',
     '40m',
-    #'5G',
+    #'5g',
 ]
 
 flksizes = [
@@ -143,8 +143,9 @@ if __name__ == "__main__":
 
                                     predictedResultFileName = RESULTS_FILE_NAME.format(runFn.experiment_name, identifier)
 
-                                    predictedResultFilePath = os.path.realpath(
-                                        RESULTS_PATH.format(config['REPO_PATH'], predictedResultFileName)
+                                    predictedResultFilePath = RESULTS_PATH.format(
+                                        os.path.realpath(config['REPO_PATH']),
+                                        predictedResultFileName
                                     )
 
                                     lib.print('------------------ {} experiment: {} ------------------'.format(

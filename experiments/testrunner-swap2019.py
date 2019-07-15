@@ -8,7 +8,7 @@ from tqdm import tqdm
 import initrunner
 from librunner import Librunner
 from librunner.util import outputProgressBarRedirection, printInstabilityWarning, Configuration, RESULTS_PATH, RESULTS_FILE_NAME
-from librunner.exception import ExperimentError, BadResultFileStructureError
+from librunner.exception import ExperimentError
 
 config = initrunner.parseConfigVars()
 lib = Librunner(config)
@@ -19,15 +19,17 @@ DIE_ON_EXCEPTION = True
 
 # ! REMEMBER: it's nilfs2 (TWO) with a 2! Not just 'nilfs'!
 filesystems = [
+    #'nilfs2',
     'f2fs',
 ]
 
 dataClasses = [
     #'1k',
-    '4k',
+    #'4k',
     #'512k',
     #'5m',
     '40m',
+    #'5g',
 ]
 
 flksizes = [
@@ -37,12 +39,14 @@ flksizes = [
     4096,
     #8192,
     #16384,
+    #32768,
+    #65536,
 ]
 
 fpns = [
-    #1,
-    #2,
-    #4,
+    #1, (too small)
+    #2, (too small)
+    #4, (too small)
     #8,
     #16,
     #32,
@@ -54,27 +58,19 @@ fpns = [
 # TODO: add stringified names to experiments (tuples?)
 experiments = [
     lib.sequentialFreerunWithCipherSwitching,
-    lib.randomFreerunWithCipherSwitching,
+    #lib.sequentialWORMWithCipherSwitching,
+    #lib.randomFreerunWithCipherSwitching,
+    #lib.randomWORMWithCipherSwitching,
 ]
 
 # ? These are all the cipher swapping pairs that will be tested
 # ? each element: (primary cipher, swap cipher, swap strategy)
 cipherpairs = [
-    ('sc_chacha8_neon', 'sc_freestyle_fast', 'swap_forward'),
-    ('sc_chacha8_neon', 'sc_freestyle_fast', 'swap_aggressive'),
+    ('sc_chacha8_neon', 'sc_freestyle_fast', 'swap_0_forward'),
+    ('sc_chacha8_neon', 'sc_freestyle_fast', 'swap_1_forward'),
+    ('sc_chacha8_neon', 'sc_freestyle_fast', 'swap_2_forward'),
     ('sc_chacha8_neon', 'sc_freestyle_fast', 'swap_mirrored'),
-    ('sc_chacha20_neon', 'sc_freestyle_fast', 'swap_forward'),
-    ('sc_chacha20_neon', 'sc_freestyle_fast', 'swap_aggressive'),
-    ('sc_chacha20_neon', 'sc_freestyle_fast', 'swap_mirrored'),
-    ('sc_aes128_ctr', 'sc_freestyle_fast', 'swap_forward'),
-    ('sc_aes128_ctr', 'sc_freestyle_fast', 'swap_aggressive'),
-    ('sc_aes128_ctr', 'sc_freestyle_fast', 'swap_mirrored'),
-    ('sc_chacha8_neon', 'sc_aes128_ctr', 'swap_forward'),
-    ('sc_chacha8_neon', 'sc_aes128_ctr', 'swap_aggressive'),
-    ('sc_chacha8_neon', 'sc_aes128_ctr', 'swap_mirrored'),
-    ('sc_chacha20_neon', 'sc_aes128_ctr', 'swap_forward'),
-    ('sc_chacha20_neon', 'sc_aes128_ctr', 'swap_aggressive'),
-    ('sc_chacha20_neon', 'sc_aes128_ctr', 'swap_mirrored'),
+    ('sc_chacha8_neon', 'sc_freestyle_fast', 'swap_selective')
 ]
 
 backendFnTuples = [
@@ -105,15 +101,15 @@ if __name__ == "__main__":
         lib.clearBackstoreFiles()
         lib.print('constructing configurations')
 
-        # * Optimal flake/nugget size perf test
+        # * And it begins!
         configurations = []
         for filesystem in filesystems:
-            configurations.append(Configuration('{}#baseline+{}'.format(filesystem, '{}'), filesystem, [], []))
+            configurations.append(Configuration('{}#baseline'.format(filesystem), filesystem, [], []))
             for fpn in fpns:
                 for flk_size in flksizes:
                     configurations.extend([
                         Configuration(
-                            '{}#{}#{}#{}#{}#{}+{}'.format(filesystem, cipherpair[0], flk_size, fpn, cipherpair[1], cipherpair[2], '{}'),
+                            '{}#{}#{}#{}#{}#{}'.format(filesystem, cipherpair[0], flk_size, fpn, cipherpair[1], cipherpair[2]),
                             filesystem,
                             [],
                             [
@@ -150,21 +146,14 @@ if __name__ == "__main__":
                                         predictedResultFileName
                                     )
 
-                                    lib.print('xxxx-------------- {} experiment: {} --------------xxxx'.format(
+                                    lib.print('------------------ {} experiment: {} ------------------'.format(
                                         runFn.experiment_name,
-                                        identifier.format('X')
+                                        identifier
                                     ))
 
                                     # ? If the results file exists already, then skip this experiment!
-                                    # ! If the "4" in "range(1, 4)" below changes, you should also update the exception
-                                    pathsExist = [os.path.exists(predictedResultFilePath.format(x)) for x in range(1, 4)]
-
-                                    if True in pathsExist:
-                                        if all(pathsExist):
-                                            lib.print('results files were found, experiment skipped!')
-
-                                        else:
-                                            raise BadResultFileStructureError(predictedResultFileName, pathsExist)
+                                    if os.path.exists(predictedResultFilePath):
+                                        lib.print('results file {} was found, experiment skipped!'.format(predictedResultFilePath))
 
                                     else:
                                         try:
@@ -177,8 +166,7 @@ if __name__ == "__main__":
                                             raise
 
                                         try:
-                                            # ? %d is for snprintf in C
-                                            runFn(dataClass, identifier.format('%d'))
+                                            runFn(dataClass, identifier)
 
                                         except KeyboardInterrupt:
                                             progressBar.close()
