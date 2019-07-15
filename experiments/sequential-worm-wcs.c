@@ -193,7 +193,7 @@ int main(int argc, char * argv[])
     // Get read path from shards
 
     char path_shard[PATH_BUFF_SIZE];
-    snprintf(path_shard, PATH_BUFF_SIZE, "results/sequential.%s.%s.results", core_type, fs_type);
+    snprintf(path_shard, PATH_BUFF_SIZE, "results/sequential_worm_wcs.%s.%s.results", core_type, fs_type);
     get_real_path(output_path, STRINGIZE_VALUE_OF(REPO_PATH), path_shard);
 
     printf("output_path: %s\n", output_path);
