@@ -136,6 +136,13 @@ int swap_ciphers()
     printf("swap_ciphers (call to shell): %s\n", cmd);
 
     retval = system(cmd);
+
+    if(retval)
+    {
+        printf("swap_ciphers (call to shell) failed with retval: %i\n", retval);
+        exit(retval);
+    }
+
     sync();
 
     return retval;
