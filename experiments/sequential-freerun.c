@@ -1,6 +1,8 @@
 #define _XOPEN_SOURCE 500
 #define _FILE_OFFSET_BITS 64
 
+// * Experiment 1
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <errno.h>
@@ -85,17 +87,14 @@ int collect_metrics(Metrics * metrics, energymon * monitor)
 }
 
 /**
- * Appends path to REPO_PATH, separated by a /, and places it in buff. A maximum
- * of PATH_BUFF_SIZE bytes will be written into buff.
+ * Appends `path` to the `base` path, separated by a /, and places it in buff. A
+ * maximum of PATH_BUFF_SIZE bytes will be written into buff.
  *
- * @param  buff Buffer to put the resultant string into
- * @param  path String to append to the end of REPO_PATH
- *
- * @return      The result of snprintf()
+ * @return The result of snprintf()
  */
-int get_real_path(char * buff, const char * path)
+int get_real_path(char * buff, const char * base, const char * path)
 {
-    return snprintf(buff, PATH_BUFF_SIZE, "%s/%s", STRINGIZE_VALUE_OF(REPO_PATH), path);
+    return snprintf(buff, PATH_BUFF_SIZE, "%s/%s", base, path);
 }
 
 /**
@@ -148,7 +147,7 @@ int main(int argc, char * argv[])
 
     char path_shard[PATH_BUFF_SIZE];
     snprintf(path_shard, PATH_BUFF_SIZE, "results/sequential.%s.%s.results", core_type, fs_type);
-    get_real_path(output_path, path_shard);
+    get_real_path(output_path, STRINGIZE_VALUE_OF(REPO_PATH), path_shard);
 
     printf("output_path: %s\n", output_path);
     printf("RANDOM_PATH: %s\n", RANDOM_PATH);
@@ -194,8 +193,6 @@ int main(int argc, char * argv[])
         perror("ftell failed on RANDOM_PATH");
         return 10;
     }
-
-    u_int64_t iosize_actual = MIN(fsize, IOSIZE);
 
     errno = 0;
 
@@ -275,19 +272,6 @@ int main(int argc, char * argv[])
 
         printf("writeout_target: %s\n", writeout_target);
 
-        Metrics write_metrics_start;
-        retval = collect_metrics(&write_metrics_start, &monitor);
-
-        if(retval != 0)
-            return retval;
-
-        printf("WRITE METRICS:: got start energy (uj): %"PRIu64"\n", write_metrics_start.energy_uj);
-        printf("WRITE METRICS:: got start time (ns): %"PRIu64"\n", write_metrics_start.time_ns);
-
-        // Run the simpler version of the experiment with writes coming from the
-        // random oracle file RANDOM_PATH, i.e. randomness
-        // unsigned int times = COPY_INTO_TIMES;
-        // | O_DIRECT | O_SYNC
         int trialoutfd = open(writeout_target, O_CREAT | O_RDWR | O_SYNC, 0777);
 
         if(trialoutfd < 0)
@@ -297,6 +281,17 @@ int main(int argc, char * argv[])
             return 13;
         }
 
+        // ? WRITE whole file
+
+        Metrics write_metrics_start;
+        retval = collect_metrics(&write_metrics_start, &monitor);
+
+        if(retval != 0)
+            return retval;
+
+        printf("WRITE METRICS:: got start energy (uj): %"PRIu64"\n", write_metrics_start.energy_uj);
+        printf("WRITE METRICS:: got start time (ns): %"PRIu64"\n", write_metrics_start.time_ns);
+
         u_int64_t writelen = fsize;
         char * randomnessCopy = randomness;
 
@@ -304,7 +299,7 @@ int main(int argc, char * argv[])
 
         while(writelen > 0)
         {
-            u_int64_t bytesWritten = write(trialoutfd, randomnessCopy, iosize_actual);
+            u_int64_t bytesWritten = write(trialoutfd, randomnessCopy, MIN(fsize, IOSIZE));
 
             if(bytesWritten <= 0)
             {
@@ -329,6 +324,8 @@ int main(int argc, char * argv[])
         printf("WRITE METRICS:: got end energy (uj): %"PRIu64"\n", write_metrics_end.energy_uj);
         printf("WRITE METRICS:: got end time (ns): %"PRIu64"\n", write_metrics_end.time_ns);
 
+        // ? READ whole file
+
         // Drop the page cache before the next read
         ignore_result(pwrite(pcachefd, droppcache, sizeof(char), 0));
 
@@ -349,7 +346,7 @@ int main(int argc, char * argv[])
 
         while(readlen > 0)
         {
-            u_int64_t bytesRead = read(trialoutfd, readback, iosize_actual);
+            u_int64_t bytesRead = read(trialoutfd, readback, MIN(fsize, IOSIZE));
 
             if(bytesRead <= 0)
             {
@@ -362,6 +359,9 @@ int main(int argc, char * argv[])
             readback = readback + bytesRead;
         }
 
+        // Make sure anything relevant gets written through
+        sync();
+
         Metrics read_metrics_end;
         retval = collect_metrics(&read_metrics_end, &monitor);
 
@@ -373,7 +373,8 @@ int main(int argc, char * argv[])
 
         free(readbackOriginal);
 
-        // Crunch the results
+        // ? Crunch results
+
         double w_energy = write_metrics_end.energy_uj - write_metrics_start.energy_uj;
         double w_duration = write_metrics_end.time_ns - write_metrics_start.time_ns;
         double w_power = w_energy * 1000.0 / w_duration;
@@ -392,7 +393,8 @@ int main(int argc, char * argv[])
                r_duration / 1000000000.0,
                r_power);
 
-        // Output the results
+        // ? Output the results
+
         fprintf(flog_output,
                 "w_energy: %f\nw_duration: %f\nw_power: %f\nr_energy: %f\nr_duration: %f\nr_power: %f\n---\n",
                 w_energy,
@@ -410,7 +412,8 @@ int main(int argc, char * argv[])
             remove(writeout_target);
         }
 
-        // Flush the results
+        // ? Flush the results
+
         fflush(flog_output);
     }
 
@@ -432,11 +435,13 @@ int main(int argc, char * argv[])
         return 7;
     }
 
-    // Free randomness buffer
+    // ? Free randomness buffer
+
     free(randomness);
-    printf("Done!\n");
     fclose(flog_output);
     close(pcachefd);
+
+    printf("Done!\n");
 
     return 0;
 }

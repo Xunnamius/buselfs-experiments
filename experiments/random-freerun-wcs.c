@@ -1,6 +1,8 @@
 #define _XOPEN_SOURCE 500
 #define _FILE_OFFSET_BITS 64
 
+// * Experiment 4
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <errno.h>
@@ -21,6 +23,7 @@
 #define SRAND_SEED1 76532543U
 #define SRAND_SEED2 34567970U
 #define SRAND_SEED3 25349875U
+#define SRAND_SEED4 57968308U
 #define PATH_BUFF_SIZE 255U
 #define CMD_BUFF_SIZE 512U
 #define COPY_INTO_TIMES 1U // randomness written COPY_INTO_TIMES into same file
@@ -163,9 +166,9 @@ int main(int argc, char * argv[])
     sigaction(SIGINT, &act, NULL);
 
     energymon monitor;
-    char output_paths[3][PATH_BUFF_SIZE];
+    char output_path[PATH_BUFF_SIZE];
 
-    FILE * flog_outputs[3];
+    FILE * flog_output;
     FILE * frandom;
 
     // Accept non-optional args core_type, fs_type, write_to
@@ -184,33 +187,24 @@ int main(int argc, char * argv[])
     printf("fs_type: %s\n", fs_type);
     printf("write_to: %s\n", write_to);
 
-    // Get read paths from shards
+    // Get read path from shards
 
-    for(size_t i = 0; i < 3; ++i)
-    {
-        char ident_shard[PATH_BUFF_SIZE];
-        char path_shard[PATH_BUFF_SIZE];
+    char path_shard[PATH_BUFF_SIZE];
+    snprintf(path_shard, PATH_BUFF_SIZE, "results/random.%s.%s.results", core_type, fs_type);
+    get_real_path(output_path, STRINGIZE_VALUE_OF(REPO_PATH), path_shard);
 
-        // ? fs_type has "%d" contained within it (passed from python)!
-        snprintf(ident_shard, PATH_BUFF_SIZE, "results/random_wcs.%s.%s.results", core_type, fs_type);
-        snprintf(path_shard, PATH_BUFF_SIZE, ident_shard, i + 1);
-
-        get_real_path(output_paths[i], STRINGIZE_VALUE_OF(REPO_PATH), path_shard);
-
-        printf("output_path[%d]: %s\n", i, output_paths[i]);
-
-        errno = 0;
-
-        flog_outputs[i] = fopen(output_paths[i], "a");
-
-        if(!flog_outputs[i] || errno)
-        {
-            perror("failed to fopen output path");
-            return 6;
-        }
-    }
-
+    printf("output_path: %s\n", output_path);
     printf("RANDOM_PATH: %s\n", RANDOM_PATH);
+
+    errno = 0;
+
+    flog_output = fopen(output_path, "a");
+
+    if(!flog_output || errno)
+    {
+        perror("failed to fopen output_path");
+        return 6;
+    }
 
     // Read entire randomness file into memory buffer
 
@@ -331,39 +325,64 @@ int main(int argc, char * argv[])
             return 13;
         }
 
-        // ? WRITE initial whole file
-        // ! This is part of the setup, not part of the experiment!
+        // ? WRITE 1/2
 
-        u_int64_t write1len = fsize;
+        Metrics write1_metrics_start;
+        retval = collect_metrics(&write1_metrics_start, &monitor);
+
+        if(retval != 0)
+            return retval;
+
+        printf("1 WRITE METRICS:: got start energy (uj): %"PRIu64"\n", write1_metrics_start.energy_uj);
+        printf("1 WRITE METRICS:: got start time (ns): %"PRIu64"\n", write1_metrics_start.time_ns);
+
+        u_int64_t write1len = fsize / 2;
         char * randomnessCopy1 = randomness;
 
         lseek64(trialoutfd, 0, SEEK_SET);
+        srand(SRAND_SEED1);
 
         while(write1len > 0)
         {
-            u_int64_t bytesWritten1 = write(trialoutfd, randomnessCopy1, MIN(write1len, IOSIZE));
+            errno = 0;
 
-            if(bytesWritten1 <= 0)
+            u_int64_t iosize1_actual = MIN(write1len, IOSIZE);
+            u_int64_t seeklimit1 = write1len - iosize1_actual;
+            u_int64_t offset1 = rand() % seeklimit1;
+            u_int64_t bytesWritten1 = pwrite(
+                trialoutfd,
+                randomnessCopy1 + offset1,
+                !iosize1_actual ? 1 : iosize1_actual,
+                seeklimit1
+            );
+
+            if(errno)
             {
                 perror("write failed");
                 monitor.ffinish(&monitor);
-                return 144;
+                return 14;
             }
 
             write1len -= bytesWritten1;
-            randomnessCopy1 = randomnessCopy1 + bytesWritten1;
+            //randomnessCopy1 = randomnessCopy1 + bytesWritten1;
         }
 
         // Make sure everything writes through
         sync();
 
+        Metrics write1_metrics_end;
+        retval = collect_metrics(&write1_metrics_end, &monitor);
+
+        if(retval != 0)
+            return retval;
+
+        printf("1 WRITE METRICS:: got end energy (uj): %"PRIu64"\n", write1_metrics_end.energy_uj);
+        printf("1 WRITE METRICS:: got end time (ns): %"PRIu64"\n", write1_metrics_end.time_ns);
+
         // ? READ 1/2
 
         // Drop the page cache before the next read
         ignore_result(pwrite(pcachefd, droppcache, sizeof(char), 0));
-
-        // Swap ciphers
-        swap_ciphers();
 
         Metrics read1_metrics_start;
         retval = collect_metrics(&read1_metrics_start, &monitor);
@@ -371,24 +390,29 @@ int main(int argc, char * argv[])
         if(retval != 0)
             return retval;
 
-        printf("+1 READ METRICS :: got start energy (uj): %"PRIu64"\n", read1_metrics_start.energy_uj);
-        printf("+1 READ METRICS :: got start time (ns): %"PRIu64"\n", read1_metrics_start.time_ns);
+        printf("1 READ METRICS :: got start energy (uj): %"PRIu64"\n", read1_metrics_start.energy_uj);
+        printf("1 READ METRICS :: got start time (ns): %"PRIu64"\n", read1_metrics_start.time_ns);
 
         u_int64_t read1len = fsize / 2;
         char * read1back = malloc(read1len);
         char * read1backOriginal = read1back;
 
         lseek64(trialoutfd, 0, SEEK_SET);
-        srand(SRAND_SEED1);
+        srand(SRAND_SEED2);
 
         while(read1len > 0)
         {
             errno = 0;
 
-            u_int64_t iosize1_actual = MIN(read1len / 2, IOSIZE);
-            u_int64_t seeklimit1 = read1len - iosize1_actual;
+            u_int64_t iosize1_actual = MIN(read1len, IOSIZE);
+            u_int64_t seeklimit1 = fsize - iosize1_actual;
             u_int64_t offset1 = rand() % seeklimit1;
-            u_int64_t bytesRead1 = pread(trialoutfd, read1back, !iosize1_actual ? 1 : iosize1_actual, offset1);
+            u_int64_t bytesRead1 = pread(
+                trialoutfd,
+                read1back,
+                !iosize1_actual ? 1 : iosize1_actual,
+                offset1
+            );
 
             if(errno)
             {
@@ -410,78 +434,76 @@ int main(int argc, char * argv[])
         if(retval != 0)
             return retval;
 
-        printf("+1 READ METRICS :: got end energy (uj): %"PRIu64"\n", read1_metrics_end.energy_uj);
-        printf("+1 READ METRICS :: got end time (ns): %"PRIu64"\n", read1_metrics_end.time_ns);
+        printf("1 READ METRICS :: got end energy (uj): %"PRIu64"\n", read1_metrics_end.energy_uj);
+        printf("1 READ METRICS :: got end time (ns): %"PRIu64"\n", read1_metrics_end.time_ns);
 
         free(read1backOriginal);
 
-        // ? WRITE 3/4
+        // ? Schedule a cipher swap
+
+        swap_ciphers();
+
+        // ? WRITE 2/2
 
         // Drop the page cache before the next write
         ignore_result(pwrite(pcachefd, droppcache, sizeof(char), 0));
 
-        // Swap ciphers
-        swap_ciphers();
-
-        Metrics write_metrics_start;
-        retval = collect_metrics(&write_metrics_start, &monitor);
+        Metrics write2_metrics_start;
+        retval = collect_metrics(&write2_metrics_start, &monitor);
 
         if(retval != 0)
             return retval;
 
-        printf("+2 WRITE METRICS:: got start energy (uj): %"PRIu64"\n", write_metrics_start.energy_uj);
-        printf("+2 WRITE METRICS:: got start time (ns): %"PRIu64"\n", write_metrics_start.time_ns);
+        printf("2 WRITE METRICS:: got start energy (uj): %"PRIu64"\n", write2_metrics_start.energy_uj);
+        printf("2 WRITE METRICS:: got start time (ns): %"PRIu64"\n", write2_metrics_start.time_ns);
 
-        u_int64_t write2len = 3 * fsize / 4;
+        u_int64_t write2len = fsize / 2;
         char * randomnessCopy2 = randomness;
 
-        lseek64(trialoutfd, 0, SEEK_SET);
-        srand(SRAND_SEED2);
+        lseek64(trialoutfd, fsize / 2, SEEK_SET);
+        srand(SRAND_SEED3);
 
         while(write2len > 0)
         {
             errno = 0;
 
-            u_int64_t iosize_actual = MIN(write2len / 2, IOSIZE);
-            u_int64_t seeklimit = write2len - iosize_actual;
-            u_int64_t offset = rand() % seeklimit;
-            u_int64_t bytesWritten = pwrite(
+            u_int64_t iosize2_actual = MIN(write2len, IOSIZE);
+            u_int64_t seeklimit2 = write2len - iosize2_actual;
+            u_int64_t offset2 = rand() % seeklimit2;
+            u_int64_t bytesWritten2 = pwrite(
                 trialoutfd,
-                randomnessCopy2 + offset,
-                !iosize_actual ? 1 : iosize_actual,
-                seeklimit
+                randomnessCopy2 + offset2,
+                !iosize2_actual ? 1 : iosize2_actual,
+                seeklimit2
             );
 
             if(errno)
             {
                 perror("write failed");
                 monitor.ffinish(&monitor);
-                return 14;
+                return 144;
             }
 
-            write2len -= bytesWritten;
+            write2len -= bytesWritten2;
             //randomnessCopy2 = randomnessCopy2 + bytesWritten;
         }
 
         // Make sure everything writes through
         sync();
 
-        Metrics write_metrics_end;
-        retval = collect_metrics(&write_metrics_end, &monitor);
+        Metrics write2_metrics_end;
+        retval = collect_metrics(&write2_metrics_end, &monitor);
 
         if(retval != 0)
             return retval;
 
-        printf("+2 WRITE METRICS:: got end energy (uj): %"PRIu64"\n", write_metrics_end.energy_uj);
-        printf("+2 WRITE METRICS:: got end time (ns): %"PRIu64"\n", write_metrics_end.time_ns);
+        printf("2 WRITE METRICS:: got end energy (uj): %"PRIu64"\n", write2_metrics_end.energy_uj);
+        printf("2 WRITE METRICS:: got end time (ns): %"PRIu64"\n", write2_metrics_end.time_ns);
 
-        // ? READ 1 (the whole thing)
+        // ? READ 2/2
 
-        // Again, drop the page cache before the next read
+        // Drop the page cache before the next read
         ignore_result(pwrite(pcachefd, droppcache, sizeof(char), 0));
-
-        // Swap ciphers
-        swap_ciphers();
 
         Metrics read2_metrics_start;
         retval = collect_metrics(&read2_metrics_start, &monitor);
@@ -489,24 +511,29 @@ int main(int argc, char * argv[])
         if(retval != 0)
             return retval;
 
-        printf("+3 READ METRICS :: got start energy (uj): %"PRIu64"\n", read2_metrics_start.energy_uj);
-        printf("+3 READ METRICS :: got start time (ns): %"PRIu64"\n", read2_metrics_start.time_ns);
+        printf("2 READ METRICS :: got start energy (uj): %"PRIu64"\n", read2_metrics_start.energy_uj);
+        printf("2 READ METRICS :: got start time (ns): %"PRIu64"\n", read2_metrics_start.time_ns);
 
-        u_int64_t read2len = fsize;
+        u_int64_t read2len = fsize / 2;
         char * read2back = malloc(read2len);
         char * read2backOriginal = read2back;
 
-        lseek64(trialoutfd, 0, SEEK_SET);
-        srand(SRAND_SEED3);
+        lseek64(trialoutfd, fsize / 2, SEEK_SET);
+        srand(SRAND_SEED4);
 
         while(read2len > 0)
         {
             errno = 0;
 
-            u_int64_t iosize2_actual = MIN(read2len / 2, IOSIZE);
+            u_int64_t iosize2_actual = MIN(read2len, IOSIZE);
             u_int64_t seeklimit2 = read2len - iosize2_actual;
             u_int64_t offset2 = rand() % seeklimit2;
-            u_int64_t bytesRead2 = pread(trialoutfd, read2back, !iosize2_actual ? 1 : iosize2_actual, offset2);
+            u_int64_t bytesRead2 = pread(
+                trialoutfd,
+                read2back,
+                !iosize2_actual ? 1 : iosize2_actual,
+                offset2
+            );
 
             if(errno)
             {
@@ -528,59 +555,57 @@ int main(int argc, char * argv[])
         if(retval != 0)
             return retval;
 
-        printf("+3 READ METRICS :: got end energy (uj): %"PRIu64"\n", read2_metrics_end.energy_uj);
-        printf("+3 READ METRICS :: got end time (ns): %"PRIu64"\n", read2_metrics_end.time_ns);
+        printf("2 READ METRICS :: got end energy (uj): %"PRIu64"\n", read2_metrics_end.energy_uj);
+        printf("2 READ METRICS :: got end time (ns): %"PRIu64"\n", read2_metrics_end.time_ns);
 
         free(read2backOriginal);
 
         // ? Crunch results
 
-        double w_energy = write_metrics_end.energy_uj - write_metrics_start.energy_uj;
-        double w_duration = write_metrics_end.time_ns - write_metrics_start.time_ns;
-        double w_power = w_energy * 1000.0 / w_duration;
+        double w1_energy = write1_metrics_end.energy_uj - write1_metrics_start.energy_uj;
+        double w1_duration = write1_metrics_end.time_ns - write1_metrics_start.time_ns;
+        double w1_power = w1_energy * 1000.0 / w1_duration;
 
         double r1_energy = read1_metrics_end.energy_uj - read1_metrics_start.energy_uj;
         double r1_duration = read1_metrics_end.time_ns - read1_metrics_start.time_ns;
         double r1_power = r1_energy * 1000.0 / r1_duration;
 
+        double w2_energy = write2_metrics_end.energy_uj - write2_metrics_start.energy_uj;
+        double w2_duration = write2_metrics_end.time_ns - write2_metrics_start.time_ns;
+        double w2_power = w2_energy * 1000.0 / w2_duration;
+
         double r2_energy = read2_metrics_end.energy_uj - read2_metrics_start.energy_uj;
         double r2_duration = read2_metrics_end.time_ns - read2_metrics_start.time_ns;
         double r2_power = r2_energy * 1000.0 / r2_duration;
 
-        printf("==> READS (1) <==\nenergy: %fj\nduration: %fs\npower: %fw\n",
-               r1_energy / 1000000.0,
-               r1_duration / 1000000000.0,
-               r1_power);
+        double w_energy = (w1_energy + w2_energy) / 2.0;
+        double w_duration = (w1_duration + w2_duration) / 2.0;
+        double w_power = (w1_power + w2_power) / 2.0;
+
+        double r_energy = (r1_energy + r2_energy) / 2.0;
+        double r_duration = (r1_duration + r2_duration) / 2.0;
+        double r_power = (r1_power + r2_power) / 2.0;
 
         printf("==> WRITES <==\nenergy: %fj\nduration: %fs\npower: %fw\n",
                w_energy / 1000000.0,
                w_duration / 1000000000.0,
                w_power);
 
-        printf("==> READS (2) <==\nenergy: %fj\nduration: %fs\npower: %fw\n",
-               r2_energy / 1000000.0,
-               r2_duration / 1000000000.0,
-               r2_power);
+        printf("==> READS <==\nenergy: %fj\nduration: %fs\npower: %fw\n",
+               r_energy / 1000000.0,
+               r_duration / 1000000000.0,
+               r_power);
 
         // ? Output the results
 
-        fprintf(flog_outputs[0],
-                "r_energy: %f\nr_duration: %f\nr_power: %f\n---\n",
-                r1_energy,
-                r1_duration,
-                r1_power);
-
-        fprintf(flog_outputs[1],
-                "w_energy: %f\nw_duration: %f\nw_power: %f\n---\n",
+        fprintf(flog_output,
+                "w_energy: %f\nw_duration: %f\nw_power: %f\nr_energy: %f\nr_duration: %f\nr_power: %f\n---\n",
                 w_energy,
                 w_duration,
-                w_power);
-
-        fprintf(flog_outputs[2],
-                "r_energy: %f\nr_duration: %f\nr_power: %f\n---\n",
-                r2_energy,
-                r2_duration,
-                r2_power);
+                w_power,
+                r_energy,
+                r_duration,
+                r_power);
 
         close(trialoutfd);
 
@@ -590,10 +615,9 @@ int main(int argc, char * argv[])
             remove(writeout_target);
         }
 
-        // Flush the results
-        fflush(flog_outputs[0]);
-        fflush(flog_outputs[1]);
-        fflush(flog_outputs[2]);
+        // ? Flush the results
+
+        fflush(flog_output);
     }
 
     if(!keepRunning)
@@ -614,14 +638,13 @@ int main(int argc, char * argv[])
         return 7;
     }
 
+    // ? Free randomness buffer
+
     free(randomness);
-    printf("Done!\n");
-
-    fclose(flog_outputs[0]);
-    fclose(flog_outputs[1]);
-    fclose(flog_outputs[2]);
-
+    fclose(flog_output);
     close(pcachefd);
+
+    printf("Done!\n");
 
     return 0;
 }
