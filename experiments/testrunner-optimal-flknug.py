@@ -24,21 +24,21 @@ filesystems = [
 ]
 
 dataClasses = [
-    '1k',
-    '4k',
-    '512k',
-    '5m',
+    #'1k',
+    #'4k',
+    #'512k',
+    #'5m',
     '40m',
     #'5G',
 ]
 
 flksizes = [
-    512,
-    1024,
-    2048,
+    #512,
+    #1024,
+    #2048,
     4096,
-    8192,
-    16384,
+    #8192,
+    #16384,
     #32768,
     #65536,
 ]
@@ -47,34 +47,34 @@ fpns = [
     #1, (too small)
     #2, (too small)
     #4, (too small)
-    8,
-    16,
-    32,
+    #8,
+    #16,
+    #32,
     64,
-    128,
-    256,
+    #128,
+    #256,
 ]
 
 # TODO: add stringified names to experiments (tuples?)
 experiments = [
     lib.sequentialFreerun,
-    lib.randomFreerun,
+    #lib.randomFreerun,
 ]
 
-ciphers = [#'sc_salsa8',
-           #'sc_salsa12',
-           #'sc_salsa20',
+ciphers = ['sc_salsa8',
+           'sc_salsa12',
+           'sc_salsa20',
            'sc_aes128_ctr',
-           #'sc_aes256_ctr',
+           'sc_aes256_ctr',
            #'sc_hc128', # ! too slow to test (see buselfs source for rationale)
-           #'sc_rabbit',
-           #'sc_sosemanuk',
+           'sc_rabbit',
+           'sc_sosemanuk',
            'sc_chacha20_neon',
-           #'sc_chacha12_neon',
+           'sc_chacha12_neon',
            'sc_chacha8_neon',
            'sc_freestyle_fast',
-           #'sc_freestyle_balanced',
-           #'sc_freestyle_secure',
+           'sc_freestyle_balanced',
+           'sc_freestyle_secure',
 ]
 
 backendFnTuples = [
@@ -147,7 +147,7 @@ if __name__ == "__main__":
                                         RESULTS_PATH.format(config['REPO_PATH'], predictedResultFileName)
                                     )
 
-                                    lib.print(' ------------------ {} experiment: {} ------------------'.format(
+                                    lib.print('------------------ {} experiment: {} ------------------'.format(
                                         runFn.experiment_name,
                                         identifier
                                     ))
@@ -193,7 +193,7 @@ if __name__ == "__main__":
                                                 printInstabilityWarning(lib, config)
                                                 raise
 
-                                    lib.print(' ------------------ *** ------------------')
+                                    lib.print('------------------ *** ------------------')
                                     lib.logFile = None
 
                                     progressBar.update()
