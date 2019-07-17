@@ -15,7 +15,7 @@
 # DO NOT MODIFY IN ANY WAY THE LINE IMMEDIATELY FOLLOWING THIS COMMENT!
 CONFIG_COMPILE_FLAGS := \
 						-DREPO_PATH="/home/odroid/bd3/repos/buselfs-experiments" \
-						-DBUSE_PATH="/home/odroid/bd3/repos/BUSE/buselogfs" \
+						-DBUSE_PATH="/home/odroid/bd3/repos/buse/buselogfs" \
 						-DBUSELFS_PATH="/home/odroid/bd3/repos/buselfs" \
 						-DLOG_FILE_PATH="/tmp/runner.log" \
 						-DDROP_CACHE_PATH="/proc/sys/vm/drop_caches" \
