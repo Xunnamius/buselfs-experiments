@@ -299,7 +299,7 @@ int main(int argc, char * argv[])
 
         while(writelen > 0)
         {
-            u_int64_t bytesWritten = write(trialoutfd, randomnessCopy, MIN(fsize, IOSIZE));
+            u_int64_t bytesWritten = write(trialoutfd, randomnessCopy, MIN(writelen, IOSIZE));
 
             if(bytesWritten <= 0)
             {
@@ -346,7 +346,7 @@ int main(int argc, char * argv[])
 
         while(readlen > 0)
         {
-            u_int64_t bytesRead = read(trialoutfd, readback, MIN(fsize, IOSIZE));
+            u_int64_t bytesRead = read(trialoutfd, readback, MIN(readlen, IOSIZE));
 
             if(bytesRead <= 0)
             {

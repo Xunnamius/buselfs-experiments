@@ -174,12 +174,12 @@ int main(int argc, char * argv[])
     FILE * flog_output;
     FILE * frandom;
 
-    // Accept non-optional args core_type, fs_type, write_to
+    // ? Accept non-optional args core_type, fs_type, write_to, swap_ratio
     if(argc != 4)
     {
-        printf("Usage: sequential-freerun-wcs <core_type> <fs_type> <write_to>\n");
+        printf("Usage: sequential-worm-wcs <core_type> <fs_type> <write_to>\n");
         printf("No trailing slash for <write_to>!\n");
-        return -1;
+        return 253;
     }
 
     char * core_type = argv[1];

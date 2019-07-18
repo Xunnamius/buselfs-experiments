@@ -178,12 +178,12 @@ int main(int argc, char * argv[])
     FILE * flog_output;
     FILE * frandom;
 
-    // Accept non-optional args core_type, fs_type, write_to
+    // ? Accept non-optional args core_type, fs_type, write_to, swap_ratio
     if(argc != 4)
     {
-        printf("Usage: random-freerun-wcs <core_type> <fs_type> <write_to>\n");
+        printf("Usage: random-worm-wcs <core_type> <fs_type> <write_to>\n");
         printf("No trailing slash for <write_to>!\n");
-        return -1;
+        return 253;
     }
 
     char * core_type = argv[1];
@@ -345,14 +345,14 @@ int main(int argc, char * argv[])
         {
             errno = 0;
 
-            u_int64_t iosize1_actual = MIN(write1len, IOSIZE);
+            u_int64_t iosize1_actual = MIN(write1len / 2, IOSIZE);
             u_int64_t seeklimit1 = write1len - iosize1_actual;
             u_int64_t offset1 = rand() % seeklimit1;
             u_int64_t bytesWritten1 = pwrite(
                 trialoutfd,
                 randomnessCopy1 + offset1,
                 !iosize1_actual ? 1 : iosize1_actual,
-                seeklimit1
+                offset1
             );
 
             if(errno)
@@ -394,8 +394,8 @@ int main(int argc, char * argv[])
         {
             errno = 0;
 
-            u_int64_t iosize1_actual = MIN(read1len, IOSIZE);
-            u_int64_t seeklimit1 = fsize - iosize1_actual;
+            u_int64_t iosize1_actual = MIN(read1len / 2, IOSIZE);
+            u_int64_t seeklimit1 = read1len - iosize1_actual;
             u_int64_t offset1 = rand() % seeklimit1;
             u_int64_t bytesRead1 = pread(
                 trialoutfd,
@@ -458,7 +458,7 @@ int main(int argc, char * argv[])
         {
             errno = 0;
 
-            u_int64_t iosize2_actual = MIN(read2len, IOSIZE);
+            u_int64_t iosize2_actual = MIN(read2len / 2, IOSIZE);
             u_int64_t seeklimit2 = read2len - iosize2_actual;
             u_int64_t offset2 = rand() % seeklimit2;
             u_int64_t bytesRead2 = pread(
