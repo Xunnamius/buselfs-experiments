@@ -18,6 +18,9 @@
 #include "energymon/energymon-default.h"
 #include "vendor/energymon/energymon-time-util.h"
 
+#define RETURN_PRIMARY_LENGTH 0
+#define RETURN_SWAP_LENGTH 1
+
 #define IOSIZE 131072U
 //#define IOSIZE INT_MAX
 #define PATH_BUFF_SIZE 255U
@@ -155,24 +158,23 @@ static inline void ignore_result(long long int unused_result)
 }
 
 /**
- * Calculates the length of the operation (in bytes) using fsize and swap_ratio
- * designator. primary_or_swap == 0 => length for primary cipher op; 1 => swap.
+ * Calculates the length of the operation (in bytes) using fsize and swap_ratio,
+ * which details how much of the I/O operations are reserved for the swap
+ * cipher. primary_or_swap determines which percentage of the backing store, in
+ * bytes, is returned.
  */
-static inline u_int64_t calc_len(u_int64_t fsize, int swap_ratio, int primary_or_swap)
+u_int64_t calc_len(u_int64_t fsize, int swap_ratio, int primary_or_swap)
 {
     u_int64_t result = 0;
 
-    if(swap_ratio == 4)
-        result = fsize / 2;
-
-    else if(swap_ratio == 1)
-        result = llabs(fsize * 30 / 100 - (!primary_or_swap ? fsize : 0));
+    if(swap_ratio == 1)
+        result = llabs(fsize * 25 / 100 - (primary_or_swap == RETURN_PRIMARY_LENGTH ? fsize : 0));
 
     else if(swap_ratio == 2)
-        result = llabs(fsize * 60 / 100 - (!primary_or_swap ? fsize : 0));
+        result = fsize / 2;
 
     else if(swap_ratio == 3)
-        result = llabs(fsize * 90 / 100 - (!primary_or_swap ? fsize : 0));
+        result = llabs(fsize * 75 / 100 - (primary_or_swap == RETURN_PRIMARY_LENGTH ? fsize : 0));
 
     return result;
 }
@@ -201,7 +203,7 @@ int main(int argc, char * argv[])
     if(argc != 5)
     {
         printf("Usage: sequential-freerun-wcs <core_type> <fs_type> <write_to> <swap_ratio>\n");
-        printf("<swap_ratio> must be either: 1 (30%%), 2 (60%%), 3 (90%%), or 4 (50%%)!\n");
+        printf("<swap_ratio> must be either: 1 (25%% swap), 2 (50%% swap), 3 (75%% swap)!\n");
         printf("No trailing slash for <write_to>!\n");
         return 253;
     }
@@ -210,7 +212,7 @@ int main(int argc, char * argv[])
     char * fs_type = argv[2];
     char * write_to = argv[3];
     char * swap_ratio_str = argv[4];
-    int swap_ratio = 4;
+    int swap_ratio = 2;
 
     printf("core_type: %s\n", core_type);
     printf("fs_type: %s\n", fs_type);
@@ -226,12 +228,9 @@ int main(int argc, char * argv[])
     else if(strcmp(swap_ratio_str, "3") == 0)
         swap_ratio = 3;
 
-    else if(strcmp(swap_ratio_str, "4") == 0)
-        swap_ratio = 4;
-
     else
     {
-        printf("<swap_ratio> must be either: 1 (30%%), 2 (60%%), 3 (90%%), or 4 (50%%)!\n");
+        printf("<swap_ratio> must be either: 1 (25%% swap), 2 (50%% swap), 3 (75%% swap)!\n");
         return 254;
     }
 
@@ -384,7 +383,7 @@ int main(int argc, char * argv[])
         printf("1 WRITE METRICS:: got start energy (uj): %"PRIu64"\n", write1_metrics_start.energy_uj);
         printf("1 WRITE METRICS:: got start time (ns): %"PRIu64"\n", write1_metrics_start.time_ns);
 
-        u_int64_t write1len = calc_len(fsize, swap_ratio, 0);
+        u_int64_t write1len = calc_len(fsize, swap_ratio, RETURN_PRIMARY_LENGTH);
         char * randomnessCopy1 = randomness;
 
         lseek64(trialoutfd, 0, SEEK_SET);
@@ -430,7 +429,7 @@ int main(int argc, char * argv[])
         printf("1 READ METRICS :: got start energy (uj): %"PRIu64"\n", read1_metrics_start.energy_uj);
         printf("1 READ METRICS :: got start time (ns): %"PRIu64"\n", read1_metrics_start.time_ns);
 
-        u_int64_t read1len = calc_len(fsize, swap_ratio, 0);
+        u_int64_t read1len = calc_len(fsize, swap_ratio, RETURN_PRIMARY_LENGTH);
         char * read1back = malloc(read1len);
         char * read1backOriginal = read1back;
 
@@ -483,10 +482,11 @@ int main(int argc, char * argv[])
         printf("2 WRITE METRICS:: got start energy (uj): %"PRIu64"\n", write2_metrics_start.energy_uj);
         printf("2 WRITE METRICS:: got start time (ns): %"PRIu64"\n", write2_metrics_start.time_ns);
 
-        u_int64_t write2len = calc_len(fsize, swap_ratio, 1);
+        u_int64_t write2len = calc_len(fsize, swap_ratio, RETURN_SWAP_LENGTH);
         char * randomnessCopy2 = randomness;
 
-        lseek64(trialoutfd, calc_len(fsize, swap_ratio, 0), SEEK_SET);
+        // ? Start writing at the end of the initial write
+        lseek64(trialoutfd, calc_len(fsize, swap_ratio, RETURN_PRIMARY_LENGTH), SEEK_SET);
 
         while(write2len > 0)
         {
@@ -529,11 +529,12 @@ int main(int argc, char * argv[])
         printf("2 READ METRICS :: got start energy (uj): %"PRIu64"\n", read2_metrics_start.energy_uj);
         printf("2 READ METRICS :: got start time (ns): %"PRIu64"\n", read2_metrics_start.time_ns);
 
-        u_int64_t read2len = calc_len(fsize, swap_ratio, 1);
+        u_int64_t read2len = calc_len(fsize, swap_ratio, RETURN_SWAP_LENGTH);
         char * read2back = malloc(read2len);
         char * read2backOriginal = read2back;
 
-        lseek64(trialoutfd, calc_len(fsize, swap_ratio, 0), SEEK_SET);
+        // ? Start reading at the end of the initial write
+        lseek64(trialoutfd, calc_len(fsize, swap_ratio, RETURN_PRIMARY_LENGTH), SEEK_SET);
 
         while(read2len > 0)
         {

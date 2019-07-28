@@ -15,16 +15,3 @@ class ExperimentError(RuntimeError):
     def __init__(self, message):
         self.message = message
         super().__init__(message)
-
-class BadResultFileStructureError(RuntimeError):
-    def __init__(self, ident, phaseState):
-        assert len(phaseState) == 3
-
-        self.message = ('Inconsistent result output for result set `{}`;'.format(ident.format('X'))
-            + ' delete the inconsistent results to continue (existing phases: 1={},2={},3={})'.format(
-                'yes' if phaseState[0] else 'no',
-                'yes' if phaseState[1] else 'no',
-                'yes' if phaseState[2] else 'no'
-            ))
-
-        super().__init__(self.message)

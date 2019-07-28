@@ -49,7 +49,7 @@ ResultProperties = namedtuple('ResultProperties', [
     'isBaseline',
     'swapCipher',
     'swapStrategy',
-    'phase'
+    'swapRatio'
 ])
 
 ResultProperty = namedtuple('ResultProperty', ['name', 'value'])

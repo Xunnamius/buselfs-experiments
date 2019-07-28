@@ -127,7 +127,7 @@ int main(int argc, char * argv[])
     FILE * flog_output;
     FILE * frandom;
 
-    // Accept non-optional args core_type, fs_type, write_to
+    // ? Accept non-optional args core_type, fs_type, write_to
     if(argc != 4)
     {
         printf("Usage: sequential-freerun <core_type> <fs_type> <write_to>\n");

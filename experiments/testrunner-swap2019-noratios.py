@@ -55,22 +55,20 @@ fpns = [
     #256,
 ]
 
-# TODO: add stringified names to experiments (tuples?)
 experiments = [
-    lib.sequentialFreerunWithCipherSwitching,
-    #lib.sequentialWORMWithCipherSwitching,
-    #lib.randomFreerunWithCipherSwitching,
-    #lib.randomWORMWithCipherSwitching,
+    lib.sequentialWORMWithCipherSwitching,
+    lib.randomWORMWithCipherSwitching,
 ]
 
 # ? These are all the cipher swapping pairs that will be tested
 # ? each element: (primary cipher, swap cipher, swap strategy)
 cipherpairs = [
-    ('sc_chacha8_neon', 'sc_freestyle_fast', 'swap_0_forward'),
-    ('sc_chacha8_neon', 'sc_freestyle_fast', 'swap_1_forward'),
-    ('sc_chacha8_neon', 'sc_freestyle_fast', 'swap_2_forward'),
-    ('sc_chacha8_neon', 'sc_freestyle_fast', 'swap_mirrored'),
-    ('sc_chacha8_neon', 'sc_freestyle_fast', 'swap_selective')
+    ('sc_chacha8_neon',  'sc_chacha20_neon',  'swap_mirrored'),
+    ('sc_chacha8_neon',  'sc_chacha20_neon',  'swap_selective'),
+    ('sc_chacha20_neon', 'sc_freestyle_fast', 'swap_mirrored'),
+    ('sc_chacha20_neon', 'sc_freestyle_fast', 'swap_selective'),
+    ('sc_chacha8_neon',  'sc_freestyle_fast', 'swap_mirrored'),
+    ('sc_chacha8_neon',  'sc_freestyle_fast', 'swap_selective'),
 ]
 
 backendFnTuples = [
@@ -137,7 +135,11 @@ if __name__ == "__main__":
                                     print(str(datetime.now()), '\n---------\n', file=file)
 
                                     lib.logFile = file
-                                    identifier = '{}-{}-{}'.format(dataClass, conf.proto_test_name, backendFn[2])
+                                    identifier = '{}-{}-{}'.format(
+                                        dataClass,
+                                        conf.proto_test_name,
+                                        backendFn[2]
+                                    )
 
                                     predictedResultFileName = RESULTS_FILE_NAME.format(runFn.experiment_name, identifier)
 

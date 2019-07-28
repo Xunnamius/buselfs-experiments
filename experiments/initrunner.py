@@ -112,13 +112,13 @@ def initialize(config, verbose=False, force=False):
             modprobe.close()
 
             if modprobe.exitstatus != 0:
-                print('modprobe {} returned non-zero error code (-{})'.format(mod, modprobe.exitstatus))
+                print('WARN: modprobe {} returned non-zero error code (-{})'.format(mod, modprobe.exitstatus))
 
-                if verbose:
-                    print('(the above error was ignored because verbose=True)')
+                # if verbose:
+                #     print('(the above error was ignored because verbose=True)')
 
-                else:
-                    sys.exit(2)
+                # else:
+                #     sys.exit(2)
 
         mkdir = pexpect.spawn('mkdir',
             ['-p']
@@ -196,13 +196,13 @@ def initialize(config, verbose=False, force=False):
     reset.close()
 
     if reset.exitstatus != 0:
-        print('ERROR: cpu clock reset failed', end='')
+        print('WARN: cpu clock reset failed', end='')
 
-        if force:
-            print(' (this error was ignored because force=True)', end='')
+        # if force:
+        #     print(' (this error was ignored because force=True)', end='')
 
-        else:
-            sys.exit(16)
+        # else:
+        #     sys.exit(16)
 
     print()
 

@@ -641,7 +641,7 @@ class Librunner():
             raise ExperimentError('experiment timed out (exceeded {} seconds)'.format(self.config['FREERUN_TIMEOUT_INT']))
 
     @_experiment('sequential_freerun_wcs')
-    def sequentialFreerunWithCipherSwitching(self, data_class, test_name):
+    def sequentialFreerunWithCipherSwitching(self, data_class, test_name, swap_ratio):
         """Runs the sequential freerun tests built to take advantage of cipher switching ioctl"""
 
         self.symlinkDataClass(data_class)
@@ -651,7 +651,7 @@ class Librunner():
         try:
             return self._spawn_actual(
                 '{}/bin/sequential-freerun-wcs'.format(self.config['REPO_PATH']),
-                ['ram', test_name, self.currentDeviceTmpPath],
+                ['ram', test_name, self.currentDeviceTmpPath, swap_ratio],
                 timeout=self.config['FREERUN_TIMEOUT_INT']
             )
 
@@ -659,7 +659,7 @@ class Librunner():
             raise ExperimentError('experiment timed out (exceeded {} seconds'.format(self.config['FREERUN_TIMEOUT_INT']))
 
     @_experiment('random_freerun_wcs')
-    def randomFreerunWithCipherSwitching(self, data_class, test_name):
+    def randomFreerunWithCipherSwitching(self, data_class, test_name, swap_ratio):
         """Runs the random freerun tests built to take advantage of cipher switching ioctl"""
 
         self.symlinkDataClass(data_class)
@@ -669,7 +669,7 @@ class Librunner():
         try:
             return self._spawn_actual(
                 '{}/bin/random-freerun-wcs'.format(self.config['REPO_PATH']),
-                ['ram', test_name, self.currentDeviceTmpPath],
+                ['ram', test_name, self.currentDeviceTmpPath, swap_ratio],
                 timeout=self.config['FREERUN_TIMEOUT_INT']
             )
 

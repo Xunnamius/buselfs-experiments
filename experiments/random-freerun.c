@@ -129,7 +129,7 @@ int main(int argc, char * argv[])
     FILE * flog_output;
     FILE * frandom;
 
-    // Accept non-optional args core_type, fs_type, write_to
+    // ? Accept non-optional args core_type, fs_type, write_to
     if(argc != 4)
     {
         printf("Usage: random-freerun <core_type> <fs_type> <write_to>\n");
@@ -304,7 +304,7 @@ int main(int argc, char * argv[])
         {
             errno = 0;
 
-            u_int64_t iosize_actual = MIN(writelen / 2, IOSIZE);
+            u_int64_t iosize_actual = MAX(MIN(writelen / 2, IOSIZE), 1);
             u_int64_t seeklimit = writelen - iosize_actual;
             u_int64_t offset = rand() % seeklimit;
             u_int64_t bytesWritten = pwrite(trialoutfd, randomnessCopy + offset, iosize_actual, offset);
@@ -357,7 +357,7 @@ int main(int argc, char * argv[])
         {
             errno = 0;
 
-            u_int64_t iosize_actual = MIN(readlen / 2, IOSIZE);
+            u_int64_t iosize_actual = MAX(MIN(readlen / 2, IOSIZE), 1);
             u_int64_t seeklimit = readlen - iosize_actual;
             u_int64_t offset = rand() % seeklimit;
             u_int64_t bytesRead = pread(trialoutfd, readback, iosize_actual, offset);

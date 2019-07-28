@@ -150,8 +150,8 @@ def resultPropertiesToProperName(resultProperties, hideProperties=[]):
     if 'iops' not in hideProperties:
         properName.append('{} '.format(resultProperties.iops))
 
-    if 'phase' not in hideProperties and resultProperties.phase != 'N/A':
-        properName.append('(P{})'.format(resultProperties.phase))
+    if 'swapRatio' not in hideProperties and resultProperties.swapRatio != 'N/A':
+        properName.append('(P{})'.format(resultProperties.swapRatio))
 
     return ''.join(properName).strip() or ''
 
@@ -313,7 +313,7 @@ class _StorePathsAsResultPropertiesAction(argparse.Action):
         setattr(namespace, self.dest, actual)
 
 # pathToResultProperties(Path('/home/odroid/bd3/repos/buselfs-experiments/results/filebench.ram.1k-f2fs#baseline-strongbox.results'))
-# pathToResultProperties(Path('/home/odroid/bd3/repos/buselfs-experiments/results/filebench.ram.1k-f2fs#baseline+1-strongbox.results'))
+# pathToResultProperties(Path('/home/odroid/bd3/repos/buselfs-experiments/results/filebench.ram.1k-f2fs#baseline-strongbox.results'))
 # pathToResultProperties(Path('/home/odroid/bd3/repos/buselfs-experiments/results/filebench.ram.1k-f2fs#sc_freestyle_fast#512+3-strongbox.results'))
-# pathToResultProperties(Path('/home/odroid/bd3/repos/buselfs-experiments/results/filebench.ram.1k-f2fs#sc_freestyle_fast#512#8#sc_chacha8_neon+3-strongbox.results'))
-# pathToResultProperties(Path('/home/odroid/bd3/repos/buselfs-experiments/results/filebench.ram.1k-f2fs#sc_freestyle_fast#512#8#sc_chacha8_neon#swap_aggressive+2-strongbox.results'))
+# pathToResultProperties(Path('/home/odroid/bd3/repos/buselfs-experiments/results/filebench.ram.1k-f2fs#sc_freestyle_fast#512#8#sc_chacha8_neon#swap_mirrored-strongbox.results'))
+# pathToResultProperties(Path('/home/odroid/bd3/repos/buselfs-experiments/results/filebench.ram.1k-f2fs#sc_freestyle_fast#512#8#sc_chacha8_neon#swap_0_forward+1-strongbox.results'))

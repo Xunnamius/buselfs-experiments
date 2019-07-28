@@ -21,6 +21,7 @@ RESULTS_FILE_NAME = '{}.ram.{}.results'
 RESULTS_PATH = '{}/results/{}'
 
 Configuration = namedtuple('Configuration', ['proto_test_name', 'fs_type', 'mount_args', 'device_args'])
+ExtendedConfiguration = namedtuple('ExtendedConfiguration', ['proto_test_name', 'fs_type', 'swap_ratio', 'mount_args', 'device_args'])
 
 class DummyTqdmFile():
     """Dummy file-like object that will write to the tqdm progress bar"""

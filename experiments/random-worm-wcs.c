@@ -18,6 +18,11 @@
 #include "energymon/energymon-default.h"
 #include "vendor/energymon/energymon-time-util.h"
 
+#define SWAP_RATIO 2
+
+#define RETURN_PRIMARY_LENGTH 0
+#define RETURN_SWAP_LENGTH 1
+
 #define IOSIZE 131072U
 //#define IOSIZE INT_MAX
 #define SRAND_SEED1 76532543U
@@ -158,6 +163,28 @@ static inline void ignore_result(long long int unused_result)
     (void) unused_result;
 }
 
+/**
+ * Calculates the length of the operation (in bytes) using fsize and swap_ratio,
+ * which details how much of the I/O operations are reserved for the swap
+ * cipher. primary_or_swap determines which percentage of the backing store, in
+ * bytes, is returned.
+ */
+u_int64_t calc_len(u_int64_t fsize, int swap_ratio, int primary_or_swap)
+{
+    u_int64_t result = 0;
+
+    if(swap_ratio == 1)
+        result = llabs(fsize * 25 / 100 - (primary_or_swap == RETURN_PRIMARY_LENGTH ? fsize : 0));
+
+    else if(swap_ratio == 2)
+        result = fsize / 2;
+
+    else if(swap_ratio == 3)
+        result = llabs(fsize * 75 / 100 - (primary_or_swap == RETURN_PRIMARY_LENGTH ? fsize : 0));
+
+    return result;
+}
+
 int main(int argc, char * argv[])
 {
     uid_t euid = geteuid();
@@ -178,7 +205,7 @@ int main(int argc, char * argv[])
     FILE * flog_output;
     FILE * frandom;
 
-    // ? Accept non-optional args core_type, fs_type, write_to, swap_ratio
+    // ? Accept non-optional args core_type, fs_type, write_to
     if(argc != 4)
     {
         printf("Usage: random-worm-wcs <core_type> <fs_type> <write_to>\n");
@@ -335,7 +362,7 @@ int main(int argc, char * argv[])
         // ? Initial write
         // ! The initial write op is not measured as part of the experiment!
 
-        u_int64_t write1len = fsize / 2;
+        u_int64_t write1len = calc_len(fsize, SWAP_RATIO, RETURN_PRIMARY_LENGTH);
         char * randomnessCopy1 = randomness;
 
         lseek64(trialoutfd, 0, SEEK_SET);
@@ -345,13 +372,13 @@ int main(int argc, char * argv[])
         {
             errno = 0;
 
-            u_int64_t iosize1_actual = MIN(write1len / 2, IOSIZE);
+            u_int64_t iosize1_actual = MAX(MIN(write1len / 2, IOSIZE), 1);
             u_int64_t seeklimit1 = write1len - iosize1_actual;
             u_int64_t offset1 = rand() % seeklimit1;
             u_int64_t bytesWritten1 = pwrite(
                 trialoutfd,
                 randomnessCopy1 + offset1,
-                !iosize1_actual ? 1 : iosize1_actual,
+                iosize1_actual,
                 offset1
             );
 
@@ -383,10 +410,11 @@ int main(int argc, char * argv[])
         printf("1 READ METRICS :: got start energy (uj): %"PRIu64"\n", read1_metrics_start.energy_uj);
         printf("1 READ METRICS :: got start time (ns): %"PRIu64"\n", read1_metrics_start.time_ns);
 
-        u_int64_t read1len = fsize / 2;
+        u_int64_t read1len = calc_len(fsize, SWAP_RATIO, RETURN_PRIMARY_LENGTH);
         char * read1back = malloc(read1len);
         char * read1backOriginal = read1back;
 
+        // ? Start at the beginning
         lseek64(trialoutfd, 0, SEEK_SET);
         srand(SRAND_SEED2);
 
@@ -394,13 +422,13 @@ int main(int argc, char * argv[])
         {
             errno = 0;
 
-            u_int64_t iosize1_actual = MIN(read1len / 2, IOSIZE);
+            u_int64_t iosize1_actual = MAX(MIN(read1len / 2, IOSIZE), 1);
             u_int64_t seeklimit1 = read1len - iosize1_actual;
             u_int64_t offset1 = rand() % seeklimit1;
             u_int64_t bytesRead1 = pread(
                 trialoutfd,
                 read1back,
-                !iosize1_actual ? 1 : iosize1_actual,
+                iosize1_actual,
                 offset1
             );
 
@@ -447,10 +475,11 @@ int main(int argc, char * argv[])
         printf("2 READ METRICS :: got start energy (uj): %"PRIu64"\n", read2_metrics_start.energy_uj);
         printf("2 READ METRICS :: got start time (ns): %"PRIu64"\n", read2_metrics_start.time_ns);
 
-        u_int64_t read2len = fsize / 2;
+        u_int64_t read2len = calc_len(fsize, SWAP_RATIO, RETURN_SWAP_LENGTH);
         char * read2back = malloc(read2len);
         char * read2backOriginal = read2back;
 
+        // ? Start at the beginning
         lseek64(trialoutfd, 0, SEEK_SET);
         srand(SRAND_SEED4);
 
@@ -458,13 +487,13 @@ int main(int argc, char * argv[])
         {
             errno = 0;
 
-            u_int64_t iosize2_actual = MIN(read2len / 2, IOSIZE);
+            u_int64_t iosize2_actual = MAX(MIN(read2len / 2, IOSIZE), 1);
             u_int64_t seeklimit2 = read2len - iosize2_actual;
             u_int64_t offset2 = rand() % seeklimit2;
             u_int64_t bytesRead2 = pread(
                 trialoutfd,
                 read2back,
-                !iosize2_actual ? 1 : iosize2_actual,
+                iosize2_actual,
                 offset2
             );
 
