@@ -6,6 +6,8 @@ while also accounting for swap ciphers, swap strategies, etc.
 
 This script generates a set of tradeoff space charts plotting security vs energy
 use, security vs power, and security vs performance.
+
+! Note that this script was written to work with Plotly version 3, not 4 !
 """
 
 import os

@@ -6,7 +6,7 @@ while also accounting for swap ciphers, swap strategies, etc.
 
 This script generates the set of tradeoff space charts plotting security vs
 energy use, security vs power, and security vs performance as precursors for the
-LaTeX charts for SwitchBox (2019).
+LaTeX charts for SwitchBox (2019). Works with Plotly 4.
 """
 
 import os
@@ -14,7 +14,7 @@ import sys
 
 from pathlib import Path
 from statistics import median
-from plotly.graph_objs import Splom
+import plotly.graph_objects as go
 
 import initrunner
 import libcruncher
@@ -24,88 +24,9 @@ from libcruncher.util import generateTitleFrag, stringToValidFilename, formatAnd
 TEST_IDENT = 'swap-2019'
 TITLE_TEMPLATE = '{} [{}] Swap-2019 Tradeoff ({})'
 
-PLOT_OFFLINE = True
-
-RESULT_FILE_METRICS = ('energy', 'power', 'duration')
-
-PLOT_AXES = ('security (level)', 'latency (s)', 'energy (j)', 'power (w)', 'flakesize (b)', 'fpn')
-
-# ? X is aliased/points to Y (the original); 'X':'Y'
-AXIS_ALIASES = {
-    'latency (s)': 'duration',
-    'energy (j)': 'energy',
-    'power (w)': 'power'
-}
-
-# ! Note that subvalues in this dict are further refined dynamically later on
-SPECIAL_AXES = {
-    # ? key => an int matching the axis number, e.g. xaxis1 would be matched by key int(1)
-    # ? value => a dict representing an axis configuration (merged into default)
-    1: {
-        'tickvals': [0, 1, 2, 3],
-        'range': [-0.5, 3.5],
-    },
-    2: {
-        'rangemode': 'tozero',
-    },
-    3: {
-        'rangemode': 'tozero',
-        'ticksuffix': '=N/A',
-        'showticksuffix': 'first'
-    },
-    4: {
-        'rangemode': 'tozero',
-        'ticksuffix': '=N/A',
-        'showticksuffix': 'first'
-    },
-    5: {
-        'type': 'category',
-        'categoryorder': 'array',
-    },
-    6: {
-        'type': 'category',
-        'categoryorder': 'array',
-    },
-}
-
-# * In this file, marker colors correspond to iop size ("iops" is the "class")
-# * There are five (+1 -> 5g) iop sizes: 1024b (1k), 4096b (4k), 512kib (512k),
-# *  5mib (5m), 40mib (40m)
-# * Hence, for this class there should be five rgba colors specified below
-
-COLOR_OPACITY = 0.5
-
-SPECIAL_MARKER = {
-    # ? This is a mapping between list indices (corresponding to components of
-    # ?  the data[axis] vectors) and their "class" (described above)
-    # ! Note that this is typically defined dynamically during plot calculations
-    'color': [],
-
-    # ? This is a list of rgba colors corresponding to the "classes" used in
-    # ?  SPECIAL_MARKER::color (described above)
-    # ! Note that this is typically defined manually (by YOU, dev!)
-    # ? Also note that it doesn't have to be 1-to-1 (i.e. can have extra colors)
-    # ?  but there must be more (or equal) colors than there are "classes"
-    'colorscale': [
-        'rgba(25, 211, 243, {})'.format(COLOR_OPACITY),
-        'rgba(231, 99, 250, {})'.format(COLOR_OPACITY),
-        'rgba(99, 110, 250, {})'.format(COLOR_OPACITY),
-        'rgba(253, 95, 0, {})'.format(COLOR_OPACITY),
-        'rgba(0, 253, 95, {})'.format(COLOR_OPACITY),
-    ]
-}
-
-# SPECIAL_MARKERS = {
-#     # ? key => a string matching the name of an axis in PLOT_AXES
-#     # ? value => a dict representing a marker configuration (merged into default)
-# }
-
-SPECIAL_MARKERS = { key: SPECIAL_MARKER for key in PLOT_AXES }
-
-
 ################################################################################
 
-def generateTrace(data, idents, plotAxes, specialMarkers={}):
+def generateTrace(data, plotAxes, specialMarkers={}):
     marker = {
         'size': 7,
         'showscale': False,
@@ -114,7 +35,6 @@ def generateTrace(data, idents, plotAxes, specialMarkers={}):
 
     return Splom(
         dimensions=[{ 'label': axis, 'values': data[axis] } for axis in plotAxes],
-        text=idents,
         marker={ **marker, **specialMarkers[axis] } if axis in specialMarkers else marker,
     )
 
@@ -135,7 +55,6 @@ if __name__ == "__main__":
     dimensionClassesOrdered = []
     flakesizeTickVals = set()
     fpnTickVals = set()
-    classmap = {}
 
     noReadData = False
     noWriteData = False
@@ -152,10 +71,6 @@ if __name__ == "__main__":
     for resultProps in execCTX.resultFileProps:
         localData = { 'read': {}, 'write': {} }
 
-        if resultProps.iops not in classmap:
-            classmap[resultProps.iops] = len(classmap)
-
-        dimensionClassesOrdered.append(classmap[resultProps.iops])
         flakesizeTickVals.add(resultProps.flakesize)
         fpnTickVals.add(resultProps.fpn)
         data['idents'].append(libcruncher.resultPropertiesToProperName(resultProps))

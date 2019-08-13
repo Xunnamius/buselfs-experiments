@@ -7,6 +7,8 @@ This is the 7/7/2017 version of a script that script crunches any files that
 ends with the extension ".result" and are direct children of the `results/` dir.
 
 This script generates the perf/energy/power bar graphs from the asplos17 paper.
+
+! Note that this script was written to work with Plotly version 3, not 4 !
 """
 
 import os

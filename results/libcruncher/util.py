@@ -56,9 +56,11 @@ ResultProperty = namedtuple('ResultProperty', ['name', 'value'])
 ExecutionProperties = namedtuple('ExecutionProperties', [
     'resultFileProps',
     'baselineFileProps',
+    'curveFileProps',
     'observeBaseline',
     'filterPropsList',
-    'filterStrict'
+    'filterStrict',
+    'filterCurveStrict'
 ])
 
 def generateTitleFrag(filters):
@@ -73,10 +75,10 @@ def generateTitleFrag(filters):
 def stringToValidFilename(string):
     return string.replace('|', '!').replace(':', '!').replace('/', '').replace('\\', '')
 
-def formatAndPlotFigure(file_ident, test_ident, trace, title, filesdir, axisCount, specialAxes={}, offline=True):
+def formatAndPlotFigure(file_ident, test_ident, trace, title, filesdir, axisCount, specialAxes={}):
     figure = Figure(data=[trace], layout=generateSharedLayout(title, axisCount, specialAxes))
 
-    print('{: <90} {}'.format(title,
+    print('{: <90} {}'.format(title, # TODO: FIXME!
         (pyoff if offline else pyon).plot(
             figure,
             auto_open = False,
