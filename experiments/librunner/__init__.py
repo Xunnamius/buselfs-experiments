@@ -651,7 +651,7 @@ class Librunner():
         try:
             return self._spawn_actual(
                 '{}/bin/sequential-freerun-wcs'.format(self.config['REPO_PATH']),
-                ['ram', test_name, self.currentDeviceTmpPath, swap_ratio],
+                ['ram', test_name, self.currentDeviceTmpPath, str(swap_ratio)],
                 timeout=self.config['FREERUN_TIMEOUT_INT']
             )
 
@@ -669,7 +669,7 @@ class Librunner():
         try:
             return self._spawn_actual(
                 '{}/bin/random-freerun-wcs'.format(self.config['REPO_PATH']),
-                ['ram', test_name, self.currentDeviceTmpPath, swap_ratio],
+                ['ram', test_name, self.currentDeviceTmpPath, str(swap_ratio)],
                 timeout=self.config['FREERUN_TIMEOUT_INT']
             )
 

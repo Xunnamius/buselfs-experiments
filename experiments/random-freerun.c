@@ -307,7 +307,7 @@ int main(int argc, char * argv[])
 
             u_int64_t iosize_actual = MAX(MIN(writelen / 2, IOSIZE), 1U);
             u_int64_t seeklimit = writelen - iosize_actual;
-            u_int64_t offset = rand() % seeklimit;
+            u_int64_t offset = !seeklimit ? 0 : rand() % seeklimit;
             u_int64_t bytesWritten = pwrite(trialoutfd, randomnessCopy + offset, iosize_actual, offset);
 
             if(errno)
@@ -360,7 +360,7 @@ int main(int argc, char * argv[])
 
             u_int64_t iosize_actual = MAX(MIN(readlen / 2, IOSIZE), 1U);
             u_int64_t seeklimit = readlen - iosize_actual;
-            u_int64_t offset = rand() % seeklimit;
+            u_int64_t offset = !seeklimit ? 0 : rand() % seeklimit;
             u_int64_t bytesRead = pread(trialoutfd, readback, iosize_actual, offset);
 
             if(errno)
