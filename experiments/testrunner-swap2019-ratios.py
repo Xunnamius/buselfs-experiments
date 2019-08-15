@@ -74,11 +74,11 @@ cipherpairs = [
     ('sc_chacha8_neon',  'sc_freestyle_fast', 'swap_1_forward'),
     ('sc_chacha8_neon',  'sc_freestyle_fast', 'swap_2_forward'),
     ('sc_chacha8_neon',  'sc_chacha20_neon',  'swap_mirrored'),
-    ('sc_chacha8_neon',  'sc_chacha20_neon',  'swap_selective'),
+    #('sc_chacha8_neon',  'sc_chacha20_neon',  'swap_selective'),
     ('sc_chacha20_neon', 'sc_freestyle_fast', 'swap_mirrored'),
-    ('sc_chacha20_neon', 'sc_freestyle_fast', 'swap_selective'),
+    #('sc_chacha20_neon', 'sc_freestyle_fast', 'swap_selective'),
     ('sc_chacha8_neon',  'sc_freestyle_fast', 'swap_mirrored'),
-    ('sc_chacha8_neon',  'sc_freestyle_fast', 'swap_selective'),
+    #('sc_chacha8_neon',  'sc_freestyle_fast', 'swap_selective'),
 ]
 
 backendFnTuples = [
