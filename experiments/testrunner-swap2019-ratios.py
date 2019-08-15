@@ -58,7 +58,7 @@ fpns = [
 
 experiments = [
     lib.sequentialFreerunWithCipherSwitching,
-    lib.randomFreerunWithCipherSwitching,
+    #lib.randomFreerunWithCipherSwitching,
 ]
 
 # ? These are all the cipher swapping pairs that will be tested
