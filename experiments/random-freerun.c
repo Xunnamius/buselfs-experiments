@@ -40,6 +40,7 @@
 #endif
 
 #define MIN(a,b) __extension__ ({ __typeof__ (a) _a = (a); __typeof__ (b) _b = (b); _a < _b ? _a : _b; })
+#define MAX(a,b) __extension__ ({ __typeof__ (a) _a = (a); __typeof__ (b) _b = (b); _a > _b ? _a : _b; })
 
 #define STRINGIZE(x) #x
 #define STRINGIZE_VALUE_OF(x) STRINGIZE(x)
@@ -304,7 +305,7 @@ int main(int argc, char * argv[])
         {
             errno = 0;
 
-            u_int64_t iosize_actual = MAX(MIN(writelen / 2, IOSIZE), 1);
+            u_int64_t iosize_actual = MAX(MIN(writelen / 2, IOSIZE), 1U);
             u_int64_t seeklimit = writelen - iosize_actual;
             u_int64_t offset = rand() % seeklimit;
             u_int64_t bytesWritten = pwrite(trialoutfd, randomnessCopy + offset, iosize_actual, offset);
@@ -357,7 +358,7 @@ int main(int argc, char * argv[])
         {
             errno = 0;
 
-            u_int64_t iosize_actual = MAX(MIN(readlen / 2, IOSIZE), 1);
+            u_int64_t iosize_actual = MAX(MIN(readlen / 2, IOSIZE), 1U);
             u_int64_t seeklimit = readlen - iosize_actual;
             u_int64_t offset = rand() % seeklimit;
             u_int64_t bytesRead = pread(trialoutfd, readback, iosize_actual, offset);

@@ -60,6 +60,7 @@
 #endif
 
 #define MIN(a,b) __extension__ ({ __typeof__ (a) _a = (a); __typeof__ (b) _b = (b); _a < _b ? _a : _b; })
+#define MAX(a,b) __extension__ ({ __typeof__ (a) _a = (a); __typeof__ (b) _b = (b); _a > _b ? _a : _b; })
 
 #define STRINGIZE(x) #x
 #define STRINGIZE_VALUE_OF(x) STRINGIZE(x)
@@ -397,7 +398,7 @@ int main(int argc, char * argv[])
         {
             errno = 0;
 
-            u_int64_t iosize1_actual = MAX(MIN(write1len / 2, IOSIZE), 1);
+            u_int64_t iosize1_actual = MAX(MIN(write1len / 2, IOSIZE), 1U);
             u_int64_t seeklimit1 = write1len - iosize1_actual;
             u_int64_t offset1 = rand() % seeklimit1;
             u_int64_t bytesWritten1 = pwrite(
@@ -455,7 +456,7 @@ int main(int argc, char * argv[])
         {
             errno = 0;
 
-            u_int64_t iosize1_actual = MAX(MIN(read1len / 2, IOSIZE), 1);
+            u_int64_t iosize1_actual = MAX(MIN(read1len / 2, IOSIZE), 1U);
             u_int64_t seeklimit1 = read1len - iosize1_actual;
             u_int64_t offset1 = rand() % seeklimit1;
             u_int64_t bytesRead1 = pread(
@@ -519,7 +520,7 @@ int main(int argc, char * argv[])
         {
             errno = 0;
 
-            u_int64_t iosize2_actual = MAX(MIN(write2len / 2, IOSIZE), 1);
+            u_int64_t iosize2_actual = MAX(MIN(write2len / 2, IOSIZE), 1U);
             u_int64_t seeklimit2 = write2len - iosize2_actual;
             u_int64_t offset2 = rand() % seeklimit2;
             u_int64_t bytesWritten2 = pwrite(
@@ -578,7 +579,7 @@ int main(int argc, char * argv[])
         {
             errno = 0;
 
-            u_int64_t iosize2_actual = MAX(MIN(read2len / 2, IOSIZE), 1);
+            u_int64_t iosize2_actual = MAX(MIN(read2len / 2, IOSIZE), 1U);
             u_int64_t seeklimit2 = read2len - iosize2_actual;
             u_int64_t offset2 = rand() % seeklimit2;
             u_int64_t bytesRead2 = pread(
