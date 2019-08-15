@@ -55,9 +55,9 @@ ExecutionProperties = namedtuple('ExecutionProperties', [
     'resultFileProps',
     'baselineFileProps',
     'observeBaseline',
+    'normalize',
     'filterPropsList',
-    'filterStrict',
-    'filterCurveStrict'
+    'filterStrict'
 ])
 
 def generateTitleFrag(filters):

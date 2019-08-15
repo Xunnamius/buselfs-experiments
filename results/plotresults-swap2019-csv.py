@@ -127,6 +127,15 @@ if __name__ == "__main__":
         #execCTX.observeBaseline
         raise 'Not implemented'
 
+    if execCTX.normalize:
+        print('applying normalization calculations...')
+
+        for op in ['read', 'write']:
+            for metric in RESULT_FILE_METRICS:
+                maximum = max(data[op][metric])
+                minimum = min(data[op][metric])
+                data[op][metric] = [(value - minimum)/(maximum - minimum) for value in data[op][metric]]
+
     print('organizing results...')
 
     titlePrefix = assumedResultsPathList[-2]
@@ -158,11 +167,11 @@ if __name__ == "__main__":
     else:
         with open(filename.format('read'), 'w') as file:
             print('cipher,security,', ','.join(RESULT_FILE_METRICS), sep='', file=file)
-            for result in data['read']:
-                print('{},{}'.format(result['cipher'], result['security']), end='', file=file)
+            for ndx in range(len(execCTX.resultFileProps)):
+                print('{},{}'.format(data['cipher'][ndx], data['security'][ndx]), end='', file=file)
 
                 for metric in RESULT_FILE_METRICS:
-                    print(',{}'.format(result[metric]), end='', file=file)
+                    print(',{}'.format(data['read'][metric][ndx]), end='', file=file)
 
                 print('', file=file)
 
@@ -174,11 +183,11 @@ if __name__ == "__main__":
     else:
         with open(filename.format('write'), 'w') as file:
             print('cipher,security,', ','.join(RESULT_FILE_METRICS), sep='', file=file)
-            for result in data['write']:
-                print('{},{}'.format(result['cipher'], result['security']), end='', file=file)
+            for ndx in range(len(execCTX.resultFileProps)):
+                print('{},{}'.format(data['cipher'][ndx], data['security'][ndx]), end='', file=file)
 
                 for metric in RESULT_FILE_METRICS:
-                    print(',{}'.format(result[metric]), end='', file=file)
+                    print(',{}'.format(data['write'][metric][ndx]), end='', file=file)
 
                 print('', file=file)
 

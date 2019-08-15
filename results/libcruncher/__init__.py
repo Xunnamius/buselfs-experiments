@@ -225,6 +225,13 @@ def argsToExecutionProperties(argv, description=''):
         help='elements will be plotted relative to the data in the specified result file (default is literal values)'
     )
 
+    parser.add_argument(
+        '-n',
+        '--normalize',
+        action='store_true',
+        help='results will be normalized from 0 to 1'
+    )
+
     args = parser.parse_args(argv)
     resultsSubset = yieldResultsSubset(args.paths, args.filter, not args.strict_filtering)
 
@@ -232,9 +239,9 @@ def argsToExecutionProperties(argv, description=''):
         resultsSubset,
         [resultProp for resultProp in resultsSubset if resultProp.isBaseline],
         args.baseline,
+        args.normalize,
         args.filter,
-        args.strict_filtering,
-        args.strict_curve_filtering
+        args.strict_filtering
     )
 
     return execCTX
