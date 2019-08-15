@@ -114,7 +114,7 @@ if __name__ == "__main__":
         for filesystem in filesystems:
             for fpn in fpns:
                 for flk_size in flksizes:
-                    for swap_ratio in range(1, 4):
+                    for swap_ratio in range(1, 3):
                         configurations.extend([
                             ExtendedConfiguration(
                                 '{}#{}#{}#{}#{}#{}+{}'.format(filesystem, cipherpair[0], flk_size, fpn, cipherpair[1], cipherpair[2], swap_ratio),
