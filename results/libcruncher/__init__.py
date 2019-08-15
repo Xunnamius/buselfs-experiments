@@ -90,7 +90,7 @@ def pathToResultProperties(path):
             usingDefaultCipher and data3Len != 1,
             swapCipher,
             swapStrategy,
-            int(data4) or 'N/A'
+            int(data4) or 4 # 4 => 0.25 * 4 == 100% == default ratio (i.e. the entire space)
         )
 
     except IndexError:
@@ -150,7 +150,7 @@ def resultPropertiesToProperName(resultProperties, hideProperties=[]):
     if 'iops' not in hideProperties:
         properName.append('{} '.format(resultProperties.iops))
 
-    if 'swapRatio' not in hideProperties and resultProperties.swapRatio != 'N/A':
+    if 'swapRatio' not in hideProperties and resultProperties.swapRatio != 4:
         properName.append('(P{})'.format(resultProperties.swapRatio))
 
     return ''.join(properName).strip() or ''

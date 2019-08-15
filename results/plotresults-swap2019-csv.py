@@ -57,7 +57,10 @@ if __name__ == "__main__":
         localData = { 'read': {}, 'write': {} }
 
         data['security'].append(
-            (SC_SECURITY_RANKING[resultProps.cipher] + SC_SECURITY_RANKING[resultProps.swapCipher]) / 2)
+            # security ranking = c1_rank + abs(c1_rank - c2_rank) * actual_swap_ratio
+            SC_SECURITY_RANKING[resultProps.cipher] + abs(SC_SECURITY_RANKING[resultProps.cipher] - SC_SECURITY_RANKING[resultProps.swapCipher]) * (resultProps.swapRatio * 0.25)
+        )
+
         data['cipher'].append(('{}' if resultProps.cipher == resultProps.swapCipher else '{}+{}').format(resultProps.cipher, resultProps.swapCipher))
 
         for metric in RESULT_FILE_METRICS:
