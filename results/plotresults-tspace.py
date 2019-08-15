@@ -15,7 +15,7 @@ import sys
 
 from pathlib import Path
 from statistics import median
-from plotly.graph_objs import Splom
+import plotly.graph_objects as go
 
 import initrunner
 import libcruncher
@@ -306,7 +306,19 @@ if __name__ == "__main__":
         print('(skipped read plot)')
 
     else:
-        print('read plot: ', end='')
+        figure = go.Figure(data=[trace], layout=generateSharedLayout(title, axisCount, specialAxes))
+
+        filename = '{}/{}-{}-{}{}'.format(
+            filesdir,
+            test_ident,
+            file_ident,
+            hashlib.md5(bytes(filesdir + title, 'ascii')).hexdigest(),
+            '.png'
+        )
+
+        figure.write_image(filename)#, scale=None, width=None, height=None)
+
+        print('read plot was written out')
 
         formatAndPlotFigure(
             file_ident='read{}'.format('-' + stringToValidFilename(titleFrag) if titleFrag else ''),

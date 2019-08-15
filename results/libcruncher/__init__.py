@@ -212,24 +212,10 @@ def argsToExecutionProperties(argv, description=''):
     )
 
     parser.add_argument(
-        '-c',
-        '--curve-filter',
-        metavar='prop=val1,val2,...',
-        help='draw a line through the points that satisfy at least one property=value pair similar to --filter'
-    )
-
-    parser.add_argument(
         '-x',
         '--strict-filtering',
         action='store_true',
         help='while filtering results, ALL --filter property=value pairs must be satisfied instead of at least one'
-    )
-
-    parser.add_argument(
-        '-y',
-        '--strict-curve-filtering',
-        action='store_true',
-        help='while filtering results to draw curve, ALL --curve-filter property=value pairs must be satisfied instead of at least one'
     )
 
     parser.add_argument(
@@ -241,12 +227,10 @@ def argsToExecutionProperties(argv, description=''):
 
     args = parser.parse_args(argv)
     resultsSubset = yieldResultsSubset(args.paths, args.filter, not args.strict_filtering)
-    curveSubset = yieldResultsSubset(args.paths, args.curve_filter, not args.strict_curve_filtering)
 
     execCTX = ExecutionProperties(
         resultsSubset,
         [resultProp for resultProp in resultsSubset if resultProp.isBaseline],
-        curveSubset,
         args.baseline,
         args.filter,
         args.strict_filtering,

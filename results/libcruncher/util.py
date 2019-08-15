@@ -1,11 +1,9 @@
 """Utility objects for use with the libcruncher library"""
 
 import hashlib
-import plotly.offline as pyoff
-import plotly.plotly as pyon
 
 from collections import namedtuple
-from plotly.graph_objs import Layout, Figure
+import plotly.graph_objects as go
 
 # 0 = least secure, 3 = most secure
 SC_SECURITY_RANKING = {
@@ -56,7 +54,6 @@ ResultProperty = namedtuple('ResultProperty', ['name', 'value'])
 ExecutionProperties = namedtuple('ExecutionProperties', [
     'resultFileProps',
     'baselineFileProps',
-    'curveFileProps',
     'observeBaseline',
     'filterPropsList',
     'filterStrict',
@@ -76,22 +73,16 @@ def stringToValidFilename(string):
     return string.replace('|', '!').replace(':', '!').replace('/', '').replace('\\', '')
 
 def formatAndPlotFigure(file_ident, test_ident, trace, title, filesdir, axisCount, specialAxes={}):
-    figure = Figure(data=[trace], layout=generateSharedLayout(title, axisCount, specialAxes))
-
-    print('{: <90} {}'.format(title, # TODO: FIXME!
-        (pyoff if offline else pyon).plot(
-            figure,
-            auto_open = False,
-            filename = '{}/{}-{}-{}{}'.format(
-                filesdir,
-                test_ident,
-                file_ident,
-                hashlib.md5(bytes(filesdir + title, 'ascii')).hexdigest(),
-                '.html' if offline else ''
-            ),
-            config={ 'scrollZoom': True, 'displayModeBar': True, 'doubleClick': 'reset' },
-        ))
+    figure = go.Figure(data=[trace], layout=generateSharedLayout(title, axisCount, specialAxes))
+    filename = '{}/{}-{}-{}{}'.format(
+        filesdir,
+        test_ident,
+        file_ident,
+        hashlib.md5(bytes(filesdir + title, 'ascii')).hexdigest(),
+        '.png'
     )
+
+    figure.write_image(filename)#, scale=None, width=None, height=None)
 
 def generateSharedLayout(title, axisCount, specialAxes={}):
     axis = {
@@ -101,7 +92,7 @@ def generateSharedLayout(title, axisCount, specialAxes={}):
         'ticklen': 4,
     }
 
-    layout = Layout(
+    layout = go.Layout(
         dragmode='select',
         hovermode='closest',
         title=title,

@@ -16,11 +16,10 @@ import sys
 import hashlib
 import copy
 import inspect
-import plotly.plotly as py
+import plotly.graph_objects as go
 from pathlib import Path
 from decimal import Decimal
 from statistics import median
-from plotly.graph_objs import Bar, Figure, Layout, Box
 
 import initrunner
 
