@@ -168,7 +168,8 @@
     "python.formatting.provider": "none",
     "files.associations": {
         "unistd.h": "c",
-        "energymon-time-util.h": "c"
+        "energymon-time-util.h": "c",
+        "lib-sequential.h": "c"
     },
     "search.exclude": {
         "**/bin": true,
