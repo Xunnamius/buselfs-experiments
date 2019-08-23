@@ -1,15 +1,7 @@
-#include "librunner/lib-random.h"
+#include "librunner/lib.h"
 
 int main(int argc, char * argv[])
 {
-    uid_t euid = geteuid();
-
-    if(euid != 0)
-    {
-        printf("Must run this as root!\n");
-        return -2;
-    }
-
     struct sigaction act;
     act.sa_handler = interrupt_handler;
     sigaction(SIGINT, &act, NULL);
@@ -20,40 +12,20 @@ int main(int argc, char * argv[])
     FILE * flog_output;
     FILE * frandom;
 
-    // ? Accept non-optional args core_type, fs_type, write_to, swap_ratio
-    if(argc != 5)
-    {
-        printf("Usage: random-freerun-wcs <core_type> <fs_type> <write_to> <swap_ratio>\n");
-        printf("<swap_ratio> must be either: 1 (25%% swap), 2 (50%% swap), 3 (75%% swap)!\n");
-        printf("No trailing slash for <write_to>!\n");
-        return 253;
-    }
+    check_args_and_perms_with_ratio(argc, "random-freerun-wcs");
 
     char * core_type = argv[1];
     char * fs_type = argv[2];
     char * write_to = argv[3];
     char * swap_ratio_str = argv[4];
-    int swap_ratio = 2;
+    int swap_ratio;
 
     printf("core_type: %s\n", core_type);
     printf("fs_type: %s\n", fs_type);
     printf("write_to: %s\n", write_to);
     printf("swap_ratio_str: %s\n", swap_ratio_str);
 
-    if(strcmp(swap_ratio_str, "1") == 0)
-        swap_ratio = 1;
-
-    else if(strcmp(swap_ratio_str, "2") == 0)
-        swap_ratio = 2;
-
-    else if(strcmp(swap_ratio_str, "3") == 0)
-        swap_ratio = 3;
-
-    else
-    {
-        printf("<swap_ratio> must be either: 1 (25%% swap), 2 (50%% swap), 3 (75%% swap)!\n");
-        return 254;
-    }
+    swap_ratio = str_to_swap_ratio(swap_ratio_str);
 
     // Get read path from shards
 

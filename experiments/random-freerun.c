@@ -1,15 +1,7 @@
-#include "librunner/lib-random.h"
+#include "librunner/lib.h"
 
 int main(int argc, char * argv[])
 {
-    uid_t euid = geteuid();
-
-    if(euid != 0)
-    {
-        printf("Must run this as root!\n");
-        return -2;
-    }
-
     struct sigaction act;
     act.sa_handler = interrupt_handler;
     sigaction(SIGINT, &act, NULL);
@@ -20,13 +12,7 @@ int main(int argc, char * argv[])
     FILE * flog_output;
     FILE * frandom;
 
-    // ? Accept non-optional args core_type, fs_type, write_to
-    if(argc != 4)
-    {
-        printf("Usage: random-freerun <core_type> <fs_type> <write_to>\n");
-        printf("No trailing slash for <write_to>!\n");
-        return -1;
-    }
+    check_args_and_perms_noratio(argc, "random-freerun");
 
     char * core_type = argv[1];
     char * fs_type = argv[2];

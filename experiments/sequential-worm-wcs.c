@@ -1,15 +1,7 @@
-#include "librunner/lib-sequential.h"
+#include "librunner/lib.h"
 
 int main(int argc, char * argv[])
 {
-    uid_t euid = geteuid();
-
-    if(euid != 0)
-    {
-        printf("Must run this as root!\n");
-        return -2;
-    }
-
     struct sigaction act;
     act.sa_handler = interrupt_handler;
     sigaction(SIGINT, &act, NULL);
@@ -20,13 +12,7 @@ int main(int argc, char * argv[])
     FILE * flog_output;
     FILE * frandom;
 
-    // ? Accept non-optional args core_type, fs_type, write_to
-    if(argc != 4)
-    {
-        printf("Usage: sequential-worm-wcs <core_type> <fs_type> <write_to>\n");
-        printf("No trailing slash for <write_to>!\n");
-        return 253;
-    }
+    check_args_and_perms_noratio(argc, "sequential-worm-wcs");
 
     char * core_type = argv[1];
     char * fs_type = argv[2];
@@ -177,7 +163,7 @@ int main(int argc, char * argv[])
         // ? Initial write
         // ! The initial write op is not measured as part of the experiment!
 
-        u_int64_t write1len = calc_len(fsize, SWAP_RATIO, RETURN_PRIMARY_LENGTH);
+        u_int64_t write1len = calc_len(fsize, WORM_BUILTIN_SWAP_RATIO, RETURN_PRIMARY_LENGTH);
         char * randomnessCopy1 = randomness;
 
         lseek64(trialoutfd, 0, SEEK_SET);
@@ -214,7 +200,7 @@ int main(int argc, char * argv[])
         printf("1 READ METRICS :: got start energy (uj): %"PRIu64"\n", read1_metrics_start.energy_uj);
         printf("1 READ METRICS :: got start time (ns): %"PRIu64"\n", read1_metrics_start.time_ns);
 
-        u_int64_t read1len = calc_len(fsize, SWAP_RATIO, RETURN_PRIMARY_LENGTH);
+        u_int64_t read1len = calc_len(fsize, WORM_BUILTIN_SWAP_RATIO, RETURN_PRIMARY_LENGTH);
         char * read1back = malloc(read1len);
         char * read1backOriginal = read1back;
 
@@ -268,7 +254,7 @@ int main(int argc, char * argv[])
         printf("2 READ METRICS :: got start energy (uj): %"PRIu64"\n", read2_metrics_start.energy_uj);
         printf("2 READ METRICS :: got start time (ns): %"PRIu64"\n", read2_metrics_start.time_ns);
 
-        u_int64_t read2len = calc_len(fsize, SWAP_RATIO, RETURN_SWAP_LENGTH);
+        u_int64_t read2len = calc_len(fsize, WORM_BUILTIN_SWAP_RATIO, RETURN_SWAP_LENGTH);
         char * read2back = malloc(read2len);
         char * read2backOriginal = read2back;
 

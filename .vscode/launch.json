@@ -55,9 +55,9 @@
         {
             "type": "gdb",
             "request": "launch",
-            "name": "gdb:rnd-wcs@morty",
-            "target": "./random-freerun-wcs",
-            "arguments": "tester '1k-f2fs#sc_aes128_ctr#1024#128#another_cipher#sstrat+%d-strongbox' /tmp/faker",
+            "name": "gdb:bin@morty",
+            "target": "./sequential-freerun-wcs",
+            "arguments": "ram test /tmp/ram0 3",
             "cwd": "${workspaceRoot}/bin",
             "ssh": {
                 "forwardX11": true,
