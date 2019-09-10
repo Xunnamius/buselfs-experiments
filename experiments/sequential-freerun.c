@@ -283,6 +283,7 @@ int main(int argc, char * argv[])
                 r_duration,
                 r_power);
 
+        sync();
         close(trialoutfd);
 
         if(CLEANUP)

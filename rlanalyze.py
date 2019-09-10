@@ -8,11 +8,11 @@ interestingRegions = []
 if __name__ == "__main__":
     with open(RUNNER_LOG_PATH, 'r') as lines:
         for currentLine in lines:
-            if 'got start time (ns):' in currentLine:
+            if 'got start time (ns)' in currentLine:
                 withinInterestingRegion = True
                 interestingRegionName = currentLine[0:currentLine.index('METRICS') - 1]
                 interestingRegions.append({ 'name': interestingRegionName, 'requestBytes': 0, 'otherBytes': 0, 'swapped': False })
-            elif 'got end time (ns):' in currentLine:
+            elif 'got end time (ns)' in currentLine:
                 withinInterestingRegion = False
             elif withinInterestingRegion and 'Request for' in currentLine:
                 interestingRegion = interestingRegions[-1]
