@@ -1,6 +1,6 @@
 # StrongBox (AKA: Buselfs) Documentation
 
-We have come a long way...
+We have come far...
 
 ## Experimental Progression
 

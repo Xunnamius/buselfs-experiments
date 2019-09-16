@@ -27,11 +27,11 @@
             }
         },
         {
-            "name": "ptvsd (morty)",
+            "name": "ptvsd (zara)",
             "type": "python",
             "request": "attach",
             "port": 4000,
-            "host": "192.168.115.5",
+            "host": "192.168.125.5",
             "pathMappings": [
                 {
                     "localRoot": "${workspaceFolder}",
