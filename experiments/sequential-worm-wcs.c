@@ -317,6 +317,9 @@ int main(int argc, char * argv[])
                 r_duration,
                 r_power);
 
+        // ? Schedule a cipher swap to swap back to normal
+        swap_ciphers();
+
         sync();
         close(trialoutfd);
 
