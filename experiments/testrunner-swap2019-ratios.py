@@ -209,7 +209,6 @@ if __name__ == "__main__":
                                                 try:
                                                     backendFn[1]()
                                                     lib.clearBackstoreFiles()
-                                                    pass
 
                                                 except:
                                                     progressBar.close()

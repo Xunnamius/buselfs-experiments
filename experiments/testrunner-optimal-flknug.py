@@ -108,7 +108,6 @@ if __name__ == "__main__":
         # * Optimal flake/nugget size perf test
         configurations = []
         for filesystem in filesystems:
-            configurations.append(Configuration('{}#baseline'.format(filesystem), filesystem, [], []))
             for fpn in fpns:
                 for flk_size in flksizes:
                     configurations.extend([
@@ -139,7 +138,11 @@ if __name__ == "__main__":
                                     print(str(datetime.now()), '\n---------\n', file=file)
 
                                     lib.logFile = file
-                                    identifier = '{}-{}-{}'.format(dataClass, conf.proto_test_name, backendFn[2])
+                                    identifier = '{}-{}-{}'.format(
+                                        dataClass,
+                                        conf.proto_test_name,
+                                        backendFn[2]
+                                    )
 
                                     predictedResultFileName = RESULTS_FILE_NAME.format(runFn.experiment_name, identifier)
 
