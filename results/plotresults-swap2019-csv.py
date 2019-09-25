@@ -26,6 +26,7 @@ TEST_IDENT = 'swap-2019'
 TITLE_TEMPLATE = '{} [{}] Swap-2019 Tradeoff ({})'
 
 RESULT_FILE_METRICS = ('energy', 'power', 'duration')
+RESULT_DEBUG_METRICS = ('write1', 'read1', 'write2', 'read2')
 
 ################################################################################
 
@@ -43,22 +44,28 @@ if __name__ == "__main__":
 
     print('aggregating data ({} items after filter)...'.format(len(execCTX.resultFileProps)))
 
-    data = { 'read': {}, 'write': {}, 'security': [], 'cipher': [] }
+    data = { 'read': {}, 'write': {}, 'security': [], 'cipher': [], 'debug': {} }
 
-    noReadData = False
-    noWriteData = False
+    noData = { 'read': False, 'write': False }
 
     for op in ['read', 'write']:
         for metric in RESULT_FILE_METRICS:
             data[op][metric] = []
 
+    for debug_metric in RESULT_DEBUG_METRICS:
+        data['debug'][debug_metric] = []
+
     # Loop over results and begin the aggregation/accumulation process
     for resultProps in execCTX.resultFileProps:
-        localData = { 'read': {}, 'write': {} }
+        localData = { 'read': {}, 'write': {}, 'debug': {} }
+
+        rankOrder = [SC_SECURITY_RANKING[resultProps.cipher], SC_SECURITY_RANKING[resultProps.swapCipher]]
+        rankOrder.sort()
 
         data['security'].append(
             # security ranking = c1_rank + abs(c1_rank - c2_rank) * actual_swap_ratio
-            SC_SECURITY_RANKING[resultProps.cipher] + abs(SC_SECURITY_RANKING[resultProps.cipher] - SC_SECURITY_RANKING[resultProps.swapCipher]) * (resultProps.swapRatio * 0.25)
+            # where c1 <= c2
+            rankOrder[0] + abs(rankOrder[0] - rankOrder[1]) * (resultProps.swapRatio * 0.25)
         )
 
         data['cipher'].append(('{}' if resultProps.cipher == resultProps.swapCipher else '{}+{}').format(resultProps.cipher, resultProps.swapCipher))
@@ -67,41 +74,49 @@ if __name__ == "__main__":
             localData['read'][metric] = []
             localData['write'][metric] = []
 
+        for debug_metric in RESULT_DEBUG_METRICS:
+            localData['debug'][debug_metric] = []
+
         with open(resultProps.path.absolute().as_posix(), 'r') as lines:
             for currentLine in lines:
-                for metric in RESULT_FILE_METRICS:
-                    # We're dealing with read metrics...
-                    if currentLine.startswith('r_' + metric):
-                        localData['read'][metric].append(libcruncher.lineToNumber(currentLine))
-                        break
+                for debug_metric in RESULT_DEBUG_METRICS:
+                    # We're dealing with debug duration metrics...
+                    localData['debug'][debug_metric].append(libcruncher.lineToNumber(currentLine))
 
-                    # We're dealing with write metrics...
-                    elif currentLine.startswith('w_' + metric):
-                        localData['write'][metric].append(libcruncher.lineToNumber(currentLine))
-                        break
-
-                    # These are technically comments/blank lines and are ignored
-                    elif currentLine.startswith('---') or len(currentLine.strip()) == 0 or currentLine.startswith('mf'):
-                        break
                 else:
-                    raise 'Bad data at read/write distinction: "{}"'.format(currentLine)
+                    for metric in RESULT_FILE_METRICS:
+                        # We're dealing with read metrics...
+                        if currentLine.startswith('r_' + metric):
+                            localData['read'][metric].append(libcruncher.lineToNumber(currentLine))
+                            break
+
+                        # We're dealing with write metrics...
+                        elif currentLine.startswith('w_' + metric):
+                            localData['write'][metric].append(libcruncher.lineToNumber(currentLine))
+                            break
+
+                        # These are technically comments/blank lines and are ignored
+                        elif currentLine.startswith('---') or len(currentLine.strip()) == 0 or currentLine.startswith('mf'):
+                            break
+                    else:
+                        raise 'Bad data at read/write distinction: "{}"'.format(currentLine)
 
         for metric in RESULT_FILE_METRICS:
-            if len(localData['read'][metric]) == 0:
-                localData['read'][metric] = 1
-                noReadData = True
+            for op in ['read', 'write']:
+                if len(localData[op][metric]) == 0:
+                    noData[op] = True
+
+                else:
+                    localData[op][metric] = median(localData[op][metric])
+
+        for debug_metric in RESULT_DEBUG_METRICS:
+            if len(localData['debug'][debug_metric]) == 0:
+                localData['debug'][debug_metric] = 0
 
             else:
-                localData['read'][metric] = median(localData['read'][metric])
+                localData['debug'][debug_metric] = median(localData['debug'][debug_metric])
 
-            if len(localData['write'][metric]) == 0:
-                localData['write'][metric] = 1
-                noWriteData = True
-
-            else:
-                localData['write'][metric] = median(localData['write'][metric])
-
-        if noReadData and noWriteData:
+        if noData['read'] and noData['write']:
             raise 'No read or write data was collected (empty or malformed resultsets?)'
 
         localData['read'][RESULT_FILE_METRICS[0]] /= 1000000
@@ -109,6 +124,9 @@ if __name__ == "__main__":
 
         localData['write'][RESULT_FILE_METRICS[0]] /= 1000000
         localData['write'][RESULT_FILE_METRICS[2]] /= 1000000000
+
+        for debug_metric in RESULT_DEBUG_METRICS:
+            localData['debug'][debug_metric] /= 1000000000
 
         # Sometimes we can't trust the power we read!
         localData['read'][RESULT_FILE_METRICS[1]] = (
@@ -122,6 +140,9 @@ if __name__ == "__main__":
         for op in ['read', 'write']:
             for metric in RESULT_FILE_METRICS:
                 data[op][metric].append(localData[op][metric])
+
+        for debug_metric in RESULT_DEBUG_METRICS:
+            data['debug'][debug_metric].append(localData['debug'][debug_metric])
 
     if execCTX.observeBaseline:
         print('applying baseline calculations...')
@@ -147,8 +168,8 @@ if __name__ == "__main__":
     readTitle = TITLE_TEMPLATE.format(titlePrefix, 'reads', titleFrag)
     writeTitle = TITLE_TEMPLATE.format(titlePrefix, 'writes', titleFrag)
 
-    print('observed read data: {}'.format('NO' if noReadData else 'yes'))
-    print('observed write data: {}'.format('NO' if noWriteData else 'yes'))
+    print('observed read data: {}'.format('NO' if noData['read'] else 'yes'))
+    print('observed write data: {}'.format('NO' if noData['write'] else 'yes'))
     print('number of observed baselines: {}'.format(len(execCTX.baselineFileProps)))
     print('title frag: {}'.format(titleFrag or '(no props means no title frag)'))
 
@@ -164,7 +185,7 @@ if __name__ == "__main__":
 
     print('writing out CSV...\n')
 
-    if noReadData:
+    if noData['read']:
         print('(skipped read plot)')
 
     else:
@@ -180,7 +201,7 @@ if __name__ == "__main__":
 
         print('read data written out to {}'.format(filename.format('read')))
 
-    if noWriteData:
+    if noData['write']:
         print('(skipped write plot)')
 
     else:

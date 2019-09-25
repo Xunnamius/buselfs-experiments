@@ -405,11 +405,18 @@ int main(int argc, char * argv[])
                 r_duration,
                 r_power);
 
+        fprintf(flog_output,
+                "dw1_duration: %f\ndr1_duration: %f\ndw2_duration: %f\ndr2_duration: %f\n---\n---\n",
+                w1_duration,
+                r1_duration,
+                w2_duration,
+                r2_duration);
+
         // ? Schedule a cipher swap to swap back to normal
         swap_ciphers();
 
-        sync();
         close(trialoutfd);
+        sync();
 
         if(CLEANUP)
         {
