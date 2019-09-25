@@ -406,7 +406,7 @@ int main(int argc, char * argv[])
                 r_power);
 
         fprintf(flog_output,
-                "dw1_duration: %f\ndr1_duration: %f\ndw2_duration: %f\ndr2_duration: %f\n---\n---\n",
+                "d_write1: %f\nd_read1: %f\nd_write2: %f\nd_read2: %f\n---\n---\n",
                 w1_duration,
                 r1_duration,
                 w2_duration,

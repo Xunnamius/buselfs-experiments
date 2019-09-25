@@ -81,7 +81,8 @@ if __name__ == "__main__":
             for currentLine in lines:
                 for debug_metric in RESULT_DEBUG_METRICS:
                     # We're dealing with debug duration metrics...
-                    localData['debug'][debug_metric].append(libcruncher.lineToNumber(currentLine))
+                    if currentLine.startswith('d_' + debug_metric):
+                        localData['debug'][debug_metric].append(libcruncher.lineToNumber(currentLine))
 
                 else:
                     for metric in RESULT_FILE_METRICS:
@@ -104,6 +105,7 @@ if __name__ == "__main__":
         for metric in RESULT_FILE_METRICS:
             for op in ['read', 'write']:
                 if len(localData[op][metric]) == 0:
+                    localData[op][metric] = 1
                     noData[op] = True
 
                 else:
@@ -197,6 +199,13 @@ if __name__ == "__main__":
                 for metric in RESULT_FILE_METRICS:
                     print(',{}'.format(data['read'][metric][ndx]), end='', file=file)
 
+                if data['debug'][RESULT_DEBUG_METRICS[1]] + data['debug'][RESULT_DEBUG_METRICS[3]] > 0:
+                    print(
+                        ' ({} + {})'.format(
+                            data['debug'][RESULT_DEBUG_METRICS[1]],
+                            data['debug'][RESULT_DEBUG_METRICS[3]]
+                        ), end='', file=file)
+
                 print('', file=file)
 
         print('read data written out to {}'.format(filename.format('read')))
@@ -212,6 +221,13 @@ if __name__ == "__main__":
 
                 for metric in RESULT_FILE_METRICS:
                     print(',{}'.format(data['write'][metric][ndx]), end='', file=file)
+
+                if data['debug'][RESULT_DEBUG_METRICS[0]] + data['debug'][RESULT_DEBUG_METRICS[2]] > 0:
+                    print(
+                        ' ({} + {})'.format(
+                            data['debug'][RESULT_DEBUG_METRICS[0]],
+                            data['debug'][RESULT_DEBUG_METRICS[2]]
+                        ), end='', file=file)
 
                 print('', file=file)
 
