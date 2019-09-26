@@ -44,7 +44,7 @@ if __name__ == "__main__":
 
     print('aggregating data ({} items after filter)...'.format(len(execCTX.resultFileProps)))
 
-    data = { 'read': {}, 'write': {}, 'security': [], 'cipher': [], 'debug': {} }
+    data = { 'read': {}, 'write': {}, 'security': [], 'cipher': [], 'ratio': [], 'debug': {} }
 
     noData = { 'read': False, 'write': False }
 
@@ -68,6 +68,8 @@ if __name__ == "__main__":
             rankOrder[0] + abs(rankOrder[0] - rankOrder[1]) * (resultProps.swapRatio * 0.25)
         )
 
+        data['ratio'].append(resultProps.swapRatio)
+
         data['cipher'].append(('{}' if resultProps.cipher == resultProps.swapCipher else '{}+{}').format(resultProps.cipher, resultProps.swapCipher))
 
         for metric in RESULT_FILE_METRICS:
@@ -83,6 +85,7 @@ if __name__ == "__main__":
                     # We're dealing with debug duration metrics...
                     if currentLine.startswith('d_' + debug_metric):
                         localData['debug'][debug_metric].append(libcruncher.lineToNumber(currentLine))
+                        break
 
                 else:
                     for metric in RESULT_FILE_METRICS:
@@ -100,7 +103,7 @@ if __name__ == "__main__":
                         elif currentLine.startswith('---') or len(currentLine.strip()) == 0 or currentLine.startswith('mf'):
                             break
                     else:
-                        raise 'Bad data at read/write distinction: "{}"'.format(currentLine)
+                        raise ValueError('Bad data at read/write distinction: "{}"'.format(currentLine.strip()))
 
         for metric in RESULT_FILE_METRICS:
             for op in ['read', 'write']:
@@ -119,16 +122,16 @@ if __name__ == "__main__":
                 localData['debug'][debug_metric] = median(localData['debug'][debug_metric])
 
         if noData['read'] and noData['write']:
-            raise 'No read or write data was collected (empty or malformed resultsets?)'
+            raise ValueError('No read or write data was collected (empty or malformed resultsets?)')
 
-        localData['read'][RESULT_FILE_METRICS[0]] /= 1000000
-        localData['read'][RESULT_FILE_METRICS[2]] /= 1000000000
+        localData['read'][RESULT_FILE_METRICS[0]] /= libcruncher.Decimal(1000000)
+        localData['read'][RESULT_FILE_METRICS[2]] /= libcruncher.Decimal(1000000000)
 
-        localData['write'][RESULT_FILE_METRICS[0]] /= 1000000
-        localData['write'][RESULT_FILE_METRICS[2]] /= 1000000000
+        localData['write'][RESULT_FILE_METRICS[0]] /= libcruncher.Decimal(1000000)
+        localData['write'][RESULT_FILE_METRICS[2]] /= libcruncher.Decimal(1000000000)
 
         for debug_metric in RESULT_DEBUG_METRICS:
-            localData['debug'][debug_metric] /= 1000000000
+            localData['debug'][debug_metric] /= libcruncher.Decimal(1000000000)
 
         # Sometimes we can't trust the power we read!
         localData['read'][RESULT_FILE_METRICS[1]] = (
@@ -151,7 +154,7 @@ if __name__ == "__main__":
 
         # TODO:!
         #execCTX.observeBaseline
-        raise 'Not implemented'
+        raise NotImplementedError('Not implemented')
 
     if execCTX.normalize:
         print('applying normalization calculations...')
@@ -192,19 +195,18 @@ if __name__ == "__main__":
 
     else:
         with open(filename.format('read'), 'w') as file:
-            print('cipher,security,', ','.join(RESULT_FILE_METRICS), sep='', file=file)
+            print('cipher,security,ratio,', ','.join(RESULT_FILE_METRICS), sep='', file=file)
             for ndx in range(len(execCTX.resultFileProps)):
-                print('{},{}'.format(data['cipher'][ndx], data['security'][ndx]), end='', file=file)
+                print('{},{},{}'.format(data['cipher'][ndx], data['security'][ndx], data['ratio'][ndx]), end='', file=file)
 
                 for metric in RESULT_FILE_METRICS:
                     print(',{}'.format(data['read'][metric][ndx]), end='', file=file)
 
-                if data['debug'][RESULT_DEBUG_METRICS[1]] + data['debug'][RESULT_DEBUG_METRICS[3]] > 0:
-                    print(
-                        ' ({} + {})'.format(
-                            data['debug'][RESULT_DEBUG_METRICS[1]],
-                            data['debug'][RESULT_DEBUG_METRICS[3]]
-                        ), end='', file=file)
+                debugResult1 = data['debug'][RESULT_DEBUG_METRICS[1]][ndx]
+                debugResult2 = data['debug'][RESULT_DEBUG_METRICS[3]][ndx]
+
+                if debugResult1 + debugResult2 > 0:
+                    print(' ({} + {})'.format(debugResult1, debugResult2), end='', file=file)
 
                 print('', file=file)
 
@@ -222,12 +224,11 @@ if __name__ == "__main__":
                 for metric in RESULT_FILE_METRICS:
                     print(',{}'.format(data['write'][metric][ndx]), end='', file=file)
 
-                if data['debug'][RESULT_DEBUG_METRICS[0]] + data['debug'][RESULT_DEBUG_METRICS[2]] > 0:
-                    print(
-                        ' ({} + {})'.format(
-                            data['debug'][RESULT_DEBUG_METRICS[0]],
-                            data['debug'][RESULT_DEBUG_METRICS[2]]
-                        ), end='', file=file)
+                debugResult1 = data['debug'][RESULT_DEBUG_METRICS[0]][ndx]
+                debugResult2 = data['debug'][RESULT_DEBUG_METRICS[2]][ndx]
+
+                if debugResult1 + debugResult2 > 0:
+                    print(' ({} + {})'.format(debugResult1, debugResult2), end='', file=file)
 
                 print('', file=file)
 

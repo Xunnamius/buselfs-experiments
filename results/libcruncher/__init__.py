@@ -9,7 +9,11 @@ import os
 import sys
 
 from pathlib import Path
-from decimal import Decimal
+from decimal import Decimal, getcontext, FloatOperation
+
+c = getcontext()
+c.traps[FloatOperation] = True
+c.prec = 6
 
 from libcruncher.exception import (ResultPropertyAttributeError,
                                    EmptyResultsSubsetError,
