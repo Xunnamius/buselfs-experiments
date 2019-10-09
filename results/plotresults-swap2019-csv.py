@@ -22,6 +22,8 @@ import libcruncher
 
 from libcruncher.util import generateTitleFrag, stringToValidFilename, SC_SECURITY_RANKING
 
+PRINT_DEBUG_INFO = False
+
 TEST_IDENT = 'swap-2019'
 TITLE_TEMPLATE = '{} [{}] Swap-2019 Tradeoff ({})'
 
@@ -205,7 +207,7 @@ if __name__ == "__main__":
                 debugResult1 = data['debug'][RESULT_DEBUG_METRICS[1]][ndx]
                 debugResult2 = data['debug'][RESULT_DEBUG_METRICS[3]][ndx]
 
-                if debugResult1 + debugResult2 > 0:
+                if PRINT_DEBUG_INFO and debugResult1 + debugResult2 > 0:
                     print(' ({} + {})'.format(debugResult1, debugResult2), end='', file=file)
 
                 print('', file=file)
@@ -227,7 +229,7 @@ if __name__ == "__main__":
                 debugResult1 = data['debug'][RESULT_DEBUG_METRICS[0]][ndx]
                 debugResult2 = data['debug'][RESULT_DEBUG_METRICS[2]][ndx]
 
-                if debugResult1 + debugResult2 > 0:
+                if PRINT_DEBUG_INFO and debugResult1 + debugResult2 > 0:
                     print(' ({} + {})'.format(debugResult1, debugResult2), end='', file=file)
 
                 print('', file=file)
