@@ -16,6 +16,7 @@ lib = Librunner(config)
 
 ### * Configurables * ###
 
+KEEP_RUNNER_LOGS = False
 DIE_ON_EXCEPTION = True
 
 # ! REMEMBER: it's nilfs2 (TWO) with a 2! Not just 'nilfs'!
@@ -64,34 +65,29 @@ experiments = [
 # ? These are all the cipher swapping pairs that will be tested
 # ? each element: (primary cipher, swap cipher, swap strategy)
 cipherpairs = [
-    #('sc_chacha8_neon',  'sc_chacha20_neon',  'swap_0_forward'),
-    ('sc_chacha8_neon', 'sc_freestyle_fast', 'swap_0_forward'),
-    ('sc_freestyle_fast', 'sc_chacha8_neon', 'swap_0_forward'),
-    ('sc_chacha8_neon', 'sc_chacha8_neon', 'swap_0_forward'),
-    ('sc_freestyle_fast', 'sc_freestyle_fast', 'swap_0_forward'),
-    # ('sc_chacha8_neon',  'sc_chacha20_neon',  'swap_1_forward'),
-    # ('sc_chacha8_neon',  'sc_chacha20_neon',  'swap_2_forward'),
-    # ('sc_chacha20_neon', 'sc_freestyle_fast', 'swap_0_forward'),
-    # ('sc_chacha20_neon', 'sc_freestyle_fast', 'swap_1_forward'),
-    # ('sc_chacha20_neon', 'sc_freestyle_fast', 'swap_2_forward'),
-    # ('sc_chacha8_neon',  'sc_freestyle_fast', 'swap_0_forward'),
-    # ('sc_chacha8_neon',  'sc_freestyle_fast', 'swap_1_forward'),
-    # ('sc_chacha8_neon',  'sc_freestyle_fast', 'swap_2_forward'),
-    # ('sc_chacha8_neon',  'sc_chacha20_neon',  'swap_mirrored'),
-    # ('sc_chacha20_neon', 'sc_freestyle_fast', 'swap_mirrored'),
-    # ('sc_chacha8_neon',  'sc_freestyle_fast', 'swap_mirrored'),
-    # #('sc_chacha8_neon',  'sc_chacha20_neon',  'swap_selective'),
-    # #('sc_chacha20_neon', 'sc_freestyle_fast', 'swap_selective'),
-    # #('sc_chacha8_neon',  'sc_freestyle_fast', 'swap_selective'),
+    ('sc_chacha8_neon', 'sc_chacha20_neon', 'swap_0_forward'),
+    #('sc_chacha8_neon', 'sc_freestyle_fast', 'swap_0_forward'),
+    ('sc_chacha20_neon', 'sc_freestyle_fast', 'swap_0_forward'),
+    ('sc_freestyle_fast', 'sc_freestyle_balanced', 'swap_0_forward'),
+    ('sc_freestyle_balanced', 'sc_freestyle_secure', 'swap_0_forward'),
 
-    # ('sc_freestyle_fast',     'sc_freestyle_balanced',  'swap_0_forward'),
-    # ('sc_freestyle_fast',     'sc_freestyle_balanced',  'swap_1_forward'),
-    # ('sc_freestyle_fast',     'sc_freestyle_balanced',  'swap_2_forward'),
-    # ('sc_freestyle_balanced', 'sc_freestyle_secure',    'swap_0_forward'),
-    # ('sc_freestyle_balanced', 'sc_freestyle_secure',    'swap_1_forward'),
-    # ('sc_freestyle_balanced', 'sc_freestyle_secure',    'swap_2_forward'),
-    # ('sc_freestyle_fast',     'sc_freestyle_balanced',  'swap_mirrored'),
-    # ('sc_freestyle_balanced', 'sc_freestyle_secure',    'swap_mirrored'),
+    ('sc_chacha8_neon', 'sc_chacha20_neon', 'swap_1_forward'),
+    #('sc_chacha8_neon', 'sc_freestyle_fast', 'swap_1_forward'),
+    ('sc_chacha20_neon', 'sc_freestyle_fast', 'swap_1_forward'),
+    ('sc_freestyle_fast', 'sc_freestyle_balanced', 'swap_1_forward'),
+    ('sc_freestyle_balanced', 'sc_freestyle_secure', 'swap_1_forward'),
+
+    ('sc_chacha8_neon', 'sc_chacha20_neon', 'swap_2_forward'),
+    #('sc_chacha8_neon', 'sc_freestyle_fast', 'swap_2_forward'),
+    ('sc_chacha20_neon', 'sc_freestyle_fast', 'swap_2_forward'),
+    ('sc_freestyle_fast', 'sc_freestyle_balanced', 'swap_2_forward'),
+    ('sc_freestyle_balanced', 'sc_freestyle_secure', 'swap_2_forward'),
+
+    ('sc_chacha8_neon', 'sc_chacha20_neon', 'swap_mirrored'),
+    #('sc_chacha8_neon', 'sc_freestyle_fast', 'swap_mirrored'),
+    ('sc_chacha20_neon', 'sc_freestyle_fast', 'swap_mirrored'),
+    ('sc_freestyle_fast', 'sc_freestyle_balanced', 'swap_mirrored'),
+    ('sc_freestyle_balanced', 'sc_freestyle_secure', 'swap_mirrored')
 ]
 
 backendFnTuples = [
@@ -127,12 +123,12 @@ if __name__ == "__main__":
         for filesystem in filesystems:
             for fpn in fpns:
                 for flk_size in flksizes:
-                    for swap_ratio in range(1, 4): # ! (1, 4) means 1 through 3 inclusive!
+                    for swap_rat in range(1, 4): # ! (1, 4) means 1 through 3 inclusive!
                         configurations.extend([
                             ExtendedConfiguration(
-                                '{}#{}#{}#{}#{}#{}+{}'.format(filesystem, cipherpair[0], flk_size, fpn, cipherpair[1], cipherpair[2], swap_ratio),
+                                '{}#{}#{}#{}#{}#{}+{}'.format(filesystem, cipherpair[0], flk_size, fpn, cipherpair[1], cipherpair[2], swap_rat),
                                 filesystem,
-                                swap_ratio,
+                                swap_rat,
                                 [],
                                 [
                                     '--cipher', cipherpair[0],
@@ -155,6 +151,8 @@ if __name__ == "__main__":
                     for backendFn in backendFnTuples:
                         for runFn in experiments:
                             for dataClass in dataClasses:
+                                    identifier = '[unknown]'
+
                                     with open(config['LOG_FILE_PATH'], 'w') as file:
                                         print(str(datetime.now()), '\n---------\n', file=file)
 
@@ -192,7 +190,7 @@ if __name__ == "__main__":
                                                 raise
 
                                             try:
-                                                runFn(dataClass, identifier, swap_ratio)
+                                                runFn(dataClass, identifier, conf.swap_ratio)
 
                                             except KeyboardInterrupt:
                                                 progressBar.close()
@@ -222,6 +220,18 @@ if __name__ == "__main__":
                                         lib.logFile = None
 
                                         progressBar.update()
+
+                                    if KEEP_RUNNER_LOGS:
+                                        filename, fileext = os.path.splitext(os.path.basename(config['LOG_FILE_PATH']))
+                                        os.rename(
+                                            config['LOG_FILE_PATH'],
+                                            '{}/{}-{}{}'.format(
+                                                os.path.dirname(config['LOG_FILE_PATH']),
+                                                filename,
+                                                identifier,
+                                                fileext
+                                            )
+                                        )
 
         lib.print('done', severity='OK')
 

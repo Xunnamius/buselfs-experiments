@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 
-RUNNER_LOG_PATH = '/tmp/runner.log'
+import sys
 
 withinInterestingRegion = False
 interestingRegions = []
 
 if __name__ == "__main__":
-    with open(RUNNER_LOG_PATH, 'r') as lines:
+    with open(sys.argv[1], 'r') as lines:
         for currentLine in lines:
             if 'got start time (ns)' in currentLine:
                 withinInterestingRegion = True
