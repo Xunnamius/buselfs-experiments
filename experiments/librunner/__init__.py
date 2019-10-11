@@ -711,3 +711,75 @@ class Librunner():
 
         except pexpect.TIMEOUT:
             raise ExperimentError('experiment timed out (exceeded {} seconds)'.format(self.config['FREERUN_TIMEOUT_INT']))
+
+    @_experiment('sequential_freerun_uc_batterysaver')
+    def sequentialFreerunUsecase_BatterySaver(self, data_class, test_name):
+        """Runs the sequential Freerun tests for the Battery Saver usecase"""
+
+        self.symlinkDataClass(data_class)
+
+        self.print('running sequential Freerun UC Battery Saver test target {}'.format(test_name))
+
+        try:
+            return self._spawn_actual(
+                '{}/bin/sequential-freerun-uc-batterysaver'.format(self.config['REPO_PATH']),
+                ['ram', test_name, self.currentDeviceTmpPath],
+                timeout=self.config['FREERUN_TIMEOUT_INT']
+            )
+
+        except pexpect.TIMEOUT:
+            raise ExperimentError('experiment timed out (exceeded {} seconds'.format(self.config['FREERUN_TIMEOUT_INT']))
+
+    @_experiment('random_freerun_uc_batterysaver')
+    def randomFreerunUsecase_BatterySaver(self, data_class, test_name):
+        """Runs the random Freerun tests for the Battery Saver usecase"""
+
+        self.symlinkDataClass(data_class)
+
+        self.print('running random Freerun UC Battery Saver test target {}'.format(test_name))
+
+        try:
+            return self._spawn_actual(
+                '{}/bin/random-freerun-uc-batterysaver'.format(self.config['REPO_PATH']),
+                ['ram', test_name, self.currentDeviceTmpPath],
+                timeout=self.config['FREERUN_TIMEOUT_INT']
+            )
+
+        except pexpect.TIMEOUT:
+            raise ExperimentError('experiment timed out (exceeded {} seconds)'.format(self.config['FREERUN_TIMEOUT_INT']))
+
+    @_experiment('sequential_freerun_uc_ssdeol')
+    def sequentialFreerunUsecase_SSDEoL(self, data_class, test_name):
+        """Runs the sequential Freerun tests for the SSD EoL usecase"""
+
+        self.symlinkDataClass(data_class)
+
+        self.print('running sequential Freerun UC SSDEoL test target {}'.format(test_name))
+
+        try:
+            return self._spawn_actual(
+                '{}/bin/sequential-freerun-uc-ssdeol'.format(self.config['REPO_PATH']),
+                ['ram', test_name, self.currentDeviceTmpPath],
+                timeout=self.config['FREERUN_TIMEOUT_INT']
+            )
+
+        except pexpect.TIMEOUT:
+            raise ExperimentError('experiment timed out (exceeded {} seconds'.format(self.config['FREERUN_TIMEOUT_INT']))
+
+    @_experiment('random_freerun_uc_ssdeol')
+    def randomFreerunUsecase_SSDEoL(self, data_class, test_name):
+        """Runs the random Freerun tests for the SSD EoL usecase"""
+
+        self.symlinkDataClass(data_class)
+
+        self.print('running random Freerun UC SSDEoL test target {}'.format(test_name))
+
+        try:
+            return self._spawn_actual(
+                '{}/bin/random-freerun-uc-ssdeol'.format(self.config['REPO_PATH']),
+                ['ram', test_name, self.currentDeviceTmpPath],
+                timeout=self.config['FREERUN_TIMEOUT_INT']
+            )
+
+        except pexpect.TIMEOUT:
+            raise ExperimentError('experiment timed out (exceeded {} seconds)'.format(self.config['FREERUN_TIMEOUT_INT']))

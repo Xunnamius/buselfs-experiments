@@ -172,7 +172,8 @@
     "files.associations": {
         "unistd.h": "c",
         "energymon-time-util.h": "c",
-        "lib-sequential.h": "c"
+        "lib-sequential.h": "c",
+        "lib.h": "c"
     },
     "search.exclude": {
         "**/bin": true,
