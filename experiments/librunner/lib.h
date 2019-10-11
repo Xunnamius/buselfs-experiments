@@ -27,6 +27,8 @@
 #define SWAP_RATIO_50S_50P_STR "2"
 #define SWAP_RATIO_75S_25P_STR "3"
 
+#define LOW_BATTERY_WAIT 20U // In seconds
+
 #define IOSIZE 131072U
 //#define IOSIZE INT_MAX
 #define PATH_BUFF_SIZE 255U
@@ -73,9 +75,7 @@
 #define STRINGIZE(x) #x
 #define STRINGIZE_VALUE_OF(x) STRINGIZE(x)
 
-#define CMD_ARGS "write " STRINGIZE_VALUE_OF(BLFS_SV_QUEUE_INCOMING_NAME) " 1 2>&1"
-
-#define WORM_BUILTIN_SWAP_RATIO 2
+#define CMD_ARGS ""
 
 const int CLEANUP = 0;
 
@@ -167,6 +167,82 @@ void swap_ciphers()
     {
         exitcode = WEXITSTATUS(exitcode);
         printf("swap_ciphers (call to shell) failed with retval: %i\n", exitcode);
+        exit(exitcode);
+    }
+
+    sync();
+}
+
+/**
+ * Attempt to force the odroid to use the little cores
+ */
+void throttle_sys()
+{
+    char path[PATH_BUFF_SIZE];
+    char std_output[STDOUT_BUFF_SIZE];
+    char cmd[sizeof(path) + sizeof(CMD_ARGS) + 1];
+    FILE * fp;
+
+    get_real_path(path, STRINGIZE_VALUE_OF(REPO_PATH), "vendor/odroidxu3-throttle.sh");
+
+    snprintf(cmd, sizeof cmd, "%s %s", path, CMD_ARGS);
+    printf("throttling odroid (via call to shell): %s\n", cmd);
+
+    fp = popen(cmd, "r");
+
+    if(fp == NULL)
+    {
+        printf("throttling odroid (via call to shell) failed to run");
+        exit(252);
+    }
+
+    while(fgets(std_output, sizeof(std_output) - 1, fp) != NULL)
+        printf("throttling odroid stdout: %s\n", std_output);
+
+    int exitcode = pclose(fp); // ? Waits on process to exit
+
+    if(exitcode != 0)
+    {
+        exitcode = WEXITSTATUS(exitcode);
+        printf("throttling odroid (via call to shell) failed with retval: %i\n", exitcode);
+        exit(exitcode);
+    }
+
+    sync();
+}
+
+/**
+ * Attempt to force the odroid to use the BIG cores
+ */
+void unthrottle_sys()
+{
+    char path[PATH_BUFF_SIZE];
+    char std_output[STDOUT_BUFF_SIZE];
+    char cmd[sizeof(path) + sizeof(CMD_ARGS) + 1];
+    FILE * fp;
+
+    get_real_path(path, STRINGIZE_VALUE_OF(REPO_PATH), "vendor/odroidxu3-unthrottle.sh");
+
+    snprintf(cmd, sizeof cmd, "%s %s", path, CMD_ARGS);
+    printf("unthrottling odroid (via call to shell): %s\n", cmd);
+
+    fp = popen(cmd, "r");
+
+    if(fp == NULL)
+    {
+        printf("unthrottling odroid (via call to shell) failed to run");
+        exit(252);
+    }
+
+    while(fgets(std_output, sizeof(std_output) - 1, fp) != NULL)
+        printf("unthrottling odroid stdout: %s\n", std_output);
+
+    int exitcode = pclose(fp); // ? Waits on process to exit
+
+    if(exitcode != 0)
+    {
+        exitcode = WEXITSTATUS(exitcode);
+        printf("unthrottling odroid (via call to shell) failed with retval: %i\n", exitcode);
         exit(exitcode);
     }
 

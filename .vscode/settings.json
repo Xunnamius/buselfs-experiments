@@ -161,6 +161,7 @@
         "tspace",
         "umount",
         "unmounts",
+        "unthrottle",
         "urandom",
         "vals",
         "writeto",
