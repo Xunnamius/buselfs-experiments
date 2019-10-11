@@ -9,6 +9,7 @@
 #include <fcntl.h>
 #include <sys/types.h>
 #include <string.h>
+#include <sched.h>
 #include <sys/stat.h>
 #include <signal.h>
 #include <limits.h>
@@ -75,8 +76,10 @@
 #define STRINGIZE(x) #x
 #define STRINGIZE_VALUE_OF(x) STRINGIZE(x)
 
-#define CMD1_ARGS "write " STRINGIZE_VALUE_OF(BLFS_SV_QUEUE_INCOMING_NAME) " 1 2>&1"
-#define CMD2_ARGS ""
+#define CMD_SWAP_ARGS "write " STRINGIZE_VALUE_OF(BLFS_SV_QUEUE_INCOMING_NAME) " 1 2>&1"
+#define CMD_THROTTLE_ARGS ""
+// #define CMD_PIDOF_ARGS STRINGIZE_VALUE_OF(BUSELFS_PATH) "/build/sb"
+#define CMD_PIDOF_ARGS "sb" // ! This must be consistent with __init__.py
 
 #define WORM_BUILTIN_SWAP_RATIO SWAP_RATIO_50S_50P
 
@@ -125,6 +128,34 @@ int collect_metrics(Metrics * metrics, energymon * monitor)
 }
 
 /**
+ * Configures a bit mask for setting CPU affinity during throttling
+ */
+void get_throttled_cpu_set(cpu_set_t * throttle_mask)
+{
+    CPU_ZERO(throttle_mask);
+    CPU_SET(0, throttle_mask);
+    CPU_SET(1, throttle_mask);
+    CPU_SET(2, throttle_mask);
+    CPU_SET(3, throttle_mask);
+}
+
+/**
+ * Configures a bit mask for setting CPU affinity during UNthrottling
+ */
+void get_unthrottled_cpu_set(cpu_set_t * unthrottle_mask)
+{
+    CPU_ZERO(unthrottle_mask);
+    CPU_SET(0, unthrottle_mask);
+    CPU_SET(1, unthrottle_mask);
+    CPU_SET(2, unthrottle_mask);
+    CPU_SET(3, unthrottle_mask);
+    CPU_SET(4, unthrottle_mask);
+    CPU_SET(5, unthrottle_mask);
+    CPU_SET(6, unthrottle_mask);
+    CPU_SET(7, unthrottle_mask);
+}
+
+/**
  * Appends `path` to the `base` path, separated by a /, and places it in buff. A
  * maximum of PATH_BUFF_SIZE bytes will be written into buff.
  *
@@ -145,19 +176,19 @@ void swap_ciphers()
 {
     char path[PATH_BUFF_SIZE];
     char std_output[STDOUT_BUFF_SIZE];
-    char cmd[sizeof(path) + sizeof(CMD1_ARGS) + 1];
+    char cmd[sizeof(path) + sizeof(CMD_SWAP_ARGS) + 1];
     FILE * fp;
 
     get_real_path(path, STRINGIZE_VALUE_OF(BUSELFS_PATH), "build/sbctl");
 
-    snprintf(cmd, sizeof cmd, "%s %s", path, CMD1_ARGS);
+    snprintf(cmd, sizeof cmd, "%s %s", path, CMD_SWAP_ARGS);
     printf("swap_ciphers (call to shell): %s\n", cmd);
 
     fp = popen(cmd, "r");
 
     if(fp == NULL)
     {
-        printf("swap_ciphers (call to shell) failed to run");
+        printf("swap_ciphers (call to shell) failed to run\n");
         exit(252);
     }
 
@@ -177,32 +208,102 @@ void swap_ciphers()
 }
 
 /**
+ * Returns the PID of the currently running StrongBox process
+ */
+void set_strongbox_affinity(cpu_set_t * mask)
+{
+    char std_output_pidof[STDOUT_BUFF_SIZE + 1];
+    char cmd_pidof[sizeof(CMD_PIDOF_ARGS) + 10];
+    FILE * fp_pidof;
+
+    std_output_pidof[STDOUT_BUFF_SIZE] = 0;
+    snprintf(cmd_pidof, sizeof cmd_pidof, "pidof %s", CMD_PIDOF_ARGS);
+    printf("getting pid of StrongBox process (via call to shell): %s\n", cmd_pidof);
+
+    fp_pidof = popen(cmd_pidof, "r");
+
+    if(fp_pidof == NULL)
+    {
+        printf("pidof failed to run\n");
+        exit(250);
+    }
+
+    if(fgets(std_output_pidof, sizeof(std_output_pidof), fp_pidof) == NULL)
+    {
+        printf("fgets failed to read pidof output\n");
+        exit(249);
+    }
+
+    printf("saw pid string for StrongBox: %s\n", std_output_pidof);
+
+    char * pid_str;
+    pid_t pid1 = 0;
+    pid_t pid2 = 0;
+
+    pid_str = strtok(std_output_pidof, " ");
+    pid1 = strtoul(pid_str, NULL, 10);
+    printf("first pid for StrongBox: %jd\n", (intmax_t) pid1);
+
+    pid_str = strtok(NULL, " ");
+    pid2 = strtoul(pid_str, NULL, 10);
+    printf("second pid for StrongBox: %jd\n", (intmax_t) pid2);
+
+    if(strtok(NULL, " ") != NULL || pid2 == 0 || pid1 == 0)
+    {
+        printf("pid1/2 tokenize failed\n");
+        exit(251);
+    }
+
+    errno = 0;
+
+    int exitcode1 = sched_setaffinity(pid1, sizeof(mask), mask); // ? Waits on process to exit
+
+    if(exitcode1 != 0)
+    {
+        printf("sched_setaffinity #1 failed with errno: %i\n", errno);
+        exit(247);
+    }
+
+    errno = 0;
+
+    int exitcode2 = sched_setaffinity(pid2, sizeof(mask), mask);
+
+    if(exitcode2 != 0)
+    {
+        printf("sched_setaffinity #2 failed with errno: %i\n", errno);
+        exit(248);
+    }
+
+    printf("StrongBox processes' affinity set successfully!\n");
+}
+
+/**
  * Attempt to force the odroid to use the little cores
  */
 void throttle_sys()
 {
-    char path[PATH_BUFF_SIZE];
-    char std_output[STDOUT_BUFF_SIZE];
-    char cmd[sizeof(path) + sizeof(CMD2_ARGS) + 1];
-    FILE * fp;
+    char path_throttle[PATH_BUFF_SIZE];
+    char std_output_throttle[STDOUT_BUFF_SIZE];
+    char cmd_throttle[sizeof(path_throttle) + sizeof(CMD_THROTTLE_ARGS) + 1];
+    FILE * fp_throttle;
 
-    get_real_path(path, STRINGIZE_VALUE_OF(REPO_PATH), "vendor/odroidxu3-throttle.sh");
+    get_real_path(path_throttle, STRINGIZE_VALUE_OF(REPO_PATH), "vendor/odroidxu3-throttle.sh");
 
-    snprintf(cmd, sizeof cmd, "%s %s", path, CMD2_ARGS);
-    printf("throttling odroid (via call to shell): %s\n", cmd);
+    snprintf(cmd_throttle, sizeof cmd_throttle, "%s %s", path_throttle, CMD_THROTTLE_ARGS);
+    printf("throttling odroid (via call to shell): %s\n", cmd_throttle);
 
-    fp = popen(cmd, "r");
+    fp_throttle = popen(cmd_throttle, "r");
 
-    if(fp == NULL)
+    if(fp_throttle == NULL)
     {
-        printf("throttling odroid (via call to shell) failed to run");
+        printf("throttling odroid (via call to shell) failed to run\n");
         exit(252);
     }
 
-    while(fgets(std_output, sizeof(std_output) - 1, fp) != NULL)
-        printf("throttling odroid stdout: %s\n", std_output);
+    while(fgets(std_output_throttle, sizeof(std_output_throttle) - 1, fp_throttle) != NULL)
+        printf("throttling odroid stdout: %s\n", std_output_throttle);
 
-    int exitcode = pclose(fp); // ? Waits on process to exit
+    int exitcode = pclose(fp_throttle); // ? Waits on process to exit
 
     if(exitcode != 0)
     {
@@ -211,7 +312,14 @@ void throttle_sys()
         exit(exitcode);
     }
 
+    cpu_set_t throttle_mask;
+
+    get_throttled_cpu_set(&throttle_mask);
+    set_strongbox_affinity(&throttle_mask);
+
     sync();
+    printf("sleeping for 5 seconds...\n");
+    sleep(5);
 }
 
 /**
@@ -221,19 +329,19 @@ void unthrottle_sys()
 {
     char path[PATH_BUFF_SIZE];
     char std_output[STDOUT_BUFF_SIZE];
-    char cmd[sizeof(path) + sizeof(CMD2_ARGS) + 1];
+    char cmd[sizeof(path) + sizeof(CMD_THROTTLE_ARGS) + 1];
     FILE * fp;
 
     get_real_path(path, STRINGIZE_VALUE_OF(REPO_PATH), "vendor/odroidxu3-unthrottle.sh");
 
-    snprintf(cmd, sizeof cmd, "%s %s", path, CMD2_ARGS);
+    snprintf(cmd, sizeof cmd, "%s %s", path, CMD_THROTTLE_ARGS);
     printf("unthrottling odroid (via call to shell): %s\n", cmd);
 
     fp = popen(cmd, "r");
 
     if(fp == NULL)
     {
-        printf("unthrottling odroid (via call to shell) failed to run");
+        printf("unthrottling odroid (via call to shell) failed to run\n");
         exit(252);
     }
 
@@ -249,7 +357,14 @@ void unthrottle_sys()
         exit(exitcode);
     }
 
+    cpu_set_t unthrottle_mask;
+
+    get_unthrottled_cpu_set(&unthrottle_mask);
+    set_strongbox_affinity(&unthrottle_mask);
+
     sync();
+    printf("sleeping for 5 seconds...\n");
+    sleep(5);
 }
 
 /**
@@ -284,6 +399,9 @@ u_int64_t calc_len(u_int64_t fsize, int swap_ratio, int primary_or_swap)
     return result;
 }
 
+/**
+ * Print ratio param help text
+ */
 void print_swap_help()
 {
     printf(
@@ -292,6 +410,9 @@ void print_swap_help()
     );
 }
 
+/**
+ * Ensure we're running as root
+ */
 void check_root()
 {
     uid_t euid = geteuid();
@@ -303,6 +424,9 @@ void check_root()
     }
 }
 
+/**
+ * Throw out the help text WITHOUT ratio param
+ */
 void check_args_and_perms_noratio(int argc, const char * name)
 {
     check_root();
@@ -315,6 +439,9 @@ void check_args_and_perms_noratio(int argc, const char * name)
     }
 }
 
+/**
+ * Throw out the help text with ratio param
+ */
 void check_args_and_perms_with_ratio(int argc, const char * name)
 {
     check_root();
@@ -328,6 +455,9 @@ void check_args_and_perms_with_ratio(int argc, const char * name)
     }
 }
 
+/**
+ * Convert a string into a swap ration constant (an integer)
+ */
 uint8_t str_to_swap_ratio(const char * swap_ratio_str)
 {
     if(strcmp(swap_ratio_str, SWAP_RATIO_25S_75P_STR) == 0)

@@ -116,6 +116,7 @@
         "optflknug",
         "pcachefd",
         "pexpect",
+        "pidof",
         "plot",
         "plotresults",
         "posix",
@@ -174,7 +175,9 @@
         "unistd.h": "c",
         "energymon-time-util.h": "c",
         "lib-sequential.h": "c",
-        "lib.h": "c"
+        "lib.h": "c",
+        "sched.h": "c",
+        "assert.h": "c"
     },
     "search.exclude": {
         "**/bin": true,
