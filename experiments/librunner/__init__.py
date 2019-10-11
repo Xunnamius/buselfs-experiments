@@ -754,7 +754,7 @@ class Librunner():
 
         self.symlinkDataClass(data_class)
 
-        self.print('running sequential Freerun UC SSDEoL test target {}'.format(test_name))
+        self.print('running sequential Freerun UC SSD EoL test target {}'.format(test_name))
 
         try:
             return self._spawn_actual(
@@ -772,7 +772,7 @@ class Librunner():
 
         self.symlinkDataClass(data_class)
 
-        self.print('running random Freerun UC SSDEoL test target {}'.format(test_name))
+        self.print('running random Freerun UC SSD EoL test target {}'.format(test_name))
 
         try:
             return self._spawn_actual(

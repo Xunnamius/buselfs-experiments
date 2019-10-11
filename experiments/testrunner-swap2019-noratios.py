@@ -71,7 +71,7 @@ experiments = [
 # ? These are all the cipher swapping pairs that will be tested
 # ? each element: (primary cipher, swap cipher, swap strategy)
 cipherpairs = [
-    ('sc_chacha8_neon', 'sc_freestyle_balanced', 'swap_0_forward'),
+    ('sc_freestyle_balanced', 'sc_chacha8_neon', 'swap_0_forward'),
 
     # ('sc_chacha8_neon', 'sc_chacha20_neon', 'swap_0_forward'),
     # #('sc_chacha8_neon', 'sc_freestyle_fast', 'swap_0_forward'),
