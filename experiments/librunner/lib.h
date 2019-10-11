@@ -75,7 +75,8 @@
 #define STRINGIZE(x) #x
 #define STRINGIZE_VALUE_OF(x) STRINGIZE(x)
 
-#define CMD_ARGS ""
+#define CMD1_ARGS "write " STRINGIZE_VALUE_OF(BLFS_SV_QUEUE_INCOMING_NAME) " 1 2>&1"
+#define CMD2_ARGS ""
 
 #define WORM_BUILTIN_SWAP_RATIO SWAP_RATIO_50S_50P
 
@@ -144,12 +145,12 @@ void swap_ciphers()
 {
     char path[PATH_BUFF_SIZE];
     char std_output[STDOUT_BUFF_SIZE];
-    char cmd[sizeof(path) + sizeof(CMD_ARGS) + 1];
+    char cmd[sizeof(path) + sizeof(CMD1_ARGS) + 1];
     FILE * fp;
 
     get_real_path(path, STRINGIZE_VALUE_OF(BUSELFS_PATH), "build/sbctl");
 
-    snprintf(cmd, sizeof cmd, "%s %s", path, CMD_ARGS);
+    snprintf(cmd, sizeof cmd, "%s %s", path, CMD1_ARGS);
     printf("swap_ciphers (call to shell): %s\n", cmd);
 
     fp = popen(cmd, "r");
@@ -182,12 +183,12 @@ void throttle_sys()
 {
     char path[PATH_BUFF_SIZE];
     char std_output[STDOUT_BUFF_SIZE];
-    char cmd[sizeof(path) + sizeof(CMD_ARGS) + 1];
+    char cmd[sizeof(path) + sizeof(CMD2_ARGS) + 1];
     FILE * fp;
 
     get_real_path(path, STRINGIZE_VALUE_OF(REPO_PATH), "vendor/odroidxu3-throttle.sh");
 
-    snprintf(cmd, sizeof cmd, "%s %s", path, CMD_ARGS);
+    snprintf(cmd, sizeof cmd, "%s %s", path, CMD2_ARGS);
     printf("throttling odroid (via call to shell): %s\n", cmd);
 
     fp = popen(cmd, "r");
@@ -220,12 +221,12 @@ void unthrottle_sys()
 {
     char path[PATH_BUFF_SIZE];
     char std_output[STDOUT_BUFF_SIZE];
-    char cmd[sizeof(path) + sizeof(CMD_ARGS) + 1];
+    char cmd[sizeof(path) + sizeof(CMD2_ARGS) + 1];
     FILE * fp;
 
     get_real_path(path, STRINGIZE_VALUE_OF(REPO_PATH), "vendor/odroidxu3-unthrottle.sh");
 
-    snprintf(cmd, sizeof cmd, "%s %s", path, CMD_ARGS);
+    snprintf(cmd, sizeof cmd, "%s %s", path, CMD2_ARGS);
     printf("unthrottling odroid (via call to shell): %s\n", cmd);
 
     fp = popen(cmd, "r");
