@@ -77,6 +77,8 @@
 
 #define CMD_ARGS ""
 
+#define WORM_BUILTIN_SWAP_RATIO SWAP_RATIO_50S_50P
+
 const int CLEANUP = 0;
 
 // For random data from /dev/urandom
