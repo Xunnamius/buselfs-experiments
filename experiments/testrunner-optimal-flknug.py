@@ -59,7 +59,7 @@ fpns = [
 experiments = [
     #lib.sequentialFreerunUsecase_BatterySaver,
     lib.sequentialFreerun,
-    #lib.randomFreerun,
+    lib.randomFreerun,
 ]
 
 ciphers = [#'sc_salsa8',

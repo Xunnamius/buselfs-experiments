@@ -420,13 +420,13 @@ int main(int argc, char * argv[])
         double r2_duration = read2_metrics_end.time_ns - read2_metrics_start.time_ns;
         double r2_power = r2_energy * 1000.0 / r2_duration;
 
-        double w_energy = (w1_energy + w2_energy) / 2.0;
-        double w_duration = (w1_duration + w2_duration) / 2.0;
-        double w_power = (w1_power + w2_power) / 2.0;
+        double w_energy = w1_energy + w2_energy;
+        double w_duration = w1_duration + w2_duration;
+        double w_power = w1_power + w2_power;
 
-        double r_energy = (r1_energy + r2_energy) / 2.0;
-        double r_duration = (r1_duration + r2_duration) / 2.0;
-        double r_power = (r1_power + r2_power) / 2.0;
+        double r_energy = r1_energy + r2_energy;
+        double r_duration = r1_duration + r2_duration;
+        double r_power = r1_power + r2_power;
 
         printf("==> WRITES <==\nenergy: %fj\nduration: %fs\npower: %fw\n",
                w_energy / 1000000.0,
@@ -449,11 +449,18 @@ int main(int argc, char * argv[])
                 r_duration,
                 r_power);
 
+                fprintf(flog_output,
+                "d_write1: %f\nd_read1: %f\nd_write2: %f\nd_read2: %f\n---\n---\n",
+                w1_duration,
+                r1_duration,
+                w2_duration,
+                r2_duration);
+
         // ? Schedule a cipher swap to swap back to normal
         swap_ciphers();
 
-        sync();
         close(trialoutfd);
+        sync();
 
         if(CLEANUP)
         {
