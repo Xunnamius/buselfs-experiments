@@ -519,8 +519,8 @@ class Librunner():
 
         self._lingeringBackgroundProcess = buse
 
-    def createDmcBackend(self, fs_type, mount_args=None, device_args=None):
-        """Creates a dm-crypt + AES-XTS backend and returns the path"""
+    def createDelayedSbBackend(self, fs_type, mount_args=None, device_args=None):
+        """Creates a StrongBox backend with a custom performance delay"""
 
         assert self._lingeringBackgroundProcess == None
 

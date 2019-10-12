@@ -104,7 +104,7 @@ def initialize(config, verbose=False, force=False):
     if force or checkMount(config, verbose) == 1:
         print('(mounted ramdisk not found or re-initialization forced; executing primary initialization...)')
 
-        for mod in ('nbd', 'nilfs2', 'f2fs'): #('nbd', 'nilfs2', 'f2fs'):
+        for mod in ('nbd', 'nilfs2', 'f2fs'):
             modprobe = pexpect.spawn('modprobe', [mod], timeout=STANDARD_TIMEOUT, encoding='utf-8')
 
             modprobe.logfile = sys.stdout if verbose else None
@@ -112,13 +112,37 @@ def initialize(config, verbose=False, force=False):
             modprobe.close()
 
             if modprobe.exitstatus != 0:
-                print('WARN: modprobe {} returned non-zero error code (-{})'.format(mod, modprobe.exitstatus))
+                print('WARN: modprobe {} returned non-zero error code ({})'.format(mod, modprobe.exitstatus))
 
                 # if verbose:
                 #     print('(the above error was ignored because verbose=True)')
 
                 # else:
                 #     sys.exit(2)
+
+        rmmod_brd = pexpect.spawn('rmmod', ['brd'], timeout=STANDARD_TIMEOUT, encoding='utf-8')
+
+        rmmod_brd.logfile = sys.stdout if verbose else None
+        rmmod_brd.expect(pexpect.EOF)
+        rmmod_brd.close()
+
+        if rmmod_brd.exitstatus != 0:
+            print('WARN: rmmod brd returned non-zero error code ({})'.format(rmmod_brd.exitstatus))
+
+        modprobe_brd = pexpect.spawn(
+            'modprobe',
+            ['brd', 'rd_nr=1', 'rd_size={}'.format(config['RAMDEVICE_SIZE_KILOBYTES']), 'max_part=1'],
+            timeout=STANDARD_TIMEOUT,
+            encoding='utf-8'
+        )
+
+        modprobe_brd.logfile = sys.stdout if verbose else None
+        modprobe_brd.expect(pexpect.EOF)
+        modprobe_brd.close()
+
+        if modprobe_brd.exitstatus != 0:
+            print('FATAL: modprobe brd returned non-zero error code ({})'.format(modprobe_brd.exitstatus))
+            sys.exit(2)
 
         mkdir = pexpect.spawn('mkdir',
             ['-p']
@@ -133,7 +157,7 @@ def initialize(config, verbose=False, force=False):
         mkdir.close()
 
         if mkdir.exitstatus != 0:
-            print('mkdir returned non-zero error code (-{})'.format(mkdir.exitstatus))
+            print('FATAL: mkdir returned non-zero error code ({})'.format(mkdir.exitstatus))
             sys.exit(3)
 
         cp = pexpect.spawn('cp',
@@ -147,7 +171,7 @@ def initialize(config, verbose=False, force=False):
         cp.close()
 
         if cp.exitstatus != 0:
-            print('cp returned non-zero error code (-{})'.format(cp.exitstatus))
+            print('FATAL: cp returned non-zero error code ({})'.format(cp.exitstatus))
             sys.exit(4)
 
         cp2 = pexpect.spawn('cp',
@@ -161,7 +185,7 @@ def initialize(config, verbose=False, force=False):
         cp2.close()
 
         if cp2.exitstatus != 0:
-            print('cp returned non-zero error code (-{})'.format(cp2.exitstatus))
+            print('FATAL: cp returned non-zero error code ({})'.format(cp2.exitstatus))
             sys.exit(42)
 
         mount = pexpect.spawn('mount',
@@ -176,11 +200,11 @@ def initialize(config, verbose=False, force=False):
         mount.close()
 
         if checkMount(config, verbose) == 1:
-            print('could not verify successful initialization mount on {}'.format(config['RAM0_PATH']))
+            print('FATAL: could not verify successful initialization mount on {}'.format(config['RAM0_PATH']))
             sys.exit(5)
 
         if mount.exitstatus != 0:
-            print('could not verify successful initialization mount on {} (bad exit status {})'.format(config['RAM0_PATH'], mount.exitstatus))
+            print('FATAL: could not verify successful initialization mount on {} (bad exit status {})'.format(config['RAM0_PATH'], mount.exitstatus))
             sys.exit(6)
     else:
         print('(found mounted ramdisk, primary initialization skipped! Use --force to  re-initialize)')
@@ -213,7 +237,7 @@ if __name__ == "__main__":
         os.geteuid = lambda: -1
 
     if os.geteuid() != 0:
-        print('must be root/sudo')
+        print('FATAL: must be root/sudo')
         sys.exit(1)
 
     config = parseConfigVars()
