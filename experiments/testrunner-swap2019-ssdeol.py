@@ -145,7 +145,7 @@ if __name__ == "__main__":
 
                     configurations.extend([
                         Configuration(
-                            '{}#{}#{}#{}#{}#{}'.format('delayed-{}'.format(filesystem), cipherpair[0], flk_size, fpn, cipherpair[1], cipherpair[2]),
+                            '{}#{}#{}#{}#{}#{}'.format('delayed_{}'.format(filesystem), cipherpair[0], flk_size, fpn, cipherpair[1], cipherpair[2]),
                             filesystem,
                             [],
                             [
