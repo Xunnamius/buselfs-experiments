@@ -48,7 +48,7 @@ if __name__ == "__main__":
 
     data = { 'read': {}, 'write': {}, 'security': [], 'cipher': [], 'ratio': [], 'debug': {} }
 
-    noData = { 'read': False, 'write': False }
+    noData = { 'read': False, 'write': False, 'write_inside': False }
 
     for op in ['read', 'write']:
         for metric in RESULT_FILE_METRICS:
@@ -94,11 +94,23 @@ if __name__ == "__main__":
                         # We're dealing with read metrics...
                         if currentLine.startswith('r_' + metric):
                             localData['read'][metric].append(libcruncher.lineToNumber(currentLine))
+                            noData['write_inside'] = True
                             break
 
                         # We're dealing with write metrics...
                         elif currentLine.startswith('w_' + metric):
                             localData['write'][metric].append(libcruncher.lineToNumber(currentLine))
+                            noData['write_inside'] = True
+                            break
+
+                        # We're dealing with battery saver total write metrics...
+                        if currentLine.startswith('wo_' + metric):
+                            localData['write'][metric].append(libcruncher.lineToNumber(currentLine))
+                            break
+
+                        # We're dealing with battery saver to-X-seconds write metrics...
+                        elif currentLine.startswith('wi_' + metric):
+                            localData['read'][metric].append(libcruncher.lineToNumber(currentLine))
                             break
 
                         # These are technically comments/blank lines and are ignored
@@ -175,7 +187,7 @@ if __name__ == "__main__":
     readTitle = TITLE_TEMPLATE.format(titlePrefix, 'reads', titleFrag)
     writeTitle = TITLE_TEMPLATE.format(titlePrefix, 'writes', titleFrag)
 
-    print('observed read data: {}'.format('NO' if noData['read'] else 'yes'))
+    print('observed {} data: {}'.format('read' if noData['write_inside'] else 'write (inside)', 'NO' if noData['read'] else 'yes'))
     print('observed write data: {}'.format('NO' if noData['write'] else 'yes'))
     print('number of observed baselines: {}'.format(len(execCTX.baselineFileProps)))
     print('title frag: {}'.format(titleFrag or '(no props means no title frag)'))
@@ -193,10 +205,10 @@ if __name__ == "__main__":
     print('writing out CSV...\n')
 
     if noData['read']:
-        print('(skipped read plot)')
+        print('(skipped {} plot)'.format('read' if noData['write_inside'] else 'write (inside)'))
 
     else:
-        with open(filename.format('read'), 'w') as file:
+        with open(filename.format('{}'.format('read' if noData['write_inside'] else 'write_inside')), 'w') as file:
             print('cipher,security,ratio,', ','.join(RESULT_FILE_METRICS), sep='', file=file)
             for ndx in range(len(execCTX.resultFileProps)):
                 print('{},{},{}'.format(data['cipher'][ndx], data['security'][ndx], data['ratio'][ndx]), end='', file=file)
@@ -212,7 +224,7 @@ if __name__ == "__main__":
 
                 print('', file=file)
 
-        print('read data written out to {}'.format(filename.format('read')))
+        print('{} data written out to {}'.format('read' if noData['write_inside'] else 'write (inside)', filename.format('read')))
 
     if noData['write']:
         print('(skipped write plot)')
