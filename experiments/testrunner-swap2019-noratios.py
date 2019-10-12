@@ -137,7 +137,8 @@ if __name__ == "__main__":
                                 '--swap-cipher', cipherpair[1],
                                 '--swap-strategy', cipherpair[2]
                             ]
-                        ) for cipherpair in cipherpairs])
+                        ) for cipherpair in cipherpairs
+                    ])
 
         confcount = len(configurations) * len(backendFnTuples) * len(dataClasses) * len(experiments)
 

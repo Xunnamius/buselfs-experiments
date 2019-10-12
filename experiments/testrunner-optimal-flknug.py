@@ -120,7 +120,8 @@ if __name__ == "__main__":
                                 '--flake-size', str(flk_size),
                                 '--flakes-per-nugget', str(fpn)
                             ]
-                        ) for cipher in ciphers])
+                        ) for cipher in ciphers
+                    ])
 
         confcount = len(configurations) * len(backendFnTuples) * len(dataClasses) * len(experiments)
 
