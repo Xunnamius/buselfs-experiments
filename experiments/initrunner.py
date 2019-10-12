@@ -120,29 +120,29 @@ def initialize(config, verbose=False, force=False):
                 # else:
                 #     sys.exit(2)
 
-        rmmod_brd = pexpect.spawn('rmmod', ['brd'], timeout=STANDARD_TIMEOUT, encoding='utf-8')
+        # rmmod_brd = pexpect.spawn('rmmod', ['brd'], timeout=STANDARD_TIMEOUT, encoding='utf-8')
 
-        rmmod_brd.logfile = sys.stdout if verbose else None
-        rmmod_brd.expect(pexpect.EOF)
-        rmmod_brd.close()
+        # rmmod_brd.logfile = sys.stdout if verbose else None
+        # rmmod_brd.expect(pexpect.EOF)
+        # rmmod_brd.close()
 
-        if rmmod_brd.exitstatus != 0:
-            print('WARN: rmmod brd returned non-zero error code ({})'.format(rmmod_brd.exitstatus))
+        # if rmmod_brd.exitstatus != 0:
+        #     print('WARN: rmmod brd returned non-zero error code ({})'.format(rmmod_brd.exitstatus))
 
-        modprobe_brd = pexpect.spawn(
-            'modprobe',
-            ['brd', 'rd_nr=1', 'rd_size={}'.format(config['RAMDEVICE_SIZE_KILOBYTES']), 'max_part=1'],
-            timeout=STANDARD_TIMEOUT,
-            encoding='utf-8'
-        )
+        # modprobe_brd = pexpect.spawn(
+        #     'modprobe',
+        #     ['brd', 'rd_nr=1', 'rd_size={}'.format(config['RAMDEVICE_SIZE_KILOBYTES']), 'max_part=1'],
+        #     timeout=STANDARD_TIMEOUT,
+        #     encoding='utf-8'
+        # )
 
-        modprobe_brd.logfile = sys.stdout if verbose else None
-        modprobe_brd.expect(pexpect.EOF)
-        modprobe_brd.close()
+        # modprobe_brd.logfile = sys.stdout if verbose else None
+        # modprobe_brd.expect(pexpect.EOF)
+        # modprobe_brd.close()
 
-        if modprobe_brd.exitstatus != 0:
-            print('FATAL: modprobe brd returned non-zero error code ({})'.format(modprobe_brd.exitstatus))
-            sys.exit(2)
+        # if modprobe_brd.exitstatus != 0:
+        #     print('FATAL: modprobe brd returned non-zero error code ({})'.format(modprobe_brd.exitstatus))
+        #     sys.exit(2)
 
         mkdir = pexpect.spawn('mkdir',
             ['-p']

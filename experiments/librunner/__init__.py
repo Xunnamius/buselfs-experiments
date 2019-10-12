@@ -519,37 +519,6 @@ class Librunner():
 
         self._lingeringBackgroundProcess = buse
 
-    def createDelayedSbBackend(self, fs_type, mount_args=None, device_args=None):
-        """Creates a StrongBox backend with a custom performance delay"""
-
-        assert self._lingeringBackgroundProcess == None
-
-        self.useNextDevice()
-
-        mount_args = mount_args or []
-        buse_args = ['--size', str(self.backendSizeBytes), self.currentDeviceDevPath]
-
-        self.print('creating dm-crypt LUKS volume buselogfs backend ({} @ {})'.format(self.backendFilePath, self.currentDeviceTmpPath))
-        self._shell_saw(self.config['BUSE_PATH'], buse_args)
-
-        buse = Popen([self.config['BUSE_PATH']] + buse_args, stdout=self.logFile, stderr=self.logFile)
-
-        self.sleep(5)
-
-        bpoll = buse.poll()
-
-        if bpoll is not None:
-            CommandExecutionError('the buselogfs process does not appear to have survived ({})'.format(bpoll), bpoll)
-
-        self._cryptsetup_init(['--verbose', '--cipher', 'aes-xts-plain64', '--key-size', '512', '--hash', 'sha512',
-                               '--iter-time', '5000', '--use-urandom'] + device_args + ['luksFormat', self.currentDeviceDevPath])
-
-        self._cryptsetup_open(['open', '--type', 'luks', self.currentDeviceDevPath, self.currentDeviceName])
-        self._mkfs(['-t', fs_type, self.currentDeviceMapperPath])
-        self._mount(mount_args + ['-t', fs_type, self.currentDeviceMapperPath, self.currentDeviceTmpPath])
-
-        self._lingeringBackgroundProcess = buse
-
     # *
     # * Backends (Destruction)
     # *
