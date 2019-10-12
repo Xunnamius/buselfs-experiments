@@ -29,8 +29,8 @@ dataClasses = [
     #'1k',
     #'4k',
     #'512k',
-    #'5m',
-    '40m',
+    '5m',
+    #'40m',
     #'5g',
 ]
 
@@ -58,23 +58,23 @@ fpns = [
 ]
 
 experiments = [
-    lib.sequentialFreerunUsecase_BatterySaver,
+    #lib.sequentialFreerunUsecase_BatterySaver,
     #lib.randomFreerunUsecase_BatterySaver,
 
-    #lib.sequentialWORMWithCipherSwitching,
+    lib.sequentialWORMWithCipherSwitching,
     #lib.randomWORMWithCipherSwitching,
 ]
 
 # ? These are all the cipher swapping pairs that will be tested
 # ? each element: (primary cipher, swap cipher, swap strategy)
 cipherpairs = [
-    ('sc_freestyle_balanced', 'sc_chacha8_neon', 'swap_0_forward'),
+    #('sc_freestyle_balanced', 'sc_chacha8_neon', 'swap_0_forward'),
 
-    # ('sc_chacha8_neon', 'sc_chacha20_neon', 'swap_0_forward'),
-    # #('sc_chacha8_neon', 'sc_freestyle_fast', 'swap_0_forward'),
-    # ('sc_chacha20_neon', 'sc_freestyle_fast', 'swap_0_forward'),
-    # ('sc_freestyle_fast', 'sc_freestyle_balanced', 'swap_0_forward'),
-    # ('sc_freestyle_balanced', 'sc_freestyle_secure', 'swap_0_forward'),
+    ('sc_chacha8_neon', 'sc_chacha20_neon', 'swap_0_forward'),
+    #('sc_chacha8_neon', 'sc_freestyle_fast', 'swap_0_forward'),
+    ('sc_chacha20_neon', 'sc_freestyle_fast', 'swap_0_forward'),
+    ('sc_freestyle_fast', 'sc_freestyle_balanced', 'swap_0_forward'),
+    ('sc_freestyle_balanced', 'sc_freestyle_secure', 'swap_0_forward'),
 
     # ('sc_chacha8_neon', 'sc_chacha20_neon', 'swap_1_forward'),
     # #('sc_chacha8_neon', 'sc_freestyle_fast', 'swap_1_forward'),
@@ -140,7 +140,24 @@ if __name__ == "__main__":
                                 '--swap-cipher', cipherpair[1],
                                 '--swap-strategy', cipherpair[2]
                             ]
-                        ) for cipherpair in cipherpairs])
+                        ) for cipherpair in cipherpairs
+                    ])
+
+                    configurations.extend([
+                        Configuration(
+                            '{}#{}#{}#{}#{}#{}'.format('delayed-{}'.format(filesystem), cipherpair[0], flk_size, fpn, cipherpair[1], cipherpair[2]),
+                            filesystem,
+                            [],
+                            [
+                                '--cipher', cipherpair[0],
+                                '--flake-size', str(flk_size),
+                                '--flakes-per-nugget', str(fpn),
+                                '--swap-cipher', cipherpair[1],
+                                '--swap-strategy', cipherpair[2],
+                                '--delay-rw'
+                            ]
+                        ) for cipherpair in cipherpairs
+                    ])
 
         confcount = len(configurations) * len(backendFnTuples) * len(dataClasses) * len(experiments)
 
