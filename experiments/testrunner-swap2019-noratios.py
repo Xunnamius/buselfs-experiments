@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# pylint: disable=no-member
+"""An experimental framework meant to trigger cipher switching without using ratios"""
 
 import os
 import sys
@@ -9,7 +9,6 @@ from tqdm import tqdm
 import initrunner
 from librunner import Librunner
 from librunner.util import outputProgressBarRedirection, printInstabilityWarning, Configuration, RESULTS_PATH, RESULTS_FILE_NAME
-from librunner.exception import ExperimentError
 
 config = initrunner.parseConfigVars()
 lib = Librunner(config)
@@ -223,16 +222,16 @@ if __name__ == "__main__":
                                     progressBar.update()
 
                                 if KEEP_RUNNER_LOGS:
-                                        filename, fileext = os.path.splitext(os.path.basename(config['LOG_FILE_PATH']))
-                                        os.rename(
-                                            config['LOG_FILE_PATH'],
-                                            '{}/{}-{}{}'.format(
-                                                os.path.dirname(config['LOG_FILE_PATH']),
-                                                filename,
-                                                identifier,
-                                                fileext
-                                            )
+                                    filename, fileext = os.path.splitext(os.path.basename(config['LOG_FILE_PATH']))
+                                    os.rename(
+                                        config['LOG_FILE_PATH'],
+                                        '{}/{}-{}{}'.format(
+                                            os.path.dirname(config['LOG_FILE_PATH']),
+                                            filename,
+                                            identifier,
+                                            fileext
                                         )
+                                    )
 
         lib.print('done', severity='OK')
 

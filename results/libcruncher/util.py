@@ -10,18 +10,19 @@ SC_SECURITY_RANKING = {
     'sc_chacha8_neon': 0.5,
     'sc_chacha12_neon': 1.0,
     'sc_chacha20_neon': 1.5,
-    'sc_chacha20': 1.5,
-    'sc_salsa8': 0.4,
-    'sc_salsa12': 0.9,
-    'sc_salsa20': 1.4,
-    'sc_aes128_ctr': 0.5,
-    'sc_aes256_ctr': 1.5,
-    'sc_hc128': 0.5,
-    'sc_rabbit': 1.4,
-    'sc_sosemanuk': 1.4,
+    'sc_salsa8': 0.5,
+    'sc_salsa12': 1.0,
+    'sc_salsa20': 1.5,
     'sc_freestyle_fast': 2,
     'sc_freestyle_balanced': 2.5,
     'sc_freestyle_secure': 3,
+
+    'sc_hc128': 0.5,
+    'sc_rabbit': 1.5,
+    'sc_sosemanuk': 1.5,
+    'sc_chacha20': 1.5,
+    'sc_aes128_ctr': 0.5,
+    'sc_aes256_ctr': 1.5,
     'sc_aes256_xts': 1.7,
 }
 
@@ -36,11 +37,11 @@ COLORS_B = ['rgb(25,65,95)', 'rgb(102,102,102)', 'rgb(255,102,0)']
 ResultProperties = namedtuple('ResultProperties', [
     'path',
     'name',
-    'order',
-    'medium',
+    'order', # test name, e.g. sequential_freerun_wcs
+    'medium', # e.g. ram
     'iops',
-    'backstore',
-    'filesystem',
+    'backstore', # e.g. strongbox
+    'filesystem', # e.g. f2fs
     'cipher',
     'flakesize',
     'fpn',
@@ -61,6 +62,7 @@ ExecutionProperties = namedtuple('ExecutionProperties', [
 ])
 
 def generateTitleFrag(filters):
+    """Returns a title fragment"""
     title_frag = ''
     filters = filters or []
 
@@ -70,10 +72,11 @@ def generateTitleFrag(filters):
     return title_frag.strip(',')
 
 def stringToValidFilename(string):
+    """Turns any string into a valid file name (probably)"""
     return string.replace('|', '!').replace(':', '!').replace('/', '').replace('\\', '')
 
-def formatAndPlotFigure(file_ident, test_ident, trace, title, filesdir, axisCount, specialAxes={}):
-    figure = go.Figure(data=[trace], layout=generateSharedLayout(title, axisCount, specialAxes))
+def formatAndPlotFigure(file_ident, test_ident, trace, title, filesdir, axisCount, specialAxes=None):
+    figure = go.Figure(data=[trace], layout=generateSharedLayout(title, axisCount, {} if specialAxes is None else specialAxes))
     filename = '{}/{}-{}-{}{}'.format(
         filesdir,
         test_ident,
@@ -84,7 +87,8 @@ def formatAndPlotFigure(file_ident, test_ident, trace, title, filesdir, axisCoun
 
     figure.write_image(filename)#, scale=None, width=None, height=None)
 
-def generateSharedLayout(title, axisCount, specialAxes={}):
+def generateSharedLayout(title, axisCount, specialAxes):
+    """Returns a shared layout object for plotly"""
     axis = {
         'showline': True,
         'zeroline': False,

@@ -10,11 +10,7 @@ LaTeX charts for SwitchBox (2019). WMeant for consumption by Plotly's chart
 studio.
 """
 
-import os
 import sys
-import hashlib
-
-from pathlib import Path
 from statistics import median
 
 import initrunner

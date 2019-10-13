@@ -2,6 +2,7 @@
 
 # * Call it like this:
 # * python -m libcruncher 2018/07-15--054851--flknug -xf flakesize=8192 fpn=128 iops=1k medium=ram order=sequential filesystem=f2fs isBaseline=False backstore="strongbox" cipher="sc_chacha20_neon"
+# * python -m libcruncher 2019/2019-10-12--122214--overhead+vsr--odroid2 -nf order=sequential_freerun_wcs,sequential_freerun
 
 import sys
 import libcruncher
@@ -23,6 +24,7 @@ execProps = libcruncher.argsToExecutionProperties(sys.argv[1:])
 
 print('resultFiles (count):', len(execProps.resultFileProps))
 print('observeBaseline:', execProps.observeBaseline)
+print('normalizeResults:', execProps.normalize)
 print('filterStrict:', execProps.filterStrict)
 print('filterPropsList: ', end='')
 print(printFilter(execProps.filterPropsList, indent=2), '\n')

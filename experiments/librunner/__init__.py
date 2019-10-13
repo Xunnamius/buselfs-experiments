@@ -1,4 +1,5 @@
 """This is a base Python package that holds most of the shared test suite code. If you're looking to add new test features, start here."""
+# pylint: disable=unused-argument
 
 import os
 import time
@@ -31,7 +32,7 @@ def _experiment(name):
 class Librunner():
     """This class is responsible for running and managing experiments in an automated fashion"""
 
-    def __init__(self, config={}):
+    def __init__(self, config):
         self.config = config
         self._logFile = None
         self.timeout = DEFAULT_GLOBAL_TIMEOUT
@@ -168,9 +169,10 @@ class Librunner():
                 os.fsync(fileno)
 
             except ValueError:
-                print(xpreamble,
-                      '[logfile I/O write failed; did an interupt happen?]',
-                      flush=True
+                print(
+                    xpreamble,
+                    '[logfile I/O write failed; did an interupt happen?]',
+                    flush=True
                 )
 
     def dropPageCache(self):
@@ -442,7 +444,7 @@ class Librunner():
     def createVanillaBackend(self, fs_type, mount_args=None, device_args=None):
         """Creates a buselogfs backend and returns the path"""
 
-        assert self._lingeringBackgroundProcess == None
+        assert self._lingeringBackgroundProcess is None
 
         self.useNextDevice()
 
@@ -471,7 +473,7 @@ class Librunner():
     def createSbBackend(self, fs_type, mount_args=None, device_args=None):
         """Creates a StrongBox backend"""
 
-        assert self._lingeringBackgroundProcess == None
+        assert self._lingeringBackgroundProcess is None
 
         self.useNextDevice()
 

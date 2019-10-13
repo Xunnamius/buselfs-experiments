@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# pylint: disable=no-member
+"""An experimental framework meant to trigger cipher switching using ratios"""
 
 import os
 import sys
@@ -9,7 +9,6 @@ from tqdm import tqdm
 import initrunner
 from librunner import Librunner
 from librunner.util import outputProgressBarRedirection, printInstabilityWarning, ExtendedConfiguration, RESULTS_PATH, RESULTS_FILE_NAME
-from librunner.exception import ExperimentError
 
 config = initrunner.parseConfigVars()
 lib = Librunner(config)
@@ -154,87 +153,87 @@ if __name__ == "__main__":
                     for backendFn in backendFnTuples:
                         for runFn in experiments:
                             for dataClass in dataClasses:
-                                    identifier = '[unknown]'
+                                identifier = '[unknown]'
 
-                                    with open(config['LOG_FILE_PATH'], 'w') as file:
-                                        print(str(datetime.now()), '\n---------\n', file=file)
+                                with open(config['LOG_FILE_PATH'], 'w') as file:
+                                    print(str(datetime.now()), '\n---------\n', file=file)
 
-                                        lib.logFile = file
-                                        identifier = '{}-{}-{}'.format(
-                                            dataClass,
-                                            conf.proto_test_name,
-                                            backendFn[2]
-                                        )
+                                    lib.logFile = file
+                                    identifier = '{}-{}-{}'.format(
+                                        dataClass,
+                                        conf.proto_test_name,
+                                        backendFn[2]
+                                    )
 
-                                        predictedResultFileName = RESULTS_FILE_NAME.format(runFn.experiment_name, identifier)
+                                    predictedResultFileName = RESULTS_FILE_NAME.format(runFn.experiment_name, identifier)
 
-                                        predictedResultFilePath = RESULTS_PATH.format(
-                                            os.path.realpath(config['REPO_PATH']),
-                                            predictedResultFileName
-                                        )
+                                    predictedResultFilePath = RESULTS_PATH.format(
+                                        os.path.realpath(config['REPO_PATH']),
+                                        predictedResultFileName
+                                    )
 
-                                        lib.print('------------------ {} experiment: {} ------------------'.format(
-                                            runFn.experiment_name,
-                                            identifier
-                                        ))
+                                    lib.print('------------------ {} experiment: {} ------------------'.format(
+                                        runFn.experiment_name,
+                                        identifier
+                                    ))
 
-                                        # ? If the results file exists already, then skip this experiment!
-                                        if os.path.exists(predictedResultFilePath):
-                                            lib.print('results file {} was found, experiment skipped!'.format(predictedResultFilePath))
+                                    # ? If the results file exists already, then skip this experiment!
+                                    if os.path.exists(predictedResultFilePath):
+                                        lib.print('results file {} was found, experiment skipped!'.format(predictedResultFilePath))
 
-                                        else:
-                                            try:
-                                                backendFn[0](conf.fs_type, conf.mount_args, conf.device_args)
-                                                lib.dropPageCache()
+                                    else:
+                                        try:
+                                            backendFn[0](conf.fs_type, conf.mount_args, conf.device_args)
+                                            lib.dropPageCache()
 
-                                            except KeyboardInterrupt:
+                                        except KeyboardInterrupt:
+                                            progressBar.close()
+                                            lib.print('keyboard interrupt received, cleaning up...')
+                                            raise
+
+                                        try:
+                                            runFn(dataClass, identifier, conf.swap_ratio)
+
+                                        except KeyboardInterrupt:
+                                            progressBar.close()
+                                            lib.print('keyboard interrupt received, cleaning up...')
+                                            raise
+
+                                        except:
+                                            if DIE_ON_EXCEPTION:
                                                 progressBar.close()
-                                                lib.print('keyboard interrupt received, cleaning up...')
+
+                                            lib.print('UNHANDLED EXCEPTION ENCOUNTERED!', severity='FATAL')
+
+                                            if DIE_ON_EXCEPTION:
                                                 raise
 
+                                        finally:
                                             try:
-                                                runFn(dataClass, identifier, conf.swap_ratio)
-
-                                            except KeyboardInterrupt:
-                                                progressBar.close()
-                                                lib.print('keyboard interrupt received, cleaning up...')
-                                                raise
+                                                backendFn[1]()
+                                                lib.clearBackstoreFiles()
 
                                             except:
-                                                if DIE_ON_EXCEPTION:
-                                                    progressBar.close()
+                                                progressBar.close()
+                                                printInstabilityWarning(lib, config)
+                                                raise
 
-                                                lib.print('UNHANDLED EXCEPTION ENCOUNTERED!', severity='FATAL')
+                                    lib.print('------------------ *** ------------------')
+                                    lib.logFile = None
 
-                                                if DIE_ON_EXCEPTION:
-                                                    raise
+                                    progressBar.update()
 
-                                            finally:
-                                                try:
-                                                    backendFn[1]()
-                                                    lib.clearBackstoreFiles()
-
-                                                except:
-                                                    progressBar.close()
-                                                    printInstabilityWarning(lib, config)
-                                                    raise
-
-                                        lib.print('------------------ *** ------------------')
-                                        lib.logFile = None
-
-                                        progressBar.update()
-
-                                    if KEEP_RUNNER_LOGS:
-                                        filename, fileext = os.path.splitext(os.path.basename(config['LOG_FILE_PATH']))
-                                        os.rename(
-                                            config['LOG_FILE_PATH'],
-                                            '{}/{}-{}{}'.format(
-                                                os.path.dirname(config['LOG_FILE_PATH']),
-                                                filename,
-                                                identifier,
-                                                fileext
-                                            )
+                                if KEEP_RUNNER_LOGS:
+                                    filename, fileext = os.path.splitext(os.path.basename(config['LOG_FILE_PATH']))
+                                    os.rename(
+                                        config['LOG_FILE_PATH'],
+                                        '{}/{}-{}{}'.format(
+                                            os.path.dirname(config['LOG_FILE_PATH']),
+                                            filename,
+                                            identifier,
+                                            fileext
                                         )
+                                    )
 
         lib.print('done', severity='OK')
 

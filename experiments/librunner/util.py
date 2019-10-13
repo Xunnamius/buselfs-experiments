@@ -1,7 +1,6 @@
 """Utility objects for use with the librunner library"""
 
 import sys
-import time
 import contextlib
 
 from tqdm import tqdm
@@ -53,6 +52,7 @@ def outputProgressBarRedirection():
         sys.stdout = DummyTqdmFile(sys.stdout)
         yield originalOutputFile
 
+    # pylint: disable=try-except-raise
     except:
         raise
 
