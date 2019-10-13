@@ -72,11 +72,11 @@ ciphers = [
     #'sc_rabbit',
     #'sc_sosemanuk',
     #'sc_chacha20_neon',
-    #'sc_chacha12_neon',
-    'sc_chacha8_neon',
+    'sc_chacha12_neon',
+    #'sc_chacha8_neon',
     #'sc_freestyle_fast',
-    #'sc_freestyle_balanced',
-    'sc_freestyle_secure',
+    'sc_freestyle_balanced',
+    #'sc_freestyle_secure',
 ]
 
 backendFnTuples = [

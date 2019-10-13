@@ -1,5 +1,5 @@
 cipher,security,energy,power,duration
-sc_chacha8_neon,0.5,0.0,0,0.0
-sc_freestyle_secure,3.0,0.911128,0.994041,0.911620
-sc_chacha8_neon+sc_freestyle_secure,1.125,0.586438,0.882203,0.615505
-sc_chacha8_neon+sc_freestyle_secure,1.75,1,1,1
+sc_chacha8_neon,0.5,1.03864,1.22820,0.84566
+sc_freestyle_secure,3.0,38.1474,2.51931,15.142
+sc_chacha8_neon+sc_freestyle_secure,1.125,24.9233,2.37405,10.4982
+sc_chacha8_neon+sc_freestyle_secure,1.75,41.767,2.52705,16.528
