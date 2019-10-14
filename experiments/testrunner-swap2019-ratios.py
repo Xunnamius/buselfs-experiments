@@ -28,8 +28,8 @@ dataClasses = [
     #'1k',
     #'4k',
     #'512k',
-    '5m',
-    #'40m',
+    #'5m',
+    '40m',
     #'5g',
 ]
 
@@ -64,14 +64,14 @@ experiments = [
 # ? These are all the cipher swapping pairs that will be tested
 # ? each element: (primary cipher, swap cipher, swap strategy)
 cipherpairs = [
-    ('sc_chacha8_neon', 'sc_chacha12_neon', 'swap_0_forward'),
-    ('sc_freestyle_balanced', 'sc_freestyle_secure', 'swap_0_forward'),
-
-    # ('sc_chacha8_neon', 'sc_chacha20_neon', 'swap_0_forward'),
-    # #('sc_chacha8_neon', 'sc_freestyle_fast', 'swap_0_forward'),
-    # ('sc_chacha20_neon', 'sc_freestyle_fast', 'swap_0_forward'),
-    # ('sc_freestyle_fast', 'sc_freestyle_balanced', 'swap_0_forward'),
+    # ('sc_chacha8_neon', 'sc_chacha12_neon', 'swap_0_forward'),
     # ('sc_freestyle_balanced', 'sc_freestyle_secure', 'swap_0_forward'),
+
+    ('sc_chacha8_neon', 'sc_chacha20_neon', 'swap_0_forward'),
+    # #('sc_chacha8_neon', 'sc_freestyle_fast', 'swap_0_forward'),
+    ('sc_chacha20_neon', 'sc_freestyle_fast', 'swap_0_forward'),
+    ('sc_freestyle_fast', 'sc_freestyle_balanced', 'swap_0_forward'),
+    ('sc_freestyle_balanced', 'sc_freestyle_secure', 'swap_0_forward'),
 
     # ('sc_chacha8_neon', 'sc_chacha20_neon', 'swap_1_forward'),
     # #('sc_chacha8_neon', 'sc_freestyle_fast', 'swap_1_forward'),
@@ -125,7 +125,7 @@ if __name__ == "__main__":
         for filesystem in filesystems:
             for fpn in fpns:
                 for flk_size in flksizes:
-                    for swap_rat in range(1, 3): # ! (1, 4) means 1 through 3 inclusive!
+                    for swap_rat in range(1, 4): # ! (1, 4) means 1 through 3 inclusive!
                         configurations.extend([
                             ExtendedConfiguration(
                                 '{}#{}#{}#{}#{}#{}+{}'.format(filesystem, cipherpair[0], flk_size, fpn, cipherpair[1], cipherpair[2], swap_rat),

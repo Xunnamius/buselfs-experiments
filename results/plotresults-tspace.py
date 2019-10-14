@@ -10,10 +10,9 @@ use, security vs power, and security vs performance.
 ! Note that this script was written to work with Plotly version 3, not 4 !
 """
 
-import os
+
 import sys
 
-from pathlib import Path
 from statistics import median
 import plotly.graph_objects as go
 

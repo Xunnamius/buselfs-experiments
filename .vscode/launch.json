@@ -31,7 +31,7 @@
             "type": "python",
             "request": "attach",
             "port": 4000,
-            "host": "192.168.125.5",
+            "host": "192.168.115.5",
             "pathMappings": [
                 {
                     "localRoot": "${workspaceFolder}",
@@ -55,7 +55,7 @@
         {
             "type": "gdb",
             "request": "launch",
-            "name": "gdb:bin@morty",
+            "name": "gdb:bin@zara",
             "target": "./sequential-freerun-wcs",
             "arguments": "ram test /tmp/ram0 3",
             "cwd": "${workspaceRoot}/bin",
@@ -63,7 +63,7 @@
                 "forwardX11": true,
                 "host": "192.168.115.5",
                 "cwd": "/gitr/research/buselfs-experiments/bin",
-                "keyfile": "Z:/ssh/xunnmorty_vscode_rsa",
+                "keyfile": "Z:/ssh/xunnzara_vscode_rsa",
                 "port": 1111,
                 "user": "xunnamius",
                 "x11host": "localhost",

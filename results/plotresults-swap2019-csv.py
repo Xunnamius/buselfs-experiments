@@ -173,7 +173,7 @@ if __name__ == "__main__":
             for metric in RESULT_FILE_METRICS:
                 maximum = max(data[op][metric])
                 minimum = min(data[op][metric])
-                data[op][metric] = [(value - minimum)/(maximum - minimum) for value in data[op][metric]]
+                data[op][metric] = [((value - minimum)/(maximum - minimum) if maximum - minimum > 0 else 0) for value in data[op][metric]]
 
     print('organizing results...')
 
@@ -227,9 +227,9 @@ if __name__ == "__main__":
 
     else:
         with open(filename.format('write'), 'w') as file:
-            print('cipher,security,', ','.join(RESULT_FILE_METRICS), sep='', file=file)
+            print('cipher,security,ratio,', ','.join(RESULT_FILE_METRICS), sep='', file=file)
             for ndx in range(len(execCTX.resultFileProps)):
-                print('{},{}'.format(data['cipher'][ndx], data['security'][ndx]), end='', file=file)
+                print('{},{},{}'.format(data['cipher'][ndx], data['security'][ndx], data['ratio'][ndx]), end='', file=file)
 
                 for metric in RESULT_FILE_METRICS:
                     print(',{}'.format(data['write'][metric][ndx]), end='', file=file)
