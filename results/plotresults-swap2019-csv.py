@@ -26,6 +26,26 @@ TITLE_TEMPLATE = '{} [{}] Swap-2019 Tradeoff ({})'
 RESULT_FILE_METRICS = ('energy', 'power', 'duration')
 RESULT_DEBUG_METRICS = ('write1', 'read1', 'write2', 'read2')
 
+# TODO: make this into a "print order" command line option
+# Results matching these specifications are printed in the following order
+RESULT_PRINT_ORDER = [
+    'sc_chacha8_neon',
+    'sc_chacha8_neon+sc_chacha20_neon',
+    'sc_chacha20_neon',
+    'sc_chacha20_neon+sc_freestyle_fast',
+    'sc_freestyle_fast',
+    'sc_freestyle_fast+sc_freestyle_balanced',
+    'sc_freestyle_balanced',
+    'sc_freestyle_balanced+sc_freestyle_secure',
+    'sc_freestyle_secure',
+]
+
+# TODO: make this into a "exclusion filter" command line option
+# Results matching this specification are not printed
+RESULT_DO_NOT_PRINT = [
+    'sc_chacha8_neon+sc_freestyle_balanced',
+]
+
 ################################################################################
 
 if __name__ == "__main__":
@@ -182,10 +202,37 @@ if __name__ == "__main__":
     titleFrag = generateTitleFrag(execCTX.filterPropsList)
     readTitle = TITLE_TEMPLATE.format(titlePrefix, 'reads', titleFrag)
     writeTitle = TITLE_TEMPLATE.format(titlePrefix, 'writes', titleFrag)
+    unsortedIndexList = list(range(len(execCTX.resultFileProps)))
+    sortedIndexList = []
+
+    # ? Remove results that should not be printed
+    for entry in RESULT_DO_NOT_PRINT:
+        while entry in data['cipher']:
+            i = data['cipher'].index(entry)
+            unsortedIndexList.remove(i)
+            data['cipher'][i] = 'deleted---{}'.format(data['cipher'][i])
+
+    # ? Sort the results so that they print in the desired order
+    for entry in RESULT_PRINT_ORDER:
+        while entry in data['cipher']:
+            i = data['cipher'].index(entry)
+            unsortedIndexList.remove(i)
+            sortedIndexList.append(i)
+            data['cipher'][i] = 'sorted---{}'.format(data['cipher'][i])
+
+    sortedIndexList.extend(unsortedIndexList)
+    data['cipher'] = [x.split('---')[-1] for x in data['cipher']] # ? Restore data['cipher'] to its proper form
 
     print('observed {} data: {}'.format('read' if noData['write_inside'] else 'write (inside)', 'NO' if noData['read'] else 'yes'))
     print('observed write data: {}'.format('NO' if noData['write'] else 'yes'))
     print('number of observed baselines: {}'.format(len(execCTX.baselineFileProps)))
+    print('print order is active: {}'.format('no' if not RESULT_PRINT_ORDER else 'YES'))
+
+    excluded = len(execCTX.resultFileProps) - len(sortedIndexList)
+
+    if excluded:
+        print('WARNING: {} results were excluded!'.format(excluded))
+
     print('title frag: {}'.format(titleFrag or '(no props means no title frag)'))
 
     libcruncher.confirmBeforeContinuing()
@@ -198,7 +245,7 @@ if __name__ == "__main__":
         '.csv'
     )
 
-    print('writing out CSV...\n')
+    print('writing out CSV files...\n')
 
     if noData['read']:
         print('(skipped {} plot)'.format('read' if noData['write_inside'] else 'write (inside)'))
@@ -206,7 +253,8 @@ if __name__ == "__main__":
     else:
         with open(filename.format('{}'.format('read' if noData['write_inside'] else 'write_inside')), 'w') as file:
             print('cipher,security,ratio,', ','.join(RESULT_FILE_METRICS), sep='', file=file)
-            for ndx in range(len(execCTX.resultFileProps)):
+
+            for ndx in sortedIndexList:
                 print('{},{},{}'.format(data['cipher'][ndx], data['security'][ndx], data['ratio'][ndx]), end='', file=file)
 
                 for metric in RESULT_FILE_METRICS:
@@ -228,7 +276,7 @@ if __name__ == "__main__":
     else:
         with open(filename.format('write'), 'w') as file:
             print('cipher,security,ratio,', ','.join(RESULT_FILE_METRICS), sep='', file=file)
-            for ndx in range(len(execCTX.resultFileProps)):
+            for ndx in sortedIndexList:
                 print('{},{},{}'.format(data['cipher'][ndx], data['security'][ndx], data['ratio'][ndx]), end='', file=file)
 
                 for metric in RESULT_FILE_METRICS:
