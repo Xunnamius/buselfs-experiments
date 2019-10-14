@@ -21,6 +21,7 @@ rnd:
 	$(CC) $(CFLAGS) experiments/random-freerun.c $(CONFIG_COMPILE_FLAGS) -O3 -o bin/random-freerun -lenergymon-default -lpthread
 	$(CC) $(CFLAGS) experiments/random-freerun-wcs.c $(CONFIG_COMPILE_FLAGS) -O3 -o bin/random-freerun-wcs -lenergymon-default -lpthread
 	$(CC) $(CFLAGS) experiments/random-worm-wcs.c $(CONFIG_COMPILE_FLAGS) -O3 -o bin/random-worm-wcs -lenergymon-default -lpthread
+	$(CC) $(CFLAGS) experiments/random-freerun-uc-batterysaver.c $(CONFIG_COMPILE_FLAGS) -O3 -o bin/random-freerun-uc-batterysaver -lenergymon-default -lpthread
 
 seq-test:
 	$(CC) $(CFLAGS) experiments/sequential-freerun.c $(CONFIG_COMPILE_FLAGS) -g -o bin/sequential-freerun -lenergymon-default -lpthread
@@ -32,6 +33,7 @@ rnd-test:
 	$(CC) $(CFLAGS) experiments/random-freerun.c $(CONFIG_COMPILE_FLAGS) -g -o bin/random-freerun -lenergymon-default -lpthread
 	$(CC) $(CFLAGS) experiments/random-freerun-wcs.c $(CONFIG_COMPILE_FLAGS) -g -o bin/random-freerun-wcs -lenergymon-default -lpthread
 	$(CC) $(CFLAGS) experiments/random-worm-wcs.c $(CONFIG_COMPILE_FLAGS) -g -o bin/random-worm-wcs -lenergymon-default -lpthread
+	$(CC) $(CFLAGS) experiments/random-freerun-uc-batterysaver.c $(CONFIG_COMPILE_FLAGS) -g -o bin/random-freerun-uc-batterysaver -lenergymon-default -lpthread
 
 test-c:
 	$(CC) $(CFLAGS) experiments/test.c $(CONFIG_COMPILE_FLAGS) -g -o /tmp/test -lenergymon-default -lpthread
