@@ -65,7 +65,7 @@ int main(int argc, char * argv[])
 
     errno = 0;
 
-    u_int64_t fsize = ftell(frandom);
+    uint64_t fsize = ftell(frandom);
 
     if(!fsize || errno)
     {
@@ -139,7 +139,6 @@ int main(int argc, char * argv[])
 
     while(keepRunning && trials--)
     {
-        int retval = 0;
         int trial = TRIALS_INT - trials;
 
         printf("--> beginning trial %d of %d\n", trial, TRIALS_INT);
@@ -173,14 +172,12 @@ int main(int argc, char * argv[])
         metrics_t outer_write_metrics_end;
         metrics_t inner_write_metrics_end;
 
-        retval = collect_metrics(&outer_write_metrics_start, &monitor);
-        if(retval != 0)
-            return retval;
+        collect_metrics(&outer_write_metrics_start, &monitor);
 
         printf("OUTER WRITE METRICS:: got start energy (uj): %"PRIu64"\n", outer_write_metrics_start.energy_uj);
         printf("OUTER WRITE METRICS:: got start time (ns): %"PRIu64"\n", outer_write_metrics_start.time_ns);
 
-        u_int64_t outer_writelen = fsize;
+        uint64_t outer_writelen = fsize;
         char * randomness_copy = randomness;
 
         lseek64(trialoutfd, 0, SEEK_SET);
@@ -190,10 +187,10 @@ int main(int argc, char * argv[])
         {
             errno = 0;
 
-            u_int64_t iosize_actual = MAX(MIN(outer_writelen / 2, IOSIZE), 1U);
-            u_int64_t seeklimit = outer_writelen - iosize_actual;
-            u_int64_t offset = !seeklimit ? 0 : rand() % seeklimit;
-            u_int64_t outer_bytes_written = pwrite(trialoutfd, randomness_copy + offset, iosize_actual, offset);
+            uint64_t iosize_actual = MAX(MIN(outer_writelen / 2, IOSIZE), 1U);
+            uint64_t seeklimit = outer_writelen - iosize_actual;
+            uint64_t offset = !seeklimit ? 0 : rand() % seeklimit;
+            uint64_t outer_bytes_written = pwrite(trialoutfd, randomness_copy + offset, iosize_actual, offset);
 
             if(errno)
             {
@@ -209,10 +206,7 @@ int main(int argc, char * argv[])
             // ? elapsed time >= LOW_BATTERY_WAIT && !system_is_throttled
             if(!system_is_throttled)
             {
-                retval = collect_metrics(&inner_write_metrics_end, &monitor);
-
-                if(retval != 0)
-                    return retval;
+                collect_metrics(&inner_write_metrics_end, &monitor);
 
                 if(inner_write_metrics_end.time_ns - outer_write_metrics_start.time_ns >= wait_time_ns)
                 {
@@ -232,9 +226,7 @@ int main(int argc, char * argv[])
         // ? Make sure everything writes through
         sync();
 
-        retval = collect_metrics(&outer_write_metrics_end, &monitor);
-        if(retval != 0)
-            return retval;
+        collect_metrics(&outer_write_metrics_end, &monitor);
 
         printf("OUTER WRITE METRICS:: got end energy (uj): %"PRIu64"\n", outer_write_metrics_end.energy_uj);
         printf("OUTER WRITE METRICS:: got end time (ns): %"PRIu64"\n", outer_write_metrics_end.time_ns);

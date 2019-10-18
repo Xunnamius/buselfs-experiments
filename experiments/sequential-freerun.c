@@ -65,7 +65,7 @@ int main(int argc, char * argv[])
 
     errno = 0;
 
-    u_int64_t fsize = ftell(frandom);
+    uint64_t fsize = ftell(frandom);
 
     if(!fsize || errno)
     {
@@ -136,7 +136,6 @@ int main(int argc, char * argv[])
 
     while(keepRunning && trials--)
     {
-        int retval = 0;
         int trial = TRIALS_INT - trials;
 
         printf("--> beginning trial %d of %d\n", trial, TRIALS_INT);
@@ -163,22 +162,18 @@ int main(int argc, char * argv[])
         // ? WRITE whole file
 
         metrics_t write_metrics_start;
-        retval = collect_metrics(&write_metrics_start, &monitor);
-
-        if(retval != 0)
-            return retval;
-
+        collect_metrics(&write_metrics_start, &monitor);
         printf("WRITE METRICS:: got start energy (uj): %"PRIu64"\n", write_metrics_start.energy_uj);
         printf("WRITE METRICS:: got start time (ns): %"PRIu64"\n", write_metrics_start.time_ns);
 
-        u_int64_t writelen = fsize;
+        uint64_t writelen = fsize;
         char * randomnessCopy = randomness;
 
         lseek64(trialoutfd, 0, SEEK_SET);
 
         while(writelen > 0)
         {
-            u_int64_t bytesWritten = write(trialoutfd, randomnessCopy, MIN(writelen, IOSIZE));
+            uint64_t bytesWritten = write(trialoutfd, randomnessCopy, MIN(writelen, IOSIZE));
 
             if(bytesWritten <= 0)
             {
@@ -195,11 +190,7 @@ int main(int argc, char * argv[])
         sync();
 
         metrics_t write_metrics_end;
-        retval = collect_metrics(&write_metrics_end, &monitor);
-
-        if(retval != 0)
-            return retval;
-
+        collect_metrics(&write_metrics_end, &monitor);
         printf("WRITE METRICS:: got end energy (uj): %"PRIu64"\n", write_metrics_end.energy_uj);
         printf("WRITE METRICS:: got end time (ns): %"PRIu64"\n", write_metrics_end.time_ns);
 
@@ -209,15 +200,11 @@ int main(int argc, char * argv[])
         ignore_result(pwrite(pcachefd, droppcache, sizeof(char), 0));
 
         metrics_t read_metrics_start;
-        retval = collect_metrics(&read_metrics_start, &monitor);
-
-        if(retval != 0)
-            return retval;
-
+        collect_metrics(&read_metrics_start, &monitor);
         printf("READ METRICS :: got start energy (uj): %"PRIu64"\n", read_metrics_start.energy_uj);
         printf("READ METRICS :: got start time (ns): %"PRIu64"\n", read_metrics_start.time_ns);
 
-        u_int64_t readlen = fsize;
+        uint64_t readlen = fsize;
         char * readback = malloc(readlen);
         char * readbackOriginal = readback;
 
@@ -225,7 +212,7 @@ int main(int argc, char * argv[])
 
         while(readlen > 0)
         {
-            u_int64_t bytesRead = read(trialoutfd, readback, MIN(readlen, IOSIZE));
+            uint64_t bytesRead = read(trialoutfd, readback, MIN(readlen, IOSIZE));
 
             if(bytesRead <= 0)
             {
@@ -242,11 +229,7 @@ int main(int argc, char * argv[])
         sync();
 
         metrics_t read_metrics_end;
-        retval = collect_metrics(&read_metrics_end, &monitor);
-
-        if(retval != 0)
-            return retval;
-
+        collect_metrics(&read_metrics_end, &monitor);
         printf("READ METRICS :: got end energy (uj): %"PRIu64"\n", read_metrics_end.energy_uj);
         printf("READ METRICS :: got end time (ns): %"PRIu64"\n", read_metrics_end.time_ns);
 

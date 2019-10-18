@@ -20,10 +20,12 @@
 #define RETURN_PRIMARY_LENGTH 0
 #define RETURN_SWAP_LENGTH 1
 
+#define SWAP_RATIO_0S_100P 0
 #define SWAP_RATIO_25S_75P 1
 #define SWAP_RATIO_50S_50P 2
 #define SWAP_RATIO_75S_25P 3
 
+#define SWAP_RATIO_0S_100P_STR "0"
 #define SWAP_RATIO_25S_75P_STR "1"
 #define SWAP_RATIO_50S_50P_STR "2"
 #define SWAP_RATIO_75S_25P_STR "3"
@@ -120,7 +122,7 @@ void collect_metrics(metrics_t * metrics, energymon * monitor)
     {
         perror("energymon fread failure");
         monitor->ffinish(monitor);
-        return 3;
+        exit(245);
     }
 
     metrics->time_ns = energymon_gettime_ns();
@@ -422,7 +424,10 @@ int calc_num_files(int total_files_count, int swap_ratio, int primary_or_swap)
 {
     uint64_t result = 0;
 
-    if(swap_ratio == 1)
+    if(swap_ratio == 0)
+        result = primary_or_swap == RETURN_PRIMARY_LENGTH ? total_files_count : 0;
+
+    else if(swap_ratio == 1)
         result = llabs(total_files_count * 25 / 100 - (primary_or_swap == RETURN_PRIMARY_LENGTH ? total_files_count : 0));
 
     else if(swap_ratio == 2)
@@ -446,8 +451,8 @@ int calc_num_files(int total_files_count, int swap_ratio, int primary_or_swap)
 void print_swap_help()
 {
     printf(
-        "<swap_ratio> must be either: %i (25%% swap), %i (50%% swap), %i (75%% swap)!\n",
-        SWAP_RATIO_25S_75P, SWAP_RATIO_50S_50P, SWAP_RATIO_75S_25P
+        "<swap_ratio> must be either: %i (NO swap), %i (25%% swap), %i (50%% swap), %i (75%% swap)!\n",
+        SWAP_RATIO_0S_100P, SWAP_RATIO_25S_75P, SWAP_RATIO_50S_50P, SWAP_RATIO_75S_25P
     );
 }
 
@@ -509,6 +514,9 @@ uint8_t str_to_swap_ratio(const char * swap_ratio_str)
 
     else if(strcmp(swap_ratio_str, SWAP_RATIO_75S_25P_STR) == 0)
         return SWAP_RATIO_75S_25P;
+
+    else if(strcmp(swap_ratio_str, SWAP_RATIO_0S_100P_STR) == 0)
+        return SWAP_RATIO_0S_100P;
 
     else
     {

@@ -163,6 +163,7 @@
         "tmpfs",
         "tozero",
         "trialoutfd",
+        "trialoutfds",
         "tsocks",
         "tspace",
         "umount",

@@ -10,7 +10,6 @@ use, security vs power, and security vs performance.
 ! Note that this script was written to work with Plotly version 3, not 4 !
 """
 
-
 import sys
 
 from statistics import median
@@ -101,7 +100,6 @@ SPECIAL_MARKER = {
 # }
 
 SPECIAL_MARKERS = { key: SPECIAL_MARKER for key in PLOT_AXES }
-
 
 ################################################################################
 

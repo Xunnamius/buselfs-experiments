@@ -65,7 +65,7 @@ int main(int argc, char * argv[])
 
     errno = 0;
 
-    u_int64_t fsize = ftell(frandom);
+    uint64_t fsize = ftell(frandom);
 
     if(!fsize || errno)
     {
@@ -136,7 +136,6 @@ int main(int argc, char * argv[])
 
     while(keepRunning && trials--)
     {
-        int retval = 0;
         int trial = TRIALS_INT - trials;
 
         printf("--> beginning trial %d of %d\n", trial, TRIALS_INT);
@@ -163,7 +162,7 @@ int main(int argc, char * argv[])
         // ? Initial write
         // ! The initial write op is not measured as part of the experiment!
 
-        u_int64_t write1len = calc_len(fsize, WORM_BUILTIN_SWAP_RATIO, RETURN_PRIMARY_LENGTH);
+        uint64_t write1len = calc_len(fsize, WORM_BUILTIN_SWAP_RATIO, RETURN_PRIMARY_LENGTH);
         char * randomnessCopy1 = randomness;
 
         lseek64(trialoutfd, 0, SEEK_SET);
@@ -173,10 +172,10 @@ int main(int argc, char * argv[])
         {
             errno = 0;
 
-            u_int64_t iosize1_actual = MAX(MIN(write1len / 2, IOSIZE), 1U);
-            u_int64_t seeklimit1 = write1len - iosize1_actual;
-            u_int64_t offset1 = !seeklimit1 ? 0 : rand() % seeklimit1;
-            u_int64_t bytesWritten1 = pwrite(
+            uint64_t iosize1_actual = MAX(MIN(write1len / 2, IOSIZE), 1U);
+            uint64_t seeklimit1 = write1len - iosize1_actual;
+            uint64_t offset1 = !seeklimit1 ? 0 : rand() % seeklimit1;
+            uint64_t bytesWritten1 = pwrite(
                 trialoutfd,
                 randomnessCopy1 + offset1,
                 iosize1_actual,
@@ -203,15 +202,11 @@ int main(int argc, char * argv[])
         ignore_result(pwrite(pcachefd, droppcache, sizeof(char), 0));
 
         metrics_t read1_metrics_start;
-        retval = collect_metrics(&read1_metrics_start, &monitor);
-
-        if(retval != 0)
-            return retval;
-
+        collect_metrics(&read1_metrics_start, &monitor);
         printf("1 READ METRICS :: got start energy (uj): %"PRIu64"\n", read1_metrics_start.energy_uj);
         printf("1 READ METRICS :: got start time (ns): %"PRIu64"\n", read1_metrics_start.time_ns);
 
-        u_int64_t read1len = calc_len(fsize, WORM_BUILTIN_SWAP_RATIO, RETURN_PRIMARY_LENGTH);
+        uint64_t read1len = calc_len(fsize, WORM_BUILTIN_SWAP_RATIO, RETURN_PRIMARY_LENGTH);
         char * read1back = malloc(read1len);
         char * read1backOriginal = read1back;
 
@@ -223,10 +218,10 @@ int main(int argc, char * argv[])
         {
             errno = 0;
 
-            u_int64_t iosize1_actual = MAX(MIN(read1len / 2, IOSIZE), 1U);
-            u_int64_t seeklimit1 = read1len - iosize1_actual;
-            u_int64_t offset1 = !seeklimit1 ? 0 : rand() % seeklimit1;
-            u_int64_t bytesRead1 = pread(
+            uint64_t iosize1_actual = MAX(MIN(read1len / 2, IOSIZE), 1U);
+            uint64_t seeklimit1 = read1len - iosize1_actual;
+            uint64_t offset1 = !seeklimit1 ? 0 : rand() % seeklimit1;
+            uint64_t bytesRead1 = pread(
                 trialoutfd,
                 read1back,
                 iosize1_actual,
@@ -248,11 +243,7 @@ int main(int argc, char * argv[])
         sync();
 
         metrics_t read1_metrics_end;
-        retval = collect_metrics(&read1_metrics_end, &monitor);
-
-        if(retval != 0)
-            return retval;
-
+        collect_metrics(&read1_metrics_end, &monitor);
         printf("1 READ METRICS :: got end energy (uj): %"PRIu64"\n", read1_metrics_end.energy_uj);
         printf("1 READ METRICS :: got end time (ns): %"PRIu64"\n", read1_metrics_end.time_ns);
 
@@ -268,15 +259,11 @@ int main(int argc, char * argv[])
         ignore_result(pwrite(pcachefd, droppcache, sizeof(char), 0));
 
         metrics_t read2_metrics_start;
-        retval = collect_metrics(&read2_metrics_start, &monitor);
-
-        if(retval != 0)
-            return retval;
-
+        collect_metrics(&read2_metrics_start, &monitor);
         printf("2 READ METRICS :: got start energy (uj): %"PRIu64"\n", read2_metrics_start.energy_uj);
         printf("2 READ METRICS :: got start time (ns): %"PRIu64"\n", read2_metrics_start.time_ns);
 
-        u_int64_t read2len = calc_len(fsize, WORM_BUILTIN_SWAP_RATIO, RETURN_SWAP_LENGTH);
+        uint64_t read2len = calc_len(fsize, WORM_BUILTIN_SWAP_RATIO, RETURN_SWAP_LENGTH);
         char * read2back = malloc(read2len);
         char * read2backOriginal = read2back;
 
@@ -288,10 +275,10 @@ int main(int argc, char * argv[])
         {
             errno = 0;
 
-            u_int64_t iosize2_actual = MAX(MIN(read2len / 2, IOSIZE), 1U);
-            u_int64_t seeklimit2 = read2len - iosize2_actual;
-            u_int64_t offset2 = !seeklimit2 ? 0 : rand() % seeklimit2;
-            u_int64_t bytesRead2 = pread(
+            uint64_t iosize2_actual = MAX(MIN(read2len / 2, IOSIZE), 1U);
+            uint64_t seeklimit2 = read2len - iosize2_actual;
+            uint64_t offset2 = !seeklimit2 ? 0 : rand() % seeklimit2;
+            uint64_t bytesRead2 = pread(
                 trialoutfd,
                 read2back,
                 iosize2_actual,
@@ -313,11 +300,7 @@ int main(int argc, char * argv[])
         sync();
 
         metrics_t read2_metrics_end;
-        retval = collect_metrics(&read2_metrics_end, &monitor);
-
-        if(retval != 0)
-            return retval;
-
+        collect_metrics(&read2_metrics_end, &monitor);
         printf("2 READ METRICS :: got end energy (uj): %"PRIu64"\n", read2_metrics_end.energy_uj);
         printf("2 READ METRICS :: got end time (ns): %"PRIu64"\n", read2_metrics_end.time_ns);
 

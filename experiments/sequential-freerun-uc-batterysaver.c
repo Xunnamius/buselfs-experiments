@@ -65,7 +65,7 @@ int main(int argc, char * argv[])
 
     errno = 0;
 
-    u_int64_t fsize = ftell(frandom);
+    uint64_t fsize = ftell(frandom);
 
     if(!fsize || errno)
     {
@@ -139,7 +139,6 @@ int main(int argc, char * argv[])
 
     while(keepRunning && trials--)
     {
-        int retval = 0;
         int trial = TRIALS_INT - trials;
 
         printf("--> beginning trial %d of %d\n", trial, TRIALS_INT);
@@ -173,21 +172,19 @@ int main(int argc, char * argv[])
         metrics_t outer_write_metrics_end;
         metrics_t inner_write_metrics_end;
 
-        retval = collect_metrics(&outer_write_metrics_start, &monitor);
-        if(retval != 0)
-            return retval;
+        collect_metrics(&outer_write_metrics_start, &monitor);
 
         printf("OUTER WRITE METRICS:: got start energy (uj): %"PRIu64"\n", outer_write_metrics_start.energy_uj);
         printf("OUTER WRITE METRICS:: got start time (ns): %"PRIu64"\n", outer_write_metrics_start.time_ns);
 
-        u_int64_t outer_writelen = fsize;
+        uint64_t outer_writelen = fsize;
         char * randomness_copy = randomness;
 
         lseek64(trialoutfd, 0, SEEK_SET);
 
         while(outer_writelen > 0)
         {
-            u_int64_t outer_bytes_written = write(trialoutfd, randomness_copy, MIN(outer_writelen, IOSIZE));
+            uint64_t outer_bytes_written = write(trialoutfd, randomness_copy, MIN(outer_writelen, IOSIZE));
 
             if(outer_bytes_written <= 0)
             {
@@ -203,10 +200,7 @@ int main(int argc, char * argv[])
             // ? elapsed time >= LOW_BATTERY_WAIT && !system_is_throttled
             if(!system_is_throttled)
             {
-                retval = collect_metrics(&inner_write_metrics_end, &monitor);
-
-                if(retval != 0)
-                    return retval;
+                collect_metrics(&inner_write_metrics_end, &monitor);
 
                 if(inner_write_metrics_end.time_ns - outer_write_metrics_start.time_ns >= wait_time_ns)
                 {
@@ -226,9 +220,7 @@ int main(int argc, char * argv[])
         // ? Make sure everything writes through
         sync();
 
-        retval = collect_metrics(&outer_write_metrics_end, &monitor);
-        if(retval != 0)
-            return retval;
+        collect_metrics(&outer_write_metrics_end, &monitor);
 
         printf("OUTER WRITE METRICS:: got end energy (uj): %"PRIu64"\n", outer_write_metrics_end.energy_uj);
         printf("OUTER WRITE METRICS:: got end time (ns): %"PRIu64"\n", outer_write_metrics_end.time_ns);
