@@ -162,7 +162,7 @@ int main(int argc, char * argv[])
 
         // ? WRITE whole file
 
-        Metrics write_metrics_start;
+        metrics_t write_metrics_start;
         retval = collect_metrics(&write_metrics_start, &monitor);
 
         if(retval != 0)
@@ -194,7 +194,7 @@ int main(int argc, char * argv[])
         // Make sure everything writes through
         sync();
 
-        Metrics write_metrics_end;
+        metrics_t write_metrics_end;
         retval = collect_metrics(&write_metrics_end, &monitor);
 
         if(retval != 0)
@@ -208,7 +208,7 @@ int main(int argc, char * argv[])
         // Drop the page cache before the next read
         ignore_result(pwrite(pcachefd, droppcache, sizeof(char), 0));
 
-        Metrics read_metrics_start;
+        metrics_t read_metrics_start;
         retval = collect_metrics(&read_metrics_start, &monitor);
 
         if(retval != 0)
@@ -241,7 +241,7 @@ int main(int argc, char * argv[])
         // Make sure anything relevant gets written through
         sync();
 
-        Metrics read_metrics_end;
+        metrics_t read_metrics_end;
         retval = collect_metrics(&read_metrics_end, &monitor);
 
         if(retval != 0)

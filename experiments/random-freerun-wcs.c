@@ -167,7 +167,7 @@ int main(int argc, char * argv[])
 
         // ? WRITE 1/2
 
-        Metrics write1_metrics_start;
+        metrics_t write1_metrics_start;
         retval = collect_metrics(&write1_metrics_start, &monitor);
 
         if(retval != 0)
@@ -210,7 +210,7 @@ int main(int argc, char * argv[])
         // Make sure everything writes through
         sync();
 
-        Metrics write1_metrics_end;
+        metrics_t write1_metrics_end;
         retval = collect_metrics(&write1_metrics_end, &monitor);
 
         if(retval != 0)
@@ -224,7 +224,7 @@ int main(int argc, char * argv[])
         // Drop the page cache before the next read
         ignore_result(pwrite(pcachefd, droppcache, sizeof(char), 0));
 
-        Metrics read1_metrics_start;
+        metrics_t read1_metrics_start;
         retval = collect_metrics(&read1_metrics_start, &monitor);
 
         if(retval != 0)
@@ -268,7 +268,7 @@ int main(int argc, char * argv[])
         // Make sure anything relevant gets written through
         sync();
 
-        Metrics read1_metrics_end;
+        metrics_t read1_metrics_end;
         retval = collect_metrics(&read1_metrics_end, &monitor);
 
         if(retval != 0)
@@ -288,7 +288,7 @@ int main(int argc, char * argv[])
         // Drop the page cache before the next write
         ignore_result(pwrite(pcachefd, droppcache, sizeof(char), 0));
 
-        Metrics write2_metrics_start;
+        metrics_t write2_metrics_start;
         retval = collect_metrics(&write2_metrics_start, &monitor);
 
         if(retval != 0)
@@ -332,7 +332,7 @@ int main(int argc, char * argv[])
         // Make sure everything writes through
         sync();
 
-        Metrics write2_metrics_end;
+        metrics_t write2_metrics_end;
         retval = collect_metrics(&write2_metrics_end, &monitor);
 
         if(retval != 0)
@@ -346,7 +346,7 @@ int main(int argc, char * argv[])
         // Drop the page cache before the next read
         ignore_result(pwrite(pcachefd, droppcache, sizeof(char), 0));
 
-        Metrics read2_metrics_start;
+        metrics_t read2_metrics_start;
         retval = collect_metrics(&read2_metrics_start, &monitor);
 
         if(retval != 0)
@@ -391,7 +391,7 @@ int main(int argc, char * argv[])
         // Make sure anything relevant gets written through
         sync();
 
-        Metrics read2_metrics_end;
+        metrics_t read2_metrics_end;
         retval = collect_metrics(&read2_metrics_end, &monitor);
 
         if(retval != 0)

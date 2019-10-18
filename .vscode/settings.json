@@ -63,6 +63,7 @@
         "ener",
         "fdir",
         "ffinish",
+        "file",
         "filebench",
         "fileno",
         "flakesize",
@@ -131,6 +132,7 @@
         "rdext",
         "retries",
         "retvals",
+        "rread",
         "rsync",
         "sbctl",
         "serialutil",
@@ -139,6 +141,7 @@
         "sh",
         "size",
         "sizes",
+        "sread",
         "ssdx",
         "storeresults",
         "stringize",
@@ -151,6 +154,7 @@
         "sysrq",
         "teardownfilesystems",
         "teardownramdisks",
+        "test",
         "testfile",
         "testfs",
         "testrunner",
@@ -178,7 +182,8 @@
         "lib-sequential.h": "c",
         "lib.h": "c",
         "sched.h": "c",
-        "assert.h": "c"
+        "assert.h": "c",
+        "stdio.h": "c"
     },
     "search.exclude": {
         "**/bin": true,

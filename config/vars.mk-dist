@@ -3,7 +3,9 @@
 # These global flags are included all over the place! For all of the paths
 # below, there MUST NOT be a trailing / The units of BACKEND_SIZE_INT is
 # "mebibytes," EXPAND_TABS_INT is "tab stops," and FREERUN_TIMEOUT_INT is
-# "seconds".
+# "seconds". TRIALS_INT is used in non-cipher-switching experiments as the # of
+# experimental trials while it is used as the number of file reads/writes for
+# cipher-switching experiments, which are always repeated 3 times.
 #
 # Note that any flag ending in (no quotes) "_INT" will be parsed as an integer!
 #
@@ -26,4 +28,4 @@ CONFIG_COMPILE_FLAGS := \
 						-DEXPAND_TABS_INT=15  \
 						-DFREERUN_TIMEOUT_INT=43200 \
 						-DBLFS_SV_QUEUE_INCOMING_NAME="/incoming.strongbox.xunn.io" \
-						-DTRIALS_INT=10
+						-DTRIALS_INT=12

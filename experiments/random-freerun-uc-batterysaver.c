@@ -169,9 +169,9 @@ int main(int argc, char * argv[])
 
         int system_is_throttled = 0;
 
-        Metrics outer_write_metrics_start;
-        Metrics outer_write_metrics_end;
-        Metrics inner_write_metrics_end;
+        metrics_t outer_write_metrics_start;
+        metrics_t outer_write_metrics_end;
+        metrics_t inner_write_metrics_end;
 
         retval = collect_metrics(&outer_write_metrics_start, &monitor);
         if(retval != 0)
