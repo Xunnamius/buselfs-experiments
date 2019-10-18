@@ -141,7 +141,6 @@ int main(int argc, char * argv[])
 
     while(keepRunning && trials--)
     {
-        int retval = 0;
         int trial = TRIALS_INT - trials;
 
         printf("--> beginning trial %d of %d\n", trial, TRIALS_INT);
@@ -167,11 +166,8 @@ int main(int argc, char * argv[])
 
         // ? WRITE 1/2
 
-        Metrics write1_metrics_start;
-        retval = collect_metrics(&write1_metrics_start, &monitor);
-
-        if(retval != 0)
-            return retval;
+        metrics_t write1_metrics_start;
+        collect_metrics(&write1_metrics_start, &monitor);
 
         printf("1 WRITE METRICS:: got start energy (uj): %"PRIu64"\n", write1_metrics_start.energy_uj);
         printf("1 WRITE METRICS:: got start time (ns): %"PRIu64"\n", write1_metrics_start.time_ns);
@@ -199,11 +195,8 @@ int main(int argc, char * argv[])
         // Make sure everything writes through
         sync();
 
-        Metrics write1_metrics_end;
-        retval = collect_metrics(&write1_metrics_end, &monitor);
-
-        if(retval != 0)
-            return retval;
+        metrics_t write1_metrics_end;
+        collect_metrics(&write1_metrics_end, &monitor);
 
         printf("1 WRITE METRICS:: got end energy (uj): %"PRIu64"\n", write1_metrics_end.energy_uj);
         printf("1 WRITE METRICS:: got end time (ns): %"PRIu64"\n", write1_metrics_end.time_ns);
@@ -213,11 +206,8 @@ int main(int argc, char * argv[])
         // Drop the page cache before the next read
         ignore_result(pwrite(pcachefd, droppcache, sizeof(char), 0));
 
-        Metrics read1_metrics_start;
-        retval = collect_metrics(&read1_metrics_start, &monitor);
-
-        if(retval != 0)
-            return retval;
+        metrics_t read1_metrics_start;
+        collect_metrics(&read1_metrics_start, &monitor);
 
         printf("1 READ METRICS :: got start energy (uj): %"PRIu64"\n", read1_metrics_start.energy_uj);
         printf("1 READ METRICS :: got start time (ns): %"PRIu64"\n", read1_metrics_start.time_ns);
@@ -246,11 +236,8 @@ int main(int argc, char * argv[])
         // Make sure anything relevant gets written through
         sync();
 
-        Metrics read1_metrics_end;
-        retval = collect_metrics(&read1_metrics_end, &monitor);
-
-        if(retval != 0)
-            return retval;
+        metrics_t read1_metrics_end;
+        collect_metrics(&read1_metrics_end, &monitor);
 
         printf("1 READ METRICS :: got end energy (uj): %"PRIu64"\n", read1_metrics_end.energy_uj);
         printf("1 READ METRICS :: got end time (ns): %"PRIu64"\n", read1_metrics_end.time_ns);
@@ -266,11 +253,8 @@ int main(int argc, char * argv[])
         // Drop the page cache before the next write
         ignore_result(pwrite(pcachefd, droppcache, sizeof(char), 0));
 
-        Metrics write2_metrics_start;
-        retval = collect_metrics(&write2_metrics_start, &monitor);
-
-        if(retval != 0)
-            return retval;
+        metrics_t write2_metrics_start;
+        collect_metrics(&write2_metrics_start, &monitor);
 
         printf("2 WRITE METRICS:: got start energy (uj): %"PRIu64"\n", write2_metrics_start.energy_uj);
         printf("2 WRITE METRICS:: got start time (ns): %"PRIu64"\n", write2_metrics_start.time_ns);
@@ -299,11 +283,8 @@ int main(int argc, char * argv[])
         // Make sure everything writes through
         sync();
 
-        Metrics write2_metrics_end;
-        retval = collect_metrics(&write2_metrics_end, &monitor);
-
-        if(retval != 0)
-            return retval;
+        metrics_t write2_metrics_end;
+        collect_metrics(&write2_metrics_end, &monitor);
 
         printf("2 WRITE METRICS:: got end energy (uj): %"PRIu64"\n", write2_metrics_end.energy_uj);
         printf("2 WRITE METRICS:: got end time (ns): %"PRIu64"\n", write2_metrics_end.time_ns);
@@ -313,11 +294,8 @@ int main(int argc, char * argv[])
         // Drop the page cache before the next read
         ignore_result(pwrite(pcachefd, droppcache, sizeof(char), 0));
 
-        Metrics read2_metrics_start;
-        retval = collect_metrics(&read2_metrics_start, &monitor);
-
-        if(retval != 0)
-            return retval;
+        metrics_t read2_metrics_start;
+        collect_metrics(&read2_metrics_start, &monitor);
 
         printf("2 READ METRICS :: got start energy (uj): %"PRIu64"\n", read2_metrics_start.energy_uj);
         printf("2 READ METRICS :: got start time (ns): %"PRIu64"\n", read2_metrics_start.time_ns);
@@ -347,11 +325,8 @@ int main(int argc, char * argv[])
         // Make sure anything relevant gets written through
         sync();
 
-        Metrics read2_metrics_end;
-        retval = collect_metrics(&read2_metrics_end, &monitor);
-
-        if(retval != 0)
-            return retval;
+        metrics_t read2_metrics_end;
+        collect_metrics(&read2_metrics_end, &monitor);
 
         printf("2 READ METRICS :: got end energy (uj): %"PRIu64"\n", read2_metrics_end.energy_uj);
         printf("2 READ METRICS :: got end time (ns): %"PRIu64"\n", read2_metrics_end.time_ns);

@@ -98,18 +98,18 @@ void interrupt_handler(int dummy)
     keepRunning = 0;
 }
 
-// Struct that holds duration/energy/power data
-typedef struct Metrics {
+// Holds duration/energy/power data
+typedef struct metrics_t {
     uint64_t time_ns;
     uint64_t energy_uj;
-} Metrics;
+} metrics_t;
 
 /**
  * Collect energy and timing metrics using energymon
  *
  * @return 0 if no error
  */
-int collect_metrics(Metrics * metrics, energymon * monitor)
+void collect_metrics(metrics_t * metrics, energymon * monitor)
 {
     errno = 0;
 
@@ -124,7 +124,6 @@ int collect_metrics(Metrics * metrics, energymon * monitor)
     }
 
     metrics->time_ns = energymon_gettime_ns();
-    return 0;
 }
 
 /**
@@ -200,7 +199,7 @@ void swap_ciphers()
     if(exitcode != 0)
     {
         exitcode = WEXITSTATUS(exitcode);
-        printf("swap_ciphers (call to shell) failed with retval: %i\n", exitcode);
+        printf("swap_ciphers (call to shell) failed with exit code: %i\n", exitcode);
         exit(exitcode);
     }
 
@@ -308,7 +307,7 @@ void throttle_sys()
     if(exitcode != 0)
     {
         exitcode = WEXITSTATUS(exitcode);
-        printf("throttling odroid (via call to shell) failed with retval: %i\n", exitcode);
+        printf("throttling odroid (via call to shell) failed with exit code: %i\n", exitcode);
         exit(exitcode);
     }
 
@@ -353,7 +352,7 @@ void unthrottle_sys()
     if(exitcode != 0)
     {
         exitcode = WEXITSTATUS(exitcode);
-        printf("unthrottling odroid (via call to shell) failed with retval: %i\n", exitcode);
+        printf("unthrottling odroid (via call to shell) failed with exit code: %i\n", exitcode);
         exit(exitcode);
     }
 
@@ -383,9 +382,9 @@ void ignore_result(long long int unused_result)
  * cipher. primary_or_swap determines which percentage of the backing store, in
  * bytes, is returned.
  */
-u_int64_t calc_len(u_int64_t fsize, int swap_ratio, int primary_or_swap)
+uint64_t calc_len(uint64_t fsize, int swap_ratio, int primary_or_swap)
 {
-    u_int64_t result = 0;
+    uint64_t result = 0;
 
     if(swap_ratio == 1)
         result = llabs(fsize * 25 / 100 - (primary_or_swap == RETURN_PRIMARY_LENGTH ? fsize : 0));
@@ -395,6 +394,48 @@ u_int64_t calc_len(u_int64_t fsize, int swap_ratio, int primary_or_swap)
 
     else if(swap_ratio == 3)
         result = llabs(fsize * 75 / 100 - (primary_or_swap == RETURN_PRIMARY_LENGTH ? fsize : 0));
+
+    else
+    {
+        printf("Invalid swap_ratio (calc_len)\n");
+        exit(255);
+    }
+
+    return result;
+}
+
+/**
+ * Calculates the number of files that should be operated on before we trigger
+ * the cipher swap.
+ *
+ * swap_ratio = 1 => 3 primary files for every 1 swap cipher files
+ * swap_ratio = 2 => 1 primary file for every 1 swap cipher file
+ * swap_ratio = 3 => 1 primary files for every 3 swap cipher files
+ *
+ * Only integers file counts are returned. Floor division is always used.
+ * Remaining files in the calculation are divided evenly between primary and
+ * swap counts. Ideally, TRIALS_INT should be an even multiple of 4 (e.g. 12).
+ *
+ * primary_or_swap determines which count is returned (for primary or for swap).
+ */
+int calc_num_files(int total_files_count, int swap_ratio, int primary_or_swap)
+{
+    uint64_t result = 0;
+
+    if(swap_ratio == 1)
+        result = llabs(total_files_count * 25 / 100 - (primary_or_swap == RETURN_PRIMARY_LENGTH ? total_files_count : 0));
+
+    else if(swap_ratio == 2)
+        result = llabs(total_files_count * 50 / 100 - (primary_or_swap == RETURN_PRIMARY_LENGTH ? total_files_count : 0));
+
+    else if(swap_ratio == 3)
+        result = llabs(total_files_count * 75 / 100 - (primary_or_swap == RETURN_PRIMARY_LENGTH ? total_files_count : 0));
+
+    else
+    {
+        printf("Invalid swap_ratio (calc_num_files)\n");
+        exit(246);
+    }
 
     return result;
 }
@@ -420,7 +461,7 @@ void check_root()
     if(euid != 0)
     {
         printf("Must run this as root!\n");
-        // exit(255); // TODO: UNCOMMENT ME!
+        exit(255);
     }
 }
 
