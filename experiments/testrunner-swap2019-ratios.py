@@ -15,22 +15,57 @@ lib = Librunner(config)
 
 ### * Configurables * ###
 
-KEEP_RUNNER_LOGS = False
-DIE_ON_EXCEPTION = True
+KEEP_RUNNER_LOGS  = False
+DIE_ON_EXCEPTION  = True
+REPEAT_TEST_TIMES = 3
 
-# ! REMEMBER: it's nilfs2 (TWO) with a 2! Not just 'nilfs'!
-filesystems = [
-    #'nilfs2',
-    'f2fs',
+# ! 1 through 3 inclusive!
+SWAP_LOWER_BOUND  = 1
+SWAP_UPPER_BOUND  = 3
+
+experiments = [
+    lib.sequentialFreerunWithCipherSwitching,
+    lib.randomFreerunWithCipherSwitching,
 ]
 
 dataClasses = [
     #'1k',
-    #'4k',
+    '4k',
     '512k',
-    #'5m',
-    #'40m',
+    '5m',
+    '40m',
     #'5g',
+]
+
+# ? These are all the cipher swapping pairs that will be tested
+# ? each element: (primary cipher, swap cipher, swap strategy)
+cipherpairs = [
+    # ('sc_chacha8_neon', 'sc_chacha12_neon', 'swap_0_forward'),
+    # ('sc_freestyle_balanced', 'sc_freestyle_secure', 'swap_0_forward'),
+
+    ('sc_chacha8_neon', 'sc_chacha20_neon', 'swap_0_forward'),
+    # #('sc_chacha8_neon', 'sc_freestyle_fast', 'swap_0_forward'),
+    ('sc_chacha20_neon', 'sc_freestyle_fast', 'swap_0_forward'),
+    ('sc_freestyle_fast', 'sc_freestyle_balanced', 'swap_0_forward'),
+    ('sc_freestyle_balanced', 'sc_freestyle_secure', 'swap_0_forward'),
+
+    # ('sc_chacha8_neon', 'sc_chacha20_neon', 'swap_1_forward'),
+    # #('sc_chacha8_neon', 'sc_freestyle_fast', 'swap_1_forward'),
+    # ('sc_chacha20_neon', 'sc_freestyle_fast', 'swap_1_forward'),
+    # ('sc_freestyle_fast', 'sc_freestyle_balanced', 'swap_1_forward'),
+    # ('sc_freestyle_balanced', 'sc_freestyle_secure', 'swap_1_forward'),
+
+    # ('sc_chacha8_neon', 'sc_chacha20_neon', 'swap_2_forward'),
+    # #('sc_chacha8_neon', 'sc_freestyle_fast', 'swap_2_forward'),
+    # ('sc_chacha20_neon', 'sc_freestyle_fast', 'swap_2_forward'),
+    # ('sc_freestyle_fast', 'sc_freestyle_balanced', 'swap_2_forward'),
+    # ('sc_freestyle_balanced', 'sc_freestyle_secure', 'swap_2_forward'),
+
+    ('sc_chacha8_neon', 'sc_chacha20_neon', 'swap_mirrored'),
+    # #('sc_chacha8_neon', 'sc_freestyle_fast', 'swap_mirrored'),
+    ('sc_chacha20_neon', 'sc_freestyle_fast', 'swap_mirrored'),
+    ('sc_freestyle_fast', 'sc_freestyle_balanced', 'swap_mirrored'),
+    ('sc_freestyle_balanced', 'sc_freestyle_secure', 'swap_mirrored')
 ]
 
 flksizes = [
@@ -56,40 +91,10 @@ fpns = [
     #256,
 ]
 
-experiments = [
-    lib.sequentialFreerunWithCipherSwitching,
-    #lib.randomFreerunWithCipherSwitching,
-]
-
-# ? These are all the cipher swapping pairs that will be tested
-# ? each element: (primary cipher, swap cipher, swap strategy)
-cipherpairs = [
-    # ('sc_chacha8_neon', 'sc_chacha12_neon', 'swap_0_forward'),
-    # ('sc_freestyle_balanced', 'sc_freestyle_secure', 'swap_0_forward'),
-
-    #('sc_chacha8_neon', 'sc_chacha20_neon', 'swap_0_forward'),
-    # #('sc_chacha8_neon', 'sc_freestyle_fast', 'swap_0_forward'),
-    #('sc_chacha20_neon', 'sc_freestyle_fast', 'swap_0_forward'),
-    #('sc_freestyle_fast', 'sc_freestyle_balanced', 'swap_0_forward'),
-    ('sc_freestyle_balanced', 'sc_freestyle_secure', 'swap_0_forward'),
-
-    # ('sc_chacha8_neon', 'sc_chacha20_neon', 'swap_1_forward'),
-    # #('sc_chacha8_neon', 'sc_freestyle_fast', 'swap_1_forward'),
-    # ('sc_chacha20_neon', 'sc_freestyle_fast', 'swap_1_forward'),
-    # ('sc_freestyle_fast', 'sc_freestyle_balanced', 'swap_1_forward'),
-    # ('sc_freestyle_balanced', 'sc_freestyle_secure', 'swap_1_forward'),
-
-    # ('sc_chacha8_neon', 'sc_chacha20_neon', 'swap_2_forward'),
-    # #('sc_chacha8_neon', 'sc_freestyle_fast', 'swap_2_forward'),
-    # ('sc_chacha20_neon', 'sc_freestyle_fast', 'swap_2_forward'),
-    # ('sc_freestyle_fast', 'sc_freestyle_balanced', 'swap_2_forward'),
-    # ('sc_freestyle_balanced', 'sc_freestyle_secure', 'swap_2_forward'),
-
-    # ('sc_chacha8_neon', 'sc_chacha20_neon', 'swap_mirrored'),
-    # #('sc_chacha8_neon', 'sc_freestyle_fast', 'swap_mirrored'),
-    # ('sc_chacha20_neon', 'sc_freestyle_fast', 'swap_mirrored'),
-    # ('sc_freestyle_fast', 'sc_freestyle_balanced', 'swap_mirrored'),
-    # ('sc_freestyle_balanced', 'sc_freestyle_secure', 'swap_mirrored')
+# ! REMEMBER: it's nilfs2 (TWO) with a 2! Not just 'nilfs'!
+filesystems = [
+    #'nilfs2',
+    'f2fs',
 ]
 
 backendFnTuples = [
@@ -125,7 +130,7 @@ if __name__ == "__main__":
         for filesystem in filesystems:
             for fpn in fpns:
                 for flk_size in flksizes:
-                    for swap_rat in range(3, 4): # ! (1, 4) means 1 through 3 inclusive!
+                    for swap_rat in range(SWAP_LOWER_BOUND, SWAP_UPPER_BOUND + 1):
                         configurations.extend([
                             ExtendedConfiguration(
                                 '{}#{}#{}#{}#{}#{}+{}'.format(filesystem, cipherpair[0], flk_size, fpn, cipherpair[1], cipherpair[2], swap_rat),
@@ -183,41 +188,44 @@ if __name__ == "__main__":
                                         lib.print('results file {} was found, experiment skipped!'.format(predictedResultFilePath))
 
                                     else:
-                                        try:
-                                            backendFn[0](conf.fs_type, conf.mount_args, conf.device_args)
-                                            lib.dropPageCache()
+                                        for i in range(1, REPEAT_TEST_TIMES + 1):
+                                            lib.print('=> run {}/{}'.format(i, REPEAT_TEST_TIMES))
 
-                                        except KeyboardInterrupt:
-                                            progressBar.close()
-                                            lib.print('keyboard interrupt received, cleaning up...')
-                                            raise
+                                            try:
+                                                backendFn[0](conf.fs_type, conf.mount_args, conf.device_args)
+                                                lib.dropPageCache()
 
-                                        try:
-                                            runFn(dataClass, identifier, conf.swap_ratio)
-
-                                        except KeyboardInterrupt:
-                                            progressBar.close()
-                                            lib.print('keyboard interrupt received, cleaning up...')
-                                            raise
-
-                                        except:
-                                            if DIE_ON_EXCEPTION:
+                                            except KeyboardInterrupt:
                                                 progressBar.close()
-
-                                            lib.print('UNHANDLED EXCEPTION ENCOUNTERED!', severity='FATAL')
-
-                                            if DIE_ON_EXCEPTION:
+                                                lib.print('keyboard interrupt received, cleaning up...')
                                                 raise
 
-                                        finally:
                                             try:
-                                                backendFn[1]()
-                                                lib.clearBackstoreFiles()
+                                                runFn(dataClass, identifier, conf.swap_ratio)
+
+                                            except KeyboardInterrupt:
+                                                progressBar.close()
+                                                lib.print('keyboard interrupt received, cleaning up...')
+                                                raise
 
                                             except:
-                                                progressBar.close()
-                                                printInstabilityWarning(lib, config)
-                                                raise
+                                                if DIE_ON_EXCEPTION:
+                                                    progressBar.close()
+
+                                                lib.print('UNHANDLED EXCEPTION ENCOUNTERED!', severity='FATAL')
+
+                                                if DIE_ON_EXCEPTION:
+                                                    raise
+
+                                            finally:
+                                                try:
+                                                    backendFn[1]()
+                                                    lib.clearBackstoreFiles()
+
+                                                except:
+                                                    progressBar.close()
+                                                    printInstabilityWarning(lib, config)
+                                                    raise
 
                                     lib.print('------------------ *** ------------------')
                                     lib.logFile = None

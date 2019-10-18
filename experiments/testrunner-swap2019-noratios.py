@@ -15,13 +15,13 @@ lib = Librunner(config)
 
 ### * Configurables * ###
 
-KEEP_RUNNER_LOGS = False
-DIE_ON_EXCEPTION = True
+KEEP_RUNNER_LOGS  = False
+DIE_ON_EXCEPTION  = True
+REPEAT_TEST_TIMES = 3
 
-# ! REMEMBER: it's nilfs2 (TWO) with a 2! Not just 'nilfs'!
-filesystems = [
-    #'nilfs2',
-    'f2fs',
+experiments = [
+    #lib.sequentialFreerunUsecase_BatterySaver,
+    lib.randomFreerunUsecase_BatterySaver,
 ]
 
 dataClasses = [
@@ -29,36 +29,8 @@ dataClasses = [
     #'4k',
     #'512k',
     #'5m',
-    '40m',
+    #'40m',
     #'5g',
-]
-
-flksizes = [
-    #512,
-    #1024,
-    #2048,
-    4096,
-    #8192,
-    #16384,
-    #32768,
-    #65536,
-]
-
-fpns = [
-    #1, (too small)
-    #2, (too small)
-    #4, (too small)
-    #8,
-    #16,
-    #32,
-    64,
-    #128,
-    #256,
-]
-
-experiments = [
-    #lib.sequentialFreerunUsecase_BatterySaver,
-    lib.randomFreerunUsecase_BatterySaver,
 ]
 
 # ? These are all the cipher swapping pairs that will be tested
@@ -89,6 +61,35 @@ cipherpairs = [
     # ('sc_chacha20_neon', 'sc_freestyle_fast', 'swap_mirrored'),
     # ('sc_freestyle_fast', 'sc_freestyle_balanced', 'swap_mirrored'),
     # ('sc_freestyle_balanced', 'sc_freestyle_secure', 'swap_mirrored')
+]
+
+flksizes = [
+    #512,
+    #1024,
+    #2048,
+    4096,
+    #8192,
+    #16384,
+    #32768,
+    #65536,
+]
+
+fpns = [
+    #1, (too small)
+    #2, (too small)
+    #4, (too small)
+    #8,
+    #16,
+    #32,
+    64,
+    #128,
+    #256,
+]
+
+# ! REMEMBER: it's nilfs2 (TWO) with a 2! Not just 'nilfs'!
+filesystems = [
+    #'nilfs2',
+    'f2fs',
 ]
 
 backendFnTuples = [
@@ -180,41 +181,44 @@ if __name__ == "__main__":
                                         lib.print('results file {} was found, experiment skipped!'.format(predictedResultFilePath))
 
                                     else:
-                                        try:
-                                            backendFn[0](conf.fs_type, conf.mount_args, conf.device_args)
-                                            lib.dropPageCache()
+                                        for i in range(1, REPEAT_TEST_TIMES + 1):
+                                            lib.print('=> run {}/{}'.format(i, REPEAT_TEST_TIMES))
 
-                                        except KeyboardInterrupt:
-                                            progressBar.close()
-                                            lib.print('keyboard interrupt received, cleaning up...')
-                                            raise
+                                            try:
+                                                backendFn[0](conf.fs_type, conf.mount_args, conf.device_args)
+                                                lib.dropPageCache()
 
-                                        try:
-                                            runFn(dataClass, identifier)
-
-                                        except KeyboardInterrupt:
-                                            progressBar.close()
-                                            lib.print('keyboard interrupt received, cleaning up...')
-                                            raise
-
-                                        except:
-                                            if DIE_ON_EXCEPTION:
+                                            except KeyboardInterrupt:
                                                 progressBar.close()
-
-                                            lib.print('UNHANDLED EXCEPTION ENCOUNTERED!', severity='FATAL')
-
-                                            if DIE_ON_EXCEPTION:
+                                                lib.print('keyboard interrupt received, cleaning up...')
                                                 raise
 
-                                        finally:
                                             try:
-                                                backendFn[1]()
-                                                lib.clearBackstoreFiles()
+                                                runFn(dataClass, identifier)
+
+                                            except KeyboardInterrupt:
+                                                progressBar.close()
+                                                lib.print('keyboard interrupt received, cleaning up...')
+                                                raise
 
                                             except:
-                                                progressBar.close()
-                                                printInstabilityWarning(lib, config)
-                                                raise
+                                                if DIE_ON_EXCEPTION:
+                                                    progressBar.close()
+
+                                                lib.print('UNHANDLED EXCEPTION ENCOUNTERED!', severity='FATAL')
+
+                                                if DIE_ON_EXCEPTION:
+                                                    raise
+
+                                            finally:
+                                                try:
+                                                    backendFn[1]()
+                                                    lib.clearBackstoreFiles()
+
+                                                except:
+                                                    progressBar.close()
+                                                    printInstabilityWarning(lib, config)
+                                                    raise
 
                                     lib.print('------------------ *** ------------------')
                                     lib.logFile = None

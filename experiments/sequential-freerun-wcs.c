@@ -170,8 +170,11 @@ int main(int argc, char * argv[])
         }
     }
 
-    for(; keepRunning && current_file_count <= files_switch_threshold; ++current_file_count)
+    for(; current_file_count <= files_switch_threshold; ++current_file_count)
     {
+        if(!keepRunning)
+            exit(7);
+
         printf("--> committing 1/2 I/O with file %i of %i\n", current_file_count, files_switch_threshold);
         int trialoutfd = trialoutfds[current_file_count - 1];
 
@@ -263,14 +266,20 @@ int main(int argc, char * argv[])
         free(read1backOriginal);
     }
 
+    if(!keepRunning)
+        exit(7);
+
     // ? Schedule a cipher swap
     swap_ciphers();
 
     // Drop the page cache before the next write
     ignore_result(pwrite(pcachefd, droppcache, sizeof(char), 0));
 
-    for(; keepRunning && current_file_count <= total_files_count; ++current_file_count)
+    for(; current_file_count <= total_files_count; ++current_file_count)
     {
+        if(!keepRunning)
+            exit(7);
+
         printf("--> committing 2/2 I/O with file %i of %i\n", current_file_count, total_files_count);
         int trialoutfd = trialoutfds[current_file_count - 1];
 

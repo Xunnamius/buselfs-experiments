@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""An experimental framework meant to be used for testing the SSD EoL usecase"""
+"""An experimental framework meant to find the optimal flk/nug configuration;
+used to generate tradeoff spaces and other things too"""
 
 import os
 import sys
@@ -19,6 +20,8 @@ DIE_ON_EXCEPTION  = True
 REPEAT_TEST_TIMES = 3
 
 experiments = [
+    #lib.sequentialFreerunUsecase_BatterySaver,
+    #lib.randomFreerunUsecase_BatterySaver,
     lib.sequentialFreerunWithCipherSwitching,
     lib.randomFreerunWithCipherSwitching,
 ]
@@ -41,10 +44,10 @@ ciphers = [
 
 dataClasses = [
     #'1k',
-    #'4k',
-    #'512k',
+    '4k',
+    '512k',
     '5m',
-    #'40m',
+    '40m',
     #'5g',
 ]
 
@@ -105,7 +108,7 @@ if __name__ == "__main__":
         lib.clearBackstoreFiles()
         lib.print('constructing configurations')
 
-        # * SSD EoL
+        # * And it begins!
         configurations = []
         for filesystem in filesystems:
             for fpn in fpns:
@@ -120,21 +123,6 @@ if __name__ == "__main__":
                                 '--cipher', cipher,
                                 '--flake-size', str(flk_size),
                                 '--flakes-per-nugget', str(fpn)
-                            ]
-                        ) for cipher in ciphers
-                    ])
-
-                    configurations.extend([
-                        ExtendedConfiguration(
-                            '{}#{}#{}#{}'.format('delayed_{}'.format(filesystem), cipher, flk_size, fpn),
-                            filesystem,
-                            0,
-                            [],
-                            [
-                                '--cipher', cipher,
-                                '--flake-size', str(flk_size),
-                                '--flakes-per-nugget', str(fpn),
-                                '--delay-rw'
                             ]
                         ) for cipher in ciphers
                     ])
