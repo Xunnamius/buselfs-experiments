@@ -128,20 +128,33 @@ int main(int argc, char * argv[])
         return 2;
     }
 
-    // Begin the trials
+    // Begin the num_files_to_write
 
     int pcachefd = open("/proc/sys/vm/drop_caches", O_WRONLY);
     const char * droppcache = "3";
-    int trials = TRIALS_INT;
+    int num_files_to_write = TRIALS_INT;
 
     uint64_t wait_time_ns = LOW_BATTERY_WAIT * 1000000000ULL;
     printf(": wait_time_ns = %"PRIu64"\n", wait_time_ns);
 
-    while(keepRunning && trials--)
-    {
-        int trial = TRIALS_INT - trials;
+    int system_is_throttled = 0;
 
-        printf("--> beginning trial %d of %d\n", trial, TRIALS_INT);
+    metrics_t outer_write_metrics_start;
+    metrics_t outer_write_metrics_end;
+    metrics_t inner_write_metrics_end;
+
+    sync();
+
+    collect_metrics(&outer_write_metrics_start, &monitor);
+
+    printf("OUTER WRITE METRICS:: got start energy (uj): %"PRIu64"\n", outer_write_metrics_start.energy_uj);
+    printf("OUTER WRITE METRICS:: got start time (ns): %"PRIu64"\n", outer_write_metrics_start.time_ns);
+
+    while(keepRunning && num_files_to_write--)
+    {
+        int file_num = TRIALS_INT - num_files_to_write;
+
+        printf("--> committing I/O with file %d of %d\n", file_num, TRIALS_INT);
 
         char writeout_target[PATH_BUFF_SIZE];
 
@@ -149,7 +162,7 @@ int main(int argc, char * argv[])
                  PATH_BUFF_SIZE,
                  "%s/%d",
                  write_to,
-                 trial);
+                 file_num);
 
         printf("writeout_target: %s\n", writeout_target);
 
@@ -165,17 +178,6 @@ int main(int argc, char * argv[])
         ignore_result(pwrite(pcachefd, droppcache, sizeof(char), 0));
 
         // ? WRITE fsize total bytes to backing store in one loop!
-
-        int system_is_throttled = 0;
-
-        metrics_t outer_write_metrics_start;
-        metrics_t outer_write_metrics_end;
-        metrics_t inner_write_metrics_end;
-
-        collect_metrics(&outer_write_metrics_start, &monitor);
-
-        printf("OUTER WRITE METRICS:: got start energy (uj): %"PRIu64"\n", outer_write_metrics_start.energy_uj);
-        printf("OUTER WRITE METRICS:: got start time (ns): %"PRIu64"\n", outer_write_metrics_start.time_ns);
 
         uint64_t outer_writelen = fsize;
         char * randomness_copy = randomness;
@@ -218,56 +220,7 @@ int main(int argc, char * argv[])
         }
 
         // ? Make sure everything writes through
-        sync();
-
-        collect_metrics(&outer_write_metrics_end, &monitor);
-
-        printf("OUTER WRITE METRICS:: got end energy (uj): %"PRIu64"\n", outer_write_metrics_end.energy_uj);
-        printf("OUTER WRITE METRICS:: got end time (ns): %"PRIu64"\n", outer_write_metrics_end.time_ns);
-
-        // ? Unthrottle the system
-        unthrottle_sys();
-
-        // ? Crunch results
-
-        double wo_energy = outer_write_metrics_end.energy_uj - outer_write_metrics_start.energy_uj;
-        double wo_duration = outer_write_metrics_end.time_ns - outer_write_metrics_start.time_ns;
-        double wo_power = wo_energy * 1000.0 / wo_duration;
-
-        double wi_energy = inner_write_metrics_end.energy_uj - outer_write_metrics_start.energy_uj;
-        double wi_duration = inner_write_metrics_end.time_ns - outer_write_metrics_start.time_ns;
-        double wi_power = wi_energy * 1000.0 / wi_duration;
-
-        printf("==> TOTAL WRITES <==\nenergy: %fj\nduration: %fs\npower: %fw\n",
-               wo_energy / 1000000.0,
-               wo_duration / 1000000000.0,
-               wo_power);
-
-        printf("==> WRITES BEFORE SWITCH <==\nenergy: %fj\nduration: %fs\npower: %fw\n",
-               wi_energy / 1000000.0,
-               wi_duration / 1000000000.0,
-               wi_power);
-
-        // ? Output the results
-
-        fprintf(flog_output,
-                "wo_energy: %f\nwo_duration: %f\nwo_power: %f\n---\n",
-                wo_energy,
-                wo_duration,
-                wo_power);
-
-        fprintf(flog_output,
-                "wi_energy: %f\nwi_duration: %f\nwi_power: %f\n---\n---\n",
-                wi_energy,
-                wi_duration,
-                wi_power);
-
-        // ? Schedule a cipher swap to swap back to normal if we swapped at all
-        if(system_is_throttled)
-            swap_ciphers();
-
         close(trialoutfd);
-        sync();
 
         if(CLEANUP)
         {
@@ -275,9 +228,55 @@ int main(int argc, char * argv[])
             remove(writeout_target);
         }
 
-        // ? Flush the results
-        fflush(flog_output);
+        sync();
     }
+
+    collect_metrics(&outer_write_metrics_end, &monitor);
+
+    printf("OUTER WRITE METRICS:: got end energy (uj): %"PRIu64"\n", outer_write_metrics_end.energy_uj);
+    printf("OUTER WRITE METRICS:: got end time (ns): %"PRIu64"\n", outer_write_metrics_end.time_ns);
+
+    // ? Unthrottle the system
+    unthrottle_sys();
+
+    // ? Crunch results
+
+    double wo_energy = outer_write_metrics_end.energy_uj - outer_write_metrics_start.energy_uj;
+    double wo_duration = outer_write_metrics_end.time_ns - outer_write_metrics_start.time_ns;
+    double wo_power = wo_energy * 1000.0 / wo_duration;
+
+    double wi_energy = inner_write_metrics_end.energy_uj - outer_write_metrics_start.energy_uj;
+    double wi_duration = inner_write_metrics_end.time_ns - outer_write_metrics_start.time_ns;
+    double wi_power = wi_energy * 1000.0 / wi_duration;
+
+    printf("==> TOTAL WRITES <==\nenergy: %fj\nduration: %fs\npower: %fw\n",
+            wo_energy / 1000000.0,
+            wo_duration / 1000000000.0,
+            wo_power);
+
+    printf("==> WRITES BEFORE SWITCH <==\nenergy: %fj\nduration: %fs\npower: %fw\n",
+            wi_energy / 1000000.0,
+            wi_duration / 1000000000.0,
+            wi_power);
+
+    // ? Output the results
+
+    fprintf(flog_output,
+            "wo_energy: %f\nwo_duration: %f\nwo_power: %f\n---\n",
+            wo_energy,
+            wo_duration,
+            wo_power);
+
+    fprintf(flog_output,
+            "wi_energy: %f\nwi_duration: %f\nwi_power: %f\n---\n---\n",
+            wi_energy,
+            wi_duration,
+            wi_power);
+
+    sync();
+
+    // ? Flush the results
+    fflush(flog_output);
 
     if(!keepRunning)
     {
