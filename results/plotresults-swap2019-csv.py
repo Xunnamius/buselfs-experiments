@@ -89,7 +89,7 @@ if __name__ == "__main__":
             rankOrder[0] + abs(rankOrder[0] - rankOrder[1]) * (resultProps.swapRatio * 0.25)
         )
 
-        data['ratio'].append(resultProps.swapRatio)
+        data['ratio'].append(0 if resultProps.swapRatio == 4 else resultProps.swapRatio)
 
         data['cipher'].append(('{}' if resultProps.cipher == resultProps.swapCipher else '{}+{}').format(resultProps.cipher, resultProps.swapCipher))
 
