@@ -30,7 +30,7 @@
 #define SWAP_RATIO_50S_50P_STR "2"
 #define SWAP_RATIO_75S_25P_STR "3"
 
-#define LOW_BATTERY_WAIT 20U // In seconds
+#define LOW_BATTERY_WAIT 5U // In seconds
 
 #define IOSIZE 131072U
 //#define IOSIZE INT_MAX
