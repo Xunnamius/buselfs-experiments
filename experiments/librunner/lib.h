@@ -260,7 +260,7 @@ void set_strongbox_affinity(cpu_set_t * mask)
             printf("sched_setaffinity failed with errno: %i\n", errno);
             exit(247);
         }
-    } while(pid_str = strtok(NULL, " ") != NULL);
+    } while((pid_str = strtok(NULL, " ")) != NULL);
 
     printf("StrongBox processes' affinity set successfully!\n");
 }
