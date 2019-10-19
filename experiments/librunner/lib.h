@@ -237,43 +237,30 @@ void set_strongbox_affinity(cpu_set_t * mask)
 
     printf("saw pid string for StrongBox: %s\n", std_output_pidof);
 
-    char * pid_str;
-    pid_t pid1 = 0;
-    pid_t pid2 = 0;
+    char * pid_str = strtok(std_output_pidof, " ");
 
-    pid_str = strtok(std_output_pidof, " ");
-    pid1 = strtoul(pid_str, NULL, 10);
-    printf("first pid for StrongBox: %jd\n", (intmax_t) pid1);
-
-    pid_str = strtok(NULL, " ");
-    pid2 = strtoul(pid_str, NULL, 10);
-    printf("second pid for StrongBox: %jd\n", (intmax_t) pid2);
-
-    if(strtok(NULL, " ") != NULL || pid2 == 0 || pid1 == 0)
+    do
     {
-        printf("pid1/2 tokenize failed\n");
-        exit(251);
-    }
+        pid_t pid = 0;
+        pid = strtoul(pid_str, NULL, 10);
+        printf("derived pid for StrongBox: %jd\n", (intmax_t) pid);
 
-    errno = 0;
+        if(pid == 0)
+        {
+            printf("pid tokenize failed\n");
+            exit(251);
+        }
 
-    int exitcode1 = sched_setaffinity(pid1, sizeof(mask), mask); // ? Waits on process to exit
+        errno = 0;
 
-    if(exitcode1 != 0)
-    {
-        printf("sched_setaffinity #1 failed with errno: %i\n", errno);
-        exit(247);
-    }
+        int exitcode = sched_setaffinity(pid, sizeof(mask), mask); // ? Waits on process to exit
 
-    errno = 0;
-
-    int exitcode2 = sched_setaffinity(pid2, sizeof(mask), mask);
-
-    if(exitcode2 != 0)
-    {
-        printf("sched_setaffinity #2 failed with errno: %i\n", errno);
-        exit(248);
-    }
+        if(exitcode != 0)
+        {
+            printf("sched_setaffinity failed with errno: %i\n", errno);
+            exit(247);
+        }
+    } while(pid_str = strtok(NULL, " ") != NULL);
 
     printf("StrongBox processes' affinity set successfully!\n");
 }

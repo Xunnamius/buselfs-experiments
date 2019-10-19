@@ -17,7 +17,7 @@ lib = Librunner(config)
 
 KEEP_RUNNER_LOGS  = False
 DIE_ON_EXCEPTION  = True
-REPEAT_TEST_TIMES = 1
+REPEAT_TEST_TIMES = 3
 
 experiments = [
     lib.sequentialFreerunUsecase_BatterySaver,
