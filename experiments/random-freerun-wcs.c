@@ -291,11 +291,14 @@ int main(int argc, char * argv[])
     if(!keepRunning)
         exit(7);
 
-    // ? Schedule a cipher swap
-    swap_ciphers();
+    if(current_file_count <= total_files_count)
+    {
+        // ? Schedule a cipher swap
+        swap_ciphers();
 
-    // Drop the page cache before the next write
-    ignore_result(pwrite(pcachefd, droppcache, sizeof(char), 0));
+        // Drop the page cache before the next write
+        ignore_result(pwrite(pcachefd, droppcache, sizeof(char), 0));
+    }
 
     for(; current_file_count <= total_files_count; ++current_file_count)
     {

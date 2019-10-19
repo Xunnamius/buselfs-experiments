@@ -80,6 +80,9 @@ if __name__ == "__main__":
         rankOrder = [SC_SECURITY_RANKING[resultProps.cipher], SC_SECURITY_RANKING[resultProps.swapCipher]]
         rankOrder.sort()
 
+        if resultProps.swapRatio <= 0 or resultProps.swapRatio > 4:
+            raise ValueError('Bad resultProps.swapRatio "{}" for {}'.format(resultProps.swapRatio, resultProps.name))
+
         data['security'].append(
             # security ranking = c1_rank + abs(c1_rank - c2_rank) * actual_swap_ratio
             # where c1 <= c2
