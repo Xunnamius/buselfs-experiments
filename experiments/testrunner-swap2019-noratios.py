@@ -17,10 +17,10 @@ lib = Librunner(config)
 
 KEEP_RUNNER_LOGS  = False
 DIE_ON_EXCEPTION  = True
-REPEAT_TEST_TIMES = 3
+REPEAT_TEST_TIMES = 1
 
 experiments = [
-    #lib.sequentialFreerunUsecase_BatterySaver,
+    lib.sequentialFreerunUsecase_BatterySaver,
     lib.randomFreerunUsecase_BatterySaver,
 ]
 
@@ -28,7 +28,7 @@ dataClasses = [
     #'1k',
     #'4k',
     #'512k',
-    #'5m',
+    '5m',
     #'40m',
     #'5g',
 ]
