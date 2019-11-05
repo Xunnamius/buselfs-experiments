@@ -1,0 +1,6 @@
+cipher,security,ratio,energy,power,duration
+sc_chacha8_neon,0.5,0,0.00,0.0,0.0
+sc_chacha20_neon,1.5,0,0.00106752,0.0140096,0.00113577
+sc_freestyle_fast,2.0,0,0.0977526,0.792064,0.0653824
+sc_freestyle_balanced,2.5,0,0.248333,0.699193,0.287507
+sc_freestyle_secure,3.0,0,1,1,1
