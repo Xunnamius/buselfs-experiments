@@ -36,14 +36,15 @@ if __name__ == "__main__":
         #     'overhead': (overhead_c8_c20, overhead_c20_ff, overhead_ff_fb, overhead_fb_fs)
         # })
 
-        if strategy == b'mirrored':
-            print('[SKIPPED] ')
+        if strategy == b'selective':
+            print('[SKIPPED] ', end='')
 
         print('{}-{}: c8c20={:.2f}x c20ff={:.2f}x fffb={:.2f}x fbfs={:.2f}x'.format(
             order, data['iop'][offset], overhead_c8_c20, overhead_c20_ff, overhead_ff_fb, overhead_fb_fs
         ))
 
-        if strategy == b'mirrored':
+        if strategy == b'selective':
+            offset = offset + 17
             continue
 
         if data['iop'][offset].startswith(b'4k'):
@@ -60,9 +61,9 @@ if __name__ == "__main__":
 
         offset = offset + 17
 
-    print('max4k-r={:.2f}\nmin4k-r={:.2f}\nmean4k-r={:.2f}\nmax40m-r={:.2f}\nmin40m-r={:.2f}\nmean40m-r={:.2f}\nmax4k-w={:.2f}\nmin4k-w={:.2f}\nmean4k-w={:.2f}\nmax40m-w={:.2f}\nmin40m-w={:.2f}\nmean40m-w={:.2f}'.format(
-        max(overhead['4k']['r']), min(overhead['4k']['r']), mean(overhead['4k']['r']),
-        max(overhead['40m']['r']), min(overhead['40m']['r']), mean(overhead['40m']['r']),
-        max(overhead['4k']['w']), min(overhead['4k']['w']), mean(overhead['4k']['w']),
-        max(overhead['40m']['w']), min(overhead['40m']['w']), mean(overhead['40m']['w'])
+    print('max4k-r={:.2f}\nmin4k-r={:.2f}\nmean4k-r={:.2f}\n95p4k-r={:.2f}\nmax40m-r={:.2f}\nmin40m-r={:.2f}\nmean40m-r={:.2f}\n95p40m-r={:.2f}\nmax4k-w={:.2f}\nmin4k-w={:.2f}\nmean4k-w={:.2f}\n95p4k-w={:.2f}\nmax40m-w={:.2f}\nmin40m-w={:.2f}\nmean40m-w={:.2f}\n95p40m-w={:.2f}'.format(
+        max(overhead['4k']['r']), min(overhead['4k']['r']), mean(overhead['4k']['r']), np.percentile(overhead['4k']['r'], 95),
+        max(overhead['40m']['r']), min(overhead['40m']['r']), mean(overhead['40m']['r']), np.percentile(overhead['40m']['r'], 95),
+        max(overhead['4k']['w']), min(overhead['4k']['w']), mean(overhead['4k']['w']), np.percentile(overhead['4k']['w'], 95),
+        max(overhead['40m']['w']), min(overhead['40m']['w']), mean(overhead['40m']['w']), np.percentile(overhead['40m']['w'], 95)
     ))
