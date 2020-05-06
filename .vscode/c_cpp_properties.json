@@ -1,0 +1,29 @@
+{
+    "configurations": [
+        {
+            "name": "️Linux",
+            "browse": {
+                "path": [
+                    "/home/xunnamius/repos/research/buselfs-experiments"
+                ],
+                "limitSymbolsToIncludedHeaders": true
+            },
+            "includePath": [
+                "/home/xunnamius/repos/research/buselfs-experiments",
+                "/home/xunnamius/repos/research/buselfs-experiments/vendor",
+                "/home/xunnamius/repos/research/buselfs-experiments/vendor/energymon",
+                "/usr/include"
+            ],
+            "defines": [
+                "__ARM_PCS_VFP",
+                "_XOPEN_SOURCE",
+                "_LARGEFILE64_SOURCE",
+                "_GNU_SOURCE"
+            ],
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "clang-x64"
+        }
+    ],
+    "version": 4
+}

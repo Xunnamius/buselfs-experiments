@@ -4,7 +4,7 @@ TODO:!
 python -m libcruncher 2018/07-15--054851--flknug -xf flakesize=8192 fpn=128 iops=1k medium=ram order=sequential filesystem=f2fs isBaseline=False backstore="strongbox" cipher="sc_chacha20_neon"
 TODO:! add ability to quit the test after the next subtest finishes (ctrl+d) alongside immediate quit (ctrl+c)
 
-This repository houses my energy/AES related experiments for the purposes of ~~eventually~~ developing a cipher-swapping device mapper style log-structured file system utilizing poly1305 officially known as [StrongBox](https://git.xunn.io/research/buselfs).
+This repository houses my energy/AES related experiments for the purposes of ~~eventually~~ developing a cipher-swapping device mapper style log-structured file system utilizing poly1305 officially known as [StrongBox](https://github.com/research/buselfs).
 
 > When something here needs to be executed, it should be executed as `root` (i.e. with `sudo`).
 
@@ -81,12 +81,12 @@ For Odroids outside of U of C, where permission separation and other concerns ar
 5. *Copy over `~/marshaller`*
 6. *Copy over `~/.bash_aliases`*
 7. *`mkdir -p ~/bd3/repos`*
-8. *Copy [these aliases](https://git.xunn.io/snippets/4) into `~/bd3/.bash_aliases`*
+8. *Copy [these aliases](https://github.com/snippets/4) into `~/bd3/.bash_aliases`*
 9. Git clone relevant repositories (below) into `~/bd3/repos` or some location of your choice if you're not using the custom `~./bash_aliases`
     - [Forked BUSE repository](https://github.com/Xunnamius/BUSE) **(required)**
-    - [Early BUSE constructions reliant on FUSE and `losetup`](https://git.xunn.io/research/buse-fuse-losetup)
-    - [StrongBox (Buselfs)](https://git.xunn.io/research/buselfs) **(required)**
-    - [The StrongBox suite of experiments (this repository)](https://git.xunn.io/research/buselfs-experiments) **(required)**
+    - [Early BUSE constructions reliant on FUSE and `losetup`](https://github.com/research/buse-fuse-losetup)
+    - [StrongBox (Buselfs)](https://github.com/research/buselfs) **(required)**
+    - [The StrongBox suite of experiments (this repository)](https://github.com/research/buselfs-experiments) **(required)**
     - [Energymon repository for installing energymon](https://github.com/energymon/energymon)
     - [e/MMC Controller to handle RPMB](https://git.kernel.org/pub/scm/linux/kernel/git/cjb/mmc-utils.git/)
 10. Copy [vars.mk-dist](config/vars.mk-dist) to [vars.mk](config/vars.mk-dist) and modify the settings to your liking

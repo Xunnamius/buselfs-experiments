@@ -229,7 +229,7 @@
         "~$*": true,
     },
     "git.ignoreLimitWarning": true,
-    "python.pythonPath": "C:\\Users\\bernard\\AppData\\Local\\Programs\\Python\\Python37\\python.exe",
+    "python.pythonPath": "/usr/bin/python3.7",
     "python.linting.enabled": true,
     "python.linting.pylintEnabled": true
 }
